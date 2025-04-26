@@ -1,0 +1,51 @@
+{
+    "players": [
+      {
+        "id": 1,
+        "name": "Jannik Sinner",
+        "age": 23,
+        "country": "ITA",
+        "skills": {
+          "forehand": 95,
+          "backhand": 93,
+          "serve": 88,
+          "speed": 89,
+          "stamina": 94
+        },
+        "rank": 1,
+        "points": 9930,
+        "injured": false,
+        "retired": false
+      },
+      {
+        "id": 2,
+        "name": "Alexander Zverev",
+        "age": 28,
+        "country": "GER",
+        "skills": {
+          "forehand": 92,
+          "backhand": 90,
+          "serve": 85,
+          "speed": 93,
+          "stamina": 91
+        },
+        "rank": 2,
+        "points": 8085,
+        "injured": false,
+        "retired": false
+      }
+    ],
+    "tournaments": [
+      {
+        "id": 1,
+        "name": "Brisbane International",
+        "surface": "hard",
+        "category": "ATP 250",
+        "draw_size": 32,
+        "year": 2025,
+        "winner_id": null
+      }
+    ],
+    "results": [],
+    "current_date": "2025-01-01"
+  }
