@@ -85,7 +85,7 @@ class TournamentScheduler:
                 'match_id': i,
                 'player1': next((p for p in self.players if p['id'] == m[0]), None) if m[0] else None,
                 'player2': next((p for p in self.players if p['id'] == m[1]), None) if m[1] else None,
-                'winner': None
+                'winner': next((p for p in self.players if p['id'] == m[2]), None) if m[2] else None
             }
             for i, m in enumerate(tournament['active_matches'])
         ]
