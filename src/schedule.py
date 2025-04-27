@@ -2,6 +2,7 @@ import json
 import random
 from math import log2, ceil
 from datetime import datetime, timedelta
+from sim.game_engine import GameEngine  # Import the Game Engine
 
 class TournamentScheduler:
     def __init__(self, data_path='data/default_data.json'):
@@ -115,7 +116,16 @@ class TournamentScheduler:
         elif player2_id is None:
             winner_id = player1_id
         else:
-            winner_id = random.choice([player1_id, player2_id])
+            # Fetch player data
+            player1 = next(p for p in self.players if p['id'] == player1_id)
+            player2 = next(p for p in self.players if p['id'] == player2_id)
+
+            # Simulate the match using the Game Engine
+            game_engine = GameEngine(player1, player2)
+            match_winner = game_engine.simulate_match()
+
+            # Determine the winner ID
+            winner_id = player1_id if match_winner == player1 else player2_id
 
         # Update the match with the winner
         tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id)
