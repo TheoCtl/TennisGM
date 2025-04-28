@@ -4,6 +4,18 @@ from math import log2, ceil
 from datetime import datetime, timedelta
 from sim.game_engine import GameEngine  # Import the Game Engine
 
+PRESTIGE_ORDER = [
+    "Grand Slam",
+    "Masters 1000",
+    "ATP 500",
+    "ATP 250",
+    "Challenger 175",
+    "Challenger 125",
+    "Challenger 100",
+    "Challenger 75",
+    "Challenger 50"
+]
+
 class TournamentScheduler:
     def __init__(self, data_path='data/default_data.json'):
         self.data_path = data_path
@@ -31,31 +43,58 @@ class TournamentScheduler:
         return self.current_week
     
     def assign_players_to_tournaments(self):
+        """
+        Assign players to tournaments for the current week.
+        Players are distributed across tournaments based on prestige order, and each player can only play in one tournament per week.
+        """
         current_tournaments = self.get_current_week_tournaments()
-        available_players = [p for p in self.players if not p.get('injured', False) 
-                            and not p.get('retired', False)]
-    
-        # Sort tournaments by prestige (reverse order)
-        current_tournaments.sort(key=lambda x: (
-            -int(x['category'].split()[-1]) if 'Challenger' in x['category'] else -1000
-        ))
-    
-        # Sort players by ranking
-        available_players.sort(key=lambda x: x.get('rank', 999))
-    
+        available_players = [p for p in self.players if not p.get('injured', False) and not p.get('retired', False)]
+
+        # Initialize participants for all tournaments
         for tournament in current_tournaments:
-            # Initialize participants if not exists
-            if 'participants' not in tournament:
-                tournament['participants'] = []
-        
-            # Clear existing participants if any
-            tournament['participants'] = []
-        
-            # Fill with top available players
-            needed = tournament['draw_size'] - len(tournament['participants'])
-            tournament['participants'] = [p['id'] for p in available_players[:needed]]
-            available_players = available_players[needed:]
-                
+            tournament['participants'] = []  # Ensure the 'participants' key exists
+
+        # Calculate total spots available in tournaments
+        total_spots = sum(t['draw_size'] for t in current_tournaments)
+
+        # Randomly select players who will not play if there are more players than spots
+        if len(available_players) > total_spots:
+            num_to_skip = len(available_players) - total_spots
+            skipped_players = random.sample(available_players, num_to_skip)
+            available_for_week = [p for p in available_players if p not in skipped_players]
+        else:
+            available_for_week = available_players
+
+        # Sort players by rank
+        available_for_week.sort(key=lambda x: x.get('rank', 999))
+
+        # Sort tournaments by prestige order
+        current_tournaments.sort(key=lambda t: PRESTIGE_ORDER.index(t['category']))
+
+        # Group tournaments by category
+        tournaments_by_category = {}
+        for tournament in current_tournaments:
+            category = tournament['category']
+            if category not in tournaments_by_category:
+                tournaments_by_category[category] = []
+            tournaments_by_category[category].append(tournament)
+
+        # Assign players to tournaments
+        for player in available_for_week:
+            # Shuffle tournaments for each player to randomize their assignment
+            for category in PRESTIGE_ORDER:
+                if category in tournaments_by_category:
+                    random.shuffle(tournaments_by_category[category])  # Shuffle tournaments in this category
+
+                    # Find the first tournament in the shuffled list with enough spots
+                    for tournament in tournaments_by_category[category]:
+                        if len(tournament['participants']) < tournament['draw_size']:
+                            tournament['participants'].append(player['id'])
+                            break  # Once assigned, move to the next player
+                    else:
+                        continue  # If no tournament in this category has space, check the next category
+                    break  # Break out of the category loop once the player is assigned
+
     def generate_bracket(self, tournament_id):
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
         participants = tournament['participants']
