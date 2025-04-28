@@ -80,32 +80,35 @@ class TournamentScheduler:
         tournament['active_matches'] = first_round.copy()
     
     def get_current_matches(self, tournament_id):
+        """
+        Fetch the matches for the current round of the tournament.
+        """
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
+        current_round = tournament['current_round']
+
+        # Ensure the current round exists in the bracket
+        if current_round >= len(tournament['bracket']):
+            return []
+
+        # Fetch matches for the current round
         return [
             {
-                'match_id': i,
-                'player1': next((p for p in self.players if p['id'] == m[0]), None) if m[0] else None,
-                'player2': next((p for p in self.players if p['id'] == m[1]), None) if m[1] else None,
-                'winner': next((p for p in self.players if p['id'] == m[2]), None) if m[2] else None
+                'player1': next((p for p in self.players if p['id'] == m[0]), None),
+                'player2': next((p for p in self.players if p['id'] == m[1]), None),
+                'winner': next((p for p in self.players if p['id'] == m[2]), None) if len(m) > 2 else None
             }
-            for i, m in enumerate(tournament['active_matches'])
+            for m in tournament['bracket'][current_round]
         ]
         
     def simulate_through_match(self, tournament_id, target_match_idx):
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
-
-        # Debug: Log tournament and match details
-        print(f"Simulating match {target_match_idx} in tournament {tournament['id']}")
-        print(f"Active matches: {tournament['active_matches']}")
 
         # Validate match index
         if target_match_idx < 0 or target_match_idx >= len(tournament['active_matches']):
             raise IndexError(f"Match index {target_match_idx} is out of bounds.")
 
         # Simulate only the target match
-        if tournament['active_matches'][target_match_idx][2] is not None:
-            # Match already completed
-            print(f"Match {target_match_idx} already completed.")
+        if len(tournament['active_matches'][target_match_idx]) == 4 and tournament['active_matches'][target_match_idx][2] is not None:
             return tournament['active_matches'][target_match_idx][2]
 
         player1_id, player2_id = tournament['active_matches'][target_match_idx][:2]
@@ -113,8 +116,10 @@ class TournamentScheduler:
         # Handle byes
         if player1_id is None:
             winner_id = player2_id
+            final_score = "BYE"
         elif player2_id is None:
             winner_id = player1_id
+            final_score = "BYE"
         else:
             # Fetch player data
             player1 = next(p for p in self.players if p['id'] == player1_id)
@@ -127,19 +132,17 @@ class TournamentScheduler:
             # Determine the winner ID
             winner_id = player1_id if match_winner == player1 else player2_id
 
-        # Update the match with the winner
-        tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id)
-        tournament['bracket'][tournament['current_round']][target_match_idx] = (player1_id, player2_id, winner_id)
+            # Store the final score for this match
+            final_score = game_engine.format_set_scores()
 
-        # Debug: Log match result
-        print(f"Match {target_match_idx} result: {player1_id} vs {player2_id} -> Winner: {winner_id}")
+        # Update the match with the winner and score
+        tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
+        tournament['bracket'][tournament['current_round']][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
 
         # Check if all matches in the current round are complete
-        if all(m[2] is not None for m in tournament['active_matches']):
-            print("All matches in the current round are complete. Preparing next round...")
-            self._prepare_next_round(tournament)  # Advance to the next round if complete
+        if all(len(m) == 4 and m[2] is not None for m in tournament['active_matches']):
+            self._prepare_next_round(tournament)
 
-        # Return the winner of the target match
         return winner_id
     
     def _advance_bracket(self, tournament, match_idx, winner_id):
@@ -178,8 +181,16 @@ class TournamentScheduler:
             return  # Exit as the tournament is complete
 
         # Get winners from the current round
-        winners = [match[2] for match in tournament['active_matches'] if match[2] is not None]
+        winners = []
+        for idx, match in enumerate(tournament['active_matches']):
+            if match[2] is not None:  # Ensure the match has a winner
+                winners.append(match[2])
+                # Store the final score in the bracket for the current round
+                tournament['bracket'][current_round][idx] = (
+                    match[0], match[1], match[2], match[3]
+                )
 
+        # Create next round matches
         next_round_matches = []
         for i in range(0, len(winners), 2):
             if i + 1 < len(winners):
@@ -187,9 +198,13 @@ class TournamentScheduler:
             else:
                 next_round_matches.append((winners[i], None, None))
 
-        # Create next round matches
-        tournament['bracket'][next_round] = next_round_matches  # Assign matches to the next round
-        tournament['active_matches'] = next_round_matches
+        # Assign matches to the next round
+        if next_round >= len(tournament['bracket']):
+            tournament['bracket'].append(next_round_matches)
+        else:
+            tournament['bracket'][next_round] = next_round_matches
+
+        tournament['active_matches'] = next_round_matches  # Update active matches
         tournament['current_round'] = next_round
 
         print(f"\nRound {current_round + 1} complete! Advancing to Round {next_round + 1}")

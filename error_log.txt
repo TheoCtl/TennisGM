@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 184, in main
+    main_menu(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 40, in main_menu
+    enter_tournament(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 93, in enter_tournament
+    manage_tournament(stdscr, scheduler, tournament)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 172, in manage_tournament
+    stdscr.addstr(line + 2, 0, f"{winner['name']} wins the match! Press any key to continue.")
+_curses.error: addwstr() returned ERR

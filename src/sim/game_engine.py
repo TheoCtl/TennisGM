@@ -10,6 +10,7 @@ class GameEngine:
         self.player2 = player2
         self.games = {"player1": 0, "player2": 0}  # Games won in the current set
         self.sets = {"player1": 0, "player2": 0}  # Sets won in the match
+        self.set_scores = []  # Track the scores of each set as tuples (player1_games, player2_games)
         self.current_server = player1  # Player 1 serves first by default
         self.current_receiver = player2
 
@@ -20,6 +21,49 @@ class GameEngine:
         self.stamina = {player1["id"]: player1["skills"]["stamina"], player2["id"]: player2["skills"]["stamina"]}
         self.speed = {player1["id"]: player1["skills"]["speed"], player2["id"]: player2["skills"]["speed"]}
         self.last_shot_power = 0  # Initialize last shot power
+
+    def update_sets(self, winner):
+        """
+        Update the sets won in the match based on the winner of the set.
+        """
+        if winner == self.player1:
+            self.sets["player1"] += 1
+        else:
+            self.sets["player2"] += 1
+
+        # Add the current set score to the set_scores list
+        self.set_scores.append((self.games["player1"], self.games["player2"]))
+
+        print(f"Sets: {self.sets} | Set Scores: {self.format_set_scores()}")
+
+        # Reset games for the next set
+        self.games = {"player1": 0, "player2": 0}
+
+    def format_set_scores(self):
+        """
+        Format the set scores as a string (e.g., "6-4, 7-5").
+        """
+        return ", ".join(f"{p1}-{p2}" for p1, p2 in self.set_scores)
+
+    def simulate_match(self):
+        """
+        Simulate a full match until one player wins.
+        """
+        while not self.is_match_over():
+            while not self.is_set_over():
+                winner = self.simulate_point()
+                self.update_games(winner)
+
+                # Alternate server and receiver after each point
+                self.current_server, self.current_receiver = self.current_receiver, self.current_server
+
+            set_winner = self.is_set_over()
+            self.update_sets(set_winner)
+
+        # Determine the match winner
+        match_winner = self.player1 if self.sets["player1"] == 2 else self.player2
+        print(f"{match_winner['name']} wins the match! Final Score: {self.format_set_scores()}")
+        return match_winner
 
     def simulate_point(self):
         """
@@ -117,7 +161,7 @@ class GameEngine:
         Reduce the player's stamina based on the opponent's shot power.
         Halve the player's speed if stamina reaches 0 or lower.
         """
-        self.stamina[player["id"]] -= round(opponent_shot_power / 4)
+        self.stamina[player["id"]] -= round(opponent_shot_power / 3)
         if self.stamina[player["id"]] <= 0:
             self.speed[player["id"]] = player["skills"]["speed"] // 2
 
@@ -198,37 +242,3 @@ class GameEngine:
         Check if the match is over (first to 2 sets wins).
         """
         return self.sets["player1"] == 2 or self.sets["player2"] == 2
-
-    def simulate_match(self):
-        """
-        Simulate a full match until one player wins.
-        """
-        while not self.is_match_over():
-            while not self.is_set_over():
-                winner = self.simulate_point()
-                self.update_games(winner)
-
-                # Alternate server and receiver after each point
-                self.current_server, self.current_receiver = self.current_receiver, self.current_server
-
-            set_winner = self.is_set_over()
-            self.update_sets(set_winner)
-
-        # Determine the match winner
-        match_winner = self.player1 if self.sets["player1"] == 2 else self.player2
-        print(f"{match_winner['name']} wins the match!")
-        return match_winner
-
-    def update_sets(self, winner):
-        """
-        Update the sets won in the match based on the winner of the set.
-        """
-        if winner == self.player1:
-            self.sets["player1"] += 1
-        else:
-            self.sets["player2"] += 1
-
-        print(f"Sets: {self.sets}")
-
-        # Reset games for the next set
-        self.games = {"player1": 0, "player2": 0}

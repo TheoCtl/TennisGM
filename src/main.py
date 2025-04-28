@@ -1,4 +1,5 @@
 import curses
+import traceback
 from schedule import TournamentScheduler
 
 def main_menu(stdscr, scheduler):
@@ -53,6 +54,7 @@ def view_tournaments(stdscr, scheduler):
     for idx, t in enumerate(current_tournaments, 1):
         if t['winner_id'] is not None:
             winner = next((p['name'] for p in scheduler.players if p['id'] == t['winner_id']), "Unknown")
+            # Fetch the final score from the tournament data
             status = f"Winner: {winner}"
         else:
             status = "Not completed"
@@ -118,8 +120,9 @@ def manage_tournament(stdscr, scheduler, tournament):
                     p1 = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[0]), "BYE")
                     p2 = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[1]), "BYE")
                     winner = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[2]), None)
+                    final_score = m[3] if len(m) > 3 else "N/A"
                     if winner:
-                        content.append(f"  {p1} vs {p2} -> {winner}")
+                        content.append(f"  {p1} vs {p2} -> {winner} | Score: {final_score}")
                     else:
                         content.append(f"  {p1} vs {p2}")
 
@@ -128,9 +131,13 @@ def manage_tournament(stdscr, scheduler, tournament):
         for idx, match in enumerate(matches):
             p1 = f"{match['player1']['name']} ({match['player1']['rank']})" if match['player1'] else "BYE"
             p2 = f"{match['player2']['name']} ({match['player2']['rank']})" if match['player2'] else "BYE"
-            status = f" -> {match['winner']['name']} ({match['winner']['rank']})" if match['winner'] else ""
+            if match['winner']:
+                final_score = tournament['active_matches'][idx][3] if len(tournament['active_matches'][idx]) == 4 else "N/A"
+                status = f" -> {match['winner']['name']} ({match['winner']['rank']}) | Score: {final_score}"
+            else:
+                status = ""
             if idx == current_row:
-                content.append(f"{idx + 1}. {p1} vs {p2}{status} *")  # Highlight current row
+                content.append(f"{idx + 1}. {p1} vs {p2}{status} *")
             else:
                 content.append(f"{idx + 1}. {p1} vs {p2}{status}")
 
@@ -139,14 +146,16 @@ def manage_tournament(stdscr, scheduler, tournament):
         # Get terminal dimensions
         height, width = stdscr.getmaxyx()
 
-        # Adjust start_line to show the current round first
-        if start_line == 0:  # Only adjust on the first draw
-            start_line = max(len(content) - height + 1, 0)
+        # Adjust start_line to ensure the current row is visible
+        if current_row < start_line:
+            start_line = current_row
+        elif current_row >= start_line + height - 2:
+            start_line = current_row - height + 2
 
         # Display visible content
         visible_content = content[start_line:start_line + height - 1]
-        for i, line in enumerate(visible_content):
-            stdscr.addstr(i + 1, 0, line[:width])  # Ensure the line fits within the terminal width
+        for i, line_content in enumerate(visible_content):
+            stdscr.addstr(i + 1, 0, line_content[:width])  # Ensure the line fits within the terminal width
 
         stdscr.refresh()
 
@@ -155,13 +164,9 @@ def manage_tournament(stdscr, scheduler, tournament):
         if key == curses.KEY_UP:
             if current_row > 0:
                 current_row -= 1
-            if current_row < start_line:
-                start_line -= 1  # Scroll up
         elif key == curses.KEY_DOWN:
             if current_row < len(matches) - 1:
                 current_row += 1
-            if current_row >= start_line + height - 2:
-                start_line += 1  # Scroll down
         elif key == curses.KEY_ENTER or key in [10, 13]:
             # Simulate the selected match
             match = matches[current_row]
@@ -179,39 +184,22 @@ def manage_tournament(stdscr, scheduler, tournament):
                 # Refresh matches and rebuild content
                 matches = scheduler.get_current_matches(tournament['id'])
                 content = []  # Rebuild content
-                content.append("Previous Rounds Results:")
-                if tournament['current_round'] > 0:
-                    for r in range(tournament['current_round']):
-                        content.append(f"Round {r + 1}:")
-                        for m in tournament['bracket'][r]:
-                            p1 = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[0]), "BYE")
-                            p2 = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[1]), "BYE")
-                            winner = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[2]), None)
-                            if winner:
-                                content.append(f"  {p1} vs {p2} -> {winner}")
-                            else:
-                                content.append(f"  {p1} vs {p2}")
-
-                content.append(f"Round {tournament['current_round'] + 1} Matches:")
-                for idx, match in enumerate(matches):
-                    p1 = f"{match['player1']['name']} ({match['player1']['rank']})" if match['player1'] else "BYE"
-                    p2 = f"{match['player2']['name']} ({match['player2']['rank']})" if match['player2'] else "BYE"
-                    status = f" -> {match['winner']['name']} ({match['winner']['rank']})" if match['winner'] else ""
-                    if idx == current_row:
-                        content.append(f"{idx + 1}. {p1} vs {p2}{status} *")
-                    else:
-                        content.append(f"{idx + 1}. {p1} vs {p2}{status}")
-
-                content.append("Press 'm' to return to the main menu or Enter to simulate a match.")
-                start_line = max(len(content) - height + 1, 0)  # Reset scrolling to show current round
         elif key == ord('m'):
             break
 
 def main(stdscr):
-    curses.start_color()
-    curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)  # Highlighted text
-    scheduler = TournamentScheduler(data_path='data/default_data.json')
-    main_menu(stdscr, scheduler)
+    try:
+        curses.start_color()
+        curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)  # Highlighted text
+        scheduler = TournamentScheduler(data_path='data/default_data.json')
+        main_menu(stdscr, scheduler)
+    except Exception as e:
+        # Print the error and stack trace to help debug
+        with open("error_log.txt", "w") as f:
+            f.write(traceback.format_exc())
+        stdscr.addstr(0, 0, "An error occurred. Check error_log.txt for details.")
+        stdscr.refresh()
+        stdscr.getch()
 
 if __name__ == "__main__":
     curses.wrapper(main)
