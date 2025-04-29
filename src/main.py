@@ -8,7 +8,7 @@ def main_menu(stdscr, scheduler):
 
     while True:
         stdscr.clear()
-        stdscr.addstr(0, 0, f"--- Week {scheduler.current_week} ---", curses.A_BOLD)
+        stdscr.addstr(0, 0, f"--- Year {scheduler.current_year}, Week {scheduler.current_week} ---", curses.A_BOLD)
         menu = ["View current tournaments", "Enter tournament"]
 
         # Check if all tournaments for the current week are completed

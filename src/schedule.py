@@ -20,6 +20,7 @@ class TournamentScheduler:
     def __init__(self, data_path='data/default_data.json'):
         self.data_path = data_path
         self.current_week = 1
+        self.current_year = 1
         self.current_date = datetime(2025, 1, 1)  # Starting date
         self.load_data()
         
@@ -39,6 +40,9 @@ class TournamentScheduler:
         self.current_date += timedelta(days=7)
         if self.current_week > 52:
             self.current_week = 1
+            self.current_year += 1
+            for player in self.players: # A VERIFIER DES QUE POSSIBLE
+                player['age'] += 1
             # Handle year change if needed
         return self.current_week
     
