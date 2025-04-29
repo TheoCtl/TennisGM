@@ -43,7 +43,6 @@ class TournamentScheduler:
             self.current_year += 1
             for player in self.players: # A VERIFIER DES QUE POSSIBLE
                 player['age'] += 1
-            # Handle year change if needed
         return self.current_week
     
     def assign_players_to_tournaments(self):
