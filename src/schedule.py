@@ -52,6 +52,7 @@ class TournamentScheduler:
         """
         current_tournaments = self.get_current_week_tournaments()
         available_players = [p for p in self.players if not p.get('injured', False) and not p.get('retired', False)]
+        available_for_week = []
 
         # Initialize participants for all tournaments
         for tournament in current_tournaments:
@@ -61,12 +62,16 @@ class TournamentScheduler:
         total_spots = sum(t['draw_size'] for t in current_tournaments)
 
         # Randomly select players who will not play if there are more players than spots
-        if len(available_players) > total_spots:
-            num_to_skip = len(available_players) - total_spots
-            skipped_players = random.sample(available_players, num_to_skip)
-            available_for_week = [p for p in available_players if p not in skipped_players]
+        if len(current_tournaments) == 1:
+            available_players.sort(key=lambda x: x.get('rank', 999))
+            available_for_week.extend(available_players[:128])
         else:
-            available_for_week = available_players
+            if len(available_players) > total_spots:
+                num_to_skip = len(available_players) - total_spots
+                skipped_players = random.sample(available_players, num_to_skip)
+                available_for_week = [p for p in available_players if p not in skipped_players]
+            else:
+                available_for_week = available_players
 
         # Sort players by rank
         available_for_week.sort(key=lambda x: x.get('rank', 999))
