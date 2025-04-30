@@ -1,6 +1,7 @@
 import curses
 import traceback
 from schedule import TournamentScheduler
+from ranking import RankingSystem
 
 def main_menu(stdscr, scheduler):
     curses.curs_set(0)  # Hide the cursor
@@ -9,7 +10,7 @@ def main_menu(stdscr, scheduler):
     while True:
         stdscr.clear()
         stdscr.addstr(0, 0, f"--- Year {scheduler.current_year}, Week {scheduler.current_week} ---", curses.A_BOLD)
-        menu = ["View current tournaments", "Enter tournament"]
+        menu = ["View current tournaments", "Enter tournament", "See ATP Rankings"]
 
         # Check if all tournaments for the current week are completed
         current_tournaments = scheduler.get_current_week_tournaments()
@@ -38,12 +39,67 @@ def main_menu(stdscr, scheduler):
                 view_tournaments(stdscr, scheduler)
             elif menu[current_row] == "Enter tournament":
                 enter_tournament(stdscr, scheduler)
+            elif menu[current_row] == "See ATP Rankings":
+                show_rankings(stdscr, scheduler)
             elif menu[current_row] == "Advance to next week":
                 scheduler.advance_week()
                 stdscr.addstr(len(menu) + 3, 0, "Advanced to next week!", curses.A_BOLD)
                 stdscr.refresh()
                 stdscr.getch()
             elif menu[current_row] == "Exit":
+                break
+
+def show_rankings(stdscr, scheduler):
+    current_row = 0
+    search_query = ""
+    searching = False
+    
+    ranked_players = scheduler.ranking_system.get_ranked_players(
+        scheduler.players,
+        scheduler.current_date
+    )
+    
+    while True:
+        stdscr.clear()
+        stdscr.addstr(0, 0, "ATP Rankings", curses.A_BOLD)
+        
+        if searching:
+            stdscr.addstr(1, 0, f"Search: {search_query}_", curses.A_UNDERLINE)
+        
+        # Filter if searching
+        display_players = ranked_players
+        if search_query:
+            display_players = [p for p in ranked_players if search_query.lower() in p[0]['name'].lower()]
+        
+        # Display players (top 50 or filtered results)
+        start_idx = max(0, current_row - 15)  # Keep some context above
+        for i, (player, points) in enumerate(display_players[start_idx:start_idx+30], start_idx+1):
+            if i-1 == current_row:
+                stdscr.addstr(i+2-start_idx, 0, f"{i}. {player['name']}: {points} pts", curses.color_pair(1))
+            else:
+                stdscr.addstr(i+2-start_idx, 0, f"{i}. {player['name']}: {points} pts")
+        
+        stdscr.addstr(34, 0, "Press ESC to return, arrows to scroll, 's' to search")
+        stdscr.refresh()
+        
+        key = stdscr.getch()
+        if searching:
+            if key == 27:  # ESC
+                searching = False
+                search_query = ""
+            elif key == curses.KEY_BACKSPACE or key == 127:
+                search_query = search_query[:-1]
+            elif 32 <= key <= 126:  # Printable characters
+                search_query += chr(key)
+        else:
+            if key == ord('s'):
+                searching = True
+                search_query = ""
+            elif key == curses.KEY_UP and current_row > 0:
+                current_row -= 1
+            elif key == curses.KEY_DOWN and current_row < len(display_players)-1:
+                current_row += 1
+            elif key == 27:  # ESC
                 break
 
 def view_tournaments(stdscr, scheduler):
@@ -79,7 +135,7 @@ def enter_tournament(stdscr, scheduler):
             else:
                 stdscr.addstr(idx + 1, 0, f"{t['name']} ({t['category']})")
 
-        stdscr.addstr(len(current_tournaments) + 2, 0, "Press 'e' to exit menu.")
+        stdscr.addstr(len(current_tournaments) + 2, 0, "Press ESC to exit menu.")
         stdscr.refresh()
 
         # Handle user input
@@ -91,7 +147,7 @@ def enter_tournament(stdscr, scheduler):
         elif key == curses.KEY_ENTER or key in [10, 13]:
             tournament = current_tournaments[current_row]
             manage_tournament(stdscr, scheduler, tournament)
-        elif key == ord('e'):
+        elif key == 27:
             break
 
 def manage_tournament(stdscr, scheduler, tournament):
@@ -141,12 +197,12 @@ def manage_tournament(stdscr, scheduler, tournament):
             else:
                 content.append(f"{idx + 1}. {p1} vs {p2}{status}")
 
-        content.append("Press 'e' to return to exit menu, Enter to simulate a match or 'w' to watch it.")
+        content.append("Press ESC to exit menu, Enter to simulate a match or 'w' to watch it.")
 
         # Get terminal dimensions
         height, width = stdscr.getmaxyx()
 
-        # Adjust start_line to ensure the current row is visible
+        #Adjust start_line to ensure the current row is visible
         if current_row < start_line:
             start_line = current_row
         elif current_row >= start_line + height - 2:
@@ -178,6 +234,8 @@ def manage_tournament(stdscr, scheduler, tournament):
                 winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
                 winner = next(p for p in scheduler.players if p['id'] == winner_id)
                 stdscr.addstr(height - 1, 0, f"{winner['name']} wins the match! Press any key to continue.")
+                if all(len(m) == 3 for m in tournament['active_matches']):
+                    current_row = 0
                 stdscr.refresh()
                 stdscr.getch()
 
@@ -232,9 +290,13 @@ def manage_tournament(stdscr, scheduler, tournament):
         
                 # Prompt to return to tournament view
                 stdscr.addstr(height - 1, 0, "Match complete! Press any key to continue...")
+                if all(len(m) == 3 for m in tournament['active_matches']):
+                    current_row = 0
                 stdscr.refresh()
                 stdscr.getch()
-        elif key == ord('e'):
+                matches = scheduler.get_current_matches(tournament['id'])
+                content = []
+        elif key == 27:
             break
 
 def main(stdscr):

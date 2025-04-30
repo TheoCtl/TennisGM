@@ -1,17 +1,14 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 245, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 307, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 40, in main_menu
-    enter_tournament(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 93, in enter_tournament
-    manage_tournament(stdscr, scheduler, tournament)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 206, in manage_tournament
-    winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 176, in simulate_through_match
-    game_engine = GameEngine(player1, player2)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\theoc\Desktop\TennisGM\src\sim\game_engine.py", line 11, in __init__
-    self.games = {{player1}["name"]: 0, "player2": 0}  # Games won in the current set
-                  ^^^^^^^^^
-TypeError: unhashable type: 'dict'
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 45, in main_menu
+    scheduler.advance_week()
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 50, in advance_week
+    self.ranking_system.update_ranking(tournament, self.current_date)
+  File "C:\Users\theoc\Desktop\TennisGM\src\ranking.py", line 152, in update_ranking
+    points = self.calculate_points(category, round_num, num_rounds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\theoc\Desktop\TennisGM\src\ranking.py", line 100, in calculate_points
+    is_250500 = tournament_category.startwith("ATP 250") or tournament_category.startswith("ATP 500")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'startwith'. Did you mean: 'startswith'?

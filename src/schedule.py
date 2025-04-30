@@ -3,6 +3,7 @@ import random
 from math import log2, ceil
 from datetime import datetime, timedelta
 from sim.game_engine import GameEngine  # Import the Game Engine
+from ranking import RankingSystem
 
 PRESTIGE_ORDER = [
     "Grand Slam",
@@ -21,7 +22,8 @@ class TournamentScheduler:
         self.data_path = data_path
         self.current_week = 1
         self.current_year = 1
-        self.current_date = datetime(2025, 1, 1)  # Starting date
+        self.current_date = datetime(2025, 1, 1)
+        self.ranking_system = RankingSystem()  # Add this line
         self.load_data()
         
     def load_data(self):
@@ -43,6 +45,10 @@ class TournamentScheduler:
             self.current_year += 1
             for player in self.players: # A VERIFIER DES QUE POSSIBLE
                 player['age'] += 1
+        for tournament in self.tournaments:
+            if tournament['week'] == self.current_week - 1 and tournament.get('winner_id'):
+                self.ranking_system.update_ranking(tournament, self.current_date)        
+        self.ranking_system.update_player_ranks(self.players, self.current_date)
         return self.current_week
     
     def assign_players_to_tournaments(self):
@@ -268,3 +274,4 @@ class TournamentScheduler:
         tournament['current_round'] = next_round
 
         print(f"\nRound {current_round + 1} complete! Advancing to Round {next_round + 1}")
+        
