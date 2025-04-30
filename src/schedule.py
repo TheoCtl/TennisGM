@@ -5,19 +5,19 @@ from datetime import datetime, timedelta
 from sim.game_engine import GameEngine  # Import the Game Engine
 from ranking import RankingSystem
 
-PRESTIGE_ORDER = [
-    "Grand Slam",
-    "Masters 1000",
-    "ATP 500",
-    "ATP 250",
-    "Challenger 175",
-    "Challenger 125",
-    "Challenger 100",
-    "Challenger 75",
-    "Challenger 50"
-]
-
 class TournamentScheduler:
+    PRESTIGE_ORDER = [
+        "Grand Slam",
+        "Masters 1000",
+        "ATP 500",
+        "ATP 250",
+        "Challenger 175",
+        "Challenger 125",
+        "Challenger 100",
+        "Challenger 75",
+        "Challenger 50"
+    ]
+    
     def __init__(self, data_path='data/default_data.json'):
         self.data_path = data_path
         self.current_week = 1
@@ -83,7 +83,7 @@ class TournamentScheduler:
         available_for_week.sort(key=lambda x: x.get('rank', 999))
 
         # Sort tournaments by prestige order
-        current_tournaments.sort(key=lambda t: PRESTIGE_ORDER.index(t['category']))
+        current_tournaments.sort(key=lambda t: self.PRESTIGE_ORDER.index(t['category']))
 
         # Group tournaments by category
         tournaments_by_category = {}
@@ -96,7 +96,7 @@ class TournamentScheduler:
         # Assign players to tournaments
         for player in available_for_week:
             # Shuffle tournaments for each player to randomize their assignment
-            for category in PRESTIGE_ORDER:
+            for category in self.PRESTIGE_ORDER:
                 if category in tournaments_by_category:
                     random.shuffle(tournaments_by_category[category])  # Shuffle tournaments in this category
 
@@ -239,6 +239,13 @@ class TournamentScheduler:
                 tournament['winner_id'] = tournament['active_matches'][0][2]  # Winner of the final match
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner:
+                    if 'tournament_wins' not in winner:
+                        winner['tournament_wins'] = []
+                    winner['tournament_wins'].append({
+                        'name': tournament['name'],
+                        'category': tournament['category'],
+                        'year': self.current_year
+                    })
                     print(f"\nTOURNAMENT CHAMPION: {winner['name']}!")
                 else:
                     print("\nTOURNAMENT CHAMPION: Unknown (Player not found)!")

@@ -1,14 +1,14 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 307, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 367, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 45, in main_menu
-    scheduler.advance_week()
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 50, in advance_week
-    self.ranking_system.update_ranking(tournament, self.current_date)
-  File "C:\Users\theoc\Desktop\TennisGM\src\ranking.py", line 152, in update_ranking
-    points = self.calculate_points(category, round_num, num_rounds)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\theoc\Desktop\TennisGM\src\ranking.py", line 100, in calculate_points
-    is_250500 = tournament_category.startwith("ATP 250") or tournament_category.startswith("ATP 500")
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'str' object has no attribute 'startwith'. Did you mean: 'startswith'?
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 43, in main_menu
+    show_rankings(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 155, in show_rankings
+    show_player_details(stdscr, scheduler, player)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 73, in show_player_details
+    sorted_wins = sorted(player['tournament_wins'],
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 76, in <lambda>
+    if x['category'] in scheduler.PRESTIGE_ORDER
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TournamentScheduler' object has no attribute 'PRESTIGE_ORDER'
