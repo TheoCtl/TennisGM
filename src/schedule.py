@@ -208,6 +208,19 @@ class TournamentScheduler:
             else:
                 # Prepare next round
                 self._prepare_next_round(tournament)
+                
+    def update_match_result(self, tournament_id, match_index, winner_id):
+        for tournament in self.tournaments:
+            if tournament['id'] == tournament_id:
+                match = list(tournament['active_matches'][match_index])
+                # Update the winner
+                match[2] = winner_id
+                # Add the score if needed
+                if len(match) == 3:
+                    match.append("N/A")
+                # Convert back to tuple if necessary (or keep as list)
+                tournament['active_matches'][match_index] = tuple(match)
+                break
             
     def _prepare_next_round(self, tournament):
         current_round = tournament['current_round']

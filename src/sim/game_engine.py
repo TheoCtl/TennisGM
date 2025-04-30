@@ -34,8 +34,7 @@ class GameEngine:
         # Add the current set score to the set_scores list
         self.set_scores.append((self.games["player1"], self.games["player2"]))
 
-        print(f"Sets: {self.sets} | Set Scores: {self.format_set_scores()}")
-
+        print(f"Sets: {self._player_ref('player1')}: {self.sets['player1']} - {self._player_ref('player2')}: {self.sets['player2']} | Set Scores: {self.format_set_scores()}")
         # Reset games for the next set
         self.games = {"player1": 0, "player2": 0}
 
@@ -214,7 +213,7 @@ class GameEngine:
         else:
             self.games["player2"] += 1
 
-        print(f"Games: {self.games}")
+        print(f"Games: {self._player_ref('player1')}: {self.games['player1']} - {self._player_ref('player2')}: {self.games['player2']}")
 
     def is_set_over(self):
         """
@@ -242,3 +241,7 @@ class GameEngine:
         Check if the match is over (first to 2 sets wins).
         """
         return self.sets["player1"] == 2 or self.sets["player2"] == 2
+    
+    def _player_ref(self, player_key):
+        """Return player name for logging purposes"""
+        return self.player1['name'] if player_key == "player1" else self.player2['name']

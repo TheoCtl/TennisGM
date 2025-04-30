@@ -79,7 +79,7 @@ def enter_tournament(stdscr, scheduler):
             else:
                 stdscr.addstr(idx + 1, 0, f"{t['name']} ({t['category']})")
 
-        stdscr.addstr(len(current_tournaments) + 2, 0, "Press 'm' to return to the main menu.")
+        stdscr.addstr(len(current_tournaments) + 2, 0, "Press 'e' to exit menu.")
         stdscr.refresh()
 
         # Handle user input
@@ -91,7 +91,7 @@ def enter_tournament(stdscr, scheduler):
         elif key == curses.KEY_ENTER or key in [10, 13]:
             tournament = current_tournaments[current_row]
             manage_tournament(stdscr, scheduler, tournament)
-        elif key == ord('m'):
+        elif key == ord('e'):
             break
 
 def manage_tournament(stdscr, scheduler, tournament):
@@ -141,7 +141,7 @@ def manage_tournament(stdscr, scheduler, tournament):
             else:
                 content.append(f"{idx + 1}. {p1} vs {p2}{status}")
 
-        content.append("Press 'm' to return to the main menu or Enter to simulate a match.")
+        content.append("Press 'e' to return to exit menu, Enter to simulate a match or 'w' to watch it.")
 
         # Get terminal dimensions
         height, width = stdscr.getmaxyx()
@@ -184,7 +184,57 @@ def manage_tournament(stdscr, scheduler, tournament):
                 # Refresh matches and rebuild content
                 matches = scheduler.get_current_matches(tournament['id'])
                 content = []  # Rebuild content
-        elif key == ord('m'):
+        elif key == ord('w'):
+            # Watch the selected match
+            match = matches[current_row]
+            if match['winner']:
+                stdscr.addstr(height - 1, 0, "Match already completed. Press any key to continue.")
+                stdscr.refresh()
+                stdscr.getch()
+            else:
+                # Initialize the game engine
+                player1 = match['player1']
+                player2 = match['player2']
+        
+                # Redirect print statements to a buffer we can display
+                import sys
+                from io import StringIO
+                old_stdout = sys.stdout
+                sys.stdout = mystdout = StringIO()
+        
+                # Simulate the match while capturing output
+                winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
+        
+                # Restore stdout
+                sys.stdout = old_stdout
+        
+                # Get the captured output and split into lines
+                output = mystdout.getvalue()
+                lines = output.split('\n')
+        
+                # Display the match log line by line
+                stdscr.clear()
+                for i, line in enumerate(lines):
+                    if i >= 1:  # Prevent writing beyond screen bounds
+                        stdscr.addstr(height - 2, 0, "-- Press any key to continue --")
+                        stdscr.refresh()
+                        stdscr.getch()
+                        stdscr.clear()
+                        i = 0  # Reset counter for new screen
+                
+                    stdscr.addstr(i, 0, line)
+                    stdscr.refresh()
+                    curses.napms(500)
+        
+                # Update the match result in the tournament
+                scheduler.update_match_result(tournament['id'], current_row, winner_id)
+                winner = next(p for p in scheduler.players if p['id'] == winner_id)
+        
+                # Prompt to return to tournament view
+                stdscr.addstr(height - 1, 0, "Match complete! Press any key to continue...")
+                stdscr.refresh()
+                stdscr.getch()
+        elif key == ord('e'):
             break
 
 def main(stdscr):
