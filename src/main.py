@@ -363,8 +363,12 @@ def main(stdscr):
     try:
         curses.start_color()
         curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)  # Highlighted text
-        scheduler = TournamentScheduler(data_path='data/default_data.json')
-        main_menu(stdscr, scheduler)
+        scheduler = TournamentScheduler()
+        try:
+            main_menu(stdscr, scheduler)
+        finally:
+            scheduler.save_game()
+            print("Game saved succesfully")
     except Exception as e:
         # Print the error and stack trace to help debug
         with open("error_log.txt", "w") as f:

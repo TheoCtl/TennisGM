@@ -18,21 +18,48 @@ class TournamentScheduler:
         "Challenger 50"
     ]
     
-    def __init__(self, data_path='data/default_data.json'):
+    def __init__(self, data_path='data/default_data.json', save_path='data/save.json'):
         self.data_path = data_path
+        self.save_path = save_path
         self.current_week = 1
         self.current_year = 1
         self.current_date = datetime(2025, 1, 1)
         self.ranking_system = RankingSystem()  # Add this line
-        self.load_data()
+        self.load_data(data_path, save_path)
         
-    def load_data(self):
-        with open(self.data_path) as f:
-            data = json.load(f)
-            self.players = data['players']
-            self.tournaments = data['tournaments']
-        print(f"Loaded {len(self.players)} players")  # Debug
-        print(f"Loaded {len(self.tournaments)} tournaments")  # Debug
+    def save_game(self, save_path='data/save.json'):
+        """Save all game data to a file"""
+        game_data = {
+            'current_year': self.current_year,
+            'current_week': self.current_week,
+            'current_date': self.current_date.isoformat(),
+            'players': self.players,
+            'tournaments': self.tournaments,
+            'ranking_history': self.ranking_system.ranking_history
+        }
+    
+        with open(save_path, 'w') as f:
+            json.dump(game_data, f, indent=2)
+        
+    def load_data(self, data_path='data/default_data.json', save_path='data/save.json'):
+        try:
+            # Try loading saved game
+            with open(save_path) as f:
+                data = json.load(f)
+                self.players = data['players']
+                self.tournaments = data['tournaments']
+                self.current_year = data['current_year']
+                self.current_week = data['current_week']
+                self.current_date = datetime.fromisoformat(data['current_date'])
+                self.ranking_system.ranking_history = data['ranking_history']
+            print("Loaded saved game")
+        except (FileNotFoundError, json.JSONDecodeError, KeyError):
+            # Fall back to default data
+            with open(data_path) as f:
+                data = json.load(f)
+                self.players = data['players']
+                self.tournaments = data['tournaments']
+            print("Loaded default data")
     
     def get_current_week_tournaments(self):
         return [t for t in self.tournaments if t['week'] == self.current_week]
