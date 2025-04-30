@@ -138,16 +138,16 @@ class GameEngine:
 
         # Special handling for serves
         if shot_type == "serve":
-            multiplier = random.uniform(0.6, 1.6)  # Serve gets a special bonus range
+            multiplier = random.uniform(0.5, 1.5)  # Serve gets a special bonus range
         else:
             # Determine the comfort level of the shot
             opponent_last_shot_power = self.last_shot_power  # Track the opponent's last shot power
             speed_diff = self.speed[player["id"]] - opponent_last_shot_power
 
             if speed_diff > 30:
-                multiplier = random.uniform(0.8, 1.6)
+                multiplier = random.uniform(0.6, 1.4)
             elif 10 < speed_diff <= 30:
-                multiplier = random.uniform(0.4, 1.6)
+                multiplier = random.uniform(0.4, 1.4)
             else:
                 multiplier = random.uniform(0, 1)
 
