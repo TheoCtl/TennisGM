@@ -153,6 +153,7 @@ def enter_tournament(stdscr, scheduler):
 def manage_tournament(stdscr, scheduler, tournament):
     current_row = 0
     start_line = 0  # Track the first visible line for scrolling
+    show_previous_rounds = False
 
     while True:
         stdscr.clear()
@@ -168,19 +169,22 @@ def manage_tournament(stdscr, scheduler, tournament):
 
         # Prepare content to display
         content = []
-        content.append("Previous Rounds Results:")
-        if tournament['current_round'] > 0:
-            for r in range(tournament['current_round']):
-                content.append(f"Round {r + 1}:")
-                for m in tournament['bracket'][r]:
-                    p1 = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[0]), "BYE")
-                    p2 = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[1]), "BYE")
-                    winner = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[2]), None)
-                    final_score = m[3] if len(m) > 3 else "N/A"
-                    if winner:
-                        content.append(f"  {p1} vs {p2} -> {winner} | Score: {final_score}")
-                    else:
-                        content.append(f"  {p1} vs {p2}")
+        if show_previous_rounds:
+            content.append("Previous Rounds Results: (Press 'p' to hide)")
+            if tournament['current_round'] > 0:
+                for r in range(tournament['current_round']):
+                    content.append(f"Round {r + 1}:")
+                    for m in tournament['bracket'][r]:
+                        p1 = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[0]), "BYE")
+                        p2 = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[1]), "BYE")
+                        winner = next((f"{p['name']} ({p['rank']})" for p in scheduler.players if p['id'] == m[2]), None)
+                        final_score = m[3] if len(m) > 3 else "N/A"
+                        if winner:
+                            content.append(f"  {p1} vs {p2} -> {winner} | Score: {final_score}")
+                        else:
+                            content.append(f"  {p1} vs {p2}")
+        else:
+            content.append("Press 'p' to show previous rounds results.")
 
         content.append(f"Round {tournament['current_round'] + 1} Matches:")
         matches = scheduler.get_current_matches(tournament['id'])
@@ -223,6 +227,8 @@ def manage_tournament(stdscr, scheduler, tournament):
         elif key == curses.KEY_DOWN:
             if current_row < len(matches) - 1:
                 current_row += 1
+        elif key == ord('p'):
+            show_previous_rounds = not show_previous_rounds
         elif key == curses.KEY_ENTER or key in [10, 13]:
             # Simulate the selected match
             match = matches[current_row]
