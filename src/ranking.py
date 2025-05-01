@@ -1,78 +1,79 @@
 import json
 from collections import defaultdict
 from datetime import datetime, date, timedelta
+import logging
 
 class RankingSystem:
     # Points structure remains the same as before
     POINTS = {
         "Grand Slam": {
-            "Winner": 800,
-            "Final": 480,
+            "Winner": 2000,
+            "Final": 1200,
+            "Semi": 720,
+            "Quarter": 360,
+            "Round 16": 180,
+            "Round 32": 90,
+            "Round 64": 45,
+            "Round 128": 10
+        },
+        "Masters 1000": {
+            "Winner": 1000,
+            "Final": 600,
             "Semi": 360,
             "Quarter": 180,
             "Round 16": 90,
             "Round 32": 45,
-            "Round 64": 35,
-            "Round 128": 10
-        },
-        "Masters 1000": {
-            "Winner": 400,
-            "Final": 240,
-            "Semi": 180,
-            "Quarter": 90,
-            "Round 16": 45,
-            "Round 32": 20,
             "Round 64": 25
         },
         "ATP 500": {
-            "Winner": 200,
-            "Final": 120,
-            "Semi": 90,
-            "Quarter": 45,
-            "Round 16": 25,
+            "Winner": 500,
+            "Final": 300,
+            "Semi": 180,
+            "Quarter": 90,
+            "Round 16": 45,
             "Round 32": 20
         },
         "ATP 250": {
-            "Winner": 100,
-            "Final": 60,
-            "Semi": 45,
-            "Quarter": 25,
-            "Round 16": 10,
+            "Winner": 250,
+            "Final": 150,
+            "Semi": 90,
+            "Quarter": 45,
+            "Round 16": 20,
             "Round 32": 10
         },
         "Challenger 175": {
-            "Winner": 75,
-            "Final": 40,
-            "Semi": 30,
-            "Quarter": 15,
+            "Winner": 175,
+            "Final": 100,
+            "Semi": 60,
+            "Quarter": 30,
             "Round 16": 15
         },
         "Challenger 125": {
-            "Winner": 50,
-            "Final": 30,
-            "Semi": 20,
-            "Quarter": 15,
+            "Winner": 125,
+            "Final": 75,
+            "Semi": 45,
+            "Quarter": 25,
             "Round 16": 10
         },
         "Challenger 100": {
-            "Winner": 40,
-            "Final": 25,
-            "Semi": 17,
-            "Quarter": 10,
+            "Winner": 100,
+            "Final": 60,
+            "Semi": 35,
+            "Quarter": 18,
             "Round 16": 8
         },
         "Challenger 75": {
-            "Winner": 30,
-            "Final": 20,
-            "Semi": 12,
-            "Quarter": 7,
+            "Winner": 75,
+            "Final": 45,
+            "Semi": 25,
+            "Quarter": 13,
             "Round 16": 6
         },
         "Challenger 50": {
-            "Winner": 20,
-            "Final": 15,
-            "Semi": 6,
-            "Quarter": 5,
+            "Winner": 50,
+            "Final": 30,
+            "Semi": 15,
+            "Quarter": 9,
             "Round 16": 4
         }
     } 
@@ -80,13 +81,17 @@ class RankingSystem:
     def __init__(self, data_path='data/ranking.json'):
         self.data_path = data_path
         self.ranking_history = defaultdict(list)  # Stores points with dates
+        self.players = []
         self.load_ranking()
+        logging.basicConfig(filename='ranking_debug.log', level=logging.DEBUG)
 
     def load_ranking(self):
         try:
             with open(self.data_path) as f:
                 data = json.load(f)
-                self.ranking_history = defaultdict(list, data.get('history', {}))
+                self.ranking_history = defaultdict(list, 
+                    {str(k): v for k, v in data.get('history', {}).items()}
+                )
         except (FileNotFoundError, json.JSONDecodeError):
             self.ranking_history = defaultdict(list)
 
@@ -96,6 +101,7 @@ class RankingSystem:
 
     def calculate_points(self, tournament_category, round_reached, total_rounds):
         """Map round numbers to human-readable round names based on tournament type"""
+        logging.debug(f"Calculating points for category: {tournament_category}, round: {round_reached}, total_rounds: {total_rounds}")
         is_challenger = tournament_category.startswith("Challenger")
         is_250500 = tournament_category.startswith("ATP 250") or tournament_category.startswith("ATP 500")
         is_masters = tournament_category.startswith("Masters 1000")
@@ -129,67 +135,86 @@ class RankingSystem:
             mapping = round_mapping[8]
             
         round_name = mapping.get(round_reached, "")
-        return self.POINTS.get(tournament_category, {}).get(round_name, 0)
+        points = self.POINTS.get(tournament_category, {}).get(round_name, 0)
+        
+        logging.debug(f"round_name: {round_name}, points: {points}")
+        return points
+
+    def get_current_points(self, player_id, current_date):
+        """Calculate points from both ranking history and current tournament history"""
+        logging.debug(f"Getting current points for player ID: {player_id} as of {current_date}")
+
+        if isinstance(current_date, datetime):
+            current_date = current_date.date()
+    
+        one_year_ago = current_date - timedelta(weeks=52)
+        points = 0
+    
+        # Check ranking history first
+        for entry in self.ranking_history.get(str(player_id), []):
+            entry_date = datetime.fromisoformat(entry['date']).date() if isinstance(entry['date'], str) else entry['date']
+            if entry_date <= one_year_ago:
+                points += entry.get('points', 0)
+                logging.debug(f"Added {entry.get('points', 0)} points from ranking history for tournament {entry.get('tournament')}")
+    
+        # Double-check with player tournament history (as backup)
+        player = next((p for p in self.players if p['id'] == player_id), None)
+        if player and 'tournament_history' in player:
+            for entry in player['tournament_history']:
+                entry_date = datetime(entry['year'], 1, 1) + timedelta(weeks=entry.get('week', 0))
+                if entry_date.date() <= one_year_ago:
+                    points += entry.get('points', 0)
+                    logging.debug(f"Added {entry.get('points', 0)} points from player history for tournament {entry.get('name')}")
+    
+        logging.debug(f"Total points for player ID {player_id}: {points}")
+        return points
 
     def update_ranking(self, tournament, current_date):
-        if not tournament.get('bracket') or tournament['winner_id'] is None:
+        """Maintain this for backward compatibility"""
+        logging.debug(f"Updating ranking for tournament: {tournament['name']}")
+        if not tournament.get('bracket'):
+            logging.debug("No bracket found, skipping ranking update")            
             return
-
-        # Ensure we store dates as strings in ISO format
-        if isinstance(current_date, (datetime, date)):
-            date_str = current_date.isoformat()
-        else:
-            date_str = current_date  # Assume it's already a string
-
+    
+        # Store basic ranking info
+        date_str = current_date.isoformat() if isinstance(current_date, (datetime, date)) else current_date
         category = tournament['category']
-        num_rounds = len(tournament['bracket'])
-        
-        # Update points for all participants
+    
         for round_num, matches in enumerate(tournament['bracket']):
             for match in matches:
-                for player_id in match[:2]:  # Both players in the match
-                    if player_id is not None:
-                        points = self.calculate_points(category, round_num, num_rounds)
-                        if points > 0:
-                            self.ranking_history[str(player_id)].append({
-                                'date': date_str,
-                                'points': points,
-                                'tournament': tournament['name'],
-                                'round': round_num,
-                                'category': category,
-                            })
-
-        # Add bonus for winner
-        winner_points = self.calculate_points(category, num_rounds, num_rounds)
-        if winner_points > 0:
+                for player_id in match[:2]:
+                    if player_id:
+                        points = self.calculate_points(category, round_num, len(tournament['bracket']))
+                        logging.debug(f"Updating player {player_id} with {points} points for round {round_num}")
+                        self.ranking_history[str(player_id)].append({
+                            'date': date_str,
+                            'points': points,
+                            'tournament': tournament['name'],
+                            'category': category,
+                            'round': round_num
+                        })
+    
+        if tournament.get('winner_id') is not None:
+            winner_points = self.calculate_points(category, len(tournament['bracket'])-1, len(tournament['bracket']))
+            logging.debug(f"Updating winner {tournament['winner_id']} with {winner_points} points")
             self.ranking_history[str(tournament['winner_id'])].append({
                 'date': date_str,
                 'points': winner_points,
                 'tournament': tournament['name'],
-                'round': num_rounds,
                 'category': category,
+                'round': len(tournament['bracket'])-1,
                 'is_winner': True
             })
-
-        self.save_ranking()
-
-    def get_current_points(self, player_id, current_date):
-        """Calculate current points (only from last 52 weeks)"""
-        if isinstance(current_date, datetime):
-            current_date = current_date.date()  # Convert datetime to date if needed
     
-        one_year_ago = current_date - timedelta(weeks=52)
-        points = 0
-        for entry in self.ranking_history.get(str(player_id), []):
-            entry_date = datetime.fromisoformat(entry['date']).date()
-            if entry_date >= one_year_ago:
-                points += entry['points']
-        return points
+        self.save_ranking()
+        logging.debug("Ranking update complete")
 
     def update_player_ranks(self, players, current_date):
         """Update all players' ranks based on current points"""
         if isinstance(current_date, datetime):
             current_date = current_date.date()
+            
+        self.players = players
         
         # Calculate current points for all players
         ranked_players = []
@@ -214,6 +239,7 @@ class RankingSystem:
 
     def get_ranked_players(self, players, current_date):
         """Return players sorted by ranking points"""
+        self.players = players
         ranked = []
         for player in players:
             points = self.get_current_points(player['id'], current_date)

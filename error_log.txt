@@ -1,14 +1,11 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 367, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 368, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 43, in main_menu
-    show_rankings(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 155, in show_rankings
-    show_player_details(stdscr, scheduler, player)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 73, in show_player_details
-    sorted_wins = sorted(player['tournament_wins'],
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 76, in <lambda>
-    if x['category'] in scheduler.PRESTIGE_ORDER
-                       ^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'TournamentScheduler' object has no attribute 'PRESTIGE_ORDER'
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 41, in main_menu
+    enter_tournament(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 203, in enter_tournament
+    manage_tournament(stdscr, scheduler, tournament)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 296, in manage_tournament
+    stdscr.addstr(height - 1, 0, f"{winner['name']} wins the match {final_score}! Press any key to continue.")
+                                                                    ^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_score' where it is not associated with a value

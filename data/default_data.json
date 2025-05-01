@@ -45,12 +45,12 @@
         "hand": "right",
         "skills": {
           "serve": 68,
-          "forehand": 85,
-          "backhand": 78,
-          "speed": 88,
-          "stamina": 75,
-          "straight": 82,
-          "cross": 81
+          "forehand": 80,
+          "backhand": 77,
+          "speed": 82,
+          "stamina": 74,
+          "straight": 79,
+          "cross": 79
         },
         "rank": 3,
         "points": 8050,
@@ -83,12 +83,12 @@
         "hand": "right",
         "skills": {
           "serve": 75,
-          "forehand": 84,
-          "backhand": 90,
-          "speed": 85,
-          "stamina": 88,
-          "straight": 83,
-          "cross": 86
+          "forehand": 82,
+          "backhand": 88,
+          "speed": 83,
+          "stamina": 76,
+          "straight": 81,
+          "cross": 84
         },
         "rank": 5,
         "points": 4120,
@@ -254,12 +254,12 @@
         "hand": "right",
         "skills": {
           "serve": 73,
-          "forehand": 81,
+          "forehand": 79,
           "backhand": 72,
-          "speed": 83,
+          "speed": 80,
           "stamina": 65,
-          "straight": 78,
-          "cross": 80
+          "straight": 76,
+          "cross": 78
         },
         "rank": 14,
         "points": 2920,

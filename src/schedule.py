@@ -2,8 +2,11 @@ import json
 import random
 from math import log2, ceil
 from datetime import datetime, timedelta
+from collections import defaultdict
 from sim.game_engine import GameEngine  # Import the Game Engine
 from ranking import RankingSystem
+from player_development import PlayerDevelopment
+import logging
 
 class TournamentScheduler:
     PRESTIGE_ORDER = [
@@ -24,8 +27,16 @@ class TournamentScheduler:
         self.current_week = 1
         self.current_year = 1
         self.current_date = datetime(2025, 1, 1)
-        self.ranking_system = RankingSystem()  # Add this line
+        self.ranking_system = RankingSystem()
         self.load_data(data_path, save_path)
+        
+        for player in self.players:
+            if 'tournament_history' not in player:
+                player['tournament_history'] = []
+            if 'tournament_wins' not in player:
+                player['tournament_wins'] = []
+        self._rebuild_ranking_history
+        self.ranking_system.update_player_ranks(self.players, self.current_date)
         
     def save_game(self, save_path='data/save.json'):
         """Save all game data to a file"""
@@ -35,7 +46,7 @@ class TournamentScheduler:
             'current_date': self.current_date.isoformat(),
             'players': self.players,
             'tournaments': self.tournaments,
-            'ranking_history': self.ranking_system.ranking_history
+            'ranking_history': dict(self.ranking_system.ranking_history)
         }
     
         with open(save_path, 'w') as f:
@@ -51,15 +62,27 @@ class TournamentScheduler:
                 self.current_year = data['current_year']
                 self.current_week = data['current_week']
                 self.current_date = datetime.fromisoformat(data['current_date'])
-                self.ranking_system.ranking_history = data['ranking_history']
+                
+                for player in self.players:
+                    if 'tournament_history' not in player:
+                        player['tournament_history'] = []
+                    if 'tournament_wins' not in player:
+                        player['tournament_wins'] = []
+                self.ranking_system.ranking_history = defaultdict(list)
+                for player_id, entries in data.get('ranking_history', {}).items():
+                    self.ranking_system.ranking_history[int(player_id)] = entries
             print("Loaded saved game")
-        except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
+            print (f"Error loading saved game: {str(e)}")
             # Fall back to default data
             with open(data_path) as f:
                 data = json.load(f)
                 self.players = data['players']
                 self.tournaments = data['tournaments']
             print("Loaded default data")
+            for player in self.players:
+                player['tournament_history'] = []
+                player['tournament_wins'] = []
     
     def get_current_week_tournaments(self):
         return [t for t in self.tournaments if t['week'] == self.current_week]
@@ -67,16 +90,69 @@ class TournamentScheduler:
     def advance_week(self):
         self.current_week += 1
         self.current_date += timedelta(days=7)
+        for tournament in self.tournaments:
+            if tournament['week'] == self.current_week - 1 and tournament.get('winner_id'):
+                logging.debug(f"Processing completed tournament: {tournament['name']}")
+                self._update_all_player_histories(tournament)
+        self._rebuild_ranking_history()
+        self.ranking_system.update_player_ranks(self.players, self.current_date)
         if self.current_week > 52:
             self.current_week = 1
             self.current_year += 1
             for player in self.players: # A VERIFIER DES QUE POSSIBLE
                 player['age'] += 1
-        for tournament in self.tournaments:
-            if tournament['week'] == self.current_week - 1 and tournament.get('winner_id'):
-                self.ranking_system.update_ranking(tournament, self.current_date)        
-        self.ranking_system.update_player_ranks(self.players, self.current_date)
+        PlayerDevelopment.seasonal_development(self)
         return self.current_week
+    
+    def _update_all_player_histories(self, tournament):
+        """Update history for all participants in a tournament"""
+        player_rounds = {}
+    
+        # Find furthest round reached for each player
+        for round_num, matches in enumerate(tournament['bracket']):
+            for match in matches:
+                for player_id in match[:2]:  # Both players
+                    if player_id is not None:
+                        if player_id not in player_rounds or round_num > player_rounds[player_id]:
+                            player_rounds[player_id] = round_num
+    
+        # Update history for each player
+        for player_id, round_reached in player_rounds.items():
+            self._update_player_tournament_history(tournament, player_id, round_reached)
+            
+    def _rebuild_ranking_history(self):
+        """Rebuild ranking history from player tournament histories"""
+        self.ranking_system.ranking_history = defaultdict(list)
+    
+        for player in self.players:
+            if 'tournament_history' not in player:
+                continue
+            
+            for entry in player['tournament_history']:
+                # Create date from year/week
+                entry_date = datetime(entry['year'], 1, 1) + timedelta(weeks=entry.get('week', 0))
+            
+                self.ranking_system.ranking_history[player['id']].append({
+                    'date': entry_date.isoformat(),
+                    'points': entry['points'],
+                    'tournament': entry['name'],
+                    'category': entry['category'],
+                    'round': entry['round']
+                })
+    
+        self.ranking_system.save_ranking()
+    
+    def _update_final_tournament_standings(self, tournament):
+        player_rounds = {}
+        for round_num, matches in enumerate(tournament['bracket']):
+            for match in matches:
+                for player_id in match[:2]:
+                    if player_id is not None:
+                        if player_id not in player_rounds or round_num > player_rounds[player_id]:
+                            player_rounds[player_id] = round_num
+                            
+        for player_id, round_reached in player_rounds.items():
+            self._update_player_tournament_history(tournament, player_id, round_reached)
     
     def assign_players_to_tournaments(self):
         """
@@ -190,16 +266,19 @@ class TournamentScheduler:
         # Simulate only the target match
         if len(tournament['active_matches'][target_match_idx]) == 4 and tournament['active_matches'][target_match_idx][2] is not None:
             return tournament['active_matches'][target_match_idx][2]
-
-        player1_id, player2_id = tournament['active_matches'][target_match_idx][:2]
+        
+        match = tournament['active_matches'][target_match_idx]
+        player1_id, player2_id = match[:2]
 
         # Handle byes
         if player1_id is None:
             winner_id = player2_id
             final_score = "BYE"
+            self._update_player_tournament_history(tournament, player2_id, tournament['current_round'])
         elif player2_id is None:
             winner_id = player1_id
             final_score = "BYE"
+            self._update_player_tournament_history(tournament, player1_id, tournament['current_round'])
         else:
             # Fetch player data
             player1 = next(p for p in self.players if p['id'] == player1_id)
@@ -214,6 +293,9 @@ class TournamentScheduler:
 
             # Store the final score for this match
             final_score = game_engine.format_set_scores()
+            
+            loser_id = player2_id if winner_id == player1 else player1_id
+            self._update_player_tournament_history(tournament, loser_id, tournament['current_round'])
 
         # Update the match with the winner and score
         tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
@@ -225,6 +307,49 @@ class TournamentScheduler:
 
         return winner_id
     
+    def _update_player_tournament_history(self, tournament, player_id, round_reached):
+        """Update a player's tournament history when they lose a match"""
+        logging.debug(f"Updating tournament history for player {player_id} in {tournament['name']}, round {round_reached}")
+        player = next((p for p in self.players if p['id'] == player_id), None)
+        if not player:
+            logging.debug(f"Player {player_id} not found")
+            return
+
+        if 'tournament_history' not in player:
+            player['tournament_history'] = []
+            logging.debug(f"Initialized tournament history for player {player_id}")
+            
+        points = self.ranking_system.calculate_points(
+            tournament['category'], round_reached, len(tournament['bracket']))
+        logging.debug(f"Calculated points: {points} for player {player_id}")
+
+        # Check if player already has an entry for this tournament
+        existing_entry = next(
+            (entry for entry in player['tournament_history'] 
+            if entry['name'] == tournament['name'] and entry['year'] == self.current_year),
+            None
+        )
+
+        if existing_entry:
+            # Update existing entry if this is a later round
+            if round_reached > existing_entry.get('round', -1):
+                logging.debug(f"Updating existing entry from round {existing_entry.get('round', -1)} to {round_reached}")
+                existing_entry['round'] = round_reached
+                existing_entry['points'] = points
+            else:
+                logging.debug(f"Existing entry at round {existing_entry.get('round', -1)} is same or later than {round_reached}")
+        else:
+            # Add new entry
+            logging.debug(f"Adding new tournament history entry for player {player_id}")
+            player['tournament_history'].append({
+                'name': tournament['name'],
+                'category': tournament['category'],
+                'year': self.current_year,
+                'week': self.current_week,
+                'round': round_reached,
+                'points': points
+            })
+        
     def _advance_bracket(self, tournament, match_idx, winner_id):
         # Mark the current match as completed with winner
         tournament['active_matches'][match_idx] = (
@@ -235,9 +360,10 @@ class TournamentScheduler:
     
         # Check if all matches in current round are complete
         if all(len(m) == 3 for m in tournament['active_matches']):
-            if len(tournament['bracket']) == tournament['current_round'] + 1:
+            if len(tournament['bracket']) == tournament['current_round']:
                 # Tournament final completed
                 tournament['winner_id'] = winner_id
+                logging.debug(f"Tournament {tournament['name']} completed. Winner: {winner_id}")
             else:
                 # Prepare next round
                 self._prepare_next_round(tournament)
@@ -264,8 +390,10 @@ class TournamentScheduler:
             # Tournament is complete
             if tournament['active_matches'] and tournament['active_matches'][0][2]:
                 tournament['winner_id'] = tournament['active_matches'][0][2]  # Winner of the final match
+                logging.debug(f"Set winner_id to {tournament['winner_id']} for tournament {tournament['name']}")
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner:
+                    # Add to wins
                     if 'tournament_wins' not in winner:
                         winner['tournament_wins'] = []
                     winner['tournament_wins'].append({
@@ -273,6 +401,14 @@ class TournamentScheduler:
                         'category': tournament['category'],
                         'year': self.current_year
                     })
+                    logging.debug(f"Added tournament win for {winner['name']}")
+                
+                # Ensure winner's history is updated (they might not have lost any matches)
+                    self._update_player_tournament_history(
+                        tournament, 
+                        tournament['winner_id'], 
+                        len(tournament['bracket'])  # Final round
+                    )
                     print(f"\nTOURNAMENT CHAMPION: {winner['name']}!")
                 else:
                     print("\nTOURNAMENT CHAMPION: Unknown (Player not found)!")

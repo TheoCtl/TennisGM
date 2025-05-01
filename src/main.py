@@ -68,7 +68,7 @@ def show_player_details(stdscr, scheduler, player):
             stdscr.addstr(11, 0, f"  Cross: {skills.get('cross', 'N/A')}")
             stdscr.addstr(12, 0, f"  Straight: {skills.get('straight', 'N/A')}")
             
-        stdscr.addstr(12,0, "Tournament History:", curses.A_BOLD)
+        stdscr.addstr(13,0, "Tournament History:", curses.A_BOLD)
         if 'tournament_wins' in player and player['tournament_wins']:
             sorted_wins = sorted(player['tournament_wins'], 
                 key=lambda x: (
@@ -78,7 +78,7 @@ def show_player_details(stdscr, scheduler, player):
                     x['name'].lower()
                 ))
             current_category = None
-            row = 13
+            row = 14
             for win in sorted_wins:
                 if win in sorted_wins:
                     if win['category'] != current_category:
@@ -91,7 +91,7 @@ def show_player_details(stdscr, scheduler, player):
                         stdscr.addstr(row, 2, f"{win['year']}: {win['name']}")
                         row +=1
         else:
-            stdscr.addstr(13, 0, "  No tournament wins yet")
+            stdscr.addstr(14, 0, "  No tournament wins yet")
         stdscr.addstr(height - 1, 0, "Press any key to return to ATP Rankings.")
         stdscr.refresh()
         
