@@ -146,6 +146,11 @@ class RankingSystem:
 
         if isinstance(current_date, datetime):
             current_date = current_date.date()
+            
+        player = next((p for p in self.players if p['id'] == player_id), None)
+        if player and player.get('retired', False):
+            logging.debug(f"Player {player_id} is retired, returning 0 points")
+            return 0
     
         one_year_ago = current_date - timedelta(weeks=52)
         points = 0
@@ -158,7 +163,6 @@ class RankingSystem:
                 logging.debug(f"Added {entry.get('points', 0)} points from ranking history for tournament {entry.get('tournament')}")
     
         # Double-check with player tournament history (as backup)
-        player = next((p for p in self.players if p['id'] == player_id), None)
         if player and 'tournament_history' in player:
             for entry in player['tournament_history']:
                 entry_date = datetime(entry['year'], 1, 1) + timedelta(weeks=entry.get('week', 0))
@@ -219,6 +223,8 @@ class RankingSystem:
         # Calculate current points for all players
         ranked_players = []
         for player in players:
+            if player.get('retired', False):
+                continue
             points = self.get_current_points(player['id'], current_date)
             ranked_players.append({
                 'id': player['id'],
@@ -242,6 +248,8 @@ class RankingSystem:
         self.players = players
         ranked = []
         for player in players:
+            if player.get('retired', False):
+                continue
             points = self.get_current_points(player['id'], current_date)
             ranked.append((player, points))
         

@@ -145,9 +145,11 @@ class GameEngine:
             speed_diff = self.speed[player["id"]] - opponent_last_shot_power
 
             if speed_diff > 30:
-                multiplier = random.uniform(0.6, 1.4)
-            elif 10 < speed_diff <= 30:
-                multiplier = random.uniform(0.4, 1.4)
+                multiplier = random.uniform(0.7, 1.4)
+            elif 20 < speed_diff <= 30:
+                multiplier = random.uniform(0.5, 1.4)
+            elif 10 < speed_diff <= 20:
+                multiplier = random.uniform(0.4, 1.2)
             else:
                 multiplier = random.uniform(0, 1)
 

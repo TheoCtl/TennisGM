@@ -7,6 +7,7 @@ from sim.game_engine import GameEngine  # Import the Game Engine
 from ranking import RankingSystem
 from player_development import PlayerDevelopment
 import logging
+from newgen import NewGenGenerator
 
 class TournamentScheduler:
     PRESTIGE_ORDER = [
@@ -28,6 +29,7 @@ class TournamentScheduler:
         self.current_year = 1
         self.current_date = datetime(2025, 1, 1)
         self.ranking_system = RankingSystem()
+        self.newgen_generator = NewGenGenerator()
         self.load_data(data_path, save_path)
         
         for player in self.players:
@@ -59,6 +61,9 @@ class TournamentScheduler:
                 data = json.load(f)
                 self.players = data['players']
                 self.tournaments = data['tournaments']
+                for player in self.players:
+                    if 'retired' not in player: 
+                        player['retired'] = False
                 self.current_year = data['current_year']
                 self.current_week = data['current_week']
                 self.current_date = datetime.fromisoformat(data['current_date'])
@@ -73,6 +78,9 @@ class TournamentScheduler:
                     self.ranking_system.ranking_history[int(player_id)] = entries
             print("Loaded saved game")
         except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
+            for player in self.players:
+                if 'retired' not in player:
+                    player['retired'] = False
             print (f"Error loading saved game: {str(e)}")
             # Fall back to default data
             with open(data_path) as f:
@@ -94,13 +102,19 @@ class TournamentScheduler:
             if tournament['week'] == self.current_week - 1 and tournament.get('winner_id'):
                 logging.debug(f"Processing completed tournament: {tournament['name']}")
                 self._update_all_player_histories(tournament)
-        self._rebuild_ranking_history()
-        self.ranking_system.update_player_ranks(self.players, self.current_date)
         if self.current_week > 52:
             self.current_week = 1
             self.current_year += 1
-            for player in self.players: # A VERIFIER DES QUE POSSIBLE
-                player['age'] += 1
+            retired_count = self._process_retirements()
+            new_player_count = retired_count + 5
+            for player in self.players:
+                if 'age' in player and not player.get('retired', False):
+                    player['age'] += 1
+            new_players = self.newgen_generator.generate_new_players(self.current_year, count=new_player_count)
+            self.players.extend(new_players)
+            logging.debug(f"Generated {len(new_players)} new young players")
+            self._rebuild_ranking_history()
+        self.ranking_system.update_player_ranks(self.players, self.current_date)
         PlayerDevelopment.seasonal_development(self)
         return self.current_week
     
@@ -445,3 +459,33 @@ class TournamentScheduler:
 
         print(f"\nRound {current_round + 1} complete! Advancing to Round {next_round + 1}")
         
+    def _process_retirements(self):
+        """Handle player retirements at the end of the year"""
+        retired_players = []
+        retired_count = 0
+    
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            
+            age = player.get('age', 20)
+        
+            # Automatic retirement at 40+
+            if age >= 40:
+                player['retired'] = True
+                retired_players.append(player['name'])
+                retired_count += 1
+                continue
+            
+            # Chance-based retirement for players 35-39
+            if age >= 35:
+                retirement_chance = (age - 34) * 0.05  # 5% at 35, 10% at 36, etc.
+                if random.random() < retirement_chance:
+                    player['retired'] = True
+                    retired_players.append(player['name'])
+                    retired_count += 1
+    
+        if retired_players:
+            logging.debug(f"Players retired this year: {', '.join(retired_players)}")
+            print(f"\nThe following players have retired: {', '.join(retired_players)}")
+        return retired_count
