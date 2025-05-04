@@ -64,9 +64,10 @@ def show_player_details(stdscr, scheduler, player):
             stdscr.addstr(7, 0, f"  Forehand: {skills.get('forehand', 'N/A')}")
             stdscr.addstr(8, 0, f"  Backhand: {skills.get('backhand', 'N/A')}")
             stdscr.addstr(9, 0, f"  Speed: {skills.get('speed', 'N/A')}")
-            stdscr.addstr(10, 0, f"  Stamina: {skills.get('stamina', 'N/A')}")
-            stdscr.addstr(11, 0, f"  Cross: {skills.get('cross', 'N/A')}")
-            stdscr.addstr(12, 0, f"  Straight: {skills.get('straight', 'N/A')}")
+            stdscr.addstr(10, 0, f"  Stamina: {skills.get('stamina', 'N/A')}")            
+            stdscr.addstr(11, 0, f"  Straight: {skills.get('straight', 'N/A')}")
+            stdscr.addstr(12, 0, f"  Cross: {skills.get('cross', 'N/A')}")
+
             
         stdscr.addstr(13,0, "Tournament History:", curses.A_BOLD)
         if 'tournament_wins' in player and player['tournament_wins']:

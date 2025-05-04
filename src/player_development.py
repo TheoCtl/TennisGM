@@ -8,20 +8,20 @@ class PlayerDevelopment:
         # Age factor - sharp peak at 18-21
         if player_age <= 18:
             age_factor = 1.0
-        elif player_age <= 21:
-            age_factor = 0.9
-        elif player_age <= 24:
-            age_factor = 0.7
+        elif player_age <= 22:
+            age_factor = 0.8
+        elif player_age <= 25:
+            age_factor = 0.6
         elif player_age <= 28:
             age_factor = 0.4
         else:
             age_factor = 0
 
         # Smoother skill difficulty curve
-        skill_factor = 1 - (current_skill / 110) ** 1.3
+        skill_factor = 1 - (current_skill / 110) ** 1
 
         # Base chance with adjusted weights
-        base_chance = 0.55 * age_factor * skill_factor
+        base_chance = age_factor * skill_factor
         
         return max(0.05, base_chance)
 
@@ -32,26 +32,31 @@ class PlayerDevelopment:
             return 0
         
         # Sharper age-based regression
-        age_factor = min(1, (player_age - 30)/5)  # Faster progression
+        age_factor = min(1, (player_age - 30)/7)  # Faster progression
         
-        # Higher skills regress faster
-        skill_factor = (current_skill / 100) ** 0.9
-        
-        return 0.5 * age_factor * skill_factor  # Higher base regression rate
+        return 0.66 * age_factor  # Higher base regression rate
 
     @staticmethod
     def develop_skill(current_value, chance):
         improvements = 0
-        temp_chance = chance
         
         while improvements < 3:  # Reduced cap from 5 to 3
-            if random.random() < temp_chance:
+            if random.random() < chance:
                 improvements += 1
-                temp_chance *= 0.6  # Harder successive improvements
             else:
                 break
                 
         return min(current_value + improvements, 100)
+    
+    def regress_skill(current_value, chance):
+        regressions = 0
+        
+        while regressions < 3:
+            if random.random() < chance:
+                regressions += 1
+            else:
+                break
+        return max(current_value - regressions, 0)
 
     @staticmethod
     def develop_player(player):
@@ -62,18 +67,8 @@ class PlayerDevelopment:
         
         # Tighter transition periods
         if age < 28:
-            if age < 24:
-                # Younger players focus on improvement
                 chance_func = PlayerDevelopment.calculate_improvement_chance
                 change_direction = 1
-            else:
-                # 24-27: 70% improve, 30% regress
-                if random.random() < 0.7:
-                    chance_func = PlayerDevelopment.calculate_improvement_chance
-                    change_direction = 1
-                else:
-                    chance_func = PlayerDevelopment.calculate_regression_chance
-                    change_direction = -1
         else:
             # 28+: Full regression mode
             chance_func = PlayerDevelopment.calculate_regression_chance
@@ -86,12 +81,7 @@ class PlayerDevelopment:
             if change_direction == 1:
                 new_value = PlayerDevelopment.develop_skill(current_value, chance)
             else:
-                # More aggressive regression - potential for multi-point loss
-                if random.random() < chance:
-                    regression_points = min(2, 1 + int(random.random() * (age/30)))
-                    new_value = max(0, current_value - regression_points)
-                else:
-                    new_value = current_value
+                new_value = PlayerDevelopment.regress_skill(current_value, chance)
             
             player['skills'][skill] = new_value
             

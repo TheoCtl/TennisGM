@@ -1,7 +1,7 @@
 {
   "current_year": 1,
-  "current_week": 26,
-  "current_date": "2025-06-25T00:00:00",
+  "current_week": 25,
+  "current_date": "2025-06-18T00:00:00",
   "players": [
     {
       "id": 1,
@@ -11,14 +11,14 @@
       "skills": {
         "serve": 79,
         "forehand": 86,
-        "backhand": 81,
+        "backhand": 80,
         "speed": 78,
-        "stamina": 80,
-        "straight": 80,
+        "stamina": 79,
+        "straight": 79,
         "cross": 76
       },
       "rank": 5,
-      "points": 4420,
+      "points": 4330,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -197,14 +197,6 @@
           "week": 24,
           "round": 4,
           "points": 150
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 2,
-          "points": 90
         }
       ],
       "tournament_wins": [
@@ -254,8 +246,8 @@
         "straight": 75,
         "cross": 74
       },
-      "rank": 13,
-      "points": 1860,
+      "rank": 14,
+      "points": 1680,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -410,14 +402,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 3,
-          "points": 180
         }
       ],
       "tournament_wins": []
@@ -430,14 +414,14 @@
       "skills": {
         "serve": 68,
         "forehand": 80,
-        "backhand": 78,
+        "backhand": 77,
         "speed": 82,
         "stamina": 74,
-        "straight": 80,
+        "straight": 79,
         "cross": 79
       },
       "rank": 3,
-      "points": 7335,
+      "points": 6835,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -608,14 +592,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 5,
-          "points": 500
         }
       ],
       "tournament_wins": [
@@ -653,11 +629,6 @@
           "name": "Surbiton Trophy",
           "category": "Challenger 125",
           "year": 1
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1
         }
       ]
     },
@@ -669,14 +640,14 @@
       "skills": {
         "serve": 82,
         "forehand": 75,
-        "backhand": 70,
+        "backhand": 68,
         "speed": 72,
         "stamina": 70,
         "straight": 74,
         "cross": 71
       },
       "rank": 19,
-      "points": 1155,
+      "points": 1110,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -863,14 +834,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -881,16 +844,16 @@
       "age": 37,
       "hand": "right",
       "skills": {
-        "serve": 72,
-        "forehand": 80,
-        "backhand": 82,
-        "speed": 78,
-        "stamina": 75,
-        "straight": 75,
+        "serve": 75,
+        "forehand": 82,
+        "backhand": 84,
+        "speed": 81,
+        "stamina": 76,
+        "straight": 78,
         "cross": 80
       },
       "rank": 1,
-      "points": 7525,
+      "points": 7435,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -1053,14 +1016,6 @@
           "week": 24,
           "round": 5,
           "points": 250
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 90
         }
       ],
       "tournament_wins": [
@@ -1126,12 +1081,12 @@
         "forehand": 77,
         "backhand": 65,
         "speed": 74,
-        "stamina": 61,
+        "stamina": 60,
         "straight": 73,
-        "cross": 71
+        "cross": 70
       },
       "rank": 15,
-      "points": 1590,
+      "points": 1545,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -1302,14 +1257,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -1328,14 +1275,14 @@
       "skills": {
         "serve": 62,
         "forehand": 68,
-        "backhand": 72,
+        "backhand": 71,
         "speed": 84,
-        "stamina": 86,
+        "stamina": 85,
         "straight": 70,
         "cross": 65
       },
       "rank": 6,
-      "points": 3385,
+      "points": 3085,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -1498,14 +1445,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 4,
-          "points": 300
         }
       ],
       "tournament_wins": [
@@ -1527,11 +1466,11 @@
         "backhand": 64,
         "speed": 72,
         "stamina": 78,
-        "straight": 84,
+        "straight": 82,
         "cross": 74
       },
       "rank": 17,
-      "points": 1500,
+      "points": 1480,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -1702,14 +1641,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -1729,7 +1660,7 @@
         "cross": 75
       },
       "rank": 4,
-      "points": 5075,
+      "points": 4775,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -1876,14 +1807,6 @@
           "week": 24,
           "round": 5,
           "points": 250
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 4,
-          "points": 300
         }
       ],
       "tournament_wins": [
@@ -1919,7 +1842,7 @@
         "cross": 75
       },
       "rank": 2,
-      "points": 7435,
+      "points": 7255,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -2082,14 +2005,6 @@
           "week": 25,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 3,
-          "points": 180
         }
       ],
       "tournament_wins": [
@@ -2139,13 +2054,13 @@
         "serve": 68,
         "forehand": 74,
         "backhand": 78,
-        "speed": 77,
+        "speed": 76,
         "stamina": 65,
         "straight": 77,
         "cross": 83
       },
-      "rank": 14,
-      "points": 1760,
+      "rank": 13,
+      "points": 1740,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -2316,14 +2231,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -2340,16 +2247,16 @@
       "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 73,
+        "serve": 72,
         "forehand": 77,
         "backhand": 75,
         "speed": 80,
         "stamina": 78,
-        "straight": 77,
+        "straight": 76,
         "cross": 74
       },
       "rank": 7,
-      "points": 3045,
+      "points": 3000,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -2520,14 +2427,6 @@
           "week": 24,
           "round": 3,
           "points": 90
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -2554,16 +2453,16 @@
       "age": 22,
       "hand": "left",
       "skills": {
-        "serve": 88,
-        "forehand": 77,
-        "backhand": 64,
+        "serve": 87,
+        "forehand": 76,
+        "backhand": 62,
         "speed": 80,
         "stamina": 68,
-        "straight": 76,
+        "straight": 74,
         "cross": 70
       },
-      "rank": 10,
-      "points": 2115,
+      "rank": 9,
+      "points": 2095,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -2718,14 +2617,6 @@
           "week": 24,
           "round": 4,
           "points": 150
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -2742,16 +2633,16 @@
       "age": 20,
       "hand": "right",
       "skills": {
-        "serve": 74,
-        "forehand": 80,
+        "serve": 73,
+        "forehand": 79,
         "backhand": 72,
         "speed": 80,
         "stamina": 65,
         "straight": 76,
         "cross": 78
       },
-      "rank": 9,
-      "points": 2410,
+      "rank": 11,
+      "points": 1910,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -2922,23 +2813,9 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 5,
-          "points": 500
         }
       ],
-      "tournament_wins": [
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1
-        }
-      ]
+      "tournament_wins": []
     },
     {
       "id": 15,
@@ -2947,15 +2824,15 @@
       "hand": "right",
       "skills": {
         "serve": 71,
-        "forehand": 80,
+        "forehand": 78,
         "backhand": 74,
         "speed": 77,
         "stamina": 82,
         "straight": 76,
-        "cross": 80
+        "cross": 79
       },
       "rank": 8,
-      "points": 3035,
+      "points": 2855,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -3134,14 +3011,6 @@
           "week": 24,
           "round": 3,
           "points": 90
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 3,
-          "points": 180
         }
       ],
       "tournament_wins": [
@@ -3164,10 +3033,10 @@
         "speed": 76,
         "stamina": 75,
         "straight": 75,
-        "cross": 72
+        "cross": 73
       },
       "rank": 12,
-      "points": 1980,
+      "points": 1890,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -3322,14 +3191,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 90
         }
       ],
       "tournament_wins": [
@@ -3349,13 +3210,13 @@
         "serve": 76,
         "forehand": 74,
         "backhand": 68,
-        "speed": 77,
+        "speed": 76,
         "stamina": 78,
         "straight": 76,
         "cross": 75
       },
       "rank": 16,
-      "points": 1560,
+      "points": 1515,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -3518,14 +3379,6 @@
           "week": 25,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -3544,8 +3397,8 @@
         "straight": 76,
         "cross": 71
       },
-      "rank": 11,
-      "points": 1985,
+      "rank": 10,
+      "points": 1965,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -3708,14 +3561,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -3733,15 +3578,15 @@
       "hand": "right",
       "skills": {
         "serve": 73,
-        "forehand": 73,
-        "backhand": 66,
-        "speed": 77,
+        "forehand": 71,
+        "backhand": 65,
+        "speed": 75,
         "stamina": 68,
         "straight": 70,
         "cross": 67
       },
       "rank": 20,
-      "points": 1095,
+      "points": 1005,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -3912,14 +3757,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 90
         }
       ],
       "tournament_wins": []
@@ -3933,13 +3770,13 @@
         "serve": 66,
         "forehand": 68,
         "backhand": 64,
-        "speed": 74,
+        "speed": 72,
         "stamina": 65,
         "straight": 67,
         "cross": 63
       },
-      "rank": 23,
-      "points": 995,
+      "rank": 26,
+      "points": 905,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -4110,14 +3947,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 90
         }
       ],
       "tournament_wins": []
@@ -4128,16 +3957,16 @@
       "age": 26,
       "hand": "right",
       "skills": {
-        "serve": 63,
+        "serve": 62,
         "forehand": 72,
         "backhand": 67,
         "speed": 70,
         "stamina": 74,
-        "straight": 69,
+        "straight": 68,
         "cross": 71
       },
-      "rank": 36,
-      "points": 753,
+      "rank": 35,
+      "points": 733,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -4308,14 +4137,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -4346,7 +4167,7 @@
         "cross": 67
       },
       "rank": 22,
-      "points": 1030,
+      "points": 985,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -4517,14 +4338,6 @@
           "week": 25,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -4537,14 +4350,14 @@
       "skills": {
         "serve": 68,
         "forehand": 72,
-        "backhand": 74,
+        "backhand": 72,
         "speed": 69,
         "stamina": 62,
-        "straight": 67,
-        "cross": 65
+        "straight": 65,
+        "cross": 64
       },
       "rank": 18,
-      "points": 1175,
+      "points": 1130,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -4699,14 +4512,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -4728,11 +4533,11 @@
         "backhand": 71,
         "speed": 73,
         "stamina": 68,
-        "straight": 72,
+        "straight": 71,
         "cross": 69
       },
-      "rank": 28,
-      "points": 918,
+      "rank": 27,
+      "points": 898,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -4895,14 +4700,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -4921,8 +4718,8 @@
         "straight": 71,
         "cross": 70
       },
-      "rank": 25,
-      "points": 965,
+      "rank": 31,
+      "points": 785,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -5093,14 +4890,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 3,
-          "points": 180
         }
       ],
       "tournament_wins": []
@@ -5117,10 +4906,10 @@
         "speed": 66,
         "stamina": 64,
         "straight": 63,
-        "cross": 62
+        "cross": 61
       },
-      "rank": 44,
-      "points": 670,
+      "rank": 42,
+      "points": 650,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -5283,14 +5072,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -5304,13 +5085,13 @@
         "serve": 67,
         "forehand": 69,
         "backhand": 66,
-        "speed": 70,
-        "stamina": 66,
-        "straight": 68,
+        "speed": 68,
+        "stamina": 65,
+        "straight": 67,
         "cross": 64
       },
-      "rank": 27,
-      "points": 930,
+      "rank": 25,
+      "points": 910,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -5489,14 +5270,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -5515,8 +5288,8 @@
         "straight": 69,
         "cross": 66
       },
-      "rank": 29,
-      "points": 885,
+      "rank": 28,
+      "points": 865,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -5687,14 +5460,6 @@
           "week": 25,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -5725,12 +5490,12 @@
         "forehand": 67,
         "backhand": 69,
         "speed": 71,
-        "stamina": 69,
+        "stamina": 68,
         "straight": 66,
         "cross": 67
       },
       "rank": 21,
-      "points": 1030,
+      "points": 985,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -5893,14 +5658,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -5913,14 +5670,14 @@
       "skills": {
         "serve": 70,
         "forehand": 71,
-        "backhand": 66,
+        "backhand": 65,
         "speed": 72,
         "stamina": 66,
         "straight": 69,
         "cross": 68
       },
-      "rank": 33,
-      "points": 825,
+      "rank": 32,
+      "points": 780,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -6091,14 +5848,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -6117,8 +5866,8 @@
         "straight": 68,
         "cross": 65
       },
-      "rank": 31,
-      "points": 876,
+      "rank": 29,
+      "points": 856,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -6281,14 +6030,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -6302,13 +6043,13 @@
         "serve": 66,
         "forehand": 64,
         "backhand": 67,
-        "speed": 69,
+        "speed": 68,
         "stamina": 65,
         "straight": 66,
         "cross": 64
       },
-      "rank": 39,
-      "points": 726,
+      "rank": 45,
+      "points": 636,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -6471,14 +6212,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 90
         }
       ],
       "tournament_wins": []
@@ -6492,13 +6225,13 @@
         "serve": 59,
         "forehand": 67,
         "backhand": 66,
-        "speed": 72,
+        "speed": 71,
         "stamina": 73,
         "straight": 65,
         "cross": 64
       },
-      "rank": 40,
-      "points": 725,
+      "rank": 37,
+      "points": 705,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -6645,14 +6378,6 @@
           "week": 24,
           "round": 3,
           "points": 90
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -6682,8 +6407,8 @@
         "straight": 66,
         "cross": 65
       },
-      "rank": 37,
-      "points": 744,
+      "rank": 38,
+      "points": 699,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -6830,14 +6555,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -6870,15 +6587,15 @@
       "hand": "left",
       "skills": {
         "serve": 68,
-        "forehand": 67,
+        "forehand": 66,
         "backhand": 63,
         "speed": 67,
         "stamina": 65,
         "straight": 65,
-        "cross": 67
+        "cross": 66
       },
-      "rank": 32,
-      "points": 845,
+      "rank": 33,
+      "points": 755,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -7049,14 +6766,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 90
         }
       ],
       "tournament_wins": [
@@ -7073,16 +6782,16 @@
       "age": 22,
       "hand": "right",
       "skills": {
-        "serve": 64,
+        "serve": 63,
         "forehand": 66,
         "backhand": 64,
-        "speed": 68,
+        "speed": 67,
         "stamina": 65,
         "straight": 64,
         "cross": 63
       },
-      "rank": 34,
-      "points": 766,
+      "rank": 39,
+      "points": 676,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -7269,14 +6978,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 90
         }
       ],
       "tournament_wins": [
@@ -7293,16 +6994,16 @@
       "age": 21,
       "hand": "right",
       "skills": {
-        "serve": 70,
+        "serve": 68,
         "forehand": 62,
         "backhand": 60,
         "speed": 63,
         "stamina": 61,
-        "straight": 63,
-        "cross": 62
+        "straight": 62,
+        "cross": 61
       },
-      "rank": 85,
-      "points": 422,
+      "rank": 83,
+      "points": 414,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -7465,14 +7166,6 @@
           "week": 24,
           "round": 4,
           "points": 100
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 8
         }
       ],
       "tournament_wins": [
@@ -7498,7 +7191,7 @@
         "cross": 63
       },
       "rank": 41,
-      "points": 710,
+      "points": 665,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -7669,14 +7362,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -7695,8 +7380,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 58,
-      "points": 592,
+      "rank": 66,
+      "points": 517,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -7867,14 +7552,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 26,
-          "round": 3,
-          "points": 75
         }
       ],
       "tournament_wins": [
@@ -7897,15 +7574,15 @@
       "hand": "right",
       "skills": {
         "serve": 65,
-        "forehand": 62,
+        "forehand": 63,
         "backhand": 64,
         "speed": 66,
         "stamina": 67,
         "straight": 64,
         "cross": 63
       },
-      "rank": 26,
-      "points": 940,
+      "rank": 24,
+      "points": 920,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -8068,14 +7745,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -8095,7 +7764,7 @@
         "cross": 62
       },
       "rank": 56,
-      "points": 610,
+      "points": 590,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -8258,14 +7927,6 @@
           "week": 24,
           "round": 4,
           "points": 125
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -8287,16 +7948,16 @@
       "age": 38,
       "hand": "right",
       "skills": {
-        "serve": 62,
+        "serve": 64,
         "forehand": 65,
         "backhand": 63,
-        "speed": 65,
-        "stamina": 61,
-        "straight": 63,
-        "cross": 60
+        "speed": 68,
+        "stamina": 62,
+        "straight": 64,
+        "cross": 63
       },
       "rank": 30,
-      "points": 878,
+      "points": 833,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -8451,14 +8112,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -8483,8 +8136,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 59,
-      "points": 588,
+      "rank": 63,
+      "points": 543,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -8655,14 +8308,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -8684,11 +8329,11 @@
         "backhand": 64,
         "speed": 66,
         "stamina": 65,
-        "straight": 65,
+        "straight": 64,
         "cross": 63
       },
-      "rank": 35,
-      "points": 764,
+      "rank": 34,
+      "points": 744,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -8867,14 +8512,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -8893,8 +8530,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 53,
-      "points": 628,
+      "rank": 50,
+      "points": 608,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -9049,14 +8686,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -9078,7 +8707,7 @@
       "age": 23,
       "hand": "right",
       "skills": {
-        "serve": 64,
+        "serve": 63,
         "forehand": 64,
         "backhand": 62,
         "speed": 65,
@@ -9086,8 +8715,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 64,
-      "points": 569,
+      "rank": 60,
+      "points": 549,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -9266,14 +8895,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -9293,13 +8914,13 @@
         "serve": 62,
         "forehand": 63,
         "backhand": 64,
-        "speed": 66,
+        "speed": 65,
         "stamina": 64,
-        "straight": 64,
+        "straight": 63,
         "cross": 62
       },
-      "rank": 43,
-      "points": 674,
+      "rank": 46,
+      "points": 629,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -9462,14 +9083,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -9488,8 +9101,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 47,
-      "points": 647,
+      "rank": 52,
+      "points": 602,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -9668,14 +9281,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -9696,12 +9301,12 @@
         "forehand": 62,
         "backhand": 63,
         "speed": 63,
-        "stamina": 61,
+        "stamina": 62,
         "straight": 62,
         "cross": 61
       },
-      "rank": 83,
-      "points": 432,
+      "rank": 81,
+      "points": 424,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -9872,14 +9477,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 8
         }
       ],
       "tournament_wins": [
@@ -9899,13 +9496,13 @@
         "serve": 63,
         "forehand": 62,
         "backhand": 61,
-        "speed": 67,
+        "speed": 64,
         "stamina": 63,
         "straight": 62,
         "cross": 61
       },
-      "rank": 52,
-      "points": 632,
+      "rank": 49,
+      "points": 612,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -10076,14 +9673,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -10103,13 +9692,13 @@
         "serve": 62,
         "forehand": 63,
         "backhand": 62,
-        "speed": 64,
+        "speed": 63,
         "stamina": 64,
         "straight": 62,
         "cross": 61
       },
-      "rank": 88,
-      "points": 419,
+      "rank": 98,
+      "points": 344,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -10264,24 +9853,11 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 4,
-          "points": 75
         }
       ],
       "tournament_wins": [
         {
           "name": "Lexus Nottingham Challenger",
-          "category": "Challenger 75",
-          "year": 1
-        },
-        {
-          "name": "Poznan Open",
           "category": "Challenger 75",
           "year": 1
         }
@@ -10302,7 +9878,7 @@
         "cross": 61
       },
       "rank": 74,
-      "points": 492,
+      "points": 467,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -10449,14 +10025,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 25
         }
       ],
       "tournament_wins": [
@@ -10484,15 +10052,15 @@
       "hand": "right",
       "skills": {
         "serve": 60,
-        "forehand": 63,
+        "forehand": 62,
         "backhand": 63,
         "speed": 64,
         "stamina": 65,
         "straight": 62,
         "cross": 61
       },
-      "rank": 54,
-      "points": 622,
+      "rank": 51,
+      "points": 602,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -10663,14 +10231,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -10689,8 +10249,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 65,
-      "points": 567,
+      "rank": 61,
+      "points": 547,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -10869,14 +10429,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -10894,15 +10446,15 @@
       "hand": "right",
       "skills": {
         "serve": 61,
-        "forehand": 59,
-        "backhand": 61,
-        "speed": 60,
-        "stamina": 60,
+        "forehand": 62,
+        "backhand": 63,
+        "speed": 62,
+        "stamina": 63,
         "straight": 62,
         "cross": 61
       },
-      "rank": 55,
-      "points": 621,
+      "rank": 53,
+      "points": 601,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -11073,14 +10625,6 @@
           "week": 24,
           "round": 3,
           "points": 90
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -11092,15 +10636,15 @@
       "hand": "right",
       "skills": {
         "serve": 59,
-        "forehand": 60,
+        "forehand": 61,
         "backhand": 62,
         "speed": 63,
         "stamina": 64,
         "straight": 61,
-        "cross": 59
+        "cross": 60
       },
-      "rank": 98,
-      "points": 368,
+      "rank": 95,
+      "points": 360,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -11263,14 +10807,6 @@
           "week": 24,
           "round": 2,
           "points": 35
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 8
         }
       ],
       "tournament_wins": []
@@ -11289,8 +10825,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 50,
-      "points": 637,
+      "rank": 55,
+      "points": 592,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -11477,14 +11013,6 @@
           "week": 24,
           "round": 4,
           "points": 125
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -11506,16 +11034,16 @@
       "age": 25,
       "hand": "right",
       "skills": {
-        "serve": 64,
-        "forehand": 64,
-        "backhand": 64,
-        "speed": 65,
-        "stamina": 63,
+        "serve": 62,
+        "forehand": 63,
+        "backhand": 61,
+        "speed": 64,
+        "stamina": 62,
         "straight": 62,
         "cross": 61
       },
-      "rank": 57,
-      "points": 593,
+      "rank": 72,
+      "points": 468,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -11678,25 +11206,12 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 4,
-          "points": 125
         }
       ],
       "tournament_wins": [
         {
           "name": "Open Comunidad de Madrid",
           "category": "Challenger 100",
-          "year": 1
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
           "year": 1
         }
       ]
@@ -11711,12 +11226,12 @@
         "forehand": 61,
         "backhand": 62,
         "speed": 62,
-        "stamina": 65,
+        "stamina": 63,
         "straight": 61,
-        "cross": 61
+        "cross": 60
       },
-      "rank": 80,
-      "points": 438,
+      "rank": 78,
+      "points": 428,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -11903,14 +11418,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 10
         }
       ],
       "tournament_wins": [
@@ -11928,15 +11435,15 @@
       "hand": "left",
       "skills": {
         "serve": 61,
-        "forehand": 64,
-        "backhand": 65,
-        "speed": 66,
-        "stamina": 64,
-        "straight": 64,
+        "forehand": 62,
+        "backhand": 63,
+        "speed": 65,
+        "stamina": 62,
+        "straight": 62,
         "cross": 61
       },
-      "rank": 62,
-      "points": 569,
+      "rank": 65,
+      "points": 524,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -12099,14 +11606,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -12118,15 +11617,15 @@
       "hand": "right",
       "skills": {
         "serve": 64,
-        "forehand": 65,
+        "forehand": 63,
         "backhand": 61,
-        "speed": 64,
-        "stamina": 63,
+        "speed": 63,
+        "stamina": 62,
         "straight": 62,
-        "cross": 62
+        "cross": 61
       },
       "rank": 76,
-      "points": 490,
+      "points": 465,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -12313,14 +11812,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 25
         }
       ],
       "tournament_wins": []
@@ -12339,8 +11830,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 89,
-      "points": 418,
+      "rank": 96,
+      "points": 358,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -12511,14 +12002,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 3,
-          "points": 60
         }
       ],
       "tournament_wins": []
@@ -12531,14 +12014,14 @@
       "skills": {
         "serve": 59,
         "forehand": 60,
-        "backhand": 60,
-        "speed": 61,
+        "backhand": 61,
+        "speed": 62,
         "stamina": 61,
-        "straight": 59,
-        "cross": 57
+        "straight": 60,
+        "cross": 59
       },
-      "rank": 92,
-      "points": 385,
+      "rank": 91,
+      "points": 367,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -12693,14 +12176,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 18
         }
       ],
       "tournament_wins": [
@@ -12720,13 +12195,13 @@
         "serve": 61,
         "forehand": 62,
         "backhand": 63,
-        "speed": 61,
-        "stamina": 60,
-        "straight": 61,
+        "speed": 62,
+        "stamina": 61,
+        "straight": 62,
         "cross": 61
       },
-      "rank": 93,
-      "points": 384,
+      "rank": 92,
+      "points": 366,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -12897,14 +12372,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 18
         }
       ],
       "tournament_wins": []
@@ -12916,15 +12383,15 @@
       "hand": "right",
       "skills": {
         "serve": 65,
-        "forehand": 69,
+        "forehand": 68,
         "backhand": 62,
         "speed": 65,
-        "stamina": 62,
+        "stamina": 61,
         "straight": 63,
         "cross": 62
       },
-      "rank": 42,
-      "points": 696,
+      "rank": 40,
+      "points": 676,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -13087,14 +12554,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -13111,16 +12570,16 @@
       "age": 23,
       "hand": "left",
       "skills": {
-        "serve": 63,
-        "forehand": 65,
+        "serve": 62,
+        "forehand": 63,
         "backhand": 61,
-        "speed": 65,
+        "speed": 64,
         "stamina": 62,
         "straight": 62,
         "cross": 61
       },
-      "rank": 69,
-      "points": 527,
+      "rank": 67,
+      "points": 517,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -13299,14 +12758,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 10
         }
       ],
       "tournament_wins": [
@@ -13331,8 +12782,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 60,
-      "points": 582,
+      "rank": 57,
+      "points": 562,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -13495,14 +12946,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -13520,15 +12963,15 @@
       "hand": "right",
       "skills": {
         "serve": 60,
-        "forehand": 62,
+        "forehand": 61,
         "backhand": 62,
         "speed": 63,
-        "stamina": 64,
+        "stamina": 62,
         "straight": 61,
         "cross": 60
       },
-      "rank": 99,
-      "points": 361,
+      "rank": 97,
+      "points": 355,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -13707,14 +13150,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 6
         }
       ],
       "tournament_wins": [
@@ -13732,15 +13167,15 @@
       "hand": "left",
       "skills": {
         "serve": 61,
-        "forehand": 64,
-        "backhand": 61,
+        "forehand": 62,
+        "backhand": 60,
         "speed": 63,
         "stamina": 61,
         "straight": 61,
         "cross": 60
       },
-      "rank": 63,
-      "points": 569,
+      "rank": 59,
+      "points": 549,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -13903,14 +13338,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -13927,16 +13354,16 @@
       "age": 24,
       "hand": "right",
       "skills": {
-        "serve": 63,
+        "serve": 62,
         "forehand": 61,
-        "backhand": 61,
-        "speed": 64,
+        "backhand": 60,
+        "speed": 63,
         "stamina": 62,
         "straight": 61,
         "cross": 60
       },
       "rank": 75,
-      "points": 491,
+      "points": 466,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -14115,14 +13542,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 25
         }
       ],
       "tournament_wins": []
@@ -14141,8 +13560,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 66,
-      "points": 566,
+      "rank": 62,
+      "points": 546,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -14305,14 +13724,6 @@
           "week": 24,
           "round": 3,
           "points": 75
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -14338,12 +13749,12 @@
         "forehand": 61,
         "backhand": 60,
         "speed": 62,
-        "stamina": 62,
-        "straight": 61,
+        "stamina": 61,
+        "straight": 60,
         "cross": 59
       },
-      "rank": 84,
-      "points": 425,
+      "rank": 82,
+      "points": 417,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -14522,14 +13933,6 @@
           "week": 24,
           "round": 1,
           "points": 25
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 8
         }
       ],
       "tournament_wins": []
@@ -14549,7 +13952,7 @@
         "cross": 61
       },
       "rank": 68,
-      "points": 542,
+      "points": 517,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -14712,14 +14115,6 @@
           "week": 24,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 26,
-          "round": 1,
-          "points": 25
         }
       ],
       "tournament_wins": [
@@ -14744,8 +14139,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 97,
-      "points": 370,
+      "rank": 94,
+      "points": 362,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -14924,14 +14319,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 8
         }
       ],
       "tournament_wins": []
@@ -14943,7 +14330,7 @@
       "hand": "right",
       "skills": {
         "serve": 66,
-        "forehand": 64,
+        "forehand": 63,
         "backhand": 61,
         "speed": 62,
         "stamina": 60,
@@ -14951,7 +14338,7 @@
         "cross": 61
       },
       "rank": 71,
-      "points": 522,
+      "points": 477,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -15114,14 +14501,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 45
         }
       ],
       "tournament_wins": [
@@ -15156,8 +14535,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 70,
-      "points": 523,
+      "rank": 69,
+      "points": 513,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -15336,14 +14715,6 @@
           "week": 24,
           "round": 3,
           "points": 75
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 10
         }
       ],
       "tournament_wins": []
@@ -15358,12 +14729,12 @@
         "forehand": 62,
         "backhand": 61,
         "speed": 63,
-        "stamina": 63,
+        "stamina": 62,
         "straight": 61,
         "cross": 60
       },
-      "rank": 51,
-      "points": 636,
+      "rank": 48,
+      "points": 616,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -15550,14 +14921,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -15573,11 +14936,11 @@
         "backhand": 60,
         "speed": 62,
         "stamina": 61,
-        "straight": 62,
+        "straight": 61,
         "cross": 60
       },
-      "rank": 81,
-      "points": 436,
+      "rank": 79,
+      "points": 426,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -15740,14 +15103,6 @@
           "week": 24,
           "round": 1,
           "points": 25
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 10
         }
       ],
       "tournament_wins": []
@@ -15759,15 +15114,15 @@
       "hand": "right",
       "skills": {
         "serve": 66,
-        "forehand": 63,
-        "backhand": 60,
-        "speed": 60,
-        "stamina": 61,
+        "forehand": 64,
+        "backhand": 62,
+        "speed": 61,
+        "stamina": 62,
         "straight": 62,
         "cross": 61
       },
-      "rank": 90,
-      "points": 415,
+      "rank": 89,
+      "points": 380,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -15938,14 +15293,6 @@
           "week": 24,
           "round": 1,
           "points": 25
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 35
         }
       ],
       "tournament_wins": []
@@ -15962,10 +15309,10 @@
         "speed": 64,
         "stamina": 61,
         "straight": 62,
-        "cross": 62
+        "cross": 61
       },
-      "rank": 45,
-      "points": 666,
+      "rank": 43,
+      "points": 646,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -16128,14 +15475,6 @@
           "week": 25,
           "round": 1,
           "points": 20
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -16155,13 +15494,13 @@
         "serve": 61,
         "forehand": 60,
         "backhand": 59,
-        "speed": 64,
-        "stamina": 61,
+        "speed": 62,
+        "stamina": 60,
         "straight": 60,
         "cross": 59
       },
-      "rank": 101,
-      "points": 339,
+      "rank": 104,
+      "points": 314,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -16324,14 +15663,6 @@
           "week": 24,
           "round": 1,
           "points": 18
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 25
         }
       ],
       "tournament_wins": []
@@ -16346,12 +15677,12 @@
         "forehand": 63,
         "backhand": 64,
         "speed": 65,
-        "stamina": 63,
+        "stamina": 61,
         "straight": 62,
         "cross": 61
       },
-      "rank": 46,
-      "points": 658,
+      "rank": 44,
+      "points": 638,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -16530,14 +15861,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -16567,8 +15890,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 100,
-      "points": 351,
+      "rank": 99,
+      "points": 338,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -16739,14 +16062,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 26,
-          "round": 1,
-          "points": 13
         }
       ],
       "tournament_wins": [
@@ -16770,14 +16085,14 @@
       "skills": {
         "serve": 62,
         "forehand": 63,
-        "backhand": 62,
+        "backhand": 61,
         "speed": 64,
         "stamina": 62,
-        "straight": 63,
+        "straight": 62,
         "cross": 61
       },
-      "rank": 48,
-      "points": 644,
+      "rank": 54,
+      "points": 599,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -16964,14 +16279,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -16983,15 +16290,15 @@
       "hand": "right",
       "skills": {
         "serve": 60,
-        "forehand": 63,
+        "forehand": 62,
         "backhand": 61,
         "speed": 63,
         "stamina": 62,
         "straight": 61,
         "cross": 60
       },
-      "rank": 79,
-      "points": 440,
+      "rank": 86,
+      "points": 405,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -17186,14 +16493,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 35
         }
       ],
       "tournament_wins": []
@@ -17206,14 +16505,14 @@
       "skills": {
         "serve": 61,
         "forehand": 62,
-        "backhand": 62,
+        "backhand": 61,
         "speed": 63,
         "stamina": 62,
         "straight": 61,
         "cross": 60
       },
-      "rank": 82,
-      "points": 434,
+      "rank": 80,
+      "points": 424,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -17392,14 +16691,6 @@
           "week": 24,
           "round": 1,
           "points": 25
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 10
         }
       ],
       "tournament_wins": [
@@ -17430,7 +16721,7 @@
         "cross": 61
       },
       "rank": 87,
-      "points": 420,
+      "points": 402,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -17601,14 +16892,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 18
         }
       ],
       "tournament_wins": [
@@ -17633,8 +16916,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 78,
-      "points": 455,
+      "rank": 77,
+      "points": 445,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -17813,14 +17096,6 @@
           "week": 24,
           "round": 1,
           "points": 25
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 10
         }
       ],
       "tournament_wins": [
@@ -17848,10 +17123,10 @@
         "speed": 62,
         "stamina": 61,
         "straight": 61,
-        "cross": 59
+        "cross": 60
       },
-      "rank": 86,
-      "points": 422,
+      "rank": 84,
+      "points": 414,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -17990,14 +17265,6 @@
           "week": 24,
           "round": 1,
           "points": 25
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 8
         }
       ],
       "tournament_wins": [
@@ -18027,8 +17294,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 110,
-      "points": 284,
+      "rank": 109,
+      "points": 278,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -18191,14 +17458,6 @@
           "week": 25,
           "round": 0,
           "points": 8
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 6
         }
       ],
       "tournament_wins": []
@@ -18217,8 +17476,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 67,
-      "points": 547,
+      "rank": 64,
+      "points": 527,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -18397,14 +17656,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -18423,8 +17674,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 24,
-      "points": 985,
+      "rank": 23,
+      "points": 965,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -18587,14 +17838,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -18613,14 +17856,14 @@
       "skills": {
         "serve": 60,
         "forehand": 61,
-        "backhand": 63,
+        "backhand": 62,
         "speed": 63,
         "stamina": 62,
-        "straight": 64,
+        "straight": 61,
         "cross": 60
       },
-      "rank": 103,
-      "points": 335,
+      "rank": 102,
+      "points": 329,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -18775,14 +18018,6 @@
           "week": 24,
           "round": 2,
           "points": 35
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 6
         }
       ],
       "tournament_wins": []
@@ -18801,8 +18036,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 38,
-      "points": 733,
+      "rank": 36,
+      "points": 713,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -18997,14 +18232,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Terra Wortmann Open",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -19015,7 +18242,7 @@
       "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 61,
+        "serve": 60,
         "forehand": 61,
         "backhand": 60,
         "speed": 62,
@@ -19023,8 +18250,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 73,
-      "points": 498,
+      "rank": 70,
+      "points": 488,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -19195,14 +18422,6 @@
           "week": 24,
           "round": 1,
           "points": 25
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 10
         }
       ],
       "tournament_wins": []
@@ -19214,15 +18433,15 @@
       "hand": "right",
       "skills": {
         "serve": 62,
-        "forehand": 62,
+        "forehand": 63,
         "backhand": 64,
         "speed": 62,
         "stamina": 63,
-        "straight": 62,
-        "cross": 60
+        "straight": 63,
+        "cross": 62
       },
-      "rank": 72,
-      "points": 510,
+      "rank": 85,
+      "points": 410,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -19401,14 +18620,6 @@
           "week": 24,
           "round": 1,
           "points": 25
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 4,
-          "points": 100
         }
       ],
       "tournament_wins": [
@@ -19420,11 +18631,6 @@
         {
           "name": "Schwaben Open",
           "category": "Challenger 50",
-          "year": 1
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
           "year": 1
         }
       ]
@@ -19443,8 +18649,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 61,
-      "points": 570,
+      "rank": 58,
+      "points": 550,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -19599,14 +18805,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": []
@@ -19625,8 +18823,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 91,
-      "points": 392,
+      "rank": 88,
+      "points": 384,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -19797,14 +18995,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 8
         }
       ],
       "tournament_wins": [
@@ -19829,8 +19019,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 112,
-      "points": 278,
+      "rank": 110,
+      "points": 272,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -20001,14 +19191,6 @@
           "week": 25,
           "round": 1,
           "points": 18
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 6
         }
       ],
       "tournament_wins": []
@@ -20027,8 +19209,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 77,
-      "points": 478,
+      "rank": 73,
+      "points": 468,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -20183,14 +19365,6 @@
           "week": 24,
           "round": 2,
           "points": 45
-        },
-        {
-          "name": "Ilkley Trophy",
-          "category": "Challenger 125",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 10
         }
       ],
       "tournament_wins": [
@@ -20211,12 +19385,12 @@
         "forehand": 61,
         "backhand": 60,
         "speed": 62,
-        "stamina": 63,
-        "straight": 61,
+        "stamina": 61,
+        "straight": 60,
         "cross": 59
       },
-      "rank": 96,
-      "points": 379,
+      "rank": 100,
+      "points": 334,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -20387,14 +19561,6 @@
           "week": 24,
           "round": 0,
           "points": 8
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 3,
-          "points": 45
         }
       ],
       "tournament_wins": []
@@ -20413,8 +19579,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 95,
-      "points": 379,
+      "rank": 90,
+      "points": 371,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -20601,14 +19767,6 @@
           "week": 25,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 8
         }
       ],
       "tournament_wins": []
@@ -20620,15 +19778,15 @@
       "hand": "right",
       "skills": {
         "serve": 68,
-        "forehand": 61,
+        "forehand": 60,
         "backhand": 58,
         "speed": 55,
         "stamina": 59,
         "straight": 59,
         "cross": 58
       },
-      "rank": 106,
-      "points": 311,
+      "rank": 113,
+      "points": 261,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -20807,24 +19965,11 @@
           "week": 25,
           "round": 0,
           "points": 8
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 4,
-          "points": 50
         }
       ],
       "tournament_wins": [
         {
           "name": "Tucuman Challenger",
-          "category": "Challenger 50",
-          "year": 1
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
           "category": "Challenger 50",
           "year": 1
         }
@@ -20844,8 +19989,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 49,
-      "points": 641,
+      "rank": 47,
+      "points": 621,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -21016,14 +20161,6 @@
           "week": 24,
           "round": 0,
           "points": 10
-        },
-        {
-          "name": "London Championships",
-          "category": "ATP 500",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 20
         }
       ],
       "tournament_wins": [
@@ -21040,16 +20177,16 @@
       "age": 21,
       "hand": "right",
       "skills": {
-        "serve": 63,
+        "serve": 61,
         "forehand": 62,
-        "backhand": 60,
+        "backhand": 58,
         "speed": 62,
         "stamina": 64,
         "straight": 62,
         "cross": 58
       },
-      "rank": 102,
-      "points": 338,
+      "rank": 101,
+      "points": 332,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -21228,14 +20365,6 @@
           "week": 25,
           "round": 0,
           "points": 8
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 6
         }
       ],
       "tournament_wins": []
@@ -21254,8 +20383,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 115,
-      "points": 253,
+      "rank": 114,
+      "points": 244,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -21402,14 +20531,6 @@
           "week": 25,
           "round": 2,
           "points": 25
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 9
         }
       ],
       "tournament_wins": [
@@ -21428,14 +20549,14 @@
       "skills": {
         "serve": 58,
         "forehand": 59,
-        "backhand": 61,
-        "speed": 63,
-        "stamina": 58,
+        "backhand": 60,
+        "speed": 62,
+        "stamina": 57,
         "straight": 59,
         "cross": 58
       },
-      "rank": 108,
-      "points": 306,
+      "rank": 107,
+      "points": 293,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -21598,14 +20719,6 @@
           "week": 24,
           "round": 0,
           "points": 8
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 13
         }
       ],
       "tournament_wins": []
@@ -21624,8 +20737,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 109,
-      "points": 305,
+      "rank": 106,
+      "points": 299,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -21804,14 +20917,6 @@
           "week": 24,
           "round": 0,
           "points": 8
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 6
         }
       ],
       "tournament_wins": []
@@ -21822,16 +20927,16 @@
       "age": 36,
       "hand": "right",
       "skills": {
-        "serve": 60,
+        "serve": 63,
         "forehand": 61,
-        "backhand": 56,
-        "speed": 55,
+        "backhand": 59,
+        "speed": 58,
         "stamina": 59,
         "straight": 60,
-        "cross": 58
+        "cross": 59
       },
-      "rank": 122,
-      "points": 180,
+      "rank": 121,
+      "points": 176,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -22002,14 +21107,6 @@
           "week": 24,
           "round": 1,
           "points": 13
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 4
         }
       ],
       "tournament_wins": []
@@ -22026,10 +21123,10 @@
         "speed": 60,
         "stamina": 58,
         "straight": 58,
-        "cross": 58
+        "cross": 57
       },
-      "rank": 104,
-      "points": 327,
+      "rank": 103,
+      "points": 314,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -22200,14 +21297,6 @@
           "week": 25,
           "round": 0,
           "points": 8
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 13
         }
       ],
       "tournament_wins": []
@@ -22219,15 +21308,15 @@
       "hand": "right",
       "skills": {
         "serve": 61,
-        "forehand": 59,
+        "forehand": 60,
         "backhand": 59,
         "speed": 59,
         "stamina": 57,
         "straight": 59,
         "cross": 58
       },
-      "rank": 94,
-      "points": 384,
+      "rank": 93,
+      "points": 366,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -22406,14 +21495,6 @@
           "week": 24,
           "round": 3,
           "points": 60
-        },
-        {
-          "name": "Emilia-Romagna Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 18
         }
       ],
       "tournament_wins": []
@@ -22424,16 +21505,16 @@
       "age": 37,
       "hand": "right",
       "skills": {
-        "serve": 55,
+        "serve": 58,
         "forehand": 61,
         "backhand": 60,
-        "speed": 55,
+        "speed": 57,
         "stamina": 56,
-        "straight": 58,
+        "straight": 59,
         "cross": 58
       },
-      "rank": 117,
-      "points": 238,
+      "rank": 115,
+      "points": 234,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -22596,14 +21677,6 @@
           "week": 24,
           "round": 4,
           "points": 75
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 4
         }
       ],
       "tournament_wins": [
@@ -22621,15 +21694,15 @@
       "hand": "right",
       "skills": {
         "serve": 60,
-        "forehand": 61,
-        "backhand": 59,
-        "speed": 62,
+        "forehand": 59,
+        "backhand": 58,
+        "speed": 61,
         "stamina": 58,
         "straight": 58,
         "cross": 57
       },
-      "rank": 107,
-      "points": 310,
+      "rank": 108,
+      "points": 285,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -22792,14 +21865,6 @@
           "week": 24,
           "round": 3,
           "points": 45
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 25
         }
       ],
       "tournament_wins": []
@@ -22812,14 +21877,14 @@
       "skills": {
         "serve": 57,
         "forehand": 58,
-        "backhand": 58,
+        "backhand": 57,
         "speed": 60,
         "stamina": 56,
         "straight": 57,
         "cross": 56
       },
       "rank": 105,
-      "points": 311,
+      "points": 305,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -22990,14 +22055,6 @@
           "week": 25,
           "round": 1,
           "points": 18
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 6
         }
       ],
       "tournament_wins": [
@@ -23022,8 +22079,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 113,
-      "points": 270,
+      "rank": 112,
+      "points": 264,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -23194,14 +22251,6 @@
           "week": 24,
           "round": 1,
           "points": 18
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 6
         }
       ],
       "tournament_wins": []
@@ -23214,14 +22263,14 @@
       "skills": {
         "serve": 61,
         "forehand": 60,
-        "backhand": 61,
+        "backhand": 58,
         "speed": 62,
         "stamina": 57,
         "straight": 59,
         "cross": 58
       },
-      "rank": 114,
-      "points": 254,
+      "rank": 117,
+      "points": 224,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -23376,14 +22425,6 @@
           "week": 25,
           "round": 0,
           "points": 6
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 3,
-          "points": 30
         }
       ],
       "tournament_wins": []
@@ -23398,12 +22439,12 @@
         "forehand": 57,
         "backhand": 58,
         "speed": 59,
-        "stamina": 58,
+        "stamina": 57,
         "straight": 57,
         "cross": 56
       },
       "rank": 128,
-      "points": 158,
+      "points": 154,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -23558,14 +22599,6 @@
           "week": 25,
           "round": 0,
           "points": 6
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 4
         }
       ],
       "tournament_wins": []
@@ -23578,14 +22611,14 @@
       "skills": {
         "serve": 57,
         "forehand": 58,
-        "backhand": 58,
+        "backhand": 57,
         "speed": 60,
         "stamina": 56,
-        "straight": 58,
+        "straight": 57,
         "cross": 56
       },
-      "rank": 121,
-      "points": 184,
+      "rank": 122,
+      "points": 175,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -23748,14 +22781,6 @@
           "week": 25,
           "round": 0,
           "points": 6
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 9
         }
       ],
       "tournament_wins": []
@@ -23769,13 +22794,13 @@
         "serve": 58,
         "forehand": 57,
         "backhand": 56,
-        "speed": 62,
-        "stamina": 56,
+        "speed": 61,
+        "stamina": 55,
         "straight": 56,
         "cross": 55
       },
       "rank": 116,
-      "points": 247,
+      "points": 232,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -23930,14 +22955,6 @@
           "week": 24,
           "round": 1,
           "points": 13
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 2,
-          "points": 15
         }
       ],
       "tournament_wins": []
@@ -23953,11 +22970,11 @@
         "backhand": 57,
         "speed": 59,
         "stamina": 56,
-        "straight": 57,
+        "straight": 56,
         "cross": 55
       },
       "rank": 118,
-      "points": 223,
+      "points": 219,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -24136,14 +23153,6 @@
           "week": 24,
           "round": 2,
           "points": 25
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 4
         }
       ],
       "tournament_wins": []
@@ -24154,7 +23163,7 @@
       "age": 26,
       "hand": "right",
       "skills": {
-        "serve": 61,
+        "serve": 59,
         "forehand": 58,
         "backhand": 57,
         "speed": 59,
@@ -24162,8 +23171,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 119,
-      "points": 213,
+      "rank": 120,
+      "points": 198,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -24334,14 +23343,6 @@
           "week": 25,
           "round": 1,
           "points": 13
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 26,
-          "round": 2,
-          "points": 15
         }
       ],
       "tournament_wins": []
@@ -24355,13 +23356,13 @@
         "serve": 58,
         "forehand": 57,
         "backhand": 56,
-        "speed": 60,
+        "speed": 59,
         "stamina": 56,
         "straight": 56,
         "cross": 55
       },
-      "rank": 126,
-      "points": 171,
+      "rank": 127,
+      "points": 162,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -24532,14 +23533,6 @@
           "week": 25,
           "round": 0,
           "points": 6
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 9
         }
       ],
       "tournament_wins": []
@@ -24550,16 +23543,16 @@
       "age": 33,
       "hand": "right",
       "skills": {
-        "serve": 59,
+        "serve": 60,
         "forehand": 59,
         "backhand": 58,
         "speed": 57,
-        "stamina": 56,
-        "straight": 57,
-        "cross": 56
+        "stamina": 57,
+        "straight": 58,
+        "cross": 57
       },
       "rank": 123,
-      "points": 176,
+      "points": 172,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -24746,14 +23739,6 @@
           "week": 24,
           "round": 0,
           "points": 6
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 4
         }
       ],
       "tournament_wins": []
@@ -24764,16 +23749,16 @@
       "age": 36,
       "hand": "left",
       "skills": {
-        "serve": 56,
-        "forehand": 57,
-        "backhand": 58,
-        "speed": 54,
+        "serve": 59,
+        "forehand": 60,
+        "backhand": 59,
+        "speed": 57,
         "stamina": 58,
         "straight": 59,
-        "cross": 55
+        "cross": 58
       },
       "rank": 111,
-      "points": 281,
+      "points": 268,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -24944,14 +23929,6 @@
           "week": 24,
           "round": 0,
           "points": 8
-        },
-        {
-          "name": "Poznan Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 13
         }
       ],
       "tournament_wins": []
@@ -24964,14 +23941,14 @@
       "skills": {
         "serve": 57,
         "forehand": 58,
-        "backhand": 59,
+        "backhand": 57,
         "speed": 59,
         "stamina": 56,
-        "straight": 58,
+        "straight": 57,
         "cross": 56
       },
-      "rank": 127,
-      "points": 170,
+      "rank": 125,
+      "points": 166,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -25126,14 +24103,6 @@
           "week": 25,
           "round": 1,
           "points": 13
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 4
         }
       ],
       "tournament_wins": []
@@ -25152,8 +24121,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 125,
-      "points": 172,
+      "rank": 126,
+      "points": 163,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -25324,14 +24293,6 @@
           "week": 24,
           "round": 0,
           "points": 6
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 1,
-          "points": 9
         }
       ],
       "tournament_wins": []
@@ -25342,16 +24303,16 @@
       "age": 22,
       "hand": "right",
       "skills": {
-        "serve": 57,
+        "serve": 56,
         "forehand": 57,
-        "backhand": 58,
-        "speed": 60,
+        "backhand": 56,
+        "speed": 59,
         "stamina": 55,
         "straight": 56,
         "cross": 55
       },
-      "rank": 120,
-      "points": 202,
+      "rank": 119,
+      "points": 198,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -25530,14 +24491,6 @@
           "week": 24,
           "round": 0,
           "points": 6
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 26,
-          "round": 0,
-          "points": 4
         }
       ],
       "tournament_wins": []
@@ -25548,7 +24501,7 @@
       "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 59,
+        "serve": 58,
         "forehand": 57,
         "backhand": 56,
         "speed": 58,
@@ -25557,7 +24510,7 @@
         "cross": 55
       },
       "rank": 124,
-      "points": 174,
+      "points": 170,
       "injured": false,
       "retired": false,
       "tournament_history": [
@@ -25736,14 +24689,6 @@
           "week": 24,
           "round": 0,
           "points": 6
-        },
-        {
-          "name": "Internationaux de Tennis de Blois",
-          "category": "Challenger 50",
-          "year": 1,
-          "week": 25,
-          "round": 0,
-          "points": 4
         }
       ],
       "tournament_wins": []
@@ -36021,248 +34966,7 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": 14,
-      "participants": [
-        36,
-        48,
-        14,
-        71,
-        5,
-        94,
-        91,
-        42,
-        33,
-        28,
-        47,
-        11,
-        15,
-        55,
-        77,
-        16,
-        44,
-        38,
-        43,
-        92,
-        1,
-        69,
-        9,
-        29,
-        40,
-        10,
-        17,
-        31,
-        34,
-        26,
-        65,
-        82
-      ],
-      "bracket": [
-        [
-          [
-            36,
-            82,
-            36,
-            "6-7, 6-2, 6-4"
-          ],
-          [
-            48,
-            65,
-            48,
-            "6-1, 6-7, 6-2"
-          ],
-          [
-            14,
-            26,
-            14,
-            "6-1, 6-0"
-          ],
-          [
-            71,
-            34,
-            34,
-            "2-6, 2-6"
-          ],
-          [
-            5,
-            31,
-            5,
-            "6-1, 6-3"
-          ],
-          [
-            94,
-            17,
-            17,
-            "1-6, 0-6"
-          ],
-          [
-            91,
-            10,
-            10,
-            "0-6, 2-6"
-          ],
-          [
-            42,
-            40,
-            42,
-            "6-2, 5-7, 6-4"
-          ],
-          [
-            33,
-            29,
-            29,
-            "6-3, 2-6, 5-7"
-          ],
-          [
-            28,
-            9,
-            9,
-            "2-6, 3-6"
-          ],
-          [
-            47,
-            69,
-            47,
-            "6-4, 5-7, 6-4"
-          ],
-          [
-            11,
-            1,
-            1,
-            "5-7, 4-6"
-          ],
-          [
-            15,
-            92,
-            15,
-            "6-0, 7-5"
-          ],
-          [
-            55,
-            43,
-            43,
-            "4-6, 4-6"
-          ],
-          [
-            77,
-            38,
-            38,
-            "0-6, 4-6"
-          ],
-          [
-            16,
-            44,
-            16,
-            "6-2, 6-3"
-          ]
-        ],
-        [
-          [
-            36,
-            48,
-            36,
-            "2-6, 7-5, 6-2"
-          ],
-          [
-            14,
-            34,
-            14,
-            "6-2, 6-2"
-          ],
-          [
-            5,
-            17,
-            5,
-            "7-6, 6-7, 6-1"
-          ],
-          [
-            10,
-            42,
-            10,
-            "6-1, 6-2"
-          ],
-          [
-            29,
-            9,
-            9,
-            "2-6, 2-6"
-          ],
-          [
-            47,
-            1,
-            1,
-            "0-6, 2-6"
-          ],
-          [
-            15,
-            43,
-            15,
-            "6-0, 6-0"
-          ],
-          [
-            38,
-            16,
-            16,
-            "1-6, 1-6"
-          ]
-        ],
-        [
-          [
-            36,
-            14,
-            14,
-            "2-6, 2-6"
-          ],
-          [
-            5,
-            10,
-            10,
-            "2-6, 2-6"
-          ],
-          [
-            9,
-            1,
-            9,
-            "6-3, 6-4"
-          ],
-          [
-            15,
-            16,
-            15,
-            "3-6, 6-1, 6-3"
-          ]
-        ],
-        [
-          [
-            14,
-            10,
-            14,
-            "6-3, 6-2"
-          ],
-          [
-            9,
-            15,
-            9,
-            "4-6, 6-3, 6-2"
-          ]
-        ],
-        [
-          [
-            14,
-            9,
-            14,
-            "7-6, 4-6, 6-4"
-          ]
-        ]
-      ],
-      "current_round": 4,
-      "active_matches": [
-        [
-          14,
-          9,
-          14,
-          "7-6, 4-6, 6-4"
-        ]
-      ]
+      "winner_id": null
     },
     {
       "id": 33,
@@ -36272,248 +34976,7 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": 3,
-      "participants": [
-        97,
-        84,
-        7,
-        67,
-        30,
-        21,
-        20,
-        22,
-        57,
-        35,
-        2,
-        4,
-        3,
-        12,
-        80,
-        23,
-        53,
-        19,
-        13,
-        27,
-        54,
-        18,
-        24,
-        104,
-        45,
-        46,
-        25,
-        50,
-        6,
-        8,
-        41,
-        32
-      ],
-      "bracket": [
-        [
-          [
-            97,
-            32,
-            32,
-            "4-6, 6-4, 4-6"
-          ],
-          [
-            84,
-            41,
-            84,
-            "6-3, 6-7, 6-3"
-          ],
-          [
-            7,
-            8,
-            7,
-            "6-1, 3-6, 7-6"
-          ],
-          [
-            67,
-            6,
-            6,
-            "2-6, 3-6"
-          ],
-          [
-            30,
-            50,
-            30,
-            "6-0, 6-3"
-          ],
-          [
-            21,
-            25,
-            25,
-            "4-6, 6-3, 3-6"
-          ],
-          [
-            20,
-            46,
-            20,
-            "6-3, 6-0"
-          ],
-          [
-            22,
-            45,
-            22,
-            "6-3, 7-5"
-          ],
-          [
-            57,
-            104,
-            57,
-            "6-4, 6-3"
-          ],
-          [
-            35,
-            24,
-            35,
-            "7-5, 4-6, 6-3"
-          ],
-          [
-            2,
-            18,
-            2,
-            "6-4, 6-3"
-          ],
-          [
-            4,
-            54,
-            4,
-            "6-1, 6-2"
-          ],
-          [
-            3,
-            27,
-            3,
-            "6-2, 6-1"
-          ],
-          [
-            12,
-            13,
-            12,
-            "4-6, 6-2, 6-3"
-          ],
-          [
-            80,
-            19,
-            19,
-            "4-6, 1-6"
-          ],
-          [
-            23,
-            53,
-            23,
-            "6-3, 6-1"
-          ]
-        ],
-        [
-          [
-            32,
-            84,
-            32,
-            "6-3, 6-4"
-          ],
-          [
-            7,
-            6,
-            7,
-            "7-6, 6-1"
-          ],
-          [
-            30,
-            25,
-            25,
-            "0-6, 5-7"
-          ],
-          [
-            20,
-            22,
-            20,
-            "7-6, 4-6, 6-3"
-          ],
-          [
-            57,
-            35,
-            35,
-            "6-7, 0-6"
-          ],
-          [
-            2,
-            4,
-            2,
-            "7-6, 6-3"
-          ],
-          [
-            3,
-            12,
-            3,
-            "6-2, 6-2"
-          ],
-          [
-            19,
-            23,
-            19,
-            "6-3, 6-4"
-          ]
-        ],
-        [
-          [
-            32,
-            7,
-            7,
-            "2-6, 1-6"
-          ],
-          [
-            25,
-            20,
-            25,
-            "4-6, 7-6, 6-1"
-          ],
-          [
-            35,
-            2,
-            2,
-            "4-6, 3-6"
-          ],
-          [
-            3,
-            19,
-            3,
-            "6-2, 6-1"
-          ]
-        ],
-        [
-          [
-            7,
-            25,
-            7,
-            "6-1, 6-1"
-          ],
-          [
-            2,
-            3,
-            3,
-            "7-5, 4-6, 6-7"
-          ]
-        ],
-        [
-          [
-            7,
-            3,
-            3,
-            "6-7, 4-6"
-          ]
-        ]
-      ],
-      "current_round": 4,
-      "active_matches": [
-        [
-          7,
-          3,
-          3,
-          "6-7, 4-6"
-        ]
-      ]
+      "winner_id": null
     },
     {
       "id": 34,
@@ -48047,134 +46510,7 @@
       "category": "Challenger 125",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": 58,
-      "participants": [
-        100,
-        61,
-        60,
-        95,
-        76,
-        52,
-        70,
-        66,
-        39,
-        78,
-        86,
-        75,
-        73,
-        88,
-        59,
-        58
-      ],
-      "bracket": [
-        [
-          [
-            100,
-            58,
-            58,
-            "7-6, 0-6, 4-6"
-          ],
-          [
-            61,
-            59,
-            61,
-            "6-1, 6-4"
-          ],
-          [
-            60,
-            88,
-            60,
-            "6-3, 6-3"
-          ],
-          [
-            95,
-            73,
-            73,
-            "6-7, 6-3, 2-6"
-          ],
-          [
-            76,
-            75,
-            75,
-            "4-6, 4-6"
-          ],
-          [
-            52,
-            86,
-            52,
-            "6-3, 6-4"
-          ],
-          [
-            70,
-            78,
-            70,
-            "6-4, 6-4"
-          ],
-          [
-            66,
-            39,
-            39,
-            "4-6, 2-6"
-          ]
-        ],
-        [
-          [
-            58,
-            61,
-            58,
-            "4-6, 7-5, 7-6"
-          ],
-          [
-            60,
-            73,
-            60,
-            "7-5, 6-3"
-          ],
-          [
-            75,
-            52,
-            75,
-            "6-3, 6-4"
-          ],
-          [
-            70,
-            39,
-            39,
-            "5-7, 7-6, 6-7"
-          ]
-        ],
-        [
-          [
-            58,
-            60,
-            58,
-            "6-4, 6-3"
-          ],
-          [
-            75,
-            39,
-            39,
-            "6-3, 1-6, 4-6"
-          ]
-        ],
-        [
-          [
-            58,
-            39,
-            58,
-            "4-6, 7-6, 6-2"
-          ]
-        ]
-      ],
-      "current_round": 3,
-      "active_matches": [
-        [
-          58,
-          39,
-          58,
-          "4-6, 7-6, 6-2"
-        ]
-      ]
+      "winner_id": null
     },
     {
       "id": 146,
@@ -48184,134 +46520,7 @@
       "category": "Challenger 100",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": 96,
-      "participants": [
-        49,
-        64,
-        37,
-        85,
-        111,
-        89,
-        98,
-        79,
-        56,
-        87,
-        96,
-        102,
-        72,
-        63,
-        74,
-        62
-      ],
-      "bracket": [
-        [
-          [
-            49,
-            62,
-            62,
-            "2-6, 6-7"
-          ],
-          [
-            64,
-            74,
-            64,
-            "7-5, 7-5"
-          ],
-          [
-            37,
-            63,
-            63,
-            "4-6, 2-6"
-          ],
-          [
-            85,
-            72,
-            85,
-            "1-6, 7-6, 6-3"
-          ],
-          [
-            111,
-            102,
-            111,
-            "7-6, 3-6, 6-2"
-          ],
-          [
-            89,
-            96,
-            96,
-            "2-6, 2-6"
-          ],
-          [
-            98,
-            87,
-            87,
-            "3-6, 7-6, 4-6"
-          ],
-          [
-            79,
-            56,
-            79,
-            "2-6, 6-3, 7-5"
-          ]
-        ],
-        [
-          [
-            62,
-            64,
-            62,
-            "4-6, 6-3, 6-4"
-          ],
-          [
-            63,
-            85,
-            85,
-            "3-6, 5-7"
-          ],
-          [
-            111,
-            96,
-            96,
-            "3-6, 3-6"
-          ],
-          [
-            87,
-            79,
-            79,
-            "6-3, 2-6, 6-7"
-          ]
-        ],
-        [
-          [
-            62,
-            85,
-            62,
-            "6-7, 6-3, 6-3"
-          ],
-          [
-            96,
-            79,
-            96,
-            "7-5, 4-6, 7-6"
-          ]
-        ],
-        [
-          [
-            62,
-            96,
-            96,
-            "5-7, 2-6"
-          ]
-        ]
-      ],
-      "current_round": 3,
-      "active_matches": [
-        [
-          62,
-          96,
-          96,
-          "5-7, 2-6"
-        ]
-      ]
+      "winner_id": null
     },
     {
       "id": 147,
@@ -48321,134 +46530,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": 51,
-      "participants": [
-        113,
-        90,
-        114,
-        99,
-        115,
-        107,
-        110,
-        105,
-        51,
-        108,
-        68,
-        81,
-        101,
-        124,
-        83,
-        93
-      ],
-      "bracket": [
-        [
-          [
-            113,
-            93,
-            113,
-            "7-6, 3-6, 6-3"
-          ],
-          [
-            90,
-            83,
-            83,
-            "3-6, 6-1, 4-6"
-          ],
-          [
-            114,
-            124,
-            124,
-            "7-6, 3-6, 6-7"
-          ],
-          [
-            99,
-            101,
-            101,
-            "6-4, 3-6, 6-7"
-          ],
-          [
-            115,
-            81,
-            81,
-            "6-3, 3-6, 5-7"
-          ],
-          [
-            107,
-            68,
-            107,
-            "6-3, 3-6, 6-3"
-          ],
-          [
-            110,
-            108,
-            110,
-            "4-6, 6-4, 6-4"
-          ],
-          [
-            105,
-            51,
-            51,
-            "4-6, 5-7"
-          ]
-        ],
-        [
-          [
-            113,
-            83,
-            113,
-            "7-6, 2-6, 6-3"
-          ],
-          [
-            124,
-            101,
-            101,
-            "5-7, 3-6"
-          ],
-          [
-            81,
-            107,
-            81,
-            "4-6, 6-4, 7-5"
-          ],
-          [
-            110,
-            51,
-            51,
-            "2-6, 1-6"
-          ]
-        ],
-        [
-          [
-            113,
-            101,
-            101,
-            "3-6, 6-7"
-          ],
-          [
-            81,
-            51,
-            51,
-            "6-7, 1-6"
-          ]
-        ],
-        [
-          [
-            101,
-            51,
-            51,
-            "3-6, 3-6"
-          ]
-        ]
-      ],
-      "current_round": 3,
-      "active_matches": [
-        [
-          101,
-          51,
-          51,
-          "3-6, 3-6"
-        ]
-      ]
+      "winner_id": null
     },
     {
       "id": 148,
@@ -48458,134 +46540,7 @@
       "category": "Challenger 50",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": 103,
-      "participants": [
-        123,
-        118,
-        128,
-        119,
-        126,
-        116,
-        125,
-        120,
-        121,
-        106,
-        117,
-        112,
-        127,
-        122,
-        109,
-        103
-      ],
-      "bracket": [
-        [
-          [
-            123,
-            103,
-            103,
-            "6-3, 4-6, 6-7"
-          ],
-          [
-            118,
-            109,
-            118,
-            "7-6, 2-6, 7-6"
-          ],
-          [
-            128,
-            122,
-            122,
-            "1-6, 4-6"
-          ],
-          [
-            119,
-            127,
-            119,
-            "6-2, 4-6, 6-3"
-          ],
-          [
-            126,
-            112,
-            126,
-            "4-6, 7-6, 6-4"
-          ],
-          [
-            116,
-            117,
-            116,
-            "6-4, 6-1"
-          ],
-          [
-            125,
-            106,
-            106,
-            "2-6, 3-6"
-          ],
-          [
-            120,
-            121,
-            121,
-            "6-3, 3-6, 3-6"
-          ]
-        ],
-        [
-          [
-            103,
-            118,
-            103,
-            "6-3, 2-6, 6-4"
-          ],
-          [
-            122,
-            119,
-            119,
-            "4-6, 6-1, 2-6"
-          ],
-          [
-            126,
-            116,
-            116,
-            "4-6, 6-3, 6-7"
-          ],
-          [
-            106,
-            121,
-            121,
-            "4-6, 6-3, 3-6"
-          ]
-        ],
-        [
-          [
-            103,
-            119,
-            103,
-            "7-5, 1-6, 6-4"
-          ],
-          [
-            116,
-            121,
-            116,
-            "6-3, 6-4"
-          ]
-        ],
-        [
-          [
-            103,
-            116,
-            103,
-            "6-1, 1-6, 7-6"
-          ]
-        ]
-      ],
-      "current_round": 3,
-      "active_matches": [
-        [
-          103,
-          116,
-          103,
-          "6-1, 1-6, 7-6"
-        ]
-      ]
+      "winner_id": null
     },
     {
       "id": 149,
@@ -49533,13 +47488,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 4
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 90,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 2
       }
     ],
     "2": [
@@ -49675,13 +47623,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 180,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 3
       }
     ],
     "3": [
@@ -49831,13 +47772,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 500,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 5
       }
     ],
     "4": [
@@ -50001,13 +47935,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "5": [
@@ -50150,13 +48077,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 5
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 90,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 2
       }
     ],
     "6": [
@@ -50306,13 +48226,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 45,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "7": [
@@ -50455,13 +48368,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 300,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 4
       }
     ],
     "8": [
@@ -50611,13 +48517,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 2
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "9": [
@@ -50746,13 +48645,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 5
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 300,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 4
       }
     ],
     "10": [
@@ -50895,13 +48787,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 180,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 3
       }
     ],
     "11": [
@@ -51051,13 +48936,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "12": [
@@ -51207,13 +49085,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 3
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "13": [
@@ -51349,13 +49220,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 4
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "14": [
@@ -51505,13 +49369,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 500,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 5
       }
     ],
     "15": [
@@ -51668,13 +49525,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 3
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 180,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 3
       }
     ],
     "16": [
@@ -51810,13 +49660,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 90,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 2
       }
     ],
     "17": [
@@ -51958,13 +49801,6 @@
         "points": 20,
         "tournament": "Boss Open",
         "category": "ATP 250",
-        "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 45,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
         "round": 1
       }
     ],
@@ -52108,13 +49944,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 2
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "19": [
@@ -52264,13 +50093,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 90,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 2
       }
     ],
     "20": [
@@ -52420,13 +50242,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 90,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 2
       }
     ],
     "21": [
@@ -52575,13 +50390,6 @@
         "points": 10,
         "tournament": "Boss Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -52732,13 +50540,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "23": [
@@ -52874,13 +50675,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "24": [
@@ -53022,13 +50816,6 @@
         "points": 10,
         "tournament": "Boss Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -53179,13 +50966,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 180,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 3
       }
     ],
     "26": [
@@ -53327,13 +51107,6 @@
         "points": 10,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -53491,13 +51264,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "28": [
@@ -53647,13 +51413,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "29": [
@@ -53795,13 +51554,6 @@
         "points": 20,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
         "round": 1
       }
     ],
@@ -53952,13 +51704,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "31": [
@@ -54101,13 +51846,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "32": [
@@ -54250,13 +51988,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 90,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 2
       }
     ],
     "33": [
@@ -54385,13 +52116,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 3
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "34": [
@@ -54520,13 +52244,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 45,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "35": [
@@ -54676,13 +52393,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 90,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 2
       }
     ],
     "36": [
@@ -54846,13 +52556,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 90,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 2
       }
     ],
     "37": [
@@ -54995,13 +52698,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 4
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 8,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 0
       }
     ],
     "38": [
@@ -55150,13 +52846,6 @@
         "points": 20,
         "tournament": "Boss Open",
         "category": "ATP 250",
-        "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
         "round": 1
       }
     ],
@@ -55307,13 +52996,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 75,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 3
       }
     ],
     "40": [
@@ -55456,13 +53138,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "41": [
@@ -55605,13 +53280,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 4
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "42": [
@@ -55747,13 +53415,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "43": [
@@ -55902,13 +53563,6 @@
         "points": 20,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 45,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
         "round": 1
       }
     ],
@@ -56066,13 +53720,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 2
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "45": [
@@ -56207,13 +53854,6 @@
         "points": 10,
         "tournament": "Boss Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -56371,13 +54011,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "47": [
@@ -56520,13 +54153,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "48": [
@@ -56683,13 +54309,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "49": [
@@ -56839,13 +54458,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 8,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 0
       }
     ],
     "50": [
@@ -56995,13 +54607,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "51": [
@@ -57137,13 +54742,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 75,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 4
       }
     ],
     "52": [
@@ -57272,13 +54870,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 25,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 1
       }
     ],
     "53": [
@@ -57427,13 +55018,6 @@
         "points": 10,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -57591,13 +55175,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "55": [
@@ -57747,13 +55324,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 3
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "56": [
@@ -57896,13 +55466,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 2
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 8,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 0
       }
     ],
     "57": [
@@ -58066,13 +55629,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 4
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "58": [
@@ -58215,13 +55771,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 125,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 4
       }
     ],
     "59": [
@@ -58385,13 +55934,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 10,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 0
       }
     ],
     "60": [
@@ -58532,13 +56074,6 @@
         "date": "0001-06-18T00:00:00",
         "points": 45,
         "tournament": "Citta di Perugia Challenger",
-        "category": "Challenger 125",
-        "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "Ilkley Trophy",
         "category": "Challenger 125",
         "round": 2
       }
@@ -58704,13 +56239,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 25,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 1
       }
     ],
     "62": [
@@ -58860,13 +56388,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 60,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 3
       }
     ],
     "63": [
@@ -59002,13 +56523,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 18,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 1
       }
     ],
     "64": [
@@ -59158,13 +56672,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 18,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 1
       }
     ],
     "65": [
@@ -59306,13 +56813,6 @@
         "points": 10,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -59470,13 +56970,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 10,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 0
       }
     ],
     "67": [
@@ -59618,13 +57111,6 @@
         "points": 10,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -59782,13 +57268,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 6,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 0
       }
     ],
     "69": [
@@ -59930,13 +57409,6 @@
         "points": 10,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -60094,13 +57566,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 25,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 1
       }
     ],
     "71": [
@@ -60243,13 +57708,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 3
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "72": [
@@ -60406,13 +57864,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 8,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 0
       }
     ],
     "73": [
@@ -60554,13 +58005,6 @@
         "points": 20,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 25,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
         "round": 1
       }
     ],
@@ -60718,13 +58162,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 8,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 0
       }
     ],
     "75": [
@@ -60867,13 +58304,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 2
       }
     ],
     "76": [
@@ -61030,13 +58460,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 3
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 10,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 0
       }
     ],
     "77": [
@@ -61200,13 +58623,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "78": [
@@ -61349,13 +58765,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 10,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 0
       }
     ],
     "79": [
@@ -61505,13 +58914,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 35,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 2
       }
     ],
     "80": [
@@ -61654,13 +59056,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "81": [
@@ -61803,13 +59198,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 25,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 2
       }
     ],
     "82": [
@@ -61966,13 +59354,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "83": [
@@ -62122,13 +59503,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 13,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 1
       }
     ],
     "84": [
@@ -62292,13 +59666,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "London Championships",
-        "category": "ATP 500",
-        "round": 1
       }
     ],
     "85": [
@@ -62469,13 +59836,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 35,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 2
       }
     ],
     "86": [
@@ -62632,13 +59992,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 10,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 0
       }
     ],
     "87": [
@@ -62788,13 +60141,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 18,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 1
       }
     ],
     "88": [
@@ -62951,13 +60297,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 10,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 0
       }
     ],
     "89": [
@@ -63079,13 +60418,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 8,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 0
       }
     ],
     "90": [
@@ -63227,13 +60559,6 @@
         "points": 8,
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
-        "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 6,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
         "round": 0
       }
     ],
@@ -63391,13 +60716,6 @@
         "tournament": "Libema Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "92": [
@@ -63540,13 +60858,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "93": [
@@ -63682,13 +60993,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 2
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 6,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 0
       }
     ],
     "94": [
@@ -63859,13 +61163,6 @@
         "tournament": "Boss Open",
         "category": "ATP 250",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "Terra Wortmann Open",
-        "category": "ATP 500",
-        "round": 0
       }
     ],
     "95": [
@@ -64015,13 +61312,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 10,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 0
       }
     ],
     "96": [
@@ -64178,13 +61468,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 100,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 4
       }
     ],
     "97": [
@@ -64319,13 +61602,6 @@
         "points": 10,
         "tournament": "Libema Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -64476,13 +61752,6 @@
         "tournament": "Nottingham Open",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 8,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 0
       }
     ],
     "99": [
@@ -64632,13 +61901,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 6,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 0
       }
     ],
     "100": [
@@ -64774,13 +62036,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 10,
-        "tournament": "Ilkley Trophy",
-        "category": "Challenger 125",
-        "round": 0
       }
     ],
     "101": [
@@ -64930,13 +62185,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 45,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 3
       }
     ],
     "102": [
@@ -65100,13 +62348,6 @@
         "tournament": "Citta di Perugia Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 8,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 0
       }
     ],
     "103": [
@@ -65263,13 +62504,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 50,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 4
       }
     ],
     "104": [
@@ -65418,13 +62652,6 @@
         "points": 10,
         "tournament": "Boss Open",
         "category": "ATP 250",
-        "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 20,
-        "tournament": "London Championships",
-        "category": "ATP 500",
         "round": 0
       }
     ],
@@ -65582,13 +62809,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 6,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 0
       }
     ],
     "106": [
@@ -65717,13 +62937,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 9,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 1
       }
     ],
     "107": [
@@ -65866,13 +63079,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 13,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 1
       }
     ],
     "108": [
@@ -66029,13 +63235,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 6,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 0
       }
     ],
     "109": [
@@ -66185,13 +63384,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 4,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 0
       }
     ],
     "110": [
@@ -66341,13 +63533,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 13,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 1
       }
     ],
     "111": [
@@ -66504,13 +63689,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 3
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 18,
-        "tournament": "Emilia-Romagna Open",
-        "category": "Challenger 100",
-        "round": 1
       }
     ],
     "112": [
@@ -66653,13 +63831,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 4
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 4,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 0
       }
     ],
     "113": [
@@ -66802,13 +63973,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 3
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 25,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 2
       }
     ],
     "114": [
@@ -66958,13 +64122,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 6,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 0
       }
     ],
     "115": [
@@ -67114,13 +64271,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 6,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 0
       }
     ],
     "116": [
@@ -67256,13 +64406,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 30,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 3
       }
     ],
     "117": [
@@ -67397,13 +64540,6 @@
         "points": 6,
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
-        "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 4,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
         "round": 0
       }
     ],
@@ -67547,13 +64683,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 9,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 1
       }
     ],
     "119": [
@@ -67689,13 +64818,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 15,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 2
       }
     ],
     "120": [
@@ -67852,13 +64974,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 2
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 4,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 0
       }
     ],
     "121": [
@@ -68008,13 +65123,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 1
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 15,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 2
       }
     ],
     "122": [
@@ -68164,13 +65272,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 9,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 1
       }
     ],
     "123": [
@@ -68334,13 +65435,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 4,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 0
       }
     ],
     "124": [
@@ -68490,13 +65584,6 @@
         "tournament": "Bratislava Open",
         "category": "Challenger 100",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 13,
-        "tournament": "Poznan Open",
-        "category": "Challenger 75",
-        "round": 1
       }
     ],
     "125": [
@@ -68632,13 +65719,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 1
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 4,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 0
       }
     ],
     "126": [
@@ -68788,13 +65868,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 9,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 1
       }
     ],
     "127": [
@@ -68951,13 +66024,6 @@
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
         "round": 0
-      },
-      {
-        "date": "0001-07-02T00:00:00",
-        "points": 4,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
-        "round": 0
       }
     ],
     "128": [
@@ -69113,13 +66179,6 @@
         "points": 6,
         "tournament": "Open de Lyon",
         "category": "Challenger 75",
-        "round": 0
-      },
-      {
-        "date": "0001-06-25T00:00:00",
-        "points": 4,
-        "tournament": "Internationaux de Tennis de Blois",
-        "category": "Challenger 50",
         "round": 0
       }
     ]
