@@ -18,40 +18,84 @@ class NewGenGenerator:
                 "last_names": [str(i) for i in range(1, 11)]
             }
     
-    def generate_player(self, current_year):
+    def generate_player_with_ids(self, current_year, player_id, player_rank):
         """Generate a new young player with random attributes"""
         first_name = random.choice(self.name_data["first_names"])
         last_name = random.choice(self.name_data["last_names"])
         
-        player = {
-            "id": self.generate_player_id(),
+        return {
+            "id": player_id,
             "name": f"{first_name} {last_name}",
             "age": 16,
             "hand": random.choice(["Right", "Left"]),
-            "rank": 999,  # Initial unranked status
+            "rank": player_rank,  # Initial unranked status
             "points": 0,
             "tournament_history": [],
             "tournament_wins": [],
             "skills": self.generate_skills(),
         }
-        return player
     
     def generate_player_id(self):
         """Generate a unique player ID based on current timestamp"""
         return int(datetime.now().timestamp() * 1000)
     
     def generate_skills(self):
-        """Generate random skills for a new player (between 20 and 40)"""
+        """Generate random skills for a new player (between 30 and 50)"""
         return {
-            "serve": random.randint(30, 50),
-            "forehand": random.randint(30, 50),
-            "backhand": random.randint(30, 50),
-            "speed": random.randint(30, 50),
-            "stamina": random.randint(30, 50),
-            "cross": random.randint(30, 50),
-            "straight": random.randint(30, 50)
+            "serve": random.randint(25, 50),
+            "forehand": random.randint(25, 50),
+            "backhand": random.randint(25, 50),
+            "speed": random.randint(25, 50),
+            "stamina": random.randint(25, 50),
+            "cross": random.randint(25, 50),
+            "straight": random.randint(25, 50)
         }
     
-    def generate_new_players(self, current_year, count):
-        """Generate multiple new young players"""
-        return [self.generate_player(current_year) for _ in range(count)]
+    def generate_new_players(self, current_year, count, existing_players=None):
+        """Generate multiple new young players with unique IDs and ranks within the batch"""
+        new_players = []
+    
+        # Get existing IDs and ranks
+        existing_ids = {p['id'] for p in existing_players} if existing_players else set()
+        existing_ranks = {p.get('rank', 999) for p in existing_players} if existing_players else set()
+    
+        # Track IDs and ranks assigned in this batch
+        batch_ids = set()
+        batch_ranks = set()
+    
+        # Find next available ID (max existing + 1 or 1 if empty)
+        next_id = max(existing_ids) + 1 if existing_ids else 1
+    
+        # Find next available rank (first gap or max + 1)
+        next_rank = 1
+        if existing_ranks:
+            while next_rank in existing_ranks:
+                next_rank += 1
+    
+        for _ in range(count):
+            # Generate unique ID for this batch
+            while next_id in batch_ids or (existing_ids and next_id in existing_ids):
+                next_id += 1
+
+            # Generate unique rank for this batch
+            while next_rank in batch_ranks or (existing_ranks and next_rank in existing_ranks):
+                next_rank += 1
+
+            # Create player with these unique values
+            player = self.generate_player_with_ids(
+                current_year,
+                next_id,
+                next_rank
+            )
+
+            # Track used values
+            batch_ids.add(next_id)
+            batch_ranks.add(next_rank)
+
+            # Increment for next player
+            next_id += 1
+            next_rank += 1
+
+            new_players.append(player)
+
+        return new_players

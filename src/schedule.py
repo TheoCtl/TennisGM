@@ -102,6 +102,7 @@ class TournamentScheduler:
             if tournament['week'] == self.current_week - 1 and tournament.get('winner_id'):
                 logging.debug(f"Processing completed tournament: {tournament['name']}")
                 self._update_all_player_histories(tournament)
+        self._cleanup_old_tournament_history()
         if self.current_week > 52:
             self.current_week = 1
             self.current_year += 1
@@ -110,13 +111,39 @@ class TournamentScheduler:
             for player in self.players:
                 if 'age' in player and not player.get('retired', False):
                     player['age'] += 1
-            new_players = self.newgen_generator.generate_new_players(self.current_year, count=new_player_count)
+            new_players = self.newgen_generator.generate_new_players(self.current_year, count=new_player_count, existing_players=self.players)
             self.players.extend(new_players)
             logging.debug(f"Generated {len(new_players)} new young players")
+            self._reset_tournaments_for_new_year()
             self._rebuild_ranking_history()
+        else:
+            current_week_tournaments = [t for t in self.tournaments if t['week'] == self.current_week]
+            if current_week_tournaments:
+                self.assign_players_to_tournaments()
+                for tournament in current_week_tournaments:
+                    self.generate_bracket(tournament['id'])
         self.ranking_system.update_player_ranks(self.players, self.current_date)
         PlayerDevelopment.seasonal_development(self)
         return self.current_week
+    
+    def _cleanup_old_tournament_history(self):
+        cutoff_year = self.current_year - 1
+        cutoff_week = self.current_week
+    
+        for player in self.players:
+            if 'tournament_history' not in player:
+                continue
+            player['tournament_history'] = [
+                entry for entry in player['tournament_history']
+                if not self._is_tournament_too_old(entry, cutoff_year, cutoff_week)
+            ]
+            
+    def _is_tournament_too_old(self, tournament_entry, cutoff_year, cutoff_week):
+        if tournament_entry['year'] < cutoff_year:
+            return True
+        elif tournament_entry['year'] == cutoff_year:
+            return tournament_entry.get('week', 0) < cutoff_week
+        return False
     
     def _update_all_player_histories(self, tournament):
         """Update history for all participants in a tournament"""
@@ -489,3 +516,20 @@ class TournamentScheduler:
             logging.debug(f"Players retired this year: {', '.join(retired_players)}")
             print(f"\nThe following players have retired: {', '.join(retired_players)}")
         return retired_count
+    
+    def _reset_tournaments_for_new_year(self):
+        for tournament in self.tournaments:
+            tournament['participants'] = []
+            tournament['bracket'] = []
+            tournament['active_matches'] = []
+            tournament['current_round'] = 0
+            tournament['winner_id'] = None
+            
+            if 'matches' in tournament:
+                del tournament['matches']
+                
+        current_week_tournaments = [t for t in self.tournaments if t['week'] == self.current_week]
+        if current_week_tournaments:
+            self.assign_players_to_tournaments()
+            for tournament in current_week_tournaments:
+                self.generate_bracket(tournament['id'])

@@ -18,7 +18,7 @@ class PlayerDevelopment:
             age_factor = 0
 
         # Smoother skill difficulty curve
-        skill_factor = 1 - (current_skill / 110) ** 1
+        skill_factor = 1 - (current_skill / 130) ** 1
 
         # Base chance with adjusted weights
         base_chance = age_factor * skill_factor
