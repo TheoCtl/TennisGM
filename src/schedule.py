@@ -607,32 +607,24 @@ class TournamentScheduler:
                 f"Biggest regression: {dropper['name']} ({biggest_drop[1][0]}→{biggest_drop[1][1]})"
             )
 
-        # 3. Top 15 changes
-        top15_changes = [
+        # 3. Top 20 changes
+        top20_changes = [
             (p['name'], change[0], change[1]) 
             for p in self.players 
             if not p.get('retired', False) 
             and p['id'] in ranking_changes 
             and (change := ranking_changes[p['id']]) 
-            and (change[1] <= 15 or change[0] <= 15)
+            and (change[1] <= 20 or change[0] <= 20)
         ]
+        
+        # Split into players who are in top 20 and those who dropped out
+        current_top20 = [(name, old, new) for name, old, new in top20_changes if new <= 20]
+        dropped_out = [(name, old, new) for name, old, new in top20_changes if new > 20]
+        
+        current_top20.sort(key=lambda x: x[2])
+        dropped_out.sort(key=lambda x: x[1])
 
-        for name, old, new in top15_changes:
-            if old > 15:  # New entry to top 20
-                self.news_feed.append(f"New in top 15: {name} (entered at {new})")
-            elif new > 15:  # Dropped out of top 20
-                self.news_feed.append(f"Dropped from top 15: {name} (was {old})")
-            else:  # Movement within top 20
-                self.news_feed.append(f"Top 15 change: {name} ({old}→{new})")
-
-        # 4. Last week's tournament winners
-        last_week = self.current_week - 1 if self.current_week > 1 else 52
-        last_year = self.current_year if self.current_week > 1 else self.current_year - 1
-
-        for tournament in self.tournaments:
-            if tournament['week'] == last_week and tournament.get('winner_id'):
-                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
-                if winner:
-                    self.news_feed.append(
-                        f"Last week winners: {winner['name']} won {tournament['name']} ({tournament['category']})"
-                    )
+        for name, old, new in current_top20:
+            self.news_feed.append(f"Top 20 change: {name} ({old} -> {new})")
+        for name, old, new in dropped_out:
+            self.news_feed.append(f"Dropped from top 20: {name} (was {old})")
