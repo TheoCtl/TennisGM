@@ -4,14 +4,14 @@ import math
 class GameEngine:
     SURFACES = ["clay", "grass", "hard", "indoor"]
     
-    def __init__(self, player1, player2, surface="hard"):
+    def __init__(self, player1, player2, surface):
         """
         Initialize the game engine with two players.
         Each player is a dictionary containing stats like serve, forehand, backhand, speed, etc.
         """
+        self.surface = surface
         self.player1 = self._apply_surface_bonus(player1, surface)
         self.player2 = self._apply_surface_bonus(player2, surface)
-        self.surface = surface
         self.player1 = self._apply_random_form(self.player1)
         self.player2 = self._apply_random_form(self.player2)
         self.games = {"player1": 0, "player2": 0}  # Games won in the current set
@@ -142,7 +142,7 @@ class GameEngine:
                 return self._get_player_key(hitter)
 
             # Reduce stamina for catching the ball
-            self.reduce_stamina(server, shot_power)
+            self.reduce_stamina(hitter, shot_power)
 
     def calculate_shot(self, player, shot_type, direction, previous_multiplier=1):
         """
