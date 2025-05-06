@@ -129,19 +129,20 @@ def show_player_details(stdscr, scheduler, player):
         stdscr.addstr(1, 0, f"Rank: {player.get('rank', 'N/A')}")
         stdscr.addstr(2, 0, f"Age: {player.get('age', 'N/A')}")
         stdscr.addstr(3, 0, f"Hand: {player.get('hand', 'N/A')}")
-        stdscr.addstr(5,0, "Player Stats:", curses.A_BOLD)
+        stdscr.addstr(4, 0, f"Surface: {player.get('favorite_surface', 'N/A')}")
+        stdscr.addstr(6,0, "Player Stats:", curses.A_BOLD)
         if 'skills' in player:
             skills = player['skills']
-            stdscr.addstr(6, 0, f"  Serve: {skills.get('serve', 'N/A')}")
-            stdscr.addstr(7, 0, f"  Forehand: {skills.get('forehand', 'N/A')}")
-            stdscr.addstr(8, 0, f"  Backhand: {skills.get('backhand', 'N/A')}")
-            stdscr.addstr(9, 0, f"  Speed: {skills.get('speed', 'N/A')}")
-            stdscr.addstr(10, 0, f"  Stamina: {skills.get('stamina', 'N/A')}")            
-            stdscr.addstr(11, 0, f"  Straight: {skills.get('straight', 'N/A')}")
-            stdscr.addstr(12, 0, f"  Cross: {skills.get('cross', 'N/A')}")
+            stdscr.addstr(7, 0, f"  Serve: {skills.get('serve', 'N/A')}")
+            stdscr.addstr(8, 0, f"  Forehand: {skills.get('forehand', 'N/A')}")
+            stdscr.addstr(9, 0, f"  Backhand: {skills.get('backhand', 'N/A')}")
+            stdscr.addstr(10, 0, f"  Speed: {skills.get('speed', 'N/A')}")
+            stdscr.addstr(11, 0, f"  Stamina: {skills.get('stamina', 'N/A')}")            
+            stdscr.addstr(12, 0, f"  Straight: {skills.get('straight', 'N/A')}")
+            stdscr.addstr(13, 0, f"  Cross: {skills.get('cross', 'N/A')}")
 
             
-        stdscr.addstr(13,0, "Tournament History:", curses.A_BOLD)
+        stdscr.addstr(14,0, "Tournament History:", curses.A_BOLD)
         if 'tournament_wins' in player and player['tournament_wins']:
             sorted_wins = sorted(player['tournament_wins'], 
                 key=lambda x: (
@@ -151,7 +152,7 @@ def show_player_details(stdscr, scheduler, player):
                     x['name'].lower()
                 ))
             current_category = None
-            row = 14
+            row = 15
             for win in sorted_wins:
                 if win in sorted_wins:
                     if win['category'] != current_category:
@@ -164,7 +165,7 @@ def show_player_details(stdscr, scheduler, player):
                         stdscr.addstr(row, 2, f"{win['year']}: {win['name']}")
                         row +=1
         else:
-            stdscr.addstr(14, 0, "  No tournament wins yet")
+            stdscr.addstr(15, 0, "  No tournament wins yet")
         stdscr.addstr(height - 1, 0, "Press any key to return to ATP Rankings.")
         stdscr.refresh()
         

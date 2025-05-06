@@ -1,5 +1,6 @@
 import json
 import random
+import os
 from math import log2, ceil
 from datetime import datetime, timedelta
 from collections import defaultdict
@@ -81,21 +82,34 @@ class TournamentScheduler:
                     self.ranking_system.ranking_history[int(player_id)] = entries
                 self.hall_of_fame = data.get('hall_of_fame', [])
             print("Loaded saved game")
-        except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
-            for player in self.players:
-                if 'retired' not in player:
-                    player['retired'] = False
+        except (FileNotFoundError, json.JSONDecodeError, ValueError) as e:
             print (f"Error loading saved game: {str(e)}")
-            # Fall back to default data
-            with open(data_path) as f:
-                data = json.load(f)
-                self.players = data['players']
-                self.tournaments = data['tournaments']
-            print("Loaded default data")
-            for player in self.players:
+            try:
+                with open(data_path) as f:
+                    default_data = json.load(f)
+                    self.players = default_data['players']
+                    self.tournaments = default_data['tournaments']
+                    self.current_year = 1
+                    self.current_week = 1
+                    self.current_date = datetime(2025, 1, 1)
+                    self.ranking_system.ranking_history = defaultdict(list)
+                    self.hall_of_fame = []
+                    print("Loaded default data")
+            except (FileNotFoundError, json.JSONDecodeError) as e:
+                print(f"Error loading default data: {str(e)}. Creating minimal data.")
+                self.players = []
+                self.tournaments = []
+                self.current_year = 1
+                self.current_week = 1
+                self.current_date = datetime(2025, 1, 1)
+                self.hall_of_fame = []
+        for player in self.players:
+            if 'retired' not in player:
+                player['retired'] = False
+            if 'tournament_history' not in player:
                 player['tournament_history'] = []
+            if 'tournament_wins' not in player:
                 player['tournament_wins'] = []
-            self.hall_of_fame = []
     
     def get_current_week_tournaments(self):
         return [t for t in self.tournaments if t['week'] == self.current_week]
