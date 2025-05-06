@@ -16,7 +16,7 @@ def main_menu(stdscr, scheduler):
         try:
             stdscr.addstr(0, 0, f"--- Year {scheduler.current_year}, Week {scheduler.current_week} ---", curses.A_BOLD)
             news_start_row = 2
-            max_news_items = min(10, (height - 10) // 2)
+            max_news_items = min(12, (height - 10) // 2)
             if scheduler.news_feed:
                 stdscr.addstr(news_start_row, 0, "News:", curses.A_UNDERLINE)
             news_lines_used = 0
@@ -242,7 +242,7 @@ def view_tournaments(stdscr, scheduler):
             status = f"Winner: {winner}"
         else:
             status = "Not completed"
-        stdscr.addstr(idx + 1, 0, f"{idx}. {t['name']} ({t['category']}) - {status}")
+        stdscr.addstr(idx + 1, 0, f"{idx}. {t['name']} ({t['category']}, {t['surface']}) - {status}")
 
     stdscr.addstr(len(current_tournaments) + 3, 0, "Press any key to return to the main menu.")
     stdscr.refresh()
@@ -259,9 +259,9 @@ def enter_tournament(stdscr, scheduler):
         # Display tournaments
         for idx, t in enumerate(current_tournaments):
             if idx == current_row:
-                stdscr.addstr(idx + 1, 0, f"{t['name']} ({t['category']})", curses.color_pair(1))
+                stdscr.addstr(idx + 1, 0, f"{t['name']} ({t['category']}, {t['surface']})", curses.color_pair(1))
             else:
-                stdscr.addstr(idx + 1, 0, f"{t['name']} ({t['category']})")
+                stdscr.addstr(idx + 1, 0, f"{t['name']} ({t['category']}, {t['surface']})")
 
         stdscr.addstr(len(current_tournaments) + 2, 0, "Press ESC to exit menu.")
         stdscr.refresh()
@@ -285,7 +285,7 @@ def manage_tournament(stdscr, scheduler, tournament):
 
     while True:
         stdscr.clear()
-        stdscr.addstr(0, 0, f"Managing Tournament: {tournament['name']} ({tournament['category']})", curses.A_BOLD)
+        stdscr.addstr(0, 0, f"Managing Tournament: {tournament['name']} ({tournament['category']}, {tournament['surface']})", curses.A_BOLD)
 
         # Ensure players are assigned
         if 'participants' not in tournament:
