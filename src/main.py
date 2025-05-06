@@ -19,7 +19,7 @@ def main_menu(stdscr, scheduler):
             news_start_row = 2
             max_news_items = min(12, (height - 10) // 2)
             if scheduler.news_feed:
-                stdscr.addstr(news_start_row, 0, "News:", curses.A_UNDERLINE)
+                stdscr.addstr(news_start_row, 0, "Weekly News:", curses.A_UNDERLINE)
             news_lines_used = 0
             for i, news in enumerate(scheduler.news_feed[:max_news_items]):
                 stdscr.addstr(news_start_row + i + 1, 0, f"- {news}")
