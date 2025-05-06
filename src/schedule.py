@@ -222,6 +222,7 @@ class TournamentScheduler:
         current_tournaments = self.get_current_week_tournaments()
         available_players = [p for p in self.players if not p.get('injured', False) and not p.get('retired', False)]
         available_for_week = []
+        self.ranking_system.update_player_ranks(self.players, self.current_date)
 
         # Initialize participants for all tournaments
         for tournament in current_tournaments:
@@ -242,8 +243,8 @@ class TournamentScheduler:
             else:
                 available_for_week = available_players
 
-        # Sort players by rank
-        available_for_week.sort(key=lambda x: x.get('rank', 999))
+        # Sort players by rank/points
+        available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
 
         # Sort tournaments by prestige order
         current_tournaments.sort(key=lambda t: self.PRESTIGE_ORDER.index(t['category']))

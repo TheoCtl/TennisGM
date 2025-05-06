@@ -5,6 +5,7 @@ Traceback (most recent call last):
     enter_tournament(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 277, in enter_tournament
     manage_tournament(stdscr, scheduler, tournament)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 411, in manage_tournament
-    stdscr.addstr(height - 2, 0, "-- Press any key to continue --")
-_curses.error: addwstr() returned ERR
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 369, in manage_tournament
+    winner = next(p for p in scheduler.players if p['id'] == winner_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
