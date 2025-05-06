@@ -6,19 +6,25 @@ class PlayerDevelopment:
     def calculate_improvement_chance(player_age, current_skill):
         """Tighter progression curve with earlier peak"""
         # Age factor - sharp peak at 18-21
-        if player_age <= 18:
+        if player_age <= 20:
             age_factor = 1.0
+        elif player_age <= 21:
+            age_factor = 0.9
         elif player_age <= 22:
             age_factor = 0.8
-        elif player_age <= 25:
+        elif player_age <= 23:
+            age_factor = 0.7
+        elif player_age <= 24:
             age_factor = 0.6
+        elif player_age <= 27:
+            age_factor = 0.5
         elif player_age <= 28:
             age_factor = 0.4
         else:
             age_factor = 0
 
         # Smoother skill difficulty curve
-        skill_factor = 1 - (current_skill / 130) ** 1
+        skill_factor = 1 - (current_skill / 160) ** 1
 
         # Base chance with adjusted weights
         base_chance = age_factor * skill_factor
