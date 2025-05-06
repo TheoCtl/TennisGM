@@ -1,8 +1,10 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 424, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 441, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 43, in main_menu
-    show_rankings(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 186, in show_rankings
-    stdscr.addstr(i+2-start_idx, 0, f"{i}. {player['name']}: {points} pts")
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 54, in main_menu
+    enter_tournament(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 276, in enter_tournament
+    manage_tournament(stdscr, scheduler, tournament)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 410, in manage_tournament
+    stdscr.addstr(height - 2, 0, "-- Press any key to continue --")
 _curses.error: addwstr() returned ERR

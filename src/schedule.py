@@ -331,7 +331,7 @@ class TournamentScheduler:
             player2 = next(p for p in self.players if p['id'] == player2_id)
 
             # Simulate the match using the Game Engine
-            game_engine = GameEngine(player1, player2)
+            game_engine = GameEngine(player1, player2, tournament['surface'])
             match_winner = game_engine.simulate_match()
 
             # Determine the winner ID

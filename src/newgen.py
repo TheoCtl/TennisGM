@@ -28,6 +28,7 @@ class NewGenGenerator:
             "name": f"{first_name} {last_name}",
             "age": 16,
             "hand": random.choice(["Right", "Left"]),
+            "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
             "rank": player_rank,  # Initial unranked status
             "points": 0,
             "tournament_history": [],
