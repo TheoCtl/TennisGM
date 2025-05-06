@@ -9,23 +9,36 @@ def main_menu(stdscr, scheduler):
 
     while True:
         stdscr.clear()
-        stdscr.addstr(0, 0, f"--- Year {scheduler.current_year}, Week {scheduler.current_week} ---", curses.A_BOLD)
-        menu = ["View current tournaments", "Enter tournament", "See ATP Rankings", "See Hall of Fame"]
-
-        # Check if all tournaments for the current week are completed
-        current_tournaments = scheduler.get_current_week_tournaments()
-        incomplete_tournaments = [t for t in current_tournaments if t['winner_id'] is None]
-        if len(incomplete_tournaments) == 0:
-            menu.append("Advance to next week")
-        menu.append("Exit")
-
-        # Display menu options
-        for idx, row in enumerate(menu):
-            if idx == current_row:
-                stdscr.addstr(idx + 2, 0, row, curses.color_pair(1))  # Highlight current row
-            else:
-                stdscr.addstr(idx + 2, 0, row)
-
+        height, width = stdscr.getmaxyx()
+        
+        if not hasattr(scheduler, 'news_feed') or not scheduler.news_feed:
+            scheduler.generate_news_feed()
+        try:
+            stdscr.addstr(0, 0, f"--- Year {scheduler.current_year}, Week {scheduler.current_week} ---", curses.A_BOLD)
+            news_start_row = 2
+            max_news_items = min(10, (height - 10) // 2)
+            if scheduler.news_feed:
+                stdscr.addstr(news_start_row, 0, "News:", curses.A_UNDERLINE)
+            news_lines_used = 0
+            for i, news in enumerate(scheduler.news_feed[:max_news_items]):
+                stdscr.addstr(news_start_row + i + 1, 0, f"- {news}")
+                news_lines_used += 1
+            menu_start_row = news_start_row + (2 if scheduler.news_feed else 0) + news_lines_used
+            menu = ["View current tournaments", "Enter tournament", "See ATP Rankings", "See Hall of Fame"]
+            # Check if all tournaments for the current week are completed
+            current_tournaments = scheduler.get_current_week_tournaments()
+            incomplete_tournaments = [t for t in current_tournaments if t['winner_id'] is None]
+            if len(incomplete_tournaments) == 0:
+                menu.append("Advance to next week")
+            menu.append("Exit")
+            for idx, row in enumerate(menu):
+                if idx == current_row:
+                    stdscr.addstr(menu_start_row + idx, 0, row, curses.color_pair(1))
+                else:
+                    stdscr.addstr(menu_start_row + idx, 0, row)
+            stdscr.refresh()
+        except curses.error:
+            stdscr.refresh()
         stdscr.refresh()
 
         # Handle user input
@@ -45,7 +58,8 @@ def main_menu(stdscr, scheduler):
                 show_hall_of_fame(stdscr, scheduler)
             elif menu[current_row] == "Advance to next week":
                 scheduler.advance_week()
-                stdscr.addstr(len(menu) + 3, 0, "Advanced to next week!", curses.A_BOLD)
+                scheduler.news_feed = []
+                stdscr.addstr(len(menu) + max_news_items + 5, 0, "Advanced to next week!", curses.A_BOLD)
                 stdscr.refresh()
                 stdscr.getch()
             elif menu[current_row] == "Exit":

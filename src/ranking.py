@@ -1,7 +1,6 @@
 import json
 from collections import defaultdict
 from datetime import datetime, date, timedelta
-import logging
 
 class RankingSystem:
     # Points structure remains the same as before
@@ -83,7 +82,6 @@ class RankingSystem:
         self.ranking_history = defaultdict(list)  # Stores points with dates
         self.players = []
         self.load_ranking()
-        logging.basicConfig(filename='ranking_debug.log', level=logging.DEBUG)
 
     def load_ranking(self):
         try:
@@ -101,7 +99,6 @@ class RankingSystem:
 
     def calculate_points(self, tournament_category, round_reached, total_rounds):
         """Map round numbers to human-readable round names based on tournament type"""
-        logging.debug(f"Calculating points for category: {tournament_category}, round: {round_reached}, total_rounds: {total_rounds}")
         is_challenger = tournament_category.startswith("Challenger")
         is_250500 = tournament_category.startswith("ATP 250") or tournament_category.startswith("ATP 500")
         is_masters = tournament_category.startswith("Masters 1000")
@@ -137,19 +134,16 @@ class RankingSystem:
         round_name = mapping.get(round_reached, "")
         points = self.POINTS.get(tournament_category, {}).get(round_name, 0)
         
-        logging.debug(f"round_name: {round_name}, points: {points}")
         return points
 
     def get_current_points(self, player_id, current_date):
         """Calculate points from both ranking history and current tournament history"""
-        logging.debug(f"Getting current points for player ID: {player_id} as of {current_date}")
 
         if isinstance(current_date, datetime):
             current_date = current_date.date()
             
         player = next((p for p in self.players if p['id'] == player_id), None)
         if player and player.get('retired', False):
-            logging.debug(f"Player {player_id} is retired, returning 0 points")
             return 0
     
         one_year_ago = current_date - timedelta(weeks=52)
@@ -160,7 +154,6 @@ class RankingSystem:
             entry_date = datetime.fromisoformat(entry['date']).date() if isinstance(entry['date'], str) else entry['date']
             if entry_date <= one_year_ago:
                 points += entry.get('points', 0)
-                logging.debug(f"Added {entry.get('points', 0)} points from ranking history for tournament {entry.get('tournament')}")
     
         # Double-check with player tournament history (as backup)
         if player and 'tournament_history' in player:
@@ -168,16 +161,12 @@ class RankingSystem:
                 entry_date = datetime(entry['year'], 1, 1) + timedelta(weeks=entry.get('week', 0))
                 if entry_date.date() <= one_year_ago:
                     points += entry.get('points', 0)
-                    logging.debug(f"Added {entry.get('points', 0)} points from player history for tournament {entry.get('name')}")
     
-        logging.debug(f"Total points for player ID {player_id}: {points}")
         return points
 
     def update_ranking(self, tournament, current_date):
         """Maintain this for backward compatibility"""
-        logging.debug(f"Updating ranking for tournament: {tournament['name']}")
         if not tournament.get('bracket'):
-            logging.debug("No bracket found, skipping ranking update")            
             return
     
         # Store basic ranking info
@@ -189,7 +178,6 @@ class RankingSystem:
                 for player_id in match[:2]:
                     if player_id:
                         points = self.calculate_points(category, round_num, len(tournament['bracket']))
-                        logging.debug(f"Updating player {player_id} with {points} points for round {round_num}")
                         self.ranking_history[str(player_id)].append({
                             'date': date_str,
                             'points': points,
@@ -200,7 +188,6 @@ class RankingSystem:
     
         if tournament.get('winner_id') is not None:
             winner_points = self.calculate_points(category, len(tournament['bracket'])-1, len(tournament['bracket']))
-            logging.debug(f"Updating winner {tournament['winner_id']} with {winner_points} points")
             self.ranking_history[str(tournament['winner_id'])].append({
                 'date': date_str,
                 'points': winner_points,
@@ -211,7 +198,6 @@ class RankingSystem:
             })
     
         self.save_ranking()
-        logging.debug("Ranking update complete")
 
     def update_player_ranks(self, players, current_date):
         """Update all players' ranks based on current points"""
@@ -219,6 +205,7 @@ class RankingSystem:
             current_date = current_date.date()
             
         self.players = players
+        current_rankings = {p['id']: p.get('rank', 999) for p in players if not p.get('retired', False)}
         
         # Calculate current points for all players
         ranked_players = []
@@ -236,12 +223,18 @@ class RankingSystem:
         ranked_players.sort(key=lambda x: (-x['points'], x['name']))
         
         # Update ranks in player objects
+        ranking_changes = {}
         for rank, player_data in enumerate(ranked_players, 1):
             for player in players:
                 if player['id'] == player_data['id']:
+                    old_rank = player.get('rank', 999)
                     player['rank'] = rank
                     player['points'] = player_data['points']
+                    if old_rank != rank:
+                        ranking_changes[player['id']] = (old_rank, rank)
                     break
+        self.previous_rankings = current_rankings
+        return ranking_changes
 
     def get_ranked_players(self, players, current_date):
         """Return players sorted by ranking points"""

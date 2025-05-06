@@ -6,7 +6,6 @@ from collections import defaultdict
 from sim.game_engine import GameEngine  # Import the Game Engine
 from ranking import RankingSystem
 from player_development import PlayerDevelopment
-import logging
 from newgen import NewGenGenerator
 
 class TournamentScheduler:
@@ -31,6 +30,8 @@ class TournamentScheduler:
         self.ranking_system = RankingSystem()
         self.newgen_generator = NewGenGenerator()
         self.hall_of_fame = []
+        self.previous_rankings = {}
+        self.news_feed = []
         self.load_data(data_path, save_path)
         
         for player in self.players:
@@ -100,11 +101,11 @@ class TournamentScheduler:
         return [t for t in self.tournaments if t['week'] == self.current_week]
     
     def advance_week(self):
+        self.old_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
         self.current_week += 1
         self.current_date += timedelta(days=7)
         for tournament in self.tournaments:
             if tournament['week'] == self.current_week - 1 and tournament.get('winner_id'):
-                logging.debug(f"Processing completed tournament: {tournament['name']}")
                 self._update_all_player_histories(tournament)
         self._cleanup_old_tournament_history()
         if self.current_week > 52:
@@ -117,7 +118,6 @@ class TournamentScheduler:
                     player['age'] += 1
             new_players = self.newgen_generator.generate_new_players(self.current_year, count=new_player_count, existing_players=self.players)
             self.players.extend(new_players)
-            logging.debug(f"Generated {len(new_players)} new young players")
             self._reset_tournaments_for_new_year()
             self._rebuild_ranking_history()
         else:
@@ -126,6 +126,7 @@ class TournamentScheduler:
                 self.assign_players_to_tournaments()
                 for tournament in current_week_tournaments:
                     self.generate_bracket(tournament['id'])
+        self.generate_news_feed()
         self.ranking_system.update_player_ranks(self.players, self.current_date)
         PlayerDevelopment.seasonal_development(self)
         return self.current_week
@@ -354,19 +355,15 @@ class TournamentScheduler:
     
     def _update_player_tournament_history(self, tournament, player_id, round_reached):
         """Update a player's tournament history when they lose a match"""
-        logging.debug(f"Updating tournament history for player {player_id} in {tournament['name']}, round {round_reached}")
         player = next((p for p in self.players if p['id'] == player_id), None)
         if not player:
-            logging.debug(f"Player {player_id} not found")
             return
 
         if 'tournament_history' not in player:
             player['tournament_history'] = []
-            logging.debug(f"Initialized tournament history for player {player_id}")
             
         points = self.ranking_system.calculate_points(
             tournament['category'], round_reached, len(tournament['bracket']))
-        logging.debug(f"Calculated points: {points} for player {player_id}")
 
         # Check if player already has an entry for this tournament
         existing_entry = next(
@@ -378,14 +375,10 @@ class TournamentScheduler:
         if existing_entry:
             # Update existing entry if this is a later round
             if round_reached > existing_entry.get('round', -1):
-                logging.debug(f"Updating existing entry from round {existing_entry.get('round', -1)} to {round_reached}")
                 existing_entry['round'] = round_reached
                 existing_entry['points'] = points
-            else:
-                logging.debug(f"Existing entry at round {existing_entry.get('round', -1)} is same or later than {round_reached}")
         else:
             # Add new entry
-            logging.debug(f"Adding new tournament history entry for player {player_id}")
             player['tournament_history'].append({
                 'name': tournament['name'],
                 'category': tournament['category'],
@@ -408,7 +401,6 @@ class TournamentScheduler:
             if len(tournament['bracket']) == tournament['current_round']:
                 # Tournament final completed
                 tournament['winner_id'] = winner_id
-                logging.debug(f"Tournament {tournament['name']} completed. Winner: {winner_id}")
             else:
                 # Prepare next round
                 self._prepare_next_round(tournament)
@@ -435,7 +427,6 @@ class TournamentScheduler:
             # Tournament is complete
             if tournament['active_matches'] and tournament['active_matches'][0][2]:
                 tournament['winner_id'] = tournament['active_matches'][0][2]  # Winner of the final match
-                logging.debug(f"Set winner_id to {tournament['winner_id']} for tournament {tournament['name']}")
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner:
                     # Add to wins
@@ -446,7 +437,6 @@ class TournamentScheduler:
                         'category': tournament['category'],
                         'year': self.current_year
                     })
-                    logging.debug(f"Added tournament win for {winner['name']}")
                 
                 # Ensure winner's history is updated (they might not have lost any matches)
                     self._update_player_tournament_history(
@@ -519,7 +509,6 @@ class TournamentScheduler:
                     self._add_to_hall_of_fame(player)
     
         if retired_players:
-            logging.debug(f"Players retired this year: {', '.join(retired_players)}")
             print(f"\nThe following players have retired: {', '.join(retired_players)}")
         return retired_count
     
@@ -531,6 +520,7 @@ class TournamentScheduler:
         self.hall_of_fame.append(hof_entry)
     
     def _reset_tournaments_for_new_year(self):
+        self.old_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
         for tournament in self.tournaments:
             tournament['participants'] = []
             tournament['bracket'] = []
@@ -546,3 +536,77 @@ class TournamentScheduler:
             self.assign_players_to_tournaments()
             for tournament in current_week_tournaments:
                 self.generate_bracket(tournament['id'])
+                
+    def generate_news_feed(self):
+        self.news_feed = []
+        
+        # 5. Progressions/regressions weeks
+        if self.current_week in [26, 52]:
+            self.news_feed.append("Player development week: Skills have progressed/regressed!")
+
+        # 6. Newgens and retirements (only when they happen)
+        if self.current_week == 1:
+            # Check for newgens added last week (week 52)
+            newgens = [p for p in self.players if p['age'] == 16]
+            if newgens:
+                self.news_feed.append(f"New players joined the tour: {', '.join(p['name'] for p in newgens)}")
+
+            # Check for retirements
+            retired = [p for p in self.players if p.get('retired', False) and p['age'] >= 35]
+            if retired:
+                self.news_feed.append(f"Retirements: {', '.join(p['name'] for p in retired[:3])}" + 
+                                    ("..." if len(retired) > 3 else ""))
+    
+        # 1. Get ranking changes
+        current_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
+        ranking_changes = {}
+        if hasattr(self, 'old_rankings'):
+            for player_id, current_rank in current_rankings.items():
+                old_rank = self.old_rankings.get(player_id, 999)
+                if old_rank != current_rank:
+                    ranking_changes[player_id] = (old_rank, current_rank)
+    
+        # 2. Biggest progression/regression
+        if ranking_changes:
+            biggest_jump = max(ranking_changes.items(), key=lambda x: x[1][0] - x[1][1])
+            biggest_drop = max(ranking_changes.items(), key=lambda x: x[1][1] - x[1][0])
+
+            jumper = next(p for p in self.players if p['id'] == biggest_jump[0])
+            dropper = next(p for p in self.players if p['id'] == biggest_drop[0])
+
+            self.news_feed.append(
+                f"Biggest progression: {jumper['name']} ({biggest_jump[1][0]}→{biggest_jump[1][1]})"
+            )
+            self.news_feed.append(
+                f"Biggest regression: {dropper['name']} ({biggest_drop[1][0]}→{biggest_drop[1][1]})"
+            )
+
+        # 3. Top 20 changes
+        top20_changes = [
+            (p['name'], change[0], change[1]) 
+            for p in self.players 
+            if not p.get('retired', False) 
+            and p['id'] in ranking_changes 
+            and (change := ranking_changes[p['id']]) 
+            and (change[1] <= 20 or change[0] <= 20)
+        ]
+
+        for name, old, new in top20_changes:
+            if old > 20:  # New entry to top 20
+                self.news_feed.append(f"New in top 20: {name} (entered at {new})")
+            elif new > 20:  # Dropped out of top 20
+                self.news_feed.append(f"Dropped from top 20: {name} (was {old})")
+            else:  # Movement within top 20
+                self.news_feed.append(f"Top 20 change: {name} ({old}→{new})")
+
+        # 4. Last week's tournament winners
+        last_week = self.current_week - 1 if self.current_week > 1 else 52
+        last_year = self.current_year if self.current_week > 1 else self.current_year - 1
+
+        for tournament in self.tournaments:
+            if tournament['week'] == last_week and tournament.get('winner_id'):
+                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
+                if winner:
+                    self.news_feed.append(
+                        f"Tournament winner: {winner['name']} won {tournament['name']} ({tournament['category']})"
+                    )
