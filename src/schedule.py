@@ -318,55 +318,66 @@ class TournamentScheduler:
         
     def simulate_through_match(self, tournament_id, target_match_idx):
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
-
-        # Validate match index
-        if target_match_idx < 0 or target_match_idx >= len(tournament['active_matches']):
-            raise IndexError(f"Match index {target_match_idx} is out of bounds.")
-
-        # Simulate only the target match
-        if len(tournament['active_matches'][target_match_idx]) == 4 and tournament['active_matches'][target_match_idx][2] is not None:
-            return tournament['active_matches'][target_match_idx][2]
         
-        match = tournament['active_matches'][target_match_idx]
-        player1_id, player2_id = match[:2]
+        original_players = {}
+        
+        try:
+            # Validate match index
+            if target_match_idx < 0 or target_match_idx >= len(tournament['active_matches']):
+                raise IndexError(f"Match index {target_match_idx} is out of bounds.")
 
-        # Handle byes
-        if player1_id is None:
-            winner_id = player2_id
-            final_score = "BYE"
-            self._update_player_tournament_history(tournament, player2_id, tournament['current_round'])
-        elif player2_id is None:
-            winner_id = player1_id
-            final_score = "BYE"
-            self._update_player_tournament_history(tournament, player1_id, tournament['current_round'])
-        else:
-            # Fetch player data
-            player1 = next(p for p in self.players if p['id'] == player1_id)
-            player2 = next(p for p in self.players if p['id'] == player2_id)
+            # Simulate only the target match
+            if len(tournament['active_matches'][target_match_idx]) == 4 and tournament['active_matches'][target_match_idx][2] is not None:
+                return tournament['active_matches'][target_match_idx][2]
+        
+            match = tournament['active_matches'][target_match_idx]
+            player1_id, player2_id = match[:2]
 
-            # Simulate the match using the Game Engine
-            game_engine = GameEngine(player1, player2, tournament['surface'])
-            match_winner = game_engine.simulate_match()
+            # Handle byes
+            if player1_id is None:
+                winner_id = player2_id
+                final_score = "BYE"
+                self._update_player_tournament_history(tournament, player2_id, tournament['current_round'])
+            elif player2_id is None:
+                winner_id = player1_id
+                final_score = "BYE"
+                self._update_player_tournament_history(tournament, player1_id, tournament['current_round'])
+            else:
+                # Fetch player data
+                player1 = next(p for p in self.players if p['id'] == player1_id)
+                player2 = next(p for p in self.players if p['id'] == player2_id)
+                original_players = {
+                    player1_id: player1.copy(),
+                    player2_id: player2.copy()
+                }
 
-            # Determine the winner ID
-            winner_id = player1_id if match_winner == player1 else player2_id
+                # Simulate the match using the Game Engine
+                game_engine = GameEngine(player1, player2, tournament['surface'])
+                match_winner = game_engine.simulate_match()
 
-            # Store the final score for this match
-            final_score = game_engine.format_set_scores()
+                # Determine the winner ID
+                winner_id = match_winner['id']
+
+                # Store the final score for this match
+                final_score = game_engine.format_set_scores()
+
+                loser_id = player2_id if winner_id == player1['id'] else player1_id
+                self._update_player_tournament_history(tournament, loser_id, tournament['current_round'])
+
+            # Update the match with the winner and score
+            tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
+            tournament['bracket'][tournament['current_round']][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
+
+            # Check if all matches in the current round are complete
+            if all(len(m) == 4 and m[2] is not None for m in tournament['active_matches']):
+                self._prepare_next_round(tournament)
+
+            return winner_id
+        finally:
+            for player_id, original_stats in original_players.items():
+                player = next(p for p in self.players if p['id'] == player_id)
+                player.update(original_stats)
             
-            loser_id = player2_id if winner_id == player1 else player1_id
-            self._update_player_tournament_history(tournament, loser_id, tournament['current_round'])
-
-        # Update the match with the winner and score
-        tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
-        tournament['bracket'][tournament['current_round']][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
-
-        # Check if all matches in the current round are complete
-        if all(len(m) == 4 and m[2] is not None for m in tournament['active_matches']):
-            self._prepare_next_round(tournament)
-
-        return winner_id
-    
     def _update_player_tournament_history(self, tournament, player_id, round_reached):
         """Update a player's tournament history when they lose a match"""
         player = next((p for p in self.players if p['id'] == player_id), None)

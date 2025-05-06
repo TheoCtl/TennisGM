@@ -82,11 +82,14 @@ class GameEngine:
                 # Alternate server and receiver after each point
                 self.current_server, self.current_receiver = self.current_receiver, self.current_server
 
-            set_winner = self.is_set_over()
-            self.update_sets(set_winner)
+            set_winner_key = self.is_set_over()
+            self.update_sets(set_winner_key)
+            
+        if self.sets["player1"] == 2:
+            match_winner = self.player1
+        else:
+            match_winner = self.player2
 
-        # Determine the match winner
-        match_winner = self.player1 if self.sets["player1"] == 2 else self.player2
         print(f"{match_winner['name']} wins the match! Final Score: {self.format_set_scores()}")
         return match_winner
 
@@ -300,3 +303,17 @@ class GameEngine:
     def _get_player_key(self, player):
         """Return 'player1' or 'player2' based on player ID"""
         return "player1" if player['id'] == self.player1['id'] else "player2"
+    
+    def get_original_players(self):
+        """Return the original player stats without surface/form bonuses"""
+        return {
+            'player1': self._remove_bonuses(self.player1),
+            'player2': self._remove_bonuses(self.player2)
+        }
+        
+    def _remove_bonuses(self, player):
+        """Remove any temporary bonuses from a player's stats"""
+        original = player.copy()
+        if 'original_skills' in player:
+            original['skills'] = player['original_skills']
+        return original
