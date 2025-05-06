@@ -5,7 +5,16 @@ Traceback (most recent call last):
     enter_tournament(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 277, in enter_tournament
     manage_tournament(stdscr, scheduler, tournament)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 369, in manage_tournament
-    winner = next(p for p in scheduler.players if p['id'] == winner_id)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-StopIteration
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 398, in manage_tournament
+    winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 357, in simulate_through_match
+    match_winner = game_engine.simulate_match()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\theoc\Desktop\TennisGM\src\sim\game_engine.py", line 79, in simulate_match
+    winner_key = self.simulate_point()
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\theoc\Desktop\TennisGM\src\sim\game_engine.py", line 138, in simulate_point
+    caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GameEngine.can_catch() missing 1 required positional argument: 'shot_type'

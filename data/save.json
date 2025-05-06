@@ -1,7 +1,7 @@
 {
   "current_year": 1,
-  "current_week": 6,
-  "current_date": "2025-02-05T00:00:00",
+  "current_week": 9,
+  "current_date": "2025-02-26T00:00:00",
   "players": [
     {
       "id": 1,
@@ -17,8 +17,8 @@
         "straight": 79,
         "cross": 76
       },
-      "rank": 2,
-      "points": 1475,
+      "rank": 3,
+      "points": 2205,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -46,12 +46,41 @@
           "week": 5,
           "round": 4,
           "points": 150
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 3,
+          "points": 180
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 5,
+          "points": 250
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 4,
+          "points": 300
         }
       ],
       "tournament_wins": [
         {
           "name": "Canberra Tennis International",
           "category": "Challenger 125",
+          "year": 1
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
           "year": 1
         }
       ]
@@ -70,8 +99,8 @@
         "straight": 75,
         "cross": 74
       },
-      "rank": 7,
-      "points": 510,
+      "rank": 11,
+      "points": 735,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -107,6 +136,22 @@
           "week": 5,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 3,
+          "points": 180
         }
       ],
       "tournament_wins": [
@@ -131,8 +176,8 @@
         "straight": 79,
         "cross": 79
       },
-      "rank": 12,
-      "points": 315,
+      "rank": 16,
+      "points": 560,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -160,6 +205,30 @@
           "week": 3,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 3,
+          "points": 180
         }
       ],
       "tournament_wins": [
@@ -184,8 +253,8 @@
         "straight": 74,
         "cross": 71
       },
-      "rank": 19,
-      "points": 255,
+      "rank": 17,
+      "points": 515,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -229,6 +298,30 @@
           "week": 5,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 90
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 4,
+          "points": 150
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -247,8 +340,8 @@
         "straight": 78,
         "cross": 80
       },
-      "rank": 3,
-      "points": 1445,
+      "rank": 2,
+      "points": 2240,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -292,6 +385,30 @@
           "week": 5,
           "round": 5,
           "points": 250
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 5,
+          "points": 500
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 5,
+          "points": 250
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -314,6 +431,16 @@
           "name": "Open Occitanie",
           "category": "ATP 250",
           "year": 1
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1
         }
       ]
     },
@@ -331,8 +458,8 @@
         "straight": 73,
         "cross": 70
       },
-      "rank": 14,
-      "points": 280,
+      "rank": 20,
+      "points": 435,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -368,6 +495,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 90
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -386,8 +537,8 @@
         "straight": 70,
         "cross": 65
       },
-      "rank": 25,
-      "points": 170,
+      "rank": 19,
+      "points": 440,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -423,6 +574,30 @@
           "week": 5,
           "round": 4,
           "points": 100
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 3,
+          "points": 180
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -452,8 +627,8 @@
         "straight": 82,
         "cross": 74
       },
-      "rank": 18,
-      "points": 260,
+      "rank": 13,
+      "points": 640,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -481,6 +656,30 @@
           "week": 5,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 3,
+          "points": 180
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 3,
+          "points": 180
         }
       ],
       "tournament_wins": []
@@ -500,7 +699,7 @@
         "cross": 75
       },
       "rank": 4,
-      "points": 1005,
+      "points": 1220,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -536,6 +735,30 @@
           "week": 5,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 4,
+          "points": 150
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -555,7 +778,7 @@
         "cross": 75
       },
       "rank": 1,
-      "points": 2430,
+      "points": 2910,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -591,6 +814,30 @@
           "week": 5,
           "round": 3,
           "points": 90
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 4,
+          "points": 300
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 3,
+          "points": 90
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -620,8 +867,8 @@
         "straight": 77,
         "cross": 83
       },
-      "rank": 8,
-      "points": 510,
+      "rank": 14,
+      "points": 620,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -657,6 +904,30 @@
           "week": 5,
           "round": 3,
           "points": 90
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -675,8 +946,8 @@
         "straight": 76,
         "cross": 74
       },
-      "rank": 15,
-      "points": 275,
+      "rank": 6,
+      "points": 945,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -712,12 +983,41 @@
           "week": 5,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 4,
+          "points": 150
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 5,
+          "points": 500
         }
       ],
       "tournament_wins": [
         {
           "name": "Oeiras Indoor",
           "category": "Challenger 50",
+          "year": 1
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
           "year": 1
         }
       ]
@@ -736,8 +1036,8 @@
         "straight": 74,
         "cross": 70
       },
-      "rank": 13,
-      "points": 290,
+      "rank": 8,
+      "points": 780,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -781,6 +1081,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 4,
+          "points": 300
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 3,
+          "points": 180
         }
       ],
       "tournament_wins": []
@@ -799,8 +1123,8 @@
         "straight": 76,
         "cross": 78
       },
-      "rank": 80,
-      "points": 65,
+      "rank": 10,
+      "points": 755,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -828,9 +1152,44 @@
           "week": 3,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 4,
+          "points": 100
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 3,
+          "points": 90
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 5,
+          "points": 500
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 15,
@@ -846,8 +1205,8 @@
         "straight": 76,
         "cross": 79
       },
-      "rank": 6,
-      "points": 565,
+      "rank": 5,
+      "points": 1175,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -891,9 +1250,39 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 5,
+          "points": 500
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 3,
+          "points": 90
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 16,
@@ -909,8 +1298,8 @@
         "straight": 75,
         "cross": 73
       },
-      "rank": 10,
-      "points": 425,
+      "rank": 7,
+      "points": 810,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -954,9 +1343,39 @@
           "week": 5,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 5,
+          "points": 250
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 90
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 17,
@@ -972,8 +1391,8 @@
         "straight": 76,
         "cross": 75
       },
-      "rank": 5,
-      "points": 585,
+      "rank": 12,
+      "points": 650,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -1009,6 +1428,22 @@
           "week": 5,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -1027,8 +1462,8 @@
         "straight": 76,
         "cross": 71
       },
-      "rank": 11,
-      "points": 420,
+      "rank": 9,
+      "points": 780,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1072,6 +1507,30 @@
           "week": 5,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 3,
+          "points": 180
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 3,
+          "points": 90
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -1101,8 +1560,8 @@
         "straight": 70,
         "cross": 67
       },
-      "rank": 48,
-      "points": 110,
+      "rank": 18,
+      "points": 475,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -1122,6 +1581,30 @@
           "week": 3,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 4,
+          "points": 300
         }
       ],
       "tournament_wins": []
@@ -1140,8 +1623,8 @@
         "straight": 67,
         "cross": 63
       },
-      "rank": 32,
-      "points": 139,
+      "rank": 23,
+      "points": 339,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -1177,6 +1660,30 @@
           "week": 5,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 90
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -1201,8 +1708,8 @@
         "straight": 68,
         "cross": 71
       },
-      "rank": 9,
-      "points": 445,
+      "rank": 15,
+      "points": 600,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -1238,6 +1745,30 @@
           "week": 4,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 90
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -1256,8 +1787,8 @@
         "straight": 69,
         "cross": 67
       },
-      "rank": 39,
-      "points": 130,
+      "rank": 28,
+      "points": 285,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -1285,6 +1816,30 @@
           "week": 5,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 90
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -1309,8 +1864,8 @@
         "straight": 65,
         "cross": 64
       },
-      "rank": 34,
-      "points": 135,
+      "rank": 31,
+      "points": 265,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1346,6 +1901,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 3,
+          "points": 90
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -1364,8 +1943,8 @@
         "straight": 71,
         "cross": 69
       },
-      "rank": 17,
-      "points": 265,
+      "rank": 21,
+      "points": 375,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1409,6 +1988,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -1427,8 +2030,8 @@
         "straight": 71,
         "cross": 70
       },
-      "rank": 22,
-      "points": 195,
+      "rank": 25,
+      "points": 295,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -1456,6 +2059,30 @@
           "week": 4,
           "round": 3,
           "points": 75
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -1474,8 +2101,8 @@
         "straight": 63,
         "cross": 61
       },
-      "rank": 20,
-      "points": 210,
+      "rank": 35,
+      "points": 240,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1503,6 +2130,22 @@
           "week": 3,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -1521,8 +2164,8 @@
         "straight": 67,
         "cross": 64
       },
-      "rank": 31,
-      "points": 140,
+      "rank": 30,
+      "points": 270,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1558,6 +2201,30 @@
           "week": 4,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -1582,8 +2249,8 @@
         "straight": 69,
         "cross": 66
       },
-      "rank": 16,
-      "points": 270,
+      "rank": 22,
+      "points": 370,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -1611,6 +2278,22 @@
           "week": 3,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": []
@@ -1629,8 +2312,8 @@
         "straight": 66,
         "cross": 67
       },
-      "rank": 23,
-      "points": 190,
+      "rank": 26,
+      "points": 290,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1674,6 +2357,30 @@
           "week": 5,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -1692,8 +2399,8 @@
         "straight": 69,
         "cross": 68
       },
-      "rank": 42,
-      "points": 120,
+      "rank": 24,
+      "points": 320,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -1729,6 +2436,30 @@
           "week": 4,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 90
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -1753,8 +2484,8 @@
         "straight": 68,
         "cross": 65
       },
-      "rank": 36,
-      "points": 135,
+      "rank": 41,
+      "points": 225,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1790,6 +2521,22 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -1808,8 +2555,8 @@
         "straight": 66,
         "cross": 64
       },
-      "rank": 30,
-      "points": 145,
+      "rank": 43,
+      "points": 220,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1837,6 +2584,30 @@
           "week": 3,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -1855,8 +2626,8 @@
         "straight": 65,
         "cross": 64
       },
-      "rank": 27,
-      "points": 160,
+      "rank": 45,
+      "points": 210,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -1892,6 +2663,30 @@
           "week": 5,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -1910,8 +2705,8 @@
         "straight": 66,
         "cross": 65
       },
-      "rank": 33,
-      "points": 138,
+      "rank": 49,
+      "points": 198,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -1947,6 +2742,30 @@
           "week": 5,
           "round": 3,
           "points": 60
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -1965,8 +2784,8 @@
         "straight": 65,
         "cross": 66
       },
-      "rank": 47,
-      "points": 110,
+      "rank": 64,
+      "points": 160,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -1986,6 +2805,30 @@
           "week": 3,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2004,8 +2847,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 43,
-      "points": 120,
+      "rank": 39,
+      "points": 230,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -2041,6 +2884,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -2059,8 +2926,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 90,
-      "points": 55,
+      "rank": 98,
+      "points": 98,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -2088,6 +2955,30 @@
           "week": 5,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -2106,8 +2997,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 29,
-      "points": 155,
+      "rank": 27,
+      "points": 285,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -2143,6 +3034,30 @@
           "week": 4,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 90
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2161,8 +3076,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 70,
-      "points": 78,
+      "rank": 69,
+      "points": 153,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -2198,6 +3113,30 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2216,8 +3155,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 35,
-      "points": 135,
+      "rank": 40,
+      "points": 225,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -2253,6 +3192,22 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -2271,8 +3226,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 79,
-      "points": 70,
+      "rank": 70,
+      "points": 153,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -2308,6 +3263,30 @@
           "week": 5,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2326,8 +3305,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 113,
-      "points": 36,
+      "rank": 33,
+      "points": 256,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -2355,9 +3334,44 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 4,
+          "points": 75
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 4,
+          "points": 125
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 43,
@@ -2373,8 +3387,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 40,
-      "points": 123,
+      "rank": 34,
+      "points": 253,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -2418,6 +3432,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 3,
+          "points": 90
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -2442,8 +3480,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 67,
-      "points": 81,
+      "rank": 92,
+      "points": 109,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2479,6 +3517,22 @@
           "week": 5,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": []
@@ -2497,8 +3551,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 44,
-      "points": 119,
+      "rank": 66,
+      "points": 159,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2542,6 +3596,22 @@
           "week": 5,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2560,8 +3630,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 26,
-      "points": 170,
+      "rank": 29,
+      "points": 280,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -2605,6 +3675,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2623,8 +3717,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 56,
-      "points": 98,
+      "rank": 57,
+      "points": 173,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -2652,6 +3746,30 @@
           "week": 3,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -2670,8 +3788,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 54,
-      "points": 103,
+      "rank": 74,
+      "points": 143,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2715,6 +3833,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -2733,8 +3875,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 81,
-      "points": 65,
+      "rank": 79,
+      "points": 135,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2770,6 +3912,30 @@
           "week": 4,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 35
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -2788,8 +3954,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 21,
-      "points": 203,
+      "rank": 32,
+      "points": 263,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2825,6 +3991,30 @@
           "week": 4,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2843,8 +4033,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 72,
-      "points": 78,
+      "rank": 81,
+      "points": 128,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -2888,6 +4078,30 @@
           "week": 5,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -2906,8 +4120,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 49,
-      "points": 110,
+      "rank": 65,
+      "points": 160,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2943,6 +4157,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2961,8 +4199,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 71,
-      "points": 78,
+      "rank": 51,
+      "points": 193,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -2998,6 +4236,30 @@
           "week": 5,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 3,
+          "points": 75
         }
       ],
       "tournament_wins": []
@@ -3016,8 +4278,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 109,
-      "points": 38,
+      "rank": 46,
+      "points": 208,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -3045,9 +4307,39 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 25
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 4,
+          "points": 125
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 55,
@@ -3063,8 +4355,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 96,
-      "points": 50,
+      "rank": 100,
+      "points": 98,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3100,6 +4392,30 @@
           "week": 4,
           "round": 3,
           "points": 30
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -3118,8 +4434,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 46,
-      "points": 111,
+      "rank": 42,
+      "points": 221,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -3163,6 +4479,30 @@
           "week": 5,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -3181,8 +4521,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 52,
-      "points": 104,
+      "rank": 56,
+      "points": 179,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -3218,6 +4558,30 @@
           "week": 4,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -3237,7 +4601,7 @@
         "cross": 61
       },
       "rank": 105,
-      "points": 39,
+      "points": 92,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3273,6 +4637,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 25
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -3291,8 +4679,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 103,
-      "points": 40,
+      "rank": 71,
+      "points": 150,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -3336,9 +4724,31 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 35
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 4,
+          "points": 75
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 60,
@@ -3355,7 +4765,7 @@
         "cross": 61
       },
       "rank": 63,
-      "points": 86,
+      "points": 161,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3391,6 +4801,30 @@
           "week": 5,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -3409,8 +4843,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 85,
-      "points": 63,
+      "rank": 83,
+      "points": 126,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -3446,6 +4880,30 @@
           "week": 4,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 35
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": []
@@ -3464,8 +4922,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 98,
-      "points": 45,
+      "rank": 112,
+      "points": 81,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -3509,6 +4967,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -3527,8 +5009,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 62,
-      "points": 86,
+      "rank": 76,
+      "points": 141,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3572,6 +5054,30 @@
           "week": 5,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -3590,8 +5096,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 78,
-      "points": 71,
+      "rank": 59,
+      "points": 171,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -3635,6 +5141,30 @@
           "week": 5,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 3,
+          "points": 60
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -3653,8 +5183,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 24,
-      "points": 190,
+      "rank": 36,
+      "points": 240,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3690,6 +5220,30 @@
           "week": 4,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -3708,8 +5262,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 116,
-      "points": 34,
+      "rank": 82,
+      "points": 127,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -3753,6 +5307,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 35
         }
       ],
       "tournament_wins": []
@@ -3771,8 +5349,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 104,
-      "points": 40,
+      "rank": 93,
+      "points": 108,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -3800,6 +5378,22 @@
           "week": 3,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 3,
+          "points": 60
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -3818,8 +5412,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 117,
-      "points": 33,
+      "rank": 114,
+      "points": 80,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3847,6 +5441,38 @@
           "week": 3,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 25
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -3865,8 +5491,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 83,
-      "points": 64,
+      "rank": 87,
+      "points": 119,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3910,6 +5536,22 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -3928,8 +5570,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 58,
-      "points": 93,
+      "rank": 91,
+      "points": 111,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3965,6 +5607,22 @@
           "week": 5,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -3983,8 +5641,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 66,
-      "points": 83,
+      "rank": 80,
+      "points": 128,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -4028,6 +5686,22 @@
           "week": 5,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 35
         }
       ],
       "tournament_wins": []
@@ -4046,8 +5720,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 50,
-      "points": 109,
+      "rank": 67,
+      "points": 159,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4083,6 +5757,30 @@
           "week": 4,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -4107,8 +5805,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 108,
-      "points": 39,
+      "rank": 61,
+      "points": 164,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -4144,6 +5842,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 3,
+          "points": 45
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 3,
+          "points": 60
         }
       ],
       "tournament_wins": []
@@ -4162,8 +5884,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 86,
-      "points": 60,
+      "rank": 102,
+      "points": 96,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4191,6 +5913,30 @@
           "week": 3,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -4209,8 +5955,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 60,
-      "points": 90,
+      "rank": 77,
+      "points": 140,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4246,6 +5992,30 @@
           "week": 5,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -4264,8 +6034,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 73,
-      "points": 75,
+      "rank": 78,
+      "points": 140,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4293,6 +6063,30 @@
           "week": 3,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -4311,8 +6105,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 76,
-      "points": 71,
+      "rank": 101,
+      "points": 97,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4348,6 +6142,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -4366,8 +6184,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 38,
-      "points": 130,
+      "rank": 55,
+      "points": 180,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -4403,6 +6221,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -4421,8 +6263,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 77,
-      "points": 71,
+      "rank": 94,
+      "points": 107,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4466,6 +6308,30 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": []
@@ -4484,8 +6350,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 45,
-      "points": 116,
+      "rank": 53,
+      "points": 191,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4521,6 +6387,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -4539,8 +6429,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 75,
-      "points": 72,
+      "rank": 99,
+      "points": 98,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4576,6 +6466,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -4594,8 +6508,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 97,
-      "points": 46,
+      "rank": 90,
+      "points": 112,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -4631,9 +6545,39 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 4,
+          "points": 50
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 83,
@@ -4649,8 +6593,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 57,
-      "points": 93,
+      "rank": 73,
+      "points": 148,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -4694,6 +6638,30 @@
           "week": 5,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -4712,8 +6680,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 28,
-      "points": 158,
+      "rank": 38,
+      "points": 233,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -4749,6 +6717,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -4767,8 +6759,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 100,
-      "points": 43,
+      "rank": 60,
+      "points": 169,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4796,6 +6788,30 @@
           "week": 5,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 3,
+          "points": 75
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -4814,8 +6830,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 53,
-      "points": 103,
+      "rank": 68,
+      "points": 153,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4859,6 +6875,30 @@
           "week": 5,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -4877,8 +6917,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 120,
-      "points": 30,
+      "rank": 50,
+      "points": 195,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -4906,9 +6946,39 @@
           "week": 3,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 4,
+          "points": 75
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 45
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 88,
@@ -4924,8 +6994,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 37,
-      "points": 130,
+      "rank": 44,
+      "points": 215,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4969,6 +7039,30 @@
           "week": 5,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -4987,8 +7081,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 91,
-      "points": 54,
+      "rank": 103,
+      "points": 95,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5032,6 +7126,30 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -5050,8 +7168,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 55,
-      "points": 100,
+      "rank": 54,
+      "points": 185,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -5095,6 +7213,30 @@
           "week": 5,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -5113,8 +7255,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 74,
-      "points": 74,
+      "rank": 48,
+      "points": 204,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -5150,6 +7292,30 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 90
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -5168,8 +7334,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 69,
-      "points": 78,
+      "rank": 88,
+      "points": 118,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -5213,6 +7379,30 @@
           "week": 5,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -5231,8 +7421,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 88,
-      "points": 58,
+      "rank": 95,
+      "points": 104,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -5268,6 +7458,30 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": []
@@ -5286,8 +7500,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 61,
-      "points": 88,
+      "rank": 75,
+      "points": 143,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5331,6 +7545,30 @@
           "week": 5,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -5349,8 +7587,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 115,
-      "points": 35,
+      "rank": 89,
+      "points": 118,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5378,6 +7616,38 @@
           "week": 3,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 15
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -5396,8 +7666,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 101,
-      "points": 43,
+      "rank": 62,
+      "points": 163,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5441,9 +7711,31 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 4,
+          "points": 100
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 97,
@@ -5459,8 +7751,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 51,
-      "points": 108,
+      "rank": 52,
+      "points": 193,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5496,6 +7788,30 @@
           "week": 5,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -5514,8 +7830,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 65,
-      "points": 83,
+      "rank": 85,
+      "points": 123,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5559,6 +7875,30 @@
           "week": 5,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -5577,8 +7917,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 95,
-      "points": 51,
+      "rank": 47,
+      "points": 206,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5614,9 +7954,39 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 3,
+          "points": 45
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 4,
+          "points": 100
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 100,
@@ -5632,8 +8002,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 59,
-      "points": 91,
+      "rank": 37,
+      "points": 236,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5669,6 +8039,30 @@
           "week": 5,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 45
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": []
@@ -5687,8 +8081,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 89,
-      "points": 57,
+      "rank": 107,
+      "points": 88,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -5732,6 +8126,22 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 25
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -5750,8 +8160,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 110,
-      "points": 36,
+      "rank": 96,
+      "points": 102,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -5787,6 +8197,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -5805,8 +8239,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 122,
-      "points": 26,
+      "rank": 116,
+      "points": 80,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5842,6 +8276,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 3,
+          "points": 30
         }
       ],
       "tournament_wins": []
@@ -5860,8 +8318,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 41,
-      "points": 121,
+      "rank": 58,
+      "points": 171,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5905,6 +8363,30 @@
           "week": 5,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -5929,8 +8411,8 @@
         "straight": 62,
         "cross": 58
       },
-      "rank": 94,
-      "points": 52,
+      "rank": 113,
+      "points": 81,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5966,6 +8448,30 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -5984,8 +8490,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 64,
-      "points": 85,
+      "rank": 84,
+      "points": 125,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6029,6 +8535,30 @@
           "week": 5,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -6047,8 +8577,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 107,
-      "points": 39,
+      "rank": 111,
+      "points": 85,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -6092,6 +8622,38 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -6110,8 +8672,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 87,
-      "points": 59,
+      "rank": 104,
+      "points": 92,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6155,6 +8717,22 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 25
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -6173,8 +8751,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 92,
-      "points": 53,
+      "rank": 117,
+      "points": 77,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -6218,6 +8796,38 @@
           "week": 5,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Play In Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -6236,8 +8846,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 99,
-      "points": 43,
+      "rank": 110,
+      "points": 87,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -6273,6 +8883,30 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 25
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -6291,8 +8925,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 121,
-      "points": 30,
+      "rank": 115,
+      "points": 80,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6328,6 +8962,30 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 2,
+          "points": 25
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 2,
+          "points": 15
         }
       ],
       "tournament_wins": []
@@ -6346,8 +9004,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 127,
-      "points": 20,
+      "rank": 72,
+      "points": 149,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6367,9 +9025,47 @@
           "week": 3,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 2,
+          "points": 35
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 4,
+          "points": 75
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 113,
@@ -6385,8 +9081,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 84,
-      "points": 64,
+      "rank": 109,
+      "points": 88,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6422,6 +9118,30 @@
           "week": 4,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -6440,8 +9160,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 112,
-      "points": 36,
+      "rank": 124,
+      "points": 60,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6485,6 +9205,38 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 4
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -6503,8 +9255,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 111,
-      "points": 36,
+      "rank": 122,
+      "points": 65,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -6548,6 +9300,38 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -6566,8 +9350,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 93,
-      "points": 52,
+      "rank": 97,
+      "points": 101,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -6611,6 +9395,38 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -6630,7 +9446,7 @@
         "cross": 56
       },
       "rank": 106,
-      "points": 39,
+      "points": 90,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -6666,6 +9482,30 @@
           "week": 4,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 25
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -6684,8 +9524,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 124,
-      "points": 24,
+      "rank": 119,
+      "points": 67,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6721,6 +9561,38 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 4
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -6739,8 +9611,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 119,
-      "points": 32,
+      "rank": 121,
+      "points": 66,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -6776,6 +9648,38 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 4
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -6794,8 +9698,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 114,
-      "points": 35,
+      "rank": 118,
+      "points": 69,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6839,6 +9743,38 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 4
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -6857,8 +9793,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 123,
-      "points": 24,
+      "rank": 126,
+      "points": 53,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6894,6 +9830,38 @@
           "week": 4,
           "round": 0,
           "points": 4
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -6912,8 +9880,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 126,
-      "points": 23,
+      "rank": 125,
+      "points": 59,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -6941,6 +9909,38 @@
           "week": 3,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -6959,8 +9959,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 125,
-      "points": 24,
+      "rank": 128,
+      "points": 48,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -6996,6 +9996,38 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 4
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -7014,8 +10046,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 102,
-      "points": 40,
+      "rank": 120,
+      "points": 66,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -7059,6 +10091,38 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 4
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -7077,8 +10141,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 118,
-      "points": 32,
+      "rank": 123,
+      "points": 63,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -7114,6 +10178,38 @@
           "week": 5,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 4
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -7132,8 +10228,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 82,
-      "points": 64,
+      "rank": 108,
+      "points": 88,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -7177,6 +10273,30 @@
           "week": 5,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -7195,8 +10315,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 68,
-      "points": 79,
+      "rank": 86,
+      "points": 119,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -7240,6 +10360,30 @@
           "week": 5,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 20
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 10
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -7258,8 +10402,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 128,
-      "points": 18,
+      "rank": 127,
+      "points": 49,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -7287,6 +10431,38 @@
           "week": 3,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 6,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 1,
+          "week": 7,
+          "round": 0,
+          "points": 8
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 1,
+          "week": 8,
+          "round": 0,
+          "points": 4
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 9,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -9483,7 +12659,7 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 15,
       "participants": [
         22,
         76,
@@ -9523,170 +12699,206 @@
           [
             22,
             63,
-            null
+            22,
+            "6-1, 6-3"
           ],
           [
             76,
             127,
-            null
+            76,
+            "6-0, 6-1"
           ],
           [
             98,
             24,
-            null
+            24,
+            "1-6, 0-6"
           ],
           [
             13,
             78,
-            null
+            13,
+            "6-1, 3-6, 6-1"
           ],
           [
             106,
             29,
-            null
+            29,
+            "2-6, 0-6"
           ],
           [
             48,
             8,
-            null
+            8,
+            "4-6, 2-6"
           ],
           [
             35,
             20,
-            null
+            20,
+            "2-6, 4-6"
           ],
           [
             88,
             90,
-            null
+            90,
+            "7-6, 1-6, 6-7"
           ],
           [
             80,
             91,
-            null
+            91,
+            "6-4, 5-7, 4-6"
           ],
           [
             39,
             51,
-            null
+            39,
+            "3-6, 7-5, 6-4"
           ],
           [
             9,
             65,
-            null
+            9,
+            "6-0, 6-0"
           ],
           [
             52,
             18,
-            null
+            18,
+            "0-6, 2-6"
           ],
           [
             56,
             92,
-            null
+            56,
+            "7-6, 5-7, 6-3"
           ],
           [
             57,
             21,
-            null
+            21,
+            "2-6, 0-6"
           ],
           [
             15,
             36,
-            null
+            15,
+            "6-1, 6-4"
           ],
           [
             16,
             53,
-            null
+            16,
+            "6-1, 6-2"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            22,
+            76,
+            22,
+            "6-0, 6-3"
+          ],
+          [
+            24,
+            13,
+            13,
+            "1-6, 1-6"
+          ],
+          [
+            29,
+            8,
+            8,
+            "2-6, 2-6"
+          ],
+          [
+            20,
+            90,
+            20,
+            "6-3, 6-4"
+          ],
+          [
+            91,
+            39,
+            91,
+            "6-4, 6-2"
+          ],
+          [
+            9,
+            18,
+            18,
+            "3-6, 6-7"
+          ],
+          [
+            56,
+            21,
+            21,
+            "4-6, 3-6"
+          ],
+          [
+            15,
+            16,
+            15,
+            "4-6, 6-1, 7-6"
+          ]
+        ],
+        [
+          [
+            22,
+            13,
+            13,
+            "3-6, 5-7"
+          ],
+          [
+            8,
+            20,
+            8,
+            "4-6, 7-6, 7-5"
+          ],
+          [
+            91,
+            18,
+            18,
+            "3-6, 3-6"
+          ],
+          [
+            21,
+            15,
+            15,
+            "1-6, 0-6"
+          ]
+        ],
+        [
+          [
+            13,
+            8,
+            13,
+            "6-2, 6-3"
+          ],
+          [
+            18,
+            15,
+            15,
+            "4-6, 5-7"
+          ]
+        ],
+        [
+          [
+            13,
+            15,
+            15,
+            "6-3, 3-6, 4-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          22,
-          63,
-          null
-        ],
-        [
-          76,
-          127,
-          null
-        ],
-        [
-          98,
-          24,
-          null
-        ],
-        [
           13,
-          78,
-          null
-        ],
-        [
-          106,
-          29,
-          null
-        ],
-        [
-          48,
-          8,
-          null
-        ],
-        [
-          35,
-          20,
-          null
-        ],
-        [
-          88,
-          90,
-          null
-        ],
-        [
-          80,
-          91,
-          null
-        ],
-        [
-          39,
-          51,
-          null
-        ],
-        [
-          9,
-          65,
-          null
-        ],
-        [
-          52,
-          18,
-          null
-        ],
-        [
-          56,
-          92,
-          null
-        ],
-        [
-          57,
-          21,
-          null
-        ],
-        [
           15,
-          36,
-          null
-        ],
-        [
-          16,
-          53,
-          null
+          15,
+          "6-3, 3-6, 4-6"
         ]
       ]
     },
@@ -9698,7 +12910,7 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 5,
       "participants": [
         3,
         1,
@@ -9738,170 +12950,206 @@
           [
             3,
             104,
-            null
+            3,
+            "6-1, 6-0"
           ],
           [
             1,
             12,
-            null
+            1,
+            "6-4, 7-6"
           ],
           [
             83,
             97,
-            null
+            97,
+            "2-6, 5-7"
           ],
           [
             30,
             94,
-            null
+            30,
+            "6-1, 6-4"
           ],
           [
             4,
             23,
-            null
+            4,
+            "6-1, 6-2"
           ],
           [
             50,
             11,
-            null
+            11,
+            "2-6, 0-6"
           ],
           [
             5,
             47,
-            null
+            5,
+            "6-1, 6-1"
           ],
           [
             75,
             25,
-            null
+            25,
+            "1-6, 2-6"
           ],
           [
             33,
             100,
-            null
+            100,
+            "4-6, 4-6"
           ],
           [
             86,
             6,
-            null
+            6,
+            "2-6, 1-6"
           ],
           [
             34,
             10,
-            null
+            10,
+            "0-6, 2-6"
           ],
           [
             46,
             43,
-            null
+            46,
+            "6-1, 6-4"
           ],
           [
             72,
             60,
-            null
+            60,
+            "4-6, 3-6"
           ],
           [
             38,
             32,
-            null
+            38,
+            "6-7, 6-4, 6-4"
           ],
           [
             19,
             84,
-            null
+            19,
+            "6-1, 6-2"
           ],
           [
             7,
             27,
-            null
+            7,
+            "6-0, 6-1"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            3,
+            1,
+            1,
+            "7-6, 3-6, 4-6"
+          ],
+          [
+            97,
+            30,
+            30,
+            "0-6, 1-6"
+          ],
+          [
+            4,
+            11,
+            4,
+            "4-6, 6-2, 7-6"
+          ],
+          [
+            5,
+            25,
+            5,
+            "6-2, 6-1"
+          ],
+          [
+            100,
+            6,
+            6,
+            "0-6, 0-6"
+          ],
+          [
+            10,
+            46,
+            10,
+            "6-3, 6-0"
+          ],
+          [
+            60,
+            38,
+            38,
+            "0-6, 4-6"
+          ],
+          [
+            19,
+            7,
+            7,
+            "2-6, 2-6"
+          ]
+        ],
+        [
+          [
+            1,
+            30,
+            1,
+            "6-2, 6-4"
+          ],
+          [
+            4,
+            5,
+            5,
+            "4-6, 4-6"
+          ],
+          [
+            6,
+            10,
+            10,
+            "2-6, 6-7"
+          ],
+          [
+            38,
+            7,
+            7,
+            "0-6, 0-6"
+          ]
+        ],
+        [
+          [
+            1,
+            5,
+            5,
+            "4-6, 6-3, 3-6"
+          ],
+          [
+            10,
+            7,
+            10,
+            "6-3, 6-2"
+          ]
+        ],
+        [
+          [
+            5,
+            10,
+            5,
+            "6-3, 6-3"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          3,
-          104,
-          null
-        ],
-        [
-          1,
-          12,
-          null
-        ],
-        [
-          83,
-          97,
-          null
-        ],
-        [
-          30,
-          94,
-          null
-        ],
-        [
-          4,
-          23,
-          null
-        ],
-        [
-          50,
-          11,
-          null
-        ],
-        [
           5,
-          47,
-          null
-        ],
-        [
-          75,
-          25,
-          null
-        ],
-        [
-          33,
-          100,
-          null
-        ],
-        [
-          86,
-          6,
-          null
-        ],
-        [
-          34,
           10,
-          null
-        ],
-        [
-          46,
-          43,
-          null
-        ],
-        [
-          72,
-          60,
-          null
-        ],
-        [
-          38,
-          32,
-          null
-        ],
-        [
-          19,
-          84,
-          null
-        ],
-        [
-          7,
-          27,
-          null
+          5,
+          "6-3, 6-3"
         ]
       ]
     },
@@ -9913,7 +13161,248 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 5,
+      "participants": [
+        32,
+        47,
+        91,
+        33,
+        3,
+        2,
+        104,
+        5,
+        72,
+        11,
+        24,
+        9,
+        88,
+        51,
+        34,
+        65,
+        43,
+        52,
+        81,
+        39,
+        61,
+        28,
+        127,
+        90,
+        86,
+        20,
+        26,
+        57,
+        22,
+        99,
+        50,
+        15
+      ],
+      "bracket": [
+        [
+          [
+            32,
+            15,
+            15,
+            "2-6, 0-6"
+          ],
+          [
+            47,
+            50,
+            50,
+            "6-3, 1-6, 4-6"
+          ],
+          [
+            91,
+            99,
+            91,
+            "6-4, 6-1"
+          ],
+          [
+            33,
+            22,
+            22,
+            "5-7, 3-6"
+          ],
+          [
+            3,
+            57,
+            3,
+            "6-0, 6-0"
+          ],
+          [
+            2,
+            26,
+            2,
+            "6-0, 6-2"
+          ],
+          [
+            104,
+            20,
+            20,
+            "6-3, 2-6, 0-6"
+          ],
+          [
+            5,
+            86,
+            5,
+            "6-1, 6-0"
+          ],
+          [
+            72,
+            90,
+            90,
+            "6-4, 2-6, 3-6"
+          ],
+          [
+            11,
+            127,
+            11,
+            "6-0, 6-0"
+          ],
+          [
+            24,
+            28,
+            24,
+            "7-5, 7-6"
+          ],
+          [
+            9,
+            61,
+            9,
+            "6-1, 6-2"
+          ],
+          [
+            88,
+            39,
+            88,
+            "6-3, 7-6"
+          ],
+          [
+            51,
+            81,
+            51,
+            "6-4, 3-6, 6-4"
+          ],
+          [
+            34,
+            52,
+            34,
+            "6-3, 6-4"
+          ],
+          [
+            65,
+            43,
+            43,
+            "6-7, 3-6"
+          ]
+        ],
+        [
+          [
+            15,
+            50,
+            15,
+            "6-0, 6-0"
+          ],
+          [
+            91,
+            22,
+            22,
+            "1-6, 1-6"
+          ],
+          [
+            3,
+            2,
+            2,
+            "4-6, 7-6, 6-7"
+          ],
+          [
+            20,
+            5,
+            5,
+            "2-6, 2-6"
+          ],
+          [
+            90,
+            11,
+            11,
+            "1-6, 2-6"
+          ],
+          [
+            24,
+            9,
+            9,
+            "4-6, 2-6"
+          ],
+          [
+            88,
+            51,
+            88,
+            "6-2, 6-3"
+          ],
+          [
+            34,
+            43,
+            43,
+            "6-3, 1-6, 2-6"
+          ]
+        ],
+        [
+          [
+            15,
+            22,
+            15,
+            "6-2, 6-2"
+          ],
+          [
+            2,
+            5,
+            5,
+            "6-7, 2-6"
+          ],
+          [
+            11,
+            9,
+            9,
+            "4-6, 2-6"
+          ],
+          [
+            88,
+            43,
+            43,
+            "6-7, 3-6"
+          ]
+        ],
+        [
+          [
+            15,
+            5,
+            5,
+            "6-7, 1-6"
+          ],
+          [
+            9,
+            43,
+            9,
+            "6-3, 6-1"
+          ]
+        ],
+        [
+          [
+            5,
+            9,
+            5,
+            "7-6, 7-6"
+          ]
+        ]
+      ],
+      "current_round": 4,
+      "active_matches": [
+        [
+          5,
+          9,
+          5,
+          "7-6, 7-6"
+        ]
+      ]
     },
     {
       "id": 10,
@@ -9923,7 +13412,248 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 1,
+      "participants": [
+        41,
+        58,
+        93,
+        71,
+        69,
+        98,
+        10,
+        44,
+        23,
+        37,
+        31,
+        38,
+        78,
+        83,
+        12,
+        21,
+        35,
+        70,
+        73,
+        36,
+        100,
+        55,
+        45,
+        74,
+        27,
+        13,
+        53,
+        46,
+        19,
+        1,
+        105,
+        49
+      ],
+      "bracket": [
+        [
+          [
+            41,
+            49,
+            41,
+            "7-6, 6-2"
+          ],
+          [
+            58,
+            105,
+            58,
+            "6-3, 2-6, 7-5"
+          ],
+          [
+            93,
+            1,
+            1,
+            "2-6, 0-6"
+          ],
+          [
+            71,
+            19,
+            19,
+            "1-6, 0-6"
+          ],
+          [
+            69,
+            46,
+            46,
+            "5-7, 4-6"
+          ],
+          [
+            98,
+            53,
+            53,
+            "5-7, 6-3, 5-7"
+          ],
+          [
+            10,
+            13,
+            10,
+            "6-1, 6-0"
+          ],
+          [
+            44,
+            27,
+            27,
+            "4-6, 4-6"
+          ],
+          [
+            23,
+            74,
+            23,
+            "6-3, 6-1"
+          ],
+          [
+            37,
+            45,
+            45,
+            "6-7, 6-7"
+          ],
+          [
+            31,
+            55,
+            31,
+            "6-1, 6-3"
+          ],
+          [
+            38,
+            100,
+            38,
+            "4-6, 6-1, 6-0"
+          ],
+          [
+            78,
+            36,
+            36,
+            "6-7, 6-4, 3-6"
+          ],
+          [
+            83,
+            73,
+            73,
+            "4-6, 3-6"
+          ],
+          [
+            12,
+            70,
+            12,
+            "6-0, 6-0"
+          ],
+          [
+            21,
+            35,
+            21,
+            "6-1, 7-6"
+          ]
+        ],
+        [
+          [
+            41,
+            58,
+            41,
+            "7-5, 7-6"
+          ],
+          [
+            1,
+            19,
+            1,
+            "6-1, 6-1"
+          ],
+          [
+            46,
+            53,
+            46,
+            "7-5, 4-6, 6-2"
+          ],
+          [
+            10,
+            27,
+            10,
+            "6-1, 6-0"
+          ],
+          [
+            23,
+            45,
+            23,
+            "7-5, 6-3"
+          ],
+          [
+            31,
+            38,
+            31,
+            "3-6, 7-5, 6-3"
+          ],
+          [
+            36,
+            73,
+            36,
+            "6-3, 7-5"
+          ],
+          [
+            12,
+            21,
+            12,
+            "6-3, 6-1"
+          ]
+        ],
+        [
+          [
+            41,
+            1,
+            1,
+            "1-6, 1-6"
+          ],
+          [
+            46,
+            10,
+            10,
+            "0-6, 0-6"
+          ],
+          [
+            23,
+            31,
+            23,
+            "6-3, 6-3"
+          ],
+          [
+            36,
+            12,
+            12,
+            "0-6, 0-6"
+          ]
+        ],
+        [
+          [
+            1,
+            10,
+            1,
+            "7-6, 5-7, 6-2"
+          ],
+          [
+            23,
+            12,
+            12,
+            "0-6, 4-6"
+          ]
+        ],
+        [
+          [
+            1,
+            12,
+            1,
+            "6-0, 6-2"
+          ]
+        ]
+      ],
+      "current_round": 4,
+      "active_matches": [
+        [
+          1,
+          12,
+          1,
+          "6-0, 6-2"
+        ]
+      ]
     },
     {
       "id": 11,
@@ -9933,7 +13663,248 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 16,
+      "participants": [
+        79,
+        14,
+        97,
+        84,
+        60,
+        63,
+        75,
+        87,
+        42,
+        126,
+        18,
+        113,
+        4,
+        76,
+        30,
+        106,
+        17,
+        89,
+        56,
+        94,
+        64,
+        25,
+        7,
+        48,
+        80,
+        92,
+        16,
+        8,
+        40,
+        77,
+        29,
+        6
+      ],
+      "bracket": [
+        [
+          [
+            79,
+            6,
+            6,
+            "2-6, 2-6"
+          ],
+          [
+            14,
+            29,
+            14,
+            "6-3, 6-1"
+          ],
+          [
+            97,
+            77,
+            97,
+            "6-1, 6-7, 7-6"
+          ],
+          [
+            84,
+            40,
+            40,
+            "1-6, 4-6"
+          ],
+          [
+            60,
+            8,
+            8,
+            "0-6, 1-6"
+          ],
+          [
+            63,
+            16,
+            16,
+            "0-6, 0-6"
+          ],
+          [
+            75,
+            92,
+            75,
+            "7-5, 7-6"
+          ],
+          [
+            87,
+            80,
+            87,
+            "7-6, 7-6"
+          ],
+          [
+            42,
+            48,
+            42,
+            "1-6, 6-3, 6-3"
+          ],
+          [
+            126,
+            7,
+            7,
+            "0-6, 0-6"
+          ],
+          [
+            18,
+            25,
+            18,
+            "6-3, 6-4"
+          ],
+          [
+            113,
+            64,
+            64,
+            "0-6, 3-6"
+          ],
+          [
+            4,
+            94,
+            4,
+            "6-0, 6-3"
+          ],
+          [
+            76,
+            56,
+            56,
+            "3-6, 4-6"
+          ],
+          [
+            30,
+            89,
+            30,
+            "6-0, 6-1"
+          ],
+          [
+            106,
+            17,
+            17,
+            "1-6, 1-6"
+          ]
+        ],
+        [
+          [
+            6,
+            14,
+            14,
+            "5-7, 3-6"
+          ],
+          [
+            97,
+            40,
+            40,
+            "5-7, 6-3, 1-6"
+          ],
+          [
+            8,
+            16,
+            16,
+            "3-6, 1-6"
+          ],
+          [
+            75,
+            87,
+            87,
+            "6-4, 0-6, 4-6"
+          ],
+          [
+            42,
+            7,
+            7,
+            "2-6, 2-6"
+          ],
+          [
+            18,
+            64,
+            18,
+            "6-1, 6-2"
+          ],
+          [
+            4,
+            56,
+            4,
+            "6-3, 6-1"
+          ],
+          [
+            30,
+            17,
+            17,
+            "4-6, 4-6"
+          ]
+        ],
+        [
+          [
+            14,
+            40,
+            14,
+            "6-2, 6-0"
+          ],
+          [
+            16,
+            87,
+            16,
+            "6-3, 6-2"
+          ],
+          [
+            7,
+            18,
+            18,
+            "2-6, 2-6"
+          ],
+          [
+            4,
+            17,
+            4,
+            "6-3, 7-5"
+          ]
+        ],
+        [
+          [
+            14,
+            16,
+            16,
+            "4-6, 0-6"
+          ],
+          [
+            18,
+            4,
+            4,
+            "2-6, 6-4, 3-6"
+          ]
+        ],
+        [
+          [
+            16,
+            4,
+            16,
+            "6-3, 6-2"
+          ]
+        ]
+      ],
+      "current_round": 4,
+      "active_matches": [
+        [
+          16,
+          4,
+          16,
+          "6-3, 6-2"
+        ]
+      ]
     },
     {
       "id": 12,
@@ -9943,7 +13914,248 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 12,
+      "participants": [
+        88,
+        21,
+        72,
+        96,
+        65,
+        104,
+        31,
+        27,
+        26,
+        78,
+        43,
+        39,
+        30,
+        45,
+        7,
+        9,
+        12,
+        22,
+        56,
+        64,
+        32,
+        2,
+        87,
+        100,
+        90,
+        52,
+        25,
+        1,
+        16,
+        84,
+        35,
+        13
+      ],
+      "bracket": [
+        [
+          [
+            88,
+            13,
+            13,
+            "2-6, 1-6"
+          ],
+          [
+            21,
+            35,
+            21,
+            "7-5, 6-2"
+          ],
+          [
+            72,
+            84,
+            84,
+            "7-6, 4-6, 1-6"
+          ],
+          [
+            96,
+            16,
+            16,
+            "0-6, 2-6"
+          ],
+          [
+            65,
+            1,
+            1,
+            "1-6, 0-6"
+          ],
+          [
+            104,
+            25,
+            25,
+            "2-6, 2-6"
+          ],
+          [
+            31,
+            52,
+            31,
+            "6-4, 6-1"
+          ],
+          [
+            27,
+            90,
+            27,
+            "6-0, 6-1"
+          ],
+          [
+            26,
+            100,
+            100,
+            "4-6, 6-1, 6-7"
+          ],
+          [
+            78,
+            87,
+            87,
+            "2-6, 4-6"
+          ],
+          [
+            43,
+            2,
+            2,
+            "3-6, 0-6"
+          ],
+          [
+            39,
+            32,
+            32,
+            "4-6, 7-6, 1-6"
+          ],
+          [
+            30,
+            64,
+            30,
+            "6-1, 6-1"
+          ],
+          [
+            45,
+            56,
+            56,
+            "6-7, 6-7"
+          ],
+          [
+            7,
+            22,
+            7,
+            "6-1, 6-0"
+          ],
+          [
+            9,
+            12,
+            12,
+            "7-5, 4-6, 4-6"
+          ]
+        ],
+        [
+          [
+            13,
+            21,
+            13,
+            "7-5, 6-1"
+          ],
+          [
+            84,
+            16,
+            16,
+            "2-6, 1-6"
+          ],
+          [
+            1,
+            25,
+            1,
+            "6-3, 6-1"
+          ],
+          [
+            31,
+            27,
+            27,
+            "7-6, 2-6, 4-6"
+          ],
+          [
+            100,
+            87,
+            100,
+            "7-5, 6-3"
+          ],
+          [
+            2,
+            32,
+            2,
+            "6-3, 6-2"
+          ],
+          [
+            30,
+            56,
+            30,
+            "6-1, 6-1"
+          ],
+          [
+            7,
+            12,
+            12,
+            "4-6, 4-6"
+          ]
+        ],
+        [
+          [
+            13,
+            16,
+            13,
+            "2-6, 6-2, 6-1"
+          ],
+          [
+            1,
+            27,
+            1,
+            "6-0, 7-5"
+          ],
+          [
+            100,
+            2,
+            2,
+            "2-6, 2-6"
+          ],
+          [
+            30,
+            12,
+            12,
+            "2-6, 1-6"
+          ]
+        ],
+        [
+          [
+            13,
+            1,
+            1,
+            "2-6, 6-2, 6-7"
+          ],
+          [
+            2,
+            12,
+            12,
+            "6-1, 3-6, 4-6"
+          ]
+        ],
+        [
+          [
+            1,
+            12,
+            12,
+            "7-5, 4-6, 1-6"
+          ]
+        ]
+      ],
+      "current_round": 4,
+      "active_matches": [
+        [
+          1,
+          12,
+          12,
+          "7-5, 4-6, 1-6"
+        ]
+      ]
     },
     {
       "id": 13,
@@ -9953,7 +14165,248 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 14,
+      "participants": [
+        41,
+        50,
+        46,
+        28,
+        91,
+        97,
+        57,
+        23,
+        15,
+        60,
+        4,
+        3,
+        33,
+        14,
+        40,
+        17,
+        18,
+        54,
+        11,
+        24,
+        86,
+        5,
+        6,
+        10,
+        8,
+        34,
+        29,
+        20,
+        38,
+        36,
+        19,
+        80
+      ],
+      "bracket": [
+        [
+          [
+            41,
+            80,
+            80,
+            "7-5, 6-7, 6-7"
+          ],
+          [
+            50,
+            19,
+            19,
+            "1-6, 1-6"
+          ],
+          [
+            46,
+            36,
+            36,
+            "5-7, 4-6"
+          ],
+          [
+            28,
+            38,
+            28,
+            "6-3, 5-7, 7-5"
+          ],
+          [
+            91,
+            20,
+            20,
+            "7-6, 4-6, 4-6"
+          ],
+          [
+            97,
+            29,
+            29,
+            "2-6, 0-6"
+          ],
+          [
+            57,
+            34,
+            57,
+            "2-6, 7-5, 6-3"
+          ],
+          [
+            23,
+            8,
+            8,
+            "3-6, 0-6"
+          ],
+          [
+            15,
+            10,
+            10,
+            "1-6, 1-6"
+          ],
+          [
+            60,
+            6,
+            6,
+            "2-6, 2-6"
+          ],
+          [
+            4,
+            5,
+            5,
+            "5-7, 4-6"
+          ],
+          [
+            3,
+            86,
+            3,
+            "6-0, 6-0"
+          ],
+          [
+            33,
+            24,
+            24,
+            "4-6, 6-4, 2-6"
+          ],
+          [
+            14,
+            11,
+            14,
+            "6-3, 6-2"
+          ],
+          [
+            40,
+            54,
+            40,
+            "6-1, 6-4"
+          ],
+          [
+            17,
+            18,
+            18,
+            "6-3, 2-6, 3-6"
+          ]
+        ],
+        [
+          [
+            80,
+            19,
+            19,
+            "1-6, 1-6"
+          ],
+          [
+            36,
+            28,
+            28,
+            "4-6, 4-6"
+          ],
+          [
+            20,
+            29,
+            20,
+            "6-3, 6-2"
+          ],
+          [
+            57,
+            8,
+            8,
+            "0-6, 4-6"
+          ],
+          [
+            10,
+            6,
+            10,
+            "6-2, 6-0"
+          ],
+          [
+            5,
+            3,
+            3,
+            "6-7, 1-6"
+          ],
+          [
+            24,
+            14,
+            14,
+            "2-6, 4-6"
+          ],
+          [
+            40,
+            18,
+            18,
+            "2-6, 0-6"
+          ]
+        ],
+        [
+          [
+            19,
+            28,
+            19,
+            "6-1, 4-6, 6-1"
+          ],
+          [
+            20,
+            8,
+            8,
+            "4-6, 0-6"
+          ],
+          [
+            10,
+            3,
+            3,
+            "6-7, 6-7"
+          ],
+          [
+            14,
+            18,
+            14,
+            "6-1, 7-5"
+          ]
+        ],
+        [
+          [
+            19,
+            8,
+            19,
+            "2-6, 7-6, 6-4"
+          ],
+          [
+            3,
+            14,
+            14,
+            "3-6, 6-1, 4-6"
+          ]
+        ],
+        [
+          [
+            19,
+            14,
+            14,
+            "2-6, 3-6"
+          ]
+        ]
+      ],
+      "current_round": 4,
+      "active_matches": [
+        [
+          19,
+          14,
+          14,
+          "2-6, 3-6"
+        ]
+      ]
     },
     {
       "id": 14,
@@ -9963,7 +14416,212 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        18,
+        33,
+        16,
+        40,
+        28,
+        15,
+        4,
+        38,
+        8,
+        50,
+        65,
+        6,
+        5,
+        27,
+        19,
+        21,
+        56,
+        20,
+        29,
+        99,
+        24,
+        9,
+        54,
+        26,
+        13,
+        91,
+        34,
+        7,
+        12,
+        31,
+        43,
+        42
+      ],
+      "bracket": [
+        [
+          [
+            18,
+            42,
+            null
+          ],
+          [
+            33,
+            43,
+            null
+          ],
+          [
+            16,
+            31,
+            null
+          ],
+          [
+            40,
+            12,
+            null
+          ],
+          [
+            28,
+            7,
+            null
+          ],
+          [
+            15,
+            34,
+            null
+          ],
+          [
+            4,
+            91,
+            null
+          ],
+          [
+            38,
+            13,
+            null
+          ],
+          [
+            8,
+            26,
+            null
+          ],
+          [
+            50,
+            54,
+            null
+          ],
+          [
+            65,
+            9,
+            null
+          ],
+          [
+            6,
+            24,
+            null
+          ],
+          [
+            5,
+            99,
+            null
+          ],
+          [
+            27,
+            29,
+            null
+          ],
+          [
+            19,
+            20,
+            null
+          ],
+          [
+            21,
+            56,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          18,
+          42,
+          null
+        ],
+        [
+          33,
+          43,
+          null
+        ],
+        [
+          16,
+          31,
+          null
+        ],
+        [
+          40,
+          12,
+          null
+        ],
+        [
+          28,
+          7,
+          null
+        ],
+        [
+          15,
+          34,
+          null
+        ],
+        [
+          4,
+          91,
+          null
+        ],
+        [
+          38,
+          13,
+          null
+        ],
+        [
+          8,
+          26,
+          null
+        ],
+        [
+          50,
+          54,
+          null
+        ],
+        [
+          65,
+          9,
+          null
+        ],
+        [
+          6,
+          24,
+          null
+        ],
+        [
+          5,
+          99,
+          null
+        ],
+        [
+          27,
+          29,
+          null
+        ],
+        [
+          19,
+          20,
+          null
+        ],
+        [
+          21,
+          56,
+          null
+        ]
+      ]
     },
     {
       "id": 15,
@@ -9973,7 +14631,212 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        73,
+        84,
+        88,
+        97,
+        35,
+        85,
+        64,
+        23,
+        10,
+        87,
+        36,
+        104,
+        96,
+        2,
+        100,
+        22,
+        17,
+        46,
+        11,
+        47,
+        1,
+        90,
+        3,
+        78,
+        14,
+        32,
+        57,
+        30,
+        53,
+        80,
+        60,
+        25
+      ],
+      "bracket": [
+        [
+          [
+            73,
+            25,
+            null
+          ],
+          [
+            84,
+            60,
+            null
+          ],
+          [
+            88,
+            80,
+            null
+          ],
+          [
+            97,
+            53,
+            null
+          ],
+          [
+            35,
+            30,
+            null
+          ],
+          [
+            85,
+            57,
+            null
+          ],
+          [
+            64,
+            32,
+            null
+          ],
+          [
+            23,
+            14,
+            null
+          ],
+          [
+            10,
+            78,
+            null
+          ],
+          [
+            87,
+            3,
+            null
+          ],
+          [
+            36,
+            90,
+            null
+          ],
+          [
+            104,
+            1,
+            null
+          ],
+          [
+            96,
+            47,
+            null
+          ],
+          [
+            2,
+            11,
+            null
+          ],
+          [
+            100,
+            46,
+            null
+          ],
+          [
+            22,
+            17,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          73,
+          25,
+          null
+        ],
+        [
+          84,
+          60,
+          null
+        ],
+        [
+          88,
+          80,
+          null
+        ],
+        [
+          97,
+          53,
+          null
+        ],
+        [
+          35,
+          30,
+          null
+        ],
+        [
+          85,
+          57,
+          null
+        ],
+        [
+          64,
+          32,
+          null
+        ],
+        [
+          23,
+          14,
+          null
+        ],
+        [
+          10,
+          78,
+          null
+        ],
+        [
+          87,
+          3,
+          null
+        ],
+        [
+          36,
+          90,
+          null
+        ],
+        [
+          104,
+          1,
+          null
+        ],
+        [
+          96,
+          47,
+          null
+        ],
+        [
+          2,
+          11,
+          null
+        ],
+        [
+          100,
+          46,
+          null
+        ],
+        [
+          22,
+          17,
+          null
+        ]
+      ]
     },
     {
       "id": 16,
@@ -9983,7 +14846,212 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        39,
+        37,
+        45,
+        67,
+        83,
+        52,
+        75,
+        81,
+        48,
+        94,
+        41,
+        82,
+        59,
+        106,
+        92,
+        102,
+        79,
+        71,
+        86,
+        49,
+        51,
+        76,
+        69,
+        93,
+        63,
+        127,
+        44,
+        70,
+        66,
+        61,
+        98,
+        72
+      ],
+      "bracket": [
+        [
+          [
+            39,
+            72,
+            null
+          ],
+          [
+            37,
+            98,
+            null
+          ],
+          [
+            45,
+            61,
+            null
+          ],
+          [
+            67,
+            66,
+            null
+          ],
+          [
+            83,
+            70,
+            null
+          ],
+          [
+            52,
+            44,
+            null
+          ],
+          [
+            75,
+            127,
+            null
+          ],
+          [
+            81,
+            63,
+            null
+          ],
+          [
+            48,
+            93,
+            null
+          ],
+          [
+            94,
+            69,
+            null
+          ],
+          [
+            41,
+            76,
+            null
+          ],
+          [
+            82,
+            51,
+            null
+          ],
+          [
+            59,
+            49,
+            null
+          ],
+          [
+            106,
+            86,
+            null
+          ],
+          [
+            92,
+            71,
+            null
+          ],
+          [
+            102,
+            79,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          39,
+          72,
+          null
+        ],
+        [
+          37,
+          98,
+          null
+        ],
+        [
+          45,
+          61,
+          null
+        ],
+        [
+          67,
+          66,
+          null
+        ],
+        [
+          83,
+          70,
+          null
+        ],
+        [
+          52,
+          44,
+          null
+        ],
+        [
+          75,
+          127,
+          null
+        ],
+        [
+          81,
+          63,
+          null
+        ],
+        [
+          48,
+          93,
+          null
+        ],
+        [
+          94,
+          69,
+          null
+        ],
+        [
+          41,
+          76,
+          null
+        ],
+        [
+          82,
+          51,
+          null
+        ],
+        [
+          59,
+          49,
+          null
+        ],
+        [
+          106,
+          86,
+          null
+        ],
+        [
+          92,
+          71,
+          null
+        ],
+        [
+          102,
+          79,
+          null
+        ]
+      ]
     },
     {
       "id": 17,
@@ -12508,7 +17576,7 @@
       "category": "Challenger 100",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 14,
       "participants": [
         41,
         14,
@@ -12532,89 +17600,108 @@
           [
             41,
             79,
-            null
+            41,
+            "2-6, 6-4, 7-5"
           ],
           [
             14,
             81,
-            null
+            14,
+            "6-3, 6-2"
           ],
           [
             93,
             77,
-            null
+            93,
+            "7-5, 7-6"
           ],
           [
             61,
             113,
-            null
+            61,
+            "4-6, 7-5, 6-3"
           ],
           [
             116,
             89,
-            null
+            89,
+            "1-6, 6-3, 6-7"
           ],
           [
             64,
             126,
-            null
+            64,
+            "6-1, 2-6, 6-4"
           ],
           [
             37,
             49,
-            null
+            49,
+            "4-6, 0-6"
           ],
           [
             74,
             109,
-            null
+            74,
+            "6-1, 6-4"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            41,
+            14,
+            14,
+            "1-6, 1-6"
+          ],
+          [
+            93,
+            61,
+            61,
+            "4-6, 4-6"
+          ],
+          [
+            89,
+            64,
+            64,
+            "4-6, 4-6"
+          ],
+          [
+            49,
+            74,
+            49,
+            "7-6, 4-6, 6-4"
+          ]
+        ],
+        [
+          [
+            14,
+            61,
+            14,
+            "6-3, 6-0"
+          ],
+          [
+            64,
+            49,
+            64,
+            "5-7, 7-6, 6-4"
+          ]
+        ],
+        [
+          [
+            14,
+            64,
+            14,
+            "6-1, 6-3"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          41,
-          79,
-          null
-        ],
-        [
           14,
-          81,
-          null
-        ],
-        [
-          93,
-          77,
-          null
-        ],
-        [
-          61,
-          113,
-          null
-        ],
-        [
-          116,
-          89,
-          null
-        ],
-        [
           64,
-          126,
-          null
-        ],
-        [
-          37,
-          49,
-          null
-        ],
-        [
-          74,
-          109,
-          null
+          14,
+          "6-1, 6-3"
         ]
       ]
     },
@@ -12626,7 +17713,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 42,
       "participants": [
         125,
         110,
@@ -12650,89 +17737,108 @@
           [
             125,
             68,
-            null
+            68,
+            "3-6, 0-6"
           ],
           [
             110,
             95,
-            null
+            95,
+            "2-6, 6-4, 4-6"
           ],
           [
             42,
             122,
-            null
+            42,
+            "6-1, 6-2"
           ],
           [
             105,
             121,
-            null
+            105,
+            "6-0, 6-3"
           ],
           [
             99,
             123,
-            null
+            99,
+            "4-6, 6-3, 7-6"
           ],
           [
             102,
             115,
-            null
+            102,
+            "4-6, 7-5, 6-4"
           ],
           [
             85,
             66,
-            null
+            66,
+            "6-2, 4-6, 0-6"
           ],
           [
             58,
             107,
-            null
+            58,
+            "7-6, 6-2"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            68,
+            95,
+            68,
+            "7-6, 6-2"
+          ],
+          [
+            42,
+            105,
+            42,
+            "6-4, 6-7, 6-4"
+          ],
+          [
+            99,
+            102,
+            99,
+            "6-1, 6-2"
+          ],
+          [
+            66,
+            58,
+            58,
+            "4-6, 3-6"
+          ]
+        ],
+        [
+          [
+            68,
+            42,
+            42,
+            "1-6, 6-7"
+          ],
+          [
+            99,
+            58,
+            99,
+            "6-3, 5-7, 6-3"
+          ]
+        ],
+        [
+          [
+            42,
+            99,
+            42,
+            "6-4, 6-2"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          125,
-          68,
-          null
-        ],
-        [
-          110,
-          95,
-          null
-        ],
-        [
           42,
-          122,
-          null
-        ],
-        [
-          105,
-          121,
-          null
-        ],
-        [
           99,
-          123,
-          null
-        ],
-        [
-          102,
-          115,
-          null
-        ],
-        [
-          85,
-          66,
-          null
-        ],
-        [
-          58,
-          107,
-          null
+          42,
+          "6-4, 6-2"
         ]
       ]
     },
@@ -12744,7 +17850,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 87,
       "participants": [
         118,
         103,
@@ -12768,89 +17874,108 @@
           [
             118,
             73,
-            null
+            73,
+            "2-6, 2-6"
           ],
           [
             103,
             55,
-            null
+            55,
+            "5-7, 1-6"
           ],
           [
             114,
             54,
-            null
+            54,
+            "6-2, 4-6, 2-6"
           ],
           [
             119,
             112,
-            null
+            112,
+            "2-6, 2-6"
           ],
           [
             111,
             128,
-            null
+            111,
+            "7-6, 6-1"
           ],
           [
             124,
             117,
-            null
+            117,
+            "4-6, 2-6"
           ],
           [
             82,
             87,
-            null
+            87,
+            "6-3, 6-7, 4-6"
           ],
           [
             120,
             62,
-            null
+            62,
+            "2-6, 2-6"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            73,
+            55,
+            73,
+            "6-2, 7-5"
+          ],
+          [
+            54,
+            112,
+            54,
+            "6-1, 6-7, 6-0"
+          ],
+          [
+            111,
+            117,
+            111,
+            "6-3, 6-2"
+          ],
+          [
+            87,
+            62,
+            87,
+            "6-1, 6-1"
+          ]
+        ],
+        [
+          [
+            73,
+            54,
+            73,
+            "7-6, 6-4"
+          ],
+          [
+            111,
+            87,
+            87,
+            "4-6, 4-6"
+          ]
+        ],
+        [
+          [
+            73,
+            87,
+            87,
+            "2-6, 3-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          118,
           73,
-          null
-        ],
-        [
-          103,
-          55,
-          null
-        ],
-        [
-          114,
-          54,
-          null
-        ],
-        [
-          119,
-          112,
-          null
-        ],
-        [
-          111,
-          128,
-          null
-        ],
-        [
-          124,
-          117,
-          null
-        ],
-        [
-          82,
           87,
-          null
-        ],
-        [
-          120,
-          62,
-          null
+          87,
+          "2-6, 3-6"
         ]
       ]
     },
@@ -12862,7 +17987,134 @@
       "category": "Challenger 125",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 54,
+      "participants": [
+        85,
+        116,
+        117,
+        102,
+        54,
+        108,
+        101,
+        95,
+        66,
+        68,
+        111,
+        124,
+        82,
+        62,
+        110,
+        109
+      ],
+      "bracket": [
+        [
+          [
+            85,
+            109,
+            85,
+            "6-1, 3-6, 6-0"
+          ],
+          [
+            116,
+            110,
+            110,
+            "4-6, 4-6"
+          ],
+          [
+            117,
+            62,
+            117,
+            "6-3, 6-4"
+          ],
+          [
+            102,
+            82,
+            102,
+            "5-7, 6-4, 6-3"
+          ],
+          [
+            54,
+            124,
+            54,
+            "6-0, 6-2"
+          ],
+          [
+            108,
+            111,
+            108,
+            "6-3, 6-7, 7-6"
+          ],
+          [
+            101,
+            68,
+            101,
+            "6-2, 7-6"
+          ],
+          [
+            95,
+            66,
+            66,
+            "3-6, 2-6"
+          ]
+        ],
+        [
+          [
+            85,
+            110,
+            85,
+            "6-4, 6-3"
+          ],
+          [
+            117,
+            102,
+            102,
+            "5-7, 4-6"
+          ],
+          [
+            54,
+            108,
+            54,
+            "6-3, 7-6"
+          ],
+          [
+            101,
+            66,
+            66,
+            "0-6, 4-6"
+          ]
+        ],
+        [
+          [
+            85,
+            102,
+            85,
+            "6-4, 4-6, 7-6"
+          ],
+          [
+            54,
+            66,
+            54,
+            "6-3, 1-6, 6-4"
+          ]
+        ],
+        [
+          [
+            85,
+            54,
+            54,
+            "2-6, 2-6"
+          ]
+        ]
+      ],
+      "current_round": 3,
+      "active_matches": [
+        [
+          85,
+          54,
+          54,
+          "2-6, 2-6"
+        ]
+      ]
     },
     {
       "id": 82,
@@ -12872,7 +18124,134 @@
       "category": "Challenger 100",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 96,
+      "participants": [
+        112,
+        114,
+        96,
+        119,
+        123,
+        118,
+        67,
+        107,
+        122,
+        125,
+        120,
+        59,
+        128,
+        121,
+        103,
+        115
+      ],
+      "bracket": [
+        [
+          [
+            112,
+            115,
+            112,
+            "5-7, 6-2, 6-3"
+          ],
+          [
+            114,
+            103,
+            103,
+            "4-6, 5-7"
+          ],
+          [
+            96,
+            121,
+            96,
+            "6-2, 7-6"
+          ],
+          [
+            119,
+            128,
+            119,
+            "5-7, 6-2, 6-3"
+          ],
+          [
+            123,
+            59,
+            59,
+            "7-6, 6-7, 4-6"
+          ],
+          [
+            118,
+            120,
+            120,
+            "6-7, 6-3, 4-6"
+          ],
+          [
+            67,
+            125,
+            67,
+            "6-7, 7-5, 6-2"
+          ],
+          [
+            107,
+            122,
+            107,
+            "6-2, 6-1"
+          ]
+        ],
+        [
+          [
+            112,
+            103,
+            112,
+            "4-6, 6-4, 6-3"
+          ],
+          [
+            96,
+            119,
+            96,
+            "6-1, 6-2"
+          ],
+          [
+            59,
+            120,
+            59,
+            "6-3, 6-2"
+          ],
+          [
+            67,
+            107,
+            67,
+            "6-3, 6-2"
+          ]
+        ],
+        [
+          [
+            112,
+            96,
+            96,
+            "2-6, 4-6"
+          ],
+          [
+            59,
+            67,
+            67,
+            "2-6, 7-6, 3-6"
+          ]
+        ],
+        [
+          [
+            96,
+            67,
+            96,
+            "7-6, 7-5"
+          ]
+        ]
+      ],
+      "current_round": 3,
+      "active_matches": [
+        [
+          96,
+          67,
+          96,
+          "7-6, 7-5"
+        ]
+      ]
     },
     {
       "id": 83,
@@ -12882,7 +18261,134 @@
       "category": "Challenger 125",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 42,
+      "participants": [
+        85,
+        63,
+        53,
+        83,
+        42,
+        94,
+        49,
+        76,
+        47,
+        106,
+        48,
+        92,
+        127,
+        98,
+        75,
+        51
+      ],
+      "bracket": [
+        [
+          [
+            85,
+            51,
+            85,
+            "6-4, 6-1"
+          ],
+          [
+            63,
+            75,
+            63,
+            "6-3, 6-7, 7-6"
+          ],
+          [
+            53,
+            98,
+            53,
+            "6-3, 6-2"
+          ],
+          [
+            83,
+            127,
+            83,
+            "6-1, 6-2"
+          ],
+          [
+            42,
+            92,
+            42,
+            "6-3, 6-3"
+          ],
+          [
+            94,
+            48,
+            94,
+            "7-5, 6-4"
+          ],
+          [
+            49,
+            106,
+            49,
+            "4-6, 6-3, 6-4"
+          ],
+          [
+            76,
+            47,
+            47,
+            "2-6, 2-6"
+          ]
+        ],
+        [
+          [
+            85,
+            63,
+            85,
+            "4-6, 6-3, 6-3"
+          ],
+          [
+            53,
+            83,
+            53,
+            "6-4, 6-4"
+          ],
+          [
+            42,
+            94,
+            42,
+            "6-1, 6-2"
+          ],
+          [
+            49,
+            47,
+            47,
+            "4-6, 2-6"
+          ]
+        ],
+        [
+          [
+            85,
+            53,
+            53,
+            "5-7, 3-6"
+          ],
+          [
+            42,
+            47,
+            42,
+            "6-4, 6-4"
+          ]
+        ],
+        [
+          [
+            53,
+            42,
+            42,
+            "1-6, 5-7"
+          ]
+        ]
+      ],
+      "current_round": 3,
+      "active_matches": [
+        [
+          53,
+          42,
+          42,
+          "1-6, 5-7"
+        ]
+      ]
     },
     {
       "id": 84,
@@ -12892,7 +18398,134 @@
       "category": "Challenger 100",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 99,
+      "participants": [
+        58,
+        102,
+        71,
+        67,
+        70,
+        74,
+        73,
+        79,
+        81,
+        108,
+        66,
+        93,
+        44,
+        77,
+        61,
+        99
+      ],
+      "bracket": [
+        [
+          [
+            58,
+            99,
+            99,
+            "7-5, 5-7, 4-6"
+          ],
+          [
+            102,
+            61,
+            61,
+            "4-6, 5-7"
+          ],
+          [
+            71,
+            77,
+            71,
+            "4-6, 6-0, 6-3"
+          ],
+          [
+            67,
+            44,
+            44,
+            "4-6, 1-6"
+          ],
+          [
+            70,
+            93,
+            93,
+            "2-6, 3-6"
+          ],
+          [
+            74,
+            66,
+            66,
+            "2-6, 4-6"
+          ],
+          [
+            73,
+            108,
+            73,
+            "4-6, 7-6, 6-1"
+          ],
+          [
+            79,
+            81,
+            79,
+            "5-7, 7-6, 6-4"
+          ]
+        ],
+        [
+          [
+            99,
+            61,
+            99,
+            "7-6, 6-4"
+          ],
+          [
+            71,
+            44,
+            71,
+            "7-6, 6-4"
+          ],
+          [
+            93,
+            66,
+            66,
+            "6-3, 4-6, 4-6"
+          ],
+          [
+            73,
+            79,
+            73,
+            "6-3, 4-6, 6-4"
+          ]
+        ],
+        [
+          [
+            99,
+            71,
+            99,
+            "6-4, 2-6, 7-5"
+          ],
+          [
+            66,
+            73,
+            73,
+            "6-2, 5-7, 4-6"
+          ]
+        ],
+        [
+          [
+            99,
+            73,
+            99,
+            "7-5, 4-6, 7-6"
+          ]
+        ]
+      ],
+      "current_round": 3,
+      "active_matches": [
+        [
+          99,
+          73,
+          99,
+          "7-5, 4-6, 7-6"
+        ]
+      ]
     },
     {
       "id": 85,
@@ -12902,7 +18535,134 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 59,
+      "participants": [
+        55,
+        109,
+        62,
+        69,
+        37,
+        68,
+        113,
+        105,
+        117,
+        59,
+        89,
+        112,
+        126,
+        116,
+        110,
+        101
+      ],
+      "bracket": [
+        [
+          [
+            55,
+            101,
+            55,
+            "3-6, 6-3, 6-0"
+          ],
+          [
+            109,
+            110,
+            110,
+            "6-4, 4-6, 2-6"
+          ],
+          [
+            62,
+            116,
+            62,
+            "6-2, 6-4"
+          ],
+          [
+            69,
+            126,
+            69,
+            "6-3, 6-3"
+          ],
+          [
+            37,
+            112,
+            37,
+            "6-3, 6-0"
+          ],
+          [
+            68,
+            89,
+            89,
+            "4-6, 4-6"
+          ],
+          [
+            113,
+            59,
+            59,
+            "6-7, 3-6"
+          ],
+          [
+            105,
+            117,
+            117,
+            "6-0, 6-7, 6-7"
+          ]
+        ],
+        [
+          [
+            55,
+            110,
+            55,
+            "6-4, 4-6, 6-3"
+          ],
+          [
+            62,
+            69,
+            69,
+            "2-6, 5-7"
+          ],
+          [
+            37,
+            89,
+            37,
+            "4-6, 6-2, 6-3"
+          ],
+          [
+            59,
+            117,
+            59,
+            "4-6, 6-4, 6-3"
+          ]
+        ],
+        [
+          [
+            55,
+            69,
+            69,
+            "6-1, 5-7, 2-6"
+          ],
+          [
+            37,
+            59,
+            59,
+            "3-6, 3-6"
+          ]
+        ],
+        [
+          [
+            69,
+            59,
+            59,
+            "7-6, 4-6, 6-7"
+          ]
+        ]
+      ],
+      "current_round": 3,
+      "active_matches": [
+        [
+          69,
+          59,
+          59,
+          "7-6, 4-6, 6-7"
+        ]
+      ]
     },
     {
       "id": 86,
@@ -12912,7 +18672,134 @@
       "category": "Challenger 50",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 82,
+      "participants": [
+        118,
+        115,
+        103,
+        128,
+        82,
+        119,
+        111,
+        125,
+        122,
+        124,
+        121,
+        114,
+        107,
+        120,
+        123,
+        95
+      ],
+      "bracket": [
+        [
+          [
+            118,
+            95,
+            95,
+            "3-6, 3-6"
+          ],
+          [
+            115,
+            123,
+            115,
+            "6-7, 6-2, 6-4"
+          ],
+          [
+            103,
+            120,
+            103,
+            "7-6, 6-4"
+          ],
+          [
+            128,
+            107,
+            107,
+            "2-6, 6-7"
+          ],
+          [
+            82,
+            114,
+            82,
+            "6-1, 6-2"
+          ],
+          [
+            119,
+            121,
+            121,
+            "4-6, 7-6, 5-7"
+          ],
+          [
+            111,
+            124,
+            111,
+            "6-3, 0-6, 6-4"
+          ],
+          [
+            125,
+            122,
+            122,
+            "6-7, 2-6"
+          ]
+        ],
+        [
+          [
+            95,
+            115,
+            95,
+            "4-6, 7-6, 6-2"
+          ],
+          [
+            103,
+            107,
+            103,
+            "6-0, 6-2"
+          ],
+          [
+            82,
+            121,
+            82,
+            "7-5, 2-6, 6-3"
+          ],
+          [
+            111,
+            122,
+            111,
+            "6-1, 6-1"
+          ]
+        ],
+        [
+          [
+            95,
+            103,
+            103,
+            "3-6, 6-4, 6-7"
+          ],
+          [
+            82,
+            111,
+            82,
+            "6-7, 6-2, 6-4"
+          ]
+        ],
+        [
+          [
+            103,
+            82,
+            82,
+            "3-6, 3-6"
+          ]
+        ]
+      ],
+      "current_round": 3,
+      "active_matches": [
+        [
+          103,
+          82,
+          82,
+          "3-6, 3-6"
+        ]
+      ]
     },
     {
       "id": 87,
@@ -12922,7 +18809,117 @@
       "category": "Challenger 100",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        109,
+        110,
+        62,
+        117,
+        77,
+        105,
+        103,
+        89,
+        111,
+        126,
+        55,
+        101,
+        113,
+        108,
+        74,
+        58
+      ],
+      "bracket": [
+        [
+          [
+            109,
+            58,
+            58,
+            "2-6, 3-6"
+          ],
+          [
+            110,
+            74,
+            null
+          ],
+          [
+            62,
+            108,
+            null
+          ],
+          [
+            117,
+            113,
+            null
+          ],
+          [
+            77,
+            101,
+            null
+          ],
+          [
+            105,
+            55,
+            null
+          ],
+          [
+            103,
+            126,
+            null
+          ],
+          [
+            89,
+            111,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          109,
+          58,
+          58,
+          "2-6, 3-6"
+        ],
+        [
+          110,
+          74,
+          null
+        ],
+        [
+          62,
+          108,
+          null
+        ],
+        [
+          117,
+          113,
+          null
+        ],
+        [
+          77,
+          101,
+          null
+        ],
+        [
+          105,
+          55,
+          null
+        ],
+        [
+          103,
+          126,
+          null
+        ],
+        [
+          89,
+          111,
+          null
+        ]
+      ]
     },
     {
       "id": 88,
@@ -12932,7 +18929,134 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": 112,
+      "participants": [
+        112,
+        120,
+        121,
+        125,
+        68,
+        114,
+        123,
+        95,
+        115,
+        128,
+        122,
+        116,
+        119,
+        118,
+        107,
+        124
+      ],
+      "bracket": [
+        [
+          [
+            112,
+            124,
+            112,
+            "7-6, 6-3"
+          ],
+          [
+            120,
+            107,
+            107,
+            "6-3, 1-6, 1-6"
+          ],
+          [
+            121,
+            118,
+            118,
+            "5-7, 4-6"
+          ],
+          [
+            125,
+            119,
+            125,
+            "7-5, 7-5"
+          ],
+          [
+            68,
+            116,
+            116,
+            "5-7, 6-3, 4-6"
+          ],
+          [
+            114,
+            122,
+            122,
+            "2-6, 4-6"
+          ],
+          [
+            123,
+            128,
+            128,
+            "3-6, 6-7"
+          ],
+          [
+            95,
+            115,
+            95,
+            "6-1, 6-2"
+          ]
+        ],
+        [
+          [
+            112,
+            107,
+            112,
+            "4-6, 6-3, 6-4"
+          ],
+          [
+            118,
+            125,
+            118,
+            "4-6, 6-1, 6-4"
+          ],
+          [
+            116,
+            122,
+            116,
+            "7-5, 6-4"
+          ],
+          [
+            128,
+            95,
+            95,
+            "7-6, 1-6, 2-6"
+          ]
+        ],
+        [
+          [
+            112,
+            118,
+            112,
+            "4-6, 6-3, 6-4"
+          ],
+          [
+            116,
+            95,
+            95,
+            "3-6, 2-6"
+          ]
+        ],
+        [
+          [
+            112,
+            95,
+            112,
+            "6-4, 4-6, 7-6"
+          ]
+        ]
+      ],
+      "current_round": 3,
+      "active_matches": [
+        [
+          112,
+          95,
+          112,
+          "6-4, 4-6, 7-6"
+        ]
+      ]
     },
     {
       "id": 89,

@@ -113,7 +113,7 @@ class GameEngine:
         self.update_positions(hitter, shot_direction)
 
         # Step 2: Receiver tries to catch the shot
-        caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision)
+        caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type = "serve")
         if not caught:  # Missed shot
             print(f"Point winner (serve unreturned): {hitter['name']}")
             self.reset_stamina_and_speed()
@@ -135,7 +135,7 @@ class GameEngine:
             # Update positions based on the shot
             self.update_positions(hitter, shot_direction)
 
-            caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision)
+            caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type)
             if not caught:
                 print(f"Point winner (rally): {hitter['name']}")
                 self.reset_stamina_and_speed()
@@ -209,12 +209,12 @@ class GameEngine:
             self.stamina[player["id"]] = player["skills"]["stamina"]
             self.speed[player["id"]] = player["skills"]["speed"]
 
-    def can_catch(self, player, shot_power, shot_precision):
+    def can_catch(self, player, shot_power, shot_precision, shot_type):
         """
         Determine if the player can catch the shot based on their speed and shot power.
         """
         # Special case for serve returns
-        if shot_precision is None or shot_precision == 50:  # Default serve precision
+        if shot_type == "serve":  # Default serve precision
             # Simple serve return check: if serve power > speed, can't return
             if shot_power > self.speed[player["id"]]:
                 return False, 0
