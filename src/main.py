@@ -2,6 +2,7 @@ import curses
 import traceback
 from schedule import TournamentScheduler
 from ranking import RankingSystem
+ESCAPE_KEYS = {27, 46}
 
 def main_menu(stdscr, scheduler):
     curses.curs_set(0)  # Hide the cursor
@@ -118,7 +119,7 @@ def show_hall_of_fame(stdscr, scheduler):
             current_row -= 1
         elif key == curses.KEY_DOWN and current_row < len(hof_members)-1:
             current_row += 1
-        elif key == 27:  # ESC
+        elif key in ESCAPE_KEYS:  # ESC
             break
 
 def show_player_details(stdscr, scheduler, player):
@@ -227,7 +228,7 @@ def show_rankings(stdscr, scheduler):
                 if display_players and current_row < len(display_players):
                     player = display_players[current_row][0]
                     show_player_details(stdscr, scheduler, player)
-            elif key == 27:  # ESC
+            elif key in ESCAPE_KEYS:  # ESC
                 break
 
 def view_tournaments(stdscr, scheduler):
@@ -275,7 +276,7 @@ def enter_tournament(stdscr, scheduler):
         elif key == curses.KEY_ENTER or key in [10, 13]:
             tournament = current_tournaments[current_row]
             manage_tournament(stdscr, scheduler, tournament)
-        elif key == 27:
+        elif key in ESCAPE_KEYS:
             break
 
 def manage_tournament(stdscr, scheduler, tournament):
@@ -430,7 +431,7 @@ def manage_tournament(stdscr, scheduler, tournament):
                 stdscr.getch()
                 matches = scheduler.get_current_matches(tournament['id'])
                 content = []
-        elif key == 27:
+        elif key in ESCAPE_KEYS:
             break
 
 def main(stdscr):

@@ -1,13 +1,8 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 442, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 443, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 60, in main_menu
-    scheduler.advance_week()
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 143, in advance_week
-    self.generate_news_feed()
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 619, in generate_news_feed
-    top15_changes.sort(key=lambda x: x.get('new', 999))
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 619, in <lambda>
-    top15_changes.sort(key=lambda x: x.get('new', 999))
-                                     ^^^^^
-AttributeError: 'tuple' object has no attribute 'get'
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 57, in main_menu
+    show_rankings(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 207, in show_rankings
+    stdscr.addstr(34, 0, "Press ESC to return, arrows to scroll, 's' to search")
+_curses.error: addwstr() returned ERR
