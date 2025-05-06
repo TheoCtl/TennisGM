@@ -1,7 +1,7 @@
 {
   "current_year": 1,
-  "current_week": 16,
-  "current_date": "2025-04-16T00:00:00",
+  "current_week": 17,
+  "current_date": "2025-04-23T00:00:00",
   "players": [
     {
       "id": 1,
@@ -17,8 +17,8 @@
         "straight": 79,
         "cross": 76
       },
-      "rank": 1,
-      "points": 4675,
+      "rank": 2,
+      "points": 4975,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -110,6 +110,14 @@
           "week": 15,
           "round": 6,
           "points": 1000
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 4,
+          "points": 300
         }
       ],
       "tournament_wins": [
@@ -149,8 +157,8 @@
         "straight": 75,
         "cross": 74
       },
-      "rank": 9,
-      "points": 1410,
+      "rank": 10,
+      "points": 1500,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -234,6 +242,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -263,8 +279,8 @@
         "straight": 79,
         "cross": 79
       },
-      "rank": 13,
-      "points": 1220,
+      "rank": 8,
+      "points": 1720,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -364,12 +380,25 @@
           "week": 15,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 5,
+          "points": 500
         }
       ],
       "tournament_wins": [
         {
           "name": "Hong Kong Tennis Open",
           "category": "ATP 250",
+          "year": 1
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
           "year": 1
         }
       ]
@@ -388,8 +417,8 @@
         "straight": 74,
         "cross": 71
       },
-      "rank": 19,
-      "points": 795,
+      "rank": 18,
+      "points": 885,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -505,6 +534,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": []
@@ -524,7 +561,7 @@
         "cross": 80
       },
       "rank": 3,
-      "points": 3830,
+      "points": 4010,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -640,6 +677,14 @@
           "week": 15,
           "round": 5,
           "points": 600
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 3,
+          "points": 180
         }
       ],
       "tournament_wins": [
@@ -699,8 +744,8 @@
         "straight": 73,
         "cross": 70
       },
-      "rank": 22,
-      "points": 705,
+      "rank": 17,
+      "points": 885,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -800,6 +845,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 3,
+          "points": 180
         }
       ],
       "tournament_wins": []
@@ -818,8 +871,8 @@
         "straight": 70,
         "cross": 65
       },
-      "rank": 17,
-      "points": 825,
+      "rank": 19,
+      "points": 870,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -927,6 +980,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -957,7 +1018,7 @@
         "cross": 74
       },
       "rank": 14,
-      "points": 1085,
+      "points": 1130,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -1065,6 +1126,14 @@
           "week": 15,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -1084,7 +1153,7 @@
         "cross": 75
       },
       "rank": 6,
-      "points": 2100,
+      "points": 2120,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -1192,6 +1261,14 @@
           "week": 15,
           "round": 4,
           "points": 360
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -1210,8 +1287,8 @@
         "straight": 80,
         "cross": 75
       },
-      "rank": 2,
-      "points": 4520,
+      "rank": 1,
+      "points": 5020,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -1311,6 +1388,14 @@
           "week": 15,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 5,
+          "points": 500
         }
       ],
       "tournament_wins": [
@@ -1326,6 +1411,11 @@
         },
         {
           "name": "Dubai Tennis Championships",
+          "category": "ATP 500",
+          "year": 1
+        },
+        {
+          "name": "Munich Open",
           "category": "ATP 500",
           "year": 1
         }
@@ -1346,7 +1436,7 @@
         "cross": 83
       },
       "rank": 15,
-      "points": 1080,
+      "points": 1100,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -1462,6 +1552,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -1481,7 +1579,7 @@
         "cross": 74
       },
       "rank": 4,
-      "points": 2585,
+      "points": 2885,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -1589,6 +1687,14 @@
           "week": 15,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 4,
+          "points": 300
         }
       ],
       "tournament_wins": [
@@ -1624,7 +1730,7 @@
         "cross": 70
       },
       "rank": 7,
-      "points": 1715,
+      "points": 1735,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -1740,6 +1846,14 @@
           "week": 15,
           "round": 4,
           "points": 360
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -1764,8 +1878,8 @@
         "straight": 76,
         "cross": 78
       },
-      "rank": 10,
-      "points": 1310,
+      "rank": 12,
+      "points": 1330,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -1865,6 +1979,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -1900,7 +2022,7 @@
         "cross": 79
       },
       "rank": 5,
-      "points": 2365,
+      "points": 2545,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -2016,6 +2138,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 3,
+          "points": 180
         }
       ],
       "tournament_wins": [
@@ -2046,7 +2176,7 @@
         "cross": 73
       },
       "rank": 11,
-      "points": 1260,
+      "points": 1350,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -2154,6 +2284,14 @@
           "week": 15,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -2178,8 +2316,8 @@
         "straight": 76,
         "cross": 75
       },
-      "rank": 12,
-      "points": 1230,
+      "rank": 13,
+      "points": 1320,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -2279,6 +2417,14 @@
           "week": 15,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": []
@@ -2297,8 +2443,8 @@
         "straight": 76,
         "cross": 71
       },
-      "rank": 8,
-      "points": 1555,
+      "rank": 9,
+      "points": 1600,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -2414,6 +2560,14 @@
           "week": 15,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -2444,7 +2598,7 @@
         "cross": 67
       },
       "rank": 16,
-      "points": 925,
+      "points": 945,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2544,6 +2698,14 @@
           "week": 15,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2562,8 +2724,8 @@
         "straight": 67,
         "cross": 63
       },
-      "rank": 30,
-      "points": 494,
+      "rank": 27,
+      "points": 584,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -2671,6 +2833,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -2695,8 +2865,8 @@
         "straight": 68,
         "cross": 71
       },
-      "rank": 18,
-      "points": 805,
+      "rank": 20,
+      "points": 825,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -2788,6 +2958,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2806,8 +2984,8 @@
         "straight": 69,
         "cross": 67
       },
-      "rank": 26,
-      "points": 555,
+      "rank": 23,
+      "points": 735,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -2907,6 +3085,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 3,
+          "points": 180
         }
       ],
       "tournament_wins": [
@@ -2931,8 +3117,8 @@
         "straight": 65,
         "cross": 64
       },
-      "rank": 32,
-      "points": 478,
+      "rank": 34,
+      "points": 498,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3048,6 +3234,14 @@
           "week": 15,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -3066,8 +3260,8 @@
         "straight": 71,
         "cross": 69
       },
-      "rank": 23,
-      "points": 660,
+      "rank": 24,
+      "points": 705,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3183,6 +3377,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -3201,8 +3403,8 @@
         "straight": 71,
         "cross": 70
       },
-      "rank": 21,
-      "points": 720,
+      "rank": 22,
+      "points": 765,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -3310,6 +3512,14 @@
           "week": 15,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -3328,8 +3538,8 @@
         "straight": 63,
         "cross": 61
       },
-      "rank": 28,
-      "points": 520,
+      "rank": 30,
+      "points": 540,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3421,6 +3631,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -3445,8 +3663,8 @@
         "straight": 67,
         "cross": 64
       },
-      "rank": 34,
-      "points": 455,
+      "rank": 33,
+      "points": 500,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3546,6 +3764,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -3571,7 +3797,7 @@
         "cross": 66
       },
       "rank": 25,
-      "points": 560,
+      "points": 650,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -3655,6 +3881,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": []
@@ -3673,8 +3907,8 @@
         "straight": 66,
         "cross": 67
       },
-      "rank": 24,
-      "points": 560,
+      "rank": 26,
+      "points": 605,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -3798,6 +4032,14 @@
           "week": 15,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -3816,8 +4058,8 @@
         "straight": 69,
         "cross": 68
       },
-      "rank": 20,
-      "points": 790,
+      "rank": 21,
+      "points": 810,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -3925,6 +4167,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -3949,8 +4199,8 @@
         "straight": 68,
         "cross": 65
       },
-      "rank": 27,
-      "points": 550,
+      "rank": 28,
+      "points": 570,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -4050,6 +4300,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -4074,8 +4332,8 @@
         "straight": 66,
         "cross": 64
       },
-      "rank": 31,
-      "points": 490,
+      "rank": 32,
+      "points": 510,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -4175,6 +4433,14 @@
           "week": 15,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -4193,8 +4459,8 @@
         "straight": 65,
         "cross": 64
       },
-      "rank": 35,
-      "points": 455,
+      "rank": 29,
+      "points": 545,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4310,6 +4576,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -4335,7 +4609,7 @@
         "cross": 65
       },
       "rank": 37,
-      "points": 453,
+      "points": 473,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -4443,6 +4717,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -4461,8 +4743,8 @@
         "straight": 65,
         "cross": 66
       },
-      "rank": 40,
-      "points": 418,
+      "rank": 41,
+      "points": 438,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -4562,6 +4844,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -4587,7 +4877,7 @@
         "cross": 63
       },
       "rank": 45,
-      "points": 380,
+      "points": 425,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4687,6 +4977,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -4705,8 +5003,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 85,
-      "points": 243,
+      "rank": 87,
+      "points": 249,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -4806,6 +5104,14 @@
           "week": 15,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -4830,8 +5136,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 39,
-      "points": 428,
+      "rank": 40,
+      "points": 448,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -4939,6 +5245,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -4957,8 +5271,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 72,
-      "points": 285,
+      "rank": 60,
+      "points": 360,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -5058,6 +5372,14 @@
           "week": 15,
           "round": 4,
           "points": 100
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 3,
+          "points": 75
         }
       ],
       "tournament_wins": [
@@ -5083,7 +5405,7 @@
         "cross": 63
       },
       "rank": 44,
-      "points": 383,
+      "points": 428,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5183,6 +5505,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -5201,8 +5531,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 84,
-      "points": 244,
+      "rank": 82,
+      "points": 269,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -5302,6 +5632,14 @@
           "week": 15,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -5320,8 +5658,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 33,
-      "points": 456,
+      "rank": 35,
+      "points": 476,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5429,6 +5767,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -5458,8 +5804,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 48,
-      "points": 378,
+      "rank": 49,
+      "points": 398,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -5567,6 +5913,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -5591,8 +5945,8 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 55,
-      "points": 340,
+      "rank": 43,
+      "points": 430,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -5692,6 +6046,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -5722,7 +6084,7 @@
         "cross": 62
       },
       "rank": 42,
-      "points": 389,
+      "points": 434,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -5822,6 +6184,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -5840,8 +6210,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 38,
-      "points": 430,
+      "rank": 39,
+      "points": 450,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -5949,6 +6319,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -5967,8 +6345,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 51,
-      "points": 363,
+      "rank": 54,
+      "points": 383,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -6060,6 +6438,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -6084,8 +6470,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 82,
-      "points": 251,
+      "rank": 79,
+      "points": 276,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6209,6 +6595,14 @@
           "week": 15,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -6228,7 +6622,7 @@
         "cross": 61
       },
       "rank": 95,
-      "points": 211,
+      "points": 224,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6344,6 +6738,14 @@
           "week": 15,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -6362,8 +6764,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 50,
-      "points": 368,
+      "rank": 52,
+      "points": 388,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6463,6 +6865,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -6481,8 +6891,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 78,
-      "points": 260,
+      "rank": 81,
+      "points": 270,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -6606,6 +7016,14 @@
           "week": 15,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -6624,8 +7042,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 59,
-      "points": 328,
+      "rank": 65,
+      "points": 348,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6733,6 +7151,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -6751,8 +7177,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 47,
-      "points": 378,
+      "rank": 48,
+      "points": 398,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -6860,6 +7286,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -6878,8 +7312,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 63,
-      "points": 321,
+      "rank": 59,
+      "points": 366,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -6971,6 +7405,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -6995,8 +7437,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 108,
-      "points": 169,
+      "rank": 109,
+      "points": 175,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -7112,6 +7554,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -7130,8 +7580,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 58,
-      "points": 336,
+      "rank": 63,
+      "points": 356,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -7239,6 +7689,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -7257,8 +7715,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 62,
-      "points": 325,
+      "rank": 58,
+      "points": 370,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -7366,6 +7824,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -7384,8 +7850,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 66,
-      "points": 310,
+      "rank": 71,
+      "points": 320,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -7501,6 +7967,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -7525,8 +7999,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 81,
-      "points": 251,
+      "rank": 86,
+      "points": 264,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -7626,6 +8100,14 @@
           "week": 15,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -7650,8 +8132,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 77,
-      "points": 263,
+      "rank": 80,
+      "points": 273,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -7767,6 +8249,14 @@
           "week": 15,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -7785,8 +8275,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 93,
-      "points": 215,
+      "rank": 96,
+      "points": 221,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -7886,6 +8376,14 @@
           "week": 15,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -7904,8 +8402,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 106,
-      "points": 175,
+      "rank": 102,
+      "points": 200,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -8029,6 +8527,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -8047,8 +8553,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 101,
-      "points": 193,
+      "rank": 103,
+      "points": 199,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -8156,6 +8662,14 @@
           "week": 15,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -8174,8 +8688,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 73,
-      "points": 284,
+      "rank": 77,
+      "points": 294,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -8291,6 +8805,14 @@
           "week": 15,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -8309,8 +8831,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 46,
-      "points": 379,
+      "rank": 47,
+      "points": 399,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -8426,6 +8948,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -8444,8 +8974,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 88,
-      "points": 225,
+      "rank": 93,
+      "points": 238,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -8569,6 +9099,14 @@
           "week": 15,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -8587,8 +9125,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 97,
-      "points": 207,
+      "rank": 99,
+      "points": 213,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -8672,6 +9210,14 @@
           "week": 15,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -8690,8 +9236,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 96,
-      "points": 209,
+      "rank": 98,
+      "points": 215,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -8799,6 +9345,14 @@
           "week": 15,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -8823,8 +9377,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 98,
-      "points": 202,
+      "rank": 88,
+      "points": 247,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -8916,6 +9470,14 @@
           "week": 15,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -8934,8 +9496,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 89,
-      "points": 223,
+      "rank": 84,
+      "points": 268,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -9035,6 +9597,14 @@
           "week": 15,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -9053,8 +9623,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 86,
-      "points": 229,
+      "rank": 90,
+      "points": 242,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -9154,6 +9724,14 @@
           "week": 15,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -9172,8 +9750,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 64,
-      "points": 320,
+      "rank": 68,
+      "points": 340,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -9289,6 +9867,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -9313,8 +9899,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 75,
-      "points": 274,
+      "rank": 72,
+      "points": 319,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -9414,6 +10000,14 @@
           "week": 15,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -9432,8 +10026,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 91,
-      "points": 220,
+      "rank": 94,
+      "points": 226,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -9525,6 +10119,14 @@
           "week": 15,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -9543,8 +10145,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 43,
-      "points": 388,
+      "rank": 46,
+      "points": 408,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -9652,6 +10254,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -9670,8 +10280,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 92,
-      "points": 216,
+      "rank": 91,
+      "points": 241,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -9763,6 +10373,14 @@
           "week": 15,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -9781,8 +10399,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 87,
-      "points": 225,
+      "rank": 92,
+      "points": 238,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -9898,6 +10516,14 @@
           "week": 15,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -9917,7 +10543,7 @@
         "cross": 60
       },
       "rank": 69,
-      "points": 299,
+      "points": 324,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -10025,6 +10651,14 @@
           "week": 15,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -10043,8 +10677,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 52,
-      "points": 355,
+      "rank": 56,
+      "points": 375,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -10160,6 +10794,14 @@
           "week": 15,
           "round": 3,
           "points": 75
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -10184,8 +10826,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 54,
-      "points": 340,
+      "rank": 61,
+      "points": 360,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -10301,6 +10943,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -10319,8 +10969,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 103,
-      "points": 190,
+      "rank": 106,
+      "points": 196,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -10428,6 +11078,14 @@
           "week": 15,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -10446,8 +11104,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 29,
-      "points": 497,
+      "rank": 31,
+      "points": 517,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -10555,6 +11213,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -10584,8 +11250,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 90,
-      "points": 220,
+      "rank": 85,
+      "points": 265,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -10701,6 +11367,14 @@
           "week": 15,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -10720,7 +11394,7 @@
         "cross": 61
       },
       "rank": 36,
-      "points": 453,
+      "points": 473,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -10836,6 +11510,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -10854,8 +11536,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 80,
-      "points": 253,
+      "rank": 55,
+      "points": 378,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -10955,9 +11637,23 @@
           "week": 15,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 4,
+          "points": 125
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 86,
@@ -10973,8 +11669,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 56,
-      "points": 338,
+      "rank": 53,
+      "points": 383,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -11082,6 +11778,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -11100,8 +11804,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 60,
-      "points": 326,
+      "rank": 66,
+      "points": 346,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -11201,6 +11905,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -11225,8 +11937,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 41,
-      "points": 418,
+      "rank": 38,
+      "points": 463,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -11342,6 +12054,14 @@
           "week": 15,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -11360,8 +12080,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 107,
-      "points": 171,
+      "rank": 89,
+      "points": 246,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -11477,9 +12197,23 @@
           "week": 15,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 4,
+          "points": 75
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 90,
@@ -11495,8 +12229,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 65,
-      "points": 318,
+      "rank": 67,
+      "points": 343,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -11612,6 +12346,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -11630,8 +12372,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 57,
-      "points": 337,
+      "rank": 62,
+      "points": 357,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -11739,6 +12481,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -11757,8 +12507,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 53,
-      "points": 349,
+      "rank": 50,
+      "points": 394,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -11874,6 +12624,14 @@
           "week": 15,
           "round": 4,
           "points": 125
+        },
+        {
+          "name": "Barcelona Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -11898,8 +12656,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 83,
-      "points": 246,
+      "rank": 70,
+      "points": 321,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -12015,11 +12773,24 @@
           "week": 15,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 4,
+          "points": 75
         }
       ],
       "tournament_wins": [
         {
           "name": "Florianopolis Open",
+          "category": "Challenger 75",
+          "year": 1
+        },
+        {
+          "name": "Morelos Open",
           "category": "Challenger 75",
           "year": 1
         }
@@ -12039,8 +12810,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 71,
-      "points": 289,
+      "rank": 76,
+      "points": 299,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -12156,6 +12927,14 @@
           "week": 15,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -12181,7 +12960,7 @@
         "cross": 59
       },
       "rank": 100,
-      "points": 196,
+      "points": 209,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -12281,6 +13060,14 @@
           "week": 15,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -12299,8 +13086,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 61,
-      "points": 326,
+      "rank": 57,
+      "points": 371,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -12408,6 +13195,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -12437,8 +13232,8 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 67,
-      "points": 308,
+      "rank": 64,
+      "points": 353,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -12538,6 +13333,14 @@
           "week": 15,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -12556,8 +13359,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 79,
-      "points": 258,
+      "rank": 83,
+      "points": 268,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -12681,6 +13484,14 @@
           "week": 15,
           "round": 3,
           "points": 60
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": []
@@ -12699,8 +13510,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 74,
-      "points": 277,
+      "rank": 75,
+      "points": 302,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -12800,6 +13611,14 @@
           "week": 15,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -12824,8 +13643,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 49,
-      "points": 371,
+      "rank": 51,
+      "points": 391,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -12925,6 +13744,14 @@
           "week": 15,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -12943,8 +13770,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 119,
-      "points": 116,
+      "rank": 108,
+      "points": 191,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -13044,9 +13871,23 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 4,
+          "points": 75
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1
+        }
+      ]
     },
     {
       "id": 102,
@@ -13062,8 +13903,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 94,
-      "points": 211,
+      "rank": 97,
+      "points": 217,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -13179,6 +14020,14 @@
           "week": 15,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -13197,8 +14046,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 109,
-      "points": 155,
+      "rank": 111,
+      "points": 168,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -13298,6 +14147,14 @@
           "week": 15,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -13316,8 +14173,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 70,
-      "points": 292,
+      "rank": 73,
+      "points": 317,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -13425,6 +14282,14 @@
           "week": 15,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -13449,8 +14314,8 @@
         "straight": 62,
         "cross": 58
       },
-      "rank": 76,
-      "points": 268,
+      "rank": 78,
+      "points": 278,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -13566,6 +14431,14 @@
           "week": 15,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -13590,8 +14463,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 105,
-      "points": 182,
+      "rank": 107,
+      "points": 195,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -13699,6 +14572,14 @@
           "week": 15,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -13717,8 +14598,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 68,
-      "points": 302,
+      "rank": 74,
+      "points": 312,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -13834,6 +14715,14 @@
           "week": 15,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -13863,8 +14752,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 115,
-      "points": 135,
+      "rank": 117,
+      "points": 141,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -13964,6 +14853,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -13982,8 +14879,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 116,
-      "points": 133,
+      "rank": 113,
+      "points": 146,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -14099,6 +14996,14 @@
           "week": 15,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -14117,8 +15022,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 110,
-      "points": 151,
+      "rank": 112,
+      "points": 157,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -14226,6 +15131,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -14244,8 +15157,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 102,
-      "points": 193,
+      "rank": 104,
+      "points": 199,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -14345,6 +15258,14 @@
           "week": 15,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -14369,8 +15290,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 99,
-      "points": 198,
+      "rank": 101,
+      "points": 204,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -14470,6 +15391,14 @@
           "week": 15,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -14494,8 +15423,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 114,
-      "points": 137,
+      "rank": 116,
+      "points": 143,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -14595,6 +15524,14 @@
           "week": 15,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -14614,7 +15551,7 @@
         "cross": 56
       },
       "rank": 127,
-      "points": 95,
+      "points": 101,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -14714,6 +15651,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -14732,8 +15677,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 123,
-      "points": 109,
+      "rank": 122,
+      "points": 122,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -14849,6 +15794,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -14867,8 +15820,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 111,
-      "points": 143,
+      "rank": 110,
+      "points": 168,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -14976,6 +15929,14 @@
           "week": 15,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -14994,8 +15955,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 113,
-      "points": 138,
+      "rank": 115,
+      "points": 144,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -15103,6 +16064,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -15121,8 +16090,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 120,
-      "points": 115,
+      "rank": 119,
+      "points": 128,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -15238,6 +16207,14 @@
           "week": 15,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -15256,8 +16233,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 112,
-      "points": 138,
+      "rank": 114,
+      "points": 144,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -15373,6 +16350,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -15391,8 +16376,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 126,
-      "points": 100,
+      "rank": 121,
+      "points": 125,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -15508,6 +16493,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": []
@@ -15526,8 +16519,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 121,
-      "points": 113,
+      "rank": 123,
+      "points": 119,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -15643,6 +16636,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -15661,8 +16662,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 125,
-      "points": 104,
+      "rank": 126,
+      "points": 110,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -15754,6 +16755,14 @@
           "week": 15,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -15772,8 +16781,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 122,
-      "points": 111,
+      "rank": 124,
+      "points": 117,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -15881,6 +16890,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -15899,8 +16916,8 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 117,
-      "points": 132,
+      "rank": 118,
+      "points": 138,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -16000,6 +17017,14 @@
           "week": 15,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -16018,8 +17043,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 124,
-      "points": 105,
+      "rank": 125,
+      "points": 111,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -16135,6 +17160,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -16153,8 +17186,8 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 118,
-      "points": 121,
+      "rank": 120,
+      "points": 127,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -16262,6 +17295,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -16280,8 +17321,8 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 104,
-      "points": 185,
+      "rank": 105,
+      "points": 198,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -16397,6 +17438,14 @@
           "week": 15,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": []
@@ -16416,7 +17465,7 @@
         "cross": 55
       },
       "rank": 128,
-      "points": 75,
+      "points": 81,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -16514,6 +17563,14 @@
           "category": "Challenger 75",
           "year": 1,
           "week": 15,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 1,
+          "week": 16,
           "round": 0,
           "points": 6
         }
@@ -23406,7 +24463,7 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 3,
       "participants": [
         7,
         79,
@@ -23446,170 +24503,206 @@
           [
             7,
             30,
-            null
+            7,
+            "6-1, 5-7, 6-2"
           ],
           [
             79,
             1,
-            null
+            1,
+            "1-6, 3-6"
           ],
           [
             4,
             32,
-            null
+            4,
+            "6-1, 6-1"
           ],
           [
             27,
             42,
-            null
+            27,
+            "7-6, 6-1"
           ],
           [
             53,
             45,
-            null
+            45,
+            "6-7, 3-6"
           ],
           [
             52,
             20,
-            null
+            20,
+            "7-6, 6-7, 2-6"
           ],
           [
             50,
             6,
-            null
+            6,
+            "2-6, 2-6"
           ],
           [
             88,
             56,
-            null
+            88,
+            "6-3, 6-1"
           ],
           [
             86,
             82,
-            null
+            86,
+            "7-6, 6-4"
           ],
           [
             87,
             44,
-            null
+            44,
+            "3-6, 0-6"
           ],
           [
             23,
             15,
-            null
+            15,
+            "7-6, 5-7, 4-6"
           ],
           [
             11,
             24,
-            null
+            24,
+            "4-6, 6-3, 4-6"
           ],
           [
             35,
             40,
-            null
+            40,
+            "4-6, 5-7"
           ],
           [
             3,
             14,
-            null
+            3,
+            "6-2, 2-6, 7-6"
           ],
           [
             2,
             31,
-            null
+            2,
+            "6-3, 6-2"
           ],
           [
             92,
             91,
-            null
+            92,
+            "6-3, 6-2"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            7,
+            1,
+            1,
+            "0-6, 6-4, 3-6"
+          ],
+          [
+            4,
+            27,
+            4,
+            "6-1, 6-2"
+          ],
+          [
+            45,
+            20,
+            20,
+            "4-6, 4-6"
+          ],
+          [
+            6,
+            88,
+            6,
+            "6-3, 6-2"
+          ],
+          [
+            86,
+            44,
+            44,
+            "4-6, 2-6"
+          ],
+          [
+            15,
+            24,
+            15,
+            "6-2, 6-4"
+          ],
+          [
+            40,
+            3,
+            3,
+            "0-6, 2-6"
+          ],
+          [
+            2,
+            92,
+            2,
+            "6-1, 6-2"
+          ]
+        ],
+        [
+          [
+            1,
+            4,
+            1,
+            "6-1, 6-3"
+          ],
+          [
+            20,
+            6,
+            6,
+            "0-6, 6-7"
+          ],
+          [
+            44,
+            15,
+            15,
+            "1-6, 4-6"
+          ],
+          [
+            3,
+            2,
+            3,
+            "7-6, 6-2"
+          ]
+        ],
+        [
+          [
+            1,
+            6,
+            1,
+            "6-3, 6-2"
+          ],
+          [
+            15,
+            3,
+            3,
+            "0-6, 3-6"
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            3,
+            "4-6, 5-7"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          7,
-          30,
-          null
-        ],
-        [
-          79,
           1,
-          null
-        ],
-        [
-          4,
-          32,
-          null
-        ],
-        [
-          27,
-          42,
-          null
-        ],
-        [
-          53,
-          45,
-          null
-        ],
-        [
-          52,
-          20,
-          null
-        ],
-        [
-          50,
-          6,
-          null
-        ],
-        [
-          88,
-          56,
-          null
-        ],
-        [
-          86,
-          82,
-          null
-        ],
-        [
-          87,
-          44,
-          null
-        ],
-        [
-          23,
-          15,
-          null
-        ],
-        [
-          11,
-          24,
-          null
-        ],
-        [
-          35,
-          40,
-          null
-        ],
-        [
           3,
-          14,
-          null
-        ],
-        [
-          2,
-          31,
-          null
-        ],
-        [
-          92,
-          91,
-          null
+          3,
+          "4-6, 5-7"
         ]
       ]
     },
@@ -23621,7 +24714,7 @@
       "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 10,
       "participants": [
         29,
         26,
@@ -23661,170 +24754,206 @@
           [
             29,
             65,
-            null
+            29,
+            "6-1, 6-7, 6-4"
           ],
           [
             26,
             12,
-            null
+            12,
+            "1-6, 2-6"
           ],
           [
             46,
             36,
-            null
+            36,
+            "4-6, 6-3, 4-6"
           ],
           [
             16,
             100,
-            null
+            16,
+            "6-2, 6-1"
           ],
           [
             96,
             84,
-            null
+            96,
+            "4-6, 6-0, 6-3"
           ],
           [
             72,
             33,
-            null
+            33,
+            "0-6, 3-6"
           ],
           [
             25,
             38,
-            null
+            25,
+            "6-3, 6-4"
           ],
           [
             34,
             22,
-            null
+            22,
+            "2-6, 1-6"
           ],
           [
             5,
             9,
-            null
+            5,
+            "6-3, 2-6, 6-2"
           ],
           [
             47,
             57,
-            null
+            57,
+            "3-6, 6-2, 4-6"
           ],
           [
             21,
             17,
-            null
+            17,
+            "1-6, 1-6"
           ],
           [
             13,
             18,
-            null
+            18,
+            "6-3, 5-7, 3-6"
           ],
           [
             80,
             54,
-            null
+            54,
+            "6-4, 4-6, 4-6"
           ],
           [
             75,
             28,
-            null
+            28,
+            "3-6, 3-6"
           ],
           [
             8,
             43,
-            null
+            8,
+            "6-3, 6-4"
           ],
           [
             10,
             19,
-            null
+            10,
+            "6-0, 6-4"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            29,
+            12,
+            12,
+            "1-6, 1-6"
+          ],
+          [
+            36,
+            16,
+            16,
+            "2-6, 6-4, 2-6"
+          ],
+          [
+            96,
+            33,
+            33,
+            "4-6, 5-7"
+          ],
+          [
+            25,
+            22,
+            22,
+            "7-6, 6-7, 2-6"
+          ],
+          [
+            5,
+            57,
+            5,
+            "6-1, 6-2"
+          ],
+          [
+            17,
+            18,
+            17,
+            "4-6, 7-5, 6-1"
+          ],
+          [
+            54,
+            28,
+            28,
+            "4-6, 6-2, 3-6"
+          ],
+          [
+            8,
+            10,
+            10,
+            "3-6, 0-6"
+          ]
+        ],
+        [
+          [
+            12,
+            16,
+            12,
+            "6-3, 6-4"
+          ],
+          [
+            33,
+            22,
+            22,
+            "4-6, 3-6"
+          ],
+          [
+            5,
+            17,
+            5,
+            "6-2, 6-4"
+          ],
+          [
+            28,
+            10,
+            10,
+            "4-6, 3-6"
+          ]
+        ],
+        [
+          [
+            12,
+            22,
+            12,
+            "7-6, 6-4"
+          ],
+          [
+            5,
+            10,
+            10,
+            "6-1, 6-7, 4-6"
+          ]
+        ],
+        [
+          [
+            12,
+            10,
+            10,
+            "3-6, 1-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          29,
-          65,
-          null
-        ],
-        [
-          26,
           12,
-          null
-        ],
-        [
-          46,
-          36,
-          null
-        ],
-        [
-          16,
-          100,
-          null
-        ],
-        [
-          96,
-          84,
-          null
-        ],
-        [
-          72,
-          33,
-          null
-        ],
-        [
-          25,
-          38,
-          null
-        ],
-        [
-          34,
-          22,
-          null
-        ],
-        [
-          5,
-          9,
-          null
-        ],
-        [
-          47,
-          57,
-          null
-        ],
-        [
-          21,
-          17,
-          null
-        ],
-        [
-          13,
-          18,
-          null
-        ],
-        [
-          80,
-          54,
-          null
-        ],
-        [
-          75,
-          28,
-          null
-        ],
-        [
-          8,
-          43,
-          null
-        ],
-        [
           10,
-          19,
-          null
+          10,
+          "3-6, 1-6"
         ]
       ]
     },
@@ -23836,7 +24965,405 @@
       "category": "Masters 1000",
       "draw_size": 64,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        15,
+        7,
+        6,
+        17,
+        5,
+        40,
+        2,
+        13,
+        56,
+        35,
+        54,
+        11,
+        16,
+        32,
+        29,
+        14,
+        36,
+        57,
+        20,
+        8,
+        26,
+        30,
+        18,
+        22,
+        42,
+        43,
+        97,
+        28,
+        50,
+        65,
+        91,
+        82,
+        9,
+        21,
+        23,
+        46,
+        31,
+        19,
+        47,
+        80,
+        84,
+        24,
+        88,
+        96,
+        86,
+        85,
+        10,
+        44,
+        53,
+        79,
+        75,
+        12,
+        3,
+        45,
+        33,
+        92,
+        4,
+        100,
+        34,
+        38,
+        1,
+        25,
+        39,
+        27
+      ],
+      "bracket": [
+        [
+          [
+            15,
+            27,
+            null
+          ],
+          [
+            7,
+            39,
+            null
+          ],
+          [
+            6,
+            25,
+            null
+          ],
+          [
+            17,
+            1,
+            null
+          ],
+          [
+            5,
+            38,
+            null
+          ],
+          [
+            40,
+            34,
+            null
+          ],
+          [
+            2,
+            100,
+            null
+          ],
+          [
+            13,
+            4,
+            null
+          ],
+          [
+            56,
+            92,
+            null
+          ],
+          [
+            35,
+            33,
+            null
+          ],
+          [
+            54,
+            45,
+            null
+          ],
+          [
+            11,
+            3,
+            null
+          ],
+          [
+            16,
+            12,
+            null
+          ],
+          [
+            32,
+            75,
+            null
+          ],
+          [
+            29,
+            79,
+            null
+          ],
+          [
+            14,
+            53,
+            null
+          ],
+          [
+            36,
+            44,
+            null
+          ],
+          [
+            57,
+            10,
+            null
+          ],
+          [
+            20,
+            85,
+            null
+          ],
+          [
+            8,
+            86,
+            null
+          ],
+          [
+            26,
+            96,
+            null
+          ],
+          [
+            30,
+            88,
+            null
+          ],
+          [
+            18,
+            24,
+            null
+          ],
+          [
+            22,
+            84,
+            null
+          ],
+          [
+            42,
+            80,
+            null
+          ],
+          [
+            43,
+            47,
+            null
+          ],
+          [
+            97,
+            19,
+            null
+          ],
+          [
+            28,
+            31,
+            null
+          ],
+          [
+            50,
+            46,
+            null
+          ],
+          [
+            65,
+            23,
+            null
+          ],
+          [
+            91,
+            21,
+            null
+          ],
+          [
+            82,
+            9,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          15,
+          27,
+          null
+        ],
+        [
+          7,
+          39,
+          null
+        ],
+        [
+          6,
+          25,
+          null
+        ],
+        [
+          17,
+          1,
+          null
+        ],
+        [
+          5,
+          38,
+          null
+        ],
+        [
+          40,
+          34,
+          null
+        ],
+        [
+          2,
+          100,
+          null
+        ],
+        [
+          13,
+          4,
+          null
+        ],
+        [
+          56,
+          92,
+          null
+        ],
+        [
+          35,
+          33,
+          null
+        ],
+        [
+          54,
+          45,
+          null
+        ],
+        [
+          11,
+          3,
+          null
+        ],
+        [
+          16,
+          12,
+          null
+        ],
+        [
+          32,
+          75,
+          null
+        ],
+        [
+          29,
+          79,
+          null
+        ],
+        [
+          14,
+          53,
+          null
+        ],
+        [
+          36,
+          44,
+          null
+        ],
+        [
+          57,
+          10,
+          null
+        ],
+        [
+          20,
+          85,
+          null
+        ],
+        [
+          8,
+          86,
+          null
+        ],
+        [
+          26,
+          96,
+          null
+        ],
+        [
+          30,
+          88,
+          null
+        ],
+        [
+          18,
+          24,
+          null
+        ],
+        [
+          22,
+          84,
+          null
+        ],
+        [
+          42,
+          80,
+          null
+        ],
+        [
+          43,
+          47,
+          null
+        ],
+        [
+          97,
+          19,
+          null
+        ],
+        [
+          28,
+          31,
+          null
+        ],
+        [
+          50,
+          46,
+          null
+        ],
+        [
+          65,
+          23,
+          null
+        ],
+        [
+          91,
+          21,
+          null
+        ],
+        [
+          82,
+          9,
+          null
+        ]
+      ]
     },
     {
       "id": 26,
@@ -30655,7 +32182,7 @@
       "category": "Challenger 125",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 85,
       "participants": [
         104,
         58,
@@ -30679,89 +32206,108 @@
           [
             104,
             107,
-            null
+            104,
+            "4-6, 6-2, 6-3"
           ],
           [
             58,
             39,
-            null
+            39,
+            "1-6, 6-7"
           ],
           [
             73,
             94,
-            null
+            73,
+            "7-6, 6-4"
           ],
           [
             64,
             78,
-            null
+            78,
+            "3-6, 7-6, 6-7"
           ],
           [
             97,
             60,
-            null
+            97,
+            "7-6, 6-4"
           ],
           [
             105,
             90,
-            null
+            90,
+            "2-6, 6-7"
           ],
           [
             85,
             51,
-            null
+            85,
+            "7-6, 6-4"
           ],
           [
             99,
             98,
-            null
+            99,
+            "6-3, 2-6, 6-4"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            104,
+            39,
+            39,
+            "4-6, 4-6"
+          ],
+          [
+            73,
+            78,
+            73,
+            "6-4, 7-6"
+          ],
+          [
+            97,
+            90,
+            97,
+            "7-6, 6-2"
+          ],
+          [
+            85,
+            99,
+            85,
+            "7-5, 6-2"
+          ]
+        ],
+        [
+          [
+            39,
+            73,
+            39,
+            "6-7, 6-2, 6-4"
+          ],
+          [
+            97,
+            85,
+            85,
+            "2-6, 5-7"
+          ]
+        ],
+        [
+          [
+            39,
+            85,
+            85,
+            "6-7, 6-7"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          104,
-          107,
-          null
-        ],
-        [
-          58,
           39,
-          null
-        ],
-        [
-          73,
-          94,
-          null
-        ],
-        [
-          64,
-          78,
-          null
-        ],
-        [
-          97,
-          60,
-          null
-        ],
-        [
-          105,
-          90,
-          null
-        ],
-        [
           85,
-          51,
-          null
-        ],
-        [
-          99,
-          98,
-          null
+          85,
+          "6-7, 6-7"
         ]
       ]
     },
@@ -30773,7 +32319,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 93,
       "participants": [
         59,
         48,
@@ -30797,89 +32343,108 @@
           [
             59,
             111,
-            null
+            59,
+            "6-2, 6-3"
           ],
           [
             48,
             74,
-            null
+            48,
+            "7-6, 6-2"
           ],
           [
             106,
             112,
-            null
+            106,
+            "7-6, 6-4"
           ],
           [
             69,
             81,
-            null
+            69,
+            "6-3, 7-5"
           ],
           [
             66,
             68,
-            null
+            66,
+            "6-4, 6-1"
           ],
           [
             41,
             102,
-            null
+            41,
+            "6-1, 6-3"
           ],
           [
             95,
             37,
-            null
+            95,
+            "6-3, 6-4"
           ],
           [
             93,
             67,
-            null
+            93,
+            "6-4, 7-6"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            59,
+            48,
+            48,
+            "6-3, 0-6, 5-7"
+          ],
+          [
+            106,
+            69,
+            69,
+            "6-2, 3-6, 2-6"
+          ],
+          [
+            66,
+            41,
+            41,
+            "1-6, 5-7"
+          ],
+          [
+            95,
+            93,
+            93,
+            "7-5, 3-6, 6-7"
+          ]
+        ],
+        [
+          [
+            48,
+            69,
+            69,
+            "4-6, 1-6"
+          ],
+          [
+            41,
+            93,
+            93,
+            "1-6, 4-6"
+          ]
+        ],
+        [
+          [
+            69,
+            93,
+            93,
+            "2-6, 4-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          59,
-          111,
-          null
-        ],
-        [
-          48,
-          74,
-          null
-        ],
-        [
-          106,
-          112,
-          null
-        ],
-        [
           69,
-          81,
-          null
-        ],
-        [
-          66,
-          68,
-          null
-        ],
-        [
-          41,
-          102,
-          null
-        ],
-        [
-          95,
-          37,
-          null
-        ],
-        [
           93,
-          67,
-          null
+          93,
+          "2-6, 4-6"
         ]
       ]
     },
@@ -30891,7 +32456,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 101,
       "participants": [
         121,
         117,
@@ -30915,89 +32480,108 @@
           [
             121,
             101,
-            null
+            101,
+            "2-6, 0-6"
           ],
           [
             117,
             77,
-            null
+            77,
+            "5-7, 6-3, 0-6"
           ],
           [
             116,
             128,
-            null
+            116,
+            "4-6, 7-5, 6-3"
           ],
           [
             109,
             55,
-            null
+            109,
+            "6-3, 6-4"
           ],
           [
             125,
             70,
-            null
+            70,
+            "6-4, 2-6, 4-6"
           ],
           [
             123,
             115,
-            null
+            115,
+            "4-6, 6-0, 4-6"
           ],
           [
             49,
             119,
-            null
+            49,
+            "7-6, 6-2"
           ],
           [
             62,
             110,
-            null
+            62,
+            "6-3, 6-2"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            101,
+            77,
+            101,
+            "7-6, 6-4"
+          ],
+          [
+            116,
+            109,
+            116,
+            "7-6, 6-7, 7-6"
+          ],
+          [
+            70,
+            115,
+            70,
+            "6-2, 2-6, 7-6"
+          ],
+          [
+            49,
+            62,
+            62,
+            "6-1, 6-7, 4-6"
+          ]
+        ],
+        [
+          [
+            101,
+            116,
+            101,
+            "6-2, 6-3"
+          ],
+          [
+            70,
+            62,
+            70,
+            "7-5, 6-3"
+          ]
+        ],
+        [
+          [
+            101,
+            70,
+            101,
+            "5-7, 6-3, 6-4"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          121,
           101,
-          null
-        ],
-        [
-          117,
-          77,
-          null
-        ],
-        [
-          116,
-          128,
-          null
-        ],
-        [
-          109,
-          55,
-          null
-        ],
-        [
-          125,
           70,
-          null
-        ],
-        [
-          123,
-          115,
-          null
-        ],
-        [
-          49,
-          119,
-          null
-        ],
-        [
-          62,
-          110,
-          null
+          101,
+          "5-7, 6-3, 6-4"
         ]
       ]
     },
@@ -31009,7 +32593,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 89,
       "participants": [
         71,
         113,
@@ -31033,89 +32617,108 @@
           [
             71,
             124,
-            null
+            71,
+            "7-6, 6-2"
           ],
           [
             113,
             83,
-            null
+            83,
+            "4-6, 6-3, 6-7"
           ],
           [
             63,
             118,
-            null
+            118,
+            "3-6, 6-4, 6-7"
           ],
           [
             126,
             120,
-            null
+            120,
+            "4-6, 3-6"
           ],
           [
             76,
             122,
-            null
+            76,
+            "7-5, 6-2"
           ],
           [
             127,
             108,
-            null
+            127,
+            "7-6, 6-4"
           ],
           [
             61,
             103,
-            null
+            103,
+            "5-7, 6-1, 6-7"
           ],
           [
             89,
             114,
-            null
+            89,
+            "6-2, 7-6"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            71,
+            83,
+            83,
+            "4-6, 2-6"
+          ],
+          [
+            118,
+            120,
+            120,
+            "6-7, 6-2, 1-6"
+          ],
+          [
+            76,
+            127,
+            76,
+            "6-3, 6-2"
+          ],
+          [
+            103,
+            89,
+            89,
+            "4-6, 6-3, 3-6"
+          ]
+        ],
+        [
+          [
+            83,
+            120,
+            83,
+            "6-3, 6-1"
+          ],
+          [
+            76,
+            89,
+            89,
+            "5-7, 6-3, 6-7"
+          ]
+        ],
+        [
+          [
+            83,
+            89,
+            89,
+            "0-6, 7-6, 1-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          71,
-          124,
-          null
-        ],
-        [
-          113,
           83,
-          null
-        ],
-        [
-          63,
-          118,
-          null
-        ],
-        [
-          126,
-          120,
-          null
-        ],
-        [
-          76,
-          122,
-          null
-        ],
-        [
-          127,
-          108,
-          null
-        ],
-        [
-          61,
-          103,
-          null
-        ],
-        [
           89,
-          114,
-          null
+          89,
+          "0-6, 7-6, 1-6"
         ]
       ]
     },
@@ -31127,7 +32730,115 @@
       "category": "Challenger 125",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        87,
+        73,
+        72,
+        58,
+        99,
+        93,
+        48,
+        64,
+        107,
+        90,
+        104,
+        78,
+        105,
+        52,
+        60,
+        94
+      ],
+      "bracket": [
+        [
+          [
+            87,
+            94,
+            null
+          ],
+          [
+            73,
+            60,
+            null
+          ],
+          [
+            72,
+            52,
+            null
+          ],
+          [
+            58,
+            105,
+            null
+          ],
+          [
+            99,
+            78,
+            null
+          ],
+          [
+            93,
+            104,
+            null
+          ],
+          [
+            48,
+            90,
+            null
+          ],
+          [
+            64,
+            107,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          87,
+          94,
+          null
+        ],
+        [
+          73,
+          60,
+          null
+        ],
+        [
+          72,
+          52,
+          null
+        ],
+        [
+          58,
+          105,
+          null
+        ],
+        [
+          99,
+          78,
+          null
+        ],
+        [
+          93,
+          104,
+          null
+        ],
+        [
+          48,
+          90,
+          null
+        ],
+        [
+          64,
+          107,
+          null
+        ]
+      ]
     },
     {
       "id": 115,
@@ -31137,7 +32848,115 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        61,
+        55,
+        74,
+        37,
+        63,
+        127,
+        106,
+        102,
+        112,
+        70,
+        101,
+        76,
+        62,
+        49,
+        51,
+        111
+      ],
+      "bracket": [
+        [
+          [
+            61,
+            111,
+            null
+          ],
+          [
+            55,
+            51,
+            null
+          ],
+          [
+            74,
+            49,
+            null
+          ],
+          [
+            37,
+            62,
+            null
+          ],
+          [
+            63,
+            76,
+            null
+          ],
+          [
+            127,
+            101,
+            null
+          ],
+          [
+            106,
+            70,
+            null
+          ],
+          [
+            102,
+            112,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          61,
+          111,
+          null
+        ],
+        [
+          55,
+          51,
+          null
+        ],
+        [
+          74,
+          49,
+          null
+        ],
+        [
+          37,
+          62,
+          null
+        ],
+        [
+          63,
+          76,
+          null
+        ],
+        [
+          127,
+          101,
+          null
+        ],
+        [
+          106,
+          70,
+          null
+        ],
+        [
+          102,
+          112,
+          null
+        ]
+      ]
     },
     {
       "id": 116,
@@ -31147,7 +32966,115 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        116,
+        103,
+        81,
+        59,
+        71,
+        89,
+        41,
+        66,
+        77,
+        98,
+        95,
+        110,
+        83,
+        68,
+        67,
+        69
+      ],
+      "bracket": [
+        [
+          [
+            116,
+            69,
+            null
+          ],
+          [
+            103,
+            67,
+            null
+          ],
+          [
+            81,
+            68,
+            null
+          ],
+          [
+            59,
+            83,
+            null
+          ],
+          [
+            71,
+            110,
+            null
+          ],
+          [
+            89,
+            95,
+            null
+          ],
+          [
+            41,
+            98,
+            null
+          ],
+          [
+            66,
+            77,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          116,
+          69,
+          null
+        ],
+        [
+          103,
+          67,
+          null
+        ],
+        [
+          81,
+          68,
+          null
+        ],
+        [
+          59,
+          83,
+          null
+        ],
+        [
+          71,
+          110,
+          null
+        ],
+        [
+          89,
+          95,
+          null
+        ],
+        [
+          41,
+          98,
+          null
+        ],
+        [
+          66,
+          77,
+          null
+        ]
+      ]
     },
     {
       "id": 117,
@@ -31157,7 +33084,115 @@
       "category": "Challenger 50",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null
+      "winner_id": null,
+      "participants": [
+        128,
+        124,
+        125,
+        126,
+        108,
+        119,
+        115,
+        118,
+        120,
+        113,
+        117,
+        122,
+        109,
+        123,
+        114,
+        121
+      ],
+      "bracket": [
+        [
+          [
+            128,
+            121,
+            null
+          ],
+          [
+            124,
+            114,
+            null
+          ],
+          [
+            125,
+            123,
+            null
+          ],
+          [
+            126,
+            109,
+            null
+          ],
+          [
+            108,
+            122,
+            null
+          ],
+          [
+            119,
+            117,
+            null
+          ],
+          [
+            115,
+            113,
+            null
+          ],
+          [
+            118,
+            120,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
+      "current_round": 0,
+      "active_matches": [
+        [
+          128,
+          121,
+          null
+        ],
+        [
+          124,
+          114,
+          null
+        ],
+        [
+          125,
+          123,
+          null
+        ],
+        [
+          126,
+          109,
+          null
+        ],
+        [
+          108,
+          122,
+          null
+        ],
+        [
+          119,
+          117,
+          null
+        ],
+        [
+          115,
+          113,
+          null
+        ],
+        [
+          118,
+          120,
+          null
+        ]
+      ]
     },
     {
       "id": 118,

@@ -616,7 +616,6 @@ class TournamentScheduler:
             and (change := ranking_changes[p['id']]) 
             and (change[1] <= 15 or change[0] <= 15)
         ]
-        top15_changes.sort(key=lambda x: x.get('new', 999))
 
         for name, old, new in top15_changes:
             if old > 15:  # New entry to top 20
