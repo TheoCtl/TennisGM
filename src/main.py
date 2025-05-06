@@ -10,7 +10,7 @@ def main_menu(stdscr, scheduler):
     while True:
         stdscr.clear()
         stdscr.addstr(0, 0, f"--- Year {scheduler.current_year}, Week {scheduler.current_week} ---", curses.A_BOLD)
-        menu = ["View current tournaments", "Enter tournament", "See ATP Rankings"]
+        menu = ["View current tournaments", "Enter tournament", "See ATP Rankings", "See Hall of Fame"]
 
         # Check if all tournaments for the current week are completed
         current_tournaments = scheduler.get_current_week_tournaments()
@@ -41,6 +41,8 @@ def main_menu(stdscr, scheduler):
                 enter_tournament(stdscr, scheduler)
             elif menu[current_row] == "See ATP Rankings":
                 show_rankings(stdscr, scheduler)
+            elif menu[current_row] == "See Hall of Fame":
+                show_hall_of_fame(stdscr, scheduler)
             elif menu[current_row] == "Advance to next week":
                 scheduler.advance_week()
                 stdscr.addstr(len(menu) + 3, 0, "Advanced to next week!", curses.A_BOLD)
@@ -48,6 +50,62 @@ def main_menu(stdscr, scheduler):
                 stdscr.getch()
             elif menu[current_row] == "Exit":
                 break
+            
+def show_hall_of_fame(stdscr, scheduler):
+    current_row = 0
+    hof_members = sorted(
+        scheduler.hall_of_fame,
+        key=lambda x: (
+            -sum(1 for win in x.get('tournament_wins', []) if win['category'] == "Grand Slam"),
+            -sum(1 for win in x.get('tournament_wins', []) if win['category'] == "Masters 1000"),
+            -sum(1 for win in x.get('tournament_wins', []) if win['category'] == "ATP 500"),
+            -sum(1 for win in x.get('tournament_wins', []) if win['category'] == "ATP 250"),
+            -sum(1 for win in x.get('tournament_wins', []) if win['category'].startswith("Challenger")),
+            x['name'].lower()
+        )
+    )
+    
+    while True:
+        stdscr.clear()
+        height, width = stdscr.getmaxyx()
+        
+        try:
+            stdscr.addstr(0, 0, "Hall of Fame", curses.A_BOLD)
+            stdscr.addstr(1, 0, "Players are sorted by total wins (Grand Slams > Masters > ATP 500 > ATP 250 > Challengers)")
+            
+            # Display Hall of Fame members
+            start_idx = max(0, current_row - 15)
+            for i, player in enumerate(hof_members[start_idx:start_idx+30], start_idx+1):
+                total_wins = len(player.get('tournament_wins', []))
+                gs_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Grand Slam")
+                masters_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Masters 1000")
+                atp500_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "ATP 500")
+                atp250_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "ATP 250")
+                chal_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'].startswith("Challenger"))
+                
+                if i-1 == current_row:
+                    stdscr.addstr(i+2-start_idx, 0, 
+                        f"{i}. {player['name']}: {total_wins} wins ({gs_wins} GS, {masters_wins} M1000, {atp500_wins} ATP500, {atp250_wins} ATP250, {chal_wins} Challengers)", 
+                        curses.color_pair(1))
+                else:
+                    stdscr.addstr(i+2-start_idx, 0, 
+                        f"{i}. {player['name']}: {total_wins} wins ({gs_wins} GS, {masters_wins} M1000, {atp500_wins} ATP500, {atp250_wins} ATP250, {chal_wins} Challengers)")
+            
+            if height > 34 and width > 40:
+                stdscr.addstr(height-1, 0, "Press ESC to return, arrows to scroll")
+            
+            stdscr.refresh()
+            
+        except curses.error:
+            stdscr.refresh()
+        
+        key = stdscr.getch()
+        if key == curses.KEY_UP and current_row > 0:
+            current_row -= 1
+        elif key == curses.KEY_DOWN and current_row < len(hof_members)-1:
+            current_row += 1
+        elif key == 27:  # ESC
+            break
 
 def show_player_details(stdscr, scheduler, player):
     while True:

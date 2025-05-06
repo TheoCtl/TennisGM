@@ -30,6 +30,7 @@ class TournamentScheduler:
         self.current_date = datetime(2025, 1, 1)
         self.ranking_system = RankingSystem()
         self.newgen_generator = NewGenGenerator()
+        self.hall_of_fame = []
         self.load_data(data_path, save_path)
         
         for player in self.players:
@@ -48,7 +49,8 @@ class TournamentScheduler:
             'current_date': self.current_date.isoformat(),
             'players': self.players,
             'tournaments': self.tournaments,
-            'ranking_history': dict(self.ranking_system.ranking_history)
+            'ranking_history': dict(self.ranking_system.ranking_history),
+            'hall_of_fame': self.hall_of_fame
         }
     
         with open(save_path, 'w') as f:
@@ -76,6 +78,7 @@ class TournamentScheduler:
                 self.ranking_system.ranking_history = defaultdict(list)
                 for player_id, entries in data.get('ranking_history', {}).items():
                     self.ranking_system.ranking_history[int(player_id)] = entries
+                self.hall_of_fame = data.get('hall_of_fame', [])
             print("Loaded saved game")
         except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
             for player in self.players:
@@ -91,6 +94,7 @@ class TournamentScheduler:
             for player in self.players:
                 player['tournament_history'] = []
                 player['tournament_wins'] = []
+            self.hall_of_fame = []
     
     def get_current_week_tournaments(self):
         return [t for t in self.tournaments if t['week'] == self.current_week]
@@ -502,6 +506,7 @@ class TournamentScheduler:
                 player['retired'] = True
                 retired_players.append(player['name'])
                 retired_count += 1
+                self._add_to_hall_of_fame(player)
                 continue
             
             # Chance-based retirement for players 35-39
@@ -511,11 +516,19 @@ class TournamentScheduler:
                     player['retired'] = True
                     retired_players.append(player['name'])
                     retired_count += 1
+                    self._add_to_hall_of_fame(player)
     
         if retired_players:
             logging.debug(f"Players retired this year: {', '.join(retired_players)}")
             print(f"\nThe following players have retired: {', '.join(retired_players)}")
         return retired_count
+    
+    def _add_to_hall_of_fame(self, player):
+        hof_entry = {
+            'name' : player['name'],
+            'tournament_wins' : player.get('tournament_wins', []).copy()
+        }
+        self.hall_of_fame.append(hof_entry)
     
     def _reset_tournaments_for_new_year(self):
         for tournament in self.tournaments:
