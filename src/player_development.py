@@ -10,12 +10,10 @@ class PlayerDevelopment:
             age_factor = 1.0
         elif player_age <= 22:
             age_factor = 0.9
-        elif player_age <= 24:
-            age_factor = 0.8
         elif player_age <= 26:
-            age_factor = 0.5
+            age_factor = 0.8
         elif player_age <= 28:
-            age_factor = 0.4
+            age_factor = 0.5
         else:
             age_factor = 0
 
