@@ -48,8 +48,8 @@ class NewGenGenerator:
             "backhand": random.randint(25, 50),
             "speed": random.randint(25, 50),
             "stamina": random.randint(25, 50),
-            "cross": random.randint(25, 50),
-            "straight": random.randint(25, 50)
+            "straight": random.randint(25, 50),
+            "cross": random.randint(25, 50)
         }
     
     def generate_new_players(self, current_year, count, existing_players=None):
