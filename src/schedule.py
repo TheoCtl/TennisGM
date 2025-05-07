@@ -127,7 +127,7 @@ class TournamentScheduler:
             self.current_year += 1
             self.current_year_retirees = self._process_retirements()
             retired_count = len(self.current_year_retirees)
-            new_player_count = retired_count + 8
+            new_player_count = retired_count + 3
             for player in self.players:
                 if 'age' in player and not player.get('retired', False):
                     player['age'] += 1
