@@ -255,7 +255,7 @@ def enter_tournament(stdscr, scheduler):
 
     while True:
         stdscr.clear()
-        stdscr.addstr(0, 0, "Select a Tournament:", curses.A_BOLD)
+        stdscr.addstr(0, 0, "Press ENTER to manage, '+' to simulate entire tournament")
 
         # Display tournaments
         for idx, t in enumerate(current_tournaments):
@@ -276,6 +276,25 @@ def enter_tournament(stdscr, scheduler):
         elif key == curses.KEY_ENTER or key in [10, 13]:
             tournament = current_tournaments[current_row]
             manage_tournament(stdscr, scheduler, tournament)
+        elif key == ord('+'):
+            tournament = current_tournaments[current_row]
+            if tournament.get('winner_id'):
+                stdscr.addstr(len(current_tournaments) + 4, 0, "Tournament already completed!")
+                stdscr.refresh()
+                stdscr.getch()
+            else:
+                stdscr.addstr(len(current_tournaments) + 4, 0, "Simulating tournament...")
+                stdscr.refresh()
+                winner_id = scheduler.simulate_entire_tournament(tournament['id'])
+                winner = next((p for p in scheduler.players if p['id'] == winner_id), None)
+                if winner:
+                    stdscr.addstr(len(current_tournaments) + 5, 0, 
+                                f"Tournament complete! Winner: {winner['name']}")
+                else:
+                    stdscr.addstr(len(current_tournaments) + 5, 0, 
+                                "Tournament complete! (Winner unknown)")
+                stdscr.refresh()
+                stdscr.getch()
         elif key in ESCAPE_KEYS:
             break
 

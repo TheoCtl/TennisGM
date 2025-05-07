@@ -275,7 +275,10 @@ class TournamentScheduler:
 
     def generate_bracket(self, tournament_id):
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
-        participants = tournament['participants']
+        # Ensure participants exist
+        if 'participants' not in tournament:
+            self.assign_players_to_tournaments()
+        participants = tournament.get('participants', [])
         draw_size = tournament['draw_size']
         
         # Fill byes if needed
@@ -450,12 +453,15 @@ class TournamentScheduler:
 
         # Check if the current round is the final round
         if next_round >= len(tournament['bracket']):
-            # Tournament is complete
-            if tournament['active_matches'] and tournament['active_matches'][0][2]:
-                tournament['winner_id'] = tournament['active_matches'][0][2]  # Winner of the final match
-                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
+            winner_id = None
+            for match in tournament['active_matches']:
+                if len(match) > 2 and match[2] is not None:
+                    winner_id = match[2]
+                    break
+            if winner_id:
+                tournament['winner_id'] = winner_id
+                winner = next((p for p in self.players if p['id'] == winner_id), None)
                 if winner:
-                    # Add to wins
                     if 'tournament_wins' not in winner:
                         winner['tournament_wins'] = []
                     winner['tournament_wins'].append({
@@ -480,11 +486,11 @@ class TournamentScheduler:
         # Get winners from the current round
         winners = []
         for idx, match in enumerate(tournament['active_matches']):
-            if match[2] is not None:  # Ensure the match has a winner
+            if len(match) > 2 and match[2] is not None:  # Ensure the match has a winner
                 winners.append(match[2])
                 # Store the final score in the bracket for the current round
                 tournament['bracket'][current_round][idx] = (
-                    match[0], match[1], match[2], match[3]
+                    match[0], match[1], match[2], match[3] if len(match) > 3 else "N/A"
                 )
 
         # Create next round matches
@@ -505,6 +511,83 @@ class TournamentScheduler:
         tournament['current_round'] = next_round
 
         print(f"\nRound {current_round + 1} complete! Advancing to Round {next_round + 1}")
+        
+    def simulate_entire_tournament(self, tournament_id):
+        """Simulate all remaining matches in a tournament automatically"""
+        tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
+
+        # Ensure tournament is properly initialized
+        if 'participants' not in tournament:
+            self.assign_players_to_tournaments()
+        if 'bracket' not in tournament or not tournament['bracket']:
+            self.generate_bracket(tournament_id)
+
+        while True:
+            # Check if tournament is already complete
+            if tournament.get('winner_id'):
+                break
+                
+            current_round = tournament['current_round']
+
+            # Safety check for round existence
+            if current_round >= len(tournament['bracket']):
+                break
+                
+            matches = tournament['active_matches']
+
+            # Simulate all matches in current round
+            for match_idx in range(len(matches)):
+                # Skip already completed matches
+                if len(matches[match_idx]) < 3 or matches[match_idx][2] is None:
+                    self.simulate_through_match(tournament_id, match_idx)
+
+            # Check if all matches in current round are complete
+            if all(len(m) > 2 and m[2] is not None for m in matches):
+                # If this was the final round, set the winner
+                if current_round == len(tournament['bracket']) - 1:
+                    if matches and matches[0][2]:
+                        tournament['winner_id'] = matches[0][2]
+                        winner = next((p for p in self.players if p['id'] == matches[0][2]), None)
+                        if winner:
+                            if 'tournament_wins' not in winner:
+                                winner['tournament_wins'] = []
+                            winner['tournament_wins'].append({
+                                'name': tournament['name'],
+                                'category': tournament['category'],
+                                'year': self.current_year
+                            })
+                            self._update_player_tournament_history(
+                                tournament, 
+                                matches[0][2], 
+                                current_round
+                            )
+                    break
+                else:
+                    # Prepare next round
+                    winners = [m[2] for m in matches if m[2] is not None]
+                    next_round = current_round + 1
+
+                    # Create matches for next round
+                    next_round_matches = []
+                    for i in range(0, len(winners), 2):
+                        if i + 1 < len(winners):
+                            next_round_matches.append((winners[i], winners[i+1], None))
+                        else:
+                            next_round_matches.append((winners[i], None, None))
+
+                    # Update tournament state
+                    if next_round >= len(tournament['bracket']):
+                        tournament['bracket'].append(next_round_matches)
+                    else:
+                        tournament['bracket'][next_round] = next_round_matches
+
+                    tournament['current_round'] = next_round
+                    tournament['active_matches'] = next_round_matches
+            else:
+                # Shouldn't happen - all matches should be complete after simulation
+                break
+                
+        return tournament.get('winner_id')
         
     def _process_retirements(self):
         """Handle player retirements at the end of the year"""
