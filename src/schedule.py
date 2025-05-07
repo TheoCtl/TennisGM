@@ -551,11 +551,6 @@ class TournamentScheduler:
                         if winner:
                             if 'tournament_wins' not in winner:
                                 winner['tournament_wins'] = []
-                            winner['tournament_wins'].append({
-                                'name': tournament['name'],
-                                'category': tournament['category'],
-                                'year': self.current_year
-                            })
                             self._update_player_tournament_history(
                                 tournament, 
                                 matches[0][2], 
