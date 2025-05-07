@@ -125,7 +125,8 @@ class TournamentScheduler:
         if self.current_week > 52:
             self.current_week = 1
             self.current_year += 1
-            retired_count = self._process_retirements()
+            self.current_year_retirees = self._process_retirements()
+            retired_count = len(self.current_year_retirees)
             new_player_count = retired_count + 8
             for player in self.players:
                 if 'age' in player and not player.get('retired', False):
@@ -614,7 +615,7 @@ class TournamentScheduler:
     
         if retired_players:
             print(f"\nThe following players have retired: {', '.join(retired_players)}")
-        return retired_count
+        return retired_players
     
     def _add_to_hall_of_fame(self, player):
         hof_entry = {
@@ -653,10 +654,10 @@ class TournamentScheduler:
             newgens = [p for p in self.players if p['age'] == 16]
             if newgens:
                 self.news_feed.append(f"- New players joined the tour: {', '.join(p['name'] for p in newgens)}")
-
-            retired = [p for p in self.players if p.get('retired', False) and p['age'] >= 35]
-            if retired:
-                self.news_feed.append(f"- Those players ended their career: {', '.join(p['name'] for p in retired)}")
+        if self.current_week == 1 and hasattr(self, 'current_year_retirees'):
+            retired_this_year = self.current_year_retirees
+            if retired_this_year:
+                self.news_feed.append(f"- Those players ended their career: {', '.join(p for p in retired_this_year)}")
                 
         # 3. Last week's tournament winners with total career wins
         last_week = self.current_week - 1 if self.current_week > 1 else 52
