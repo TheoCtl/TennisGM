@@ -587,7 +587,7 @@ class TournamentScheduler:
     
         last_week_winners = []
         for tournament in self.tournaments:
-            if tournament['week'] == last_week and tournament.get('winner_id'):
+            if tournament['week'] == last_week and tournament['category'].startswith("Challenger") == False and tournament.get('winner_id'):
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner:
                     total_wins = len(winner.get('tournament_wins', []))
