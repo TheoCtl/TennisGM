@@ -8,15 +8,11 @@ class PlayerDevelopment:
         # Age factor - sharp peak at 18-21
         if player_age <= 20:
             age_factor = 1.0
-        elif player_age <= 21:
-            age_factor = 0.9
         elif player_age <= 22:
-            age_factor = 0.8
-        elif player_age <= 23:
-            age_factor = 0.7
+            age_factor = 0.9
         elif player_age <= 24:
-            age_factor = 0.6
-        elif player_age <= 27:
+            age_factor = 0.8
+        elif player_age <= 26:
             age_factor = 0.5
         elif player_age <= 28:
             age_factor = 0.4
@@ -24,12 +20,13 @@ class PlayerDevelopment:
             age_factor = 0
 
         # Smoother skill difficulty curve
-        skill_factor = 1 - (current_skill / 160) ** 1
+        skill_factor = 1.1 * math.exp(-0.045 * (current_skill - 25))
+        skill_factor = max(0.01, min(1.0, skill_factor))
 
         # Base chance with adjusted weights
         base_chance = age_factor * skill_factor
         
-        return max(0.05, base_chance)
+        return max(0.01, base_chance)
 
     @staticmethod
     def calculate_regression_chance(player_age, current_skill):

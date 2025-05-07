@@ -28,12 +28,12 @@ class NewGenGenerator:
             "name": f"{first_name} {last_name}",
             "age": 16,
             "hand": random.choice(["Right", "Left"]),
-            "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
+            "skills": self.generate_skills(),
             "rank": player_rank,  # Initial unranked status
             "points": 0,
+            "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
             "tournament_history": [],
             "tournament_wins": [],
-            "skills": self.generate_skills(),
         }
     
     def generate_player_id(self):

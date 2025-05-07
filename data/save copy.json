@@ -1,19 +1,19 @@
 {
   "current_year": 2,
-  "current_week": 51,
-  "current_date": "2026-12-16T00:00:00",
+  "current_week": 52,
+  "current_date": "2026-12-23T00:00:00",
   "players": [
     {
       "id": 1,
       "name": "Jannik Sinner",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
         "serve": 79,
-        "forehand": 87,
-        "backhand": 81,
-        "speed": 81,
-        "stamina": 80,
+        "forehand": 89,
+        "backhand": 83,
+        "speed": 82,
+        "stamina": 81,
         "straight": 80,
         "cross": 76
       },
@@ -897,16 +897,16 @@
     {
       "id": 3,
       "name": "Carlos Alcaraz",
-      "age": 22,
+      "age": 24,
       "hand": "right",
       "skills": {
         "serve": 71,
-        "forehand": 83,
+        "forehand": 84,
         "backhand": 78,
         "speed": 84,
         "stamina": 74,
-        "straight": 80,
-        "cross": 82
+        "straight": 81,
+        "cross": 85
       },
       "rank": 4,
       "points": 10306,
@@ -1734,13 +1734,13 @@
       "age": 38,
       "hand": "right",
       "skills": {
-        "serve": 72,
-        "forehand": 75,
+        "serve": 71,
+        "forehand": 72,
         "backhand": 82,
-        "speed": 76,
-        "stamina": 67,
-        "straight": 72,
-        "cross": 78
+        "speed": 74,
+        "stamina": 66,
+        "straight": 69,
+        "cross": 77
       },
       "rank": 12,
       "points": 4173,
@@ -2144,11 +2144,11 @@
       "age": 24,
       "hand": "left",
       "skills": {
-        "serve": 76,
+        "serve": 77,
         "forehand": 77,
         "backhand": 65,
         "speed": 74,
-        "stamina": 60,
+        "stamina": 61,
         "straight": 75,
         "cross": 72
       },
@@ -2487,11 +2487,11 @@
       "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 63,
+        "serve": 66,
         "forehand": 68,
-        "backhand": 72,
+        "backhand": 73,
         "speed": 85,
-        "stamina": 85,
+        "stamina": 86,
         "straight": 71,
         "cross": 65
       },
@@ -3194,16 +3194,16 @@
     {
       "id": 9,
       "name": "Holger Rune",
-      "age": 22,
+      "age": 24,
       "hand": "right",
       "skills": {
         "serve": 75,
         "forehand": 82,
         "backhand": 79,
-        "speed": 85,
+        "speed": 86,
         "stamina": 67,
-        "straight": 80,
-        "cross": 79
+        "straight": 82,
+        "cross": 81
       },
       "rank": 2,
       "points": 12840,
@@ -4112,7 +4112,7 @@
     {
       "id": 11,
       "name": "Lorenzo Musetti",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
         "serve": 70,
@@ -4881,16 +4881,16 @@
     {
       "id": 13,
       "name": "Ben Shelton",
-      "age": 23,
+      "age": 25,
       "hand": "left",
       "skills": {
-        "serve": 88,
+        "serve": 89,
         "forehand": 80,
-        "backhand": 66,
-        "speed": 81,
+        "backhand": 67,
+        "speed": 84,
         "stamina": 71,
         "straight": 76,
-        "cross": 70
+        "cross": 72
       },
       "rank": 10,
       "points": 4315,
@@ -5261,16 +5261,16 @@
     {
       "id": 14,
       "name": "Arthur Fils",
-      "age": 21,
+      "age": 23,
       "hand": "right",
       "skills": {
         "serve": 76,
-        "forehand": 81,
+        "forehand": 82,
         "backhand": 72,
         "speed": 85,
-        "stamina": 67,
+        "stamina": 70,
         "straight": 77,
-        "cross": 78
+        "cross": 80
       },
       "rank": 6,
       "points": 5513,
@@ -5683,9 +5683,9 @@
         "forehand": 78,
         "backhand": 75,
         "speed": 78,
-        "stamina": 85,
-        "straight": 76,
-        "cross": 79
+        "stamina": 86,
+        "straight": 79,
+        "cross": 80
       },
       "rank": 11,
       "points": 4220,
@@ -6692,12 +6692,12 @@
       "hand": "right",
       "skills": {
         "serve": 77,
-        "forehand": 75,
+        "forehand": 76,
         "backhand": 74,
         "speed": 76,
         "stamina": 80,
-        "straight": 77,
-        "cross": 72
+        "straight": 80,
+        "cross": 73
       },
       "rank": 14,
       "points": 3628,
@@ -7034,14 +7034,14 @@
     {
       "id": 19,
       "name": "Felix Auger-Aliassime",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 73,
-        "forehand": 72,
+        "forehand": 73,
         "backhand": 65,
         "speed": 78,
-        "stamina": 70,
+        "stamina": 73,
         "straight": 70,
         "cross": 69
       },
@@ -7385,7 +7385,7 @@
     {
       "id": 20,
       "name": "Tomas Machac",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 68,
@@ -7393,7 +7393,7 @@
         "backhand": 65,
         "speed": 75,
         "stamina": 69,
-        "straight": 69,
+        "straight": 70,
         "cross": 63
       },
       "rank": 25,
@@ -7741,7 +7741,7 @@
         "forehand": 73,
         "backhand": 67,
         "speed": 71,
-        "stamina": 74,
+        "stamina": 75,
         "straight": 72,
         "cross": 71
       },
@@ -8131,11 +8131,11 @@
       "age": 27,
       "hand": "left",
       "skills": {
-        "serve": 73,
+        "serve": 74,
         "forehand": 70,
-        "backhand": 70,
+        "backhand": 73,
         "speed": 70,
-        "stamina": 66,
+        "stamina": 67,
         "straight": 69,
         "cross": 69
       },
@@ -8474,16 +8474,16 @@
     {
       "id": 23,
       "name": "Jakub Mensik",
-      "age": 20,
+      "age": 22,
       "hand": "right",
       "skills": {
-        "serve": 71,
-        "forehand": 77,
+        "serve": 72,
+        "forehand": 79,
         "backhand": 72,
         "speed": 72,
         "stamina": 63,
-        "straight": 70,
-        "cross": 65
+        "straight": 72,
+        "cross": 67
       },
       "rank": 16,
       "points": 2653,
@@ -8809,15 +8809,15 @@
     {
       "id": 24,
       "name": "Sebastian Korda",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 71,
+        "serve": 73,
         "forehand": 72,
         "backhand": 72,
         "speed": 76,
         "stamina": 69,
-        "straight": 71,
+        "straight": 72,
         "cross": 70
       },
       "rank": 18,
@@ -9485,15 +9485,15 @@
     {
       "id": 26,
       "name": "Alexei Popyrin",
-      "age": 26,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 71,
-        "forehand": 67,
+        "forehand": 68,
         "backhand": 63,
         "speed": 68,
         "stamina": 64,
-        "straight": 66,
+        "straight": 67,
         "cross": 65
       },
       "rank": 29,
@@ -9876,13 +9876,13 @@
     {
       "id": 27,
       "name": "Jiri Lehecka",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
         "serve": 69,
         "forehand": 70,
         "backhand": 68,
-        "speed": 69,
+        "speed": 70,
         "stamina": 66,
         "straight": 67,
         "cross": 66
@@ -10631,16 +10631,16 @@
     {
       "id": 29,
       "name": "Alejandro Davidovich Fokina",
-      "age": 26,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 63,
         "forehand": 68,
         "backhand": 69,
-        "speed": 72,
+        "speed": 73,
         "stamina": 70,
         "straight": 69,
-        "cross": 67
+        "cross": 68
       },
       "rank": 24,
       "points": 1677,
@@ -10966,8 +10966,8 @@
         "backhand": 67,
         "speed": 75,
         "stamina": 67,
-        "straight": 69,
-        "cross": 68
+        "straight": 70,
+        "cross": 69
       },
       "rank": 22,
       "points": 1918,
@@ -11626,7 +11626,7 @@
     {
       "id": 32,
       "name": "Brandon Nakashima",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
         "serve": 68,
@@ -11634,7 +11634,7 @@
         "backhand": 71,
         "speed": 69,
         "stamina": 69,
-        "straight": 70,
+        "straight": 71,
         "cross": 64
       },
       "rank": 42,
@@ -11959,15 +11959,15 @@
     {
       "id": 33,
       "name": "Sebastian Baez",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 59,
-        "forehand": 69,
+        "forehand": 70,
         "backhand": 70,
         "speed": 73,
         "stamina": 74,
-        "straight": 67,
+        "straight": 69,
         "cross": 65
       },
       "rank": 28,
@@ -13007,12 +13007,12 @@
     {
       "id": 36,
       "name": "Flavio Cobolli",
-      "age": 23,
+      "age": 25,
       "hand": "right",
       "skills": {
-        "serve": 63,
+        "serve": 65,
         "forehand": 66,
-        "backhand": 69,
+        "backhand": 70,
         "speed": 71,
         "stamina": 67,
         "straight": 64,
@@ -13380,14 +13380,14 @@
     {
       "id": 37,
       "name": "Giovanni Mpetshi Perricard",
-      "age": 22,
+      "age": 24,
       "hand": "right",
       "skills": {
-        "serve": 68,
-        "forehand": 64,
+        "serve": 71,
+        "forehand": 65,
         "backhand": 63,
         "speed": 63,
-        "stamina": 67,
+        "stamina": 68,
         "straight": 64,
         "cross": 64
       },
@@ -13704,16 +13704,16 @@
     {
       "id": 38,
       "name": "Alex Michelsen",
-      "age": 21,
+      "age": 23,
       "hand": "right",
       "skills": {
         "serve": 71,
         "forehand": 67,
         "backhand": 66,
-        "speed": 66,
+        "speed": 69,
         "stamina": 65,
         "straight": 67,
-        "cross": 68
+        "cross": 71
       },
       "rank": 43,
       "points": 1166,
@@ -14420,10 +14420,10 @@
       "hand": "right",
       "skills": {
         "serve": 65,
-        "forehand": 63,
+        "forehand": 62,
         "backhand": 63,
         "speed": 66,
-        "stamina": 67,
+        "stamina": 66,
         "straight": 64,
         "cross": 63
       },
@@ -15436,14 +15436,14 @@
     {
       "id": 44,
       "name": "Matteo Arnaldi",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 64,
         "forehand": 67,
-        "backhand": 64,
+        "backhand": 65,
         "speed": 67,
-        "stamina": 65,
+        "stamina": 66,
         "straight": 65,
         "cross": 65
       },
@@ -15797,13 +15797,13 @@
       "age": 32,
       "hand": "right",
       "skills": {
-        "serve": 62,
+        "serve": 61,
         "forehand": 63,
         "backhand": 64,
         "speed": 64,
         "stamina": 64,
         "straight": 63,
-        "cross": 60
+        "cross": 58
       },
       "rank": 70,
       "points": 974,
@@ -16132,14 +16132,14 @@
     {
       "id": 46,
       "name": "Luciano Darderi",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
         "serve": 66,
         "forehand": 64,
         "backhand": 66,
         "speed": 66,
-        "stamina": 65,
+        "stamina": 66,
         "straight": 63,
         "cross": 63
       },
@@ -16449,7 +16449,7 @@
     {
       "id": 47,
       "name": "Miomir Kecmanovic",
-      "age": 26,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 62,
@@ -17162,11 +17162,11 @@
       "age": 35,
       "hand": "right",
       "skills": {
-        "serve": 60,
-        "forehand": 60,
-        "backhand": 61,
+        "serve": 59,
+        "forehand": 59,
+        "backhand": 60,
         "speed": 61,
-        "stamina": 61,
+        "stamina": 58,
         "straight": 59,
         "cross": 58
       },
@@ -17512,13 +17512,13 @@
     {
       "id": 50,
       "name": "Zizou Bergs",
-      "age": 26,
+      "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 64,
+        "serve": 65,
         "forehand": 63,
-        "backhand": 64,
-        "speed": 65,
+        "backhand": 65,
+        "speed": 67,
         "stamina": 63,
         "straight": 65,
         "cross": 65
@@ -17860,12 +17860,12 @@
     {
       "id": 51,
       "name": "Tomas Martin Etcheverry",
-      "age": 26,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 63,
-        "forehand": 65,
-        "backhand": 63,
+        "forehand": 66,
+        "backhand": 65,
         "speed": 66,
         "stamina": 64,
         "straight": 62,
@@ -19230,13 +19230,13 @@
       "age": 38,
       "hand": "right",
       "skills": {
-        "serve": 56,
-        "forehand": 61,
-        "backhand": 63,
-        "speed": 56,
-        "stamina": 59,
-        "straight": 56,
-        "cross": 59
+        "serve": 53,
+        "forehand": 59,
+        "backhand": 60,
+        "speed": 54,
+        "stamina": 56,
+        "straight": 55,
+        "cross": 58
       },
       "rank": 120,
       "points": 557,
@@ -19605,11 +19605,11 @@
       "age": 33,
       "hand": "right",
       "skills": {
-        "serve": 59,
+        "serve": 58,
         "forehand": 57,
         "backhand": 61,
         "speed": 62,
-        "stamina": 64,
+        "stamina": 63,
         "straight": 59,
         "cross": 59
       },
@@ -20259,15 +20259,15 @@
     {
       "id": 58,
       "name": "Fabian Marozsan",
-      "age": 26,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 65,
         "forehand": 64,
-        "backhand": 62,
+        "backhand": 64,
         "speed": 64,
-        "stamina": 62,
-        "straight": 62,
+        "stamina": 63,
+        "straight": 63,
         "cross": 62
       },
       "rank": 65,
@@ -20644,16 +20644,16 @@
     {
       "id": 59,
       "name": "Camilo Ugo Carabelli",
-      "age": 26,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 61,
         "forehand": 64,
-        "backhand": 64,
-        "speed": 62,
+        "backhand": 65,
+        "speed": 63,
         "stamina": 65,
         "straight": 62,
-        "cross": 61
+        "cross": 62
       },
       "rank": 64,
       "points": 1003,
@@ -20989,16 +20989,16 @@
     {
       "id": 60,
       "name": "Junchen Shang",
-      "age": 21,
+      "age": 23,
       "hand": "left",
       "skills": {
-        "serve": 66,
+        "serve": 67,
         "forehand": 65,
         "backhand": 67,
-        "speed": 66,
-        "stamina": 64,
-        "straight": 63,
-        "cross": 62
+        "speed": 69,
+        "stamina": 66,
+        "straight": 64,
+        "cross": 63
       },
       "rank": 46,
       "points": 1151,
@@ -21340,16 +21340,16 @@
     {
       "id": 61,
       "name": "Hamad Medjedovic",
-      "age": 22,
+      "age": 24,
       "hand": "right",
       "skills": {
-        "serve": 65,
+        "serve": 66,
         "forehand": 65,
         "backhand": 66,
-        "speed": 65,
-        "stamina": 67,
-        "straight": 64,
-        "cross": 64
+        "speed": 67,
+        "stamina": 68,
+        "straight": 66,
+        "cross": 65
       },
       "rank": 82,
       "points": 880,
@@ -22063,8 +22063,8 @@
         "backhand": 59,
         "speed": 61,
         "stamina": 60,
-        "straight": 60,
-        "cross": 59
+        "straight": 59,
+        "cross": 57
       },
       "rank": 117,
       "points": 597,
@@ -22383,11 +22383,11 @@
       "age": 36,
       "hand": "right",
       "skills": {
-        "serve": 57,
-        "forehand": 58,
-        "backhand": 62,
-        "speed": 61,
-        "stamina": 56,
+        "serve": 55,
+        "forehand": 57,
+        "backhand": 59,
+        "speed": 60,
+        "stamina": 55,
         "straight": 61,
         "cross": 61
       },
@@ -22726,16 +22726,16 @@
     {
       "id": 65,
       "name": "Joao Fonseca",
-      "age": 19,
+      "age": 21,
       "hand": "right",
       "skills": {
         "serve": 68,
-        "forehand": 72,
+        "forehand": 73,
         "backhand": 65,
-        "speed": 69,
+        "speed": 71,
         "stamina": 61,
         "straight": 63,
-        "cross": 67
+        "cross": 70
       },
       "rank": 30,
       "points": 1515,
@@ -23077,15 +23077,15 @@
     {
       "id": 66,
       "name": "Mattia Bellucci",
-      "age": 24,
+      "age": 26,
       "hand": "left",
       "skills": {
         "serve": 64,
         "forehand": 66,
         "backhand": 64,
         "speed": 67,
-        "stamina": 64,
-        "straight": 63,
+        "stamina": 65,
+        "straight": 64,
         "cross": 63
       },
       "rank": 35,
@@ -23458,7 +23458,7 @@
       "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 66,
+        "serve": 67,
         "forehand": 62,
         "backhand": 64,
         "speed": 63,
@@ -23801,7 +23801,7 @@
     {
       "id": 68,
       "name": "Jacob Fearnley",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
         "serve": 61,
@@ -23810,7 +23810,7 @@
         "speed": 64,
         "stamina": 66,
         "straight": 63,
-        "cross": 62
+        "cross": 64
       },
       "rank": 87,
       "points": 822,
@@ -24128,15 +24128,15 @@
     {
       "id": 69,
       "name": "Learner Tien",
-      "age": 20,
+      "age": 22,
       "hand": "left",
       "skills": {
-        "serve": 63,
-        "forehand": 66,
+        "serve": 64,
+        "forehand": 68,
         "backhand": 63,
         "speed": 67,
-        "stamina": 66,
-        "straight": 63,
+        "stamina": 67,
+        "straight": 64,
         "cross": 63
       },
       "rank": 69,
@@ -24479,14 +24479,14 @@
     {
       "id": 70,
       "name": "Francisco Comesana",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 63,
-        "forehand": 64,
-        "backhand": 62,
+        "forehand": 67,
+        "backhand": 63,
         "speed": 64,
-        "stamina": 62,
+        "stamina": 63,
         "straight": 61,
         "cross": 63
       },
@@ -25194,15 +25194,15 @@
     {
       "id": 72,
       "name": "Yunchaokete Bu",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
         "serve": 62,
-        "forehand": 62,
+        "forehand": 63,
         "backhand": 61,
-        "speed": 65,
+        "speed": 66,
         "stamina": 61,
-        "straight": 60,
+        "straight": 61,
         "cross": 59
       },
       "rank": 57,
@@ -26967,7 +26967,7 @@
       "skills": {
         "serve": 63,
         "forehand": 63,
-        "backhand": 63,
+        "backhand": 64,
         "speed": 65,
         "stamina": 63,
         "straight": 61,
@@ -27313,14 +27313,14 @@
     {
       "id": 78,
       "name": "Gabriel Diallo",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
-        "serve": 65,
-        "forehand": 64,
-        "backhand": 63,
-        "speed": 64,
-        "stamina": 61,
+        "serve": 66,
+        "forehand": 65,
+        "backhand": 64,
+        "speed": 65,
+        "stamina": 62,
         "straight": 62,
         "cross": 63
       },
@@ -27652,12 +27652,12 @@
       "hand": "right",
       "skills": {
         "serve": 65,
-        "forehand": 64,
+        "forehand": 61,
         "backhand": 58,
         "speed": 60,
-        "stamina": 62,
+        "stamina": 59,
         "straight": 60,
-        "cross": 61
+        "cross": 60
       },
       "rank": 76,
       "points": 935,
@@ -27985,14 +27985,14 @@
     {
       "id": 80,
       "name": "Hugo Gaston",
-      "age": 25,
+      "age": 27,
       "hand": "left",
       "skills": {
         "serve": 61,
         "forehand": 63,
-        "backhand": 64,
+        "backhand": 65,
         "speed": 68,
-        "stamina": 64,
+        "stamina": 65,
         "straight": 62,
         "cross": 62
       },
@@ -28336,16 +28336,16 @@
     {
       "id": 81,
       "name": "Raphael Collignon",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
-        "serve": 62,
+        "serve": 63,
         "forehand": 60,
-        "backhand": 59,
-        "speed": 64,
-        "stamina": 62,
-        "straight": 62,
-        "cross": 59
+        "backhand": 61,
+        "speed": 66,
+        "stamina": 63,
+        "straight": 63,
+        "cross": 60
       },
       "rank": 97,
       "points": 749,
@@ -28691,12 +28691,12 @@
       "hand": "left",
       "skills": {
         "serve": 61,
-        "forehand": 63,
+        "forehand": 65,
         "backhand": 65,
         "speed": 69,
         "stamina": 63,
         "straight": 62,
-        "cross": 65
+        "cross": 66
       },
       "rank": 45,
       "points": 1153,
@@ -29392,13 +29392,13 @@
     {
       "id": 84,
       "name": "Rinky Hijikata",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 64,
+        "serve": 66,
         "forehand": 63,
         "backhand": 61,
-        "speed": 67,
+        "speed": 68,
         "stamina": 64,
         "straight": 63,
         "cross": 62
@@ -29767,16 +29767,16 @@
     {
       "id": 85,
       "name": "Mariano Navone",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 61,
+        "serve": 62,
         "forehand": 62,
         "backhand": 66,
-        "speed": 65,
+        "speed": 66,
         "stamina": 62,
         "straight": 64,
-        "cross": 61
+        "cross": 62
       },
       "rank": 50,
       "points": 1124,
@@ -30082,7 +30082,7 @@
         "serve": 64,
         "forehand": 62,
         "backhand": 62,
-        "speed": 63,
+        "speed": 64,
         "stamina": 65,
         "straight": 62,
         "cross": 60
@@ -31105,8 +31105,8 @@
       "age": 34,
       "hand": "right",
       "skills": {
-        "serve": 62,
-        "forehand": 60,
+        "serve": 61,
+        "forehand": 59,
         "backhand": 61,
         "speed": 60,
         "stamina": 60,
@@ -32133,16 +32133,16 @@
     {
       "id": 92,
       "name": "Alexander Shevchenko",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 64,
-        "forehand": 64,
+        "forehand": 65,
         "backhand": 64,
-        "speed": 67,
+        "speed": 70,
         "stamina": 64,
         "straight": 65,
-        "cross": 62
+        "cross": 63
       },
       "rank": 51,
       "points": 1111,
@@ -32511,11 +32511,11 @@
     {
       "id": 93,
       "name": "Jesper de Jong",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
-        "serve": 62,
-        "forehand": 63,
+        "serve": 63,
+        "forehand": 64,
         "backhand": 65,
         "speed": 63,
         "stamina": 66,
@@ -33617,7 +33617,7 @@
       "age": 34,
       "hand": "right",
       "skills": {
-        "serve": 62,
+        "serve": 61,
         "forehand": 62,
         "backhand": 62,
         "speed": 61,
@@ -33947,7 +33947,7 @@
       "age": 31,
       "hand": "right",
       "skills": {
-        "serve": 61,
+        "serve": 60,
         "forehand": 62,
         "backhand": 63,
         "speed": 64,
@@ -34314,16 +34314,16 @@
     {
       "id": 98,
       "name": "Chun-Hsin Tseng",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
-        "serve": 62,
+        "serve": 63,
         "forehand": 62,
-        "backhand": 63,
+        "backhand": 64,
         "speed": 68,
-        "stamina": 63,
+        "stamina": 64,
         "straight": 64,
-        "cross": 61
+        "cross": 62
       },
       "rank": 73,
       "points": 951,
@@ -34657,7 +34657,7 @@
         "backhand": 61,
         "speed": 62,
         "stamina": 63,
-        "straight": 60,
+        "straight": 59,
         "cross": 59
       },
       "rank": 80,
@@ -34989,12 +34989,12 @@
     {
       "id": 100,
       "name": "Luca Nardi",
-      "age": 22,
+      "age": 24,
       "hand": "right",
       "skills": {
         "serve": 61,
         "forehand": 63,
-        "backhand": 66,
+        "backhand": 68,
         "speed": 66,
         "stamina": 64,
         "straight": 61,
@@ -35316,7 +35316,7 @@
     {
       "id": 101,
       "name": "Francesco Passaro",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 62,
@@ -35694,7 +35694,7 @@
         "backhand": 59,
         "speed": 62,
         "stamina": 61,
-        "straight": 60,
+        "straight": 58,
         "cross": 59
       },
       "rank": 95,
@@ -36742,16 +36742,16 @@
     {
       "id": 105,
       "name": "Jaime Faria",
-      "age": 22,
+      "age": 24,
       "hand": "right",
       "skills": {
-        "serve": 62,
-        "forehand": 65,
-        "backhand": 59,
+        "serve": 63,
+        "forehand": 68,
+        "backhand": 60,
         "speed": 67,
-        "stamina": 66,
-        "straight": 63,
-        "cross": 60
+        "stamina": 68,
+        "straight": 64,
+        "cross": 61
       },
       "rank": 53,
       "points": 1107,
@@ -37464,13 +37464,13 @@
     {
       "id": 107,
       "name": "Nishesh Basavareddy",
-      "age": 20,
+      "age": 22,
       "hand": "right",
       "skills": {
-        "serve": 62,
+        "serve": 65,
         "forehand": 59,
-        "backhand": 64,
-        "speed": 64,
+        "backhand": 67,
+        "speed": 66,
         "stamina": 61,
         "straight": 62,
         "cross": 62
@@ -38179,13 +38179,13 @@
       "age": 37,
       "hand": "right",
       "skills": {
-        "serve": 63,
-        "forehand": 59,
-        "backhand": 53,
+        "serve": 62,
+        "forehand": 56,
+        "backhand": 51,
         "speed": 57,
-        "stamina": 55,
-        "straight": 60,
-        "cross": 53
+        "stamina": 54,
+        "straight": 59,
+        "cross": 50
       },
       "rank": 118,
       "points": 578,
@@ -38885,11 +38885,11 @@
       "hand": "right",
       "skills": {
         "serve": 60,
-        "forehand": 60,
-        "backhand": 59,
+        "forehand": 59,
+        "backhand": 56,
         "speed": 57,
         "stamina": 57,
-        "straight": 59,
+        "straight": 58,
         "cross": 58
       },
       "rank": 122,
@@ -39249,13 +39249,13 @@
       "age": 38,
       "hand": "right",
       "skills": {
-        "serve": 55,
-        "forehand": 57,
+        "serve": 54,
+        "forehand": 54,
         "backhand": 54,
-        "speed": 56,
-        "stamina": 53,
-        "straight": 52,
-        "cross": 54
+        "speed": 53,
+        "stamina": 50,
+        "straight": 49,
+        "cross": 51
       },
       "rank": 127,
       "points": 348,
@@ -39587,15 +39587,15 @@
     {
       "id": 113,
       "name": "Thiago Seyboth Wild",
-      "age": 26,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 64,
         "forehand": 60,
-        "backhand": 61,
-        "speed": 62,
+        "backhand": 62,
+        "speed": 63,
         "stamina": 62,
-        "straight": 63,
+        "straight": 64,
         "cross": 59
       },
       "rank": 77,
@@ -39951,13 +39951,13 @@
     {
       "id": 114,
       "name": "Elmer Moller",
-      "age": 22,
+      "age": 24,
       "hand": "right",
       "skills": {
-        "serve": 61,
-        "forehand": 58,
-        "backhand": 61,
-        "speed": 61,
+        "serve": 62,
+        "forehand": 61,
+        "backhand": 63,
+        "speed": 63,
         "stamina": 60,
         "straight": 59,
         "cross": 59
@@ -40624,16 +40624,16 @@
     {
       "id": 116,
       "name": "Arthur Cazaux",
-      "age": 23,
+      "age": 25,
       "hand": "right",
       "skills": {
         "serve": 64,
-        "forehand": 60,
+        "forehand": 63,
         "backhand": 59,
-        "speed": 65,
+        "speed": 66,
         "stamina": 57,
-        "straight": 63,
-        "cross": 62
+        "straight": 65,
+        "cross": 63
       },
       "rank": 91,
       "points": 794,
@@ -41343,15 +41343,15 @@
     {
       "id": 118,
       "name": "Valentin Royer",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
-        "serve": 58,
+        "serve": 59,
         "forehand": 59,
         "backhand": 57,
-        "speed": 61,
+        "speed": 62,
         "stamina": 57,
-        "straight": 60,
+        "straight": 62,
         "cross": 57
       },
       "rank": 111,
@@ -41697,16 +41697,16 @@
     {
       "id": 119,
       "name": "Ethan Quinn",
-      "age": 22,
+      "age": 24,
       "hand": "right",
       "skills": {
-        "serve": 60,
-        "forehand": 62,
+        "serve": 62,
+        "forehand": 65,
         "backhand": 59,
-        "speed": 66,
+        "speed": 67,
         "stamina": 56,
         "straight": 59,
-        "cross": 59
+        "cross": 60
       },
       "rank": 90,
       "points": 796,
@@ -42048,7 +42048,7 @@
     {
       "id": 120,
       "name": "Tristan Boyer",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 57,
@@ -42401,11 +42401,11 @@
       "hand": "right",
       "skills": {
         "serve": 59,
-        "forehand": 61,
+        "forehand": 62,
         "backhand": 60,
         "speed": 61,
         "stamina": 57,
-        "straight": 61,
+        "straight": 62,
         "cross": 58
       },
       "rank": 115,
@@ -42703,14 +42703,14 @@
     {
       "id": 122,
       "name": "Tristan Schoolkate",
-      "age": 25,
+      "age": 27,
       "hand": "right",
       "skills": {
         "serve": 60,
         "forehand": 61,
         "backhand": 57,
-        "speed": 59,
-        "stamina": 56,
+        "speed": 61,
+        "stamina": 57,
         "straight": 57,
         "cross": 55
       },
@@ -43039,12 +43039,12 @@
       "age": 34,
       "hand": "right",
       "skills": {
-        "serve": 58,
+        "serve": 57,
         "forehand": 58,
         "backhand": 58,
         "speed": 56,
-        "stamina": 55,
-        "straight": 54,
+        "stamina": 54,
+        "straight": 51,
         "cross": 56
       },
       "rank": 124,
@@ -43428,12 +43428,12 @@
       "age": 37,
       "hand": "left",
       "skills": {
-        "serve": 55,
-        "forehand": 59,
-        "backhand": 54,
-        "speed": 52,
-        "stamina": 52,
-        "straight": 53,
+        "serve": 52,
+        "forehand": 57,
+        "backhand": 53,
+        "speed": 51,
+        "stamina": 49,
+        "straight": 51,
         "cross": 56
       },
       "rank": 126,
@@ -43784,16 +43784,16 @@
     {
       "id": 125,
       "name": "Eliot Spizzirri",
-      "age": 24,
+      "age": 26,
       "hand": "right",
       "skills": {
-        "serve": 59,
+        "serve": 60,
         "forehand": 59,
         "backhand": 60,
         "speed": 66,
-        "stamina": 56,
-        "straight": 58,
-        "cross": 58
+        "stamina": 58,
+        "straight": 61,
+        "cross": 60
       },
       "rank": 100,
       "points": 731,
@@ -44117,13 +44117,13 @@
     {
       "id": 126,
       "name": "Juan Manuel Cerundolo",
-      "age": 24,
+      "age": 26,
       "hand": "left",
       "skills": {
-        "serve": 58,
-        "forehand": 61,
-        "backhand": 59,
-        "speed": 58,
+        "serve": 59,
+        "forehand": 63,
+        "backhand": 60,
+        "speed": 59,
         "stamina": 58,
         "straight": 59,
         "cross": 59
@@ -44468,14 +44468,14 @@
     {
       "id": 127,
       "name": "Dalibor Svrcina",
-      "age": 23,
+      "age": 25,
       "hand": "right",
       "skills": {
-        "serve": 56,
+        "serve": 57,
         "forehand": 59,
         "backhand": 56,
-        "speed": 60,
-        "stamina": 60,
+        "speed": 61,
+        "stamina": 61,
         "straight": 58,
         "cross": 58
       },
@@ -45133,9 +45133,18 @@
       "name": "Gustavo Hansen",
       "age": 16,
       "hand": "Right",
-      "favorite_surface": "indoor",
+      "skills": {
+        "serve": 44,
+        "forehand": 50,
+        "backhand": 51,
+        "speed": 31,
+        "stamina": 52,
+        "straight": 47,
+        "cross": 48
+      },
       "rank": 133,
       "points": 225,
+      "favorite_surface": "indoor",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -45435,15 +45444,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 42,
-        "forehand": 48,
-        "backhand": 49,
-        "speed": 30,
-        "stamina": 50,
-        "cross": 45,
-        "straight": 44
-      },
       "retired": false
     },
     {
@@ -45451,9 +45451,18 @@
       "name": "Thiago Aquino",
       "age": 16,
       "hand": "Left",
-      "favorite_surface": "indoor",
+      "skills": {
+        "serve": 42,
+        "forehand": 37,
+        "backhand": 49,
+        "speed": 47,
+        "stamina": 43,
+        "straight": 53,
+        "cross": 43
+      },
       "rank": 128,
       "points": 322,
+      "favorite_surface": "indoor",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -45753,15 +45762,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 39,
-        "forehand": 34,
-        "backhand": 49,
-        "speed": 47,
-        "stamina": 41,
-        "cross": 40,
-        "straight": 53
-      },
       "retired": false
     },
     {
@@ -45769,9 +45769,18 @@
       "name": "Mario Hadzic",
       "age": 16,
       "hand": "Right",
-      "favorite_surface": "grass",
+      "skills": {
+        "serve": 44,
+        "forehand": 30,
+        "backhand": 44,
+        "speed": 39,
+        "stamina": 35,
+        "straight": 52,
+        "cross": 46
+      },
       "rank": 132,
       "points": 232,
+      "favorite_surface": "grass",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -46063,15 +46072,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 44,
-        "forehand": 27,
-        "backhand": 41,
-        "speed": 36,
-        "stamina": 33,
-        "cross": 43,
-        "straight": 51
-      },
       "retired": false
     },
     {
@@ -46079,9 +46079,18 @@
       "name": "Lorenzo O'Sullivan",
       "age": 16,
       "hand": "Left",
-      "favorite_surface": "hard",
+      "skills": {
+        "serve": 35,
+        "forehand": 49,
+        "backhand": 30,
+        "speed": 33,
+        "stamina": 45,
+        "straight": 41,
+        "cross": 38
+      },
       "rank": 135,
       "points": 213,
+      "favorite_surface": "hard",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -46389,15 +46398,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 34,
-        "forehand": 49,
-        "backhand": 30,
-        "speed": 30,
-        "stamina": 43,
-        "cross": 37,
-        "straight": 40
-      },
       "retired": false
     },
     {
@@ -46405,9 +46405,18 @@
       "name": "James Sharma",
       "age": 16,
       "hand": "Left",
-      "favorite_surface": "hard",
+      "skills": {
+        "serve": 34,
+        "forehand": 43,
+        "backhand": 33,
+        "speed": 50,
+        "stamina": 30,
+        "straight": 49,
+        "cross": 34
+      },
       "rank": 129,
       "points": 271,
+      "favorite_surface": "hard",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -46667,15 +46676,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 34,
-        "forehand": 43,
-        "backhand": 30,
-        "speed": 47,
-        "stamina": 29,
-        "cross": 32,
-        "straight": 48
-      },
       "retired": false
     },
     {
@@ -46683,9 +46683,18 @@
       "name": "Ugur Wagner",
       "age": 16,
       "hand": "Right",
-      "favorite_surface": "clay",
+      "skills": {
+        "serve": 34,
+        "forehand": 33,
+        "backhand": 35,
+        "speed": 35,
+        "stamina": 52,
+        "straight": 30,
+        "cross": 51
+      },
       "rank": 136,
       "points": 203,
+      "favorite_surface": "clay",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -46977,15 +46986,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 34,
-        "forehand": 33,
-        "backhand": 34,
-        "speed": 34,
-        "stamina": 52,
-        "cross": 48,
-        "straight": 30
-      },
       "retired": false
     },
     {
@@ -46993,9 +46993,18 @@
       "name": "Thomas Goossens",
       "age": 16,
       "hand": "Left",
-      "favorite_surface": "indoor",
+      "skills": {
+        "serve": 34,
+        "forehand": 35,
+        "backhand": 47,
+        "speed": 38,
+        "stamina": 47,
+        "straight": 41,
+        "cross": 48
+      },
       "rank": 130,
       "points": 263,
+      "favorite_surface": "indoor",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -47295,15 +47304,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 33,
-        "forehand": 32,
-        "backhand": 44,
-        "speed": 36,
-        "stamina": 46,
-        "cross": 47,
-        "straight": 41
-      },
       "retired": false
     },
     {
@@ -47311,9 +47311,18 @@
       "name": "Julius Aydogan",
       "age": 16,
       "hand": "Left",
-      "favorite_surface": "grass",
+      "skills": {
+        "serve": 34,
+        "forehand": 37,
+        "backhand": 43,
+        "speed": 40,
+        "stamina": 29,
+        "straight": 51,
+        "cross": 39
+      },
       "rank": 131,
       "points": 238,
+      "favorite_surface": "grass",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -47597,15 +47606,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 34,
-        "forehand": 34,
-        "backhand": 43,
-        "speed": 39,
-        "stamina": 26,
-        "cross": 38,
-        "straight": 50
-      },
       "retired": false
     },
     {
@@ -47613,9 +47613,18 @@
       "name": "Ezra Perez",
       "age": 16,
       "hand": "Left",
-      "favorite_surface": "hard",
+      "skills": {
+        "serve": 47,
+        "forehand": 46,
+        "backhand": 39,
+        "speed": 33,
+        "stamina": 34,
+        "straight": 50,
+        "cross": 47
+      },
       "rank": 134,
-      "points": 222,
+      "points": 222,      
+      "favorite_surface": "hard",
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -47891,15 +47900,6 @@
         }
       ],
       "tournament_wins": [],
-      "skills": {
-        "serve": 45,
-        "forehand": 44,
-        "backhand": 36,
-        "speed": 32,
-        "stamina": 31,
-        "cross": 46,
-        "straight": 48
-      },
       "retired": false
     }
   ],

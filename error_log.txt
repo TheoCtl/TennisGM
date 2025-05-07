@@ -1,14 +1,8 @@
 Traceback (most recent call last):
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 462, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 55, in main_menu
-    enter_tournament(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 288, in enter_tournament
-    winner_id = scheduler.simulate_entire_tournament(tournament['id'])
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 518, in simulate_entire_tournament
-    self.generate_bracket(tournament_id)
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 278, in generate_bracket
-    participants = tournament['participants']
-                   ~~~~~~~~~~^^^^^^^^^^^^^^^^
-KeyError: 'participants'
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 57, in main_menu
+    show_rankings(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 207, in show_rankings
+    stdscr.addstr(34, 0, "Press ESC to return, arrows to scroll, 's' to search")
+_curses.error: addwstr() returned ERR
