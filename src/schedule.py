@@ -568,18 +568,17 @@ class TournamentScheduler:
         
         # 1. Progressions/regressions weeks
         if self.current_week in [26, 52]:
-            self.news_feed.append("Player development week: Skills have progressed/regressed!")
+            self.news_feed.append("- Player development week: Skills have progressed/regressed!")
 
         # 2. Newgens and retirements (only when they happen)
         if self.current_week == 1:
             newgens = [p for p in self.players if p['age'] == 16]
             if newgens:
-                self.news_feed.append(f"New players joined the tour: {', '.join(p['name'] for p in newgens)}")
+                self.news_feed.append(f"- New players joined the tour: {', '.join(p['name'] for p in newgens)}")
 
             retired = [p for p in self.players if p.get('retired', False) and p['age'] >= 35]
             if retired:
-                self.news_feed.append(f"Retirements: {', '.join(p['name'] for p in retired[:3])}" + 
-                                    ("..." if len(retired) > 3 else ""))
+                self.news_feed.append(f"- Those players ended their career: {', '.join(p['name'] for p in retired)}")
                 
         # 3. Last week's tournament winners with total career wins
         last_week = self.current_week - 1 if self.current_week > 1 else 52
@@ -594,7 +593,7 @@ class TournamentScheduler:
                     last_week_winners.append((winner, tournament, total_wins))
 
         if last_week_winners:
-            self.news_feed.append("Last week's tournament winners:")
+            self.news_feed.append("- Last week ATP winners:")
             for winner, tournament, total_wins in last_week_winners:
                 self.news_feed.append(
                     f"       {winner['name']} won {tournament['name']} ({tournament['category']}, {tournament['surface']}) - Career win n°{total_wins}"
@@ -609,7 +608,6 @@ class TournamentScheduler:
                 if old_rank != current_rank:
                     ranking_changes[player_id] = (old_rank, current_rank)
 
-        # 5. Top 20 changes
         top20_changes = [
             (p['name'], change[0], change[1]) 
             for p in self.players 
@@ -626,6 +624,6 @@ class TournamentScheduler:
         dropped_out.sort(key=lambda x: x[1])
 
         for name, old, new in current_top20:
-            self.news_feed.append(f"Top 20 change: {name} ({old} -> {new})")
+            self.news_feed.append(f"- Top 20 change: {name} ({old} -> {new})")
         for name, old, new in dropped_out:
-            self.news_feed.append(f"Dropped from top 20: {name} (was {old})")
+            self.news_feed.append(f"- Dropped from top 20: {name} (was {old})")

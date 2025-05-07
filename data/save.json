@@ -1,7 +1,7 @@
 {
   "current_year": 2,
-  "current_week": 41,
-  "current_date": "2026-10-07T00:00:00",
+  "current_week": 42,
+  "current_date": "2026-10-14T00:00:00",
   "players": [
     {
       "id": 1,
@@ -18,19 +18,11 @@
         "cross": 76
       },
       "rank": 1,
-      "points": 16160,
+      "points": 15930,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 5,
-          "points": 250
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -342,6 +334,14 @@
           "week": 40,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -517,19 +517,11 @@
         "cross": 74
       },
       "rank": 7,
-      "points": 5545,
+      "points": 5615,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -857,6 +849,14 @@
           "week": 40,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -907,19 +907,11 @@
         "cross": 82
       },
       "rank": 4,
-      "points": 9218,
+      "points": 9448,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -1247,6 +1239,14 @@
           "week": 40,
           "round": 6,
           "points": 1000
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 5,
+          "points": 250
         }
       ],
       "tournament_wins": [
@@ -1344,6 +1344,11 @@
           "name": "Shanghai Masters",
           "category": "Masters 1000",
           "year": 2
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2
         }
       ]
     },
@@ -1362,7 +1367,7 @@
         "cross": 71
       },
       "rank": 15,
-      "points": 3030,
+      "points": 3040,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -1694,6 +1699,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -1724,7 +1737,7 @@
         "cross": 78
       },
       "rank": 11,
-      "points": 4473,
+      "points": 4483,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2032,6 +2045,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -2142,7 +2163,7 @@
         "cross": 72
       },
       "rank": 22,
-      "points": 1905,
+      "points": 1925,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -2450,6 +2471,14 @@
           "week": 40,
           "round": 3,
           "points": 180
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -2469,19 +2498,11 @@
         "cross": 65
       },
       "rank": 13,
-      "points": 3720,
+      "points": 3685,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -2769,6 +2790,14 @@
           "week": 39,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -2804,19 +2833,11 @@
         "cross": 74
       },
       "rank": 19,
-      "points": 2248,
+      "points": 2223,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -3160,6 +3181,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -3179,7 +3208,7 @@
         "cross": 79
       },
       "rank": 2,
-      "points": 13170,
+      "points": 13320,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -3527,6 +3556,14 @@
           "week": 40,
           "round": 4,
           "points": 360
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 4,
+          "points": 150
         }
       ],
       "tournament_wins": [
@@ -3632,19 +3669,11 @@
         "cross": 75
       },
       "rank": 3,
-      "points": 9653,
+      "points": 9633,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -4070,14 +4099,6 @@
       "favorite_surface": "hard",
       "tournament_history": [
         {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
-        {
           "name": "Stockholm Open",
           "category": "ATP 250",
           "year": 1,
@@ -4396,6 +4417,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -4426,19 +4455,11 @@
         "cross": 74
       },
       "rank": 5,
-      "points": 7445,
+      "points": 7375,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -4718,6 +4739,14 @@
           "week": 40,
           "round": 4,
           "points": 360
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -4788,19 +4817,11 @@
         "cross": 70
       },
       "rank": 10,
-      "points": 4528,
+      "points": 4483,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -5144,6 +5165,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -5184,19 +5213,11 @@
         "cross": 78
       },
       "rank": 6,
-      "points": 6390,
+      "points": 6460,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -5516,6 +5537,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -5586,19 +5615,11 @@
         "cross": 79
       },
       "rank": 12,
-      "points": 4403,
+      "points": 4393,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -5945,19 +5966,11 @@
         "cross": 73
       },
       "rank": 8,
-      "points": 5050,
+      "points": 4900,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 4,
-          "points": 150
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -6306,19 +6319,11 @@
         "cross": 77
       },
       "rank": 18,
-      "points": 2375,
+      "points": 2330,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -7010,8 +7015,8 @@
         "straight": 70,
         "cross": 69
       },
-      "rank": 21,
-      "points": 1907,
+      "rank": 20,
+      "points": 1952,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -7327,6 +7332,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -7351,14 +7364,6 @@
       "retired": false,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -7670,6 +7675,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -7695,7 +7708,7 @@
         "cross": 71
       },
       "rank": 27,
-      "points": 1643,
+      "points": 1653,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -8043,6 +8056,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -8073,19 +8094,11 @@
         "cross": 69
       },
       "rank": 23,
-      "points": 1894,
+      "points": 1884,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -8449,14 +8462,6 @@
       "favorite_surface": "grass",
       "tournament_history": [
         {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 20
-        },
-        {
           "name": "Stockholm Open",
           "category": "ATP 250",
           "year": 1,
@@ -8767,6 +8772,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -8786,7 +8799,7 @@
         "cross": 70
       },
       "rank": 17,
-      "points": 2409,
+      "points": 2419,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -9110,6 +9123,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -9478,7 +9499,7 @@
         "cross": 65
       },
       "rank": 30,
-      "points": 1493,
+      "points": 1503,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -9826,6 +9847,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -9860,20 +9889,12 @@
         "straight": 67,
         "cross": 66
       },
-      "rank": 38,
-      "points": 1248,
+      "rank": 35,
+      "points": 1283,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -10169,6 +10190,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -10213,20 +10242,12 @@
         "straight": 69,
         "cross": 66
       },
-      "rank": 37,
-      "points": 1267,
+      "rank": 36,
+      "points": 1277,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -10570,6 +10591,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": []
@@ -10589,19 +10618,11 @@
         "cross": 67
       },
       "rank": 26,
-      "points": 1715,
+      "points": 1750,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -10905,6 +10926,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": []
@@ -10923,20 +10952,12 @@
         "straight": 69,
         "cross": 68
       },
-      "rank": 20,
+      "rank": 21,
       "points": 1943,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -11256,6 +11277,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -11280,20 +11309,12 @@
         "straight": 68,
         "cross": 65
       },
-      "rank": 39,
-      "points": 1211,
+      "rank": 43,
+      "points": 1201,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -11573,6 +11594,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -11607,20 +11636,12 @@
         "straight": 70,
         "cross": 64
       },
-      "rank": 34,
-      "points": 1303,
+      "rank": 39,
+      "points": 1268,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -11940,6 +11961,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -11970,14 +11999,6 @@
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -12305,6 +12326,14 @@
           "week": 39,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -12344,20 +12373,12 @@
         "straight": 66,
         "cross": 65
       },
-      "rank": 50,
-      "points": 1136,
+      "rank": 51,
+      "points": 1116,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -12693,8 +12714,8 @@
         "straight": 66,
         "cross": 66
       },
-      "rank": 49,
-      "points": 1148,
+      "rank": 40,
+      "points": 1248,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -12986,6 +13007,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 4,
+          "points": 100
         }
       ],
       "tournament_wins": [
@@ -12998,6 +13027,11 @@
           "name": "Geneva Open",
           "category": "ATP 250",
           "year": 1
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2
         }
       ]
     },
@@ -13016,19 +13050,11 @@
         "cross": 67
       },
       "rank": 29,
-      "points": 1524,
+      "points": 1514,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -13396,20 +13422,12 @@
         "straight": 64,
         "cross": 64
       },
-      "rank": 43,
-      "points": 1178,
+      "rank": 38,
+      "points": 1270,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -13689,6 +13707,14 @@
           "week": 39,
           "round": 0,
           "points": 20
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 4,
+          "points": 100
         }
       ],
       "tournament_wins": [
@@ -13706,6 +13732,11 @@
           "name": "Internazionali di Venezia",
           "category": "Challenger 75",
           "year": 1
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2
         }
       ]
     },
@@ -13723,20 +13754,12 @@
         "straight": 67,
         "cross": 68
       },
-      "rank": 44,
-      "points": 1177,
+      "rank": 41,
+      "points": 1227,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -14072,6 +14095,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 3,
+          "points": 60
         }
       ],
       "tournament_wins": []
@@ -14090,8 +14121,8 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 40,
-      "points": 1200,
+      "rank": 42,
+      "points": 1220,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -14407,6 +14438,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -14451,20 +14490,12 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 36,
-      "points": 1287,
+      "rank": 37,
+      "points": 1277,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -14789,20 +14820,12 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 72,
-      "points": 964,
+      "rank": 71,
+      "points": 956,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -15247,19 +15270,11 @@
         "cross": 63
       },
       "rank": 70,
-      "points": 978,
+      "points": 976,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -15547,6 +15562,14 @@
           "week": 38,
           "round": 4,
           "points": 125
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -15577,7 +15600,7 @@
         "cross": 65
       },
       "rank": 33,
-      "points": 1307,
+      "points": 1317,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -15877,6 +15900,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -15926,20 +15957,12 @@
         "straight": 63,
         "cross": 60
       },
-      "rank": 66,
-      "points": 1008,
+      "rank": 64,
+      "points": 1035,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -16259,6 +16282,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 35
         }
       ],
       "tournament_wins": [
@@ -16288,20 +16319,12 @@
         "straight": 63,
         "cross": 63
       },
-      "rank": 56,
-      "points": 1098,
+      "rank": 68,
+      "points": 1016,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 4,
-          "points": 100
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -16605,6 +16628,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -16629,20 +16660,12 @@
         "straight": 64,
         "cross": 63
       },
-      "rank": 35,
-      "points": 1298,
+      "rank": 34,
+      "points": 1290,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -16946,6 +16969,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -16980,20 +17011,12 @@
         "straight": 63,
         "cross": 61
       },
-      "rank": 67,
-      "points": 1005,
+      "rank": 61,
+      "points": 1057,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -17313,6 +17336,14 @@
           "week": 40,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 3,
+          "points": 60
         }
       ],
       "tournament_wins": [
@@ -17342,20 +17373,12 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 101,
-      "points": 709,
+      "rank": 103,
+      "points": 721,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -17651,6 +17674,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -17690,8 +17721,8 @@
         "straight": 65,
         "cross": 65
       },
-      "rank": 69,
-      "points": 1001,
+      "rank": 67,
+      "points": 1019,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -17991,6 +18022,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -18025,20 +18064,12 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 68,
-      "points": 1002,
+      "rank": 69,
+      "points": 994,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -18366,20 +18397,12 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 65,
+      "rank": 66,
       "points": 1033,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -18691,6 +18714,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -18735,7 +18766,7 @@
         "straight": 62,
         "cross": 62
       },
-      "rank": 90,
+      "rank": 91,
       "points": 793,
       "injured": false,
       "retired": false,
@@ -19086,20 +19117,12 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 52,
-      "points": 1117,
+      "rank": 56,
+      "points": 1082,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 35
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -19438,19 +19461,11 @@
         "cross": 59
       },
       "rank": 117,
-      "points": 581,
+      "points": 574,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -19778,6 +19793,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -19812,8 +19835,8 @@
         "straight": 59,
         "cross": 59
       },
-      "rank": 100,
-      "points": 716,
+      "rank": 101,
+      "points": 729,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -20105,6 +20128,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -20134,20 +20165,12 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 79,
-      "points": 897,
+      "rank": 89,
+      "points": 805,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 4,
-          "points": 100
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -20435,6 +20458,14 @@
           "week": 40,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -20464,20 +20495,12 @@
         "straight": 62,
         "cross": 62
       },
-      "rank": 80,
-      "points": 868,
+      "rank": 77,
+      "points": 885,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -20805,6 +20828,14 @@
           "week": 40,
           "round": 4,
           "points": 100
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 35
         }
       ],
       "tournament_wins": [
@@ -20844,20 +20875,12 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 62,
-      "points": 1073,
+      "rank": 65,
+      "points": 1033,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 4,
-          "points": 75
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -21137,6 +21160,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 35
         }
       ],
       "tournament_wins": [
@@ -21181,7 +21212,7 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 41,
+      "rank": 44,
       "points": 1181,
       "injured": false,
       "retired": false,
@@ -21540,20 +21571,12 @@
         "straight": 64,
         "cross": 64
       },
-      "rank": 51,
-      "points": 1132,
+      "rank": 55,
+      "points": 1097,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 35
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -21912,8 +21935,8 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 104,
-      "points": 701,
+      "rank": 105,
+      "points": 714,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -22237,6 +22260,14 @@
           "week": 40,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -22271,20 +22302,12 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 119,
-      "points": 572,
+      "rank": 115,
+      "points": 579,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -22572,6 +22595,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -22596,20 +22627,12 @@
         "straight": 61,
         "cross": 61
       },
-      "rank": 108,
-      "points": 629,
+      "rank": 109,
+      "points": 627,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -22913,6 +22936,14 @@
           "week": 39,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -22948,14 +22979,6 @@
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -23267,6 +23290,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -23297,7 +23328,7 @@
         "cross": 63
       },
       "rank": 32,
-      "points": 1378,
+      "points": 1388,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -23613,6 +23644,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -23642,20 +23681,12 @@
         "straight": 62,
         "cross": 62
       },
-      "rank": 87,
-      "points": 818,
+      "rank": 86,
+      "points": 828,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -23959,6 +23990,14 @@
           "week": 40,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -23988,20 +24027,12 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 88,
-      "points": 815,
+      "rank": 95,
+      "points": 770,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 3,
-          "points": 45
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -24331,20 +24362,12 @@
         "straight": 63,
         "cross": 63
       },
-      "rank": 60,
-      "points": 1087,
+      "rank": 59,
+      "points": 1077,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -24656,6 +24679,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -24690,8 +24721,8 @@
         "straight": 61,
         "cross": 63
       },
-      "rank": 86,
-      "points": 825,
+      "rank": 81,
+      "points": 843,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
@@ -25023,6 +25054,14 @@
           "week": 40,
           "round": 3,
           "points": 60
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -25062,20 +25101,12 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 99,
-      "points": 735,
+      "rank": 100,
+      "points": 740,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -25347,6 +25378,14 @@
           "week": 40,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -25381,20 +25420,12 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 63,
-      "points": 1049,
+      "rank": 62,
+      "points": 1043,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -25748,19 +25779,11 @@
         "cross": 63
       },
       "rank": 76,
-      "points": 927,
+      "points": 902,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -26106,7 +26129,7 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 84,
+      "rank": 82,
       "points": 843,
       "injured": false,
       "retired": false,
@@ -26468,19 +26491,11 @@
         "cross": 62
       },
       "rank": 46,
-      "points": 1168,
+      "points": 1160,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -26823,20 +26838,12 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 78,
-      "points": 904,
+      "rank": 85,
+      "points": 829,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 4,
-          "points": 75
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -27198,7 +27205,7 @@
         "straight": 61,
         "cross": 64
       },
-      "rank": 89,
+      "rank": 90,
       "points": 800,
       "injured": false,
       "retired": false,
@@ -27544,20 +27551,12 @@
         "straight": 62,
         "cross": 63
       },
-      "rank": 71,
-      "points": 964,
+      "rank": 73,
+      "points": 947,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -27853,6 +27852,14 @@
           "week": 40,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -27882,20 +27889,12 @@
         "straight": 60,
         "cross": 61
       },
-      "rank": 74,
-      "points": 946,
+      "rank": 72,
+      "points": 951,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -28175,6 +28174,14 @@
           "week": 40,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -28219,20 +28226,12 @@
         "straight": 62,
         "cross": 62
       },
-      "rank": 58,
-      "points": 1088,
+      "rank": 57,
+      "points": 1080,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -28554,20 +28553,12 @@
         "straight": 62,
         "cross": 59
       },
-      "rank": 83,
-      "points": 850,
+      "rank": 87,
+      "points": 825,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -28905,20 +28896,12 @@
         "straight": 62,
         "cross": 65
       },
-      "rank": 48,
-      "points": 1160,
+      "rank": 47,
+      "points": 1158,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -29230,6 +29213,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -29269,20 +29260,12 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 73,
-      "points": 961,
+      "rank": 75,
+      "points": 909,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 3,
-          "points": 60
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -29586,6 +29569,14 @@
           "week": 40,
           "round": 3,
           "points": 75
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -29610,20 +29601,12 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 47,
+      "rank": 45,
       "points": 1162,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -29967,6 +29950,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -30001,20 +29992,12 @@
         "straight": 64,
         "cross": 61
       },
-      "rank": 45,
-      "points": 1169,
+      "rank": 48,
+      "points": 1134,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 35
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -30326,20 +30309,12 @@
         "straight": 62,
         "cross": 60
       },
-      "rank": 93,
+      "rank": 92,
       "points": 783,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -30643,6 +30618,14 @@
           "week": 40,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -30661,7 +30644,7 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 98,
+      "rank": 99,
       "points": 743,
       "injured": false,
       "retired": false,
@@ -31031,20 +31014,12 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 91,
-      "points": 785,
+      "rank": 93,
+      "points": 783,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -31356,6 +31331,14 @@
           "week": 40,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": []
@@ -31374,20 +31357,12 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 94,
-      "points": 770,
+      "rank": 88,
+      "points": 809,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -31731,6 +31706,14 @@
           "week": 40,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -31780,7 +31763,7 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 97,
+      "rank": 98,
       "points": 746,
       "injured": false,
       "retired": false,
@@ -32067,7 +32050,7 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 64,
+      "rank": 63,
       "points": 1039,
       "injured": false,
       "retired": false,
@@ -32400,8 +32383,8 @@
         "straight": 65,
         "cross": 62
       },
-      "rank": 55,
-      "points": 1100,
+      "rank": 52,
+      "points": 1108,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -32733,6 +32716,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -32762,20 +32753,12 @@
         "straight": 62,
         "cross": 63
       },
-      "rank": 53,
-      "points": 1107,
+      "rank": 50,
+      "points": 1124,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -33079,6 +33062,14 @@
           "week": 40,
           "round": 4,
           "points": 125
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 35
         }
       ],
       "tournament_wins": [
@@ -33128,20 +33119,12 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 75,
-      "points": 938,
+      "rank": 74,
+      "points": 928,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Stockholm Open",
           "category": "ATP 250",
@@ -33421,6 +33404,14 @@
           "week": 40,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -33460,20 +33451,12 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 102,
-      "points": 707,
+      "rank": 94,
+      "points": 774,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -33817,9 +33800,23 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 4,
+          "points": 75
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2
+        }
+      ]
     },
     {
       "id": 96,
@@ -33835,20 +33832,12 @@
         "straight": 63,
         "cross": 61
       },
-      "rank": 105,
-      "points": 688,
+      "rank": 102,
+      "points": 725,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -34136,6 +34125,14 @@
           "week": 40,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -34165,20 +34162,12 @@
         "straight": 62,
         "cross": 61
       },
-      "rank": 57,
-      "points": 1090,
+      "rank": 58,
+      "points": 1080,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -34498,6 +34487,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -34527,20 +34524,12 @@
         "straight": 64,
         "cross": 61
       },
-      "rank": 42,
-      "points": 1179,
+      "rank": 49,
+      "points": 1129,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 3,
-          "points": 60
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -34844,6 +34833,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -34878,20 +34875,12 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 82,
-      "points": 852,
+      "rank": 80,
+      "points": 854,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -35179,6 +35168,14 @@
           "week": 40,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -35218,20 +35215,12 @@
         "straight": 61,
         "cross": 63
       },
-      "rank": 59,
-      "points": 1088,
+      "rank": 54,
+      "points": 1098,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Vendee",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -35519,6 +35508,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -35553,20 +35550,12 @@
         "straight": 62,
         "cross": 60
       },
-      "rank": 61,
-      "points": 1080,
+      "rank": 60,
+      "points": 1070,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -35886,6 +35875,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -35915,8 +35912,8 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 96,
-      "points": 752,
+      "rank": 97,
+      "points": 758,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -36232,6 +36229,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -36267,19 +36272,11 @@
         "cross": 58
       },
       "rank": 107,
-      "points": 664,
+      "points": 657,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -36607,6 +36604,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -36631,20 +36636,12 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 85,
-      "points": 842,
+      "rank": 83,
+      "points": 832,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Almaty Open",
-          "category": "ATP 250",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "European Open",
           "category": "ATP 250",
@@ -36961,20 +36958,12 @@
         "straight": 63,
         "cross": 60
       },
-      "rank": 54,
+      "rank": 53,
       "points": 1101,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 8
-        },
         {
           "name": "Copa Faulcombridge",
           "category": "Challenger 125",
@@ -37294,6 +37283,14 @@
           "week": 40,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -37333,20 +37330,12 @@
         "straight": 60,
         "cross": 59
       },
-      "rank": 112,
-      "points": 604,
+      "rank": 113,
+      "points": 594,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "JC Ferrero Challenger Open",
-          "category": "Challenger 100",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 35
-        },
         {
           "name": "Hangzhou Challenger",
           "category": "Challenger 125",
@@ -37650,6 +37639,14 @@
           "week": 40,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -37689,20 +37686,12 @@
         "straight": 62,
         "cross": 62
       },
-      "rank": 77,
-      "points": 909,
+      "rank": 78,
+      "points": 864,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 3,
-          "points": 45
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -38047,20 +38036,12 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 115,
-      "points": 584,
+      "rank": 119,
+      "points": 571,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -38411,14 +38392,6 @@
       "favorite_surface": "indoor",
       "tournament_history": [
         {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
-        {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
           "year": 1,
@@ -38729,6 +38702,14 @@
           "week": 40,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -38759,19 +38740,11 @@
         "cross": 58
       },
       "rank": 114,
-      "points": 590,
+      "points": 584,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -39097,7 +39070,7 @@
         "cross": 58
       },
       "rank": 124,
-      "points": 512,
+      "points": 525,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
@@ -39437,6 +39410,14 @@
           "week": 40,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -39462,19 +39443,11 @@
         "cross": 54
       },
       "rank": 127,
-      "points": 320,
+      "points": 327,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -39778,6 +39751,14 @@
           "week": 40,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -39802,20 +39783,12 @@
         "straight": 63,
         "cross": 59
       },
-      "rank": 81,
-      "points": 857,
+      "rank": 79,
+      "points": 862,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -40127,6 +40100,14 @@
           "week": 40,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -40172,14 +40153,6 @@
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -40491,6 +40464,14 @@
           "week": 39,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -40871,20 +40852,12 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 95,
-      "points": 768,
+      "rank": 84,
+      "points": 830,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -41164,6 +41137,14 @@
           "week": 40,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 4,
+          "points": 75
         }
       ],
       "tournament_wins": [
@@ -41184,6 +41165,11 @@
         },
         {
           "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 2
+        },
+        {
+          "name": "Challenger de Buenos Aires",
           "category": "Challenger 75",
           "year": 2
         }
@@ -41209,14 +41195,6 @@
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -41528,6 +41506,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -41573,14 +41559,6 @@
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -41900,6 +41878,14 @@
           "week": 39,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -41929,20 +41915,12 @@
         "straight": 59,
         "cross": 59
       },
-      "rank": 92,
-      "points": 785,
+      "rank": 96,
+      "points": 768,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Open de Roanne",
           "category": "Challenger 100",
@@ -42246,6 +42224,14 @@
           "week": 39,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 8
         }
       ],
       "tournament_wins": [
@@ -42280,20 +42266,12 @@
         "straight": 57,
         "cross": 55
       },
-      "rank": 123,
-      "points": 542,
+      "rank": 121,
+      "points": 561,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -42597,6 +42575,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -42621,20 +42607,12 @@
         "straight": 61,
         "cross": 58
       },
-      "rank": 113,
-      "points": 602,
+      "rank": 112,
+      "points": 596,
       "injured": false,
       "retired": false,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -42967,20 +42945,12 @@
         "straight": 57,
         "cross": 55
       },
-      "rank": 116,
-      "points": 582,
+      "rank": 120,
+      "points": 569,
       "injured": false,
       "retired": false,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -43316,20 +43286,12 @@
         "straight": 54,
         "cross": 56
       },
-      "rank": 121,
-      "points": 556,
+      "rank": 123,
+      "points": 550,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -43712,14 +43674,6 @@
       "favorite_surface": "grass",
       "tournament_history": [
         {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
-        {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
           "year": 1,
@@ -44030,6 +43984,14 @@
           "week": 40,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": []
@@ -44048,20 +44010,12 @@
         "straight": 58,
         "cross": 58
       },
-      "rank": 103,
-      "points": 702,
+      "rank": 104,
+      "points": 721,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Challenger de Buenos Aires",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -44357,6 +44311,14 @@
           "week": 40,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -44381,8 +44343,8 @@
         "straight": 59,
         "cross": 59
       },
-      "rank": 109,
-      "points": 624,
+      "rank": 108,
+      "points": 630,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
@@ -44690,6 +44652,14 @@
           "week": 40,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -44724,20 +44694,12 @@
         "straight": 58,
         "cross": 58
       },
-      "rank": 120,
-      "points": 567,
+      "rank": 116,
+      "points": 574,
       "injured": false,
       "retired": false,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Braga Open",
-          "category": "Challenger 75",
-          "year": 1,
-          "week": 41,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Fairfield Challenger",
           "category": "Challenger 75",
@@ -45033,6 +44995,14 @@
           "week": 40,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -45058,7 +45028,7 @@
         "cross": 56
       },
       "rank": 125,
-      "points": 505,
+      "points": 511,
       "injured": false,
       "retired": false,
       "favorite_surface": "indoor",
@@ -45366,6 +45336,14 @@
           "week": 40,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -45383,7 +45361,7 @@
       "hand": "Right",
       "favorite_surface": "indoor",
       "rank": 133,
-      "points": 187,
+      "points": 193,
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -45622,6 +45600,14 @@
           "category": "Challenger 75",
           "year": 2,
           "week": 40,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
           "round": 0,
           "points": 6
         }
@@ -45922,8 +45908,8 @@
       "age": 16,
       "hand": "Right",
       "favorite_surface": "grass",
-      "rank": 132,
-      "points": 191,
+      "rank": 131,
+      "points": 204,
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -46164,6 +46150,14 @@
           "week": 40,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [],
@@ -46463,7 +46457,7 @@
       "hand": "Left",
       "favorite_surface": "hard",
       "rank": 129,
-      "points": 219,
+      "points": 225,
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -46664,6 +46658,14 @@
           "week": 40,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [],
@@ -46685,7 +46687,7 @@
       "hand": "Right",
       "favorite_surface": "clay",
       "rank": 136,
-      "points": 159,
+      "points": 165,
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -46910,6 +46912,14 @@
           "week": 40,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [],
@@ -46931,7 +46941,7 @@
       "hand": "Left",
       "favorite_surface": "indoor",
       "rank": 130,
-      "points": 212,
+      "points": 218,
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -47164,6 +47174,14 @@
           "week": 40,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [],
@@ -47184,8 +47202,8 @@
       "age": 16,
       "hand": "Left",
       "favorite_surface": "grass",
-      "rank": 131,
-      "points": 193,
+      "rank": 132,
+      "points": 199,
       "tournament_history": [
         {
           "name": "Oeiras Indoor",
@@ -47408,6 +47426,14 @@
           "category": "Challenger 75",
           "year": 2,
           "week": 40,
+          "round": 0,
+          "points": 6
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 2,
+          "week": 41,
           "round": 0,
           "points": 6
         }
@@ -65244,7 +65270,7 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 3,
       "participants": [
         21,
         28,
@@ -65284,170 +65310,206 @@
           [
             21,
             29,
-            null
+            29,
+            "0-6, 6-3, 3-6"
           ],
           [
             28,
             11,
-            null
+            28,
+            "2-6, 7-6, 6-4"
           ],
           [
             24,
             14,
-            null
+            14,
+            "4-6, 7-6, 3-6"
           ],
           [
             65,
             8,
-            null
+            8,
+            "4-6, 2-6"
           ],
           [
             47,
             19,
-            null
+            19,
+            "4-6, 5-7"
           ],
           [
             32,
             23,
-            null
+            23,
+            "2-6, 3-6"
           ],
           [
             30,
             3,
-            null
+            3,
+            "2-6, 4-6"
           ],
           [
             5,
             20,
-            null
+            20,
+            "6-7, 6-4, 0-6"
           ],
           [
             1,
             4,
-            null
+            1,
+            "6-1, 7-6"
           ],
           [
             44,
             13,
-            null
+            13,
+            "0-6, 2-6"
           ],
           [
             6,
             26,
-            null
+            6,
+            "6-2, 6-3"
           ],
           [
             66,
             9,
-            null
+            9,
+            "2-6, 2-6"
           ],
           [
             2,
             98,
-            null
+            2,
+            "6-1, 6-4"
           ],
           [
             12,
             7,
-            null
+            12,
+            "7-6, 6-4"
           ],
           [
             39,
             31,
-            null
+            39,
+            "4-6, 7-6, 6-3"
           ],
           [
             33,
             27,
-            null
+            27,
+            "3-6, 4-6"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            29,
+            28,
+            29,
+            "6-4, 4-6, 7-6"
+          ],
+          [
+            14,
+            8,
+            14,
+            "6-3, 6-4"
+          ],
+          [
+            19,
+            23,
+            19,
+            "4-6, 7-5, 7-6"
+          ],
+          [
+            3,
+            20,
+            3,
+            "6-3, 6-1"
+          ],
+          [
+            1,
+            13,
+            13,
+            "6-7, 7-6, 4-6"
+          ],
+          [
+            6,
+            9,
+            9,
+            "2-6, 0-6"
+          ],
+          [
+            2,
+            12,
+            2,
+            "3-6, 6-1, 6-3"
+          ],
+          [
+            39,
+            27,
+            27,
+            "2-6, 2-6"
+          ]
+        ],
+        [
+          [
+            29,
+            14,
+            14,
+            "3-6, 1-6"
+          ],
+          [
+            19,
+            3,
+            3,
+            "4-6, 2-6"
+          ],
+          [
+            13,
+            9,
+            9,
+            "2-6, 3-6"
+          ],
+          [
+            2,
+            27,
+            2,
+            "6-3, 6-2"
+          ]
+        ],
+        [
+          [
+            14,
+            3,
+            3,
+            "6-3, 6-7, 4-6"
+          ],
+          [
+            9,
+            2,
+            9,
+            "6-1, 3-6, 6-3"
+          ]
+        ],
+        [
+          [
+            3,
+            9,
+            3,
+            "6-3, 2-6, 6-2"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          21,
-          29,
-          null
-        ],
-        [
-          28,
-          11,
-          null
-        ],
-        [
-          24,
-          14,
-          null
-        ],
-        [
-          65,
-          8,
-          null
-        ],
-        [
-          47,
-          19,
-          null
-        ],
-        [
-          32,
-          23,
-          null
-        ],
-        [
-          30,
           3,
-          null
-        ],
-        [
-          5,
-          20,
-          null
-        ],
-        [
-          1,
-          4,
-          null
-        ],
-        [
-          44,
-          13,
-          null
-        ],
-        [
-          6,
-          26,
-          null
-        ],
-        [
-          66,
           9,
-          null
-        ],
-        [
-          2,
-          98,
-          null
-        ],
-        [
-          12,
-          7,
-          null
-        ],
-        [
-          39,
-          31,
-          null
-        ],
-        [
-          33,
-          27,
-          null
+          3,
+          "6-3, 2-6, 6-2"
         ]
       ]
     },
@@ -65460,10 +65522,211 @@
       "draw_size": 32,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        21,
+        17,
+        26,
+        28,
+        22,
+        46,
+        66,
+        59,
+        72,
+        44,
+        7,
+        39,
+        32,
+        98,
+        92,
+        82,
+        3,
+        91,
+        65,
+        45,
+        2,
+        105,
+        51,
+        4,
+        16,
+        14,
+        27,
+        19,
+        37,
+        11,
+        8,
+        80
+      ],
+      "bracket": [
+        [
+          [
+            21,
+            80,
+            null
+          ],
+          [
+            17,
+            8,
+            null
+          ],
+          [
+            26,
+            11,
+            null
+          ],
+          [
+            28,
+            37,
+            null
+          ],
+          [
+            22,
+            19,
+            null
+          ],
+          [
+            46,
+            27,
+            null
+          ],
+          [
+            66,
+            14,
+            null
+          ],
+          [
+            59,
+            16,
+            null
+          ],
+          [
+            72,
+            4,
+            null
+          ],
+          [
+            44,
+            51,
+            null
+          ],
+          [
+            7,
+            105,
+            null
+          ],
+          [
+            39,
+            2,
+            null
+          ],
+          [
+            32,
+            45,
+            null
+          ],
+          [
+            98,
+            65,
+            null
+          ],
+          [
+            92,
+            91,
+            null
+          ],
+          [
+            82,
+            3,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          21,
+          80,
+          null
+        ],
+        [
+          17,
+          8,
+          null
+        ],
+        [
+          26,
+          11,
+          null
+        ],
+        [
+          28,
+          37,
+          null
+        ],
+        [
+          22,
+          19,
+          null
+        ],
+        [
+          46,
+          27,
+          null
+        ],
+        [
+          66,
+          14,
+          null
+        ],
+        [
+          59,
+          16,
+          null
+        ],
+        [
+          72,
+          4,
+          null
+        ],
+        [
+          44,
+          51,
+          null
+        ],
+        [
+          7,
+          105,
+          null
+        ],
+        [
+          39,
+          2,
+          null
+        ],
+        [
+          32,
+          45,
+          null
+        ],
+        [
+          98,
+          65,
+          null
+        ],
+        [
+          92,
+          91,
+          null
+        ],
+        [
+          82,
+          3,
+          null
+        ]
+      ]
     },
     {
       "id": 55,
@@ -65474,10 +65737,211 @@
       "draw_size": 32,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        30,
+        69,
+        100,
+        15,
+        61,
+        101,
+        10,
+        6,
+        25,
+        35,
+        75,
+        29,
+        47,
+        85,
+        9,
+        33,
+        23,
+        60,
+        20,
+        38,
+        12,
+        54,
+        93,
+        97,
+        18,
+        50,
+        34,
+        84,
+        40,
+        5,
+        13,
+        48
+      ],
+      "bracket": [
+        [
+          [
+            30,
+            48,
+            null
+          ],
+          [
+            69,
+            13,
+            null
+          ],
+          [
+            100,
+            5,
+            null
+          ],
+          [
+            15,
+            40,
+            null
+          ],
+          [
+            61,
+            84,
+            null
+          ],
+          [
+            101,
+            34,
+            null
+          ],
+          [
+            10,
+            50,
+            null
+          ],
+          [
+            6,
+            18,
+            null
+          ],
+          [
+            25,
+            97,
+            null
+          ],
+          [
+            35,
+            93,
+            null
+          ],
+          [
+            75,
+            54,
+            null
+          ],
+          [
+            29,
+            12,
+            null
+          ],
+          [
+            47,
+            38,
+            null
+          ],
+          [
+            85,
+            20,
+            null
+          ],
+          [
+            9,
+            60,
+            null
+          ],
+          [
+            33,
+            23,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          30,
+          48,
+          null
+        ],
+        [
+          69,
+          13,
+          null
+        ],
+        [
+          100,
+          5,
+          null
+        ],
+        [
+          15,
+          40,
+          null
+        ],
+        [
+          61,
+          84,
+          null
+        ],
+        [
+          101,
+          34,
+          null
+        ],
+        [
+          10,
+          50,
+          null
+        ],
+        [
+          6,
+          18,
+          null
+        ],
+        [
+          25,
+          97,
+          null
+        ],
+        [
+          35,
+          93,
+          null
+        ],
+        [
+          75,
+          54,
+          null
+        ],
+        [
+          29,
+          12,
+          null
+        ],
+        [
+          47,
+          38,
+          null
+        ],
+        [
+          85,
+          20,
+          null
+        ],
+        [
+          9,
+          60,
+          null
+        ],
+        [
+          33,
+          23,
+          null
+        ]
+      ]
     },
     {
       "id": 56,
@@ -83395,7 +83859,7 @@
       "category": "Challenger 100",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 35,
       "participants": [
         35,
         101,
@@ -83419,89 +83883,108 @@
           [
             35,
             69,
-            null
+            35,
+            "4-6, 7-6, 6-4"
           ],
           [
             101,
             46,
-            null
+            46,
+            "1-6, 6-4, 1-6"
           ],
           [
             119,
             70,
-            null
+            70,
+            "4-6, 6-3, 3-6"
           ],
           [
             58,
             43,
-            null
+            58,
+            "4-6, 6-3, 6-4"
           ],
           [
             93,
             83,
-            null
+            93,
+            "2-6, 6-4, 6-3"
           ],
           [
             100,
             97,
-            null
+            100,
+            "6-2, 4-6, 6-3"
           ],
           [
             94,
             84,
-            null
+            84,
+            "3-6, 6-4, 4-6"
           ],
           [
             48,
             86,
-            null
+            48,
+            "7-6, 6-4"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            35,
+            46,
+            35,
+            "6-3, 5-7, 6-4"
+          ],
+          [
+            70,
+            58,
+            58,
+            "4-6, 6-3, 3-6"
+          ],
+          [
+            93,
+            100,
+            93,
+            "7-6, 3-6, 6-4"
+          ],
+          [
+            84,
+            48,
+            48,
+            "4-6, 5-7"
+          ]
+        ],
+        [
+          [
+            35,
+            58,
+            35,
+            "7-6, 6-4"
+          ],
+          [
+            93,
+            48,
+            48,
+            "3-6, 3-6"
+          ]
+        ],
+        [
+          [
+            35,
+            48,
+            35,
+            "6-3, 3-6, 7-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
           35,
-          69,
-          null
-        ],
-        [
-          101,
-          46,
-          null
-        ],
-        [
-          119,
-          70,
-          null
-        ],
-        [
-          58,
-          43,
-          null
-        ],
-        [
-          93,
-          83,
-          null
-        ],
-        [
-          100,
-          97,
-          null
-        ],
-        [
-          94,
-          84,
-          null
-        ],
-        [
           48,
-          86,
-          null
+          35,
+          "6-3, 3-6, 7-6"
         ]
       ]
     },
@@ -83513,7 +83996,7 @@
       "category": "Challenger 100",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 37,
       "participants": [
         78,
         37,
@@ -83537,89 +84020,108 @@
           [
             78,
             79,
-            null
+            79,
+            "3-6, 6-7"
           ],
           [
             37,
             88,
-            null
+            37,
+            "6-4, 6-3"
           ],
           [
             45,
             52,
-            null
+            45,
+            "7-6, 6-7, 6-3"
           ],
           [
             99,
             67,
-            null
+            67,
+            "7-5, 5-7, 2-6"
           ],
           [
             59,
             105,
-            null
+            59,
+            "6-4, 6-3"
           ],
           [
             113,
             92,
-            null
+            113,
+            "7-6, 6-2"
           ],
           [
             38,
             57,
-            null
+            38,
+            "7-5, 7-6"
           ],
           [
             50,
             82,
-            null
+            50,
+            "4-6, 6-3, 6-4"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            79,
+            37,
+            37,
+            "2-6, 7-6, 3-6"
+          ],
+          [
+            45,
+            67,
+            45,
+            "6-1, 2-6, 7-6"
+          ],
+          [
+            59,
+            113,
+            59,
+            "6-3, 4-6, 7-6"
+          ],
+          [
+            38,
+            50,
+            38,
+            "6-3, 6-1"
+          ]
+        ],
+        [
+          [
+            37,
+            45,
+            37,
+            "4-6, 6-2, 6-3"
+          ],
+          [
+            59,
+            38,
+            38,
+            "4-6, 2-6"
+          ]
+        ],
+        [
+          [
+            37,
+            38,
+            37,
+            "6-3, 3-6, 6-3"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          78,
-          79,
-          null
-        ],
-        [
           37,
-          88,
-          null
-        ],
-        [
-          45,
-          52,
-          null
-        ],
-        [
-          99,
-          67,
-          null
-        ],
-        [
-          59,
-          105,
-          null
-        ],
-        [
-          113,
-          92,
-          null
-        ],
-        [
           38,
-          57,
-          null
-        ],
-        [
-          50,
-          82,
-          null
+          37,
+          "6-3, 3-6, 6-3"
         ]
       ]
     },
@@ -83631,7 +84133,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 95,
       "participants": [
         56,
         64,
@@ -83655,89 +84157,108 @@
           [
             56,
             134,
-            null
+            56,
+            "6-0, 6-0"
           ],
           [
             64,
             89,
-            null
+            89,
+            "1-6, 3-6"
           ],
           [
             127,
             114,
-            null
+            127,
+            "2-6, 7-6, 6-4"
           ],
           [
             120,
             129,
-            null
+            120,
+            "6-0, 6-0"
           ],
           [
             131,
             136,
-            null
+            131,
+            "6-4, 6-3"
           ],
           [
             95,
             102,
-            null
+            95,
+            "7-5, 6-4"
           ],
           [
             111,
             117,
-            null
+            111,
+            "6-4, 6-3"
           ],
           [
             49,
             109,
-            null
+            49,
+            "6-2, 7-6"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            56,
+            89,
+            89,
+            "2-6, 4-6"
+          ],
+          [
+            127,
+            120,
+            120,
+            "1-6, 6-2, 4-6"
+          ],
+          [
+            131,
+            95,
+            95,
+            "0-6, 0-6"
+          ],
+          [
+            111,
+            49,
+            49,
+            "4-6, 6-1, 3-6"
+          ]
+        ],
+        [
+          [
+            89,
+            120,
+            89,
+            "6-2, 6-1"
+          ],
+          [
+            95,
+            49,
+            95,
+            "7-6, 7-5"
+          ]
+        ],
+        [
+          [
+            89,
+            95,
+            95,
+            "7-6, 4-6, 2-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          56,
-          134,
-          null
-        ],
-        [
-          64,
           89,
-          null
-        ],
-        [
-          127,
-          114,
-          null
-        ],
-        [
-          120,
-          129,
-          null
-        ],
-        [
-          131,
-          136,
-          null
-        ],
-        [
           95,
-          102,
-          null
-        ],
-        [
-          111,
-          117,
-          null
-        ],
-        [
-          49,
-          109,
-          null
+          95,
+          "7-6, 4-6, 2-6"
         ]
       ]
     },
@@ -83749,7 +84270,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 116,
       "participants": [
         128,
         112,
@@ -83773,89 +84294,108 @@
           [
             128,
             116,
-            null
+            116,
+            "3-6, 3-6"
           ],
           [
             112,
             135,
-            null
+            112,
+            "6-0, 6-0"
           ],
           [
             71,
             103,
-            null
+            71,
+            "6-4, 7-6"
           ],
           [
             124,
             125,
-            null
+            125,
+            "5-7, 3-6"
           ],
           [
             55,
             63,
-            null
+            63,
+            "4-6, 2-6"
           ],
           [
             106,
             118,
-            null
+            106,
+            "6-3, 7-6"
           ],
           [
             126,
             62,
-            null
+            62,
+            "6-7, 7-5, 4-6"
           ],
           [
             96,
             133,
-            null
+            96,
+            "6-0, 6-0"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            116,
+            112,
+            116,
+            "6-1, 6-2"
+          ],
+          [
+            71,
+            125,
+            125,
+            "4-6, 6-1, 6-7"
+          ],
+          [
+            63,
+            106,
+            106,
+            "4-6, 2-6"
+          ],
+          [
+            62,
+            96,
+            96,
+            "6-4, 5-7, 6-7"
+          ]
+        ],
+        [
+          [
+            116,
+            125,
+            116,
+            "6-3, 6-4"
+          ],
+          [
+            106,
+            96,
+            96,
+            "7-6, 4-6, 3-6"
+          ]
+        ],
+        [
+          [
+            116,
+            96,
+            116,
+            "5-7, 7-5, 6-2"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          128,
           116,
-          null
-        ],
-        [
-          112,
-          135,
-          null
-        ],
-        [
-          71,
-          103,
-          null
-        ],
-        [
-          124,
-          125,
-          null
-        ],
-        [
-          55,
-          63,
-          null
-        ],
-        [
-          106,
-          118,
-          null
-        ],
-        [
-          126,
-          62,
-          null
-        ],
-        [
           96,
-          133,
-          null
+          116,
+          "5-7, 7-5, 6-2"
         ]
       ]
     },
@@ -83868,10 +84408,114 @@
       "draw_size": 16,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        96,
+        71,
+        95,
+        113,
+        102,
+        81,
+        89,
+        57,
+        87,
+        104,
+        90,
+        74,
+        83,
+        70,
+        56,
+        77
+      ],
+      "bracket": [
+        [
+          [
+            96,
+            77,
+            null
+          ],
+          [
+            71,
+            56,
+            null
+          ],
+          [
+            95,
+            70,
+            null
+          ],
+          [
+            113,
+            83,
+            null
+          ],
+          [
+            102,
+            74,
+            null
+          ],
+          [
+            81,
+            90,
+            null
+          ],
+          [
+            89,
+            104,
+            null
+          ],
+          [
+            57,
+            87,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          96,
+          77,
+          null
+        ],
+        [
+          71,
+          56,
+          null
+        ],
+        [
+          95,
+          70,
+          null
+        ],
+        [
+          113,
+          83,
+          null
+        ],
+        [
+          102,
+          74,
+          null
+        ],
+        [
+          81,
+          90,
+          null
+        ],
+        [
+          89,
+          104,
+          null
+        ],
+        [
+          57,
+          87,
+          null
+        ]
+      ]
     },
     {
       "id": 198,
@@ -83882,10 +84526,114 @@
       "draw_size": 16,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        116,
+        107,
+        41,
+        119,
+        99,
+        76,
+        88,
+        73,
+        78,
+        43,
+        94,
+        68,
+        79,
+        53,
+        58,
+        86
+      ],
+      "bracket": [
+        [
+          [
+            116,
+            86,
+            null
+          ],
+          [
+            107,
+            58,
+            null
+          ],
+          [
+            41,
+            53,
+            null
+          ],
+          [
+            119,
+            79,
+            null
+          ],
+          [
+            99,
+            68,
+            null
+          ],
+          [
+            76,
+            94,
+            null
+          ],
+          [
+            88,
+            43,
+            null
+          ],
+          [
+            73,
+            78,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          116,
+          86,
+          null
+        ],
+        [
+          107,
+          58,
+          null
+        ],
+        [
+          41,
+          53,
+          null
+        ],
+        [
+          119,
+          79,
+          null
+        ],
+        [
+          99,
+          68,
+          null
+        ],
+        [
+          76,
+          94,
+          null
+        ],
+        [
+          88,
+          43,
+          null
+        ],
+        [
+          73,
+          78,
+          null
+        ]
+      ]
     },
     {
       "id": 199,
@@ -83896,10 +84644,114 @@
       "draw_size": 16,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        121,
+        110,
+        126,
+        62,
+        118,
+        125,
+        55,
+        49,
+        117,
+        63,
+        114,
+        103,
+        64,
+        106,
+        115,
+        127
+      ],
+      "bracket": [
+        [
+          [
+            121,
+            127,
+            null
+          ],
+          [
+            110,
+            115,
+            null
+          ],
+          [
+            126,
+            106,
+            null
+          ],
+          [
+            62,
+            64,
+            null
+          ],
+          [
+            118,
+            103,
+            null
+          ],
+          [
+            125,
+            114,
+            null
+          ],
+          [
+            55,
+            63,
+            null
+          ],
+          [
+            49,
+            117,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          121,
+          127,
+          null
+        ],
+        [
+          110,
+          115,
+          null
+        ],
+        [
+          126,
+          106,
+          null
+        ],
+        [
+          62,
+          64,
+          null
+        ],
+        [
+          118,
+          103,
+          null
+        ],
+        [
+          125,
+          114,
+          null
+        ],
+        [
+          55,
+          63,
+          null
+        ],
+        [
+          49,
+          117,
+          null
+        ]
+      ]
     },
     {
       "id": 200,
@@ -83910,10 +84762,114 @@
       "draw_size": 16,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        124,
+        120,
+        136,
+        129,
+        128,
+        133,
+        111,
+        109,
+        112,
+        135,
+        123,
+        130,
+        137,
+        108,
+        132,
+        134
+      ],
+      "bracket": [
+        [
+          [
+            124,
+            134,
+            null
+          ],
+          [
+            120,
+            132,
+            null
+          ],
+          [
+            136,
+            108,
+            null
+          ],
+          [
+            129,
+            137,
+            null
+          ],
+          [
+            128,
+            130,
+            null
+          ],
+          [
+            133,
+            123,
+            null
+          ],
+          [
+            111,
+            135,
+            null
+          ],
+          [
+            109,
+            112,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          124,
+          134,
+          null
+        ],
+        [
+          120,
+          132,
+          null
+        ],
+        [
+          136,
+          108,
+          null
+        ],
+        [
+          129,
+          137,
+          null
+        ],
+        [
+          128,
+          130,
+          null
+        ],
+        [
+          133,
+          123,
+          null
+        ],
+        [
+          111,
+          135,
+          null
+        ],
+        [
+          109,
+          112,
+          null
+        ]
+      ]
     },
     {
       "id": 201,
