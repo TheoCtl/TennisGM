@@ -39,7 +39,7 @@ class PlayerDevelopment:
     def develop_skill(current_value, chance):
         improvements = 0
         
-        while improvements < 3:  # Reduced cap from 5 to 3
+        while improvements < 5:
             if random.random() < chance:
                 improvements += 1
             else:
