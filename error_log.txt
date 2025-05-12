@@ -1,11 +1,8 @@
 Traceback (most recent call last):
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 462, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 55, in main_menu
-    enter_tournament(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 278, in enter_tournament
-    manage_tournament(stdscr, scheduler, tournament)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 390, in manage_tournament
-    stdscr.addstr(height - 1, 0, f"{winner['name']} wins the match {tournament['active_matches'][idx][3]}! Press any key to continue.")
-                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
-IndexError: list index out of range
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 57, in main_menu
+    show_rankings(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 205, in show_rankings
+    stdscr.addstr(i+2-start_idx, 0, f"{i}. {player['name']}: {points} pts")
+_curses.error: addwstr() returned ERR

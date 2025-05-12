@@ -8,12 +8,10 @@ class PlayerDevelopment:
         # Age factor - sharp peak at 18-21
         if player_age <= 20:
             age_factor = 1.0
-        elif player_age <= 22:
-            age_factor = 0.9
         elif player_age <= 26:
             age_factor = 0.8
         elif player_age <= 28:
-            age_factor = 0.5
+            age_factor = 0.7
         else:
             age_factor = 0
 
