@@ -2953,6 +2953,16 @@
       "winner_id": null
     },
     {
+      "id": 42,
+      "name": "DC Open",
+      "week": 30,
+      "surface": "hard",
+      "category": "ATP 500",
+      "draw_size": 32,
+      "year": 2025,
+      "winner_id": null
+    },    
+    {
       "id": 40,
       "name": "Generali Open",
       "week": 30,
@@ -2968,16 +2978,6 @@
       "week": 30,
       "surface": "clay",
       "category": "ATP 250",
-      "draw_size": 32,
-      "year": 2025,
-      "winner_id": null
-    },
-    {
-      "id": 42,
-      "name": "DC Open",
-      "week": 30,
-      "surface": "hard",
-      "category": "ATP 500",
       "draw_size": 32,
       "year": 2025,
       "winner_id": null

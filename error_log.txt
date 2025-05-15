@@ -3,6 +3,6 @@ Traceback (most recent call last):
     main_menu(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 57, in main_menu
     show_rankings(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 205, in show_rankings
-    stdscr.addstr(i+2-start_idx, 0, f"{i}. {player['name']}: {points} pts")
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 207, in show_rankings
+    stdscr.addstr(34, 0, "Press ESC to return, arrows to scroll, 's' to search")
 _curses.error: addwstr() returned ERR

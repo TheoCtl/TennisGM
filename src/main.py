@@ -3,6 +3,8 @@ import traceback
 from schedule import TournamentScheduler
 from ranking import RankingSystem
 ESCAPE_KEYS = {27, 46}
+UP_KEYS = {curses.KEY_UP, ord('z'), ord('Z')}
+DOWN_KEYS = {curses.KEY_DOWN, ord('s'), ord('S')}
 
 def main_menu(stdscr, scheduler):
     curses.curs_set(0)  # Hide the cursor
@@ -44,9 +46,9 @@ def main_menu(stdscr, scheduler):
 
         # Handle user input
         key = stdscr.getch()
-        if key == curses.KEY_UP and current_row > 0:
+        if key in UP_KEYS and current_row > 0:
             current_row -= 1
-        elif key == curses.KEY_DOWN and current_row < len(menu) - 1:
+        elif key in DOWN_KEYS and current_row < len(menu) - 1:
             current_row += 1
         elif key == curses.KEY_ENTER or key in [10, 13]:
             if menu[current_row] == "View current tournaments":
@@ -115,9 +117,9 @@ def show_hall_of_fame(stdscr, scheduler):
             stdscr.refresh()
         
         key = stdscr.getch()
-        if key == curses.KEY_UP and current_row > 0:
+        if key in UP_KEYS and current_row > 0:
             current_row -= 1
-        elif key == curses.KEY_DOWN and current_row < len(hof_members)-1:
+        elif key in DOWN_KEYS and current_row < len(hof_members)-1:
             current_row += 1
         elif key in ESCAPE_KEYS:  # ESC
             break
@@ -204,7 +206,7 @@ def show_rankings(stdscr, scheduler):
             else:
                 stdscr.addstr(i+2-start_idx, 0, f"{i}. {player['name']}: {points} pts")
         
-        stdscr.addstr(34, 0, "Press ESC to return, arrows to scroll, 's' to search")
+        stdscr.addstr(34, 0, "Press ESC to return, arrows to scroll, 'a' to search")
         stdscr.refresh()
         
         key = stdscr.getch()
@@ -212,17 +214,17 @@ def show_rankings(stdscr, scheduler):
             if key == 27:  # ESC
                 searching = False
                 search_query = ""
-            elif key == curses.KEY_BACKSPACE or key == 127:
+            elif key == curses.KEY_BACKSPACE or key == 8:
                 search_query = search_query[:-1]
             elif 32 <= key <= 126:  # Printable characters
                 search_query += chr(key)
         else:
-            if key == ord('s'):
+            if key == ord('a'):
                 searching = True
                 search_query = ""
-            elif key == curses.KEY_UP and current_row > 0:
+            elif key in UP_KEYS and current_row > 0:
                 current_row -= 1
-            elif key == curses.KEY_DOWN and current_row < len(display_players)-1:
+            elif key in DOWN_KEYS and current_row < len(display_players)-1:
                 current_row += 1
             elif key == curses.KEY_ENTER or key in [10, 13]:
                 if display_players and current_row < len(display_players):
@@ -269,9 +271,9 @@ def enter_tournament(stdscr, scheduler):
 
         # Handle user input
         key = stdscr.getch()
-        if key == curses.KEY_UP and current_row > 0:
+        if key in UP_KEYS and current_row > 0:
             current_row -= 1
-        elif key == curses.KEY_DOWN and current_row < len(current_tournaments) - 1:
+        elif key in DOWN_KEYS and current_row < len(current_tournaments) - 1:
             current_row += 1
         elif key == curses.KEY_ENTER or key in [10, 13]:
             tournament = current_tournaments[current_row]
@@ -369,10 +371,10 @@ def manage_tournament(stdscr, scheduler, tournament):
 
         # Handle user input
         key = stdscr.getch()
-        if key == curses.KEY_UP:
+        if key in UP_KEYS:
             if current_row > 0:
                 current_row -= 1
-        elif key == curses.KEY_DOWN:
+        elif key in DOWN_KEYS:
             if current_row < len(matches) - 1:
                 current_row += 1
         elif key == ord('p'):
