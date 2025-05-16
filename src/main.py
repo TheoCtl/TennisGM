@@ -70,16 +70,24 @@ def main_menu(stdscr, scheduler):
             
 def show_hall_of_fame(stdscr, scheduler):
     current_row = 0
+    for player in scheduler.hall_of_fame:
+        player['hof_points'] = 0
+        for win in player.get('tournament_wins', []):
+            if win['category'] == "Grand Slam":
+                player['hof_points'] += 75
+            elif win['category'] == "Masters 1000":
+                player['hof_points'] += 25
+            elif win['category'] == "ATP 500":
+                player['hof_points'] += 10
+            elif win['category'] == "ATP 250":
+                player['hof_points'] += 5
+            elif win['category'].startswith("Challenger"):
+                player['hof_points'] += 1
+    
+    # Sort by HOF points (descending) and then alphabetically
     hof_members = sorted(
         scheduler.hall_of_fame,
-        key=lambda x: (
-            -sum(1 for win in x.get('tournament_wins', []) if win['category'] == "Grand Slam"),
-            -sum(1 for win in x.get('tournament_wins', []) if win['category'] == "Masters 1000"),
-            -sum(1 for win in x.get('tournament_wins', []) if win['category'] == "ATP 500"),
-            -sum(1 for win in x.get('tournament_wins', []) if win['category'] == "ATP 250"),
-            -sum(1 for win in x.get('tournament_wins', []) if win['category'].startswith("Challenger")),
-            x['name'].lower()
-        )
+        key=lambda x: (-x['hof_points'], x['name'].lower())
     )
     
     while True:
@@ -94,19 +102,14 @@ def show_hall_of_fame(stdscr, scheduler):
             start_idx = max(0, current_row - 15)
             for i, player in enumerate(hof_members[start_idx:start_idx+30], start_idx+1):
                 total_wins = len(player.get('tournament_wins', []))
-                gs_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Grand Slam")
-                masters_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Masters 1000")
-                atp500_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "ATP 500")
-                atp250_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "ATP 250")
-                chal_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'].startswith("Challenger"))
                 
                 if i-1 == current_row:
                     stdscr.addstr(i+2-start_idx, 0, 
-                        f"{i}. {player['name']}: {total_wins} wins ({gs_wins} GS, {masters_wins} M1000, {atp500_wins} ATP500, {atp250_wins} ATP250, {chal_wins} Challengers)", 
+                        f"{i}. {player['name']}: {player['hof_points']} HOF pts, {total_wins} wins", 
                         curses.color_pair(1))
                 else:
                     stdscr.addstr(i+2-start_idx, 0, 
-                        f"{i}. {player['name']}: {total_wins} wins ({gs_wins} GS, {masters_wins} M1000, {atp500_wins} ATP500, {atp250_wins} ATP250, {chal_wins} Challengers)")
+                        f"{i}. {player['name']}: {player['hof_points']} HOF pts, {total_wins} wins")
             
             if height > 34 and width > 40:
                 stdscr.addstr(height-1, 0, "Press ESC to return, arrows to scroll")
