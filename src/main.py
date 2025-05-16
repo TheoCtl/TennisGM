@@ -105,11 +105,11 @@ def show_hall_of_fame(stdscr, scheduler):
                 
                 if i-1 == current_row:
                     stdscr.addstr(i+2-start_idx, 0, 
-                        f"{i}. {player['name']}: {player['hof_points']} HOF pts, {total_wins} wins", 
+                        f"{i}. {player['name']}: {player['hof_points']} HOF, {total_wins} wins", 
                         curses.color_pair(1))
                 else:
                     stdscr.addstr(i+2-start_idx, 0, 
-                        f"{i}. {player['name']}: {player['hof_points']} HOF pts, {total_wins} wins")
+                        f"{i}. {player['name']}: {player['hof_points']} HOF, {total_wins} wins")
             
             if height > 34 and width > 40:
                 stdscr.addstr(height-1, 0, "Press ESC to return, arrows to scroll")
