@@ -1,10 +1,10 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 494, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 483, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 61, in main_menu
-    show_hall_of_fame(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 129, in show_hall_of_fame
-    show_hof_player_details(stdscr, hof_members[current_row])
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 149, in show_hof_player_details
-    stdscr.addstr(row, 2, f"{tname} ({count})")
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 59, in main_menu
+    enter_tournament(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 301, in enter_tournament
+    manage_tournament(stdscr, scheduler, tournament)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 467, in manage_tournament
+    stdscr.addstr(height - 1, 0, "Match complete! Press any key to continue...")
 _curses.error: addwstr() returned ERR

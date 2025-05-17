@@ -2,6 +2,7 @@ import curses
 import traceback
 from schedule import TournamentScheduler
 from ranking import RankingSystem
+from sim.game_engine import GameEngine
 ESCAPE_KEYS = {27, 46}
 UP_KEYS = {curses.KEY_UP, ord('z'), ord('Z')}
 DOWN_KEYS = {curses.KEY_DOWN, ord('s'), ord('S')}
@@ -407,7 +408,7 @@ def manage_tournament(stdscr, scheduler, tournament):
                 stdscr.refresh()
                 stdscr.getch()
             else:
-                winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
+                winner_id = scheduler.simulate_through_match(tournament['id'], current_row, stdscr)
                 winner = next(p for p in scheduler.players if p['id'] == winner_id)
                 stdscr.addstr(height - 1, 0, f"{winner['name']} wins the match! Press any key to continue.")
                 if all(len(m) == 3 for m in tournament['active_matches']):
@@ -437,28 +438,26 @@ def manage_tournament(stdscr, scheduler, tournament):
                 sys.stdout = mystdout = StringIO()
         
                 # Simulate the match while capturing output
-                winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
+                winner_id = scheduler.simulate_through_match(tournament['id'], current_row, stdscr)
         
                 # Restore stdout
                 sys.stdout = old_stdout
         
                 # Get the captured output and split into lines
                 output = mystdout.getvalue()
-                lines = output.split('\n')
         
                 # Display the match log line by line
                 stdscr.clear()
-                for i, line in enumerate(lines):
-                    if i >= 1:  # Prevent writing beyond screen bounds
-                        stdscr.addstr(height - 2, 0, "-- Press any key to continue --")
-                        stdscr.refresh()
-                        stdscr.getch()
-                        stdscr.clear()
-                        i = 0  # Reset counter for new screen
-                
-                    stdscr.addstr(i, 0, line)
+                screens = output.split("\n\n\na")
+                for screen in screens:
+                    stdscr.clear()
+                    # Split the screen into lines and print each, respecting terminal height
+                    for i, line in enumerate(screen.strip().split('\n')):
+                            if i >= stdscr.getmaxyx()[0] - 1:
+                                break  # Prevent writing beyond screen bounds
+                            stdscr.addstr(i, 0, line[:stdscr.getmaxyx()[1] - 1])
                     stdscr.refresh()
-                    curses.napms(500)
+                    stdscr.getch()
         
                 # Update the match result in the tournament
                 scheduler.update_match_result(tournament['id'], current_row, winner_id)
