@@ -5,6 +5,7 @@ from ranking import RankingSystem
 ESCAPE_KEYS = {27, 46}
 UP_KEYS = {curses.KEY_UP, ord('z'), ord('Z')}
 DOWN_KEYS = {curses.KEY_DOWN, ord('s'), ord('S')}
+PRESTIGE_ORDER = TournamentScheduler.PRESTIGE_ORDER
 
 def main_menu(stdscr, scheduler):
     curses.curs_set(0)  # Hide the cursor
@@ -124,8 +125,47 @@ def show_hall_of_fame(stdscr, scheduler):
             current_row -= 1
         elif key in DOWN_KEYS and current_row < len(hof_members)-1:
             current_row += 1
+        elif key == curses.KEY_ENTER or key in [10, 13]:
+            if hof_members:
+                show_hof_player_details(stdscr, hof_members[current_row])
         elif key in ESCAPE_KEYS:  # ESC
             break
+
+def display_tournament_wins(stdscr, player, start_row=3):
+    import collections
+    height, width = stdscr.getmaxyx()
+    wins_by_category = collections.defaultdict(lambda: collections.defaultdict(int))
+    for win in player.get('tournament_wins', []):
+        wins_by_category[win['category']][win['name']] += 1
+    row = start_row + 1
+    any_win = False
+    for category in PRESTIGE_ORDER:
+        if category in wins_by_category:
+            if row < height - 1:
+                stdscr.addstr(row, 0, f" ~~~~ {category} ~~~~", curses.A_UNDERLINE)
+                row += 1
+            for tname, count in sorted(wins_by_category[category].items()):
+                if row < height - 1:
+                    stdscr.addstr(row, 2, f"- {tname} ({count})")
+                    row += 1
+                    any_win = True
+                else:
+                    row += 1
+                    break
+    if not any_win:
+        stdscr.addstr(row, 0, "  No tournament wins yet")
+        row += 1
+    return row
+
+def show_hof_player_details(stdscr, player):
+    stdscr.clear()
+    stdscr.addstr(0, 0, f"Player: {player['name']}", curses.A_BOLD)
+    stdscr.addstr(3, 0, "--- WINS ---", curses.A_BOLD)
+    display_tournament_wins(stdscr, player, start_row=3)
+    height, width = stdscr.getmaxyx()
+    stdscr.addstr(height - 1, 0, "Press any key to return.")
+    stdscr.refresh()
+    stdscr.getch()
 
 def show_player_details(stdscr, scheduler, player):
     while True:
@@ -136,7 +176,7 @@ def show_player_details(stdscr, scheduler, player):
         stdscr.addstr(2, 0, f"Age: {player.get('age', 'N/A')}")
         stdscr.addstr(3, 0, f"Hand: {player.get('hand', 'N/A')}")
         stdscr.addstr(4, 0, f"Surface: {player.get('favorite_surface', 'N/A')}")
-        stdscr.addstr(6,0, "Player Stats:", curses.A_BOLD)
+        stdscr.addstr(6,0, "--- SKILLS ---", curses.A_BOLD)
         if 'skills' in player:
             skills = player['skills']
             stdscr.addstr(7, 0, f"  Serve: {skills.get('serve', 'N/A')}")
@@ -148,33 +188,10 @@ def show_player_details(stdscr, scheduler, player):
             stdscr.addstr(13, 0, f"  Cross: {skills.get('cross', 'N/A')}")
 
             
-        stdscr.addstr(14,0, "Tournament History:", curses.A_BOLD)
-        if 'tournament_wins' in player and player['tournament_wins']:
-            sorted_wins = sorted(player['tournament_wins'], 
-                key=lambda x: (
-                    scheduler.PRESTIGE_ORDER.index(x['category'])
-                    if x['category'] in scheduler.PRESTIGE_ORDER 
-                    else len(scheduler.PRESTIGE_ORDER), 
-                    x['name'].lower()
-                ))
-            current_category = None
-            row = 15
-            for win in sorted_wins:
-                if win in sorted_wins:
-                    if win['category'] != current_category:
-                        if row < height -1:
-                            stdscr.addstr(row, 0, f" {win['category']}:", curses.A_UNDERLINE)
-                            row +=1
-                        current_category = win['category']
-                        
-                    if row < height -1:
-                        stdscr.addstr(row, 2, f"{win['year']}: {win['name']}")
-                        row +=1
-        else:
-            stdscr.addstr(15, 0, "  No tournament wins yet")
+        stdscr.addstr(15, 0, "--- WINS ---", curses.A_BOLD)
+        display_tournament_wins(stdscr, player, start_row=15)
         stdscr.addstr(height - 1, 0, "Press any key to return to ATP Rankings.")
         stdscr.refresh()
-        
         key = stdscr.getch()
         if key:
             break
