@@ -5,6 +5,7 @@ Traceback (most recent call last):
     enter_tournament(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 301, in enter_tournament
     manage_tournament(stdscr, scheduler, tournament)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 467, in manage_tournament
-    stdscr.addstr(height - 1, 0, "Match complete! Press any key to continue...")
-_curses.error: addwstr() returned ERR
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 441, in manage_tournament
+    winner_id = scheduler.simulate_through_match(tournament['id'], current_row, stdscr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: TournamentScheduler.simulate_through_match() takes 3 positional arguments but 4 were given

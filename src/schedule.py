@@ -321,7 +321,7 @@ class TournamentScheduler:
             for m in tournament['bracket'][current_round]
         ]
         
-    def simulate_through_match(self, tournament_id, target_match_idx, stdscr):
+    def simulate_through_match(self, tournament_id, target_match_idx):
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
         
         original_players = {}
@@ -358,7 +358,7 @@ class TournamentScheduler:
 
                 # Simulate the match using the Game Engine
                 game_engine = GameEngine(player1, player2, tournament['surface'])
-                match_winner = game_engine.simulate_match(stdscr)
+                match_winner = game_engine.simulate_match()
 
                 # Determine the winner ID
                 winner_id = match_winner['id']

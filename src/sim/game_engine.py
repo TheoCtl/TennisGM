@@ -69,13 +69,13 @@ class GameEngine:
         """
         return ", ".join(f"{p1}-{p2}" for p1, p2 in self.set_scores)
 
-    def simulate_match(self, stdscr):
+    def simulate_match(self):
         """
         Simulate a full match until one player wins.
         """
         while not self.is_match_over():
             while not self.is_set_over():
-                winner_key = self.simulate_point(stdscr)
+                winner_key = self.simulate_point()
                 self.update_games(winner_key)
 
                 # Alternate server and receiver after each point
@@ -92,7 +92,7 @@ class GameEngine:
         print(f"{match_winner['name']} wins the match! Final Score: {self.format_set_scores()}")
         return match_winner
 
-    def simulate_point(self, stdscr):
+    def simulate_point(self):
         """
         Simulate a single point in the match.
         Returns the winner of the point (player1 or player2).

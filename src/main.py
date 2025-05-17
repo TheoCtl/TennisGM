@@ -408,7 +408,7 @@ def manage_tournament(stdscr, scheduler, tournament):
                 stdscr.refresh()
                 stdscr.getch()
             else:
-                winner_id = scheduler.simulate_through_match(tournament['id'], current_row, stdscr)
+                winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
                 winner = next(p for p in scheduler.players if p['id'] == winner_id)
                 stdscr.addstr(height - 1, 0, f"{winner['name']} wins the match! Press any key to continue.")
                 if all(len(m) == 3 for m in tournament['active_matches']):
@@ -438,7 +438,7 @@ def manage_tournament(stdscr, scheduler, tournament):
                 sys.stdout = mystdout = StringIO()
         
                 # Simulate the match while capturing output
-                winner_id = scheduler.simulate_through_match(tournament['id'], current_row, stdscr)
+                winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
         
                 # Restore stdout
                 sys.stdout = old_stdout

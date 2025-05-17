@@ -1,7 +1,7 @@
 {
   "current_year": 18,
-  "current_week": 2,
-  "current_date": "2041-12-18T00:00:00",
+  "current_week": 3,
+  "current_date": "2041-12-25T00:00:00",
   "players": [
     {
       "id": 1,
@@ -9719,14 +9719,6 @@
       "favorite_surface": "grass",
       "tournament_history": [
         {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
-        {
           "name": "Australian Open",
           "category": "Grand Slam",
           "year": 17,
@@ -14366,14 +14358,6 @@
       "favorite_surface": "clay",
       "tournament_history": [
         {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
-        {
           "name": "Australian Open",
           "category": "Grand Slam",
           "year": 17,
@@ -15893,14 +15877,6 @@
       "favorite_surface": "hard",
       "tournament_history": [
         {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
-        {
           "name": "Australian Open",
           "category": "Grand Slam",
           "year": 17,
@@ -16738,14 +16714,6 @@
       "retired": true,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -18559,8 +18527,8 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 26,
-      "points": 1688,
+      "rank": 25,
+      "points": 1733,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -18778,6 +18746,14 @@
           "week": 1,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -18848,7 +18824,7 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 66,
+      "rank": 64,
       "points": 910,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -19103,17 +19079,9 @@
         "cross": 52
       },
       "rank": 79,
-      "points": 770,
+      "points": 760,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -19412,7 +19380,7 @@
         "cross": 53
       },
       "rank": 5,
-      "points": 3805,
+      "points": 3850,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -19622,6 +19590,14 @@
           "week": 50,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -19723,17 +19699,9 @@
         "cross": 61
       },
       "rank": 34,
-      "points": 1371,
+      "points": 1361,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -19982,18 +19950,10 @@
         "straight": 58,
         "cross": 61
       },
-      "rank": 54,
-      "points": 1013,
+      "rank": 53,
+      "points": 1038,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -20249,6 +20209,14 @@
           "week": 1,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -20344,7 +20312,7 @@
         "straight": 61,
         "cross": 56
       },
-      "rank": 44,
+      "rank": 46,
       "points": 1157,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -20603,18 +20571,10 @@
         "straight": 56,
         "cross": 64
       },
-      "rank": 42,
-      "points": 1225,
+      "rank": 38,
+      "points": 1235,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -20846,6 +20806,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -20966,8 +20934,8 @@
         "straight": 47,
         "cross": 51
       },
-      "rank": 27,
-      "points": 1645,
+      "rank": 26,
+      "points": 1665,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -21161,6 +21129,14 @@
           "week": 50,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -21241,18 +21217,10 @@
         "straight": 61,
         "cross": 56
       },
-      "rank": 11,
+      "rank": 12,
       "points": 2588,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -21492,6 +21460,14 @@
           "week": 1,
           "round": 5,
           "points": 250
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -21602,18 +21578,10 @@
         "straight": 54,
         "cross": 49
       },
-      "rank": 49,
-      "points": 1074,
+      "rank": 50,
+      "points": 1064,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -21781,6 +21749,14 @@
           "week": 1,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -21886,18 +21862,10 @@
         "straight": 55,
         "cross": 60
       },
-      "rank": 89,
-      "points": 718,
+      "rank": 92,
+      "points": 693,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -22113,6 +22081,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -22208,18 +22184,10 @@
         "straight": 53,
         "cross": 60
       },
-      "rank": 40,
-      "points": 1233,
+      "rank": 41,
+      "points": 1223,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -22475,6 +22443,14 @@
           "week": 47,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -22566,17 +22542,9 @@
         "cross": 62
       },
       "rank": 2,
-      "points": 4615,
+      "points": 4545,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -22798,6 +22766,14 @@
           "category": "ATP 250",
           "year": 18,
           "week": 1,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
           "round": 1,
           "points": 20
         }
@@ -23266,8 +23242,8 @@
         "straight": 54,
         "cross": 54
       },
-      "rank": 50,
-      "points": 1068,
+      "rank": 49,
+      "points": 1113,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -23509,6 +23485,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -23579,7 +23563,7 @@
         "straight": 55,
         "cross": 60
       },
-      "rank": 41,
+      "rank": 39,
       "points": 1233,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -23881,18 +23865,10 @@
         "straight": 54,
         "cross": 56
       },
-      "rank": 15,
-      "points": 2134,
+      "rank": 17,
+      "points": 2044,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -24267,17 +24243,9 @@
         "cross": 53
       },
       "rank": 1,
-      "points": 7823,
+      "points": 7673,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 4,
-          "points": 150
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -24703,18 +24671,10 @@
         "straight": 59,
         "cross": 55
       },
-      "rank": 18,
-      "points": 1970,
+      "rank": 24,
+      "points": 1740,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 5,
-          "points": 250
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -24930,6 +24890,14 @@
           "week": 1,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -25025,8 +24993,8 @@
         "straight": 55,
         "cross": 64
       },
-      "rank": 4,
-      "points": 4253,
+      "rank": 3,
+      "points": 4503,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -25268,6 +25236,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 5,
+          "points": 250
         }
       ],
       "tournament_wins": [
@@ -25325,6 +25301,11 @@
           "name": "Almaty Open",
           "category": "ATP 250",
           "year": 17
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18
         }
       ],
       "retired": false
@@ -25343,8 +25324,8 @@
         "straight": 50,
         "cross": 53
       },
-      "rank": 52,
-      "points": 1042,
+      "rank": 51,
+      "points": 1052,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -25696,18 +25677,10 @@
         "straight": 53,
         "cross": 60
       },
-      "rank": 36,
-      "points": 1327,
+      "rank": 35,
+      "points": 1302,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -25907,6 +25880,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -26313,18 +26294,10 @@
         "straight": 53,
         "cross": 61
       },
-      "rank": 3,
-      "points": 4396,
+      "rank": 4,
+      "points": 4246,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 4,
-          "points": 150
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -27010,18 +26983,10 @@
         "straight": 53,
         "cross": 58
       },
-      "rank": 35,
-      "points": 1338,
+      "rank": 36,
+      "points": 1293,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -27253,6 +27218,14 @@
           "week": 49,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -27333,7 +27306,7 @@
         "straight": 60,
         "cross": 55
       },
-      "rank": 8,
+      "rank": 11,
       "points": 2645,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -27677,18 +27650,10 @@
         "straight": 59,
         "cross": 53
       },
-      "rank": 38,
-      "points": 1253,
+      "rank": 40,
+      "points": 1233,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -27984,18 +27949,10 @@
         "straight": 58,
         "cross": 53
       },
-      "rank": 65,
-      "points": 916,
+      "rank": 68,
+      "points": 881,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -28203,6 +28160,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -28274,17 +28239,9 @@
         "cross": 53
       },
       "rank": 19,
-      "points": 1965,
+      "points": 1945,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -28609,18 +28566,10 @@
         "straight": 61,
         "cross": 60
       },
-      "rank": 31,
-      "points": 1487,
+      "rank": 30,
+      "points": 1512,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -28860,6 +28809,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -28935,18 +28892,10 @@
         "straight": 54,
         "cross": 57
       },
-      "rank": 21,
-      "points": 1891,
+      "rank": 27,
+      "points": 1641,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 5,
-          "points": 250
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -29229,18 +29178,10 @@
         "straight": 53,
         "cross": 56
       },
-      "rank": 25,
-      "points": 1795,
+      "rank": 23,
+      "points": 1840,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -29448,6 +29389,14 @@
           "week": 1,
           "round": 3,
           "points": 90
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -29508,7 +29457,7 @@
         "straight": 53,
         "cross": 59
       },
-      "rank": 23,
+      "rank": 21,
       "points": 1863,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -29802,18 +29751,10 @@
         "straight": 53,
         "cross": 58
       },
-      "rank": 20,
-      "points": 1955,
+      "rank": 15,
+      "points": 2185,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -30045,6 +29986,14 @@
           "week": 1,
           "round": 4,
           "points": 150
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 5,
+          "points": 250
         }
       ],
       "tournament_wins": [
@@ -30067,6 +30016,11 @@
           "name": "Oeiras Open",
           "category": "Challenger 125",
           "year": 14
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18
         }
       ],
       "retired": false
@@ -30085,8 +30039,8 @@
         "straight": 55,
         "cross": 56
       },
-      "rank": 96,
-      "points": 694,
+      "rank": 90,
+      "points": 704,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -30296,6 +30250,14 @@
           "week": 1,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -30346,8 +30308,8 @@
         "straight": 52,
         "cross": 55
       },
-      "rank": 75,
-      "points": 788,
+      "rank": 74,
+      "points": 798,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -30557,6 +30519,14 @@
           "week": 49,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -30627,8 +30597,8 @@
         "straight": 55,
         "cross": 64
       },
-      "rank": 9,
-      "points": 2595,
+      "rank": 10,
+      "points": 2685,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -30798,6 +30768,14 @@
           "week": 1,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -30903,18 +30881,10 @@
         "straight": 56,
         "cross": 54
       },
-      "rank": 47,
-      "points": 1128,
+      "rank": 44,
+      "points": 1173,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -31114,6 +31084,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -31179,8 +31157,8 @@
         "straight": 58,
         "cross": 53
       },
-      "rank": 12,
-      "points": 2565,
+      "rank": 8,
+      "points": 2715,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -31438,6 +31416,14 @@
           "week": 50,
           "round": 0,
           "points": 25
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 4,
+          "points": 150
         }
       ],
       "tournament_wins": [
@@ -31524,7 +31510,7 @@
         "cross": 57
       },
       "rank": 55,
-      "points": 1011,
+      "points": 1021,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -31758,6 +31744,14 @@
           "week": 49,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -32077,18 +32071,10 @@
         "straight": 54,
         "cross": 56
       },
-      "rank": 39,
-      "points": 1236,
+      "rank": 42,
+      "points": 1216,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -32358,7 +32344,7 @@
         "straight": 52,
         "cross": 61
       },
-      "rank": 22,
+      "rank": 20,
       "points": 1865,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -32634,14 +32620,6 @@
       "favorite_surface": "clay",
       "tournament_history": [
         {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
-        {
           "name": "Australian Open",
           "category": "Grand Slam",
           "year": 17,
@@ -32840,6 +32818,14 @@
           "week": 48,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -32925,18 +32911,10 @@
         "straight": 57,
         "cross": 53
       },
-      "rank": 48,
-      "points": 1087,
+      "rank": 47,
+      "points": 1122,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -33200,6 +33178,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -33245,7 +33231,7 @@
         "straight": 55,
         "cross": 52
       },
-      "rank": 70,
+      "rank": 71,
       "points": 850,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -33513,18 +33499,10 @@
         "straight": 55,
         "cross": 58
       },
-      "rank": 32,
-      "points": 1408,
+      "rank": 33,
+      "points": 1398,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -33824,18 +33802,10 @@
         "straight": 51,
         "cross": 54
       },
-      "rank": 61,
-      "points": 980,
+      "rank": 57,
+      "points": 990,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -34043,6 +34013,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -34093,7 +34071,7 @@
         "straight": 59,
         "cross": 62
       },
-      "rank": 51,
+      "rank": 52,
       "points": 1045,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -34703,7 +34681,7 @@
         "straight": 51,
         "cross": 50
       },
-      "rank": 67,
+      "rank": 66,
       "points": 890,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -34978,7 +34956,7 @@
         "cross": 56
       },
       "rank": 45,
-      "points": 1149,
+      "points": 1169,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -35212,6 +35190,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -35262,18 +35248,10 @@
         "straight": 55,
         "cross": 52
       },
-      "rank": 74,
-      "points": 812,
+      "rank": 73,
+      "points": 802,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -35575,7 +35553,7 @@
         "straight": 55,
         "cross": 56
       },
-      "rank": 24,
+      "rank": 22,
       "points": 1853,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -35815,8 +35793,8 @@
         "straight": 51,
         "cross": 47
       },
-      "rank": 68,
-      "points": 878,
+      "rank": 67,
+      "points": 888,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -36042,6 +36020,14 @@
           "week": 49,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -36117,18 +36103,10 @@
         "straight": 53,
         "cross": 54
       },
-      "rank": 110,
-      "points": 579,
+      "rank": 111,
+      "points": 569,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -36426,7 +36404,7 @@
         "straight": 55,
         "cross": 55
       },
-      "rank": 17,
+      "rank": 18,
       "points": 1999,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -36973,18 +36951,10 @@
         "straight": 54,
         "cross": 46
       },
-      "rank": 77,
+      "rank": 76,
       "points": 779,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -37208,6 +37178,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -37283,18 +37261,10 @@
         "straight": 57,
         "cross": 50
       },
-      "rank": 63,
-      "points": 927,
+      "rank": 65,
+      "points": 902,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -37534,6 +37504,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -37579,8 +37557,8 @@
         "straight": 58,
         "cross": 53
       },
-      "rank": 33,
-      "points": 1398,
+      "rank": 32,
+      "points": 1418,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -37830,6 +37808,14 @@
           "week": 47,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -37875,18 +37861,10 @@
         "straight": 55,
         "cross": 58
       },
-      "rank": 101,
-      "points": 644,
+      "rank": 103,
+      "points": 624,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -38104,18 +38082,10 @@
         "straight": 52,
         "cross": 52
       },
-      "rank": 62,
-      "points": 970,
+      "rank": 61,
+      "points": 950,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -38380,17 +38350,9 @@
         "cross": 55
       },
       "rank": 29,
-      "points": 1550,
+      "points": 1560,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -38598,6 +38560,14 @@
           "week": 1,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -38677,14 +38647,6 @@
       "points": 1266,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -38940,6 +38902,14 @@
           "week": 1,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -39005,18 +38975,10 @@
         "straight": 56,
         "cross": 59
       },
-      "rank": 10,
-      "points": 2590,
+      "rank": 9,
+      "points": 2695,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -39232,6 +39194,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 4,
+          "points": 150
         }
       ],
       "tournament_wins": [
@@ -39297,7 +39267,7 @@
         "straight": 57,
         "cross": 55
       },
-      "rank": 30,
+      "rank": 31,
       "points": 1509,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -39620,7 +39590,7 @@
         "cross": 57
       },
       "rank": 81,
-      "points": 739,
+      "points": 749,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -39838,6 +39808,14 @@
           "week": 1,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -39888,18 +39866,10 @@
         "straight": 57,
         "cross": 50
       },
-      "rank": 73,
-      "points": 813,
+      "rank": 75,
+      "points": 793,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -40161,17 +40131,9 @@
         "cross": 51
       },
       "rank": 56,
-      "points": 1010,
+      "points": 1000,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -40503,18 +40465,10 @@
         "straight": 55,
         "cross": 54
       },
-      "rank": 60,
-      "points": 984,
+      "rank": 62,
+      "points": 949,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -40706,6 +40660,14 @@
           "week": 47,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -40766,18 +40728,10 @@
         "straight": 51,
         "cross": 55
       },
-      "rank": 53,
-      "points": 1038,
+      "rank": 54,
+      "points": 1028,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -41040,7 +40994,7 @@
         "straight": 50,
         "cross": 52
       },
-      "rank": 90,
+      "rank": 87,
       "points": 717,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -41353,18 +41307,10 @@
         "straight": 49,
         "cross": 48
       },
-      "rank": 86,
-      "points": 720,
+      "rank": 98,
+      "points": 675,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 3,
-          "points": 45
-        },
         {
           "name": "Pune Challenger",
           "category": "Challenger 100",
@@ -41617,18 +41563,10 @@
         "straight": 50,
         "cross": 51
       },
-      "rank": 57,
-      "points": 993,
+      "rank": 60,
+      "points": 983,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -42178,8 +42116,8 @@
         "straight": 50,
         "cross": 61
       },
-      "rank": 88,
-      "points": 718,
+      "rank": 85,
+      "points": 728,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -42733,18 +42671,10 @@
         "straight": 57,
         "cross": 55
       },
-      "rank": 124,
-      "points": 474,
+      "rank": 129,
+      "points": 464,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -43019,18 +42949,10 @@
         "straight": 56,
         "cross": 54
       },
-      "rank": 76,
-      "points": 780,
+      "rank": 78,
+      "points": 770,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -43296,8 +43218,8 @@
         "straight": 52,
         "cross": 49
       },
-      "rank": 72,
-      "points": 824,
+      "rank": 70,
+      "points": 869,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -43555,6 +43477,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -43606,17 +43536,9 @@
         "cross": 47
       },
       "rank": 107,
-      "points": 614,
+      "points": 609,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -43824,6 +43746,14 @@
           "week": 1,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -43884,18 +43814,10 @@
         "straight": 58,
         "cross": 44
       },
-      "rank": 125,
-      "points": 467,
+      "rank": 133,
+      "points": 447,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -44121,18 +44043,10 @@
         "straight": 55,
         "cross": 52
       },
-      "rank": 103,
-      "points": 636,
+      "rank": 101,
+      "points": 646,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -44284,6 +44198,14 @@
           "week": 1,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -44324,18 +44246,10 @@
         "straight": 43,
         "cross": 50
       },
-      "rank": 87,
-      "points": 720,
+      "rank": 88,
+      "points": 710,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -44605,7 +44519,7 @@
         "cross": 51
       },
       "rank": 82,
-      "points": 737,
+      "points": 747,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -44783,6 +44697,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -44838,8 +44760,8 @@
         "straight": 55,
         "cross": 48
       },
-      "rank": 80,
-      "points": 766,
+      "rank": 77,
+      "points": 776,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -45097,6 +45019,14 @@
           "week": 1,
           "round": 4,
           "points": 125
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -45147,8 +45077,8 @@
         "straight": 45,
         "cross": 50
       },
-      "rank": 113,
-      "points": 548,
+      "rank": 112,
+      "points": 558,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -45318,6 +45248,14 @@
           "week": 1,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -45368,18 +45306,10 @@
         "straight": 53,
         "cross": 47
       },
-      "rank": 83,
-      "points": 733,
+      "rank": 86,
+      "points": 723,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -45668,18 +45598,10 @@
         "straight": 51,
         "cross": 56
       },
-      "rank": 46,
-      "points": 1141,
+      "rank": 48,
+      "points": 1121,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -45976,18 +45898,10 @@
         "straight": 47,
         "cross": 47
       },
-      "rank": 71,
+      "rank": 72,
       "points": 842,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -46235,6 +46149,14 @@
           "week": 1,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -46261,17 +46183,9 @@
         "cross": 52
       },
       "rank": 95,
-      "points": 694,
+      "points": 684,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -46571,8 +46485,8 @@
         "straight": 56,
         "cross": 54
       },
-      "rank": 117,
-      "points": 531,
+      "rank": 113,
+      "points": 551,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -46726,6 +46640,14 @@
           "week": 1,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -46776,8 +46698,8 @@
         "straight": 52,
         "cross": 51
       },
-      "rank": 128,
-      "points": 459,
+      "rank": 126,
+      "points": 472,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -47003,6 +46925,14 @@
           "week": 1,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -47038,18 +46968,10 @@
         "straight": 60,
         "cross": 52
       },
-      "rank": 64,
-      "points": 922,
+      "rank": 63,
+      "points": 912,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -47600,18 +47522,10 @@
         "straight": 52,
         "cross": 59
       },
-      "rank": 134,
+      "rank": 136,
       "points": 438,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Burnie International",
           "category": "Challenger 75",
@@ -47795,6 +47709,14 @@
           "week": 1,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -47850,7 +47772,7 @@
         "straight": 46,
         "cross": 50
       },
-      "rank": 98,
+      "rank": 96,
       "points": 681,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -48120,8 +48042,8 @@
         "straight": 53,
         "cross": 47
       },
-      "rank": 121,
-      "points": 517,
+      "rank": 118,
+      "points": 530,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -48355,6 +48277,14 @@
           "week": 49,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -48405,18 +48335,10 @@
         "straight": 49,
         "cross": 49
       },
-      "rank": 99,
+      "rank": 97,
       "points": 676,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -48632,6 +48554,14 @@
           "week": 47,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -48682,18 +48612,10 @@
         "straight": 55,
         "cross": 52
       },
-      "rank": 144,
-      "points": 411,
+      "rank": 147,
+      "points": 401,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -49192,8 +49114,8 @@
         "straight": 53,
         "cross": 44
       },
-      "rank": 84,
-      "points": 727,
+      "rank": 83,
+      "points": 737,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -49379,6 +49301,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -49429,8 +49359,8 @@
         "straight": 54,
         "cross": 55
       },
-      "rank": 85,
-      "points": 724,
+      "rank": 84,
+      "points": 734,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -49640,6 +49570,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -49680,7 +49618,7 @@
         "straight": 55,
         "cross": 48
       },
-      "rank": 97,
+      "rank": 93,
       "points": 692,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -49927,18 +49865,10 @@
         "straight": 53,
         "cross": 46
       },
-      "rank": 94,
-      "points": 710,
+      "rank": 91,
+      "points": 700,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -50233,8 +50163,8 @@
         "straight": 47,
         "cross": 48
       },
-      "rank": 163,
-      "points": 318,
+      "rank": 162,
+      "points": 331,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -50420,6 +50350,14 @@
           "week": 47,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -50445,18 +50383,10 @@
         "straight": 48,
         "cross": 48
       },
-      "rank": 78,
-      "points": 775,
+      "rank": 80,
+      "points": 755,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -50725,7 +50655,7 @@
         "straight": 58,
         "cross": 44
       },
-      "rank": 133,
+      "rank": 135,
       "points": 439,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -51171,17 +51101,9 @@
         "cross": 56
       },
       "rank": 108,
-      "points": 598,
+      "points": 592,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Delray Beach Open",
           "category": "ATP 250",
@@ -51386,18 +51308,10 @@
         "straight": 61,
         "cross": 53
       },
-      "rank": 93,
-      "points": 711,
+      "rank": 94,
+      "points": 686,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Burnie International",
           "category": "Challenger 75",
@@ -51903,18 +51817,10 @@
         "straight": 58,
         "cross": 47
       },
-      "rank": 92,
-      "points": 713,
+      "rank": 100,
+      "points": 648,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 4,
-          "points": 75
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -52162,6 +52068,14 @@
           "week": 49,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -52197,18 +52111,10 @@
         "straight": 46,
         "cross": 51
       },
-      "rank": 137,
-      "points": 432,
+      "rank": 139,
+      "points": 426,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Southern California Open II",
           "category": "Challenger 50",
@@ -52414,7 +52320,7 @@
         "straight": 52,
         "cross": 54
       },
-      "rank": 116,
+      "rank": 117,
       "points": 533,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -52646,18 +52552,10 @@
         "straight": 50,
         "cross": 47
       },
-      "rank": 153,
+      "rank": 151,
       "points": 384,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Chennai Open Challenger",
           "category": "Challenger 100",
@@ -52849,6 +52747,14 @@
           "week": 1,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -52874,8 +52780,8 @@
         "straight": 55,
         "cross": 52
       },
-      "rank": 160,
-      "points": 349,
+      "rank": 158,
+      "points": 355,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -53085,6 +52991,14 @@
           "week": 46,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -53115,8 +53029,8 @@
         "straight": 49,
         "cross": 43
       },
-      "rank": 157,
-      "points": 359,
+      "rank": 154,
+      "points": 372,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -53286,6 +53200,14 @@
           "week": 1,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -53316,18 +53238,10 @@
         "straight": 45,
         "cross": 49
       },
-      "rank": 138,
-      "points": 431,
+      "rank": 140,
+      "points": 425,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Chennai Open Challenger",
           "category": "Challenger 100",
@@ -53520,18 +53434,10 @@
         "straight": 46,
         "cross": 49
       },
-      "rank": 123,
-      "points": 487,
+      "rank": 120,
+      "points": 519,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -53739,6 +53645,14 @@
           "week": 49,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -53769,18 +53683,10 @@
         "straight": 54,
         "cross": 51
       },
-      "rank": 126,
-      "points": 467,
+      "rank": 130,
+      "points": 454,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -54042,18 +53948,10 @@
         "straight": 55,
         "cross": 57
       },
-      "rank": 91,
-      "points": 716,
+      "rank": 89,
+      "points": 706,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -54314,8 +54212,8 @@
         "straight": 53,
         "cross": 50
       },
-      "rank": 140,
-      "points": 423,
+      "rank": 132,
+      "points": 448,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -54541,6 +54439,14 @@
           "week": 1,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -54571,18 +54477,10 @@
         "straight": 45,
         "cross": 51
       },
-      "rank": 112,
+      "rank": 110,
       "points": 575,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -54822,6 +54720,14 @@
           "week": 1,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -54857,8 +54763,8 @@
         "straight": 44,
         "cross": 49
       },
-      "rank": 130,
-      "points": 445,
+      "rank": 131,
+      "points": 451,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -55036,6 +54942,14 @@
           "week": 47,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [],
@@ -55055,7 +54969,7 @@
         "straight": 42,
         "cross": 45
       },
-      "rank": 152,
+      "rank": 150,
       "points": 384,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -55284,8 +55198,8 @@
         "straight": 42,
         "cross": 45
       },
-      "rank": 115,
-      "points": 538,
+      "rank": 114,
+      "points": 548,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -55447,6 +55361,14 @@
           "week": 45,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -55503,17 +55425,9 @@
         "cross": 48
       },
       "rank": 161,
-      "points": 344,
+      "points": 338,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Southern California Open II",
           "category": "Challenger 50",
@@ -55770,18 +55684,10 @@
         "straight": 49,
         "cross": 50
       },
-      "rank": 114,
+      "rank": 115,
       "points": 546,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Adelaide International",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -56005,6 +55911,14 @@
           "week": 1,
           "round": 0,
           "points": 10
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 10
         }
       ],
       "tournament_wins": [
@@ -56050,18 +55964,10 @@
         "straight": 49,
         "cross": 43
       },
-      "rank": 132,
-      "points": 443,
+      "rank": 137,
+      "points": 436,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Chennai Open Challenger",
           "category": "Challenger 100",
@@ -56285,6 +56191,14 @@
           "week": 49,
           "round": 3,
           "points": 30
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -56320,18 +56234,10 @@
         "straight": 47,
         "cross": 47
       },
-      "rank": 159,
-      "points": 350,
+      "rank": 160,
+      "points": 344,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Lexus Nottingham Challenger",
           "category": "Challenger 75",
@@ -56566,18 +56472,10 @@
         "straight": 47,
         "cross": 48
       },
-      "rank": 149,
-      "points": 390,
+      "rank": 152,
+      "points": 377,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Burnie International",
           "category": "Challenger 75",
@@ -57042,8 +56940,8 @@
         "straight": 52,
         "cross": 50
       },
-      "rank": 146,
-      "points": 401,
+      "rank": 145,
+      "points": 407,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -57189,6 +57087,14 @@
           "week": 47,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -57219,8 +57125,8 @@
         "straight": 43,
         "cross": 44
       },
-      "rank": 156,
-      "points": 360,
+      "rank": 149,
+      "points": 385,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -57414,6 +57320,14 @@
           "week": 44,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -57449,7 +57363,7 @@
         "straight": 42,
         "cross": 50
       },
-      "rank": 141,
+      "rank": 142,
       "points": 417,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -57701,8 +57615,8 @@
         "straight": 49,
         "cross": 42
       },
-      "rank": 139,
-      "points": 423,
+      "rank": 127,
+      "points": 468,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -57840,6 +57754,14 @@
           "week": 1,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -57870,18 +57792,10 @@
         "straight": 57,
         "cross": 51
       },
-      "rank": 151,
-      "points": 389,
+      "rank": 155,
+      "points": 364,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Brasil Tennis Challenger",
           "category": "Challenger 75",
@@ -58288,8 +58202,8 @@
         "straight": 47,
         "cross": 54
       },
-      "rank": 150,
-      "points": 390,
+      "rank": 146,
+      "points": 403,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -58475,6 +58389,14 @@
           "week": 1,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -58520,18 +58442,10 @@
         "straight": 45,
         "cross": 50
       },
-      "rank": 167,
-      "points": 301,
+      "rank": 164,
+      "points": 313,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Burnie International",
           "category": "Challenger 75",
@@ -58723,6 +58637,14 @@
           "week": 1,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -58758,18 +58680,10 @@
         "straight": 54,
         "cross": 50
       },
-      "rank": 120,
-      "points": 518,
+      "rank": 124,
+      "points": 473,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 3,
-          "points": 45
-        },
         {
           "name": "Pune Challenger",
           "category": "Challenger 100",
@@ -58996,18 +58910,10 @@
         "straight": 44,
         "cross": 54
       },
-      "rank": 122,
-      "points": 504,
+      "rank": 123,
+      "points": 494,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Auckland Classic",
-          "category": "ATP 250",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 10
-        },
         {
           "name": "Australian Open",
           "category": "Grand Slam",
@@ -59266,18 +59172,10 @@
         "straight": 47,
         "cross": 52
       },
-      "rank": 100,
-      "points": 670,
+      "rank": 99,
+      "points": 657,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Southern California Open II",
           "category": "Challenger 50",
@@ -59502,17 +59400,9 @@
         "cross": 42
       },
       "rank": 171,
-      "points": 267,
+      "points": 263,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 4
-        },
         {
           "name": "Lexus Nottingham Challenger",
           "category": "Challenger 75",
@@ -59699,18 +59589,10 @@
         "straight": 44,
         "cross": 52
       },
-      "rank": 186,
-      "points": 181,
+      "rank": 187,
+      "points": 175,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Challenger La Manche",
           "category": "Challenger 75",
@@ -59873,18 +59755,10 @@
         "straight": 50,
         "cross": 42
       },
-      "rank": 154,
-      "points": 367,
+      "rank": 153,
+      "points": 374,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Lexus Nottingham Challenger",
           "category": "Challenger 75",
@@ -60060,6 +59934,14 @@
           "week": 44,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -60086,17 +59968,9 @@
         "cross": 44
       },
       "rank": 173,
-      "points": 260,
+      "points": 254,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Cleveland Open",
           "category": "Challenger 75",
@@ -60306,17 +60180,9 @@
         "cross": 47
       },
       "rank": 182,
-      "points": 195,
+      "points": 191,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 4
-        },
         {
           "name": "Burnie International II",
           "category": "Challenger 75",
@@ -60752,8 +60618,8 @@
         "straight": 41,
         "cross": 42
       },
-      "rank": 127,
-      "points": 459,
+      "rank": 125,
+      "points": 472,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -60979,6 +60845,14 @@
           "week": 1,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 3,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -61014,18 +60888,10 @@
         "straight": 50,
         "cross": 41
       },
-      "rank": 164,
-      "points": 311,
+      "rank": 167,
+      "points": 305,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Lexus Nottingham Challenger",
           "category": "Challenger 75",
@@ -61231,18 +61097,10 @@
         "straight": 39,
         "cross": 43
       },
-      "rank": 185,
-      "points": 186,
+      "rank": 183,
+      "points": 180,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Southern California Open II",
           "category": "Challenger 50",
@@ -61421,7 +61279,7 @@
         "straight": 49,
         "cross": 45
       },
-      "rank": 143,
+      "rank": 144,
       "points": 412,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -61852,7 +61710,7 @@
         "straight": 53,
         "cross": 43
       },
-      "rank": 136,
+      "rank": 138,
       "points": 432,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -62106,18 +61964,10 @@
         "straight": 40,
         "cross": 45
       },
-      "rank": 109,
-      "points": 582,
+      "rank": 121,
+      "points": 507,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 4,
-          "points": 75
-        },
         {
           "name": "Burnie International",
           "category": "Challenger 75",
@@ -62355,17 +62205,9 @@
         "cross": 48
       },
       "rank": 178,
-      "points": 227,
+      "points": 223,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 4
-        },
         {
           "name": "Bengaluru Open",
           "category": "Challenger 100",
@@ -62608,18 +62450,10 @@
         "straight": 50,
         "cross": 41
       },
-      "rank": 158,
-      "points": 354,
+      "rank": 159,
+      "points": 348,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Burnie International II",
           "category": "Challenger 75",
@@ -62836,18 +62670,10 @@
         "straight": 46,
         "cross": 42
       },
-      "rank": 145,
-      "points": 405,
+      "rank": 148,
+      "points": 392,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Brasil Tennis Challenger",
           "category": "Challenger 75",
@@ -63486,18 +63312,10 @@
         "straight": 41,
         "cross": 52
       },
-      "rank": 174,
-      "points": 248,
+      "rank": 175,
+      "points": 235,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Burnie International",
           "category": "Challenger 75",
@@ -63676,7 +63494,7 @@
         "straight": 40,
         "cross": 42
       },
-      "rank": 187,
+      "rank": 186,
       "points": 177,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -64088,18 +63906,10 @@
         "straight": 44,
         "cross": 54
       },
-      "rank": 175,
-      "points": 246,
+      "rank": 174,
+      "points": 240,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Lexus Nottingham Challenger",
           "category": "Challenger 75",
@@ -64326,7 +64136,7 @@
         "straight": 43,
         "cross": 49
       },
-      "rank": 181,
+      "rank": 180,
       "points": 221,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -64572,8 +64382,8 @@
         "straight": 36,
         "cross": 51
       },
-      "rank": 148,
-      "points": 390,
+      "rank": 128,
+      "points": 465,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -64743,6 +64553,14 @@
           "week": 1,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 4,
+          "points": 75
         }
       ],
       "tournament_wins": [
@@ -64765,6 +64583,11 @@
           "name": "Sioux Falls Challenger",
           "category": "Challenger 75",
           "year": 17
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18
         }
       ],
       "retired": false
@@ -64783,18 +64606,10 @@
         "straight": 48,
         "cross": 37
       },
-      "rank": 131,
+      "rank": 134,
       "points": 444,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Cleveland Open",
           "category": "Challenger 75",
@@ -64986,6 +64801,14 @@
           "week": 1,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -65011,7 +64834,7 @@
         "straight": 40,
         "cross": 41
       },
-      "rank": 111,
+      "rank": 109,
       "points": 578,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -65249,18 +65072,10 @@
         "straight": 40,
         "cross": 47
       },
-      "rank": 179,
-      "points": 224,
+      "rank": 181,
+      "points": 218,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Oeiras Indoor II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Citta di Lugano Challenger",
           "category": "Challenger 75",
@@ -65453,8 +65268,8 @@
         "straight": 45,
         "cross": 45
       },
-      "rank": 118,
-      "points": 528,
+      "rank": 116,
+      "points": 541,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -65656,6 +65471,14 @@
           "week": 49,
           "round": 0,
           "points": 6
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 3,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -65691,18 +65514,10 @@
         "straight": 40,
         "cross": 43
       },
-      "rank": 142,
+      "rank": 143,
       "points": 415,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Nonthaburi Challenger II",
-          "category": "Challenger 75",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 6
-        },
         {
           "name": "Southern California Open II",
           "category": "Challenger 50",
@@ -65910,6 +65725,14 @@
           "week": 1,
           "round": 3,
           "points": 45
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -65935,7 +65758,7 @@
         "straight": 44,
         "cross": 45
       },
-      "rank": 155,
+      "rank": 156,
       "points": 360,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -66157,18 +65980,10 @@
         "straight": 38,
         "cross": 46
       },
-      "rank": 162,
-      "points": 339,
+      "rank": 163,
+      "points": 330,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 9
-        },
         {
           "name": "Brasil Tennis Challenger",
           "category": "Challenger 75",
@@ -66374,18 +66189,10 @@
         "straight": 43,
         "cross": 38
       },
-      "rank": 129,
-      "points": 451,
+      "rank": 141,
+      "points": 421,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 3,
-          "points": 30
-        },
         {
           "name": "Burnie International II",
           "category": "Challenger 75",
@@ -66620,18 +66427,10 @@
         "straight": 35,
         "cross": 43
       },
-      "rank": 147,
-      "points": 400,
+      "rank": 157,
+      "points": 356,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 4,
-          "points": 50
-        },
         {
           "name": "Southern California Open II",
           "category": "Challenger 50",
@@ -66879,6 +66678,14 @@
           "week": 1,
           "round": 0,
           "points": 8
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 0,
+          "points": 6
         }
       ],
       "tournament_wins": [
@@ -66909,18 +66716,10 @@
         "straight": 35,
         "cross": 41
       },
-      "rank": 183,
-      "points": 188,
+      "rank": 184,
+      "points": 179,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 9
-        },
         {
           "name": "Brasil Tennis Challenger",
           "category": "Challenger 75",
@@ -67140,17 +66939,9 @@
         "cross": 38
       },
       "rank": 192,
-      "points": 129,
+      "points": 125,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 4
-        },
         {
           "name": "Cleveland Open",
           "category": "Challenger 75",
@@ -67345,18 +67136,10 @@
         "straight": 49,
         "cross": 44
       },
-      "rank": 135,
-      "points": 435,
+      "rank": 122,
+      "points": 495,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 15
-        },
         {
           "name": "Southern California Open II",
           "category": "Challenger 50",
@@ -67548,6 +67331,14 @@
           "week": 1,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18,
+          "week": 2,
+          "round": 4,
+          "points": 75
         }
       ],
       "tournament_wins": [
@@ -67565,6 +67356,11 @@
           "name": "Yucatan Open",
           "category": "Challenger 50",
           "year": 17
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 18
         }
       ],
       "retired": false
@@ -67583,7 +67379,7 @@
         "straight": 49,
         "cross": 37
       },
-      "rank": 180,
+      "rank": 179,
       "points": 222,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -67814,17 +67610,9 @@
         "cross": 43
       },
       "rank": 191,
-      "points": 130,
+      "points": 126,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 4
-        },
         {
           "name": "Brasil Tennis Challenger",
           "category": "Challenger 75",
@@ -67995,18 +67783,10 @@
         "straight": 47,
         "cross": 41
       },
-      "rank": 176,
-      "points": 240,
+      "rank": 177,
+      "points": 225,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 2,
-          "points": 15
-        },
         {
           "name": "Cleveland Open",
           "category": "Challenger 75",
@@ -68210,17 +67990,9 @@
         "cross": 45
       },
       "rank": 189,
-      "points": 163,
+      "points": 154,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 9
-        },
         {
           "name": "Brasil Tennis Challenger",
           "category": "Challenger 75",
@@ -68375,18 +68147,10 @@
         "straight": 49,
         "cross": 51
       },
-      "rank": 177,
-      "points": 235,
+      "rank": 176,
+      "points": 231,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 4
-        },
         {
           "name": "Lexus Nottingham Challenger",
           "category": "Challenger 75",
@@ -68589,18 +68353,10 @@
         "straight": 40,
         "cross": 42
       },
-      "rank": 184,
-      "points": 187,
+      "rank": 185,
+      "points": 178,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 1,
-          "points": 9
-        },
         {
           "name": "Southern California Open II",
           "category": "Challenger 50",
@@ -68804,17 +68560,9 @@
         "cross": 50
       },
       "rank": 190,
-      "points": 136,
+      "points": 132,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 4
-        },
         {
           "name": "Brasil Tennis Challenger",
           "category": "Challenger 75",
@@ -69018,17 +68766,9 @@
         "cross": 36
       },
       "rank": 172,
-      "points": 263,
+      "points": 259,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Challenger AAT",
-          "category": "Challenger 50",
-          "year": 17,
-          "week": 2,
-          "round": 0,
-          "points": 4
-        },
         {
           "name": "Brasil Tennis Challenger",
           "category": "Challenger 75",
@@ -70014,7 +69754,7 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 150,
       "participants": [
         242,
         176,
@@ -70060,27 +69800,32 @@
           [
             176,
             222,
-            null
+            176,
+            "6-2, 4-6, 6-4"
           ],
           [
             197,
             202,
-            null
+            197,
+            "6-3, 6-0"
           ],
           [
             140,
             192,
-            null
+            192,
+            "4-6, 5-7"
           ],
           [
             163,
             234,
-            null
+            163,
+            "6-3, 7-6"
           ],
           [
             175,
             149,
-            null
+            149,
+            "2-6, 3-6"
           ],
           [
             151,
@@ -70097,7 +69842,8 @@
           [
             141,
             245,
-            null
+            141,
+            "6-0, 6-1"
           ],
           [
             182,
@@ -70142,102 +69888,112 @@
             "1-6, 1-6"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            191,
+            176,
+            176,
+            "4-6, 6-3, 3-6"
+          ],
+          [
+            197,
+            192,
+            197,
+            "6-1, 6-2"
+          ],
+          [
+            163,
+            149,
+            163,
+            "6-3, 6-2"
+          ],
+          [
+            130,
+            183,
+            130,
+            "7-6, 6-3"
+          ],
+          [
+            141,
+            168,
+            168,
+            "2-6, 2-6"
+          ],
+          [
+            145,
+            213,
+            145,
+            "7-6, 6-2"
+          ],
+          [
+            150,
+            137,
+            150,
+            "6-3, 6-2"
+          ],
+          [
+            224,
+            161,
+            161,
+            "1-6, 1-6"
+          ]
+        ],
+        [
+          [
+            176,
+            197,
+            197,
+            "2-6, 1-6"
+          ],
+          [
+            163,
+            130,
+            163,
+            "4-6, 7-6, 7-5"
+          ],
+          [
+            168,
+            145,
+            168,
+            "6-2, 6-2"
+          ],
+          [
+            150,
+            161,
+            150,
+            "6-3, 6-7, 6-1"
+          ]
+        ],
+        [
+          [
+            197,
+            163,
+            197,
+            "7-6, 6-2"
+          ],
+          [
+            168,
+            150,
+            150,
+            "2-6, 4-6"
+          ]
+        ],
+        [
+          [
+            197,
+            150,
+            150,
+            "0-6, 1-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          242,
-          191,
-          191,
-          "2-6, 2-6"
-        ],
-        [
-          176,
-          222,
-          null
-        ],
-        [
           197,
-          202,
-          null
-        ],
-        [
-          140,
-          192,
-          null
-        ],
-        [
-          163,
-          234,
-          null
-        ],
-        [
-          175,
-          149,
-          null
-        ],
-        [
-          151,
-          130,
-          130,
-          "3-6, 6-7"
-        ],
-        [
-          183,
-          236,
-          183,
-          "6-4, 7-5"
-        ],
-        [
-          141,
-          245,
-          null
-        ],
-        [
-          182,
-          168,
-          168,
-          "4-6, 4-6"
-        ],
-        [
-          204,
-          145,
-          145,
-          "6-7, 6-7"
-        ],
-        [
-          223,
-          213,
-          213,
-          "3-6, 2-6"
-        ],
-        [
-          216,
           150,
           150,
-          "4-6, 0-6"
-        ],
-        [
-          203,
-          137,
-          137,
-          "2-6, 2-6"
-        ],
-        [
-          209,
-          224,
-          224,
-          "4-6, 5-7"
-        ],
-        [
-          289,
-          161,
-          161,
-          "1-6, 1-6"
+          "0-6, 1-6"
         ]
       ]
     },
@@ -70249,7 +70005,7 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 165,
       "participants": [
         212,
         219,
@@ -70289,77 +70045,92 @@
           [
             212,
             166,
-            null
+            212,
+            "6-3, 6-1"
           ],
           [
             219,
             179,
-            null
+            179,
+            "1-6, 0-6"
           ],
           [
             169,
             186,
-            null
+            169,
+            "4-6, 6-0, 7-5"
           ],
           [
             259,
             231,
-            null
+            231,
+            "3-6, 6-4, 4-6"
           ],
           [
             156,
             199,
-            null
+            156,
+            "6-0, 6-2"
           ],
           [
             196,
             159,
-            null
+            196,
+            "7-5, 6-4"
           ],
           [
             142,
             152,
-            null
+            152,
+            "2-6, 1-6"
           ],
           [
             170,
             218,
-            null
+            170,
+            "6-7, 6-3, 6-0"
           ],
           [
             215,
             261,
-            null
+            215,
+            "6-3, 3-6, 6-3"
           ],
           [
             190,
             135,
-            null
+            135,
+            "4-6, 5-7"
           ],
           [
             235,
             138,
-            null
+            138,
+            "2-6, 5-7"
           ],
           [
             167,
             165,
-            null
+            165,
+            "2-6, 4-6"
           ],
           [
             256,
             195,
-            null
+            195,
+            "2-6, 3-6"
           ],
           [
             217,
             139,
-            null
+            139,
+            "1-6, 1-6"
           ],
           [
             171,
             133,
-            null
+            133,
+            "3-6, 6-4, 1-6"
           ],
           [
             208,
@@ -70368,93 +70139,112 @@
             "2-6, 1-6"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            212,
+            179,
+            212,
+            "6-3, 7-5"
+          ],
+          [
+            169,
+            231,
+            169,
+            "6-4, 4-6, 6-3"
+          ],
+          [
+            156,
+            196,
+            156,
+            "6-4, 6-4"
+          ],
+          [
+            152,
+            170,
+            170,
+            "3-6, 7-5, 6-7"
+          ],
+          [
+            215,
+            135,
+            135,
+            "6-3, 4-6, 1-6"
+          ],
+          [
+            138,
+            165,
+            165,
+            "6-3, 3-6, 2-6"
+          ],
+          [
+            195,
+            139,
+            139,
+            "5-7, 6-3, 5-7"
+          ],
+          [
+            133,
+            143,
+            133,
+            "6-7, 6-1, 6-0"
+          ]
+        ],
+        [
+          [
+            212,
+            169,
+            169,
+            "5-7, 3-6"
+          ],
+          [
+            156,
+            170,
+            170,
+            "2-6, 6-3, 4-6"
+          ],
+          [
+            135,
+            165,
+            165,
+            "2-6, 1-6"
+          ],
+          [
+            139,
+            133,
+            139,
+            "6-3, 6-3"
+          ]
+        ],
+        [
+          [
+            169,
+            170,
+            170,
+            "3-6, 3-6"
+          ],
+          [
+            165,
+            139,
+            165,
+            "6-1, 7-6"
+          ]
+        ],
+        [
+          [
+            170,
+            165,
+            165,
+            "6-4, 5-7, 5-7"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          212,
-          166,
-          null
-        ],
-        [
-          219,
-          179,
-          null
-        ],
-        [
-          169,
-          186,
-          null
-        ],
-        [
-          259,
-          231,
-          null
-        ],
-        [
-          156,
-          199,
-          null
-        ],
-        [
-          196,
-          159,
-          null
-        ],
-        [
-          142,
-          152,
-          null
-        ],
-        [
           170,
-          218,
-          null
-        ],
-        [
-          215,
-          261,
-          null
-        ],
-        [
-          190,
-          135,
-          null
-        ],
-        [
-          235,
-          138,
-          null
-        ],
-        [
-          167,
           165,
-          null
-        ],
-        [
-          256,
-          195,
-          null
-        ],
-        [
-          217,
-          139,
-          null
-        ],
-        [
-          171,
-          133,
-          null
-        ],
-        [
-          208,
-          143,
-          143,
-          "2-6, 1-6"
+          165,
+          "6-4, 5-7, 5-7"
         ]
       ]
     },
@@ -70467,10 +70257,789 @@
       "draw_size": 128,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        187,
+        140,
+        208,
+        159,
+        137,
+        155,
+        160,
+        300,
+        289,
+        146,
+        224,
+        144,
+        227,
+        169,
+        149,
+        163,
+        226,
+        173,
+        283,
+        153,
+        175,
+        233,
+        145,
+        205,
+        148,
+        199,
+        135,
+        231,
+        194,
+        234,
+        136,
+        269,
+        202,
+        225,
+        302,
+        236,
+        139,
+        134,
+        185,
+        130,
+        182,
+        138,
+        168,
+        133,
+        304,
+        172,
+        254,
+        198,
+        201,
+        177,
+        242,
+        212,
+        237,
+        132,
+        204,
+        165,
+        143,
+        252,
+        200,
+        211,
+        191,
+        154,
+        243,
+        244,
+        219,
+        193,
+        167,
+        195,
+        197,
+        184,
+        176,
+        150,
+        271,
+        170,
+        147,
+        131,
+        247,
+        192,
+        222,
+        157,
+        206,
+        179,
+        156,
+        235,
+        164,
+        220,
+        274,
+        209,
+        221,
+        142,
+        259,
+        162,
+        166,
+        180,
+        183,
+        216,
+        171,
+        174,
+        218,
+        312,
+        245,
+        275,
+        178,
+        215,
+        196,
+        261,
+        213,
+        161,
+        217,
+        181,
+        241,
+        203,
+        239,
+        229,
+        151,
+        276,
+        223,
+        189,
+        207,
+        152,
+        230,
+        129,
+        141,
+        186,
+        188,
+        158,
+        190,
+        256
+      ],
+      "bracket": [
+        [
+          [
+            187,
+            256,
+            null
+          ],
+          [
+            140,
+            190,
+            null
+          ],
+          [
+            208,
+            158,
+            null
+          ],
+          [
+            159,
+            188,
+            null
+          ],
+          [
+            137,
+            186,
+            null
+          ],
+          [
+            155,
+            141,
+            null
+          ],
+          [
+            160,
+            129,
+            null
+          ],
+          [
+            300,
+            230,
+            null
+          ],
+          [
+            289,
+            152,
+            null
+          ],
+          [
+            146,
+            207,
+            null
+          ],
+          [
+            224,
+            189,
+            null
+          ],
+          [
+            144,
+            223,
+            null
+          ],
+          [
+            227,
+            276,
+            null
+          ],
+          [
+            169,
+            151,
+            null
+          ],
+          [
+            149,
+            229,
+            null
+          ],
+          [
+            163,
+            239,
+            null
+          ],
+          [
+            226,
+            203,
+            null
+          ],
+          [
+            173,
+            241,
+            null
+          ],
+          [
+            283,
+            181,
+            null
+          ],
+          [
+            153,
+            217,
+            null
+          ],
+          [
+            175,
+            161,
+            null
+          ],
+          [
+            233,
+            213,
+            null
+          ],
+          [
+            145,
+            261,
+            null
+          ],
+          [
+            205,
+            196,
+            null
+          ],
+          [
+            148,
+            215,
+            null
+          ],
+          [
+            199,
+            178,
+            null
+          ],
+          [
+            135,
+            275,
+            null
+          ],
+          [
+            231,
+            245,
+            null
+          ],
+          [
+            194,
+            312,
+            null
+          ],
+          [
+            234,
+            218,
+            null
+          ],
+          [
+            136,
+            174,
+            null
+          ],
+          [
+            269,
+            171,
+            null
+          ],
+          [
+            202,
+            216,
+            null
+          ],
+          [
+            225,
+            183,
+            null
+          ],
+          [
+            302,
+            180,
+            null
+          ],
+          [
+            236,
+            166,
+            null
+          ],
+          [
+            139,
+            162,
+            null
+          ],
+          [
+            134,
+            259,
+            null
+          ],
+          [
+            185,
+            142,
+            null
+          ],
+          [
+            130,
+            221,
+            null
+          ],
+          [
+            182,
+            209,
+            null
+          ],
+          [
+            138,
+            274,
+            null
+          ],
+          [
+            168,
+            220,
+            null
+          ],
+          [
+            133,
+            164,
+            null
+          ],
+          [
+            304,
+            235,
+            null
+          ],
+          [
+            172,
+            156,
+            null
+          ],
+          [
+            254,
+            179,
+            null
+          ],
+          [
+            198,
+            206,
+            null
+          ],
+          [
+            201,
+            157,
+            null
+          ],
+          [
+            177,
+            222,
+            null
+          ],
+          [
+            242,
+            192,
+            null
+          ],
+          [
+            212,
+            247,
+            null
+          ],
+          [
+            237,
+            131,
+            null
+          ],
+          [
+            132,
+            147,
+            null
+          ],
+          [
+            204,
+            170,
+            null
+          ],
+          [
+            165,
+            271,
+            null
+          ],
+          [
+            143,
+            150,
+            null
+          ],
+          [
+            252,
+            176,
+            null
+          ],
+          [
+            200,
+            184,
+            null
+          ],
+          [
+            211,
+            197,
+            null
+          ],
+          [
+            191,
+            195,
+            null
+          ],
+          [
+            154,
+            167,
+            null
+          ],
+          [
+            243,
+            193,
+            null
+          ],
+          [
+            244,
+            219,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          187,
+          256,
+          null
+        ],
+        [
+          140,
+          190,
+          null
+        ],
+        [
+          208,
+          158,
+          null
+        ],
+        [
+          159,
+          188,
+          null
+        ],
+        [
+          137,
+          186,
+          null
+        ],
+        [
+          155,
+          141,
+          null
+        ],
+        [
+          160,
+          129,
+          null
+        ],
+        [
+          300,
+          230,
+          null
+        ],
+        [
+          289,
+          152,
+          null
+        ],
+        [
+          146,
+          207,
+          null
+        ],
+        [
+          224,
+          189,
+          null
+        ],
+        [
+          144,
+          223,
+          null
+        ],
+        [
+          227,
+          276,
+          null
+        ],
+        [
+          169,
+          151,
+          null
+        ],
+        [
+          149,
+          229,
+          null
+        ],
+        [
+          163,
+          239,
+          null
+        ],
+        [
+          226,
+          203,
+          null
+        ],
+        [
+          173,
+          241,
+          null
+        ],
+        [
+          283,
+          181,
+          null
+        ],
+        [
+          153,
+          217,
+          null
+        ],
+        [
+          175,
+          161,
+          null
+        ],
+        [
+          233,
+          213,
+          null
+        ],
+        [
+          145,
+          261,
+          null
+        ],
+        [
+          205,
+          196,
+          null
+        ],
+        [
+          148,
+          215,
+          null
+        ],
+        [
+          199,
+          178,
+          null
+        ],
+        [
+          135,
+          275,
+          null
+        ],
+        [
+          231,
+          245,
+          null
+        ],
+        [
+          194,
+          312,
+          null
+        ],
+        [
+          234,
+          218,
+          null
+        ],
+        [
+          136,
+          174,
+          null
+        ],
+        [
+          269,
+          171,
+          null
+        ],
+        [
+          202,
+          216,
+          null
+        ],
+        [
+          225,
+          183,
+          null
+        ],
+        [
+          302,
+          180,
+          null
+        ],
+        [
+          236,
+          166,
+          null
+        ],
+        [
+          139,
+          162,
+          null
+        ],
+        [
+          134,
+          259,
+          null
+        ],
+        [
+          185,
+          142,
+          null
+        ],
+        [
+          130,
+          221,
+          null
+        ],
+        [
+          182,
+          209,
+          null
+        ],
+        [
+          138,
+          274,
+          null
+        ],
+        [
+          168,
+          220,
+          null
+        ],
+        [
+          133,
+          164,
+          null
+        ],
+        [
+          304,
+          235,
+          null
+        ],
+        [
+          172,
+          156,
+          null
+        ],
+        [
+          254,
+          179,
+          null
+        ],
+        [
+          198,
+          206,
+          null
+        ],
+        [
+          201,
+          157,
+          null
+        ],
+        [
+          177,
+          222,
+          null
+        ],
+        [
+          242,
+          192,
+          null
+        ],
+        [
+          212,
+          247,
+          null
+        ],
+        [
+          237,
+          131,
+          null
+        ],
+        [
+          132,
+          147,
+          null
+        ],
+        [
+          204,
+          170,
+          null
+        ],
+        [
+          165,
+          271,
+          null
+        ],
+        [
+          143,
+          150,
+          null
+        ],
+        [
+          252,
+          176,
+          null
+        ],
+        [
+          200,
+          184,
+          null
+        ],
+        [
+          211,
+          197,
+          null
+        ],
+        [
+          191,
+          195,
+          null
+        ],
+        [
+          154,
+          167,
+          null
+        ],
+        [
+          243,
+          193,
+          null
+        ],
+        [
+          244,
+          219,
+          null
+        ]
+      ]
     },
     {
       "id": 6,
@@ -71826,7 +72395,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 300,
       "participants": [
         266,
         267,
@@ -71850,89 +72419,108 @@
           [
             266,
             250,
-            null
+            250,
+            "2-6, 1-6"
           ],
           [
             267,
             249,
-            null
+            267,
+            "6-1, 7-6"
           ],
           [
             269,
             309,
-            null
+            269,
+            "6-1, 6-2"
           ],
           [
             272,
             248,
-            null
+            272,
+            "6-2, 6-1"
           ],
           [
             228,
             305,
-            null
+            228,
+            "6-1, 3-6, 6-2"
           ],
           [
             257,
             225,
-            null
+            225,
+            "4-6, 6-3, 3-6"
           ],
           [
             300,
             301,
-            null
+            300,
+            "1-6, 6-2, 6-1"
           ],
           [
             230,
             262,
-            null
+            230,
+            "4-6, 6-1, 6-3"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            250,
+            267,
+            267,
+            "4-6, 2-6"
+          ],
+          [
+            269,
+            272,
+            269,
+            "6-3, 6-4"
+          ],
+          [
+            228,
+            225,
+            228,
+            "2-6, 6-2, 6-2"
+          ],
+          [
+            300,
+            230,
+            300,
+            "7-5, 6-3"
+          ]
+        ],
+        [
+          [
+            267,
+            269,
+            269,
+            "3-6, 6-3, 5-7"
+          ],
+          [
+            228,
+            300,
+            300,
+            "4-6, 2-6"
+          ]
+        ],
+        [
+          [
+            269,
+            300,
+            300,
+            "2-6, 6-3, 4-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          266,
-          250,
-          null
-        ],
-        [
-          267,
-          249,
-          null
-        ],
-        [
           269,
-          309,
-          null
-        ],
-        [
-          272,
-          248,
-          null
-        ],
-        [
-          228,
-          305,
-          null
-        ],
-        [
-          257,
-          225,
-          null
-        ],
-        [
           300,
-          301,
-          null
-        ],
-        [
-          230,
-          262,
-          null
+          300,
+          "2-6, 6-3, 4-6"
         ]
       ]
     },
@@ -71944,7 +72532,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 312,
       "participants": [
         255,
         279,
@@ -72018,12 +72606,14 @@
           [
             255,
             279,
-            null
+            255,
+            "6-3, 6-7, 6-3"
           ],
           [
             273,
             252,
-            null
+            252,
+            "5-7, 3-6"
           ],
           [
             283,
@@ -72034,34 +72624,40 @@
           [
             312,
             238,
-            null
+            312,
+            "6-2, 2-6, 6-3"
           ]
         ],
-        [],
-        []
+        [
+          [
+            255,
+            252,
+            252,
+            "3-6, 6-7"
+          ],
+          [
+            273,
+            312,
+            312,
+            "7-5, 4-6, 4-6"
+          ]
+        ],
+        [
+          [
+            252,
+            312,
+            312,
+            "6-3, 3-6, 4-6"
+          ]
+        ]
       ],
-      "current_round": 1,
+      "current_round": 3,
       "active_matches": [
         [
-          255,
-          279,
-          null
-        ],
-        [
-          273,
           252,
-          null
-        ],
-        [
-          283,
-          304,
-          273,
-          "N/A"
-        ],
-        [
           312,
-          238,
-          null
+          312,
+          "6-3, 3-6, 4-6"
         ]
       ]
     },
