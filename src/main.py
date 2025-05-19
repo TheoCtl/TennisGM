@@ -460,7 +460,6 @@ def manage_tournament(stdscr, scheduler, tournament):
                     stdscr.getch()
         
                 # Update the match result in the tournament
-                scheduler.update_match_result(tournament['id'], current_row, winner_id)
                 winner = next(p for p in scheduler.players if p['id'] == winner_id)
         
                 # Prompt to return to tournament view
