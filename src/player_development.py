@@ -7,6 +7,8 @@ class PlayerDevelopment:
         """Tighter progression curve with earlier peak"""
         # Age factor - sharp peak at 18-21
         if player_age <= 20:
+            age_factor = 1.3
+        elif player_age <= 23:
             age_factor = 1.2
         elif player_age <= 26:
             age_factor = 1.1
