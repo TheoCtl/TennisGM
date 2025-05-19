@@ -16,7 +16,7 @@ class PlayerDevelopment:
             age_factor = 0
 
         # Smoother skill difficulty curve
-        skill_factor = 1.1 * math.exp(-0.045 * (current_skill - 25))
+        skill_factor = 1.15 * math.exp(-0.045 * (current_skill - 25))
         skill_factor = max(0.01, min(1.0, skill_factor))
 
         # Base chance with adjusted weights
@@ -27,7 +27,7 @@ class PlayerDevelopment:
     @staticmethod
     def calculate_regression_chance(player_age, current_skill):
         """More aggressive regression curve"""
-        if player_age < 30:  # Regression starts slightly earlier
+        if player_age < 31:  # Regression starts slightly earlier
             return 0
         
         # Sharper age-based regression

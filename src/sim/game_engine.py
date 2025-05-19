@@ -34,7 +34,7 @@ class GameEngine:
         if player.get("favorite_surface") == surface:
             boosted_player = player.copy()
             boosted_player["skills"] = {
-                skill: min(100, math.floor(value * 1.05)) 
+                skill: min(100, math.floor(value * 1.08)) 
                 for skill, value in player["skills"].items()
             }
             print(f"{player['name']} got boosted because of {surface} court.")
@@ -43,7 +43,7 @@ class GameEngine:
     
     def _apply_random_form(self, player):
         """Apply random form multiplier (0.9-1.1) to all skills"""
-        form_multiplier = random.uniform(0.93, 1.07)
+        form_multiplier = random.uniform(0.9, 1.1)
         player_copy = player.copy()
         player_copy["skills"] = {
             skill: min(100, math.floor(value * form_multiplier))
