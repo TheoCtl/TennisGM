@@ -1,13 +1,11 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 483, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 482, in main
     main_menu(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 59, in main_menu
     enter_tournament(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 301, in enter_tournament
     manage_tournament(stdscr, scheduler, tournament)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 463, in manage_tournament
-    scheduler.update_match_result(tournament['id'], current_row, winner_id)
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 459, in update_match_result
-    match = list(tournament['active_matches'][match_index])
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-IndexError: list index out of range
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 412, in manage_tournament
+    winner = next(p for p in scheduler.players if p['id'] == winner_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration

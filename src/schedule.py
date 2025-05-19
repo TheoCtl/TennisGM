@@ -240,7 +240,7 @@ class TournamentScheduler:
             rest = available_players[64:]
             spots_left = total_spots - 64
             if len(rest) > spots_left:
-                skipped_players = set(random.sample(rest, len(rest) - spots_left))
+                skipped_players = random.sample(rest, len(rest) - spots_left)
                 rest = [p for p in rest if p not in skipped_players]
             available_for_week = top64 + rest
         else:
