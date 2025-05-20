@@ -3,7 +3,7 @@ import math
 
 class PlayerDevelopment:
     @staticmethod
-    def calculate_improvement_chance(player_age, current_skill):
+    def calculate_improvement_chance(player_age, current_skill, potential_factor=1.0):
         """Tighter progression curve with earlier peak"""
         # Age factor - sharp peak at 18-21
         if player_age <= 20:
@@ -22,7 +22,7 @@ class PlayerDevelopment:
         skill_factor = max(0.01, min(1.0, skill_factor))
 
         # Base chance with adjusted weights
-        base_chance = age_factor * skill_factor
+        base_chance = age_factor * skill_factor * potential_factor
         
         return max(0.01, base_chance)
 
@@ -77,11 +77,13 @@ class PlayerDevelopment:
         
         for skill in player['skills']:
             current_value = player['skills'][skill]
-            chance = chance_func(age, current_value)
             
             if change_direction == 1:
+                potential_factor = player.get('potential_factor', 1.0)
+                chance = chance_func(age, current_value, potential_factor)
                 new_value = PlayerDevelopment.develop_skill(current_value, chance)
             else:
+                chance = chance_func(age, current_value)
                 new_value = PlayerDevelopment.regress_skill(current_value, chance)
             
             player['skills'][skill] = new_value

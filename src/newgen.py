@@ -22,7 +22,10 @@ class NewGenGenerator:
         """Generate a new young player with random attributes"""
         first_name = random.choice(self.name_data["first_names"])
         last_name = random.choice(self.name_data["last_names"])
-        
+        if random.random() < 0.5:
+            potential_factor = round(random.uniform(1, 1.5), 3)
+        else:
+            potential_factor = 1.0
         return {
             "id": player_id,
             "name": f"{first_name} {last_name}",
@@ -34,6 +37,7 @@ class NewGenGenerator:
             "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
             "tournament_history": [],
             "tournament_wins": [],
+            "potential_factor": potential_factor,
         }
     
     def generate_player_id(self):
