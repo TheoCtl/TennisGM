@@ -76,9 +76,9 @@ def show_hall_of_fame(stdscr, scheduler):
         player['hof_points'] = 0
         for win in player.get('tournament_wins', []):
             if win['category'] == "Grand Slam":
-                player['hof_points'] += 75
+                player['hof_points'] += 40
             elif win['category'] == "Masters 1000":
-                player['hof_points'] += 25
+                player['hof_points'] += 20
             elif win['category'] == "ATP 500":
                 player['hof_points'] += 10
             elif win['category'] == "ATP 250":
