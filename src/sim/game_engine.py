@@ -34,7 +34,7 @@ class GameEngine:
         if player.get("favorite_surface") == surface:
             boosted_player = player.copy()
             boosted_player["skills"] = {
-                skill: min(100, math.floor(value * 1.08)) 
+                skill: min(100, math.floor(value * 1.05)) 
                 for skill, value in player["skills"].items()
             }
             print(f"{player['name']} got boosted because of {surface} court.")
