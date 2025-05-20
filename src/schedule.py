@@ -232,27 +232,27 @@ class TournamentScheduler:
         # Calculate total spots available in tournaments
         total_spots = sum(t['draw_size'] for t in current_tournaments)
         
-        # Masters logic
-        masters_tournaments = [t for t in current_tournaments if t['category'] == "Masters 1000"]
-        if masters_tournaments:
-            available_players.sort(key=lambda x: x.get('rank', 999))
-            top64 = available_players[:64]
-            rest = available_players[64:]
-            spots_left = total_spots - 64
-            if len(rest) > spots_left:
-                skipped_players = random.sample(rest, len(rest) - spots_left)
-                rest = [p for p in rest if p not in skipped_players]
-            available_for_week = top64 + rest
+        # Grand Slam logic
+        if len(current_tournaments) == 1:
+            available_players.sort(key=lambda x: x.get('rank', 0))
+            available_for_week.extend(available_players[:128])
         else:
-            # Challenger logic
-            if all(t['category'].startswith("Challenger") for t in current_tournaments):
-                available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
-                available_for_week = available_players[:sum(t['draw_size'] for t in current_tournaments)]
+            # Masters logic
+            masters_tournaments = [t for t in current_tournaments if t['category'] == "Masters 1000"]
+            if masters_tournaments:
+                available_players.sort(key=lambda x: x.get('rank', 999))
+                top64 = available_players[:64]
+                rest = available_players[64:]
+                spots_left = total_spots - 64
+                if spots_left != 0 and len(rest) > spots_left:
+                    skipped_players = random.sample(rest, len(rest) - spots_left)
+                    rest = [p for p in rest if p not in skipped_players]
+                available_for_week = top64 + rest
             else:
-                # Grand Slam logic
-                if len(current_tournaments) == 1:
-                    available_players.sort(key=lambda x: x.get('rank', 0))
-                    available_for_week.extend(available_players[:128])
+                # Challenger logic
+                if all(t['category'].startswith("Challenger") for t in current_tournaments):
+                    available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
+                    available_for_week = available_players[:sum(t['draw_size'] for t in current_tournaments)]
                 else:
                     # Basic logic
                     if len(available_players) > total_spots:
