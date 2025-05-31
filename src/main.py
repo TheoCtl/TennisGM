@@ -197,7 +197,8 @@ def display_tournament_wins(stdscr, player, start_row=3):
 def show_hof_player_details(stdscr, player):
     stdscr.clear()
     stdscr.addstr(0, 0, f"Player: {player['name']}", curses.A_BOLD)
-    stdscr.addstr(3, 0, "--- WINS ---", curses.A_BOLD)
+    numwin = len(player.get('tournament_wins'))
+    stdscr.addstr(3, 0, f"--- WINS ({numwin}) ---", curses.A_BOLD)
     display_tournament_wins(stdscr, player, start_row=3)
     height, width = stdscr.getmaxyx()
     stdscr.addstr(height - 1, 0, "Press any key to return.")
@@ -224,8 +225,8 @@ def show_player_details(stdscr, scheduler, player):
             stdscr.addstr(12, 0, f"  Straight: {skills.get('straight', 'N/A')}")
             stdscr.addstr(13, 0, f"  Cross: {skills.get('cross', 'N/A')}")
 
-            
-        stdscr.addstr(15, 0, "--- WINS ---", curses.A_BOLD)
+        numwin = len(player.get('tournament_wins'))
+        stdscr.addstr(15, 0, f"--- WINS ({numwin}) ---", curses.A_BOLD)
         display_tournament_wins(stdscr, player, start_row=15)
         stdscr.addstr(height - 1, 0, "Press any key to return to ATP Rankings.")
         stdscr.refresh()
