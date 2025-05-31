@@ -13,7 +13,7 @@ class RankingSystem:
             "Round 16": 180,
             "Round 32": 90,
             "Round 64": 45,
-            "Round 128": 10
+            "Round 128": 0
         },
         "Masters 1000": {
             "Winner": 1000,
@@ -22,7 +22,7 @@ class RankingSystem:
             "Quarter": 180,
             "Round 16": 90,
             "Round 32": 45,
-            "Round 64": 25
+            "Round 64": 0
         },
         "ATP 500": {
             "Winner": 500,
@@ -30,7 +30,7 @@ class RankingSystem:
             "Semi": 180,
             "Quarter": 90,
             "Round 16": 45,
-            "Round 32": 20
+            "Round 32": 0
         },
         "ATP 250": {
             "Winner": 250,
@@ -38,42 +38,42 @@ class RankingSystem:
             "Semi": 90,
             "Quarter": 45,
             "Round 16": 20,
-            "Round 32": 10
+            "Round 32": 0
         },
         "Challenger 175": {
             "Winner": 175,
             "Final": 100,
             "Semi": 60,
             "Quarter": 30,
-            "Round 16": 15
+            "Round 16": 0
         },
         "Challenger 125": {
             "Winner": 125,
             "Final": 75,
             "Semi": 45,
             "Quarter": 25,
-            "Round 16": 10
+            "Round 16": 0
         },
         "Challenger 100": {
             "Winner": 100,
             "Final": 60,
             "Semi": 35,
             "Quarter": 18,
-            "Round 16": 8
+            "Round 16": 0
         },
         "Challenger 75": {
             "Winner": 75,
             "Final": 45,
             "Semi": 25,
             "Quarter": 13,
-            "Round 16": 6
+            "Round 16": 0
         },
         "Challenger 50": {
             "Winner": 50,
             "Final": 30,
             "Semi": 15,
             "Quarter": 9,
-            "Round 16": 4
+            "Round 16": 0
         }
     } 
 
