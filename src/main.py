@@ -135,23 +135,37 @@ def show_hall_of_fame(stdscr, scheduler):
             if key == 27:  # ESC
                 searching = False
                 search_query = ""
+            elif key == curses.KEY_ENTER or key in [10, 13]:
+                searching = False
             elif key == curses.KEY_BACKSPACE or key == 8:
                 search_query = search_query[:-1]
             elif 32 <= key <= 126:  # Printable characters
                 search_query += chr(key)
         else:
-            if key == ord('a'):
-                searching = True
-                search_query = ""
-            elif key in UP_KEYS and current_row > 0:
-                current_row -= 1
-            elif key in DOWN_KEYS and current_row < len(display_hof)-1:
-                current_row += 1
-            elif key == curses.KEY_ENTER or key in [10, 13]:
-                if display_hof:
-                    show_hof_player_details(stdscr, display_hof[current_row])
-            elif key in ESCAPE_KEYS:  # ESC
-                break
+            if searching:
+                if key == 27:  # ESC
+                    searching = False
+                    search_query = ""
+                elif key == curses.KEY_ENTER or key in [10, 13]:
+                    searching = False  # Exit search mode, keep the query/filter
+                elif key == curses.KEY_BACKSPACE or key == 8:
+                    search_query = search_query[:-1]
+                elif 32 <= key <= 126:  # Printable characters
+                    search_query += chr(key)
+            else:
+                if key == ord('a'):
+                    searching = True
+                    search_query = ""
+                    current_row = 0
+                elif key in UP_KEYS and current_row > 0:
+                    current_row -= 1
+                elif key in DOWN_KEYS and current_row < len(display_hof)-1:
+                    current_row += 1
+                elif key == curses.KEY_ENTER or key in [10, 13]:
+                    if display_hof:
+                        show_hof_player_details(stdscr, display_hof[current_row])
+                elif key in ESCAPE_KEYS:  # ESC
+                    break
 
 def display_tournament_wins(stdscr, player, start_row=3):
     import collections
@@ -256,24 +270,38 @@ def show_rankings(stdscr, scheduler):
             if key == 27:  # ESC
                 searching = False
                 search_query = ""
+            elif key == curses.KEY_ENTER or key in [10, 13]:
+                searching = False
             elif key == curses.KEY_BACKSPACE or key == 8:
                 search_query = search_query[:-1]
             elif 32 <= key <= 126:  # Printable characters
                 search_query += chr(key)
         else:
-            if key == ord('a'):
-                searching = True
-                search_query = ""
-            elif key in UP_KEYS and current_row > 0:
-                current_row -= 1
-            elif key in DOWN_KEYS and current_row < len(display_players)-1:
-                current_row += 1
-            elif key == curses.KEY_ENTER or key in [10, 13]:
-                if display_players and current_row < len(display_players):
-                    player = display_players[current_row][0]
-                    show_player_details(stdscr, scheduler, player)
-            elif key in ESCAPE_KEYS:  # ESC
-                break
+            if searching:
+                if key == 27:  # ESC
+                    searching = False
+                    search_query = ""
+                elif key == curses.KEY_ENTER or key in [10, 13]:
+                    searching = False  # Exit search mode, keep the query/filter
+                elif key == curses.KEY_BACKSPACE or key == 8:
+                    search_query = search_query[:-1]
+                elif 32 <= key <= 126:  # Printable characters
+                    search_query += chr(key)
+            else:
+                if key == ord('a'):
+                    current_row = 0
+                    searching = True
+                    search_query = ""
+                elif key in UP_KEYS and current_row > 0:
+                    current_row -= 1
+                elif key in DOWN_KEYS and current_row < len(display_players)-1:
+                    current_row += 1
+                elif key == curses.KEY_ENTER or key in [10, 13]:
+                    if display_players and current_row < len(display_players):
+                        player = display_players[current_row][0]
+                        show_player_details(stdscr, scheduler, player)
+                elif key in ESCAPE_KEYS:  # ESC
+                    break
 
 def view_tournaments(stdscr, scheduler):
     stdscr.clear()

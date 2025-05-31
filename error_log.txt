@@ -1,9 +1,9 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 510, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 545, in main
     main_menu(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 63, in main_menu
     show_hall_of_fame(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 125, in show_hall_of_fame
-    if searching:
-       ^^^^^^^^^
-UnboundLocalError: cannot access local variable 'searching' where it is not associated with a value
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 165, in show_hall_of_fame
+    show_hof_player_details(stdscr, display_hof[current_row])
+                                    ~~~~~~~~~~~^^^^^^^^^^^^^
+IndexError: list index out of range
