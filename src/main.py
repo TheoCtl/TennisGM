@@ -178,11 +178,12 @@ def display_tournament_wins(stdscr, player, start_row=3):
     for category in PRESTIGE_ORDER:
         if category in wins_by_category:
             if row < height - 1:
-                stdscr.addstr(row, 0, f" ~~~~ {category} ~~~~", curses.A_UNDERLINE)
+                total_in_category = sum(wins_by_category[category].values())
+                stdscr.addstr(row, 0, f" ~~~~ {category} ({total_in_category}) ~~~~", curses.A_UNDERLINE)
                 row += 1
             for tname, count in sorted(wins_by_category[category].items()):
                 if row < height - 1:
-                    stdscr.addstr(row, 2, f"- {tname} ({count})")
+                    stdscr.addstr(row, 2, f"- {count}x {tname}")
                     row += 1
                     any_win = True
                 else:
