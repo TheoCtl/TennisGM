@@ -4,7 +4,7 @@ import math
 class GameEngine:
     SURFACES = ["clay", "grass", "hard", "indoor"]
     
-    def __init__(self, player1, player2, surface):
+    def __init__(self, player1, player2, surface, sets_to_win=2):
         """
         Initialize the game engine with two players.
         Each player is a dictionary containing stats like serve, forehand, backhand, speed, etc.
@@ -19,6 +19,7 @@ class GameEngine:
         self.set_scores = []  # Track the scores of each set as tuples (player1_games, player2_games)
         self.current_server = player1  # Player 1 serves first by default
         self.current_receiver = player2
+        self.sets_to_win = sets_to_win
 
         # Track player positions: "right" or "left"
         self.positions = {player1["id"]: "right", player2["id"]: "left"}
@@ -84,7 +85,7 @@ class GameEngine:
             set_winner_key = self.is_set_over()
             self.update_sets(set_winner_key)
             
-        if self.sets["player1"] == 2:
+        if self.sets["player1"] == self.sets_to_win:
             match_winner = self.player1
         else:
             match_winner = self.player2
@@ -347,7 +348,7 @@ class GameEngine:
         """
         Check if the match is over (first to 2 sets wins).
         """
-        return self.sets["player1"] == 2 or self.sets["player2"] == 2
+        return self.sets["player1"] == self.sets_to_win or self.sets["player2"] == self.sets_to_win
     
     def _player_ref(self, player_key):
         """Return player name for logging purposes"""

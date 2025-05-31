@@ -98,7 +98,7 @@ def show_hall_of_fame(stdscr, scheduler):
         
         try:
             stdscr.addstr(0, 0, "Hall of Fame", curses.A_BOLD)
-            stdscr.addstr(1, 0, "Players are sorted by total wins (Grand Slams > Masters > ATP 500 > ATP 250 > Challengers)")
+            stdscr.addstr(1, 0, "Players are sorted by HOF points")
             
             # Display Hall of Fame members
             start_idx = max(0, current_row - 15)
@@ -377,16 +377,32 @@ def manage_tournament(stdscr, scheduler, tournament):
         # Get terminal dimensions
         height, width = stdscr.getmaxyx()
 
-        #Adjust start_line to ensure the current row is visible
+        # Calculate how many lines are available for matches (excluding header and footer)
+        lines_for_matches = height - 3  # 1 for header, 1 for footer, 1 for buffer
+
+        # Find the index in content where matches start
+        matches_start_idx = 0
+        for idx, line in enumerate(content):
+            if line.startswith("Round"):
+                matches_start_idx = idx + 1
+                break
+
+        # Only scroll the matches section, keep header/footer always visible
+        num_matches = len(matches)
         if current_row < start_line:
             start_line = current_row
-        elif current_row >= start_line + height - 2:
-            start_line = current_row - height + 2
+        elif current_row >= start_line + lines_for_matches:
+            start_line = current_row - lines_for_matches + 1
 
-        # Display visible content
-        visible_content = content[start_line:start_line + height - 1]
+        # Build visible content: header + visible matches + footer
+        visible_content = content[:matches_start_idx]  # header and previous rounds
+        visible_content += content[matches_start_idx + start_line : matches_start_idx + min(start_line + lines_for_matches, num_matches)]
+        visible_content += content[matches_start_idx + num_matches:]  # footer
+
         for i, line_content in enumerate(visible_content):
-            stdscr.addstr(i + 1, 0, line_content[:width])  # Ensure the line fits within the terminal width
+            if i + 1 >= height:
+                break  # Don't write past the bottom of the screen
+            stdscr.addstr(i + 1, 0, line_content[:width - 1])
 
         stdscr.refresh()
 

@@ -375,7 +375,8 @@ class TournamentScheduler:
                 }
 
                 # Simulate the match using the Game Engine
-                game_engine = GameEngine(player1, player2, tournament['surface'])
+                sets_to_win = 3 if tournament.get('category') == "Grand Slam" else 2
+                game_engine = GameEngine(player1, player2, tournament['surface'], sets_to_win=sets_to_win)
                 match_winner = game_engine.simulate_match()
 
                 # Determine the winner ID
