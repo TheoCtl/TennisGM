@@ -232,35 +232,49 @@ class TournamentScheduler:
         # Calculate total spots available in tournaments
         total_spots = sum(t['draw_size'] for t in current_tournaments)
         
-        # Grand Slam logic
-        if len(current_tournaments) == 1:
-            available_players.sort(key=lambda x: x.get('rank', 0))
-            available_for_week.extend(available_players[:128])
+        # Junior Finals logic
+        junior_finals = [t for t in current_tournaments if t['name'] == "Junior Finals"]
+        if junior_finals:
+            # Sort by age (youngest first), then by rank (lowest rank number is best)
+            available_players.sort(key=lambda p: (p.get('age', 99), p.get('rank', 999)))
+            available_for_week = available_players[:8]
         else:
-            # Masters logic
-            masters_tournaments = [t for t in current_tournaments if t['category'] == "Masters 1000"]
-            if masters_tournaments:
-                available_players.sort(key=lambda x: x.get('rank', 999))
-                top64 = available_players[:64]
-                rest = available_players[64:]
-                spots_left = total_spots - 64
-                if spots_left != 0 and len(rest) > spots_left:
-                    skipped_players = random.sample(rest, len(rest) - spots_left)
-                    rest = [p for p in rest if p not in skipped_players]
-                available_for_week = top64 + rest
+            # ATP Finals logic
+            atp_finals = [t for t in current_tournaments if t['name'] == "ATP Finals"]
+            if atp_finals:
+                available_players.sort(key=lambda x: x.get('rank', 0))
+                available_for_week.extend(available_players[:16])
             else:
-                # Challenger logic
-                if all(t['category'].startswith("Challenger") for t in current_tournaments):
-                    available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
-                    available_for_week = available_players[:sum(t['draw_size'] for t in current_tournaments)]
+                # Grand Slam logic
+                grandslam_tournament = [t for t in current_tournaments if t['category'] == "Grand Slam"]
+                if grandslam_tournament:
+                    available_players.sort(key=lambda x: x.get('rank', 0))
+                    available_for_week.extend(available_players[:128])
                 else:
-                    # Basic logic
-                    if len(available_players) > total_spots:
-                        num_to_skip = len(available_players) - total_spots
-                        skipped_players = random.sample(available_players, num_to_skip)
-                        available_for_week = [p for p in available_players if p not in skipped_players]
+                    # Masters logic
+                    masters_tournaments = [t for t in current_tournaments if t['category'] == "Masters 1000"]
+                    if masters_tournaments:
+                        available_players.sort(key=lambda x: x.get('rank', 999))
+                        top64 = available_players[:64]
+                        rest = available_players[64:]
+                        spots_left = total_spots - 64
+                        if spots_left != 0 and len(rest) > spots_left:
+                            skipped_players = random.sample(rest, len(rest) - spots_left)
+                            rest = [p for p in rest if p not in skipped_players]
+                        available_for_week = top64 + rest
                     else:
-                        available_for_week = available_players
+                        # Challenger logic
+                        if all(t['category'].startswith("Challenger") for t in current_tournaments):
+                            available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
+                            available_for_week = available_players[:sum(t['draw_size'] for t in current_tournaments)]
+                        else:
+                            # Basic logic
+                            if len(available_players) > total_spots:
+                                num_to_skip = len(available_players) - total_spots
+                                skipped_players = random.sample(available_players, num_to_skip)
+                                available_for_week = [p for p in available_players if p not in skipped_players]
+                            else:
+                                available_for_week = available_players
 
         # Sort players by rank/points
         available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)

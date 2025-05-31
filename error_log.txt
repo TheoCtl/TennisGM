@@ -1,10 +1,13 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 496, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 498, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 59, in main_menu
-    enter_tournament(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 301, in enter_tournament
-    manage_tournament(stdscr, scheduler, tournament)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 403, in manage_tournament
-    stdscr.addstr(i + 1, 0, line_content[:width])
-_curses.error: addwstr() returned ERR
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 65, in main_menu
+    scheduler.advance_week()
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 141, in advance_week
+    self.assign_players_to_tournaments()
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 256, in assign_players_to_tournaments
+    skipped_players = random.sample(rest, len(rest) - spots_left)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\random.py", line 430, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
