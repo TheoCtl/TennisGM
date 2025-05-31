@@ -72,6 +72,8 @@ def main_menu(stdscr, scheduler):
             
 def show_hall_of_fame(stdscr, scheduler):
     current_row = 0
+    search_query = ""
+    searching = False
     for player in scheduler.hall_of_fame:
         player['hof_points'] = 0
         for win in player.get('tournament_wins', []):
@@ -85,26 +87,33 @@ def show_hall_of_fame(stdscr, scheduler):
                 player['hof_points'] += 5
             elif win['category'].startswith("Challenger"):
                 player['hof_points'] += 1
-    
+
     # Sort by HOF points (descending) and then alphabetically
     hof_members = sorted(
         scheduler.hall_of_fame,
         key=lambda x: (-x['hof_points'], x['name'].lower())
     )
-    
+
     while True:
         stdscr.clear()
         height, width = stdscr.getmaxyx()
-        
+
         try:
             stdscr.addstr(0, 0, "Hall of Fame", curses.A_BOLD)
             stdscr.addstr(1, 0, "Players are sorted by HOF points")
-            
+
+            if searching:
+                stdscr.addstr(2, 0, f"Search: {search_query}_", curses.A_UNDERLINE)
+
+            # Filter if searching
+            display_hof = hof_members
+            if search_query:
+                display_hof = [p for p in hof_members if search_query.lower() in p['name'].lower()]
+
             # Display Hall of Fame members
             start_idx = max(0, current_row - 15)
-            for i, player in enumerate(hof_members[start_idx:start_idx+30], start_idx+1):
+            for i, player in enumerate(display_hof[start_idx:start_idx+30], start_idx+1):
                 total_wins = len(player.get('tournament_wins', []))
-                
                 if i-1 == current_row:
                     stdscr.addstr(i+2-start_idx, 0, 
                         f"{i}. {player['name']}: {player['hof_points']} HOF, {total_wins} wins", 
@@ -112,25 +121,37 @@ def show_hall_of_fame(stdscr, scheduler):
                 else:
                     stdscr.addstr(i+2-start_idx, 0, 
                         f"{i}. {player['name']}: {player['hof_points']} HOF, {total_wins} wins")
-            
+
             if height > 34 and width > 40:
-                stdscr.addstr(height-1, 0, "Press ESC to return, arrows to scroll")
-            
+                stdscr.addstr(height-1, 0, "Press ESC to return, arrows to scroll, 'a' to search")
+
             stdscr.refresh()
-            
+
         except curses.error:
             stdscr.refresh()
-        
+
         key = stdscr.getch()
-        if key in UP_KEYS and current_row > 0:
-            current_row -= 1
-        elif key in DOWN_KEYS and current_row < len(hof_members)-1:
-            current_row += 1
-        elif key == curses.KEY_ENTER or key in [10, 13]:
-            if hof_members:
-                show_hof_player_details(stdscr, hof_members[current_row])
-        elif key in ESCAPE_KEYS:  # ESC
-            break
+        if searching:
+            if key == 27:  # ESC
+                searching = False
+                search_query = ""
+            elif key == curses.KEY_BACKSPACE or key == 8:
+                search_query = search_query[:-1]
+            elif 32 <= key <= 126:  # Printable characters
+                search_query += chr(key)
+        else:
+            if key == ord('a'):
+                searching = True
+                search_query = ""
+            elif key in UP_KEYS and current_row > 0:
+                current_row -= 1
+            elif key in DOWN_KEYS and current_row < len(display_hof)-1:
+                current_row += 1
+            elif key == curses.KEY_ENTER or key in [10, 13]:
+                if display_hof:
+                    show_hof_player_details(stdscr, display_hof[current_row])
+            elif key in ESCAPE_KEYS:  # ESC
+                break
 
 def display_tournament_wins(stdscr, player, start_row=3):
     import collections
