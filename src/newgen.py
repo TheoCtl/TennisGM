@@ -21,7 +21,16 @@ class NewGenGenerator:
     def generate_player_with_ids(self, current_year, player_id, player_rank):
         """Generate a new young player with random attributes"""
         first_name = random.choice(self.name_data["first_names"])
-        last_name = random.choice(self.name_data["last_names"])
+        last_name_idx = random.randrange(len(self.name_data["last_names"]))
+        last_name = self.name_data["last_names"][last_name_idx]
+
+        # Increment the last name and update names.json
+        new_last_name = self.increment_name(last_name)
+        self.name_data["last_names"][last_name_idx] = new_last_name
+        # Write back to names.json
+        with open(self.names_path, 'w', encoding='utf-8') as f:
+            json.dump(self.name_data, f, indent=2, ensure_ascii=False)
+
         if random.random() < 0.5:
             potential_factor = round(random.uniform(1, 1.5), 3)
         else:
@@ -105,3 +114,26 @@ class NewGenGenerator:
             new_players.append(player)
 
         return new_players
+    
+    def increment_name(self, name):
+        chars = list(name)
+        i = len(chars) - 1
+        while i >= 0:
+            c = chars[i]
+            if c == 'Z':
+                chars[i] = '0'
+                break
+            elif c == '9':
+                chars[i] = 'A'
+                i -= 1  # Carry to previous character
+            elif c in '012345678':
+                chars[i] = str(int(c) + 1)
+                break
+            else:
+                # Increment character (A-Y or a-y)
+                chars[i] = chr(ord(c) + 1)
+                break
+        else:
+            # If we looped through all and all were '9', prepend 'A'
+            chars = ['A'] + chars
+        return ''.join(chars)
