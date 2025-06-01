@@ -34,6 +34,7 @@ class NewGenGenerator:
             "skills": self.generate_skills(),
             "potential_factor": potential_factor,
             "rank": player_rank,  # Initial unranked status
+            "highest_ranking": 999,
             "points": 0,
             "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
             "tournament_history": [],

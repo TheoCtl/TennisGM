@@ -19,7 +19,7 @@ def main_menu(stdscr, scheduler):
         if not hasattr(scheduler, 'news_feed') or not scheduler.news_feed:
             scheduler.generate_news_feed()
         try:
-            stdscr.addstr(0, 0, f"--- Year {scheduler.current_year}, Week {scheduler.current_week} ---", curses.A_BOLD)
+            stdscr.addstr(0, 0, f"└─── Year {scheduler.current_year}, Week {scheduler.current_week} ───┘", curses.A_BOLD)
             news_start_row = 2
             max_news_items = min(12, (height - 10) // 2)
             if scheduler.news_feed:
@@ -179,7 +179,7 @@ def display_tournament_wins(stdscr, player, start_row=3):
         if category in wins_by_category:
             if row < height - 1:
                 total_in_category = sum(wins_by_category[category].values())
-                stdscr.addstr(row, 0, f" ~~~~ {category} ({total_in_category}) ~~~~", curses.A_UNDERLINE)
+                stdscr.addstr(row, 0, f"└─── {category} ({total_in_category}) ───┐", curses.A_UNDERLINE)
                 row += 1
             for tname, count in sorted(wins_by_category[category].items()):
                 if row < height - 1:
@@ -196,9 +196,11 @@ def display_tournament_wins(stdscr, player, start_row=3):
 
 def show_hof_player_details(stdscr, player):
     stdscr.clear()
-    stdscr.addstr(0, 0, f"Player: {player['name']}", curses.A_BOLD)
+    stdscr.addstr(0, 0, f"┌─── {player['name']} ───┘", curses.A_BOLD)
+    stdscr.addstr(1, 0, f"│ Highest Ranking: {player.get('highest_ranking', 'N/A')}")
+    stdscr.addstr(2, 0, f"└─────")
     numwin = len(player.get('tournament_wins'))
-    stdscr.addstr(3, 0, f"--- WINS ({numwin}) ---", curses.A_BOLD)
+    stdscr.addstr(3, 0, f"┌─── WINS ({numwin}) ─────────────────┘", curses.A_BOLD)
     display_tournament_wins(stdscr, player, start_row=3)
     height, width = stdscr.getmaxyx()
     stdscr.addstr(height - 1, 0, "Press any key to return.")
@@ -209,24 +211,26 @@ def show_player_details(stdscr, scheduler, player):
     while True:
         stdscr.clear()
         height, width = stdscr.getmaxyx()
-        stdscr.addstr(0, 0, f"Player: {player['name']}", curses.A_BOLD)
-        stdscr.addstr(1, 0, f"Rank: {player.get('rank', 'N/A')}")
-        stdscr.addstr(2, 0, f"Age: {player.get('age', 'N/A')}")
-        stdscr.addstr(3, 0, f"Hand: {player.get('hand', 'N/A')}")
-        stdscr.addstr(4, 0, f"Surface: {player.get('favorite_surface', 'N/A')}")
-        stdscr.addstr(6,0, "--- SKILLS ---", curses.A_BOLD)
+        stdscr.addstr(0, 0, f"┌─── {player['name']} ───┘", curses.A_BOLD)
+        stdscr.addstr(1, 0, f"│ Rank: {player.get('rank', 'N/A')} ¦ Highest Ranking: {player.get('highest_ranking', 'N/A')}")
+        stdscr.addstr(2, 0, f"│ Age: {player.get('age', 'N/A')}yo")
+        stdscr.addstr(3, 0, f"│ {player.get('hand', 'N/A')}-handed")
+        stdscr.addstr(4, 0, f"│ Favorite surface: {player.get('favorite_surface', 'N/A')}")
+        stdscr.addstr(5, 0, f"└───────────────┐")
+        stdscr.addstr(6,0, "┌─── SKILLS ────┘", curses.A_BOLD)
         if 'skills' in player:
             skills = player['skills']
-            stdscr.addstr(7, 0, f"  Serve: {skills.get('serve', 'N/A')}")
-            stdscr.addstr(8, 0, f"  Forehand: {skills.get('forehand', 'N/A')}")
-            stdscr.addstr(9, 0, f"  Backhand: {skills.get('backhand', 'N/A')}")
-            stdscr.addstr(10, 0, f"  Speed: {skills.get('speed', 'N/A')}")
-            stdscr.addstr(11, 0, f"  Stamina: {skills.get('stamina', 'N/A')}")            
-            stdscr.addstr(12, 0, f"  Straight: {skills.get('straight', 'N/A')}")
-            stdscr.addstr(13, 0, f"  Cross: {skills.get('cross', 'N/A')}")
-
+            stdscr.addstr(7, 0, f"│ Serve: {skills.get('serve', 'N/A')}")
+            stdscr.addstr(8, 0, f"│ Forehand: {skills.get('forehand', 'N/A')}")
+            stdscr.addstr(9, 0, f"│ Backhand: {skills.get('backhand', 'N/A')}")
+            stdscr.addstr(10, 0, f"│ Speed: {skills.get('speed', 'N/A')}")
+            stdscr.addstr(11, 0, f"│ Stamina: {skills.get('stamina', 'N/A')}")            
+            stdscr.addstr(12, 0, f"│ Straight: {skills.get('straight', 'N/A')}")
+            stdscr.addstr(13, 0, f"│ Cross: {skills.get('cross', 'N/A')}")
+        
+        stdscr.addstr(14, 0, f"└───────────────┐")
         numwin = len(player.get('tournament_wins'))
-        stdscr.addstr(15, 0, f"--- WINS ({numwin}) ---", curses.A_BOLD)
+        stdscr.addstr(15, 0, f"┌── WINS ({numwin}) ──┘", curses.A_BOLD)
         display_tournament_wins(stdscr, player, start_row=15)
         stdscr.addstr(height - 1, 0, "Press any key to return to ATP Rankings.")
         stdscr.refresh()

@@ -143,6 +143,10 @@ class TournamentScheduler:
                     self.generate_bracket(tournament['id'])
         self.generate_news_feed()
         self.ranking_system.update_player_ranks(self.players, self.current_date)
+        for player in self.players:
+            if not player.get('retired', False):
+                if player.get('rank', 999) < player.get('highest_ranking', 999):
+                    player['highest_ranking'] = player['rank']
         PlayerDevelopment.seasonal_development(self)
         return self.current_week
     
@@ -646,6 +650,9 @@ class TournamentScheduler:
                     retired_count += 1
                     self._add_to_hall_of_fame(player)
     
+        # Remove retired players from self.players
+        self.players = [p for p in self.players if not p.get('retired', False)]
+    
         if retired_players:
             print(f"\nThe following players have retired: {', '.join(retired_players)}")
         return retired_players
@@ -653,7 +660,8 @@ class TournamentScheduler:
     def _add_to_hall_of_fame(self, player):
         hof_entry = {
             'name' : player['name'],
-            'tournament_wins' : player.get('tournament_wins', []).copy()
+            'tournament_wins' : player.get('tournament_wins', []).copy(),
+            'highest_ranking': player.get('highest_ranking', 999)
         }
         self.hall_of_fame.append(hof_entry)
     
@@ -720,22 +728,22 @@ class TournamentScheduler:
                 if old_rank != current_rank:
                     ranking_changes[player_id] = (old_rank, current_rank)
 
-        top20_changes = [
+        top16_changes = [
             (p['name'], change[0], change[1]) 
             for p in self.players 
             if not p.get('retired', False) 
             and p['id'] in ranking_changes 
             and (change := ranking_changes[p['id']]) 
-            and (change[1] <= 20 or change[0] <= 20)
+            and (change[1] <= 16 or change[0] <= 16)
         ]
         
-        current_top20 = [(name, old, new) for name, old, new in top20_changes if new <= 20]
-        dropped_out = [(name, old, new) for name, old, new in top20_changes if new > 20]
+        current_top16 = [(name, old, new) for name, old, new in top16_changes if new <= 16]
+        dropped_out = [(name, old, new) for name, old, new in top16_changes if new > 16]
         
-        current_top20.sort(key=lambda x: x[2])
+        current_top16.sort(key=lambda x: x[2])
         dropped_out.sort(key=lambda x: x[1])
 
-        for name, old, new in current_top20:
-            self.news_feed.append(f"- Top 20 change: {name} ({old} -> {new})")
+        for name, old, new in current_top16:
+            self.news_feed.append(f"- Top 16 change: {name} ({old} -> {new})")
         for name, old, new in dropped_out:
-            self.news_feed.append(f"- Dropped from top 20: {name} (was {old})")
+            self.news_feed.append(f"- Dropped from top 16: {name} (was {old})")

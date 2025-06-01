@@ -4,6 +4,3792 @@
   "current_date": "2053-02-12T00:00:00",
   "players": [
     {
+      "id": 129,
+      "name": "Gustavo Hansen",
+      "age": 38,
+      "hand": "Right",
+      "skills": {
+        "serve": 38,
+        "forehand": 49,
+        "backhand": 52,
+        "speed": 39,
+        "stamina": 47,
+        "straight": 52,
+        "cross": 48
+      },
+      "rank": 191,
+      "points": 152,
+      "favorite_surface": "indoor",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 4
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Brest Challenger",
+          "category": "Challenger 100",
+          "year": 10
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Macedonian Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Citta di Perugia Challenger",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Ilkley Trophy",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 13
+        },
+        {
+          "name": "Torneio Internacional de Tenis",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Geneva Open",
+          "category": "ATP 250",
+          "year": 15
+        },
+        {
+          "name": "Generali Open",
+          "category": "ATP 250",
+          "year": 16
+        },
+        {
+          "name": "San Luis Challenger",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 2030
+        },
+        {
+          "name": "Ilkley Trophy",
+          "category": "Challenger 125",
+          "year": 2031
+        },
+        {
+          "name": "Open de Rennes",
+          "category": "Challenger 100",
+          "year": 2032
+        },
+        {
+          "name": "Keio Challenger",
+          "category": "Challenger 75",
+          "year": 2033
+        },
+        {
+          "name": "Temuco Challenger",
+          "category": "Challenger 100",
+          "year": 2033
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.062,
+      "highest_ranking": 11
+    },
+    {
+      "id": 130,
+      "name": "Thiago Aquino",
+      "age": 38,
+      "hand": "Left",
+      "skills": {
+        "serve": 40,
+        "forehand": 47,
+        "backhand": 42,
+        "speed": 48,
+        "stamina": 51,
+        "straight": 42,
+        "cross": 41
+      },
+      "rank": 187,
+      "points": 206,
+      "favorite_surface": "indoor",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Oeiras Indoor",
+          "category": "Challenger 50",
+          "year": 3
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 4
+        },
+        {
+          "name": "Hamburg Challenger",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Play In Challenger",
+          "category": "Challenger 100",
+          "year": 8
+        },
+        {
+          "name": "Poznan Open",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Open Comunidad de Madrid",
+          "category": "Challenger 100",
+          "year": 10
+        },
+        {
+          "name": "San Marino Open",
+          "category": "Challenger 125",
+          "year": 10
+        },
+        {
+          "name": "Kiskut Open",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Charlotte's Pro Challenger",
+          "category": "Challenger 75",
+          "year": 2033
+        },
+        {
+          "name": "Campaign-Urbana Challenger",
+          "category": "Challenger 75",
+          "year": 2034
+        },
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 2035
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.18,
+      "highest_ranking": 15
+    },
+    {
+      "id": 131,
+      "name": "Mario Hadzic",
+      "age": 39,
+      "hand": "Right",
+      "skills": {
+        "serve": 45,
+        "forehand": 46,
+        "backhand": 44,
+        "speed": 42,
+        "stamina": 41,
+        "straight": 48,
+        "cross": 58
+      },
+      "rank": 191,
+      "points": 132,
+      "favorite_surface": "grass",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Las Vegas Challenger",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Florianopolis Open",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Sioux Falls Challenger",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Open Citta Disfida",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 10
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Lincoln Challenger",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Taipei OEC Open",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Ostra Open",
+          "category": "Challenger 75",
+          "year": 2031
+        },
+        {
+          "name": "Geneva Open",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Ilkley Trophy",
+          "category": "Challenger 125",
+          "year": 2033
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 20
+    },
+    {
+      "id": 132,
+      "name": "Lorenzo O'Sullivan",
+      "age": 36,
+      "hand": "Left",
+      "skills": {
+        "serve": 43,
+        "forehand": 51,
+        "backhand": 45,
+        "speed": 48,
+        "stamina": 53,
+        "straight": 48,
+        "cross": 48
+      },
+      "rank": 193,
+      "points": 281,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Sanchez-Casal Cup",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Open Citta Disfida",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Southern California Open II",
+          "category": "Challenger 50",
+          "year": 10
+        },
+        {
+          "name": "Championnats de Granby",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "San Marino Open",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Dobrich Challenger",
+          "category": "Challenger 50",
+          "year": 15
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 15
+        },
+        {
+          "name": "Punta Open",
+          "category": "Challenger 75",
+          "year": 17
+        },
+        {
+          "name": "Open Bogota",
+          "category": "Challenger 75",
+          "year": 17
+        },
+        {
+          "name": "Oeiras Open",
+          "category": "Challenger 125",
+          "year": 2030
+        },
+        {
+          "name": "Lisboa Belem Open",
+          "category": "Challenger 100",
+          "year": 2031
+        },
+        {
+          "name": "UniCredit Czech Open",
+          "category": "Challenger 100",
+          "year": 2032
+        },
+        {
+          "name": "Shanghai Challenger",
+          "category": "Challenger 100",
+          "year": 2032
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 20
+    },
+    {
+      "id": 133,
+      "name": "James Sharma",
+      "age": 36,
+      "hand": "Left",
+      "skills": {
+        "serve": 47,
+        "forehand": 49,
+        "backhand": 47,
+        "speed": 62,
+        "stamina": 43,
+        "straight": 51,
+        "cross": 46
+      },
+      "rank": 150,
+      "points": 523,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 4
+        },
+        {
+          "name": "Manzanillo Open",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Las Vegas Challenger",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Campinas Challenger",
+          "category": "Challenger 100",
+          "year": 9
+        },
+        {
+          "name": "Brasil Tennis Challenger",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Paraguay Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Busan Open",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Croatia Open Umag",
+          "category": "ATP 250",
+          "year": 12
+        },
+        {
+          "name": "Maia Challenger",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Brisbane International",
+          "category": "ATP 250",
+          "year": 16
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 17
+        },
+        {
+          "name": "Tennis Napoli Cup",
+          "category": "Challenger 125",
+          "year": 17
+        },
+        {
+          "name": "Rafa Nadal Open",
+          "category": "Challenger 75",
+          "year": 17
+        },
+        {
+          "name": "Australian Open",
+          "category": "Grand Slam",
+          "year": 2030
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Terra Wortmann Open",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Swiss Open Gstaad",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Kobe Challenger",
+          "category": "Challenger 100",
+          "year": 2031
+        },
+        {
+          "name": "Maia Challenger",
+          "category": "Challenger 100",
+          "year": 2031
+        },
+        {
+          "name": "Shanghai Challenger",
+          "category": "Challenger 100",
+          "year": 2034
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 3
+    },
+    {
+      "id": 134,
+      "name": "Ugur Wagner",
+      "age": 40,
+      "hand": "Right",
+      "skills": {
+        "serve": 45,
+        "forehand": 44,
+        "backhand": 43,
+        "speed": 40,
+        "stamina": 45,
+        "straight": 40,
+        "cross": 52
+      },
+      "rank": 189,
+      "points": 163,
+      "favorite_surface": "clay",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Svijany Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Citta di Todi Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 11
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 11
+        },
+        {
+          "name": "Tunis Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Copa Sevilla",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Ostra Open",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 2030
+        },
+        {
+          "name": "Kiskut Open",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Rafa Nadal Open",
+          "category": "Challenger 75",
+          "year": 2033
+        },
+        {
+          "name": "Campinas Challenger",
+          "category": "Challenger 100",
+          "year": 2033
+        },
+        {
+          "name": "Guangzhou International Challenger",
+          "category": "Challenger 75",
+          "year": 2034
+        },
+        {
+          "name": "Montemar Challenger",
+          "category": "Challenger 75",
+          "year": 2034
+        },
+        {
+          "name": "San Luis Challenger",
+          "category": "Challenger 75",
+          "year": 2035
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 40
+    },
+    {
+      "id": 135,
+      "name": "Thomas Goossens",
+      "age": 40,
+      "hand": "Left",
+      "skills": {
+        "serve": 51,
+        "forehand": 41,
+        "backhand": 47,
+        "speed": 34,
+        "stamina": 42,
+        "straight": 45,
+        "cross": 51
+      },
+      "rank": 196,
+      "points": 70,
+      "favorite_surface": "indoor",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Sanchez-Casal Cup",
+          "category": "Challenger 75",
+          "year": 4
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 4
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 4
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Las Vegas Challenger",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Sanchez-Casal Cup",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Charlotte's Pro Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Hamburg Challenger",
+          "category": "Challenger 50",
+          "year": 11
+        },
+        {
+          "name": "Sioux Falls Challenger",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Advantage Prague Open",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "UniCredit Czech Open",
+          "category": "Challenger 100",
+          "year": 13
+        },
+        {
+          "name": "Porto Open",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "San Marino Open",
+          "category": "Challenger 125",
+          "year": 2031
+        },
+        {
+          "name": "Charlotte's Pro Challenger",
+          "category": "Challenger 75",
+          "year": 2032
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.08,
+      "highest_ranking": 35
+    },
+    {
+      "id": 136,
+      "name": "Julius Aydogan",
+      "age": 39,
+      "hand": "Left",
+      "skills": {
+        "serve": 26,
+        "forehand": 41,
+        "backhand": 44,
+        "speed": 41,
+        "stamina": 45,
+        "straight": 40,
+        "cross": 38
+      },
+      "rank": 195,
+      "points": 84,
+      "favorite_surface": "grass",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Sanchez-Casal Cup",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Citta di Todi Challenger",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Dobrich Challenger",
+          "category": "Challenger 50",
+          "year": 11
+        },
+        {
+          "name": "Cleveland Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Knoxville Challenger",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "All In Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 14
+        },
+        {
+          "name": "Girona Challenger",
+          "category": "Challenger 100",
+          "year": 2030
+        },
+        {
+          "name": "Shenzhen Challenger",
+          "category": "Challenger 75",
+          "year": 2031
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 40
+    },
+    {
+      "id": 137,
+      "name": "Ezra Perez",
+      "age": 40,
+      "hand": "Left",
+      "skills": {
+        "serve": 37,
+        "forehand": 38,
+        "backhand": 42,
+        "speed": 36,
+        "stamina": 39,
+        "straight": 45,
+        "cross": 56
+      },
+      "rank": 199,
+      "points": 0,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Las Vegas Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Kachreti Challenger",
+          "category": "Challenger 50",
+          "year": 10
+        },
+        {
+          "name": "Wuxi Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Santaizi Challenger",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Shenzhen Longua Open",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Burnie International",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Bonn Open",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Bad Waltersdorf Trophy",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Kiskut Open",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "Montemar Challenger",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "Upper Austria Open",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Szczecin Open",
+          "category": "Challenger 125",
+          "year": 16
+        },
+        {
+          "name": "Bad Waltersdorf Trophy",
+          "category": "Challenger 125",
+          "year": 16
+        },
+        {
+          "name": "Koblenz Open",
+          "category": "Challenger 100",
+          "year": 17
+        },
+        {
+          "name": "Torneio Internacional de Tenis",
+          "category": "Challenger 75",
+          "year": 2030
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.386,
+      "highest_ranking": 18
+    },
+    {
+      "id": 138,
+      "name": "Gustavo Mertens",
+      "age": 40,
+      "hand": "Right",
+      "skills": {
+        "serve": 45,
+        "forehand": 37,
+        "backhand": 41,
+        "speed": 48,
+        "stamina": 37,
+        "straight": 34,
+        "cross": 37
+      },
+      "rank": 190,
+      "points": 164,
+      "favorite_surface": "indoor",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Oeiras Indoor",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Hamburg Challenger",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Brazzaville Challenger",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 10
+        },
+        {
+          "name": "Open Nouvelle-Caledonie",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Open Comunidad de Madrid",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Koblenz Open",
+          "category": "Challenger 100",
+          "year": 14
+        },
+        {
+          "name": "Girona Challenger",
+          "category": "Challenger 100",
+          "year": 14
+        },
+        {
+          "name": "Salzburg Open",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "BW Open",
+          "category": "Challenger 125",
+          "year": 2030
+        },
+        {
+          "name": "Girona Challenger",
+          "category": "Challenger 100",
+          "year": 2031
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "Tunis Open",
+          "category": "Challenger 75",
+          "year": 2034
+        },
+        {
+          "name": "Citta di Todi Challenger",
+          "category": "Challenger 75",
+          "year": 2035
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.351,
+      "highest_ranking": 10
+    },
+    {
+      "id": 139,
+      "name": "Ruben Smirnov",
+      "age": 39,
+      "hand": "Left",
+      "skills": {
+        "serve": 44,
+        "forehand": 43,
+        "backhand": 32,
+        "speed": 44,
+        "stamina": 44,
+        "straight": 48,
+        "cross": 43
+      },
+      "rank": 194,
+      "points": 104,
+      "favorite_surface": "clay",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 3
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 4
+        },
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Mexico City Open",
+          "category": "Challenger 125",
+          "year": 7
+        },
+        {
+          "name": "Hamburg Challenger",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Florianopolis Open",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Bratislava Open",
+          "category": "Challenger 100",
+          "year": 9
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Matsuyama Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 10
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 11
+        },
+        {
+          "name": "Oeiras Open",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Iasi Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Santiago Challenger",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Generali Open",
+          "category": "ATP 250",
+          "year": 13
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 16
+        },
+        {
+          "name": "Hong Kong Tennis Open",
+          "category": "ATP 250",
+          "year": 18
+        },
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Madrid Open",
+          "category": "Masters 1000",
+          "year": 2030
+        },
+        {
+          "name": "Brisbane International",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 2032
+        },
+        {
+          "name": "Hamburg Open",
+          "category": "ATP 500",
+          "year": 2032
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "Hamburg Challenger",
+          "category": "Challenger 50",
+          "year": 2036
+        },
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 2037
+        },
+        {
+          "name": "Manzanillo Open",
+          "category": "Challenger 50",
+          "year": 2037
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 5
+    },
+    {
+      "id": 140,
+      "name": "Dimitri Thomsen",
+      "age": 38,
+      "hand": "Left",
+      "skills": {
+        "serve": 43,
+        "forehand": 43,
+        "backhand": 35,
+        "speed": 40,
+        "stamina": 38,
+        "straight": 42,
+        "cross": 36
+      },
+      "rank": 196,
+      "points": 67,
+      "favorite_surface": "indoor",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Challenger AAT",
+          "category": "Challenger 50",
+          "year": 3
+        },
+        {
+          "name": "Brazzaville Challenger",
+          "category": "Challenger 50",
+          "year": 3
+        },
+        {
+          "name": "Sanchez-Casal Cup",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Brazzaville Challenger",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 9
+        },
+        {
+          "name": "Play In Challenger",
+          "category": "Challenger 100",
+          "year": 10
+        },
+        {
+          "name": "Zug Open",
+          "category": "Challenger 125",
+          "year": 10
+        },
+        {
+          "name": "Guangzhou Open",
+          "category": "Challenger 100",
+          "year": 10
+        },
+        {
+          "name": "Lisboa Belem Open",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Yokkaichi Challenger",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Kozerki Open",
+          "category": "Challenger 100",
+          "year": 14
+        },
+        {
+          "name": "Slovak Open",
+          "category": "Challenger 125",
+          "year": 2032
+        },
+        {
+          "name": "Brazzaville Challenger",
+          "category": "Challenger 50",
+          "year": 2034
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.213,
+      "highest_ranking": 20
+    },
+    {
+      "id": 141,
+      "name": "Maximiliano Kovalenko",
+      "age": 36,
+      "hand": "Left",
+      "skills": {
+        "serve": 58,
+        "forehand": 46,
+        "backhand": 49,
+        "speed": 40,
+        "stamina": 53,
+        "straight": 53,
+        "cross": 58
+      },
+      "rank": 191,
+      "points": 244,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Oeiras Indoor",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Dutch Open",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Svijany Open",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Shanghai Challenger",
+          "category": "Challenger 100",
+          "year": 9
+        },
+        {
+          "name": "Guangzhou Open",
+          "category": "Challenger 100",
+          "year": 9
+        },
+        {
+          "name": "Sao Leo Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Gwangju Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Macedonian Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Brest Challenger",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Olbia Challenger",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Keio Challenger",
+          "category": "Challenger 75",
+          "year": 15
+        },
+        {
+          "name": "Taipei OEC Open",
+          "category": "Challenger 125",
+          "year": 17
+        },
+        {
+          "name": "Generali Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Shenzhen Challenger",
+          "category": "Challenger 75",
+          "year": 2033
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 19
+    },
+    {
+      "id": 142,
+      "name": "James Kovalenko",
+      "age": 38,
+      "hand": "Right",
+      "skills": {
+        "serve": 39,
+        "forehand": 42,
+        "backhand": 41,
+        "speed": 34,
+        "stamina": 48,
+        "straight": 44,
+        "cross": 51
+      },
+      "rank": 193,
+      "points": 88,
+      "favorite_surface": "clay",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Challenger AAT",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 10
+        },
+        {
+          "name": "Cali Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Florianopolis Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Open Comunidad de Madrid",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Bad Waltersdorf Trophy",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Slovak Open",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Geneva Open",
+          "category": "ATP 250",
+          "year": 14
+        },
+        {
+          "name": "Ostra Open",
+          "category": "Challenger 75",
+          "year": 15
+        },
+        {
+          "name": "Ilkley Trophy",
+          "category": "Challenger 125",
+          "year": 15
+        },
+        {
+          "name": "Iasi Open",
+          "category": "Challenger 75",
+          "year": 15
+        },
+        {
+          "name": "Generali Open",
+          "category": "ATP 250",
+          "year": 15
+        },
+        {
+          "name": "Savannah Challenger",
+          "category": "Challenger 75",
+          "year": 2031
+        },
+        {
+          "name": "Uruguay Open",
+          "category": "Challenger 100",
+          "year": 2032
+        },
+        {
+          "name": "Heilbronner Neckarcup",
+          "category": "Challenger 100",
+          "year": 2033
+        },
+        {
+          "name": "Yokkaichi Challenger",
+          "category": "Challenger 75",
+          "year": 2033
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.298,
+      "highest_ranking": 14
+    },
+    {
+      "id": 143,
+      "name": "Paulo Berger",
+      "age": 35,
+      "hand": "Left",
+      "skills": {
+        "serve": 49,
+        "forehand": 57,
+        "backhand": 62,
+        "speed": 49,
+        "stamina": 44,
+        "straight": 58,
+        "cross": 57
+      },
+      "rank": 168,
+      "points": 453,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 3
+        },
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 3
+        },
+        {
+          "name": "Sanchez-Casal Cup",
+          "category": "Challenger 75",
+          "year": 3
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 3
+        },
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 4
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 4
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 4
+        },
+        {
+          "name": "Challenger AAT",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Championnats de Granby",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Dutch Open",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Columbus Challenger",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Citta di Lugano Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Burnie International",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Punta Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Salzburg Open",
+          "category": "Challenger 100",
+          "year": 13
+        },
+        {
+          "name": "Torneio Internacional de Tenis",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "Libema Open",
+          "category": "ATP 250",
+          "year": 16
+        },
+        {
+          "name": "Miami Open",
+          "category": "Masters 1000",
+          "year": 17
+        },
+        {
+          "name": "Swiss Open Gstaad",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Japan Open",
+          "category": "ATP 500",
+          "year": 17
+        },
+        {
+          "name": "Munich Open",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "DC Open",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Australian Open",
+          "category": "Grand Slam",
+          "year": 2031
+        },
+        {
+          "name": "BW Open",
+          "category": "Challenger 125",
+          "year": 2031
+        },
+        {
+          "name": "Internazionali d'Italia",
+          "category": "Masters 1000",
+          "year": 2031
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 2033
+        },
+        {
+          "name": "Terra Wortmann Open",
+          "category": "ATP 500",
+          "year": 2033
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 2
+    },
+    {
+      "id": 144,
+      "name": "Mark Manukyan",
+      "age": 39,
+      "hand": "Left",
+      "skills": {
+        "serve": 48,
+        "forehand": 44,
+        "backhand": 37,
+        "speed": 43,
+        "stamina": 47,
+        "straight": 34,
+        "cross": 47
+      },
+      "rank": 195,
+      "points": 88,
+      "favorite_surface": "grass",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Challenger AAT",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Brazzaville Challenger",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Hamburg Challenger",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Nonthaburi Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Kachreti Challenger",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Cali Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 9
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Matsuyama Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Kozerki Open",
+          "category": "Challenger 100",
+          "year": 13
+        },
+        {
+          "name": "AON Open Challenger",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Surbiton Trophy",
+          "category": "Challenger 125",
+          "year": 17
+        },
+        {
+          "name": "Murcia Open",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "London Championships",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2034
+        },
+        {
+          "name": "Tyler Tennis Championships",
+          "category": "Challenger 75",
+          "year": 2036
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 2036
+        },
+        {
+          "name": "Sanchez-Casal Cup",
+          "category": "Challenger 75",
+          "year": 2037
+        },
+        {
+          "name": "Citta di Todi Challenger",
+          "category": "Challenger 75",
+          "year": 2037
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 9
+    },
+    {
+      "id": 145,
+      "name": "Matias Subotic",
+      "age": 40,
+      "hand": "Left",
+      "skills": {
+        "serve": 43,
+        "forehand": 33,
+        "backhand": 48,
+        "speed": 27,
+        "stamina": 45,
+        "straight": 39,
+        "cross": 42
+      },
+      "rank": 199,
+      "points": 18,
+      "favorite_surface": "clay",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Brazzaville Challenger",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 9
+        },
+        {
+          "name": "Svijany Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Citta di Todi Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Matsuyama Challenger",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Tallahassee Tennis",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Chile Open",
+          "category": "ATP 250",
+          "year": 13
+        },
+        {
+          "name": "Shenzhen Challenger",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Bad Waltersdorf Trophy",
+          "category": "Challenger 125",
+          "year": 15
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 2031
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2031
+        },
+        {
+          "name": "Jinan Open",
+          "category": "Challenger 50",
+          "year": 2031
+        },
+        {
+          "name": "Tennis Napoli Cup",
+          "category": "Challenger 125",
+          "year": 2032
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 2033
+        },
+        {
+          "name": "Porto Challenger",
+          "category": "Challenger 75",
+          "year": 2033
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.256,
+      "highest_ranking": 20
+    },
+    {
+      "id": 146,
+      "name": "Raphael Ahmed",
+      "age": 40,
+      "hand": "Left",
+      "skills": {
+        "serve": 28,
+        "forehand": 43,
+        "backhand": 44,
+        "speed": 42,
+        "stamina": 42,
+        "straight": 42,
+        "cross": 46
+      },
+      "rank": 191,
+      "points": 139,
+      "favorite_surface": "clay",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Oeiras Indoor",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Internazionali di Tennis",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Seoul Open Challenger",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Citta di Lugano Challenger",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Busan Open",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "HPP Open",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "Maia Challenger",
+          "category": "Challenger 100",
+          "year": 17
+        },
+        {
+          "name": "Savannah Challenger",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Montemar Challenger",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Zadar Open",
+          "category": "Challenger 75",
+          "year": 2032
+        },
+        {
+          "name": "Macedonian Open",
+          "category": "Challenger 75",
+          "year": 2032
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2033
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 2034
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.122,
+      "highest_ranking": 20
+    },
+    {
+      "id": 147,
+      "name": "Lorenzo Andersen",
+      "age": 40,
+      "hand": "Left",
+      "skills": {
+        "serve": 41,
+        "forehand": 38,
+        "backhand": 38,
+        "speed": 50,
+        "stamina": 44,
+        "straight": 39,
+        "cross": 49
+      },
+      "rank": 188,
+      "points": 171,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 3
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 3
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 3
+        },
+        {
+          "name": "Las Vegas Challenger",
+          "category": "Challenger 75",
+          "year": 4
+        },
+        {
+          "name": "Southern California Open II",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Cali Open",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Zug Open",
+          "category": "Challenger 125",
+          "year": 8
+        },
+        {
+          "name": "Sioux Falls Challenger",
+          "category": "Challenger 75",
+          "year": 8
+        },
+        {
+          "name": "Shenzhen Longua Open",
+          "category": "Challenger 100",
+          "year": 9
+        },
+        {
+          "name": "Seoul Open Challenger",
+          "category": "Challenger 100",
+          "year": 9
+        },
+        {
+          "name": "Sao Leo Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Lincoln Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Busan Open",
+          "category": "Challenger 125",
+          "year": 11
+        },
+        {
+          "name": "Upper Austria Open",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "AON Open Challenger",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Porto Challenger",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "Tiriac Open",
+          "category": "ATP 250",
+          "year": 16
+        },
+        {
+          "name": "Uruguay Open",
+          "category": "Challenger 100",
+          "year": 2030
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 2034
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 2035
+        },
+        {
+          "name": "Play In Challenger",
+          "category": "Challenger 100",
+          "year": 2035
+        },
+        {
+          "name": "Brasil Tennis Open",
+          "category": "Challenger 50",
+          "year": 2036
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 2037
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.288,
+      "highest_ranking": 13
+    },
+    {
+      "id": 148,
+      "name": "Ruben Schuster",
+      "age": 38,
+      "hand": "Right",
+      "skills": {
+        "serve": 56,
+        "forehand": 54,
+        "backhand": 47,
+        "speed": 58,
+        "stamina": 40,
+        "straight": 51,
+        "cross": 43
+      },
+      "rank": 148,
+      "points": 431,
+      "favorite_surface": "indoor",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Oeiras Indoor",
+          "category": "Challenger 50",
+          "year": 4
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 4
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 4
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 4
+        },
+        {
+          "name": "Tyler Tennis Championships",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Play In Challenger",
+          "category": "Challenger 100",
+          "year": 7
+        },
+        {
+          "name": "Open Citta Disfida",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "San Luis Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Internazionali di Tennis",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Porto Open",
+          "category": "Challenger 125",
+          "year": 11
+        },
+        {
+          "name": "Garden Challenger",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Generali Open",
+          "category": "ATP 250",
+          "year": 12
+        },
+        {
+          "name": "Montemar Challenger",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Kobe Challenger",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Tennis Napoli Cup",
+          "category": "Challenger 125",
+          "year": 16
+        },
+        {
+          "name": "Piemonte Open",
+          "category": "Challenger 175",
+          "year": 16
+        },
+        {
+          "name": "US Open",
+          "category": "Grand Slam",
+          "year": 16
+        },
+        {
+          "name": "Porto Challenger",
+          "category": "Challenger 75",
+          "year": 16
+        },
+        {
+          "name": "Hangzhou Open",
+          "category": "ATP 250",
+          "year": 16
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 17
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Arizona Tennis Challenger",
+          "category": "Challenger 175",
+          "year": 17
+        },
+        {
+          "name": "Grand Prix Hassan II",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Brawo Open",
+          "category": "Challenger 125",
+          "year": 17
+        },
+        {
+          "name": "Los Cabos Open",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Turin International",
+          "category": "ATP 500",
+          "year": 17
+        },
+        {
+          "name": "Open Quimper Bretagne",
+          "category": "Challenger 125",
+          "year": 2030
+        },
+        {
+          "name": "Rotterdam Open",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Dubai Tennis Championships",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Miami Open",
+          "category": "Masters 1000",
+          "year": 2030
+        },
+        {
+          "name": "Open Aix Provence",
+          "category": "Challenger 175",
+          "year": 2030
+        },
+        {
+          "name": "Internazionali d'Italia",
+          "category": "Masters 1000",
+          "year": 2030
+        },
+        {
+          "name": "Hamburg Open",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Roland-Garros",
+          "category": "Grand Slam",
+          "year": 2030
+        },
+        {
+          "name": "Surbiton Trophy",
+          "category": "Challenger 125",
+          "year": 2030
+        },
+        {
+          "name": "Libema Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "London Championships",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Mallorca CHampionships",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Wimbledon",
+          "category": "Grand Slam",
+          "year": 2030
+        },
+        {
+          "name": "Brawo Open",
+          "category": "Challenger 125",
+          "year": 2030
+        },
+        {
+          "name": "Nordea Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Cincinnati Open",
+          "category": "Masters 1000",
+          "year": 2030
+        },
+        {
+          "name": "RD Open",
+          "category": "Challenger 125",
+          "year": 2030
+        },
+        {
+          "name": "US Open",
+          "category": "Grand Slam",
+          "year": 2030
+        },
+        {
+          "name": "Laver Cup",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "China Open",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Shanghai Masters",
+          "category": "Masters 1000",
+          "year": 2030
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Vienna Open",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Belgrade Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Kobe Challenger",
+          "category": "Challenger 100",
+          "year": 2030
+        },
+        {
+          "name": "Citta di Rovereto Challenger",
+          "category": "Challenger 100",
+          "year": 2030
+        },
+        {
+          "name": "Jeddah Finals",
+          "category": "Masters 1000",
+          "year": 2030
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Open Provence",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "Miami Open",
+          "category": "Masters 1000",
+          "year": 2031
+        },
+        {
+          "name": "Tennis Napoli Cup",
+          "category": "Challenger 125",
+          "year": 2031
+        },
+        {
+          "name": "Monte-Carlo Masters",
+          "category": "Masters 1000",
+          "year": 2031
+        },
+        {
+          "name": "Sardegna Open",
+          "category": "Challenger 175",
+          "year": 2031
+        },
+        {
+          "name": "Piemonte Open",
+          "category": "Challenger 175",
+          "year": 2031
+        },
+        {
+          "name": "Surbiton Trophy",
+          "category": "Challenger 125",
+          "year": 2031
+        },
+        {
+          "name": "Terra Wortmann Open",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "Swiss Open Gstaad",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "DC Open",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "Toronto National Open",
+          "category": "Masters 1000",
+          "year": 2031
+        },
+        {
+          "name": "US Open",
+          "category": "Grand Slam",
+          "year": 2031
+        },
+        {
+          "name": "Laver Cup",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Shanghai Masters",
+          "category": "Masters 1000",
+          "year": 2031
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Paris Masters",
+          "category": "Masters 1000",
+          "year": 2031
+        },
+        {
+          "name": "Moselle Open",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Citta di Rovereto Challenger",
+          "category": "Challenger 100",
+          "year": 2031
+        },
+        {
+          "name": "Jeddah Finals",
+          "category": "Masters 1000",
+          "year": 2031
+        },
+        {
+          "name": "Brisbane International",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 2032
+        },
+        {
+          "name": "Mexicano Telcel",
+          "category": "ATP 500",
+          "year": 2032
+        },
+        {
+          "name": "Grand Prix Hassan II",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "US Open",
+          "category": "Grand Slam",
+          "year": 2032
+        },
+        {
+          "name": "Hangzhou Open",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "Paris Masters",
+          "category": "Masters 1000",
+          "year": 2032
+        },
+        {
+          "name": "Moselle Open",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "Jeddah Finals",
+          "category": "Masters 1000",
+          "year": 2032
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 2033
+        },
+        {
+          "name": "Australian Open",
+          "category": "Grand Slam",
+          "year": 2033
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 2033
+        },
+        {
+          "name": "Mexicano Telcel",
+          "category": "ATP 500",
+          "year": 2033
+        },
+        {
+          "name": "Hangzhou Open",
+          "category": "ATP 250",
+          "year": 2033
+        },
+        {
+          "name": "Shanghai Masters",
+          "category": "Masters 1000",
+          "year": 2033
+        },
+        {
+          "name": "Vienna Open",
+          "category": "ATP 500",
+          "year": 2033
+        },
+        {
+          "name": "Belgrade Open",
+          "category": "ATP 250",
+          "year": 2033
+        },
+        {
+          "name": "Turin International",
+          "category": "ATP 500",
+          "year": 2033
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 2034
+        },
+        {
+          "name": "Roland-Garros",
+          "category": "Grand Slam",
+          "year": 2034
+        },
+        {
+          "name": "Turin International",
+          "category": "ATP 500",
+          "year": 2034
+        },
+        {
+          "name": "Dallas Open",
+          "category": "ATP 500",
+          "year": 2035
+        },
+        {
+          "name": "Rio Open",
+          "category": "ATP 500",
+          "year": 2036
+        },
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 2038
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.356,
+      "highest_ranking": 1
+    },
+    {
+      "id": 149,
+      "name": "Arsen Delic",
+      "age": 36,
+      "hand": "Left",
+      "skills": {
+        "serve": 54,
+        "forehand": 53,
+        "backhand": 50,
+        "speed": 48,
+        "stamina": 62,
+        "straight": 52,
+        "cross": 45
+      },
+      "rank": 182,
+      "points": 259,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 6
+        },
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Open Citta Disfida",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Wuxi Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 11
+        },
+        {
+          "name": "Dutch Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Open de Rennes",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Shenzhen Longua Open",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Sao Leo Open",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Citta di Como Challenger",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Rafa Nadal Open",
+          "category": "Challenger 75",
+          "year": 2031
+        },
+        {
+          "name": "Wuxi Open",
+          "category": "Challenger 75",
+          "year": 2033
+        },
+        {
+          "name": "Nonthaburi Challenger II",
+          "category": "Challenger 75",
+          "year": 2034
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 2035
+        },
+        {
+          "name": "Shenzhen Challenger",
+          "category": "Challenger 75",
+          "year": 2035
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.405,
+      "highest_ranking": 15
+    },
+    {
+      "id": 150,
+      "name": "Elias Radovic",
+      "age": 40,
+      "hand": "Left",
+      "skills": {
+        "serve": 50,
+        "forehand": 41,
+        "backhand": 39,
+        "speed": 46,
+        "stamina": 50,
+        "straight": 44,
+        "cross": 54
+      },
+      "rank": 186,
+      "points": 174,
+      "favorite_surface": "grass",
+      "tournament_history": [
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 2040,
+          "week": 7,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 8,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Play In Challenger",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 9,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 10,
+          "round": 2,
+          "points": 15
+        },
+        {
+          "name": "Santiago Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 11,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Zadar Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 12,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "San Luis Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 13,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Open Citta Disfida",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 15,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Sarasota Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 16,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 17,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Guangzhou International Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 18,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Santaizi Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 20,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 21,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "UniCredit Czech Open",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 23,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 25,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Iasi Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 28,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Dutch Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 29,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 31,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Kozerki Open",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 33,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Zhangjiagang Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 36,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 37,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Las Vegas Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 38,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 40,
+          "round": 2,
+          "points": 25
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 41,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 42,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 43,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Knoxville Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 46,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "All In Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 47,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Keio Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 48,
+          "round": 2,
+          "points": 25
+        },
+        {
+          "name": "Manzanillo Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 49,
+          "round": 3,
+          "points": 30
+        }
+      ],
+      "tournament_wins": [
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 10
+        },
+        {
+          "name": "Upper Austria Open",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Iasi Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Geneva Open",
+          "category": "ATP 250",
+          "year": 13
+        },
+        {
+          "name": "Arizona Tennis Challenger",
+          "category": "Challenger 175",
+          "year": 16
+        },
+        {
+          "name": "Almaty Open",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 18
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 2030
+        },
+        {
+          "name": "Mexicano Telcel",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Swiss Indoors Basel",
+          "category": "ATP 500",
+          "year": 2030
+        },
+        {
+          "name": "Mallorca CHampionships",
+          "category": "ATP 250",
+          "year": 2032
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2033
+        },
+        {
+          "name": "Santiago Challenger",
+          "category": "Challenger 75",
+          "year": 2036
+        },
+        {
+          "name": "Tallahassee Tennis",
+          "category": "Challenger 75",
+          "year": 2036
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 2037
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 2038
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.489,
+      "highest_ranking": 8
+    },
+    {
+      "id": 151,
+      "name": "Thiago Mora",
+      "age": 39,
+      "hand": "Right",
+      "skills": {
+        "serve": 30,
+        "forehand": 36,
+        "backhand": 45,
+        "speed": 33,
+        "stamina": 47,
+        "straight": 27,
+        "cross": 43
+      },
+      "rank": 197,
+      "points": 101,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Manzanillo Open",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Manzanillo Open",
+          "category": "Challenger 50",
+          "year": 10
+        },
+        {
+          "name": "Cali Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Open Citta Disfida",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Citta di Todi Challenger",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Matsuyama Challenger",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Seguros Open",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "Ilkley Trophy",
+          "category": "Challenger 125",
+          "year": 16
+        },
+        {
+          "name": "Torneio Internacional de Tenis",
+          "category": "Challenger 75",
+          "year": 17
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2030
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2032
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 2035
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 2036
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 40
+    },
+    {
+      "id": 152,
+      "name": "Ugur Jafarov",
+      "age": 40,
+      "hand": "Right",
+      "skills": {
+        "serve": 42,
+        "forehand": 35,
+        "backhand": 41,
+        "speed": 42,
+        "stamina": 47,
+        "straight": 37,
+        "cross": 39
+      },
+      "rank": 195,
+      "points": 96,
+      "favorite_surface": "grass",
+      "tournament_history": [
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 6,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 7,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 10,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Kiskut Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 11,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 12,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "San Luis Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 13,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Guangzhou International Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 18,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Santaizi Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 20,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Kachreti Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 21,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Tyler Tennis Championships",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 23,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 24,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Winnipeg Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 28,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 30,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 31,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Citta di Todi Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 33,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Jinan Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 34,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Citta di Como Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 36,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 37,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 40,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 42,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 43,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Curitiba Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 44,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Campaign-Urbana Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 47,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Keio Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 48,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Manzanillo Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 49,
+          "round": 0,
+          "points": 0
+        }
+      ],
+      "tournament_wins": [
+        {
+          "name": "Challenger AAT",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Bratislava Open",
+          "category": "Challenger 100",
+          "year": 10
+        },
+        {
+          "name": "Poznan Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Oeiras Indoor II",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Tunis Open",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "Cary Tennis Classic",
+          "category": "Challenger 100",
+          "year": 14
+        },
+        {
+          "name": "AON Open Challenger",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "Los Cabos Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Upper Austria Open",
+          "category": "Challenger 100",
+          "year": 2032
+        },
+        {
+          "name": "All In Open",
+          "category": "Challenger 75",
+          "year": 2034
+        },
+        {
+          "name": "Tyler Tennis Championships",
+          "category": "Challenger 75",
+          "year": 2037
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.476,
+      "highest_ranking": 30
+    },
+    {
       "id": 153,
       "name": "Filip Brown",
       "age": 40,
@@ -890,6 +4676,696 @@
       "highest_ranking": 999
     },
     {
+      "id": 155,
+      "name": "Moritz Gutierrez",
+      "age": 36,
+      "hand": "Right",
+      "skills": {
+        "serve": 62,
+        "forehand": 56,
+        "backhand": 49,
+        "speed": 53,
+        "stamina": 49,
+        "straight": 48,
+        "cross": 48
+      },
+      "rank": 163,
+      "points": 362,
+      "favorite_surface": "grass",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 5
+        },
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 5
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 5
+        },
+        {
+          "name": "Nonthaburi Challenger",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Columbus Challenger",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Mexico City Open",
+          "category": "Challenger 125",
+          "year": 8
+        },
+        {
+          "name": "Dutch Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Nonthaburi Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Cleveland Open",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Saint-Tropez Open",
+          "category": "Challenger 125",
+          "year": 11
+        },
+        {
+          "name": "Slovak Open",
+          "category": "Challenger 125",
+          "year": 11
+        },
+        {
+          "name": "Santiago Challenger",
+          "category": "Challenger 75",
+          "year": 15
+        },
+        {
+          "name": "Girona Challenger",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Heilbronner Neckarcup",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 16
+        },
+        {
+          "name": "Argentina Open",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Piemonte Open",
+          "category": "Challenger 175",
+          "year": 17
+        },
+        {
+          "name": "Libema Open",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Punta Open",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Grand Prix Hassan II",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Piemonte Open",
+          "category": "Challenger 175",
+          "year": 2030
+        },
+        {
+          "name": "Qatar Open",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "Grand Prix Hassan II",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Turin International",
+          "category": "ATP 500",
+          "year": 2032
+        },
+        {
+          "name": "Saint-Tropez Open",
+          "category": "Challenger 125",
+          "year": 2035
+        },
+        {
+          "name": "Brest Challenger",
+          "category": "Challenger 100",
+          "year": 2035
+        },
+        {
+          "name": "Shanghai Challenger",
+          "category": "Challenger 100",
+          "year": 2036
+        },
+        {
+          "name": "Kachreti Challenger",
+          "category": "Challenger 50",
+          "year": 2037
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.14,
+      "highest_ranking": 6
+    },
+    {
+      "id": 156,
+      "name": "Ahmed Ibrahimovic",
+      "age": 39,
+      "hand": "Right",
+      "skills": {
+        "serve": 39,
+        "forehand": 44,
+        "backhand": 39,
+        "speed": 41,
+        "stamina": 43,
+        "straight": 36,
+        "cross": 44
+      },
+      "rank": 193,
+      "points": 106,
+      "favorite_surface": "grass",
+      "tournament_history": [
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 6,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 2040,
+          "week": 7,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 9,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Santiago Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 11,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 12,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Sao Leo Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 13,
+          "round": 3,
+          "points": 45
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 16,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Garden Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 18,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Tunis Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 20,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Heilbronner Neckarcup",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 23,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 24,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 25,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 26,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Iasi Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 28,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 30,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 31,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Kozerki Open",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 33,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Porto Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 36,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Columbus Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 39,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 40,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 42,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Brazzaville Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 45,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Knoxville Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 46,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Campaign-Urbana Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 47,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Keio Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 48,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Manzanillo Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 49,
+          "round": 0,
+          "points": 0
+        }
+      ],
+      "tournament_wins": [
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 6
+        },
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Southern California Open II",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Mexico City Open",
+          "category": "Challenger 125",
+          "year": 9
+        },
+        {
+          "name": "Hamburg Challenger",
+          "category": "Challenger 50",
+          "year": 10
+        },
+        {
+          "name": "Open de Rennes",
+          "category": "Challenger 100",
+          "year": 10
+        },
+        {
+          "name": "Shanghai Challenger",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Burnie International",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Campaign-Urbana Challenger",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Saint-Tropez Open",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "Generali Open",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Campaign-Urbana Challenger",
+          "category": "Challenger 75",
+          "year": 2035
+        },
+        {
+          "name": "Tyler Tennis Championships",
+          "category": "Challenger 75",
+          "year": 2038
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 20
+    },
+    {
+      "id": 157,
+      "name": "Jules Ozolins",
+      "age": 37,
+      "hand": "Right",
+      "skills": {
+        "serve": 50,
+        "forehand": 52,
+        "backhand": 50,
+        "speed": 45,
+        "stamina": 40,
+        "straight": 52,
+        "cross": 41
+      },
+      "rank": 169,
+      "points": 332,
+      "favorite_surface": "indoor",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 6
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 7
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 7
+        },
+        {
+          "name": "Dutch Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 11
+        },
+        {
+          "name": "Championnats de Granby",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Guangzhou Open",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Antofagasta Challenger",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Brest Challenger",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Canberra Tennis International",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Nordea Open",
+          "category": "ATP 250",
+          "year": 16
+        },
+        {
+          "name": "Open Quimper Bretagne",
+          "category": "Challenger 125",
+          "year": 17
+        },
+        {
+          "name": "Geneva Open",
+          "category": "ATP 250",
+          "year": 2034
+        },
+        {
+          "name": "Open Quimper Bretagne",
+          "category": "Challenger 125",
+          "year": 2036
+        },
+        {
+          "name": "Emilia-Romagna Open",
+          "category": "Challenger 100",
+          "year": 2036
+        },
+        {
+          "name": "Hamburg Challenger",
+          "category": "Challenger 50",
+          "year": 2038
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 16
+    },
+    {
+      "id": 158,
+      "name": "Ryan Nakamura",
+      "age": 37,
+      "hand": "Right",
+      "skills": {
+        "serve": 42,
+        "forehand": 43,
+        "backhand": 47,
+        "speed": 41,
+        "stamina": 47,
+        "straight": 58,
+        "cross": 46
+      },
+      "rank": 184,
+      "points": 249,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 8
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Columbus Challenger",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 10
+        },
+        {
+          "name": "Burnie International II",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Open Nouvelle-Caledonie",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Bahrain Tennis Challenger",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Paraguay Open",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Dobrich Challenger",
+          "category": "Challenger 50",
+          "year": 13
+        },
+        {
+          "name": "Santaizi Challenger",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "San Marino Open",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "Guangzhou International Challenger",
+          "category": "Challenger 75",
+          "year": 17
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 2035
+        },
+        {
+          "name": "Tunis Open",
+          "category": "Challenger 75",
+          "year": 2037
+        },
+        {
+          "name": "Tunis Open",
+          "category": "Challenger 75",
+          "year": 2038
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 40
+    },
+    {
       "id": 159,
       "name": "Parker Pineda",
       "age": 40,
@@ -1216,6 +5692,628 @@
       "retired": false,
       "potential_factor": 1.468,
       "highest_ranking": 999
+    },
+    {
+      "id": 160,
+      "name": "Orhan Becker",
+      "age": 38,
+      "hand": "Right",
+      "skills": {
+        "serve": 46,
+        "forehand": 45,
+        "backhand": 42,
+        "speed": 39,
+        "stamina": 35,
+        "straight": 44,
+        "cross": 36
+      },
+      "rank": 185,
+      "points": 192,
+      "favorite_surface": "hard",
+      "tournament_history": [
+        {
+          "name": "Lexus Nottingham Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 6,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Bengaluru Open",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 7,
+          "round": 1,
+          "points": 18
+        },
+        {
+          "name": "Rwanda Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 10,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Kiskut Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 11,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 12,
+          "round": 3,
+          "points": 30
+        },
+        {
+          "name": "Sao Leo Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 13,
+          "round": 2,
+          "points": 25
+        },
+        {
+          "name": "Sanchez-Casal Cup",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 14,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Open Citta Disfida",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 15,
+          "round": 2,
+          "points": 25
+        },
+        {
+          "name": "Morelos Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 16,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Tucuman Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 17,
+          "round": 1,
+          "points": 9
+        },
+        {
+          "name": "Garden Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 18,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Bordeaux Challenger",
+          "category": "Challenger 175",
+          "year": 2040,
+          "week": 20,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 21,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Heilbronner Neckarcup",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 23,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 26,
+          "round": 2,
+          "points": 15
+        },
+        {
+          "name": "Iasi Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 28,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Championnats de Granby",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 29,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Zug Open",
+          "category": "Challenger 125",
+          "year": 2040,
+          "week": 30,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Svijany Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 31,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Lincoln Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 32,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Cary Tennis Classic",
+          "category": "Challenger 100",
+          "year": 2040,
+          "week": 33,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Porto Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 36,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 37,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Las Vegas Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 38,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 40,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Challenger de Buenos Aires",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 41,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Calgary Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 43,
+          "round": 1,
+          "points": 13
+        },
+        {
+          "name": "Sioux Falls Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 44,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Brazzaville Challenger",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 45,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Knoxville Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 46,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "All In Open",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 47,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Montemar Challenger",
+          "category": "Challenger 75",
+          "year": 2040,
+          "week": 48,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Manzanillo Open",
+          "category": "Challenger 50",
+          "year": 2040,
+          "week": 49,
+          "round": 1,
+          "points": 9
+        }
+      ],
+      "tournament_wins": [
+        {
+          "name": "Oeiras Indoor",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Florianopolis Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Burnie International",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Lisboa Belem Open",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Santa Cruz Challenger",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Ilkley Trophy",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "Braga Open",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "Taipei OEC Open",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "UniCredit Czech Open",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Kobe Challenger",
+          "category": "Challenger 100",
+          "year": 17
+        },
+        {
+          "name": "Shenzhen Longua Open",
+          "category": "Challenger 100",
+          "year": 2034
+        },
+        {
+          "name": "Open Bogota",
+          "category": "Challenger 75",
+          "year": 2035
+        },
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 2037
+        },
+        {
+          "name": "Citta di Todi Challenger",
+          "category": "Challenger 75",
+          "year": 2039
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 30
+    },
+    {
+      "id": 161,
+      "name": "Iker Ibraev",
+      "age": 36,
+      "hand": "Left",
+      "skills": {
+        "serve": 40,
+        "forehand": 45,
+        "backhand": 48,
+        "speed": 53,
+        "stamina": 53,
+        "straight": 55,
+        "cross": 51
+      },
+      "rank": 163,
+      "points": 366,
+      "favorite_surface": "indoor",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 8
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Poznan Open",
+          "category": "Challenger 75",
+          "year": 9
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 10
+        },
+        {
+          "name": "NO Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Citta di Lugano Challenger",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Lincoln Challenger",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Upper Austria Open",
+          "category": "Challenger 100",
+          "year": 14
+        },
+        {
+          "name": "Open de Vendee",
+          "category": "Challenger 100",
+          "year": 14
+        },
+        {
+          "name": "Guangzhou International Challenger",
+          "category": "Challenger 75",
+          "year": 16
+        },
+        {
+          "name": "Dubai Tennis Championships",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "LTP Open",
+          "category": "Challenger 75",
+          "year": 2035
+        },
+        {
+          "name": "Charlotte's Pro Challenger",
+          "category": "Challenger 75",
+          "year": 2035
+        },
+        {
+          "name": "Southern California Open II",
+          "category": "Challenger 50",
+          "year": 2037
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 2037
+        },
+        {
+          "name": "Schwaben Open",
+          "category": "Challenger 50",
+          "year": 2037
+        },
+        {
+          "name": "San Luis Challenger",
+          "category": "Challenger 75",
+          "year": 2038
+        },
+        {
+          "name": "Open de Lyon",
+          "category": "Challenger 75",
+          "year": 2038
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 12
+    },
+    {
+      "id": 162,
+      "name": "Jakov Bos",
+      "age": 37,
+      "hand": "Left",
+      "skills": {
+        "serve": 41,
+        "forehand": 51,
+        "backhand": 49,
+        "speed": 50,
+        "stamina": 48,
+        "straight": 45,
+        "cross": 53
+      },
+      "rank": 177,
+      "points": 287,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Tyler Tennis Championships",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Columbus Challenger",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Open Bogota",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Saint-Tropez Open",
+          "category": "Challenger 125",
+          "year": 12
+        },
+        {
+          "name": "Terega Open",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Geneva Open",
+          "category": "ATP 250",
+          "year": 16
+        },
+        {
+          "name": "Adelaide International",
+          "category": "ATP 250",
+          "year": 17
+        },
+        {
+          "name": "China Open",
+          "category": "ATP 500",
+          "year": 17
+        },
+        {
+          "name": "Maia Challenger",
+          "category": "Challenger 100",
+          "year": 2030
+        },
+        {
+          "name": "Los Cabos Open",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Australian Open",
+          "category": "Grand Slam",
+          "year": 2032
+        },
+        {
+          "name": "Toronto National Open",
+          "category": "Masters 1000",
+          "year": 2032
+        },
+        {
+          "name": "Zhangjiagang Challenger",
+          "category": "Challenger 75",
+          "year": 2036
+        },
+        {
+          "name": "Campinas Challenger",
+          "category": "Challenger 100",
+          "year": 2036
+        },
+        {
+          "name": "Lexington Challenger",
+          "category": "Challenger 75",
+          "year": 2037
+        },
+        {
+          "name": "Oeiras Indoor",
+          "category": "Challenger 50",
+          "year": 2039
+        },
+        {
+          "name": "Internationaux de Tennis de Blois",
+          "category": "Challenger 50",
+          "year": 2039
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.155,
+      "highest_ranking": 4
     },
     {
       "id": 163,
@@ -1631,6 +6729,239 @@
       "retired": false,
       "potential_factor": 1.066,
       "highest_ranking": 999
+    },
+    {
+      "id": 164,
+      "name": "Timofey Visser",
+      "age": 37,
+      "hand": "Left",
+      "skills": {
+        "serve": 41,
+        "forehand": 50,
+        "backhand": 45,
+        "speed": 49,
+        "stamina": 59,
+        "straight": 40,
+        "cross": 47
+      },
+      "rank": 163,
+      "points": 341,
+      "favorite_surface": "grass",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Glasgow Challenger",
+          "category": "Challenger 50",
+          "year": 9
+        },
+        {
+          "name": "Delhi Open",
+          "category": "Challenger 75",
+          "year": 10
+        },
+        {
+          "name": "Challenger La Manche",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Mexico City Open",
+          "category": "Challenger 125",
+          "year": 11
+        },
+        {
+          "name": "Emilia-Romagna Open",
+          "category": "Challenger 100",
+          "year": 11
+        },
+        {
+          "name": "Open de Rennes",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Cleveland Open",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 13
+        },
+        {
+          "name": "San Marino Open",
+          "category": "Challenger 125",
+          "year": 13
+        },
+        {
+          "name": "Bonn Open",
+          "category": "Challenger 75",
+          "year": 14
+        },
+        {
+          "name": "Salzburg Open",
+          "category": "Challenger 100",
+          "year": 16
+        },
+        {
+          "name": "Cleveland Open",
+          "category": "Challenger 75",
+          "year": 2030
+        },
+        {
+          "name": "Hangzhou Open",
+          "category": "ATP 250",
+          "year": 2030
+        },
+        {
+          "name": "Burnie International",
+          "category": "Challenger 75",
+          "year": 2036
+        },
+        {
+          "name": "Oeiras Indoor",
+          "category": "Challenger 50",
+          "year": 2038
+        },
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 2038
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 20
+    },
+    {
+      "id": 165,
+      "name": "Sebastian Madsen",
+      "age": 36,
+      "hand": "Right",
+      "skills": {
+        "serve": 54,
+        "forehand": 59,
+        "backhand": 47,
+        "speed": 50,
+        "stamina": 49,
+        "straight": 51,
+        "cross": 53
+      },
+      "rank": 168,
+      "points": 322,
+      "favorite_surface": "hard",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Columbus Challenger",
+          "category": "Challenger 75",
+          "year": 11
+        },
+        {
+          "name": "Seoul Open Challenger",
+          "category": "Challenger 100",
+          "year": 12
+        },
+        {
+          "name": "Busan Open",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "Oeiras Open",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 18
+        },
+        {
+          "name": "Tennis Napoli Cup",
+          "category": "Challenger 125",
+          "year": 2030
+        },
+        {
+          "name": "Auckland Classic",
+          "category": "ATP 250",
+          "year": 2031
+        },
+        {
+          "name": "Mexicano Telcel",
+          "category": "ATP 500",
+          "year": 2031
+        },
+        {
+          "name": "Indian Wells Open",
+          "category": "Masters 1000",
+          "year": 2031
+        },
+        {
+          "name": "Brisbane International",
+          "category": "ATP 250",
+          "year": 2033
+        },
+        {
+          "name": "Open Occitanie",
+          "category": "ATP 250",
+          "year": 2033
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 2033
+        },
+        {
+          "name": "Chennai Open Challenger",
+          "category": "Challenger 100",
+          "year": 2036
+        },
+        {
+          "name": "Delray Beach Open",
+          "category": "ATP 250",
+          "year": 2036
+        },
+        {
+          "name": "Pune Challenger",
+          "category": "Challenger 100",
+          "year": 2037
+        },
+        {
+          "name": "Ilkley Trophy",
+          "category": "Challenger 125",
+          "year": 2037
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2038
+        },
+        {
+          "name": "Chicago Challenger",
+          "category": "Challenger 75",
+          "year": 2038
+        },
+        {
+          "name": "Sioux Falls Challenger",
+          "category": "Challenger 75",
+          "year": 2038
+        },
+        {
+          "name": "Championnats de Granby",
+          "category": "Challenger 75",
+          "year": 2039
+        },
+        {
+          "name": "Kozerki Open",
+          "category": "Challenger 100",
+          "year": 2039
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.0,
+      "highest_ranking": 7
     },
     {
       "id": 166,
@@ -4307,6 +9638,120 @@
       "retired": false,
       "potential_factor": 1.314,
       "highest_ranking": 999
+    },
+    {
+      "id": 173,
+      "name": "Riccardo Popov",
+      "age": 35,
+      "hand": "Right",
+      "skills": {
+        "serve": 50,
+        "forehand": 48,
+        "backhand": 52,
+        "speed": 58,
+        "stamina": 52,
+        "straight": 52,
+        "cross": 51
+      },
+      "rank": 139,
+      "points": 425,
+      "favorite_surface": "clay",
+      "tournament_history": [],
+      "tournament_wins": [
+        {
+          "name": "Yucatan Open",
+          "category": "Challenger 50",
+          "year": 11
+        },
+        {
+          "name": "Southern California Open II",
+          "category": "Challenger 50",
+          "year": 12
+        },
+        {
+          "name": "Advantage Prague Open",
+          "category": "Challenger 75",
+          "year": 12
+        },
+        {
+          "name": "Wuxi Open",
+          "category": "Challenger 75",
+          "year": 13
+        },
+        {
+          "name": "Open de Rennes",
+          "category": "Challenger 100",
+          "year": 13
+        },
+        {
+          "name": "Copa Sevilla",
+          "category": "Challenger 125",
+          "year": 14
+        },
+        {
+          "name": "JC Ferrero Challenger Open",
+          "category": "Challenger 100",
+          "year": 15
+        },
+        {
+          "name": "Torneio Internacional de Tenis",
+          "category": "Challenger 75",
+          "year": 15
+        },
+        {
+          "name": "Santiago Challenger",
+          "category": "Challenger 75",
+          "year": 17
+        },
+        {
+          "name": "Heilbronner Neckarcup",
+          "category": "Challenger 100",
+          "year": 17
+        },
+        {
+          "name": "Uruguay Open",
+          "category": "Challenger 100",
+          "year": 2031
+        },
+        {
+          "name": "Tiriac Open",
+          "category": "ATP 250",
+          "year": 2033
+        },
+        {
+          "name": "San Marino Open",
+          "category": "Challenger 125",
+          "year": 2034
+        },
+        {
+          "name": "Garden Challenger",
+          "category": "Challenger 75",
+          "year": 2036
+        },
+        {
+          "name": "Citta di Como Challenger",
+          "category": "Challenger 75",
+          "year": 2036
+        },
+        {
+          "name": "Antofagasta Challenger",
+          "category": "Challenger 100",
+          "year": 2036
+        },
+        {
+          "name": "Sao Leo Open",
+          "category": "Challenger 75",
+          "year": 2039
+        },
+        {
+          "name": "Split Open",
+          "category": "Challenger 75",
+          "year": 2039
+        }
+      ],
+      "retired": true,
+      "potential_factor": 1.468,
+      "highest_ranking": 17
     },
     {
       "id": 174,
@@ -106623,8 +112068,7 @@
           "year": 2032
         }
       ],
-      "hof_points": 18,
-      "highest_ranking": 20
+      "hof_points": 18
     },
     {
       "name": "James Sharma",
@@ -106750,8 +112194,7 @@
           "year": 2034
         }
       ],
-      "hof_points": 106,
-      "highest_ranking": 3
+      "hof_points": 106
     },
     {
       "name": "Paulo Berger",
@@ -106927,8 +112370,7 @@
           "year": 2033
         }
       ],
-      "hof_points": 164,
-      "highest_ranking": 2
+      "hof_points": 164
     },
     {
       "name": "Maximiliano Kovalenko",
@@ -107019,8 +112461,7 @@
           "year": 2033
         }
       ],
-      "hof_points": 21,
-      "highest_ranking": 19
+      "hof_points": 21
     },
     {
       "name": "Gustavo Hansen",
@@ -107131,8 +112572,7 @@
           "year": 2033
         }
       ],
-      "hof_points": 29,
-      "highest_ranking": 11
+      "hof_points": 29
     },
     {
       "name": "Thiago Aquino",
@@ -107203,8 +112643,7 @@
           "year": 2035
         }
       ],
-      "hof_points": 13,
-      "highest_ranking": 15
+      "hof_points": 13
     },
     {
       "name": "Arsen Delic",
@@ -107315,8 +112754,7 @@
           "year": 2035
         }
       ],
-      "hof_points": 25,
-      "highest_ranking": 15
+      "hof_points": 25
     },
     {
       "name": "Mario Hadzic",
@@ -107392,8 +112830,7 @@
           "year": 2033
         }
       ],
-      "hof_points": 18,
-      "highest_ranking": 20
+      "hof_points": 18
     },
     {
       "name": "Julius Aydogan",
@@ -107469,8 +112906,7 @@
           "year": 2031
         }
       ],
-      "hof_points": 14,
-      "highest_ranking": 40
+      "hof_points": 14
     },
     {
       "name": "Dimitri Thomsen",
@@ -107571,8 +113007,7 @@
           "year": 2034
         }
       ],
-      "hof_points": 19,
-      "highest_ranking": 20
+      "hof_points": 19
     },
     {
       "name": "James Kovalenko",
@@ -107668,8 +113103,7 @@
           "year": 2033
         }
       ],
-      "hof_points": 26,
-      "highest_ranking": 14
+      "hof_points": 26
     },
     {
       "name": "Moritz Gutierrez",
@@ -107825,8 +113259,7 @@
           "year": 2037
         }
       ],
-      "hof_points": 73,
-      "highest_ranking": 6
+      "hof_points": 73
     },
     {
       "name": "Ugur Wagner",
@@ -107912,8 +113345,7 @@
           "year": 2035
         }
       ],
-      "hof_points": 16,
-      "highest_ranking": 40
+      "hof_points": 16
     },
     {
       "name": "Thomas Goossens",
@@ -108004,8 +113436,7 @@
           "year": 2032
         }
       ],
-      "hof_points": 17,
-      "highest_ranking": 35
+      "hof_points": 17
     },
     {
       "name": "Ezra Perez",
@@ -108116,8 +113547,7 @@
           "year": 2030
         }
       ],
-      "hof_points": 21,
-      "highest_ranking": 18
+      "hof_points": 21
     },
     {
       "name": "Ruben Smirnov",
@@ -108268,8 +113698,7 @@
           "year": 2037
         }
       ],
-      "hof_points": 99,
-      "highest_ranking": 5
+      "hof_points": 99
     },
     {
       "name": "Mark Manukyan",
@@ -108400,8 +113829,7 @@
           "year": 2037
         }
       ],
-      "hof_points": 38,
-      "highest_ranking": 9
+      "hof_points": 38
     },
     {
       "name": "Ruben Schuster",
@@ -108942,8 +114370,7 @@
           "year": 2038
         }
       ],
-      "hof_points": 990,
-      "highest_ranking": 1
+      "hof_points": 990
     },
     {
       "name": "Jules Ozolins",
@@ -109034,8 +114461,7 @@
           "year": 2038
         }
       ],
-      "hof_points": 25,
-      "highest_ranking": 16
+      "hof_points": 25
     },
     {
       "name": "Ryan Nakamura",
@@ -109116,8 +114542,7 @@
           "year": 2038
         }
       ],
-      "hof_points": 15,
-      "highest_ranking": 40
+      "hof_points": 15
     },
     {
       "name": "Iker Ibraev",
@@ -109218,8 +114643,7 @@
           "year": 2038
         }
       ],
-      "hof_points": 28,
-      "highest_ranking": 12
+      "hof_points": 28
     },
     {
       "name": "Gustavo Mertens",
@@ -109310,8 +114734,7 @@
           "year": 2035
         }
       ],
-      "hof_points": 30,
-      "highest_ranking": 10
+      "hof_points": 30
     },
     {
       "name": "Matias Subotic",
@@ -109397,8 +114820,7 @@
           "year": 2033
         }
       ],
-      "hof_points": 20,
-      "highest_ranking": 20
+      "hof_points": 20
     },
     {
       "name": "Raphael Ahmed",
@@ -109489,8 +114911,7 @@
           "year": 2034
         }
       ],
-      "hof_points": 17,
-      "highest_ranking": 20
+      "hof_points": 17
     },
     {
       "name": "Lorenzo Andersen",
@@ -109616,8 +115037,7 @@
           "year": 2037
         }
       ],
-      "hof_points": 28,
-      "highest_ranking": 13
+      "hof_points": 28
     },
     {
       "name": "Thiago Mora",
@@ -109698,8 +115118,7 @@
           "year": 2036
         }
       ],
-      "hof_points": 15,
-      "highest_ranking": 40
+      "hof_points": 15
     },
     {
       "name": "Jakov Bos",
@@ -109810,8 +115229,7 @@
           "year": 2039
         }
       ],
-      "hof_points": 104,
-      "highest_ranking": 4
+      "hof_points": 104
     },
     {
       "name": "Timofey Visser",
@@ -109897,8 +115315,7 @@
           "year": 2038
         }
       ],
-      "hof_points": 20,
-      "highest_ranking": 20
+      "hof_points": 20
     },
     {
       "name": "Sebastian Madsen",
@@ -110009,8 +115426,7 @@
           "year": 2039
         }
       ],
-      "hof_points": 73,
-      "highest_ranking": 7
+      "hof_points": 73
     },
     {
       "name": "Riccardo Popov",
@@ -110106,8 +115522,7 @@
           "year": 2039
         }
       ],
-      "hof_points": 22,
-      "highest_ranking": 17
+      "hof_points": 22
     },
     {
       "name": "Elias Radovic",
@@ -110218,8 +115633,7 @@
           "year": 2038
         }
       ],
-      "hof_points": 59,
-      "highest_ranking": 8
+      "hof_points": 59
     },
     {
       "name": "Ugur Jafarov",
@@ -110295,8 +115709,7 @@
           "year": 2037
         }
       ],
-      "hof_points": 18,
-      "highest_ranking": 30
+      "hof_points": 18
     },
     {
       "name": "Ahmed Ibrahimovic",
@@ -110377,8 +115790,7 @@
           "year": 2038
         }
       ],
-      "hof_points": 19,
-      "highest_ranking": 20
+      "hof_points": 19
     },
     {
       "name": "Orhan Becker",
@@ -110469,8 +115881,7 @@
           "year": 2039
         }
       ],
-      "hof_points": 17,
-      "highest_ranking": 30
+      "hof_points": 17
     }
   ]
 }
