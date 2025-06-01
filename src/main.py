@@ -245,7 +245,12 @@ def show_player_details(stdscr, scheduler, player):
         
         stdscr.addstr(14, 0, f"└───────────────┐")
         numwin = len(player.get('tournament_wins'))
-        stdscr.addstr(15, 0, f"┌── WINS ({numwin}) ──┘", curses.A_BOLD)
+        if numwin < 10:
+            stdscr.addstr(15, 0, f"┌── WINS ({numwin}) ───┘", curses.A_BOLD)
+        elif 10 <= numwin < 100:
+            stdscr.addstr(15, 0, f"┌── WINS ({numwin}) ──┘", curses.A_BOLD)
+        else:
+            stdscr.addstr(15, 0, f"┌── WINS ({numwin}) ─┘", curses.A_BOLD)
         display_tournament_wins(stdscr, player, start_row=15)
         stdscr.addstr(height - 1, 0, "Press any key to return to ATP Rankings.")
         stdscr.refresh()
