@@ -236,8 +236,8 @@ class TournamentScheduler:
         # Calculate total spots available in tournaments
         total_spots = sum(t['draw_size'] for t in current_tournaments)
         
-        # Junior Finals logic
-        junior_finals = [t for t in current_tournaments if t['name'] == "Junior Finals"]
+        # Nextgen Finals logic
+        junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
         if junior_finals:
             # Sort by age (youngest first), then by rank (lowest rank number is best)
             available_players.sort(key=lambda p: (p.get('age', 99), p.get('rank', 999)))
