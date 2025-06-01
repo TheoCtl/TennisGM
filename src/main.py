@@ -67,6 +67,7 @@ def main_menu(stdscr, scheduler):
                 stdscr.addstr(len(menu) + max_news_items + 5, 0, "Advanced to next week!", curses.A_BOLD)
                 stdscr.refresh()
                 stdscr.getch()
+                current_row = 0
             elif menu[current_row] == "Exit":
                 break
             
