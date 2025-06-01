@@ -1,7 +1,7 @@
 {
   "current_year": 2043,
-  "current_week": 42,
-  "current_date": "2055-10-27T00:00:00",
+  "current_week": 43,
+  "current_date": "2055-11-03T00:00:00",
   "players": [
     {
       "id": 167,
@@ -268,6 +268,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -396,7 +404,7 @@
         "cross": 55
       },
       "rank": 190,
-      "points": 173,
+      "points": 198,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -646,6 +654,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -903,7 +919,7 @@
         "straight": 46,
         "cross": 44
       },
-      "rank": 185,
+      "rank": 187,
       "points": 217,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -1114,6 +1130,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -1251,18 +1275,10 @@
         "straight": 47,
         "cross": 40
       },
-      "rank": 180,
-      "points": 242,
+      "rank": 182,
+      "points": 230,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Charlotte's Pro Challenger",
           "category": "Challenger 75",
@@ -1478,6 +1494,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -1635,18 +1659,10 @@
         "straight": 43,
         "cross": 43
       },
-      "rank": 160,
-      "points": 336,
+      "rank": 175,
+      "points": 261,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 4,
-          "points": 75
-        },
         {
           "name": "Brazzaville Challenger",
           "category": "Challenger 50",
@@ -2424,18 +2440,10 @@
         "straight": 40,
         "cross": 52
       },
-      "rank": 171,
-      "points": 285,
+      "rank": 173,
+      "points": 267,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Campinas Challenger",
           "category": "Challenger 100",
@@ -2691,6 +2699,14 @@
           "week": 41,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -2813,7 +2829,7 @@
         "straight": 47,
         "cross": 43
       },
-      "rank": 189,
+      "rank": 191,
       "points": 176,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -3148,18 +3164,10 @@
         "straight": 40,
         "cross": 45
       },
-      "rank": 178,
-      "points": 255,
+      "rank": 183,
+      "points": 230,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 25
-        },
         {
           "name": "Calgary Challenger",
           "category": "Challenger 75",
@@ -3415,6 +3423,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -3522,7 +3538,7 @@
         "straight": 54,
         "cross": 52
       },
-      "rank": 184,
+      "rank": 186,
       "points": 220,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -3864,7 +3880,7 @@
         "straight": 44,
         "cross": 47
       },
-      "rank": 179,
+      "rank": 180,
       "points": 248,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -4123,6 +4139,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -4255,18 +4279,10 @@
         "straight": 49,
         "cross": 52
       },
-      "rank": 166,
+      "rank": 169,
       "points": 301,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Campinas Challenger",
           "category": "Challenger 100",
@@ -4522,6 +4538,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -4689,7 +4713,7 @@
         "straight": 47,
         "cross": 46
       },
-      "rank": 173,
+      "rank": 171,
       "points": 277,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -5050,8 +5074,8 @@
         "straight": 45,
         "cross": 45
       },
-      "rank": 192,
-      "points": 159,
+      "rank": 189,
+      "points": 204,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -5293,6 +5317,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 3,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -5395,18 +5427,10 @@
         "straight": 55,
         "cross": 56
       },
-      "rank": 172,
-      "points": 282,
+      "rank": 177,
+      "points": 257,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 25
-        },
         {
           "name": "Campinas Challenger",
           "category": "Challenger 100",
@@ -5737,18 +5761,10 @@
         "straight": 49,
         "cross": 53
       },
-      "rank": 148,
+      "rank": 147,
       "points": 372,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -5964,6 +5980,14 @@
           "week": 41,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -6171,7 +6195,7 @@
         "straight": 47,
         "cross": 49
       },
-      "rank": 165,
+      "rank": 167,
       "points": 308,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -6898,7 +6922,7 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 122,
+      "rank": 124,
       "points": 455,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -7109,6 +7133,14 @@
           "week": 41,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -7296,18 +7328,10 @@
         "straight": 53,
         "cross": 55
       },
-      "rank": 132,
-      "points": 411,
+      "rank": 143,
+      "points": 381,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 3,
-          "points": 75
-        },
         {
           "name": "Taipei OEC Open",
           "category": "Challenger 125",
@@ -7515,6 +7539,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -7636,14 +7668,6 @@
       "points": 324,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Brisbane International",
           "category": "ATP 250",
@@ -7968,18 +7992,10 @@
         "straight": 58,
         "cross": 47
       },
-      "rank": 164,
-      "points": 310,
+      "rank": 161,
+      "points": 328,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Campinas Challenger",
           "category": "Challenger 100",
@@ -8179,6 +8195,14 @@
           "week": 33,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -8291,18 +8315,10 @@
         "straight": 56,
         "cross": 54
       },
-      "rank": 155,
+      "rank": 157,
       "points": 350,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -8526,6 +8542,14 @@
           "week": 41,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -8653,18 +8677,10 @@
         "straight": 59,
         "cross": 55
       },
-      "rank": 167,
-      "points": 301,
+      "rank": 172,
+      "points": 276,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 25
-        },
         {
           "name": "Seoul Open Challenger",
           "category": "Challenger 100",
@@ -8993,18 +9009,10 @@
         "straight": 55,
         "cross": 60
       },
-      "rank": 153,
-      "points": 357,
+      "rank": 137,
+      "points": 397,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -9188,6 +9196,14 @@
           "week": 40,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 3,
+          "points": 60
         }
       ],
       "tournament_wins": [
@@ -9310,18 +9326,10 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 177,
-      "points": 259,
+      "rank": 154,
+      "points": 359,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -9489,6 +9497,14 @@
           "week": 36,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 4,
+          "points": 100
         }
       ],
       "tournament_wins": [
@@ -9616,6 +9632,11 @@
           "name": "Cary Tennis Classic",
           "category": "Challenger 100",
           "year": 2042
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043
         }
       ],
       "retired": false,
@@ -9636,18 +9657,10 @@
         "straight": 56,
         "cross": 53
       },
-      "rank": 88,
-      "points": 553,
+      "rank": 94,
+      "points": 533,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -10040,18 +10053,10 @@
         "straight": 57,
         "cross": 52
       },
-      "rank": 161,
-      "points": 324,
+      "rank": 168,
+      "points": 307,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 35
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -10251,6 +10256,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -10373,7 +10386,7 @@
         "straight": 61,
         "cross": 47
       },
-      "rank": 120,
+      "rank": 123,
       "points": 456,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -10714,7 +10727,7 @@
         "straight": 50,
         "cross": 51
       },
-      "rank": 140,
+      "rank": 138,
       "points": 395,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -11039,7 +11052,7 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 112,
+      "rank": 116,
       "points": 480,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -11415,7 +11428,7 @@
         "straight": 54,
         "cross": 55
       },
-      "rank": 86,
+      "rank": 88,
       "points": 558,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -11749,18 +11762,10 @@
         "straight": 48,
         "cross": 47
       },
-      "rank": 159,
+      "rank": 160,
       "points": 341,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Sioux Falls Challenger",
           "category": "Challenger 75",
@@ -11976,6 +11981,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -12108,18 +12121,10 @@
         "straight": 56,
         "cross": 56
       },
-      "rank": 134,
-      "points": 406,
+      "rank": 152,
+      "points": 361,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -12263,6 +12268,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -12385,18 +12398,10 @@
         "straight": 59,
         "cross": 56
       },
-      "rank": 54,
-      "points": 775,
+      "rank": 67,
+      "points": 700,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 3,
-          "points": 75
-        },
         {
           "name": "Brest Challenger",
           "category": "Challenger 100",
@@ -12532,6 +12537,14 @@
           "week": 41,
           "round": 4,
           "points": 100
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -12660,18 +12673,10 @@
         "straight": 54,
         "cross": 53
       },
-      "rank": 137,
+      "rank": 134,
       "points": 399,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "HPP Open",
           "category": "Challenger 125",
@@ -12986,8 +12991,8 @@
         "straight": 50,
         "cross": 60
       },
-      "rank": 174,
-      "points": 274,
+      "rank": 165,
+      "points": 309,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -13237,6 +13242,14 @@
           "week": 41,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 35
         }
       ],
       "tournament_wins": [
@@ -13329,18 +13342,10 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 144,
+      "rank": 142,
       "points": 384,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -13564,6 +13569,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -13691,7 +13704,7 @@
         "straight": 56,
         "cross": 65
       },
-      "rank": 138,
+      "rank": 135,
       "points": 399,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -13998,7 +14011,7 @@
         "cross": 56
       },
       "rank": 28,
-      "points": 1505,
+      "points": 1525,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -14216,6 +14229,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -14409,7 +14430,7 @@
         "straight": 52,
         "cross": 53
       },
-      "rank": 101,
+      "rank": 104,
       "points": 503,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -14580,6 +14601,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -14657,18 +14686,10 @@
         "straight": 54,
         "cross": 56
       },
-      "rank": 68,
-      "points": 690,
+      "rank": 65,
+      "points": 715,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Taipei OEC Open",
           "category": "Challenger 125",
@@ -14876,6 +14897,14 @@
           "week": 41,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -15009,18 +15038,10 @@
         "straight": 57,
         "cross": 49
       },
-      "rank": 154,
+      "rank": 156,
       "points": 353,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -15317,18 +15338,10 @@
         "straight": 56,
         "cross": 57
       },
-      "rank": 182,
-      "points": 236,
+      "rank": 164,
+      "points": 311,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -15528,6 +15541,14 @@
           "week": 41,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 4,
+          "points": 75
         }
       ],
       "tournament_wins": [
@@ -15660,6 +15681,11 @@
           "name": "Shanghai Challenger",
           "category": "Challenger 100",
           "year": 2042
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043
         }
       ],
       "retired": false,
@@ -15680,18 +15706,10 @@
         "straight": 56,
         "cross": 58
       },
-      "rank": 99,
+      "rank": 101,
       "points": 508,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -16001,18 +16019,10 @@
         "straight": 60,
         "cross": 55
       },
-      "rank": 106,
+      "rank": 110,
       "points": 491,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -16332,18 +16342,10 @@
         "straight": 63,
         "cross": 59
       },
-      "rank": 115,
-      "points": 473,
+      "rank": 108,
+      "points": 493,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 25
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -16527,6 +16529,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -16699,18 +16709,10 @@
         "straight": 60,
         "cross": 55
       },
-      "rank": 113,
+      "rank": 118,
       "points": 473,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 25
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -16910,6 +16912,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -17266,6 +17276,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -17388,14 +17406,6 @@
       "points": 5545,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -17611,6 +17621,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -18079,18 +18097,10 @@
         "straight": 54,
         "cross": 53
       },
-      "rank": 80,
-      "points": 615,
+      "rank": 81,
+      "points": 595,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -18422,7 +18432,7 @@
         "straight": 47,
         "cross": 61
       },
-      "rank": 142,
+      "rank": 140,
       "points": 389,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -18609,6 +18619,14 @@
           "week": 39,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -18781,18 +18799,10 @@
         "straight": 59,
         "cross": 63
       },
-      "rank": 118,
-      "points": 463,
+      "rank": 102,
+      "points": 508,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -18992,6 +19002,14 @@
           "week": 41,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -19134,18 +19152,10 @@
         "straight": 59,
         "cross": 56
       },
-      "rank": 92,
-      "points": 539,
+      "rank": 97,
+      "points": 514,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 25
-        },
         {
           "name": "Slovak Open",
           "category": "Challenger 125",
@@ -19361,6 +19371,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -19463,7 +19481,7 @@
         "straight": 60,
         "cross": 57
       },
-      "rank": 123,
+      "rank": 125,
       "points": 453,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -19770,18 +19788,10 @@
         "straight": 58,
         "cross": 50
       },
-      "rank": 129,
-      "points": 414,
+      "rank": 148,
+      "points": 369,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -19989,6 +19999,14 @@
           "week": 41,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -20126,7 +20144,7 @@
         "straight": 63,
         "cross": 66
       },
-      "rank": 119,
+      "rank": 121,
       "points": 460,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -20463,8 +20481,8 @@
         "straight": 55,
         "cross": 55
       },
-      "rank": 23,
-      "points": 1755,
+      "rank": 22,
+      "points": 1775,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -20698,6 +20716,14 @@
           "week": 41,
           "round": 4,
           "points": 150
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -20821,8 +20847,8 @@
         "straight": 50,
         "cross": 55
       },
-      "rank": 74,
-      "points": 669,
+      "rank": 69,
+      "points": 689,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -20984,6 +21010,14 @@
           "week": 39,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -21101,14 +21135,6 @@
       "points": 726,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Campinas Challenger",
           "category": "Challenger 100",
@@ -21459,8 +21485,8 @@
         "straight": 54,
         "cross": 58
       },
-      "rank": 131,
-      "points": 411,
+      "rank": 129,
+      "points": 436,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -21614,6 +21640,14 @@
           "week": 41,
           "round": 4,
           "points": 75
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -21741,8 +21775,8 @@
         "straight": 50,
         "cross": 60
       },
-      "rank": 49,
-      "points": 835,
+      "rank": 47,
+      "points": 855,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -21984,6 +22018,14 @@
           "week": 41,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -22257,6 +22299,14 @@
           "category": "ATP 250",
           "year": 2043,
           "week": 41,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
           "round": 0,
           "points": 0
         }
@@ -22572,18 +22622,10 @@
         "straight": 61,
         "cross": 59
       },
-      "rank": 103,
-      "points": 498,
+      "rank": 95,
+      "points": 523,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -22727,6 +22769,14 @@
           "week": 41,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -22804,18 +22854,10 @@
         "straight": 62,
         "cross": 55
       },
-      "rank": 56,
-      "points": 768,
+      "rank": 58,
+      "points": 748,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -23007,6 +23049,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -23105,8 +23155,8 @@
         "straight": 57,
         "cross": 62
       },
-      "rank": 79,
-      "points": 656,
+      "rank": 71,
+      "points": 676,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -23292,6 +23342,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -23434,18 +23492,10 @@
         "straight": 48,
         "cross": 54
       },
-      "rank": 82,
-      "points": 602,
+      "rank": 83,
+      "points": 582,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -23637,6 +23687,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -23780,7 +23838,7 @@
         "cross": 55
       },
       "rank": 40,
-      "points": 1175,
+      "points": 1195,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -23990,6 +24048,14 @@
           "week": 41,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -24088,18 +24154,10 @@
         "straight": 59,
         "cross": 54
       },
-      "rank": 91,
+      "rank": 92,
       "points": 540,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Moselle Open",
           "category": "ATP 250",
@@ -24267,6 +24325,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -24399,18 +24465,10 @@
         "straight": 65,
         "cross": 62
       },
-      "rank": 136,
-      "points": 404,
+      "rank": 120,
+      "points": 461,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -24618,6 +24676,14 @@
           "week": 39,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 3,
+          "points": 75
         }
       ],
       "tournament_wins": [
@@ -24760,18 +24826,10 @@
         "straight": 57,
         "cross": 61
       },
-      "rank": 87,
-      "points": 554,
+      "rank": 85,
+      "points": 574,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 25
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -24931,6 +24989,14 @@
           "week": 35,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -25079,18 +25145,10 @@
         "straight": 65,
         "cross": 54
       },
-      "rank": 104,
+      "rank": 106,
       "points": 495,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -25365,18 +25423,10 @@
         "straight": 60,
         "cross": 61
       },
-      "rank": 78,
-      "points": 660,
+      "rank": 66,
+      "points": 705,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -25576,6 +25626,14 @@
           "week": 41,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -25648,18 +25706,10 @@
         "straight": 63,
         "cross": 62
       },
-      "rank": 71,
-      "points": 678,
+      "rank": 77,
+      "points": 653,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 25
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -26039,14 +26089,6 @@
       "favorite_surface": "indoor",
       "tournament_history": [
         {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
-        {
           "name": "Paris Masters",
           "category": "Masters 1000",
           "year": 2042,
@@ -26336,18 +26378,10 @@
         "straight": 57,
         "cross": 59
       },
-      "rank": 89,
+      "rank": 90,
       "points": 550,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -26539,6 +26573,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -26877,6 +26919,14 @@
           "category": "Challenger 100",
           "year": 2043,
           "week": 41,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
           "round": 0,
           "points": 0
         }
@@ -27314,7 +27364,7 @@
         "straight": 58,
         "cross": 54
       },
-      "rank": 125,
+      "rank": 128,
       "points": 449,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -27656,18 +27706,10 @@
         "straight": 55,
         "cross": 63
       },
-      "rank": 48,
-      "points": 875,
+      "rank": 49,
+      "points": 830,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -27905,6 +27947,14 @@
           "category": "ATP 250",
           "year": 2043,
           "week": 41,
+          "round": 2,
+          "points": 45
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
           "round": 2,
           "points": 45
         }
@@ -28203,6 +28253,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -28374,14 +28432,6 @@
       "points": 670,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "HPP Open",
           "category": "Challenger 125",
@@ -28658,18 +28708,10 @@
         "straight": 60,
         "cross": 63
       },
-      "rank": 37,
-      "points": 1295,
+      "rank": 39,
+      "points": 1205,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -28972,18 +29014,10 @@
         "straight": 61,
         "cross": 65
       },
-      "rank": 42,
+      "rank": 41,
       "points": 1060,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -29205,6 +29239,14 @@
           "category": "ATP 250",
           "year": 2043,
           "week": 41,
+          "round": 1,
+          "points": 20
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
           "round": 1,
           "points": 20
         }
@@ -29601,18 +29643,10 @@
         "straight": 56,
         "cross": 55
       },
-      "rank": 124,
+      "rank": 127,
       "points": 450,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -29908,18 +29942,10 @@
         "straight": 59,
         "cross": 58
       },
-      "rank": 22,
+      "rank": 21,
       "points": 1870,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 4,
-          "points": 150
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -30143,6 +30169,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 4,
+          "points": 150
         }
       ],
       "tournament_wins": [
@@ -30286,18 +30320,10 @@
         "straight": 68,
         "cross": 65
       },
-      "rank": 21,
-      "points": 1895,
+      "rank": 19,
+      "points": 1915,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -30529,6 +30555,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -30642,18 +30676,10 @@
         "straight": 51,
         "cross": 58
       },
-      "rank": 143,
+      "rank": 141,
       "points": 388,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -30990,18 +31016,10 @@
         "straight": 57,
         "cross": 63
       },
-      "rank": 97,
+      "rank": 99,
       "points": 510,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -31225,6 +31243,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -31352,7 +31378,7 @@
         "straight": 58,
         "cross": 57
       },
-      "rank": 57,
+      "rank": 55,
       "points": 756,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -31555,6 +31581,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -31668,7 +31702,7 @@
         "straight": 55,
         "cross": 55
       },
-      "rank": 75,
+      "rank": 74,
       "points": 664,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -31887,6 +31921,14 @@
           "week": 41,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -32020,18 +32062,10 @@
         "straight": 57,
         "cross": 63
       },
-      "rank": 47,
-      "points": 875,
+      "rank": 48,
+      "points": 830,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -32215,6 +32249,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -32332,14 +32374,6 @@
       "points": 735,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -32555,6 +32589,14 @@
           "week": 41,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -32634,7 +32676,7 @@
         "cross": 61
       },
       "rank": 50,
-      "points": 805,
+      "points": 825,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -32868,6 +32910,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -32981,18 +33031,10 @@
         "straight": 56,
         "cross": 60
       },
-      "rank": 95,
-      "points": 530,
+      "rank": 98,
+      "points": 510,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -33344,18 +33386,10 @@
         "straight": 58,
         "cross": 63
       },
-      "rank": 60,
-      "points": 730,
+      "rank": 56,
+      "points": 750,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -33571,6 +33605,14 @@
           "week": 41,
           "round": 3,
           "points": 60
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -33689,18 +33731,10 @@
         "straight": 62,
         "cross": 65
       },
-      "rank": 10,
-      "points": 3790,
+      "rank": 11,
+      "points": 3770,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -34086,18 +34120,10 @@
         "straight": 67,
         "cross": 59
       },
-      "rank": 31,
-      "points": 1460,
+      "rank": 29,
+      "points": 1505,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -34297,6 +34323,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -34394,18 +34428,10 @@
         "straight": 62,
         "cross": 58
       },
-      "rank": 126,
-      "points": 429,
+      "rank": 103,
+      "points": 504,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Taipei OEC Open",
           "category": "Challenger 125",
@@ -34605,6 +34631,14 @@
           "week": 40,
           "round": 2,
           "points": 35
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 3,
+          "points": 75
         }
       ],
       "tournament_wins": [
@@ -34742,7 +34776,7 @@
         "straight": 57,
         "cross": 63
       },
-      "rank": 90,
+      "rank": 91,
       "points": 545,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -34921,6 +34955,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -35068,18 +35110,10 @@
         "straight": 55,
         "cross": 58
       },
-      "rank": 83,
+      "rank": 79,
       "points": 601,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Brest Challenger",
           "category": "Challenger 100",
@@ -35247,6 +35281,14 @@
           "week": 40,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -35379,18 +35421,10 @@
         "straight": 67,
         "cross": 62
       },
-      "rank": 158,
-      "points": 343,
+      "rank": 144,
+      "points": 378,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -35582,6 +35616,14 @@
           "week": 41,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 35
         }
       ],
       "tournament_wins": [
@@ -35734,7 +35776,7 @@
         "straight": 58,
         "cross": 63
       },
-      "rank": 85,
+      "rank": 87,
       "points": 565,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -36031,18 +36073,10 @@
         "straight": 57,
         "cross": 56
       },
-      "rank": 66,
-      "points": 706,
+      "rank": 61,
+      "points": 726,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -36242,6 +36276,14 @@
           "week": 41,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -36383,7 +36425,7 @@
       ],
       "retired": false,
       "potential_factor": 1.0,
-      "highest_ranking": 66,
+      "highest_ranking": 61,
       "hof_points": 27
     },
     {
@@ -36400,18 +36442,10 @@
         "straight": 56,
         "cross": 54
       },
-      "rank": 109,
+      "rank": 113,
       "points": 485,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -36665,7 +36699,7 @@
         "straight": 60,
         "cross": 60
       },
-      "rank": 58,
+      "rank": 57,
       "points": 750,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -36978,18 +37012,10 @@
         "straight": 62,
         "cross": 57
       },
-      "rank": 55,
+      "rank": 54,
       "points": 775,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -37155,6 +37181,14 @@
           "category": "Masters 1000",
           "year": 2043,
           "week": 40,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
           "round": 0,
           "points": 0
         }
@@ -37658,18 +37692,10 @@
         "straight": 57,
         "cross": 67
       },
-      "rank": 127,
-      "points": 428,
+      "rank": 89,
+      "points": 553,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -37837,6 +37863,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 4,
+          "points": 125
         }
       ],
       "tournament_wins": [
@@ -37904,6 +37938,11 @@
           "name": "Porto Open",
           "category": "Challenger 125",
           "year": 2043
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043
         }
       ],
       "retired": false,
@@ -37924,18 +37963,10 @@
         "straight": 66,
         "cross": 60
       },
-      "rank": 39,
-      "points": 1185,
+      "rank": 37,
+      "points": 1275,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Taipei OEC Open",
           "category": "Challenger 125",
@@ -38135,6 +38166,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -38247,14 +38286,6 @@
       "points": 2875,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -38486,6 +38517,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -38594,18 +38633,10 @@
         "straight": 62,
         "cross": 58
       },
-      "rank": 69,
+      "rank": 68,
       "points": 690,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -38797,6 +38828,14 @@
           "week": 40,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -38905,18 +38944,10 @@
         "straight": 60,
         "cross": 54
       },
-      "rank": 135,
+      "rank": 132,
       "points": 405,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -39325,6 +39356,14 @@
           "week": 41,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -39413,18 +39452,10 @@
         "straight": 67,
         "cross": 65
       },
-      "rank": 41,
-      "points": 1095,
+      "rank": 42,
+      "points": 1050,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -39773,18 +39804,10 @@
         "straight": 63,
         "cross": 61
       },
-      "rank": 67,
-      "points": 703,
+      "rank": 84,
+      "points": 578,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 4,
-          "points": 125
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -39944,6 +39967,14 @@
           "week": 41,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -40057,18 +40088,10 @@
         "straight": 57,
         "cross": 62
       },
-      "rank": 29,
-      "points": 1475,
+      "rank": 31,
+      "points": 1455,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -40268,6 +40291,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -40581,6 +40612,14 @@
           "category": "ATP 250",
           "year": 2043,
           "week": 41,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
           "round": 0,
           "points": 0
         }
@@ -40905,6 +40944,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -40993,18 +41040,10 @@
         "straight": 57,
         "cross": 57
       },
-      "rank": 77,
+      "rank": 76,
       "points": 661,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -41343,17 +41382,9 @@
         "cross": 62
       },
       "rank": 43,
-      "points": 1050,
+      "points": 1005,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -41842,6 +41873,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -42283,17 +42322,9 @@
         "cross": 60
       },
       "rank": 2,
-      "points": 6830,
+      "points": 6930,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 4,
-          "points": 150
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -42517,6 +42548,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 5,
+          "points": 250
         }
       ],
       "tournament_wins": [
@@ -42679,6 +42718,11 @@
           "name": "Madrid Open",
           "category": "Masters 1000",
           "year": 2043
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043
         }
       ],
       "retired": false,
@@ -42700,7 +42744,7 @@
         "straight": 60,
         "cross": 60
       },
-      "rank": 81,
+      "rank": 78,
       "points": 603,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -42879,6 +42923,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -42986,18 +43038,10 @@
         "straight": 58,
         "cross": 63
       },
-      "rank": 100,
-      "points": 505,
+      "rank": 122,
+      "points": 460,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -43219,18 +43263,10 @@
         "straight": 59,
         "cross": 61
       },
-      "rank": 84,
-      "points": 598,
+      "rank": 86,
+      "points": 573,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 25
-        },
         {
           "name": "Campinas Challenger",
           "category": "Challenger 100",
@@ -43458,14 +43494,6 @@
       "points": 955,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -43786,18 +43814,10 @@
         "straight": 59,
         "cross": 63
       },
-      "rank": 9,
-      "points": 3815,
+      "rank": 10,
+      "points": 3795,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -44132,7 +44152,7 @@
         "cross": 56
       },
       "rank": 16,
-      "points": 2330,
+      "points": 2350,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -44358,6 +44378,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -44485,14 +44513,6 @@
       "points": 4180,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -44732,6 +44752,14 @@
           "week": 40,
           "round": 4,
           "points": 360
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -44879,14 +44907,6 @@
       "points": 1255,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -45213,14 +45233,6 @@
       "favorite_surface": "clay",
       "tournament_history": [
         {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
-        {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
           "year": 2042,
@@ -45480,18 +45492,10 @@
         "straight": 63,
         "cross": 67
       },
-      "rank": 11,
-      "points": 3675,
+      "rank": 9,
+      "points": 3835,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -45691,6 +45695,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 5,
+          "points": 250
         }
       ],
       "tournament_wins": [
@@ -45793,12 +45805,17 @@
           "name": "Mallorca Championships",
           "category": "ATP 250",
           "year": 2043
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043
         }
       ],
       "retired": false,
       "potential_factor": 1.338,
       "highest_ranking": 4,
-      "hof_points": 196
+      "hof_points": 201
     },
     {
       "id": 307,
@@ -45818,14 +45835,6 @@
       "points": 6460,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 3,
-          "points": 90
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -46017,6 +46026,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -46186,17 +46203,9 @@
         "cross": 61
       },
       "rank": 36,
-      "points": 1300,
+      "points": 1280,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -46370,6 +46379,14 @@
           "category": "ATP 250",
           "year": 2043,
           "week": 41,
+          "round": 0,
+          "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
           "round": 0,
           "points": 0
         }
@@ -46774,8 +46791,8 @@
         "straight": 60,
         "cross": 54
       },
-      "rank": 25,
-      "points": 1645,
+      "rank": 24,
+      "points": 1665,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -46985,6 +47002,14 @@
           "week": 41,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -47063,7 +47088,7 @@
         "straight": 54,
         "cross": 53
       },
-      "rank": 130,
+      "rank": 131,
       "points": 413,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -47320,17 +47345,9 @@
         "cross": 64
       },
       "rank": 51,
-      "points": 805,
+      "points": 825,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -47554,6 +47571,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 20
         }
       ],
       "tournament_wins": [
@@ -47688,7 +47713,7 @@
         "cross": 58
       },
       "rank": 13,
-      "points": 3075,
+      "points": 3165,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -47898,6 +47923,14 @@
           "week": 40,
           "round": 6,
           "points": 1000
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -48184,6 +48217,14 @@
           "week": 40,
           "round": 4,
           "points": 125
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -48297,17 +48338,9 @@
         "cross": 58
       },
       "rank": 30,
-      "points": 1475,
+      "points": 1500,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -48491,6 +48524,14 @@
           "week": 40,
           "round": 2,
           "points": 90
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -48569,7 +48610,7 @@
         "straight": 57,
         "cross": 60
       },
-      "rank": 111,
+      "rank": 114,
       "points": 481,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -48764,6 +48805,14 @@
           "week": 41,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -48876,8 +48925,8 @@
         "straight": 56,
         "cross": 66
       },
-      "rank": 133,
-      "points": 407,
+      "rank": 126,
+      "points": 452,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -49055,6 +49104,14 @@
           "week": 39,
           "round": 2,
           "points": 45
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 45
         }
       ],
       "tournament_wins": [
@@ -49118,17 +49175,9 @@
         "cross": 67
       },
       "rank": 12,
-      "points": 3260,
+      "points": 3365,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -49368,6 +49417,14 @@
           "week": 41,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 4,
+          "points": 150
         }
       ],
       "tournament_wins": [
@@ -49477,17 +49534,9 @@
         "cross": 70
       },
       "rank": 6,
-      "points": 5115,
+      "points": 4865,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 5,
-          "points": 250
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -49905,8 +49954,8 @@
         "straight": 59,
         "cross": 57
       },
-      "rank": 35,
-      "points": 1335,
+      "rank": 34,
+      "points": 1425,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -50124,6 +50173,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 3,
+          "points": 90
         }
       ],
       "tournament_wins": [
@@ -50472,18 +50529,10 @@
         "straight": 55,
         "cross": 63
       },
-      "rank": 19,
-      "points": 1910,
+      "rank": 25,
+      "points": 1660,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 5,
-          "points": 250
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -50699,6 +50748,14 @@
           "week": 40,
           "round": 1,
           "points": 45
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -51704,17 +51761,9 @@
         "cross": 61
       },
       "rank": 15,
-      "points": 2705,
+      "points": 2660,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Paris Masters",
           "category": "Masters 1000",
@@ -52004,18 +52053,10 @@
         "straight": 52,
         "cross": 62
       },
-      "rank": 34,
+      "rank": 35,
       "points": 1420,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -52247,6 +52288,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -52316,17 +52365,9 @@
         "cross": 60
       },
       "rank": 27,
-      "points": 1605,
+      "points": 1585,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Stockholm Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 20
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -52635,18 +52676,10 @@
         "straight": 58,
         "cross": 55
       },
-      "rank": 61,
+      "rank": 60,
       "points": 728,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -52941,8 +52974,8 @@
         "cross": 62
       },
       "potential_factor": 1.202,
-      "rank": 121,
-      "points": 455,
+      "rank": 115,
+      "points": 480,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -53176,6 +53209,14 @@
           "week": 41,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -53233,7 +53274,7 @@
         "cross": 67
       },
       "potential_factor": 1.32,
-      "rank": 24,
+      "rank": 23,
       "points": 1735,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -53518,18 +53559,10 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 98,
-      "points": 510,
+      "rank": 119,
+      "points": 465,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Vienna Open",
           "category": "ATP 500",
@@ -53697,6 +53730,14 @@
           "week": 38,
           "round": 1,
           "points": 20
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -53739,18 +53780,10 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 139,
+      "rank": 136,
       "points": 397,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Campinas Challenger",
           "category": "Challenger 100",
@@ -53958,6 +53991,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -54010,18 +54051,10 @@
         "cross": 55
       },
       "potential_factor": 1.385,
-      "rank": 114,
-      "points": 473,
+      "rank": 80,
+      "points": 598,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Swiss Indoors Basel",
           "category": "ATP 500",
@@ -54181,6 +54214,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 4,
+          "points": 125
         }
       ],
       "tournament_wins": [
@@ -54228,10 +54269,15 @@
           "name": "Mexico City Open",
           "category": "Challenger 125",
           "year": 2043
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043
         }
       ],
       "retired": false,
-      "highest_ranking": 81
+      "highest_ranking": 80
     },
     {
       "id": 334,
@@ -54248,18 +54294,10 @@
         "cross": 56
       },
       "potential_factor": 1.23,
-      "rank": 102,
+      "rank": 105,
       "points": 498,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Slovak Open",
           "category": "Challenger 125",
@@ -54387,6 +54425,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -54454,18 +54500,10 @@
         "cross": 59
       },
       "potential_factor": 1.264,
-      "rank": 76,
+      "rank": 75,
       "points": 663,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "European Open",
-          "category": "ATP 250",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Curitiba Challenger",
           "category": "Challenger 75",
@@ -54649,6 +54687,14 @@
           "week": 41,
           "round": 3,
           "points": 60
+        },
+        {
+          "name": "Stockholm Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -54712,18 +54758,10 @@
         "cross": 61
       },
       "potential_factor": 1.386,
-      "rank": 65,
-      "points": 711,
+      "rank": 82,
+      "points": 586,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 4,
-          "points": 125
-        },
         {
           "name": "Hong Kong Tennis Open",
           "category": "ATP 250",
@@ -54989,7 +55027,7 @@
         "cross": 57
       },
       "potential_factor": 1.213,
-      "rank": 157,
+      "rank": 159,
       "points": 347,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -55500,8 +55538,8 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 117,
-      "points": 467,
+      "rank": 109,
+      "points": 492,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -55703,6 +55741,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -55738,7 +55784,7 @@
         }
       ],
       "retired": false,
-      "highest_ranking": 113
+      "highest_ranking": 109
     },
     {
       "id": 340,
@@ -55759,14 +55805,6 @@
       "points": 538,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -55958,6 +55996,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "European Open",
+          "category": "ATP 250",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -56005,18 +56051,10 @@
         "cross": 61
       },
       "potential_factor": 1.0,
-      "rank": 128,
-      "points": 417,
+      "rank": 133,
+      "points": 404,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Curitiba Challenger",
           "category": "Challenger 75",
@@ -56240,6 +56278,14 @@
           "week": 41,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -56272,18 +56318,10 @@
         "cross": 57
       },
       "potential_factor": 1.058,
-      "rank": 156,
+      "rank": 158,
       "points": 349,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Seoul Open Challenger",
           "category": "Challenger 100",
@@ -56539,6 +56577,14 @@
           "week": 41,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -56576,18 +56622,10 @@
         "cross": 53
       },
       "potential_factor": 1.202,
-      "rank": 94,
-      "points": 531,
+      "rank": 112,
+      "points": 486,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Copa Faulcombridge",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 45
-        },
         {
           "name": "Slovak Open",
           "category": "Challenger 125",
@@ -56839,8 +56877,8 @@
         "cross": 60
       },
       "potential_factor": 1.0,
-      "rank": 169,
-      "points": 291,
+      "rank": 166,
+      "points": 309,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -57058,6 +57096,14 @@
           "week": 39,
           "round": 2,
           "points": 25
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 18
         }
       ],
       "tournament_wins": [
@@ -57099,14 +57145,6 @@
       "points": 364,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -57374,14 +57412,6 @@
       "points": 378,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -57679,14 +57709,6 @@
       "favorite_surface": "hard",
       "tournament_history": [
         {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
-        {
           "name": "Calgary Challenger",
           "category": "Challenger 75",
           "year": 2042,
@@ -57925,6 +57947,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -57957,18 +57987,10 @@
         "cross": 63
       },
       "potential_factor": 1.462,
-      "rank": 107,
+      "rank": 111,
       "points": 491,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Hangzhou Challenger",
-          "category": "Challenger 125",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Olbia Challenger",
           "category": "Challenger 125",
@@ -58144,6 +58166,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -58201,18 +58231,10 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 108,
-      "points": 488,
+      "rank": 130,
+      "points": 428,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 3,
-          "points": 60
-        },
         {
           "name": "Sioux Falls Challenger",
           "category": "Challenger 75",
@@ -58436,6 +58458,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Copa Faulcombridge",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -58463,8 +58493,8 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 181,
-      "points": 238,
+      "rank": 179,
+      "points": 251,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -58714,6 +58744,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [],
@@ -58735,18 +58773,10 @@
         "cross": 46
       },
       "potential_factor": 1.0,
-      "rank": 183,
+      "rank": 181,
       "points": 236,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Calgary Challenger",
           "category": "Challenger 75",
@@ -58997,18 +59027,10 @@
         "cross": 47
       },
       "potential_factor": 1.0,
-      "rank": 116,
-      "points": 468,
+      "rank": 107,
+      "points": 493,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Shenzhen Longua Open",
           "category": "Challenger 100",
@@ -59224,6 +59246,14 @@
           "week": 38,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -59249,7 +59279,7 @@
         }
       ],
       "retired": false,
-      "highest_ranking": 108
+      "highest_ranking": 107
     },
     {
       "id": 353,
@@ -59266,18 +59296,10 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 188,
-      "points": 204,
+      "rank": 184,
+      "points": 229,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Knoxville Challenger",
           "category": "Challenger 75",
@@ -59477,6 +59499,14 @@
           "week": 36,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 2,
+          "points": 25
         }
       ],
       "tournament_wins": [],
@@ -59498,18 +59528,10 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 150,
-      "points": 368,
+      "rank": 155,
+      "points": 355,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Calgary Challenger",
           "category": "Challenger 75",
@@ -59791,18 +59813,10 @@
         "cross": 54
       },
       "potential_factor": 1.0,
-      "rank": 147,
-      "points": 378,
+      "rank": 150,
+      "points": 368,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 2,
-          "points": 35
-        },
         {
           "name": "Campinas Challenger",
           "category": "Challenger 100",
@@ -60058,6 +60072,14 @@
           "week": 41,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -60085,18 +60107,10 @@
         "cross": 57
       },
       "potential_factor": 1.343,
-      "rank": 105,
-      "points": 492,
+      "rank": 117,
+      "points": 474,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open de Roanne",
-          "category": "Challenger 100",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 18
-        },
         {
           "name": "Kobe Challenger",
           "category": "Challenger 100",
@@ -60280,6 +60294,14 @@
           "week": 39,
           "round": 1,
           "points": 25
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -60322,8 +60344,8 @@
         "cross": 54
       },
       "potential_factor": 1.0,
-      "rank": 110,
-      "points": 484,
+      "rank": 100,
+      "points": 509,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -60565,6 +60587,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 25
         }
       ],
       "tournament_wins": [
@@ -60585,7 +60615,7 @@
         }
       ],
       "retired": false,
-      "highest_ranking": 105
+      "highest_ranking": 100
     },
     {
       "id": 358,
@@ -60602,18 +60632,10 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 152,
+      "rank": 153,
       "points": 360,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Curitiba Challenger",
           "category": "Challenger 75",
@@ -60845,6 +60867,14 @@
           "week": 40,
           "round": 1,
           "points": 18
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -60872,18 +60902,10 @@
         "cross": 44
       },
       "potential_factor": 1.0,
-      "rank": 168,
-      "points": 300,
+      "rank": 178,
+      "points": 255,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 3,
-          "points": 45
-        },
         {
           "name": "Calgary Challenger",
           "category": "Challenger 75",
@@ -61155,6 +61177,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [],
@@ -61176,18 +61206,10 @@
         "cross": 49
       },
       "potential_factor": 1.0,
-      "rank": 191,
+      "rank": 192,
       "points": 168,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 1,
-          "points": 13
-        },
         {
           "name": "Curitiba Challenger",
           "category": "Challenger 75",
@@ -61419,6 +61441,14 @@
           "week": 40,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [],
@@ -61440,18 +61470,10 @@
         "cross": 46
       },
       "potential_factor": 1.316,
-      "rank": 141,
+      "rank": 139,
       "points": 392,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Curitiba Challenger",
           "category": "Challenger 75",
@@ -61691,6 +61713,14 @@
           "week": 40,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Hangzhou Challenger",
+          "category": "Challenger 125",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -61701,7 +61731,7 @@
         }
       ],
       "retired": false,
-      "highest_ranking": 141
+      "highest_ranking": 139
     },
     {
       "id": 362,
@@ -62017,19 +62047,11 @@
         "cross": 39
       },
       "potential_factor": 1.0,
-      "rank": 175,
+      "rank": 174,
       "highest_ranking": 171,
       "points": 261,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Calgary Challenger",
           "category": "Challenger 75",
@@ -62333,6 +62355,14 @@
           "week": 40,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Open de Roanne",
+          "category": "Challenger 100",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [],
@@ -62353,19 +62383,11 @@
         "cross": 46
       },
       "potential_factor": 1.0,
-      "rank": 186,
-      "highest_ranking": 186,
-      "points": 216,
+      "rank": 185,
+      "highest_ranking": 185,
+      "points": 229,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Calgary Challenger",
           "category": "Challenger 75",
@@ -62589,6 +62611,14 @@
           "week": 40,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 1,
+          "points": 13
         }
       ],
       "tournament_wins": [
@@ -62615,19 +62645,11 @@
         "cross": 50
       },
       "potential_factor": 1.066,
-      "rank": 187,
+      "rank": 188,
       "highest_ranking": 186,
       "points": 212,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Fairfield Challenger",
-          "category": "Challenger 75",
-          "year": 2042,
-          "week": 42,
-          "round": 0,
-          "points": 0
-        },
         {
           "name": "Calgary Challenger",
           "category": "Challenger 75",
@@ -62859,6 +62881,14 @@
           "week": 38,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [
@@ -63289,6 +63319,14 @@
           "week": 39,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [],
@@ -63481,6 +63519,14 @@
           "week": 39,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [],
@@ -63682,6 +63728,14 @@
           "week": 38,
           "round": 0,
           "points": 0
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [],
@@ -63866,6 +63920,14 @@
           "week": 39,
           "round": 1,
           "points": 13
+        },
+        {
+          "name": "Fairfield Challenger",
+          "category": "Challenger 75",
+          "year": 2043,
+          "week": 42,
+          "round": 0,
+          "points": 0
         }
       ],
       "tournament_wins": [],
@@ -81921,7 +81983,7 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 296,
       "participants": [
         288,
         296,
@@ -81961,170 +82023,206 @@
           [
             288,
             302,
-            null
+            302,
+            "6-7, 3-6"
           ],
           [
             296,
             234,
-            null
+            296,
+            "6-4, 6-4"
           ],
           [
             268,
             225,
-            null
+            268,
+            "6-2, 6-3"
           ],
           [
             236,
             213,
-            null
+            213,
+            "4-6, 3-6"
           ],
           [
             272,
             312,
-            null
+            312,
+            "2-6, 1-6"
           ],
           [
             284,
             244,
-            null
+            244,
+            "6-1, 3-6, 4-6"
           ],
           [
             279,
             247,
-            null
+            247,
+            "6-4, 2-6, 2-6"
           ],
           [
             282,
             261,
-            null
+            282,
+            "6-3, 6-3"
           ],
           [
             251,
             331,
-            null
+            251,
+            "6-1, 4-6, 6-2"
           ],
           [
             297,
             255,
-            null
+            255,
+            "1-6, 6-7"
           ],
           [
             318,
             290,
-            null
+            318,
+            "6-1, 6-2"
           ],
           [
             263,
             233,
-            null
+            233,
+            "1-6, 3-6"
           ],
           [
             326,
             276,
-            null
+            276,
+            "6-4, 6-7, 6-7"
           ],
           [
             221,
             340,
-            null
+            221,
+            "7-5, 6-2"
           ],
           [
             237,
             262,
-            null
+            237,
+            "6-3, 6-2"
           ],
           [
             240,
             313,
-            null
+            313,
+            "3-6, 0-6"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            302,
+            296,
+            296,
+            "4-6, 4-6"
+          ],
+          [
+            268,
+            213,
+            213,
+            "0-6, 7-5, 5-7"
+          ],
+          [
+            312,
+            244,
+            244,
+            "1-6, 3-6"
+          ],
+          [
+            247,
+            282,
+            282,
+            "4-6, 6-3, 3-6"
+          ],
+          [
+            251,
+            255,
+            251,
+            "3-6, 6-4, 6-1"
+          ],
+          [
+            318,
+            233,
+            318,
+            "6-2, 6-1"
+          ],
+          [
+            276,
+            221,
+            221,
+            "3-6, 3-6"
+          ],
+          [
+            237,
+            313,
+            313,
+            "2-6, 3-6"
+          ]
+        ],
+        [
+          [
+            296,
+            213,
+            296,
+            "7-6, 3-6, 6-3"
+          ],
+          [
+            244,
+            282,
+            282,
+            "5-7, 3-6"
+          ],
+          [
+            251,
+            318,
+            318,
+            "4-6, 6-3, 4-6"
+          ],
+          [
+            221,
+            313,
+            313,
+            "3-6, 2-6"
+          ]
+        ],
+        [
+          [
+            296,
+            282,
+            296,
+            "6-3, 6-2"
+          ],
+          [
+            318,
+            313,
+            318,
+            "7-6, 6-4"
+          ]
+        ],
+        [
+          [
+            296,
+            318,
+            296,
+            "2-6, 6-4, 6-4"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          288,
-          302,
-          null
-        ],
-        [
           296,
-          234,
-          null
-        ],
-        [
-          268,
-          225,
-          null
-        ],
-        [
-          236,
-          213,
-          null
-        ],
-        [
-          272,
-          312,
-          null
-        ],
-        [
-          284,
-          244,
-          null
-        ],
-        [
-          279,
-          247,
-          null
-        ],
-        [
-          282,
-          261,
-          null
-        ],
-        [
-          251,
-          331,
-          null
-        ],
-        [
-          297,
-          255,
-          null
-        ],
-        [
           318,
-          290,
-          null
-        ],
-        [
-          263,
-          233,
-          null
-        ],
-        [
-          326,
-          276,
-          null
-        ],
-        [
-          221,
-          340,
-          null
-        ],
-        [
-          237,
-          262,
-          null
-        ],
-        [
-          240,
-          313,
-          null
+          296,
+          "2-6, 6-4, 6-4"
         ]
       ]
     },
@@ -82136,7 +82234,7 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 306,
       "participants": [
         310,
         307,
@@ -82176,170 +82274,206 @@
           [
             310,
             322,
-            null
+            310,
+            "7-5, 4-6, 6-4"
           ],
           [
             307,
             265,
-            null
+            307,
+            "6-1, 6-3"
           ],
           [
             335,
             283,
-            null
+            283,
+            "2-6, 6-3, 4-6"
           ],
           [
             242,
             294,
-            null
+            242,
+            "6-4, 6-4"
           ],
           [
             314,
             303,
-            null
+            303,
+            "5-7, 0-6"
           ],
           [
             289,
             229,
-            null
+            229,
+            "1-6, 1-6"
           ],
           [
             286,
             306,
-            null
+            306,
+            "3-6, 2-6"
           ],
           [
             264,
             239,
-            null
+            239,
+            "6-3, 1-6, 2-6"
           ],
           [
             248,
             211,
-            null
+            211,
+            "2-6, 2-6"
           ],
           [
             320,
             212,
-            null
+            320,
+            "5-7, 6-3, 6-2"
           ],
           [
             270,
             308,
-            null
+            270,
+            "6-3, 5-7, 7-6"
           ],
           [
             238,
             230,
-            null
+            230,
+            "0-6, 3-6"
           ],
           [
             258,
             291,
-            null
+            258,
+            "6-1, 6-3"
           ],
           [
             259,
             273,
-            null
+            259,
+            "6-1, 6-1"
           ],
           [
             266,
             206,
-            null
+            266,
+            "2-6, 7-5, 6-1"
           ],
           [
             220,
             315,
-            null
+            315,
+            "0-6, 4-6"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            310,
+            307,
+            307,
+            "4-6, 2-6"
+          ],
+          [
+            283,
+            242,
+            242,
+            "6-4, 4-6, 2-6"
+          ],
+          [
+            303,
+            229,
+            303,
+            "6-3, 5-7, 6-3"
+          ],
+          [
+            306,
+            239,
+            306,
+            "6-1, 6-2"
+          ],
+          [
+            211,
+            320,
+            320,
+            "1-6, 3-6"
+          ],
+          [
+            270,
+            230,
+            270,
+            "7-5, 6-1"
+          ],
+          [
+            258,
+            259,
+            258,
+            "4-6, 6-3, 7-6"
+          ],
+          [
+            266,
+            315,
+            315,
+            "6-7, 2-6"
+          ]
+        ],
+        [
+          [
+            307,
+            242,
+            307,
+            "6-0, 6-1"
+          ],
+          [
+            303,
+            306,
+            306,
+            "6-7, 6-7"
+          ],
+          [
+            320,
+            270,
+            320,
+            "7-6, 6-2"
+          ],
+          [
+            258,
+            315,
+            258,
+            "7-5, 6-4"
+          ]
+        ],
+        [
+          [
+            307,
+            306,
+            306,
+            "4-6, 0-6"
+          ],
+          [
+            320,
+            258,
+            258,
+            "4-6, 7-6, 6-7"
+          ]
+        ],
+        [
+          [
+            306,
+            258,
+            306,
+            "7-6, 2-6, 7-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          310,
-          322,
-          null
-        ],
-        [
-          307,
-          265,
-          null
-        ],
-        [
-          335,
-          283,
-          null
-        ],
-        [
-          242,
-          294,
-          null
-        ],
-        [
-          314,
-          303,
-          null
-        ],
-        [
-          289,
-          229,
-          null
-        ],
-        [
-          286,
           306,
-          null
-        ],
-        [
-          264,
-          239,
-          null
-        ],
-        [
-          248,
-          211,
-          null
-        ],
-        [
-          320,
-          212,
-          null
-        ],
-        [
-          270,
-          308,
-          null
-        ],
-        [
-          238,
-          230,
-          null
-        ],
-        [
           258,
-          291,
-          null
-        ],
-        [
-          259,
-          273,
-          null
-        ],
-        [
-          266,
-          206,
-          null
-        ],
-        [
-          220,
-          315,
-          null
+          306,
+          "7-6, 2-6, 7-6"
         ]
       ]
     },
@@ -82352,10 +82486,211 @@
       "draw_size": 32,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        244,
+        237,
+        259,
+        328,
+        266,
+        293,
+        213,
+        303,
+        239,
+        220,
+        211,
+        268,
+        245,
+        229,
+        290,
+        284,
+        281,
+        314,
+        309,
+        272,
+        330,
+        270,
+        300,
+        336,
+        275,
+        294,
+        288,
+        258,
+        279,
+        312,
+        203,
+        286
+      ],
+      "bracket": [
+        [
+          [
+            244,
+            286,
+            null
+          ],
+          [
+            237,
+            203,
+            null
+          ],
+          [
+            259,
+            312,
+            null
+          ],
+          [
+            328,
+            279,
+            null
+          ],
+          [
+            266,
+            258,
+            null
+          ],
+          [
+            293,
+            288,
+            null
+          ],
+          [
+            213,
+            294,
+            null
+          ],
+          [
+            303,
+            275,
+            null
+          ],
+          [
+            239,
+            336,
+            null
+          ],
+          [
+            220,
+            300,
+            null
+          ],
+          [
+            211,
+            270,
+            null
+          ],
+          [
+            268,
+            330,
+            null
+          ],
+          [
+            245,
+            272,
+            null
+          ],
+          [
+            229,
+            309,
+            null
+          ],
+          [
+            290,
+            314,
+            null
+          ],
+          [
+            284,
+            281,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          244,
+          286,
+          null
+        ],
+        [
+          237,
+          203,
+          null
+        ],
+        [
+          259,
+          312,
+          null
+        ],
+        [
+          328,
+          279,
+          null
+        ],
+        [
+          266,
+          258,
+          null
+        ],
+        [
+          293,
+          288,
+          null
+        ],
+        [
+          213,
+          294,
+          null
+        ],
+        [
+          303,
+          275,
+          null
+        ],
+        [
+          239,
+          336,
+          null
+        ],
+        [
+          220,
+          300,
+          null
+        ],
+        [
+          211,
+          270,
+          null
+        ],
+        [
+          268,
+          330,
+          null
+        ],
+        [
+          245,
+          272,
+          null
+        ],
+        [
+          229,
+          309,
+          null
+        ],
+        [
+          290,
+          314,
+          null
+        ],
+        [
+          284,
+          281,
+          null
+        ]
+      ]
     },
     {
       "id": 57,
@@ -82366,10 +82701,211 @@
       "draw_size": 32,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        315,
+        261,
+        254,
+        287,
+        278,
+        338,
+        255,
+        340,
+        310,
+        292,
+        269,
+        283,
+        235,
+        357,
+        318,
+        280,
+        324,
+        256,
+        206,
+        326,
+        289,
+        248,
+        225,
+        276,
+        265,
+        319,
+        308,
+        198,
+        230,
+        307,
+        240,
+        282
+      ],
+      "bracket": [
+        [
+          [
+            315,
+            282,
+            null
+          ],
+          [
+            261,
+            240,
+            null
+          ],
+          [
+            254,
+            307,
+            null
+          ],
+          [
+            287,
+            230,
+            null
+          ],
+          [
+            278,
+            198,
+            null
+          ],
+          [
+            338,
+            308,
+            null
+          ],
+          [
+            255,
+            319,
+            null
+          ],
+          [
+            340,
+            265,
+            null
+          ],
+          [
+            310,
+            276,
+            null
+          ],
+          [
+            292,
+            225,
+            null
+          ],
+          [
+            269,
+            248,
+            null
+          ],
+          [
+            283,
+            289,
+            null
+          ],
+          [
+            235,
+            326,
+            null
+          ],
+          [
+            357,
+            206,
+            null
+          ],
+          [
+            318,
+            256,
+            null
+          ],
+          [
+            280,
+            324,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          315,
+          282,
+          null
+        ],
+        [
+          261,
+          240,
+          null
+        ],
+        [
+          254,
+          307,
+          null
+        ],
+        [
+          287,
+          230,
+          null
+        ],
+        [
+          278,
+          198,
+          null
+        ],
+        [
+          338,
+          308,
+          null
+        ],
+        [
+          255,
+          319,
+          null
+        ],
+        [
+          340,
+          265,
+          null
+        ],
+        [
+          310,
+          276,
+          null
+        ],
+        [
+          292,
+          225,
+          null
+        ],
+        [
+          269,
+          248,
+          null
+        ],
+        [
+          283,
+          289,
+          null
+        ],
+        [
+          235,
+          326,
+          null
+        ],
+        [
+          357,
+          206,
+          null
+        ],
+        [
+          318,
+          256,
+          null
+        ],
+        [
+          280,
+          324,
+          null
+        ]
+      ]
     },
     {
       "id": 58,
@@ -100807,7 +101343,7 @@
       "category": "Challenger 125",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 281,
       "participants": [
         281,
         185,
@@ -100831,89 +101367,108 @@
           [
             281,
             356,
-            null
+            281,
+            "6-2, 6-3"
           ],
           [
             185,
             329,
-            null
+            329,
+            "7-6, 3-6, 4-6"
           ],
           [
             223,
             224,
-            null
+            224,
+            "6-7, 1-6"
           ],
           [
             348,
             355,
-            null
+            355,
+            "5-7, 3-6"
           ],
           [
             361,
             271,
-            null
+            271,
+            "1-6, 1-6"
           ],
           [
             357,
             209,
-            null
+            357,
+            "7-5, 6-3"
           ],
           [
             358,
             352,
-            null
+            352,
+            "3-6, 3-6"
           ],
           [
             347,
             218,
-            null
+            218,
+            "5-7, 5-7"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            281,
+            329,
+            281,
+            "6-3, 1-6, 6-2"
+          ],
+          [
+            224,
+            355,
+            224,
+            "6-2, 6-0"
+          ],
+          [
+            271,
+            357,
+            271,
+            "6-1, 7-6"
+          ],
+          [
+            352,
+            218,
+            218,
+            "4-6, 6-7"
+          ]
+        ],
+        [
+          [
+            281,
+            224,
+            281,
+            "6-2, 6-4"
+          ],
+          [
+            271,
+            218,
+            271,
+            "6-3, 6-3"
+          ]
+        ],
+        [
+          [
+            281,
+            271,
+            281,
+            "6-1, 6-2"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
           281,
-          356,
-          null
-        ],
-        [
-          185,
-          329,
-          null
-        ],
-        [
-          223,
-          224,
-          null
-        ],
-        [
-          348,
-          355,
-          null
-        ],
-        [
-          361,
           271,
-          null
-        ],
-        [
-          357,
-          209,
-          null
-        ],
-        [
-          358,
-          352,
-          null
-        ],
-        [
-          347,
-          218,
-          null
+          281,
+          "6-1, 6-2"
         ]
       ]
     },
@@ -100925,7 +101480,7 @@
       "category": "Challenger 125",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 333,
       "participants": [
         219,
         349,
@@ -100949,89 +101504,108 @@
           [
             219,
             332,
-            null
+            219,
+            "6-3, 6-4"
           ],
           [
             349,
             189,
-            null
+            189,
+            "2-6, 2-6"
           ],
           [
             333,
             334,
-            null
+            333,
+            "6-2, 2-6, 6-3"
           ],
           [
             339,
             316,
-            null
+            339,
+            "6-4, 3-6, 6-3"
           ],
           [
             188,
             241,
-            null
+            241,
+            "7-5, 3-6, 3-6"
           ],
           [
             227,
             232,
-            null
+            232,
+            "3-6, 6-4, 4-6"
           ],
           [
             317,
             341,
-            null
+            317,
+            "6-0, 6-2"
           ],
           [
             205,
             235,
-            null
+            235,
+            "1-6, 2-6"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            219,
+            189,
+            189,
+            "3-6, 6-7"
+          ],
+          [
+            333,
+            339,
+            333,
+            "6-1, 6-3"
+          ],
+          [
+            241,
+            232,
+            241,
+            "3-6, 6-2, 6-4"
+          ],
+          [
+            317,
+            235,
+            317,
+            "6-2, 7-6"
+          ]
+        ],
+        [
+          [
+            189,
+            333,
+            333,
+            "4-6, 2-6"
+          ],
+          [
+            241,
+            317,
+            241,
+            "6-1, 5-7, 6-4"
+          ]
+        ],
+        [
+          [
+            333,
+            241,
+            333,
+            "7-6, 6-0"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          219,
-          332,
-          null
-        ],
-        [
-          349,
-          189,
-          null
-        ],
-        [
           333,
-          334,
-          null
-        ],
-        [
-          339,
-          316,
-          null
-        ],
-        [
-          188,
           241,
-          null
-        ],
-        [
-          227,
-          232,
-          null
-        ],
-        [
-          317,
-          341,
-          null
-        ],
-        [
-          205,
-          235,
-          null
+          333,
+          "7-6, 6-0"
         ]
       ]
     },
@@ -101043,7 +101617,7 @@
       "category": "Challenger 100",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 197,
       "participants": [
         197,
         174,
@@ -101067,89 +101641,108 @@
           [
             197,
             204,
-            null
+            197,
+            "6-0, 6-4"
           ],
           [
             174,
             191,
-            null
+            191,
+            "0-6, 2-6"
           ],
           [
             274,
             252,
-            null
+            274,
+            "4-6, 6-2, 7-6"
           ],
           [
             192,
             177,
-            null
+            192,
+            "6-0, 6-4"
           ],
           [
             199,
             363,
-            null
+            199,
+            "6-2, 6-1"
           ],
           [
             208,
             342,
-            null
+            208,
+            "6-3, 6-4"
           ],
           [
             196,
             359,
-            null
+            196,
+            "6-3, 6-2"
           ],
           [
             180,
             344,
-            null
+            344,
+            "6-1, 2-6, 0-6"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            197,
+            191,
+            197,
+            "6-1, 6-2"
+          ],
+          [
+            274,
+            192,
+            274,
+            "6-3, 6-2"
+          ],
+          [
+            199,
+            208,
+            208,
+            "2-6, 4-6"
+          ],
+          [
+            196,
+            344,
+            196,
+            "6-3, 6-3"
+          ]
+        ],
+        [
+          [
+            197,
+            274,
+            197,
+            "6-1, 6-1"
+          ],
+          [
+            208,
+            196,
+            196,
+            "4-6, 6-3, 4-6"
+          ]
+        ],
+        [
+          [
+            197,
+            196,
+            197,
+            "6-1, 6-4"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
           197,
-          204,
-          null
-        ],
-        [
-          174,
-          191,
-          null
-        ],
-        [
-          274,
-          252,
-          null
-        ],
-        [
-          192,
-          177,
-          null
-        ],
-        [
-          199,
-          363,
-          null
-        ],
-        [
-          208,
-          342,
-          null
-        ],
-        [
           196,
-          359,
-          null
-        ],
-        [
-          180,
-          344,
-          null
+          197,
+          "6-1, 6-4"
         ]
       ]
     },
@@ -101161,7 +101754,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 215,
       "participants": [
         353,
         169,
@@ -101185,89 +101778,108 @@
           [
             353,
             365,
-            null
+            353,
+            "4-6, 7-6, 7-6"
           ],
           [
             169,
             364,
-            null
+            364,
+            "4-6, 5-7"
           ],
           [
             368,
             350,
-            null
+            350,
+            "1-6, 1-6"
           ],
           [
             370,
             215,
-            null
+            215,
+            "0-6, 0-6"
           ],
           [
             182,
             167,
-            null
+            182,
+            "6-3, 7-5"
           ],
           [
             367,
             170,
-            null
+            170,
+            "5-7, 0-6"
           ],
           [
             179,
             168,
-            null
+            168,
+            "4-6, 0-6"
           ],
           [
             360,
             369,
-            null
+            360,
+            "6-0, 6-1"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            353,
+            364,
+            353,
+            "6-4, 6-1"
+          ],
+          [
+            350,
+            215,
+            215,
+            "3-6, 3-6"
+          ],
+          [
+            182,
+            170,
+            182,
+            "7-5, 7-6"
+          ],
+          [
+            168,
+            360,
+            168,
+            "6-2, 6-2"
+          ]
+        ],
+        [
+          [
+            353,
+            215,
+            215,
+            "1-6, 6-2, 2-6"
+          ],
+          [
+            182,
+            168,
+            182,
+            "6-3, 6-7, 7-5"
+          ]
+        ],
+        [
+          [
+            215,
+            182,
+            215,
+            "6-2, 6-1"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          353,
-          365,
-          null
-        ],
-        [
-          169,
-          364,
-          null
-        ],
-        [
-          368,
-          350,
-          null
-        ],
-        [
-          370,
           215,
-          null
-        ],
-        [
           182,
-          167,
-          null
-        ],
-        [
-          367,
-          170,
-          null
-        ],
-        [
-          179,
-          168,
-          null
-        ],
-        [
-          360,
-          369,
-          null
+          215,
+          "6-2, 6-1"
         ]
       ]
     },
@@ -101280,10 +101892,114 @@
       "draw_size": 16,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        348,
+        349,
+        257,
+        212,
+        228,
+        331,
+        317,
+        218,
+        343,
+        232,
+        202,
+        219,
+        334,
+        200,
+        216,
+        298
+      ],
+      "bracket": [
+        [
+          [
+            348,
+            298,
+            null
+          ],
+          [
+            349,
+            216,
+            null
+          ],
+          [
+            257,
+            200,
+            null
+          ],
+          [
+            212,
+            334,
+            null
+          ],
+          [
+            228,
+            219,
+            null
+          ],
+          [
+            331,
+            202,
+            null
+          ],
+          [
+            317,
+            232,
+            null
+          ],
+          [
+            218,
+            343,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          348,
+          298,
+          null
+        ],
+        [
+          349,
+          216,
+          null
+        ],
+        [
+          257,
+          200,
+          null
+        ],
+        [
+          212,
+          334,
+          null
+        ],
+        [
+          228,
+          219,
+          null
+        ],
+        [
+          331,
+          202,
+          null
+        ],
+        [
+          317,
+          232,
+          null
+        ],
+        [
+          218,
+          343,
+          null
+        ]
+      ]
     },
     {
       "id": 202,
@@ -101294,10 +102010,114 @@
       "draw_size": 16,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        187,
+        199,
+        260,
+        344,
+        209,
+        227,
+        204,
+        346,
+        171,
+        347,
+        174,
+        183,
+        362,
+        337,
+        194,
+        207
+      ],
+      "bracket": [
+        [
+          [
+            187,
+            207,
+            null
+          ],
+          [
+            199,
+            194,
+            null
+          ],
+          [
+            260,
+            337,
+            null
+          ],
+          [
+            344,
+            362,
+            null
+          ],
+          [
+            209,
+            183,
+            null
+          ],
+          [
+            227,
+            174,
+            null
+          ],
+          [
+            204,
+            347,
+            null
+          ],
+          [
+            346,
+            171,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          187,
+          207,
+          null
+        ],
+        [
+          199,
+          194,
+          null
+        ],
+        [
+          260,
+          337,
+          null
+        ],
+        [
+          344,
+          362,
+          null
+        ],
+        [
+          209,
+          183,
+          null
+        ],
+        [
+          227,
+          174,
+          null
+        ],
+        [
+          204,
+          347,
+          null
+        ],
+        [
+          346,
+          171,
+          null
+        ]
+      ]
     },
     {
       "id": 203,
@@ -101308,10 +102128,114 @@
       "draw_size": 16,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        210,
+        285,
+        223,
+        181,
+        355,
+        185,
+        205,
+        208,
+        342,
+        354,
+        358,
+        189,
+        190,
+        201,
+        332,
+        345
+      ],
+      "bracket": [
+        [
+          [
+            210,
+            345,
+            null
+          ],
+          [
+            285,
+            332,
+            null
+          ],
+          [
+            223,
+            201,
+            null
+          ],
+          [
+            181,
+            190,
+            null
+          ],
+          [
+            355,
+            189,
+            null
+          ],
+          [
+            185,
+            358,
+            null
+          ],
+          [
+            205,
+            354,
+            null
+          ],
+          [
+            208,
+            342,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          210,
+          345,
+          null
+        ],
+        [
+          285,
+          332,
+          null
+        ],
+        [
+          223,
+          201,
+          null
+        ],
+        [
+          181,
+          190,
+          null
+        ],
+        [
+          355,
+          189,
+          null
+        ],
+        [
+          185,
+          358,
+          null
+        ],
+        [
+          205,
+          354,
+          null
+        ],
+        [
+          208,
+          342,
+          null
+        ]
+      ]
     },
     {
       "id": 204,
@@ -101322,10 +102246,114 @@
       "draw_size": 16,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        172,
+        365,
+        371,
+        370,
+        366,
+        176,
+        368,
+        359,
+        167,
+        169,
+        364,
+        353,
+        182,
+        177,
+        179,
+        168
+      ],
+      "bracket": [
+        [
+          [
+            172,
+            168,
+            null
+          ],
+          [
+            365,
+            179,
+            null
+          ],
+          [
+            371,
+            177,
+            null
+          ],
+          [
+            370,
+            182,
+            null
+          ],
+          [
+            366,
+            353,
+            null
+          ],
+          [
+            176,
+            364,
+            null
+          ],
+          [
+            368,
+            169,
+            null
+          ],
+          [
+            359,
+            167,
+            null
+          ]
+        ],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          172,
+          168,
+          null
+        ],
+        [
+          365,
+          179,
+          null
+        ],
+        [
+          371,
+          177,
+          null
+        ],
+        [
+          370,
+          182,
+          null
+        ],
+        [
+          366,
+          353,
+          null
+        ],
+        [
+          176,
+          364,
+          null
+        ],
+        [
+          368,
+          169,
+          null
+        ],
+        [
+          359,
+          167,
+          null
+        ]
+      ]
     },
     {
       "id": 205,

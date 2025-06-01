@@ -213,10 +213,34 @@ def show_hof_player_details(stdscr, player):
     stdscr.clear()
     stdscr.addstr(0, 0, f"┌─── {player['name']} ───┘", curses.A_BOLD)
     stdscr.addstr(1, 0, f"│ Highest Ranking: {player.get('highest_ranking', 'N/A')}")
-    stdscr.addstr(2, 0, f"└─────")
+    stdscr.addstr(2, 0, f"└─────────────────────────────────────────┐")
     numwin = len(player.get('tournament_wins'))
     hofpoints = player.get('hof_points')
-    stdscr.addstr(3, 0, f"┌─── WINS ({numwin} W, {hofpoints} HOF) ─────────────────┘", curses.A_BOLD)
+    if numwin < 10:
+        if hofpoints < 10:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────────┘", curses.A_BOLD)
+        elif 10 <= hofpoints < 100:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───────────────────┘", curses.A_BOLD)
+        else:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
+    elif 10 <= numwin < 100:
+        if hofpoints < 10:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───────────────────┘", curses.A_BOLD)
+        elif 10 <= hofpoints < 100:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
+        elif 100 <= hofpoints < 1000:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────────────────┘", curses.A_BOLD)
+        else:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
+    else:
+        if hofpoints < 10:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
+        elif 10 <= hofpoints < 100:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────────────────┘", curses.A_BOLD)
+        elif 100 <= hofpoints < 1000:
+            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
+        else:
+            stdscr.addstr(3, 0, f"┌─ WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
     display_tournament_wins(stdscr, player, start_row=3)
     height, width = stdscr.getmaxyx()
     stdscr.addstr(height - 1, 0, "Press any key to return.")
