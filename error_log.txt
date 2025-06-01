@@ -1,8 +1,8 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 553, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 601, in main
     main_menu(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 61, in main_menu
     show_rankings(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 271, in show_rankings
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 311, in show_rankings
     stdscr.addstr(34, 0, "Press ESC to return, arrows to scroll, 'a' to search")
 _curses.error: addwstr() returned ERR

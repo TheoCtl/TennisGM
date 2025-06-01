@@ -215,7 +215,8 @@ def show_hof_player_details(stdscr, player):
     stdscr.addstr(1, 0, f"│ Highest Ranking: {player.get('highest_ranking', 'N/A')}")
     stdscr.addstr(2, 0, f"└─────")
     numwin = len(player.get('tournament_wins'))
-    stdscr.addstr(3, 0, f"┌─── WINS ({numwin}) ─────────────────┘", curses.A_BOLD)
+    hofpoints = player.get('hof_points')
+    stdscr.addstr(3, 0, f"┌─── WINS ({numwin} W, {hofpoints} HOF) ─────────────────┘", curses.A_BOLD)
     display_tournament_wins(stdscr, player, start_row=3)
     height, width = stdscr.getmaxyx()
     stdscr.addstr(height - 1, 0, "Press any key to return.")
@@ -226,32 +227,63 @@ def show_player_details(stdscr, scheduler, player):
     while True:
         stdscr.clear()
         height, width = stdscr.getmaxyx()
+        player['hof_points'] = 0
+        for win in player.get('tournament_wins', []):
+            if win['category'] == "Grand Slam":
+                player['hof_points'] += 40
+            elif win['category'] == "Masters 1000":
+                player['hof_points'] += 20
+            elif win['category'] == "ATP 500":
+                player['hof_points'] += 10
+            elif win['category'] == "ATP 250":
+                player['hof_points'] += 5
+            elif win['category'].startswith("Challenger"):
+                player['hof_points'] += 1
         stdscr.addstr(0, 0, f"┌─── {player['name']} ───┘", curses.A_BOLD)
         stdscr.addstr(1, 0, f"│ Rank: {player.get('rank', 'N/A')} ¦ Highest Ranking: {player.get('highest_ranking', 'N/A')}")
-        stdscr.addstr(2, 0, f"│ Age: {player.get('age', 'N/A')}yo")
-        stdscr.addstr(3, 0, f"│ {player.get('hand', 'N/A')}-handed")
-        stdscr.addstr(4, 0, f"│ Favorite surface: {player.get('favorite_surface', 'N/A')}")
-        stdscr.addstr(5, 0, f"└───────────────┐")
-        stdscr.addstr(6,0, "┌─── SKILLS ────┘", curses.A_BOLD)
+        stdscr.addstr(2, 0, f"│ {player.get('age', 'N/A')}yo, {player.get('hand', 'N/A')}-handed")
+        stdscr.addstr(3, 0, f"│ Favorite surface: {player.get('favorite_surface', 'N/A')}")
+        stdscr.addstr(4, 0, f"└───────────────┐")
+        stdscr.addstr(5,0, "┌─── SKILLS ────┘", curses.A_BOLD)
         if 'skills' in player:
             skills = player['skills']
-            stdscr.addstr(7, 0, f"│ Serve: {skills.get('serve', 'N/A')}")
-            stdscr.addstr(8, 0, f"│ Forehand: {skills.get('forehand', 'N/A')}")
-            stdscr.addstr(9, 0, f"│ Backhand: {skills.get('backhand', 'N/A')}")
-            stdscr.addstr(10, 0, f"│ Speed: {skills.get('speed', 'N/A')}")
-            stdscr.addstr(11, 0, f"│ Stamina: {skills.get('stamina', 'N/A')}")            
-            stdscr.addstr(12, 0, f"│ Straight: {skills.get('straight', 'N/A')}")
-            stdscr.addstr(13, 0, f"│ Cross: {skills.get('cross', 'N/A')}")
+            stdscr.addstr(6, 0, f"│ Serve: {skills.get('serve', 'N/A')}")
+            stdscr.addstr(7, 0, f"│ Forehand: {skills.get('forehand', 'N/A')}")
+            stdscr.addstr(8, 0, f"│ Backhand: {skills.get('backhand', 'N/A')}")
+            stdscr.addstr(9, 0, f"│ Speed: {skills.get('speed', 'N/A')}")
+            stdscr.addstr(10, 0, f"│ Stamina: {skills.get('stamina', 'N/A')}")            
+            stdscr.addstr(11, 0, f"│ Straight: {skills.get('straight', 'N/A')}")
+            stdscr.addstr(12, 0, f"│ Cross: {skills.get('cross', 'N/A')}")
         
-        stdscr.addstr(14, 0, f"└───────────────┐")
+        stdscr.addstr(13, 0, f"└──────────────────────────┐")
         numwin = len(player.get('tournament_wins'))
+        hofpoints = player.get('hof_points')
         if numwin < 10:
-            stdscr.addstr(15, 0, f"┌── WINS ({numwin}) ───┘", curses.A_BOLD)
+            if hofpoints < 10:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────┘", curses.A_BOLD)
+            elif 10 <= hofpoints < 100:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────┘", curses.A_BOLD)
+            else:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
         elif 10 <= numwin < 100:
-            stdscr.addstr(15, 0, f"┌── WINS ({numwin}) ──┘", curses.A_BOLD)
+            if hofpoints < 10:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────┘", curses.A_BOLD)
+            elif 10 <= hofpoints < 100:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
+            elif 100 <= hofpoints < 1000:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──┘", curses.A_BOLD)
+            else:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
         else:
-            stdscr.addstr(15, 0, f"┌── WINS ({numwin}) ─┘", curses.A_BOLD)
-        display_tournament_wins(stdscr, player, start_row=15)
+            if hofpoints < 10:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
+            elif 10 <= hofpoints < 100:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──┘", curses.A_BOLD)
+            elif 100 <= hofpoints < 1000:
+                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
+            else:
+                stdscr.addstr(14, 0, f"┌─ WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
+        display_tournament_wins(stdscr, player, start_row=14)
         stdscr.addstr(height - 1, 0, "Press any key to return to ATP Rankings.")
         stdscr.refresh()
         key = stdscr.getch()
