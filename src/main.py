@@ -100,10 +100,17 @@ def show_hall_of_fame(stdscr, scheduler):
 
         try:
             stdscr.addstr(0, 0, "Hall of Fame", curses.A_BOLD)
-            stdscr.addstr(1, 0, "Players are sorted by HOF points")
 
-            if searching:
-                stdscr.addstr(2, 0, f"Search: {search_query}_", curses.A_UNDERLINE)
+            if search_query:
+                if searching:
+                    stdscr.addstr(1, 0, f"Search: {search_query}_", curses.A_UNDERLINE)
+                else:
+                    stdscr.addstr(1, 0, f"Search: {search_query}", curses.A_UNDERLINE)
+            else:
+                if searching:
+                    stdscr.addstr(1, 0, f"Search: {search_query}_", curses.A_UNDERLINE)
+                else:
+                    stdscr.addstr(1, 0, f"Search: Press 'a' to search a player", curses.A_UNDERLINE)
 
             # Filter if searching
             display_hof = hof_members
@@ -139,8 +146,12 @@ def show_hall_of_fame(stdscr, scheduler):
                 searching = False
             elif key == curses.KEY_BACKSPACE or key == 8:
                 search_query = search_query[:-1]
-            elif 32 <= key <= 126:  # Printable characters
-                search_query += chr(key)
+            elif 32 <= key <= 126:# Printable characters
+                if key == 46:
+                    searching = False
+                    search_query = ""
+                else:
+                    search_query += chr(key)
         else:
             if searching:
                 if key == 27:  # ESC
@@ -151,7 +162,11 @@ def show_hall_of_fame(stdscr, scheduler):
                 elif key == curses.KEY_BACKSPACE or key == 8:
                     search_query = search_query[:-1]
                 elif 32 <= key <= 126:  # Printable characters
-                    search_query += chr(key)
+                    if key == 46:
+                        searching = False
+                        search_query = ""
+                    else:
+                        search_query += chr(key)
             else:
                 if key == ord('a'):
                     searching = True
@@ -252,8 +267,16 @@ def show_rankings(stdscr, scheduler):
         stdscr.clear()
         stdscr.addstr(0, 0, "ATP Rankings", curses.A_BOLD)
         
-        if searching:
-            stdscr.addstr(1, 0, f"Search: {search_query}_", curses.A_UNDERLINE)
+        if search_query:
+            if searching:
+                stdscr.addstr(1, 0, f"Search: {search_query}_", curses.A_UNDERLINE)
+            else:
+                stdscr.addstr(1, 0, f"Search: {search_query}", curses.A_UNDERLINE)
+        else:
+            if searching:
+                stdscr.addstr(1, 0, f"Search: {search_query}_", curses.A_UNDERLINE)
+            else:
+                stdscr.addstr(1, 0, f"Search: Press 'a' to search a player", curses.A_UNDERLINE)
         
         # Filter if searching
         display_players = ranked_players
@@ -281,7 +304,11 @@ def show_rankings(stdscr, scheduler):
             elif key == curses.KEY_BACKSPACE or key == 8:
                 search_query = search_query[:-1]
             elif 32 <= key <= 126:  # Printable characters
-                search_query += chr(key)
+                if key == 46:
+                    searching = False
+                    search_query = ""
+                else:
+                    search_query += chr(key)
         else:
             if searching:
                 if key == 27:  # ESC
@@ -292,7 +319,11 @@ def show_rankings(stdscr, scheduler):
                 elif key == curses.KEY_BACKSPACE or key == 8:
                     search_query = search_query[:-1]
                 elif 32 <= key <= 126:  # Printable characters
-                    search_query += chr(key)
+                    if key == 46:
+                        searching = False
+                        search_query = ""
+                    else:
+                        search_query += chr(key)
             else:
                 if key == ord('a'):
                     current_row = 0
