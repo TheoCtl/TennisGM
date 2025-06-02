@@ -1,8 +1,19 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 646, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 655, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 61, in main_menu
-    show_rankings(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 354, in show_rankings
-    stdscr.addstr(i+2-start_idx, 0, f"{i}. {player['name']}: {points} pts")
-_curses.error: addwstr() returned ERR
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 59, in main_menu
+    enter_tournament(stdscr, scheduler)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 458, in enter_tournament
+    manage_tournament(stdscr, scheduler, tournament)
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 584, in manage_tournament
+    winner_id = scheduler.simulate_through_match(tournament['id'], current_row)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 441, in simulate_through_match
+    self._update_player_tournament_history(tournament, loser_id, tournament['current_round'])
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 466, in _update_player_tournament_history
+    points = self.ranking_system.calculate_points(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\theoc\Desktop\TennisGM\src\ranking.py", line 143, in calculate_points
+    round_name = mapping.get(round_reached, "")
+                 ^^^^^^^
+UnboundLocalError: cannot access local variable 'mapping' where it is not associated with a value

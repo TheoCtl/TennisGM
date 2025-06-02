@@ -11,6 +11,7 @@ from newgen import NewGenGenerator
 
 class TournamentScheduler:
     PRESTIGE_ORDER = [
+        "Special",
         "Grand Slam",
         "Masters 1000",
         "ATP 500",
@@ -236,49 +237,82 @@ class TournamentScheduler:
         # Calculate total spots available in tournaments
         total_spots = sum(t['draw_size'] for t in current_tournaments)
         
-        # Nextgen Finals logic
-        junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
-        if junior_finals:
-            # Sort by age (youngest first), then by rank (lowest rank number is best)
-            available_players.sort(key=lambda p: (p.get('age', 99), p.get('rank', 999)))
-            available_for_week = available_players[:8]
-        else:
-            # ATP Finals logic
-            atp_finals = [t for t in current_tournaments if t['name'] == "ATP Finals"]
-            if atp_finals:
-                available_players.sort(key=lambda x: x.get('rank', 0))
-                available_for_week.extend(available_players[:16])
+        # Kings Cup logic
+        kings_cup = [t for t in current_tournaments if t['name'] == "Kings Cup"]
+        if kings_cup:
+            gs_names = ["Australian Open", "Roland-Garros", "Wimbledon", "US Open"]
+            gs_winners = []
+            for gs in gs_names:
+                for t in self.tournaments:
+                    if t['name'] in gs_names and t.get('year') == self.current_year and t.get('winner_id'):
+                        gs_winners.append(t['winner_id'])
+                        break
+            unique_winners = []
+            for wid in gs_winners:
+                if wid not in unique_winners:
+                    unique_winners.append(wid)
+                    
+            if len(unique_winners) < 4:
+                for t in self.tournaments:
+                    if t['name'] == "ATP Finals" and t.get('year') == self.current_year and t.get('winner_id'):
+                        if t['winner_id'] not in unique_winners:
+                            unique_winners.append(t['winner_id'])
+                        break
+            
+            if len(unique_winners) < 4:
+                available_players.sort(key=lambda x: x.get('rank', 999))
+                for p in available_players:
+                    if p['id'] not in unique_winners:
+                        unique_winners.append(p['id'])
+                    if len(unique_winners) == 4:
+                        break
+                    
+            kings_cup[0]['participants'] = unique_winners[:4]
+            available_for_week = [p for p in available_players if p['id'] not in unique_winners]
+        else:            
+            # Nextgen Finals logic
+            junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
+            if junior_finals:
+                # Sort by age (youngest first), then by rank (lowest rank number is best)
+                available_players.sort(key=lambda p: (p.get('age', 99), p.get('rank', 999)))
+                available_for_week = available_players[:8]
             else:
-                # Grand Slam logic
-                grandslam_tournament = [t for t in current_tournaments if t['category'] == "Grand Slam"]
-                if grandslam_tournament:
+                # ATP Finals logic
+                atp_finals = [t for t in current_tournaments if t['name'] == "ATP Finals"]
+                if atp_finals:
                     available_players.sort(key=lambda x: x.get('rank', 0))
-                    available_for_week.extend(available_players[:128])
+                    available_for_week.extend(available_players[:16])
                 else:
-                    # Masters logic
-                    masters_tournaments = [t for t in current_tournaments if t['category'] == "Masters 1000"]
-                    if masters_tournaments:
-                        available_players.sort(key=lambda x: x.get('rank', 999))
-                        top64 = available_players[:64]
-                        rest = available_players[64:]
-                        spots_left = total_spots - 64
-                        if spots_left != 0 and len(rest) > spots_left:
-                            skipped_players = random.sample(rest, len(rest) - spots_left)
-                            rest = [p for p in rest if p not in skipped_players]
-                        available_for_week = top64 + rest
+                    # Grand Slam logic
+                    grandslam_tournament = [t for t in current_tournaments if t['category'] == "Grand Slam"]
+                    if grandslam_tournament:
+                        available_players.sort(key=lambda x: x.get('rank', 0))
+                        available_for_week.extend(available_players[:128])
                     else:
-                        # Challenger logic
-                        if all(t['category'].startswith("Challenger") for t in current_tournaments):
-                            available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
-                            available_for_week = available_players[:sum(t['draw_size'] for t in current_tournaments)]
+                        # Masters logic
+                        masters_tournaments = [t for t in current_tournaments if t['category'] == "Masters 1000"]
+                        if masters_tournaments:
+                            available_players.sort(key=lambda x: x.get('rank', 999))
+                            top64 = available_players[:64]
+                            rest = available_players[64:]
+                            spots_left = total_spots - 64
+                            if spots_left != 0 and len(rest) > spots_left:
+                                skipped_players = random.sample(rest, len(rest) - spots_left)
+                                rest = [p for p in rest if p not in skipped_players]
+                            available_for_week = top64 + rest
                         else:
-                            # Basic logic
-                            if len(available_players) > total_spots:
-                                num_to_skip = len(available_players) - total_spots
-                                skipped_players = random.sample(available_players, num_to_skip)
-                                available_for_week = [p for p in available_players if p not in skipped_players]
+                            # Challenger logic
+                            if all(t['category'].startswith("Challenger") for t in current_tournaments):
+                                available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
+                                available_for_week = available_players[:sum(t['draw_size'] for t in current_tournaments)]
                             else:
-                                available_for_week = available_players
+                                # Basic logic
+                                if len(available_players) > total_spots:
+                                    num_to_skip = len(available_players) - total_spots
+                                    skipped_players = random.sample(available_players, num_to_skip)
+                                    available_for_week = [p for p in available_players if p not in skipped_players]
+                                else:
+                                    available_for_week = available_players
 
         # Sort players by rank/points
         available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
@@ -393,7 +427,7 @@ class TournamentScheduler:
                 }
 
                 # Simulate the match using the Game Engine
-                sets_to_win = 3 if tournament.get('category') == "Grand Slam" else 2
+                sets_to_win = 3 if tournament.get('category') == "Grand Slam" or tournament.get('category') =="Special" else 2
                 game_engine = GameEngine(player1, player2, tournament['surface'], sets_to_win=sets_to_win)
                 match_winner = game_engine.simulate_match()
 
@@ -632,6 +666,22 @@ class TournamentScheduler:
                 continue
             
             age = player.get('age', 20)
+            # Calculate HOF points before adding to Hall of Fame
+            hof_points = 0
+            for win in player.get('tournament_wins', []):
+                if win['category'] == 'Special':
+                    hof_points += 50
+                elif win['category'] == "Grand Slam":
+                    hof_points += 40
+                elif win['category'] == "Masters 1000":
+                    hof_points += 20
+                elif win['category'] == "ATP 500":
+                    hof_points += 10
+                elif win['category'] == "ATP 250":
+                    hof_points += 5
+                elif win['category'].startswith("Challenger"):
+                    hof_points += 1
+            player['hof_points'] = hof_points
         
             # Automatic retirement at 40+
             if age >= 40:
@@ -661,9 +711,14 @@ class TournamentScheduler:
         hof_entry = {
             'name' : player['name'],
             'tournament_wins' : player.get('tournament_wins', []).copy(),
-            'highest_ranking': player.get('highest_ranking', 999)
+            'highest_ranking': player.get('highest_ranking', 999),
+            'hof_points': player.get('hof_points', 0)
         }
         self.hall_of_fame.append(hof_entry)
+        self.hall_of_fame = sorted(
+            self.hall_of_fame,
+            key=lambda x: (-x['hof_points'], len(x.get('tournament_wins', [])))
+        )[:100]
     
     def _reset_tournaments_for_new_year(self):
         self.old_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
@@ -696,9 +751,15 @@ class TournamentScheduler:
             if newgens:
                 self.news_feed.append(f"- New players joined the tour: {', '.join(p['name'] for p in newgens)}")
         if self.current_week == 1 and hasattr(self, 'current_year_retirees'):
-            retired_this_year = self.current_year_retirees
-            if retired_this_year:
-                self.news_feed.append(f"- Those players ended their career: {', '.join(p for p in retired_this_year)}")
+            # Only announce if the player is in the top 100 HOF
+            hof_members = sorted(
+                self.hall_of_fame,
+                key=lambda x: (-x['hof_points'], len(x.get('tournament_wins', [])))
+            )[:100]
+            hof_names = set(p['name'] for p in hof_members)
+            hof_retirees = [p for p in self.current_year_retirees if p in hof_names]
+            if hof_retirees:
+                self.news_feed.append(f"- Hall of Fame entries for year {self.current_year-1}: {', '.join(hof_retirees)}")
                 
         # 3. Last week's tournament winners with total career wins
         last_week = self.current_week - 1 if self.current_week > 1 else 52
@@ -747,3 +808,4 @@ class TournamentScheduler:
             self.news_feed.append(f"- Top 16 change: {name} ({old} -> {new})")
         for name, old, new in dropped_out:
             self.news_feed.append(f"- Dropped from top 16: {name} (was {old})")
+            

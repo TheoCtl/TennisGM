@@ -5,6 +5,11 @@ from datetime import datetime, date, timedelta
 class RankingSystem:
     # Points structure remains the same as before
     POINTS = {
+        "Special": {
+            "Winner": 0,
+            "Final": 0,
+            "Semi": 0
+        },
         "Grand Slam": {
             "Winner": 2000,
             "Final": 1200,
@@ -103,6 +108,7 @@ class RankingSystem:
         is_250500 = tournament_category.startswith("ATP 250") or tournament_category.startswith("ATP 500")
         is_masters = tournament_category.startswith("Masters 1000")
         is_gs = tournament_category.startswith("Grand Slam")
+        is_kings = tournament_category.startswith("Special")
         round_mapping = {
             # Grand Slams (8 rounds including final)
             8: {
@@ -119,6 +125,10 @@ class RankingSystem:
             # Challengers (5 rounds)
             5: {
                 0: "Round 16", 1: "Quarter", 2: "Semi", 3: "Final", 4: "Winner"
+            },
+            # Kings
+            3: {
+                0: "Semi", 1: "Final", 2: "Winner"
             }
         }
         
@@ -130,6 +140,8 @@ class RankingSystem:
             mapping = round_mapping[7]
         elif is_gs:
             mapping = round_mapping[8]
+        elif is_kings:
+            mapping = round_mapping[3]
             
         round_name = mapping.get(round_reached, "")
         points = self.POINTS.get(tournament_category, {}).get(round_name, 0)

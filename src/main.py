@@ -78,7 +78,9 @@ def show_hall_of_fame(stdscr, scheduler):
     for player in scheduler.hall_of_fame:
         player['hof_points'] = 0
         for win in player.get('tournament_wins', []):
-            if win['category'] == "Grand Slam":
+            if win['category'] == 'Special':
+                player['hof_points'] += 50
+            elif win['category'] == "Grand Slam":
                 player['hof_points'] += 40
             elif win['category'] == "Masters 1000":
                 player['hof_points'] += 20
@@ -92,8 +94,10 @@ def show_hall_of_fame(stdscr, scheduler):
     # Sort by HOF points (descending) and then alphabetically
     hof_members = sorted(
         scheduler.hall_of_fame,
-        key=lambda x: (-x['hof_points'], x['name'].lower())
+        key=lambda x: (-x['hof_points'], len(x.get('tournament_wins', [])))
     )
+    
+    hof_members = hof_members[:100]
 
     while True:
         stdscr.clear()
@@ -253,8 +257,15 @@ def show_player_details(stdscr, scheduler, player):
         stdscr.clear()
         height, width = stdscr.getmaxyx()
         player['hof_points'] = 0
+        skills = player['skills']
+        if skills:
+            ovr = round(sum(skills.values()) / len(skills))
+        else:
+            ovr = "N/A"
         for win in player.get('tournament_wins', []):
-            if win['category'] == "Grand Slam":
+            if win['category'] == "Special":
+                player['hof_points'] += 50
+            elif win['category'] == "Grand Slam":
                 player['hof_points'] += 40
             elif win['category'] == "Masters 1000":
                 player['hof_points'] += 20
@@ -268,8 +279,8 @@ def show_player_details(stdscr, scheduler, player):
         stdscr.addstr(1, 0, f"│ Rank: {player.get('rank', 'N/A')} ¦ Highest Ranking: {player.get('highest_ranking', 'N/A')}")
         stdscr.addstr(2, 0, f"│ {player.get('age', 'N/A')}yo, {player.get('hand', 'N/A')}-handed")
         stdscr.addstr(3, 0, f"│ Favorite surface: {player.get('favorite_surface', 'N/A')}")
-        stdscr.addstr(4, 0, f"└───────────────┐")
-        stdscr.addstr(5,0, "┌─── SKILLS ────┘", curses.A_BOLD)
+        stdscr.addstr(4, 0, f"└───────────────────────┐")
+        stdscr.addstr(5,0, f"┌─── SKILLS ({ovr}ovr) ────┘", curses.A_BOLD)
         if 'skills' in player:
             skills = player['skills']
             stdscr.addstr(6, 0, f"│ Serve: {skills.get('serve', 'N/A')}")
