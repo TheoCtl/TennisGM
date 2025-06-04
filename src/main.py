@@ -3,6 +3,7 @@ import traceback
 from schedule import TournamentScheduler
 from ranking import RankingSystem
 from sim.game_engine import GameEngine
+from records import RecordsManager
 ESCAPE_KEYS = {27, 46}
 UP_KEYS = {curses.KEY_UP, ord('z'), ord('Z')}
 DOWN_KEYS = {curses.KEY_DOWN, ord('s'), ord('S')}
@@ -21,15 +22,8 @@ def main_menu(stdscr, scheduler):
         try:
             stdscr.addstr(0, 0, f"└─── Year {scheduler.current_year}, Week {scheduler.current_week} ───┘", curses.A_BOLD)
             news_start_row = 2
-            max_news_items = min(12, (height - 10) // 2)
-            if scheduler.news_feed:
-                stdscr.addstr(news_start_row, 0, "Weekly News:", curses.A_UNDERLINE)
-            news_lines_used = 0
-            for i, news in enumerate(scheduler.news_feed[:max_news_items]):
-                stdscr.addstr(news_start_row + i + 1, 0, f"{news}")
-                news_lines_used += 1
-            menu_start_row = news_start_row + (2 if scheduler.news_feed else 0) + news_lines_used
-            menu = ["View current tournaments", "Enter tournament", "See ATP Rankings", "See Hall of Fame"]
+            menu_start_row = news_start_row
+            menu = ["Tournaments", "ATP Rankings", "Hall of Fame", "Achievements", "News Feed"]
             # Check if all tournaments for the current week are completed
             current_tournaments = scheduler.get_current_week_tournaments()
             incomplete_tournaments = [t for t in current_tournaments if t['winner_id'] is None]
@@ -53,23 +47,114 @@ def main_menu(stdscr, scheduler):
         elif key in DOWN_KEYS and current_row < len(menu) - 1:
             current_row += 1
         elif key == curses.KEY_ENTER or key in [10, 13]:
-            if menu[current_row] == "View current tournaments":
-                view_tournaments(stdscr, scheduler)
-            elif menu[current_row] == "Enter tournament":
+            if menu[current_row] == "Achievements":
+                show_achievements(stdscr, scheduler)
+            elif menu[current_row] == "Tournaments":
                 enter_tournament(stdscr, scheduler)
-            elif menu[current_row] == "See ATP Rankings":
+            elif menu[current_row] == "ATP Rankings":
                 show_rankings(stdscr, scheduler)
-            elif menu[current_row] == "See Hall of Fame":
+            elif menu[current_row] == "Hall of Fame":
                 show_hall_of_fame(stdscr, scheduler)
+            elif menu[current_row] == "News Feed":
+                show_news_feed(stdscr, scheduler)
             elif menu[current_row] == "Advance to next week":
                 scheduler.advance_week()
                 scheduler.news_feed = []
-                stdscr.addstr(len(menu) + max_news_items + 5, 0, "Advanced to next week!", curses.A_BOLD)
+                stdscr.addstr(len(menu) + 5, 0, "Advanced to next week!", curses.A_BOLD)
                 stdscr.refresh()
                 stdscr.getch()
                 current_row = 0
             elif menu[current_row] == "Exit":
                 break
+ 
+def show_news_feed(stdscr, scheduler):
+    current_row = 0
+    news = scheduler.news_feed if hasattr(scheduler, 'news_feed') else []
+    section_titles = []
+    section_indices = []
+    # Identify section headers for navigation (lines starting with "- ")
+    for idx, line in enumerate(news):
+        if line.startswith("- "):
+            section_titles.append(line)
+            section_indices.append(idx)
+    while True:
+        stdscr.clear()
+        stdscr.addstr(0, 0, "News Feed", curses.A_BOLD)
+        # Show all news, paginated if needed
+        height, width = stdscr.getmaxyx()
+        lines_per_page = height - 3
+        start = max(0, current_row - lines_per_page // 2)
+        end = min(len(news), start + lines_per_page)
+        for i, line in enumerate(news[start:end], start):
+            if i == current_row:
+                stdscr.addstr(i - start + 2, 0, line)
+            else:
+                stdscr.addstr(i - start + 2, 0, line)
+        stdscr.addstr(height - 1, 0, "ESC: return")
+        stdscr.refresh()
+        key = stdscr.getch()
+        if key in ESCAPE_KEYS:
+            break 
+
+def show_achievements(stdscr, scheduler):
+    current_row = 0
+    achievements = scheduler.records
+    while True:
+        stdscr.clear()
+        stdscr.addstr(0, 0, "All-Time Achievements", curses.A_BOLD)
+        for idx, record in enumerate(achievements):
+            title = record.get("title", record.get("type", "Unknown"))
+            if idx == current_row:
+                stdscr.addstr(idx + 2, 0, title, curses.color_pair(1))
+            else:
+                stdscr.addstr(idx + 2, 0, title)
+        stdscr.addstr(len(achievements) + 3, 0, "Press ESC to return, ENTER to view details.")
+        stdscr.refresh()
+        key = stdscr.getch()
+        if key in UP_KEYS and current_row > 0:
+            current_row -= 1
+        elif key in DOWN_KEYS and current_row < len(achievements) - 1:
+            current_row += 1
+        elif key == curses.KEY_ENTER or key in [10, 13]:
+            show_record_details(stdscr, achievements[current_row])
+        elif key in ESCAPE_KEYS:
+            break
+
+def show_record_details(stdscr, record):
+    stdscr.clear()
+    stdscr.addstr(0, 0, record.get("title", "Record Details"), curses.A_BOLD)
+    if record["type"] == "most_t_wins":
+        stdscr.addstr(2, 0, "Top 10 Tournament Winners:")
+        for idx, entry in enumerate(record["top10"]):
+            stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['t_wins']} Tournaments")
+    elif record["type"] == "most_gs_wins":
+        stdscr.addstr(2, 0, "Top 10 Grand Slam Winners:")
+        for idx, entry in enumerate(record["top10"]):
+            stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['gs_wins']} GS")
+    elif record["type"] == "most_m1000_wins":
+        stdscr.addstr(2, 0, "Top 10 Masters 1000 Winners:")
+        for idx, entry in enumerate(record["top10"]):
+            stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['m1000_wins']} Masters")
+    elif record["type"] == "most_matches_won":
+        stdscr.addstr(2, 0, "Top 10 Total Matches Won:")
+        for idx, entry in enumerate(record["top10"]):
+            stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['matches_won']} matches")
+    elif record["type"].startswith("most_matches_won_"):
+        surface = record["type"].replace("most_matches_won_", "").capitalize()
+        stdscr.addstr(2, 0, f"Top 10 Matches Won on {surface}:")
+        for idx, entry in enumerate(record["top10"]):
+            stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['matches_won']} matches")
+    elif record["type"] == "most_weeks_at_1":
+        stdscr.addstr(2, 0, "Top 10 Most Weeks at #1:")
+        for idx, entry in enumerate(record["top10"]):
+            stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['weeks']} weeks")
+    elif record["type"] == "most_weeks_in_16":
+        stdscr.addstr(2, 0, "Top 10 Most Weeks in Top 16:")
+        for idx, entry in enumerate(record["top10"]):
+            stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['weeks']} weeks")
+    stdscr.addstr(15, 0, "Press any key to return.")
+    stdscr.refresh()
+    stdscr.getch()
             
 def show_hall_of_fame(stdscr, scheduler):
     current_row = 0
@@ -80,6 +165,10 @@ def show_hall_of_fame(stdscr, scheduler):
         for win in player.get('tournament_wins', []):
             if win['category'] == 'Special':
                 player['hof_points'] += 50
+            elif win['name'] == "ATP Finals":
+                player['hof_points'] += 30
+            elif win['name'] == "Nextgen Finals":
+                player['hof_points'] += 5
             elif win['category'] == "Grand Slam":
                 player['hof_points'] += 40
             elif win['category'] == "Masters 1000":
@@ -215,44 +304,71 @@ def display_tournament_wins(stdscr, player, start_row=3):
     return row
 
 def show_hof_player_details(stdscr, player):
-    stdscr.clear()
-    stdscr.addstr(0, 0, f"┌─── {player['name']} ───┘", curses.A_BOLD)
-    stdscr.addstr(1, 0, f"│ Highest Ranking: {player.get('highest_ranking', 'N/A')}")
-    stdscr.addstr(2, 0, f"└─────────────────────────────────────────┐")
-    numwin = len(player.get('tournament_wins'))
-    hofpoints = player.get('hof_points')
-    if numwin < 10:
-        if hofpoints < 10:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────────┘", curses.A_BOLD)
-        elif 10 <= hofpoints < 100:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───────────────────┘", curses.A_BOLD)
+    show_tournaments = False
+    while True:
+        stdscr.clear()
+        height, width = stdscr.getmaxyx()
+        stdscr.addstr(0, 0, f"┌─── {player['name']} ───┘", curses.A_BOLD)
+        stdscr.addstr(1, 0, f"│ Highest Ranking: {player.get('highest_ranking', 'N/A')}")
+        stdscr.addstr(2, 0, f"└─────────────────────────────────────────┐")
+        numwin = len(player.get('tournament_wins'))
+        hofpoints = player.get('hof_points')
+        
+        if not show_tournaments:
+            # Achievements section
+            w1 = player.get('w1')
+            w16 = player.get('w16')
+            t_wins = sum(1 for win in player.get('tournament_wins', []))
+            m1000_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Masters 1000")
+            gs_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Grand Slam")
+            stdscr.addstr(3, 0, f"┌─── ACHIEVEMENTS ────────────────────────┘", curses.A_BOLD)
+            stdscr.addstr(4, 0, f"│ Total titles: {t_wins}")
+            stdscr.addstr(5, 0, f"│ Grand Slam titles: {gs_wins}")
+            stdscr.addstr(6, 0, f"│ Masters 1000 titles: {m1000_wins}")
+            mawn =player.get('mawn', [0,0,0,0,0])
+            stdscr.addstr(7, 0, f"│ Total Matches Won (clay, grass, hard, indoor): {sum(mawn)} ({mawn[0]}, {mawn[1]}, {mawn[2]}, {mawn[3]})")
+            stdscr.addstr(8, 0, f"│ Weeks at #1 : {w1}w")
+            stdscr.addstr(9, 0, f"│ Weeks in Top 16 : {w16}w")
+            stdscr.addstr(10, 0, f"└─────────────────────┘")
+            stdscr.addstr(height - 1, 0, "Press 'T' to view tournaments won, ESC to return.")
         else:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
-    elif 10 <= numwin < 100:
-        if hofpoints < 10:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───────────────────┘", curses.A_BOLD)
-        elif 10 <= hofpoints < 100:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
-        elif 100 <= hofpoints < 1000:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────────────────┘", curses.A_BOLD)
-        else:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
-    else:
-        if hofpoints < 10:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
-        elif 10 <= hofpoints < 100:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────────────────┘", curses.A_BOLD)
-        elif 100 <= hofpoints < 1000:
-            stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
-        else:
-            stdscr.addstr(3, 0, f"┌─ WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
-    display_tournament_wins(stdscr, player, start_row=3)
-    height, width = stdscr.getmaxyx()
-    stdscr.addstr(height - 1, 0, "Press any key to return.")
-    stdscr.refresh()
-    stdscr.getch()
+            if numwin < 10:
+                if hofpoints < 10:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────────┘", curses.A_BOLD)
+                elif 10 <= hofpoints < 100:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───────────────────┘", curses.A_BOLD)
+                else:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
+            elif 10 <= numwin < 100:
+                if hofpoints < 10:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───────────────────┘", curses.A_BOLD)
+                elif 10 <= hofpoints < 100:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
+                elif 100 <= hofpoints < 1000:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────────────────┘", curses.A_BOLD)
+                else:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
+            else:
+                if hofpoints < 10:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──────────────────┘", curses.A_BOLD)
+                elif 10 <= hofpoints < 100:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────────────────┘", curses.A_BOLD)
+                elif 100 <= hofpoints < 1000:
+                    stdscr.addstr(3, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
+                else:
+                    stdscr.addstr(3, 0, f"┌─ WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
+            display_tournament_wins(stdscr, player, start_row=3)
+            stdscr.addstr(height - 1, 0, "Press 'T' to view achievements, ESC to return.")
+
+        stdscr.refresh()
+        key = stdscr.getch()
+        if key in (ord('t'), ord('T')):
+            show_tournaments = not show_tournaments
+        elif key in ESCAPE_KEYS:
+            break
 
 def show_player_details(stdscr, scheduler, player):
+    show_tournaments = False
     while True:
         stdscr.clear()
         height, width = stdscr.getmaxyx()
@@ -265,6 +381,10 @@ def show_player_details(stdscr, scheduler, player):
         for win in player.get('tournament_wins', []):
             if win['category'] == "Special":
                 player['hof_points'] += 50
+            elif win['name'] == "ATP Finals":
+                player['hof_points'] += 30
+            elif win['name'] == "Nextgen Finals":
+                player['hof_points'] += 5
             elif win['category'] == "Grand Slam":
                 player['hof_points'] += 40
             elif win['category'] == "Masters 1000":
@@ -290,40 +410,59 @@ def show_player_details(stdscr, scheduler, player):
             stdscr.addstr(10, 0, f"│ Stamina: {skills.get('stamina', 'N/A')}")            
             stdscr.addstr(11, 0, f"│ Straight: {skills.get('straight', 'N/A')}")
             stdscr.addstr(12, 0, f"│ Cross: {skills.get('cross', 'N/A')}")
-        
         stdscr.addstr(13, 0, f"└──────────────────────────┐")
-        numwin = len(player.get('tournament_wins'))
-        hofpoints = player.get('hof_points')
-        if numwin < 10:
-            if hofpoints < 10:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────┘", curses.A_BOLD)
-            elif 10 <= hofpoints < 100:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────┘", curses.A_BOLD)
-            else:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
-        elif 10 <= numwin < 100:
-            if hofpoints < 10:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────┘", curses.A_BOLD)
-            elif 10 <= hofpoints < 100:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
-            elif 100 <= hofpoints < 1000:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──┘", curses.A_BOLD)
-            else:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
+        
+        if not show_tournaments:
+            w1 = player.get('w1')
+            w16 = player.get('w16')
+            t_wins = sum(1 for win in player.get('tournament_wins', []))
+            m1000_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Masters 1000")
+            gs_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Grand Slam")
+            stdscr.addstr(14, 0, f"┌─── ACHIEVEMENTS ─────────┘", curses.A_BOLD)
+            stdscr.addstr(15, 0, f"│ Total titles: {t_wins}")
+            stdscr.addstr(16, 0, f"│ Grand Slam titles: {gs_wins}")
+            stdscr.addstr(17, 0, f"│ Masters 1000 titles: {m1000_wins}")
+            mawn =player.get('mawn', [0,0,0,0,0])
+            stdscr.addstr(18, 0, f"│ Total Matches Won (clay, grass, hard, indoor): {sum(mawn)} ({mawn[0]}, {mawn[1]}, {mawn[2]}, {mawn[3]})")
+            stdscr.addstr(19, 0, f"│ Weeks at #1 : {w1}w")
+            stdscr.addstr(20, 0, f"│ Weeks in Top 16 : {w16}w")
+            stdscr.addstr(21, 0, f"└─────────────────────┘")
+            stdscr.addstr(height - 1, 0, "Press 'T' to view tournaments won, ESC to return.")
         else:
-            if hofpoints < 10:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
-            elif 10 <= hofpoints < 100:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──┘", curses.A_BOLD)
-            elif 100 <= hofpoints < 1000:
-                stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
+            numwin = len(player.get('tournament_wins'))
+            hofpoints = player.get('hof_points')
+            if numwin < 10:
+                if hofpoints < 10:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─────┘", curses.A_BOLD)
+                elif 10 <= hofpoints < 100:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────┘", curses.A_BOLD)
+                else:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
+            elif 10 <= numwin < 100:
+                if hofpoints < 10:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ────┘", curses.A_BOLD)
+                elif 10 <= hofpoints < 100:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
+                elif 100 <= hofpoints < 1000:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──┘", curses.A_BOLD)
+                else:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
             else:
-                stdscr.addstr(14, 0, f"┌─ WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
-        display_tournament_wins(stdscr, player, start_row=14)
-        stdscr.addstr(height - 1, 0, "Press any key to return to ATP Rankings.")
+                if hofpoints < 10:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ───┘", curses.A_BOLD)
+                elif 10 <= hofpoints < 100:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ──┘", curses.A_BOLD)
+                elif 100 <= hofpoints < 1000:
+                    stdscr.addstr(14, 0, f"┌── WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
+                else:
+                    stdscr.addstr(14, 0, f"┌─ WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
+            display_tournament_wins(stdscr, player, start_row=14)
+            stdscr.addstr(height - 1, 0, "Press 'T' to view achievements, ESC to return.")
         stdscr.refresh()
         key = stdscr.getch()
-        if key:
+        if key in (ord('t'), ord('T')):
+            show_tournaments = not show_tournaments
+        elif key in ESCAPE_KEYS:
             break
 
 def show_rankings(stdscr, scheduler):
@@ -412,24 +551,6 @@ def show_rankings(stdscr, scheduler):
                         show_player_details(stdscr, scheduler, player)
                 elif key in ESCAPE_KEYS:  # ESC
                     break
-
-def view_tournaments(stdscr, scheduler):
-    stdscr.clear()
-    stdscr.addstr(0, 0, "Current Tournaments:", curses.A_BOLD)
-    current_tournaments = scheduler.get_current_week_tournaments()
-
-    for idx, t in enumerate(current_tournaments, 1):
-        if t['winner_id'] is not None:
-            winner = next((p['name'] for p in scheduler.players if p['id'] == t['winner_id']), "Unknown")
-            # Fetch the final score from the tournament data
-            status = f"Winner: {winner}"
-        else:
-            status = "Not completed"
-        stdscr.addstr(idx + 1, 0, f"{idx}. {t['name']} ({t['category']}, {t['surface']}) - {status}")
-
-    stdscr.addstr(len(current_tournaments) + 3, 0, "Press any key to return to the main menu.")
-    stdscr.refresh()
-    stdscr.getch()
 
 def enter_tournament(stdscr, scheduler):
     current_tournaments = scheduler.get_current_week_tournaments()

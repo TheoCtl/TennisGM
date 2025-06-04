@@ -8,6 +8,7 @@ from sim.game_engine import GameEngine  # Import the Game Engine
 from ranking import RankingSystem
 from player_development import PlayerDevelopment
 from newgen import NewGenGenerator
+from records import RecordsManager
 
 class TournamentScheduler:
     PRESTIGE_ORDER = [
@@ -35,12 +36,20 @@ class TournamentScheduler:
         self.previous_rankings = {}
         self.news_feed = []
         self.load_data(data_path, save_path)
+        self.records = []
+        self.records_manager = RecordsManager(self)
+        self.records_manager.update_all_records()
         
         for player in self.players:
             if 'tournament_history' not in player:
                 player['tournament_history'] = []
             if 'tournament_wins' not in player:
                 player['tournament_wins'] = []
+        for player in self.players + self.hall_of_fame:
+            if 'w1' not in player:
+                player['w1'] = 0
+            if 'w16' not in player:
+                player['w16'] = 0
         self._rebuild_ranking_history
         self.ranking_system.update_player_ranks(self.players, self.current_date)
         
@@ -53,7 +62,8 @@ class TournamentScheduler:
             'players': self.players,
             'tournaments': self.tournaments,
             'ranking_history': dict(self.ranking_system.ranking_history),
-            'hall_of_fame': self.hall_of_fame
+            'hall_of_fame': self.hall_of_fame,
+            'records': self.records
         }
     
         with open(save_path, 'w') as f:
@@ -72,6 +82,7 @@ class TournamentScheduler:
                 self.current_year = data['current_year']
                 self.current_week = data['current_week']
                 self.current_date = datetime.fromisoformat(data['current_date'])
+                self.records = data.get('records', [])
                 
                 for player in self.players:
                     if 'tournament_history' not in player:
@@ -142,14 +153,29 @@ class TournamentScheduler:
                 self.assign_players_to_tournaments()
                 for tournament in current_week_tournaments:
                     self.generate_bracket(tournament['id'])
-        self.generate_news_feed()
         self.ranking_system.update_player_ranks(self.players, self.current_date)
         for player in self.players:
             if not player.get('retired', False):
                 if player.get('rank', 999) < player.get('highest_ranking', 999):
                     player['highest_ranking'] = player['rank']
         PlayerDevelopment.seasonal_development(self)
+        self.update_weeks_at_top()
+        self.records_manager.update_mawn_last_week()
+        self.records_manager.update_all_records()
+        self.generate_news_feed()
         return self.current_week
+    
+    def update_weeks_at_top(self):
+        for player in self.players:
+            if 'w1' not in player:
+                player['w1'] = 0
+            if 'w16' not in player:
+                player['w16'] = 0
+            if not player.get('retired', False):
+                if player.get('rank', 999) == 1:
+                    player['w1'] += 1
+                if player.get('rank', 999) <= 16:
+                    player['w16'] += 1
     
     def _cleanup_old_tournament_history(self):
         cutoff_year = self.current_year - 1
@@ -671,6 +697,10 @@ class TournamentScheduler:
             for win in player.get('tournament_wins', []):
                 if win['category'] == 'Special':
                     hof_points += 50
+                elif win['name'] == "ATP Finals":
+                    hof_points += 30
+                elif win['name'] == "Nextgen Finals":
+                    hof_points += 5
                 elif win['category'] == "Grand Slam":
                     hof_points += 40
                 elif win['category'] == "Masters 1000":
@@ -740,16 +770,21 @@ class TournamentScheduler:
                 
     def generate_news_feed(self):
         self.news_feed = []
+        self.news_feed.append("┌─── NEWS FEED ───┘")
+        self.news_feed.append("│")
         
         # 1. Progressions/regressions weeks
         if self.current_week in [26, 52]:
-            self.news_feed.append("- Player development week: Skills have progressed/regressed!")
+            self.news_feed.append("├─ Player development week! ─┤")
+            self.news_feed.append("│")
 
         # 2. Newgens and retirements (only when they happen)
         if self.current_week == 1:
             newgens = [p for p in self.players if p['age'] == 16]
             if newgens:
-                self.news_feed.append(f"- New players joined the tour: {', '.join(p['name'] for p in newgens)}")
+                self.news_feed.append(f"├─ New players joined the tour ─┤")
+                self.news_feed.append(f"│ {', '.join(p['name'] for p in newgens)}")
+                self.news_feed.append("│")
         if self.current_week == 1 and hasattr(self, 'current_year_retirees'):
             # Only announce if the player is in the top 100 HOF
             hof_members = sorted(
@@ -759,9 +794,39 @@ class TournamentScheduler:
             hof_names = set(p['name'] for p in hof_members)
             hof_retirees = [p for p in self.current_year_retirees if p in hof_names]
             if hof_retirees:
-                self.news_feed.append(f"- Hall of Fame entries for year {self.current_year-1}: {', '.join(hof_retirees)}")
+                self.news_feed.append(f"├─ Hall of Fame entries ─┤")
+                self.news_feed.append(f"│ {', '.join(hof_retirees)}")
+                self.news_feed.append("│")
                 
-        # 3. Last week's tournament winners with total career wins
+        # 3. Top 10 Achievements changes
+        if hasattr(self, 'previous_records'):
+            for rec, prev in zip(self.records, self.previous_records):
+                if rec.get("type") == prev.get("type") and rec.get("top10") != prev.get("top10"):
+                    title = rec.get('title', rec.get('type'))
+                    prev_names = [entry['name'] for entry in prev.get('top10', [])]
+                    curr_names = [entry['name'] for entry in rec.get('top10', [])]
+
+                    # New entries
+                    self.news_feed.append(f"├─ Achievements ─┤")
+                    new_entries = [name for name in curr_names if name not in prev_names]
+                    for name in new_entries:
+                        pos = curr_names.index(name) + 1
+                        self.news_feed.append(f"│ {name} entered the Top 10 for {title} at n°{pos}")
+
+                    # Position changes for players still in top 10
+                    self.news_feed.append("├─")
+                    for name in set(curr_names) & set(prev_names):
+                        old_pos = prev_names.index(name)
+                        new_pos = curr_names.index(name)
+                        if old_pos > new_pos:
+                            direction = "up"
+                            self.news_feed.append(
+                                f"│ {name} moved {direction} in the Top 10 for {title}: {old_pos+1} → {new_pos+1}."
+                            )
+                    self.news_feed.append("│")
+        self.previous_records = [rec.copy() for rec in self.records]
+        
+        # 4. Last week's tournament winners with total career wins
         last_week = self.current_week - 1 if self.current_week > 1 else 52
         last_year = self.current_year if self.current_week > 1 else self.current_year - 1
     
@@ -774,13 +839,14 @@ class TournamentScheduler:
                     last_week_winners.append((winner, tournament, total_wins))
 
         if last_week_winners:
-            self.news_feed.append("- Last week ATP winners:")
+            self.news_feed.append(f"├─ Last Week ATP Winners ─┤")
             for winner, tournament, total_wins in last_week_winners:
                 self.news_feed.append(
-                    f"       {winner['name']} won {tournament['name']} ({tournament['category']}, {tournament['surface']}) - Career win n°{total_wins}"
+                    f"│ {winner['name']} won {tournament['name']} ({tournament['category']}, {tournament['surface']}) - Career win n°{total_wins}"
                 )
+        self.news_feed.append("│")
     
-        # 4. Get ranking changes
+        # 5. Get ranking changes
         current_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
         ranking_changes = {}
         if hasattr(self, 'old_rankings'):
@@ -803,9 +869,13 @@ class TournamentScheduler:
         
         current_top16.sort(key=lambda x: x[2])
         dropped_out.sort(key=lambda x: x[1])
+        
+        if top16_changes:
+            self.news_feed.append(f"├─ Top 16 Changes ─┤")
+            for name, old, new in current_top16:
+                self.news_feed.append(f"│ {name} ({old} -> {new})")
+            self.news_feed.append("├─")
+            for name, old, new in dropped_out:
+                self.news_feed.append(f"│ Dropped from top 16: {name} (was {old})")
+        self.news_feed.append("└──────────────────────────────────────────────────────────────────────────────")
 
-        for name, old, new in current_top16:
-            self.news_feed.append(f"- Top 16 change: {name} ({old} -> {new})")
-        for name, old, new in dropped_out:
-            self.news_feed.append(f"- Dropped from top 16: {name} (was {old})")
-            

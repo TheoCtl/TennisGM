@@ -44,7 +44,12 @@ class NewGenGenerator:
             "potential_factor": potential_factor,
             "rank": player_rank,  # Initial unranked status
             "highest_ranking": 999,
+            "highest_overral": 0,
+            "mawn": [0, 0, 0, 0, 0],
+            "w1": 0,
+            "w16": 0,
             "points": 0,
+            "highest_points": 0,
             "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
             "tournament_history": [],
             "tournament_wins": [],
