@@ -1,4 +1,5 @@
 import math
+import json
 
 class RecordsManager:
     def __init__(self, scheduler):
@@ -175,11 +176,19 @@ class RecordsManager:
             for entry in player.get('tournament_history', []):
                 if entry.get('week') == last_week and entry.get('year') == last_year:
                     tname = entry.get('name')
-                    tournament = next((t for t in self.scheduler.tournaments if t['name'] == tname and t.get('year') == last_year), None)
-                    if tournament:
-                        surface = tournament.get('surface', 'neutral')
-                    else:
-                        surface = 'neutral'
+                    #tournament = next(
+                    #    (t for t in self.scheduler.tournaments
+                    #    if t['name'] == tname and t.get('year') == last_year and t.get('week') == entry.get('week')),
+                    #    None
+                    #)
+                    #with open("debug_tournament_log.txt", "a", encoding="utf-8") as debug_file:
+                    #    debug_file.write(
+                    #        f"Player: {player.get('name')} | Entry: {entry} | Tournament found: {json.dumps(tournament) if tournament else 'None'}\n"
+                    #    )
+                    #if tournament:
+                    surface = entry.get('surface', 'neutral')
+                    #else:
+                    #    surface = 'neutral'
                     idx = surface_map.get(surface, 4)
                     matches_won = max(0, entry.get('round', 0))
                     player['mawn'][idx] += matches_won

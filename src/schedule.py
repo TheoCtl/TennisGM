@@ -1,6 +1,7 @@
 import json
 import random
 import os
+import copy
 from math import log2, ceil
 from datetime import datetime, timedelta
 from collections import defaultdict
@@ -159,6 +160,7 @@ class TournamentScheduler:
                 if player.get('rank', 999) < player.get('highest_ranking', 999):
                     player['highest_ranking'] = player['rank']
         PlayerDevelopment.seasonal_development(self)
+        self.previous_records = copy.deepcopy(self.records)
         self.update_weeks_at_top()
         self.records_manager.update_mawn_last_week()
         self.records_manager.update_all_records()
@@ -512,7 +514,8 @@ class TournamentScheduler:
                 'year': self.current_year,
                 'week': self.current_week,
                 'round': round_reached,
-                'points': points
+                'points': points,
+                'surface': tournament.get('surface', 'neutral')
             })
         
     def _advance_bracket(self, tournament, match_idx, winner_id):
@@ -800,6 +803,8 @@ class TournamentScheduler:
                 
         # 3. Top 10 Achievements changes
         if hasattr(self, 'previous_records'):
+            if self.records != self.previous_records:
+                self.news_feed.append(f"├─ Achievements ─┤")
             for rec, prev in zip(self.records, self.previous_records):
                 if rec.get("type") == prev.get("type") and rec.get("top10") != prev.get("top10"):
                     title = rec.get('title', rec.get('type'))
@@ -807,14 +812,12 @@ class TournamentScheduler:
                     curr_names = [entry['name'] for entry in rec.get('top10', [])]
 
                     # New entries
-                    self.news_feed.append(f"├─ Achievements ─┤")
                     new_entries = [name for name in curr_names if name not in prev_names]
                     for name in new_entries:
                         pos = curr_names.index(name) + 1
                         self.news_feed.append(f"│ {name} entered the Top 10 for {title} at n°{pos}")
 
                     # Position changes for players still in top 10
-                    self.news_feed.append("├─")
                     for name in set(curr_names) & set(prev_names):
                         old_pos = prev_names.index(name)
                         new_pos = curr_names.index(name)
@@ -823,8 +826,9 @@ class TournamentScheduler:
                             self.news_feed.append(
                                 f"│ {name} moved {direction} in the Top 10 for {title}: {old_pos+1} → {new_pos+1}."
                             )
-                    self.news_feed.append("│")
-        self.previous_records = [rec.copy() for rec in self.records]
+                    if new_entries or old_pos > new_pos:
+                        self.news_feed.append("│")
+            self.news_feed.append("│")
         
         # 4. Last week's tournament winners with total career wins
         last_week = self.current_week - 1 if self.current_week > 1 else 52
@@ -874,7 +878,6 @@ class TournamentScheduler:
             self.news_feed.append(f"├─ Top 16 Changes ─┤")
             for name, old, new in current_top16:
                 self.news_feed.append(f"│ {name} ({old} -> {new})")
-            self.news_feed.append("├─")
             for name, old, new in dropped_out:
                 self.news_feed.append(f"│ Dropped from top 16: {name} (was {old})")
         self.news_feed.append("└──────────────────────────────────────────────────────────────────────────────")

@@ -73,10 +73,6 @@ def show_news_feed(stdscr, scheduler):
     section_titles = []
     section_indices = []
     # Identify section headers for navigation (lines starting with "- ")
-    for idx, line in enumerate(news):
-        if line.startswith("- "):
-            section_titles.append(line)
-            section_indices.append(idx)
     while True:
         stdscr.clear()
         stdscr.addstr(0, 0, "News Feed", curses.A_BOLD)
