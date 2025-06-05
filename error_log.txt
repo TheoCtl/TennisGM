@@ -1,9 +1,11 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 778, in main
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 774, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 59, in main_menu
-    show_news_feed(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 77, in show_news_feed
-    if line.startswith("- "):
-       ^^^^^^^^^^^^^^^
-AttributeError: 'list' object has no attribute 'startswith'
+  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 61, in main_menu
+    scheduler.advance_week()
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 167, in advance_week
+    self.generate_news_feed()
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 833, in generate_news_feed
+    if a == 1:
+       ^
+UnboundLocalError: cannot access local variable 'a' where it is not associated with a value

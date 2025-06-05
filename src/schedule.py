@@ -272,7 +272,7 @@ class TournamentScheduler:
             gs_winners = []
             for gs in gs_names:
                 for t in self.tournaments:
-                    if t['name'] in gs_names and t.get('year') == self.current_year and t.get('winner_id'):
+                    if t['name'] in gs_names and t.get('winner_id'):
                         gs_winners.append(t['winner_id'])
                         break
             unique_winners = []
@@ -282,7 +282,7 @@ class TournamentScheduler:
                     
             if len(unique_winners) < 4:
                 for t in self.tournaments:
-                    if t['name'] == "ATP Finals" and t.get('year') == self.current_year and t.get('winner_id'):
+                    if t['name'] == "ATP Finals" and t.get('winner_id'):
                         if t['winner_id'] not in unique_winners:
                             unique_winners.append(t['winner_id'])
                         break
@@ -295,8 +295,7 @@ class TournamentScheduler:
                     if len(unique_winners) == 4:
                         break
                     
-            kings_cup[0]['participants'] = unique_winners[:4]
-            available_for_week = [p for p in available_players if p['id'] not in unique_winners]
+            available_for_week =  unique_winners
         else:            
             # Nextgen Finals logic
             junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
@@ -745,7 +744,10 @@ class TournamentScheduler:
             'name' : player['name'],
             'tournament_wins' : player.get('tournament_wins', []).copy(),
             'highest_ranking': player.get('highest_ranking', 999),
-            'hof_points': player.get('hof_points', 0)
+            'hof_points': player.get('hof_points', 0),
+            'mawn': player.get('mawn'),
+            'w1': player.get('w1'),
+            'w16': player.get('w16')
         }
         self.hall_of_fame.append(hof_entry)
         self.hall_of_fame = sorted(
@@ -812,8 +814,10 @@ class TournamentScheduler:
                     curr_names = [entry['name'] for entry in rec.get('top10', [])]
 
                     # New entries
+                    a = 0
                     new_entries = [name for name in curr_names if name not in prev_names]
                     for name in new_entries:
+                        a = 1
                         pos = curr_names.index(name) + 1
                         self.news_feed.append(f"│ {name} entered the Top 10 for {title} at n°{pos}")
 
@@ -826,8 +830,11 @@ class TournamentScheduler:
                             self.news_feed.append(
                                 f"│ {name} moved {direction} in the Top 10 for {title}: {old_pos+1} → {new_pos+1}."
                             )
-                    if new_entries or old_pos > new_pos:
+                    if a == 1:
                         self.news_feed.append("│")
+                    else:
+                        if old_pos > new_pos:
+                            self.news_feed.append("│")
             self.news_feed.append("│")
         
         # 4. Last week's tournament winners with total career wins
