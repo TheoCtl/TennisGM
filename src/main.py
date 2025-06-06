@@ -145,7 +145,7 @@ def show_record_details(stdscr, record):
         for idx, entry in enumerate(record["top10"]):
             stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['weeks']} weeks")
     elif record["type"] == "most_weeks_in_16":
-        stdscr.addstr(2, 0, "Top 10 Most Weeks in Top 16:")
+        stdscr.addstr(2, 0, "Top 10 Most Weeks in Top 10:")
         for idx, entry in enumerate(record["top10"]):
             stdscr.addstr(3 + idx, 0, f"{idx+1}. {entry['name']} - {entry['weeks']} weeks")
     stdscr.addstr(15, 0, "Press any key to return.")

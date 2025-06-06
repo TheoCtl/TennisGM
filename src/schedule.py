@@ -140,7 +140,7 @@ class TournamentScheduler:
             self.current_year += 1
             self.current_year_retirees = self._process_retirements()
             retired_count = len(self.current_year_retirees)
-            new_player_count = retired_count
+            new_player_count = retired_count + 10
             for player in self.players:
                 if 'age' in player and not player.get('retired', False):
                     player['age'] += 1
@@ -176,7 +176,7 @@ class TournamentScheduler:
             if not player.get('retired', False):
                 if player.get('rank', 999) == 1:
                     player['w1'] += 1
-                if player.get('rank', 999) <= 16:
+                if player.get('rank', 999) <= 10:
                     player['w16'] += 1
     
     def _cleanup_old_tournament_history(self):
@@ -827,7 +827,7 @@ class TournamentScheduler:
                         if old_pos > new_pos:
                             direction = "up"
                             self.news_feed.append(
-                                f"│ {name} moved {direction} in the Top 10 for {title}: {old_pos+1} → {new_pos+1}."
+                                f"│ {name} moved {direction} in the Top 10 for {title}: {old_pos+1} → {new_pos+1}"
                             )
                     if a == 1:
                         self.news_feed.append("│")

@@ -113,7 +113,7 @@ class RecordsManager:
         top10_w16 = sorted(w16_list, key=lambda x: -x["weeks"])[:10]
         record_w16 = {
             "type": "most_weeks_in_16",
-            "title": "Most Weeks in Top 16",
+            "title": "Most Weeks in Top 10",
             "top10": top10_w16
         }
 
