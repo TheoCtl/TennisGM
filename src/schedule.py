@@ -270,11 +270,10 @@ class TournamentScheduler:
         if kings_cup:
             gs_names = ["Australian Open", "Roland-Garros", "Wimbledon", "US Open"]
             gs_winners = []
-            for gs in gs_names:
-                for t in self.tournaments:
-                    if t['name'] in gs_names and t.get('winner_id'):
-                        gs_winners.append(t['winner_id'])
-                        break
+            for t in self.tournaments:
+                if t['name'] in gs_names and t.get('winner_id'):
+                    gs_winners.append(t['winner_id'])
+                    break
             unique_winners = []
             for wid in gs_winners:
                 if wid not in unique_winners:
@@ -295,7 +294,7 @@ class TournamentScheduler:
                     if len(unique_winners) == 4:
                         break
                     
-            available_for_week =  unique_winners
+            available_for_week = [p for p in self.players if p['id'] in unique_winners]
         else:            
             # Nextgen Finals logic
             junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]

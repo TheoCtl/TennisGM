@@ -3,9 +3,11 @@ Traceback (most recent call last):
     main_menu(stdscr, scheduler)
   File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 61, in main_menu
     scheduler.advance_week()
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 167, in advance_week
-    self.generate_news_feed()
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 833, in generate_news_feed
-    if a == 1:
-       ^
-UnboundLocalError: cannot access local variable 'a' where it is not associated with a value
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 154, in advance_week
+    self.assign_players_to_tournaments()
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 345, in assign_players_to_tournaments
+    available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 345, in <lambda>
+    available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
+                                          ^^^^^
+AttributeError: 'int' object has no attribute 'get'
