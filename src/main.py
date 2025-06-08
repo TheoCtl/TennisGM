@@ -324,7 +324,7 @@ def show_hof_player_details(stdscr, player):
             mawn =player.get('mawn', [0,0,0,0,0])
             stdscr.addstr(7, 0, f"│ Total Matches Won (clay, grass, hard, indoor): {sum(mawn)} ({mawn[0]}, {mawn[1]}, {mawn[2]}, {mawn[3]})")
             stdscr.addstr(8, 0, f"│ Weeks at #1 : {w1}w")
-            stdscr.addstr(9, 0, f"│ Weeks in Top 16 : {w16}w")
+            stdscr.addstr(9, 0, f"│ Weeks in Top 10 : {w16}w")
             stdscr.addstr(10, 0, f"└─────────────────────┘")
             stdscr.addstr(height - 1, 0, "Press 'T' to view tournaments won, ESC to return.")
         else:
@@ -421,7 +421,7 @@ def show_player_details(stdscr, scheduler, player):
             mawn =player.get('mawn', [0,0,0,0,0])
             stdscr.addstr(18, 0, f"│ Total Matches Won (clay, grass, hard, indoor): {sum(mawn)} ({mawn[0]}, {mawn[1]}, {mawn[2]}, {mawn[3]})")
             stdscr.addstr(19, 0, f"│ Weeks at #1 : {w1}w")
-            stdscr.addstr(20, 0, f"│ Weeks in Top 16 : {w16}w")
+            stdscr.addstr(20, 0, f"│ Weeks in Top 10 : {w16}w")
             stdscr.addstr(21, 0, f"└─────────────────────┘")
             stdscr.addstr(height - 1, 0, "Press 'T' to view tournaments won, ESC to return.")
         else:

@@ -300,8 +300,12 @@ class TournamentScheduler:
             junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
             if junior_finals:
                 # Sort by age (youngest first), then by rank (lowest rank number is best)
-                available_players.sort(key=lambda p: (p.get('age', 99), p.get('rank', 999)))
-                available_for_week = available_players[:8]
+                available_players.sort(key=lambda p: (p.get('rank', 999), p.get('age', 99)))
+                under20 = []
+                for player in available_players:
+                    if player['age'] <= 20:
+                        under20.extend(player)
+                available_for_week = under20[:8]
             else:
                 # ATP Finals logic
                 atp_finals = [t for t in current_tournaments if t['name'] == "ATP Finals"]
