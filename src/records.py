@@ -12,20 +12,20 @@ class RecordsManager:
         self.update_most_t_wins()
         self.update_weeks_at_top_records()
         def record_sort_key(rec):
-            if rec["type"] == "most_matches_won":
+            if rec["type"] == "most_t_wins":
                 return (0, "")
-            elif rec["type"].startswith("most_matches_won_"):
-                return (1, rec["type"])
-            elif rec["type"] == "most_t_wins":
-                return (2, "")
             elif rec["type"] == "most_gs_wins":
-                return (3, "")
+                return (1, "")
             elif rec["type"] == "most_m1000_wins":
-                return (4, "")
+                return (2, "")
             elif rec["type"] == "most_weeks_at_1":
-                return (5, "")
+                return (3, "")
             elif rec["type"] == "most_weeks_in_16":
-                return (6, "")
+                return (4, "")
+            elif rec["type"] == "most_matches_won":
+                return (5, "")
+            elif rec["type"].startswith("most_matches_won_"):
+                return (6, rec["type"])
             return (99, rec["type"])
         self.scheduler.records.sort(key=record_sort_key)
 

@@ -1,7 +1,7 @@
 {
   "current_year": 2054,
-  "current_week": 26,
-  "current_date": "2066-06-30T00:00:00",
+  "current_week": 27,
+  "current_date": "2066-07-07T00:00:00",
   "players": [
     {
       "id": 321,
@@ -17,19 +17,10 @@
         "straight": 45,
         "cross": 59
       },
-      "rank": 187,
-      "points": 253,
+      "rank": 174,
+      "points": 283,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Croatia Open Umag",
           "category": "ATP 250",
@@ -236,6 +227,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 3,
+          "points": 30,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [
@@ -360,7 +360,7 @@
       "highest_ranking": 27,
       "hof_points": 35,
       "mawn": [
-        41,
+        44,
         9,
         33,
         24,
@@ -383,19 +383,10 @@
         "straight": 33,
         "cross": 59
       },
-      "rank": 146,
+      "rank": 147,
       "points": 339,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Swiss Open Gstaad",
           "category": "ATP 250",
@@ -584,6 +575,15 @@
           "round": 1,
           "points": 18,
           "surface": "clay"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -686,19 +686,10 @@
         "straight": 53,
         "cross": 55
       },
-      "rank": 126,
+      "rank": 127,
       "points": 390,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -1421,7 +1412,7 @@
         "straight": 50,
         "cross": 51
       },
-      "rank": 102,
+      "rank": 99,
       "points": 453,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -1655,6 +1646,15 @@
           "category": "ATP 250",
           "year": 2054,
           "week": 24,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
           "round": 0,
           "points": 0,
           "surface": "grass"
@@ -2101,18 +2101,9 @@
       },
       "potential_factor": 1.32,
       "rank": 28,
-      "points": 1230,
+      "points": 1210,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -2485,7 +2476,7 @@
         "cross": 57
       },
       "potential_factor": 1.0,
-      "rank": 45,
+      "rank": 48,
       "points": 870,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -3058,6 +3049,15 @@
           "round": 1,
           "points": 20,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -3150,19 +3150,10 @@
         "cross": 62
       },
       "potential_factor": 1.385,
-      "rank": 15,
-      "points": 2015,
+      "rank": 18,
+      "points": 1765,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 5,
-          "points": 250,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -3499,7 +3490,7 @@
       },
       "potential_factor": 1.23,
       "rank": 12,
-      "points": 2630,
+      "points": 2650,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -3735,6 +3726,15 @@
           "round": 4,
           "points": 300,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -3839,7 +3839,7 @@
       "hof_points": 96,
       "mawn": [
         92,
-        70,
+        71,
         74,
         76,
         11
@@ -4126,6 +4126,15 @@
           "round": 2,
           "points": 90,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -4224,18 +4233,9 @@
       },
       "potential_factor": 1.386,
       "rank": 5,
-      "points": 5875,
+      "points": 5980,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 45,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -4477,6 +4477,15 @@
           "week": 25,
           "round": 5,
           "points": 500,
+          "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 4,
+          "points": 150,
           "surface": "grass"
         }
       ],
@@ -4727,13 +4736,13 @@
       "hof_points": 407,
       "mawn": [
         86,
-        104,
+        108,
         225,
         84,
         20
       ],
       "w1": 10,
-      "w16": 307
+      "w16": 308
     },
     {
       "id": 337,
@@ -4754,15 +4763,6 @@
       "points": 1145,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -4996,6 +4996,15 @@
           "round": 1,
           "points": 45,
           "surface": "clay"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -5099,7 +5108,7 @@
       },
       "potential_factor": 1.437,
       "rank": 7,
-      "points": 5310,
+      "points": 5330,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -5299,6 +5308,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -5828,13 +5846,13 @@
       "hof_points": 1614,
       "mawn": [
         128,
-        109,
+        110,
         192,
         150,
         29
       ],
       "w1": 134,
-      "w16": 307
+      "w16": 308
     },
     {
       "id": 339,
@@ -6204,18 +6222,9 @@
       },
       "potential_factor": 1.402,
       "rank": 2,
-      "points": 11430,
+      "points": 11270,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 5,
-          "points": 250,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -6449,6 +6458,15 @@
           "round": 7,
           "points": 2000,
           "surface": "clay"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 3,
+          "points": 90,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -6793,13 +6811,13 @@
       "hof_points": 697,
       "mawn": [
         107,
-        163,
+        166,
         174,
         165,
         37
       ],
       "w1": 0,
-      "w16": 307
+      "w16": 308
     },
     {
       "id": 341,
@@ -7132,18 +7150,9 @@
       },
       "potential_factor": 1.058,
       "rank": 13,
-      "points": 2330,
+      "points": 2285,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 45,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -7479,18 +7488,9 @@
       },
       "potential_factor": 1.202,
       "rank": 9,
-      "points": 4100,
+      "points": 3950,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 4,
-          "points": 150,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -7913,7 +7913,7 @@
         14
       ],
       "w1": 0,
-      "w16": 282
+      "w16": 283
     },
     {
       "id": 344,
@@ -7934,15 +7934,6 @@
       "points": 980,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -8268,19 +8259,10 @@
         "cross": 64
       },
       "potential_factor": 1.0,
-      "rank": 56,
-      "points": 720,
+      "rank": 61,
+      "points": 675,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 45,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -8618,8 +8600,8 @@
         "cross": 59
       },
       "potential_factor": 1.0,
-      "rank": 40,
-      "points": 935,
+      "rank": 38,
+      "points": 955,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -8819,6 +8801,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -8887,7 +8878,7 @@
       "highest_ranking": 20,
       "mawn": [
         32,
-        34,
+        35,
         60,
         31,
         0
@@ -9673,7 +9664,7 @@
         16
       ],
       "w1": 27,
-      "w16": 307
+      "w16": 308
     },
     {
       "id": 349,
@@ -9691,18 +9682,9 @@
       },
       "potential_factor": 1.0,
       "rank": 14,
-      "points": 2165,
+      "points": 2075,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 3,
-          "points": 90,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -10030,7 +10012,7 @@
         "cross": 59
       },
       "potential_factor": 1.0,
-      "rank": 48,
+      "rank": 49,
       "points": 845,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -10683,7 +10665,7 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 18,
+      "rank": 19,
       "points": 1685,
       "favorite_surface": "clay",
       "tournament_history": [
@@ -10893,6 +10875,15 @@
           "round": 2,
           "points": 90,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -11005,19 +10996,10 @@
         "cross": 62
       },
       "potential_factor": 1.0,
-      "rank": 89,
+      "rank": 90,
       "points": 480,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -11206,6 +11188,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -11293,8 +11284,8 @@
         "cross": 60
       },
       "potential_factor": 1.0,
-      "rank": 54,
-      "points": 735,
+      "rank": 53,
+      "points": 755,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -11548,6 +11539,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -11611,7 +11611,7 @@
       "highest_ranking": 22,
       "mawn": [
         21,
-        29,
+        30,
         49,
         42,
         2
@@ -11636,18 +11636,9 @@
       },
       "potential_factor": 1.0,
       "rank": 11,
-      "points": 2900,
+      "points": 2855,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 45,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -11965,18 +11956,9 @@
       },
       "potential_factor": 1.343,
       "rank": 6,
-      "points": 5525,
+      "points": 5375,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 4,
-          "points": 150,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -12330,7 +12312,7 @@
         18
       ],
       "w1": 0,
-      "w16": 293
+      "w16": 294
     },
     {
       "id": 357,
@@ -12347,19 +12329,10 @@
         "cross": 59
       },
       "potential_factor": 1.0,
-      "rank": 25,
-      "points": 1345,
+      "rank": 24,
+      "points": 1300,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 45,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -12698,19 +12671,10 @@
         "cross": 58
       },
       "potential_factor": 1.0,
-      "rank": 32,
-      "points": 1045,
+      "rank": 35,
+      "points": 1025,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -12962,6 +12926,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -13054,19 +13027,10 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 39,
+      "rank": 41,
       "points": 940,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -13340,18 +13304,9 @@
       },
       "potential_factor": 1.0,
       "rank": 51,
-      "points": 795,
+      "points": 770,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 45,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -13567,6 +13522,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -13650,7 +13614,7 @@
       "highest_ranking": 38,
       "mawn": [
         34,
-        33,
+        34,
         25,
         30,
         6
@@ -13675,7 +13639,7 @@
       },
       "potential_factor": 1.316,
       "rank": 10,
-      "points": 3475,
+      "points": 3520,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -13902,6 +13866,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -13990,13 +13963,13 @@
       "highest_ranking": 7,
       "mawn": [
         66,
-        72,
+        74,
         103,
         70,
         7
       ],
       "w1": 0,
-      "w16": 217,
+      "w16": 218,
       "hof_points": 62
     },
     {
@@ -14014,8 +13987,8 @@
         "cross": 54
       },
       "potential_factor": 1.0,
-      "rank": 19,
-      "points": 1680,
+      "rank": 17,
+      "points": 1770,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -14269,6 +14242,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 3,
+          "points": 90,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -14312,7 +14294,7 @@
       "highest_ranking": 10,
       "mawn": [
         45,
-        42,
+        45,
         74,
         47,
         2
@@ -14336,7 +14318,7 @@
         "cross": 58
       },
       "potential_factor": 1.0,
-      "rank": 41,
+      "rank": 42,
       "highest_ranking": 28,
       "points": 920,
       "favorite_surface": "hard",
@@ -14624,7 +14606,7 @@
         "cross": 62
       },
       "potential_factor": 1.0,
-      "rank": 43,
+      "rank": 45,
       "highest_ranking": 22,
       "points": 875,
       "favorite_surface": "indoor",
@@ -14930,7 +14912,7 @@
         "cross": 64
       },
       "potential_factor": 1.066,
-      "rank": 44,
+      "rank": 46,
       "highest_ranking": 21,
       "points": 875,
       "favorite_surface": "clay",
@@ -15254,7 +15236,7 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 82,
+      "rank": 83,
       "highest_ranking": 48,
       "points": 500,
       "favorite_surface": "clay",
@@ -15566,7 +15548,7 @@
         "cross": 60
       },
       "potential_factor": 1.0,
-      "rank": 20,
+      "rank": 21,
       "highest_ranking": 19,
       "points": 1565,
       "favorite_surface": "hard",
@@ -15893,20 +15875,11 @@
         "cross": 69
       },
       "potential_factor": 1.085,
-      "rank": 71,
+      "rank": 72,
       "highest_ranking": 20,
       "points": 560,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -16041,6 +16014,15 @@
           "round": 4,
           "points": 125,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -16112,20 +16094,11 @@
         "cross": 59
       },
       "potential_factor": 1.0,
-      "rank": 24,
+      "rank": 25,
       "highest_ranking": 20,
-      "points": 1380,
+      "points": 1290,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 3,
-          "points": 90,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -16402,20 +16375,11 @@
         "cross": 65
       },
       "potential_factor": 1.0,
-      "rank": 46,
-      "highest_ranking": 46,
-      "points": 855,
+      "rank": 44,
+      "highest_ranking": 44,
+      "points": 875,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -16586,6 +16550,15 @@
           "round": 3,
           "points": 90,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -16674,7 +16647,7 @@
       "hof_points": 19,
       "mawn": [
         34,
-        24,
+        25,
         24,
         38,
         0
@@ -16697,7 +16670,7 @@
         "cross": 68
       },
       "potential_factor": 1.0,
-      "rank": 97,
+      "rank": 96,
       "highest_ranking": 41,
       "points": 461,
       "favorite_surface": "clay",
@@ -16987,15 +16960,6 @@
       "favorite_surface": "clay",
       "tournament_history": [
         {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
-        {
           "name": "Wimbledon",
           "category": "Grand Slam",
           "year": 2053,
@@ -17278,20 +17242,11 @@
         "cross": 67
       },
       "potential_factor": 1.138,
-      "rank": 62,
+      "rank": 63,
       "highest_ranking": 42,
       "points": 670,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Brawo Open",
           "category": "Challenger 125",
@@ -17480,6 +17435,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -17573,7 +17537,7 @@
       "potential_factor": 1.479,
       "rank": 1,
       "highest_ranking": 1,
-      "points": 13160,
+      "points": 13410,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -17808,6 +17772,15 @@
           "week": 25,
           "round": 5,
           "points": 500,
+          "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 5,
+          "points": 250,
           "surface": "grass"
         }
       ],
@@ -18101,19 +18074,24 @@
           "name": "Terra Wortmann Open",
           "category": "ATP 500",
           "year": 2054
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054
         }
       ],
       "retired": false,
       "hof_points": 1007,
       "mawn": [
         130,
-        124,
+        129,
         175,
         110,
         20
       ],
-      "w1": 136,
-      "w16": 283
+      "w1": 137,
+      "w16": 284
     },
     {
       "id": 375,
@@ -18130,20 +18108,11 @@
         "cross": 60
       },
       "potential_factor": 1.0,
-      "rank": 95,
+      "rank": 84,
       "highest_ranking": 48,
-      "points": 466,
+      "points": 491,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -18332,6 +18301,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -18395,7 +18373,7 @@
       "hof_points": 11,
       "mawn": [
         25,
-        26,
+        28,
         27,
         38,
         1
@@ -18656,6 +18634,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -18747,9 +18734,9 @@
         "cross": 61
       },
       "potential_factor": 1.0,
-      "rank": 35,
-      "highest_ranking": 35,
-      "points": 1025,
+      "rank": 32,
+      "highest_ranking": 32,
+      "points": 1045,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -18958,6 +18945,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -19016,7 +19012,7 @@
       "hof_points": 13,
       "mawn": [
         57,
-        19,
+        20,
         29,
         29,
         1
@@ -19039,20 +19035,11 @@
         "cross": 61
       },
       "potential_factor": 1.0,
-      "rank": 91,
+      "rank": 78,
       "highest_ranking": 62,
-      "points": 473,
+      "points": 518,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Croatia Open Umag",
           "category": "ATP 250",
@@ -19232,6 +19219,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -19300,7 +19296,7 @@
       "hof_points": 10,
       "mawn": [
         46,
-        20,
+        22,
         20,
         32,
         1
@@ -19323,7 +19319,7 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 42,
+      "rank": 43,
       "highest_ranking": 24,
       "points": 875,
       "favorite_surface": "indoor",
@@ -19611,20 +19607,11 @@
         "cross": 58
       },
       "potential_factor": 1.0,
-      "rank": 124,
+      "rank": 125,
       "highest_ranking": 65,
       "points": 393,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -19741,6 +19728,15 @@
           "round": 3,
           "points": 60,
           "surface": "clay"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -19799,7 +19795,7 @@
       "hof_points": 9,
       "mawn": [
         31,
-        14,
+        15,
         40,
         34,
         1
@@ -19822,20 +19818,11 @@
         "cross": 67
       },
       "potential_factor": 1.0,
-      "rank": 104,
+      "rank": 118,
       "highest_ranking": 54,
-      "points": 450,
+      "points": 405,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 3,
-          "points": 90,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -20006,6 +19993,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -20069,7 +20065,7 @@
       "hof_points": 10,
       "mawn": [
         39,
-        29,
+        31,
         24,
         19,
         1
@@ -20092,20 +20088,11 @@
         "cross": 59
       },
       "potential_factor": 1.362,
-      "rank": 87,
+      "rank": 88,
       "highest_ranking": 19,
       "points": 485,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -20351,7 +20338,7 @@
       "potential_factor": 1.489,
       "rank": 4,
       "highest_ranking": 4,
-      "points": 7735,
+      "points": 7985,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -20596,6 +20583,15 @@
           "round": 5,
           "points": 250,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 5,
+          "points": 250,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -20673,19 +20669,24 @@
           "name": "Boss Open",
           "category": "ATP 250",
           "year": 2054
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054
         }
       ],
       "retired": false,
       "hof_points": 107,
       "mawn": [
         67,
-        103,
+        108,
         91,
         68,
         4
       ],
       "w1": 0,
-      "w16": 168
+      "w16": 169
     },
     {
       "id": 384,
@@ -20702,20 +20703,11 @@
         "cross": 62
       },
       "potential_factor": 1.0,
-      "rank": 141,
+      "rank": 107,
       "highest_ranking": 51,
-      "points": 355,
+      "points": 430,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -20886,6 +20878,15 @@
           "round": 4,
           "points": 75,
           "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 4,
+          "points": 75,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -20928,13 +20929,18 @@
           "name": "Gwangju Open",
           "category": "Challenger 75",
           "year": 2054
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054
         }
       ],
       "retired": false,
       "hof_points": 7,
       "mawn": [
         33,
-        26,
+        30,
         34,
         22,
         1
@@ -20962,15 +20968,6 @@
       "points": 571,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -21558,15 +21555,6 @@
       "points": 1230,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -22176,9 +22164,9 @@
         "cross": 66
       },
       "potential_factor": 1.39,
-      "rank": 17,
-      "highest_ranking": 17,
-      "points": 1780,
+      "rank": 15,
+      "highest_ranking": 15,
+      "points": 1800,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -22405,6 +22393,15 @@
           "round": 3,
           "points": 90,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -22448,7 +22445,7 @@
       "hof_points": 24,
       "mawn": [
         39,
-        49,
+        50,
         56,
         29,
         4
@@ -22471,20 +22468,11 @@
         "cross": 58
       },
       "potential_factor": 1.0,
-      "rank": 21,
+      "rank": 22,
       "highest_ranking": 21,
-      "points": 1475,
+      "points": 1500,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -22727,6 +22715,15 @@
           "round": 3,
           "points": 180,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -22780,7 +22777,7 @@
       "hof_points": 21,
       "mawn": [
         40,
-        37,
+        39,
         36,
         31,
         1
@@ -22803,7 +22800,7 @@
         "cross": 64
       },
       "potential_factor": 1.0,
-      "rank": 76,
+      "rank": 74,
       "highest_ranking": 63,
       "points": 538,
       "favorite_surface": "hard",
@@ -23074,20 +23071,11 @@
         "cross": 58
       },
       "potential_factor": 1.0,
-      "rank": 105,
+      "rank": 106,
       "highest_ranking": 58,
-      "points": 450,
+      "points": 430,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -23267,6 +23255,15 @@
           "round": 1,
           "points": 20,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -23328,20 +23325,11 @@
         "cross": 63
       },
       "potential_factor": 1.19,
-      "rank": 38,
+      "rank": 39,
       "highest_ranking": 30,
-      "points": 960,
+      "points": 940,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -23646,7 +23634,7 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 80,
+      "rank": 81,
       "highest_ranking": 35,
       "points": 510,
       "favorite_surface": "clay",
@@ -23990,20 +23978,11 @@
         "cross": 58
       },
       "potential_factor": 1.0,
-      "rank": 53,
+      "rank": 54,
       "highest_ranking": 45,
-      "points": 760,
+      "points": 740,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -24219,6 +24198,15 @@
           "round": 2,
           "points": 90,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -24320,15 +24308,6 @@
       "points": 1030,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -24544,6 +24523,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -24592,7 +24580,7 @@
       "hof_points": 8,
       "mawn": [
         46,
-        25,
+        26,
         23,
         47,
         1
@@ -24615,20 +24603,11 @@
         "cross": 56
       },
       "potential_factor": 1.048,
-      "rank": 78,
+      "rank": 82,
       "highest_ranking": 57,
-      "points": 523,
+      "points": 503,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -24876,9 +24855,9 @@
         "cross": 58
       },
       "potential_factor": 1.264,
-      "rank": 68,
+      "rank": 65,
       "highest_ranking": 24,
-      "points": 585,
+      "points": 630,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -25087,6 +25066,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -25115,7 +25103,7 @@
       "hof_points": 4,
       "mawn": [
         32,
-        35,
+        37,
         36,
         26,
         7
@@ -25383,9 +25371,9 @@
         "cross": 59
       },
       "potential_factor": 1.0,
-      "rank": 63,
+      "rank": 62,
       "highest_ranking": 43,
-      "points": 655,
+      "points": 675,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -25621,6 +25609,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -25669,7 +25666,7 @@
       "hof_points": 11,
       "mawn": [
         26,
-        32,
+        33,
         34,
         24,
         2
@@ -25692,7 +25689,7 @@
         "cross": 62
       },
       "potential_factor": 1.0,
-      "rank": 84,
+      "rank": 85,
       "highest_ranking": 58,
       "points": 486,
       "favorite_surface": "clay",
@@ -25971,9 +25968,9 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 147,
+      "rank": 142,
       "highest_ranking": 83,
-      "points": 339,
+      "points": 352,
       "favorite_surface": "hard",
       "tournament_history": [
         {
@@ -26164,6 +26161,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 13,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -26201,7 +26207,7 @@
       "retired": false,
       "mawn": [
         33,
-        17,
+        18,
         37,
         25,
         1
@@ -26225,7 +26231,7 @@
         "cross": 49
       },
       "potential_factor": 1.0,
-      "rank": 100,
+      "rank": 98,
       "highest_ranking": 61,
       "points": 455,
       "favorite_surface": "indoor",
@@ -26757,7 +26763,7 @@
         5
       ],
       "w1": 0,
-      "w16": 34,
+      "w16": 35,
       "hof_points": 46
     },
     {
@@ -26780,15 +26786,6 @@
       "points": 387,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Los Cabos Open",
           "category": "ATP 250",
@@ -27032,20 +27029,11 @@
         "cross": 61
       },
       "potential_factor": 1.0,
-      "rank": 88,
+      "rank": 89,
       "highest_ranking": 63,
       "points": 480,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -27315,20 +27303,11 @@
         "cross": 53
       },
       "potential_factor": 1.0,
-      "rank": 107,
+      "rank": 104,
       "highest_ranking": 79,
       "points": 441,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -27558,20 +27537,11 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 99,
+      "rank": 97,
       "highest_ranking": 80,
       "points": 458,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -27750,6 +27720,15 @@
           "week": 25,
           "round": 2,
           "points": 45,
+          "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
           "surface": "grass"
         }
       ],
@@ -27993,6 +27972,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -28084,20 +28072,11 @@
         "cross": 57
       },
       "potential_factor": 1.0,
-      "rank": 108,
+      "rank": 117,
       "highest_ranking": 52,
-      "points": 428,
+      "points": 408,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -28277,6 +28256,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -28348,20 +28336,11 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 72,
+      "rank": 79,
       "highest_ranking": 57,
-      "points": 560,
+      "points": 515,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 3,
-          "points": 90,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -28532,6 +28511,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -28589,7 +28577,7 @@
       "retired": false,
       "mawn": [
         32,
-        13,
+        15,
         44,
         29,
         1
@@ -28615,18 +28603,9 @@
       "potential_factor": 1.192,
       "rank": 16,
       "highest_ranking": 14,
-      "points": 1795,
+      "points": 1775,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -28930,7 +28909,7 @@
         "cross": 65
       },
       "potential_factor": 1.303,
-      "rank": 90,
+      "rank": 91,
       "highest_ranking": 27,
       "points": 480,
       "favorite_surface": "hard",
@@ -29096,6 +29075,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -29152,20 +29140,11 @@
         "cross": 59
       },
       "potential_factor": 1.155,
-      "rank": 98,
+      "rank": 105,
       "highest_ranking": 63,
-      "points": 460,
+      "points": 440,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -29433,20 +29412,11 @@
         "cross": 63
       },
       "potential_factor": 1.0,
-      "rank": 75,
+      "rank": 77,
       "highest_ranking": 61,
-      "points": 543,
+      "points": 523,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -29635,6 +29605,15 @@
           "round": 2,
           "points": 90,
           "surface": "clay"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -29903,6 +29882,15 @@
           "round": 3,
           "points": 75,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -29969,7 +29957,7 @@
         "cross": 57
       },
       "potential_factor": 1.0,
-      "rank": 133,
+      "rank": 134,
       "highest_ranking": 103,
       "points": 382,
       "favorite_surface": "grass",
@@ -30153,6 +30141,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -30199,7 +30196,7 @@
         "cross": 59
       },
       "potential_factor": 1.26,
-      "rank": 86,
+      "rank": 87,
       "highest_ranking": 48,
       "points": 485,
       "favorite_surface": "clay",
@@ -30413,7 +30410,7 @@
         "cross": 58
       },
       "potential_factor": 1.113,
-      "rank": 103,
+      "rank": 100,
       "highest_ranking": 47,
       "points": 450,
       "favorite_surface": "grass",
@@ -30633,6 +30630,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -30674,7 +30680,7 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 96,
+      "rank": 95,
       "highest_ranking": 57,
       "points": 465,
       "favorite_surface": "grass",
@@ -30894,6 +30900,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -30970,7 +30985,7 @@
         "cross": 47
       },
       "potential_factor": 1.0,
-      "rank": 135,
+      "rank": 136,
       "highest_ranking": 90,
       "points": 376,
       "favorite_surface": "hard",
@@ -31224,9 +31239,9 @@
         "cross": 58
       },
       "potential_factor": 1.434,
-      "rank": 47,
+      "rank": 40,
       "highest_ranking": 27,
-      "points": 850,
+      "points": 940,
       "favorite_surface": "grass",
       "tournament_history": [
         {
@@ -31453,6 +31468,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 3,
+          "points": 90,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -31485,7 +31509,7 @@
       "retired": false,
       "mawn": [
         41,
-        36,
+        39,
         27,
         25,
         0
@@ -31509,7 +31533,7 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 66,
+      "rank": 67,
       "highest_ranking": 30,
       "points": 615,
       "favorite_surface": "grass",
@@ -31796,20 +31820,11 @@
         "cross": 51
       },
       "potential_factor": 1.0,
-      "rank": 106,
+      "rank": 101,
       "highest_ranking": 62,
       "points": 449,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -32034,6 +32049,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -32061,7 +32085,7 @@
       "retired": false,
       "mawn": [
         40,
-        10,
+        11,
         27,
         37,
         2
@@ -32085,20 +32109,11 @@
         "cross": 54
       },
       "potential_factor": 1.0,
-      "rank": 165,
+      "rank": 164,
       "highest_ranking": 75,
       "points": 310,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -32348,20 +32363,11 @@
         "cross": 55
       },
       "potential_factor": 1.373,
-      "rank": 22,
-      "highest_ranking": 22,
-      "points": 1435,
+      "rank": 20,
+      "highest_ranking": 20,
+      "points": 1585,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -32550,6 +32556,15 @@
           "round": 4,
           "points": 300,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 4,
+          "points": 150,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -32597,7 +32612,7 @@
       "retired": false,
       "mawn": [
         41,
-        19,
+        23,
         43,
         23,
         0
@@ -32621,9 +32636,9 @@
         "cross": 55
       },
       "potential_factor": 1.199,
-      "rank": 49,
+      "rank": 47,
       "highest_ranking": 39,
-      "points": 830,
+      "points": 875,
       "favorite_surface": "indoor",
       "tournament_history": [
         {
@@ -32877,6 +32892,15 @@
           "round": 1,
           "points": 45,
           "surface": "clay"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -32914,7 +32938,7 @@
       "retired": false,
       "mawn": [
         46,
-        19,
+        21,
         23,
         38,
         3
@@ -32938,7 +32962,7 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 65,
+      "rank": 66,
       "highest_ranking": 57,
       "points": 625,
       "favorite_surface": "grass",
@@ -33502,7 +33526,7 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 166,
+      "rank": 165,
       "highest_ranking": 69,
       "points": 305,
       "favorite_surface": "clay",
@@ -33752,9 +33776,9 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 155,
+      "rank": 137,
       "highest_ranking": 79,
-      "points": 326,
+      "points": 371,
       "favorite_surface": "clay",
       "tournament_history": [
         {
@@ -33963,6 +33987,15 @@
           "round": 4,
           "points": 75,
           "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 3,
+          "points": 45,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -34025,7 +34058,7 @@
       "retired": false,
       "mawn": [
         37,
-        28,
+        31,
         26,
         25,
         3
@@ -34054,15 +34087,6 @@
       "points": 555,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -34317,7 +34341,7 @@
         "cross": 53
       },
       "potential_factor": 1.0,
-      "rank": 159,
+      "rank": 161,
       "highest_ranking": 73,
       "points": 321,
       "favorite_surface": "clay",
@@ -34510,6 +34534,15 @@
           "round": 1,
           "points": 18,
           "surface": "clay"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -34805,7 +34838,7 @@
         "cross": 48
       },
       "potential_factor": 1.0,
-      "rank": 109,
+      "rank": 108,
       "highest_ranking": 73,
       "highest_overral": 0,
       "mawn": [
@@ -34955,6 +34988,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -34997,7 +35039,7 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 150,
+      "rank": 149,
       "highest_ranking": 100,
       "highest_overral": 0,
       "mawn": [
@@ -35256,7 +35298,7 @@
         "cross": 49
       },
       "potential_factor": 1.031,
-      "rank": 119,
+      "rank": 120,
       "highest_ranking": 78,
       "highest_overral": 0,
       "mawn": [
@@ -35272,15 +35314,6 @@
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -35507,7 +35540,7 @@
         "cross": 53
       },
       "potential_factor": 1.222,
-      "rank": 77,
+      "rank": 76,
       "highest_ranking": 59,
       "highest_overral": 0,
       "mawn": [
@@ -35693,6 +35726,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -35750,7 +35792,7 @@
         "cross": 60
       },
       "potential_factor": 1.215,
-      "rank": 83,
+      "rank": 102,
       "highest_ranking": 51,
       "highest_overral": 0,
       "mawn": [
@@ -35762,19 +35804,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 490,
+      "points": 445,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 45,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -36287,7 +36320,7 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 70,
+      "rank": 71,
       "highest_ranking": 70,
       "highest_overral": 0,
       "mawn": [
@@ -36464,6 +36497,15 @@
           "round": 1,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -36526,7 +36568,7 @@
         "cross": 57
       },
       "potential_factor": 1.0,
-      "rank": 139,
+      "rank": 140,
       "highest_ranking": 91,
       "highest_overral": 0,
       "mawn": [
@@ -36791,7 +36833,7 @@
         "cross": 64
       },
       "potential_factor": 1.168,
-      "rank": 110,
+      "rank": 109,
       "highest_ranking": 81,
       "highest_overral": 0,
       "mawn": [
@@ -37013,6 +37055,15 @@
           "round": 1,
           "points": 25,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -37070,19 +37121,19 @@
         "cross": 58
       },
       "potential_factor": 1.347,
-      "rank": 74,
+      "rank": 70,
       "highest_ranking": 64,
       "highest_overral": 0,
       "mawn": [
         45,
-        22,
+        23,
         23,
         25,
         1
       ],
       "w1": 0,
       "w16": 0,
-      "points": 545,
+      "points": 565,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -37265,6 +37316,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -37307,7 +37367,7 @@
         "cross": 54
       },
       "potential_factor": 1.0,
-      "rank": 131,
+      "rank": 132,
       "highest_ranking": 94,
       "highest_overral": 0,
       "mawn": [
@@ -37509,7 +37569,7 @@
         "cross": 61
       },
       "potential_factor": 1.344,
-      "rank": 79,
+      "rank": 80,
       "highest_ranking": 55,
       "highest_overral": 0,
       "mawn": [
@@ -37525,15 +37585,6 @@
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -37770,7 +37821,7 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 112,
+      "rank": 111,
       "highest_ranking": 103,
       "highest_overral": 0,
       "mawn": [
@@ -37973,6 +38024,15 @@
           "week": 25,
           "round": 1,
           "points": 25,
+          "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
           "surface": "grass"
         }
       ],
@@ -38276,31 +38336,22 @@
         "cross": 55
       },
       "potential_factor": 1.01,
-      "rank": 137,
+      "rank": 131,
       "highest_ranking": 78,
       "highest_overral": 0,
       "mawn": [
         33,
-        9,
+        10,
         42,
         36,
         0
       ],
       "w1": 0,
       "w16": 0,
-      "points": 364,
+      "points": 384,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -38462,6 +38513,15 @@
           "round": 3,
           "points": 45,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -38504,7 +38564,7 @@
         "cross": 60
       },
       "potential_factor": 1.195,
-      "rank": 52,
+      "rank": 56,
       "highest_ranking": 41,
       "highest_overral": 0,
       "mawn": [
@@ -38516,19 +38576,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 760,
+      "points": 715,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 45,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -38810,31 +38861,22 @@
         "cross": 60
       },
       "potential_factor": 1.193,
-      "rank": 61,
-      "highest_ranking": 57,
+      "rank": 52,
+      "highest_ranking": 52,
       "highest_overral": 0,
       "mawn": [
         49,
-        27,
+        30,
         35,
         21,
         0
       ],
       "w1": 0,
       "w16": 0,
-      "points": 675,
+      "points": 765,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -39041,6 +39083,15 @@
           "round": 2,
           "points": 90,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 3,
+          "points": 90,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -39103,7 +39154,7 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 168,
+      "rank": 169,
       "highest_ranking": 112,
       "highest_overral": 0,
       "mawn": [
@@ -39119,15 +39170,6 @@
       "highest_points": 0,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Challenger de Buenos Aires",
           "category": "Challenger 75",
@@ -39546,7 +39588,7 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 172,
+      "rank": 173,
       "highest_ranking": 128,
       "highest_overral": 0,
       "mawn": [
@@ -39822,7 +39864,7 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 111,
+      "rank": 110,
       "highest_ranking": 104,
       "highest_overral": 0,
       "mawn": [
@@ -39838,15 +39880,6 @@
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Los Cabos Open",
           "category": "ATP 250",
@@ -40053,6 +40086,15 @@
           "round": 1,
           "points": 25,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -40095,19 +40137,19 @@
         "cross": 54
       },
       "potential_factor": 1.182,
-      "rank": 81,
+      "rank": 75,
       "highest_ranking": 71,
       "highest_overral": 0,
       "mawn": [
         20,
-        12,
+        13,
         41,
         24,
         3
       ],
       "w1": 0,
       "w16": 0,
-      "points": 510,
+      "points": 530,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -40326,6 +40368,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -40393,7 +40444,7 @@
         "cross": 56
       },
       "potential_factor": 1.256,
-      "rank": 138,
+      "rank": 139,
       "highest_ranking": 86,
       "highest_overral": 0,
       "mawn": [
@@ -40552,6 +40603,15 @@
           "round": 1,
           "points": 45,
           "surface": "clay"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -40599,7 +40659,7 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 123,
+      "rank": 124,
       "highest_ranking": 117,
       "highest_overral": 0,
       "mawn": [
@@ -40615,15 +40675,6 @@
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Nordea Open",
           "category": "ATP 250",
@@ -40776,6 +40827,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -40813,19 +40873,19 @@
         "cross": 61
       },
       "potential_factor": 1.0,
-      "rank": 127,
+      "rank": 115,
       "highest_ranking": 85,
       "highest_overral": 0,
       "mawn": [
         33,
-        18,
+        19,
         23,
         23,
         0
       ],
       "w1": 0,
       "w16": 0,
-      "points": 388,
+      "points": 408,
       "highest_points": 0,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -41008,6 +41068,15 @@
           "round": 4,
           "points": 100,
           "surface": "clay"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 20,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -41060,7 +41129,7 @@
         "cross": 46
       },
       "potential_factor": 1.0,
-      "rank": 132,
+      "rank": 133,
       "highest_ranking": 122,
       "highest_overral": 0,
       "mawn": [
@@ -41293,7 +41362,7 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 148,
+      "rank": 155,
       "highest_ranking": 130,
       "highest_overral": 0,
       "mawn": [
@@ -41305,19 +41374,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 337,
+      "points": 324,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 13,
-          "surface": "grass"
-        },
         {
           "name": "Brawo Open",
           "category": "Challenger 125",
@@ -41547,7 +41607,7 @@
         "cross": 60
       },
       "potential_factor": 1.0,
-      "rank": 85,
+      "rank": 86,
       "highest_ranking": 78,
       "highest_overral": 0,
       "mawn": [
@@ -41775,7 +41835,7 @@
         "cross": 56
       },
       "potential_factor": 1.0,
-      "rank": 152,
+      "rank": 151,
       "highest_ranking": 101,
       "highest_overral": 0,
       "mawn": [
@@ -42015,6 +42075,15 @@
           "round": 1,
           "points": 25,
           "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -42052,31 +42121,22 @@
         "cross": 55
       },
       "potential_factor": 1.0,
-      "rank": 160,
+      "rank": 163,
       "highest_ranking": 100,
       "highest_overral": 0,
       "mawn": [
         26,
-        13,
+        14,
         21,
         17,
         0
       ],
       "w1": 0,
       "w16": 0,
-      "points": 319,
+      "points": 317,
       "highest_points": 0,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 15,
-          "surface": "clay"
-        },
         {
           "name": "Iasi Open",
           "category": "Challenger 75",
@@ -42211,6 +42271,15 @@
           "round": 3,
           "points": 60,
           "surface": "clay"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 13,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -42243,7 +42312,7 @@
         "cross": 53
       },
       "potential_factor": 1.0,
-      "rank": 114,
+      "rank": 113,
       "highest_ranking": 80,
       "highest_overral": 0,
       "mawn": [
@@ -42517,7 +42586,7 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 113,
+      "rank": 112,
       "highest_ranking": 109,
       "highest_overral": 0,
       "mawn": [
@@ -42533,15 +42602,6 @@
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Swiss Open Gstaad",
           "category": "ATP 250",
@@ -42798,7 +42858,7 @@
         "cross": 50
       },
       "potential_factor": 1.102,
-      "rank": 115,
+      "rank": 114,
       "highest_ranking": 69,
       "highest_overral": 0,
       "mawn": [
@@ -43071,7 +43131,7 @@
         "cross": 58
       },
       "potential_factor": 1.287,
-      "rank": 140,
+      "rank": 141,
       "highest_ranking": 84,
       "highest_overral": 0,
       "mawn": [
@@ -43320,15 +43380,6 @@
       "favorite_surface": "hard",
       "tournament_history": [
         {
-          "name": "Eastbourne Open",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
-        {
           "name": "Wimbledon",
           "category": "Grand Slam",
           "year": 2053,
@@ -43496,7 +43547,7 @@
         "cross": 55
       },
       "potential_factor": 1.345,
-      "rank": 134,
+      "rank": 135,
       "highest_ranking": 76,
       "highest_overral": 0,
       "mawn": [
@@ -43697,7 +43748,7 @@
         "cross": 44
       },
       "potential_factor": 1.0,
-      "rank": 120,
+      "rank": 121,
       "highest_ranking": 107,
       "highest_overral": 0,
       "mawn": [
@@ -43911,7 +43962,7 @@
         "cross": 58
       },
       "potential_factor": 1.091,
-      "rank": 136,
+      "rank": 138,
       "highest_ranking": 87,
       "highest_overral": 0,
       "mawn": [
@@ -43927,15 +43978,6 @@
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Wimbledon",
           "category": "Grand Slam",
@@ -44204,7 +44246,7 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 117,
+      "rank": 154,
       "highest_ranking": 106,
       "highest_overral": 0,
       "mawn": [
@@ -44216,19 +44258,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 407,
+      "points": 332,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 4,
-          "points": 75,
-          "surface": "grass"
-        },
         {
           "name": "Nordea Open",
           "category": "ATP 250",
@@ -44487,7 +44520,7 @@
         "cross": 45
       },
       "potential_factor": 1.0,
-      "rank": 143,
+      "rank": 153,
       "highest_ranking": 126,
       "highest_overral": 0,
       "mawn": [
@@ -44499,19 +44532,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 352,
+      "points": 332,
       "highest_points": 0,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Mallorca Championships",
-          "category": "ATP 250",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 20,
-          "surface": "grass"
-        },
         {
           "name": "Nordea Open",
           "category": "ATP 250",
@@ -44750,7 +44774,7 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 154,
+      "rank": 162,
       "highest_ranking": 130,
       "highest_overral": 0,
       "mawn": [
@@ -44762,19 +44786,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 331,
+      "points": 318,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 13,
-          "surface": "grass"
-        },
         {
           "name": "Brawo Open",
           "category": "Challenger 125",
@@ -44999,7 +45014,7 @@
         "cross": 56
       },
       "potential_factor": 1.417,
-      "rank": 163,
+      "rank": 172,
       "highest_ranking": 117,
       "highest_overral": 0,
       "mawn": [
@@ -45011,19 +45026,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 313,
+      "points": 288,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 25,
-          "surface": "grass"
-        },
         {
           "name": "Nordea Open",
           "category": "ATP 250",
@@ -45217,19 +45223,19 @@
         "cross": 54
       },
       "potential_factor": 1.421,
-      "rank": 164,
+      "rank": 157,
       "highest_ranking": 103,
       "highest_overral": 0,
       "mawn": [
         25,
-        4,
+        5,
         19,
         6,
         0
       ],
       "w1": 0,
       "w16": 0,
-      "points": 311,
+      "points": 324,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -45403,6 +45409,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 13,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -45440,11 +45455,11 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 178,
+      "rank": 159,
       "highest_ranking": 133,
       "highest_overral": 0,
       "mawn": [
-        23,
+        27,
         15,
         8,
         6,
@@ -45452,19 +45467,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 273,
+      "points": 323,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Salzburg Open",
           "category": "Challenger 100",
@@ -45671,6 +45677,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 4,
+          "points": 50,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [
@@ -45686,6 +45701,11 @@
         },
         {
           "name": "Kachreti Challenger",
+          "category": "Challenger 50",
+          "year": 2054
+        },
+        {
+          "name": "Open Ibague",
           "category": "Challenger 50",
           "year": 2054
         }
@@ -45708,7 +45728,7 @@
         "cross": 56
       },
       "potential_factor": 1.302,
-      "rank": 122,
+      "rank": 123,
       "highest_ranking": 90,
       "highest_overral": 0,
       "mawn": [
@@ -45912,6 +45932,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -45954,7 +45983,7 @@
         "cross": 51
       },
       "potential_factor": 1.041,
-      "rank": 170,
+      "rank": 183,
       "highest_ranking": 133,
       "highest_overral": 0,
       "mawn": [
@@ -45966,19 +45995,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 286,
+      "points": 261,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 25,
-          "surface": "grass"
-        },
         {
           "name": "Brawo Open",
           "category": "Challenger 125",
@@ -46251,19 +46271,19 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 175,
+      "rank": 171,
       "highest_ranking": 135,
       "highest_overral": 0,
       "mawn": [
         15,
-        10,
+        11,
         20,
         6,
         0
       ],
       "w1": 0,
       "w16": 0,
-      "points": 280,
+      "points": 293,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
@@ -46482,6 +46502,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 13,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -46519,7 +46548,7 @@
         "cross": 59
       },
       "potential_factor": 1.321,
-      "rank": 157,
+      "rank": 158,
       "highest_ranking": 105,
       "highest_overral": 0,
       "mawn": [
@@ -46733,7 +46762,7 @@
         "cross": 54
       },
       "potential_factor": 1.295,
-      "rank": 118,
+      "rank": 119,
       "highest_ranking": 95,
       "highest_overral": 0,
       "mawn": [
@@ -46919,7 +46948,7 @@
         "cross": 46
       },
       "potential_factor": 1.221,
-      "rank": 171,
+      "rank": 177,
       "highest_ranking": 167,
       "highest_overral": 0,
       "mawn": [
@@ -46931,19 +46960,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 285,
+      "points": 276,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 9,
-          "surface": "clay"
-        },
         {
           "name": "Salzburg Open",
           "category": "Challenger 100",
@@ -47180,7 +47200,7 @@
         "cross": 54
       },
       "potential_factor": 1.0,
-      "rank": 173,
+      "rank": 175,
       "highest_ranking": 114,
       "highest_overral": 0,
       "mawn": [
@@ -47402,7 +47422,7 @@
         "cross": 46
       },
       "potential_factor": 1.202,
-      "rank": 101,
+      "rank": 103,
       "highest_ranking": 94,
       "highest_overral": 0,
       "mawn": [
@@ -47414,19 +47434,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 455,
+      "points": 442,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 13,
-          "surface": "grass"
-        },
         {
           "name": "Salzburg Open",
           "category": "Challenger 100",
@@ -47615,6 +47626,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Eastbourne Open",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -47652,7 +47672,7 @@
         "cross": 49
       },
       "potential_factor": 1.0,
-      "rank": 191,
+      "rank": 190,
       "highest_ranking": 94,
       "highest_overral": 0,
       "mawn": [
@@ -47920,7 +47940,7 @@
         "cross": 49
       },
       "potential_factor": 1.01,
-      "rank": 158,
+      "rank": 160,
       "highest_ranking": 130,
       "highest_overral": 0,
       "mawn": [
@@ -48517,7 +48537,7 @@
         "cross": 53
       },
       "potential_factor": 1.258,
-      "rank": 125,
+      "rank": 126,
       "highest_ranking": 106,
       "highest_overral": 0,
       "mawn": [
@@ -48757,6 +48777,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Mallorca Championships",
+          "category": "ATP 250",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -48799,7 +48828,7 @@
         "cross": 46
       },
       "potential_factor": 1.371,
-      "rank": 167,
+      "rank": 168,
       "highest_ranking": 162,
       "highest_overral": 0,
       "mawn": [
@@ -49080,7 +49109,7 @@
         "cross": 50
       },
       "potential_factor": 1.141,
-      "rank": 184,
+      "rank": 188,
       "highest_ranking": 174,
       "highest_overral": 0,
       "mawn": [
@@ -49361,19 +49390,19 @@
         "cross": 55
       },
       "potential_factor": 1.328,
-      "rank": 162,
-      "highest_ranking": 153,
+      "rank": 146,
+      "highest_ranking": 146,
       "highest_overral": 0,
       "mawn": [
         14,
-        6,
+        8,
         15,
         12,
         0
       ],
       "w1": 0,
       "w16": 0,
-      "points": 315,
+      "points": 340,
       "highest_points": 0,
       "favorite_surface": "grass",
       "tournament_history": [
@@ -49589,6 +49618,15 @@
           "category": "Challenger 75",
           "year": 2054,
           "week": 25,
+          "round": 2,
+          "points": 25,
+          "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
           "round": 2,
           "points": 25,
           "surface": "grass"
@@ -49868,6 +49906,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -49910,7 +49957,7 @@
         "cross": 48
       },
       "potential_factor": 1.149,
-      "rank": 153,
+      "rank": 152,
       "highest_ranking": 138,
       "highest_overral": 0,
       "mawn": [
@@ -50173,7 +50220,7 @@
         "cross": 45
       },
       "potential_factor": 1.0,
-      "rank": 197,
+      "rank": 195,
       "highest_ranking": 171,
       "highest_overral": 0,
       "mawn": [
@@ -50458,7 +50505,7 @@
         "cross": 61
       },
       "potential_factor": 1.228,
-      "rank": 189,
+      "rank": 193,
       "highest_ranking": 166,
       "highest_overral": 0,
       "mawn": [
@@ -50470,19 +50517,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 250,
+      "points": 241,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 9,
-          "surface": "clay"
-        },
         {
           "name": "Iasi Open",
           "category": "Challenger 75",
@@ -50743,7 +50781,7 @@
         "cross": 54
       },
       "potential_factor": 1.389,
-      "rank": 121,
+      "rank": 122,
       "highest_ranking": 121,
       "highest_overral": 0,
       "mawn": [
@@ -50759,15 +50797,6 @@
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Los Cabos Open",
           "category": "ATP 250",
@@ -51015,7 +51044,7 @@
         "cross": 52
       },
       "potential_factor": 1.0,
-      "rank": 183,
+      "rank": 187,
       "highest_ranking": 131,
       "highest_overral": 0,
       "mawn": [
@@ -51228,6 +51257,15 @@
           "round": 1,
           "points": 25,
           "surface": "grass"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [
@@ -51255,7 +51293,7 @@
         "cross": 44
       },
       "potential_factor": 1.0,
-      "rank": 144,
+      "rank": 143,
       "highest_ranking": 124,
       "highest_overral": 0,
       "mawn": [
@@ -51513,6 +51551,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -51540,7 +51587,7 @@
         "cross": 46
       },
       "potential_factor": 1.0,
-      "rank": 193,
+      "rank": 203,
       "highest_ranking": 162,
       "highest_overral": 0,
       "mawn": [
@@ -51552,19 +51599,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 248,
+      "points": 198,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 4,
-          "points": 50,
-          "surface": "clay"
-        },
         {
           "name": "Brawo Open",
           "category": "Challenger 125",
@@ -51839,7 +51877,7 @@
         "cross": 52
       },
       "potential_factor": 1.19,
-      "rank": 151,
+      "rank": 150,
       "highest_ranking": 130,
       "highest_overral": 0,
       "mawn": [
@@ -52079,7 +52117,7 @@
         "cross": 58
       },
       "potential_factor": 1.409,
-      "rank": 67,
+      "rank": 68,
       "highest_ranking": 67,
       "highest_overral": 0,
       "mawn": [
@@ -52600,7 +52638,7 @@
         "cross": 45
       },
       "potential_factor": 1.225,
-      "rank": 194,
+      "rank": 192,
       "highest_ranking": 180,
       "highest_overral": 0,
       "mawn": [
@@ -52616,15 +52654,6 @@
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "clay"
-        },
         {
           "name": "Iasi Open",
           "category": "Challenger 75",
@@ -52872,11 +52901,11 @@
         "cross": 50
       },
       "potential_factor": 1.0,
-      "rank": 188,
+      "rank": 182,
       "highest_ranking": 144,
       "highest_overral": 0,
       "mawn": [
-        15,
+        17,
         6,
         4,
         7,
@@ -52884,19 +52913,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 250,
+      "points": 265,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Salzburg Open",
           "category": "Challenger 100",
@@ -53112,6 +53132,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 15,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [
@@ -53155,15 +53184,6 @@
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "clay"
-        },
         {
           "name": "Winnipeg Challenger",
           "category": "Challenger 50",
@@ -53425,15 +53445,6 @@
       "highest_points": 0,
       "favorite_surface": "grass",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "clay"
-        },
         {
           "name": "Winnipeg Challenger",
           "category": "Challenger 50",
@@ -54162,6 +54173,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -54183,11 +54203,11 @@
         "cross": 41
       },
       "potential_factor": 1.232,
-      "rank": 195,
+      "rank": 185,
       "highest_ranking": 143,
       "highest_overral": 0,
       "mawn": [
-        16,
+        18,
         5,
         2,
         9,
@@ -54195,19 +54215,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 243,
+      "points": 258,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "grass"
-        },
         {
           "name": "Salzburg Open",
           "category": "Challenger 100",
@@ -54486,6 +54497,15 @@
           "round": 3,
           "points": 45,
           "surface": "clay"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 15,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -54507,7 +54527,7 @@
         "cross": 49
       },
       "potential_factor": 1.004,
-      "rank": 161,
+      "rank": 167,
       "highest_ranking": 105,
       "highest_overral": 0,
       "mawn": [
@@ -54519,19 +54539,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 316,
+      "points": 303,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Aspria Tennis Cup",
-          "category": "Challenger 75",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 13,
-          "surface": "grass"
-        },
         {
           "name": "Generali Open",
           "category": "ATP 250",
@@ -54788,7 +54799,7 @@
         "cross": 51
       },
       "potential_factor": 1.143,
-      "rank": 142,
+      "rank": 144,
       "highest_ranking": 141,
       "highest_overral": 0,
       "mawn": [
@@ -54800,19 +54811,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 354,
+      "points": 345,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 9,
-          "surface": "clay"
-        },
         {
           "name": "Iasi Open",
           "category": "Challenger 75",
@@ -54974,6 +54976,15 @@
           "round": 1,
           "points": 25,
           "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -55006,7 +55017,7 @@
         "cross": 45
       },
       "potential_factor": 1.0,
-      "rank": 209,
+      "rank": 210,
       "highest_ranking": 195,
       "highest_overral": 0,
       "mawn": [
@@ -55018,19 +55029,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 176,
+      "points": 161,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 2,
-          "points": 15,
-          "surface": "clay"
-        },
         {
           "name": "Iasi Open",
           "category": "Challenger 75",
@@ -55312,7 +55314,7 @@
         "cross": 43
       },
       "potential_factor": 1.0,
-      "rank": 200,
+      "rank": 199,
       "highest_ranking": 181,
       "highest_overral": 0,
       "mawn": [
@@ -55600,7 +55602,7 @@
         "cross": 42
       },
       "potential_factor": 1.0,
-      "rank": 202,
+      "rank": 201,
       "highest_ranking": 189,
       "highest_overral": 0,
       "mawn": [
@@ -55879,19 +55881,19 @@
         "cross": 47
       },
       "potential_factor": 1.327,
-      "rank": 176,
+      "rank": 166,
       "highest_ranking": 146,
       "highest_overral": 0,
       "mawn": [
         9,
-        3,
+        5,
         10,
         12,
         0
       ],
       "w1": 0,
       "w16": 0,
-      "points": 279,
+      "points": 304,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -56092,6 +56094,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 2,
+          "points": 25,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -56124,7 +56135,7 @@
         "cross": 41
       },
       "potential_factor": 1.042,
-      "rank": 182,
+      "rank": 186,
       "highest_ranking": 150,
       "highest_overral": 0,
       "mawn": [
@@ -56400,6 +56411,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -56421,11 +56441,11 @@
         "cross": 39
       },
       "potential_factor": 1.0,
-      "rank": 185,
+      "rank": 196,
       "highest_ranking": 147,
       "highest_overral": 0,
       "mawn": [
-        16,
+        17,
         6,
         4,
         6,
@@ -56433,19 +56453,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 256,
+      "points": 235,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 3,
-          "points": 30,
-          "surface": "clay"
-        },
         {
           "name": "Salzburg Open",
           "category": "Challenger 100",
@@ -56688,6 +56699,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 9,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -56721,19 +56741,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 178,
+      "points": 169,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 1,
-          "points": 9,
-          "surface": "clay"
-        },
         {
           "name": "Winnipeg Challenger",
           "category": "Challenger 50",
@@ -57024,7 +57035,7 @@
         "cross": 41
       },
       "potential_factor": 1.0,
-      "rank": 174,
+      "rank": 176,
       "highest_ranking": 110,
       "highest_overral": 0,
       "mawn": [
@@ -57256,11 +57267,11 @@
         "cross": 46
       },
       "potential_factor": 1.0,
-      "rank": 198,
+      "rank": 197,
       "highest_ranking": 170,
       "highest_overral": 0,
       "mawn": [
-        18,
+        19,
         5,
         4,
         2,
@@ -57268,7 +57279,7 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 218,
+      "points": 227,
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
@@ -57505,6 +57516,15 @@
           "round": 2,
           "points": 25,
           "surface": "clay"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 9,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -57526,7 +57546,7 @@
         "cross": 42
       },
       "potential_factor": 1.304,
-      "rank": 169,
+      "rank": 170,
       "highest_ranking": 133,
       "highest_overral": 0,
       "mawn": [
@@ -57820,6 +57840,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "grass"
         }
       ],
       "tournament_wins": [
@@ -57852,7 +57881,7 @@
         "cross": 42
       },
       "potential_factor": 1.0,
-      "rank": 210,
+      "rank": 209,
       "highest_ranking": 198,
       "highest_overral": 0,
       "mawn": [
@@ -57868,15 +57897,6 @@
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "clay"
-        },
         {
           "name": "Winnipeg Challenger",
           "category": "Challenger 50",
@@ -58212,7 +58232,7 @@
         "cross": 48
       },
       "potential_factor": 1.234,
-      "rank": 201,
+      "rank": 200,
       "highest_ranking": 199,
       "highest_overral": 0,
       "mawn": [
@@ -58228,15 +58248,6 @@
       "highest_points": 0,
       "favorite_surface": "indoor",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "clay"
-        },
         {
           "name": "Winnipeg Challenger",
           "category": "Challenger 50",
@@ -58538,7 +58549,7 @@
         "cross": 39
       },
       "potential_factor": 1.0,
-      "rank": 196,
+      "rank": 194,
       "highest_ranking": 174,
       "highest_overral": 0,
       "mawn": [
@@ -59117,11 +59128,11 @@
         "cross": 42
       },
       "potential_factor": 1.0,
-      "rank": 203,
+      "rank": 202,
       "highest_ranking": 183,
       "highest_overral": 0,
       "mawn": [
-        10,
+        11,
         5,
         8,
         4,
@@ -59129,19 +59140,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 203,
+      "points": 212,
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "clay"
-        },
         {
           "name": "Iasi Open",
           "category": "Challenger 75",
@@ -59447,6 +59449,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 9,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -59468,7 +59479,7 @@
         "cross": 49
       },
       "potential_factor": 1.211,
-      "rank": 149,
+      "rank": 148,
       "highest_ranking": 82,
       "highest_overral": 0,
       "mawn": [
@@ -59767,11 +59778,11 @@
         "cross": 50
       },
       "potential_factor": 1.424,
-      "rank": 190,
-      "highest_ranking": 189,
+      "rank": 184,
+      "highest_ranking": 184,
       "highest_overral": 0,
       "mawn": [
-        11,
+        12,
         8,
         4,
         4,
@@ -59779,19 +59790,10 @@
       ],
       "w1": 0,
       "w16": 0,
-      "points": 249,
+      "points": 258,
       "highest_points": 0,
       "favorite_surface": "hard",
       "tournament_history": [
-        {
-          "name": "Open Ibague",
-          "category": "Challenger 50",
-          "year": 2053,
-          "week": 26,
-          "round": 0,
-          "points": 0,
-          "surface": "clay"
-        },
         {
           "name": "Winnipeg Challenger",
           "category": "Challenger 50",
@@ -60034,6 +60036,15 @@
           "round": 0,
           "points": 0,
           "surface": "clay"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 1,
+          "points": 9,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -60055,8 +60066,8 @@
         "cross": 46
       },
       "potential_factor": 1.0,
-      "rank": 192,
-      "highest_ranking": 192,
+      "rank": 191,
+      "highest_ranking": 191,
       "highest_overral": 0,
       "mawn": [
         4,
@@ -60339,6 +60350,15 @@
           "week": 25,
           "round": 2,
           "points": 15,
+          "surface": "clay"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
           "surface": "clay"
         }
       ],
@@ -60946,6 +60966,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -60967,7 +60996,7 @@
         "cross": 48
       },
       "potential_factor": 1.0,
-      "rank": 199,
+      "rank": 198,
       "highest_ranking": 195,
       "highest_overral": 0,
       "mawn": [
@@ -61243,6 +61272,15 @@
           "round": 1,
           "points": 9,
           "surface": "clay"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -61264,7 +61302,7 @@
         "cross": 47
       },
       "potential_factor": 1.092,
-      "rank": 186,
+      "rank": 189,
       "highest_ranking": 151,
       "highest_overral": 0,
       "mawn": [
@@ -61514,7 +61552,7 @@
         "cross": 41
       },
       "potential_factor": 1.0,
-      "rank": 177,
+      "rank": 178,
       "highest_ranking": 172,
       "highest_overral": 0,
       "mawn": [
@@ -62376,6 +62414,15 @@
           "week": 25,
           "round": 3,
           "points": 45,
+          "surface": "grass"
+        },
+        {
+          "name": "Aspria Tennis Cup",
+          "category": "Challenger 75",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
           "surface": "grass"
         }
       ],
@@ -63484,6 +63531,15 @@
           "round": 0,
           "points": 0,
           "surface": "grass"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
+          "round": 0,
+          "points": 0,
+          "surface": "clay"
         }
       ],
       "tournament_wins": [],
@@ -63651,6 +63707,15 @@
           "category": "Challenger 50",
           "year": 2054,
           "week": 25,
+          "round": 0,
+          "points": 0,
+          "surface": "clay"
+        },
+        {
+          "name": "Open Ibague",
+          "category": "Challenger 50",
+          "year": 2054,
+          "week": 26,
           "round": 0,
           "points": 0,
           "surface": "clay"
@@ -74434,7 +74499,7 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 383,
       "participants": [
         479,
         451,
@@ -74474,170 +74539,206 @@
           [
             479,
             334,
-            null
+            334,
+            "4-6, 3-6"
           ],
           [
             451,
             455,
-            null
+            451,
+            "6-2, 6-3"
           ],
           [
             398,
             368,
-            null
+            398,
+            "6-3, 6-4"
           ],
           [
             373,
             389,
-            null
+            389,
+            "4-6, 6-7"
           ],
           [
             417,
             383,
-            null
+            383,
+            "0-6, 0-6"
           ],
           [
             396,
             458,
-            null
+            396,
+            "6-0, 6-2"
           ],
           [
             409,
             411,
-            null
+            411,
+            "3-6, 3-6"
           ],
           [
             424,
             490,
-            null
+            424,
+            "6-3, 6-4"
           ],
           [
             408,
             390,
-            null
+            390,
+            "1-6, 6-7"
           ],
           [
             435,
             459,
-            null
+            459,
+            "5-7, 3-6"
           ],
           [
             380,
             443,
-            null
+            380,
+            "6-2, 6-2"
           ],
           [
             422,
             447,
-            null
+            422,
+            "6-2, 6-0"
           ],
           [
             456,
             415,
-            null
+            456,
+            "6-4, 7-5"
           ],
           [
             378,
             457,
-            null
+            378,
+            "6-2, 0-6, 6-4"
           ],
           [
             410,
             426,
-            null
+            426,
+            "2-6, 1-6"
           ],
           [
             441,
             449,
-            null
+            449,
+            "3-6, 6-0, 4-6"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            334,
+            451,
+            451,
+            "4-6, 0-6"
+          ],
+          [
+            398,
+            389,
+            398,
+            "4-6, 7-6, 7-5"
+          ],
+          [
+            383,
+            396,
+            383,
+            "6-0, 6-0"
+          ],
+          [
+            411,
+            424,
+            411,
+            "6-1, 6-0"
+          ],
+          [
+            390,
+            459,
+            390,
+            "6-2, 6-1"
+          ],
+          [
+            380,
+            422,
+            422,
+            "6-2, 4-6, 6-7"
+          ],
+          [
+            456,
+            378,
+            378,
+            "3-6, 4-6"
+          ],
+          [
+            426,
+            449,
+            426,
+            "6-0, 6-3"
+          ]
+        ],
+        [
+          [
+            451,
+            398,
+            451,
+            "7-5, 7-5"
+          ],
+          [
+            383,
+            411,
+            383,
+            "6-3, 6-4"
+          ],
+          [
+            390,
+            422,
+            422,
+            "2-6, 3-6"
+          ],
+          [
+            378,
+            426,
+            426,
+            "5-7, 0-6"
+          ]
+        ],
+        [
+          [
+            451,
+            383,
+            383,
+            "1-6, 3-6"
+          ],
+          [
+            422,
+            426,
+            426,
+            "3-6, 6-4, 6-7"
+          ]
+        ],
+        [
+          [
+            383,
+            426,
+            383,
+            "6-3, 6-4"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          479,
-          334,
-          null
-        ],
-        [
-          451,
-          455,
-          null
-        ],
-        [
-          398,
-          368,
-          null
-        ],
-        [
-          373,
-          389,
-          null
-        ],
-        [
-          417,
           383,
-          null
-        ],
-        [
-          396,
-          458,
-          null
-        ],
-        [
-          409,
-          411,
-          null
-        ],
-        [
-          424,
-          490,
-          null
-        ],
-        [
-          408,
-          390,
-          null
-        ],
-        [
-          435,
-          459,
-          null
-        ],
-        [
-          380,
-          443,
-          null
-        ],
-        [
-          422,
-          447,
-          null
-        ],
-        [
-          456,
-          415,
-          null
-        ],
-        [
-          378,
-          457,
-          null
-        ],
-        [
-          410,
           426,
-          null
-        ],
-        [
-          441,
-          449,
-          null
+          383,
+          "6-3, 6-4"
         ]
       ]
     },
@@ -74649,7 +74750,7 @@
       "category": "ATP 250",
       "draw_size": 32,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 374,
       "participants": [
         360,
         336,
@@ -74689,170 +74790,206 @@
           [
             360,
             416,
-            null
+            360,
+            "3-6, 6-3, 6-3"
           ],
           [
             336,
             358,
-            null
+            336,
+            "6-4, 4-6, 6-3"
           ],
           [
             486,
             427,
-            null
+            427,
+            "3-6, 1-6"
           ],
           [
             413,
             370,
-            null
+            370,
+            "1-6, 3-6"
           ],
           [
             340,
             438,
-            null
+            340,
+            "6-3, 6-1"
           ],
           [
             338,
             332,
-            null
+            338,
+            "6-3, 6-2"
           ],
           [
             337,
             361,
-            null
+            361,
+            "3-6, 0-6"
           ],
           [
             346,
             335,
-            null
+            346,
+            "6-0, 7-6"
           ],
           [
             362,
             392,
-            null
+            362,
+            "6-2, 6-2"
           ],
           [
             354,
             419,
-            null
+            354,
+            "2-6, 6-2, 6-4"
           ],
           [
             325,
             444,
-            null
+            444,
+            "1-6, 1-6"
           ],
           [
             375,
             376,
-            null
+            375,
+            "7-6, 7-6"
           ],
           [
             352,
             400,
-            null
+            400,
+            "6-7, 6-4, 3-6"
           ],
           [
             381,
             420,
-            null
+            381,
+            "6-3, 3-6, 6-2"
           ],
           [
             395,
             377,
-            null
+            377,
+            "5-7, 6-7"
           ],
           [
             374,
             353,
-            null
+            374,
+            "6-1, 6-0"
           ]
         ],
-        [],
-        [],
-        [],
-        []
+        [
+          [
+            360,
+            336,
+            336,
+            "2-6, 4-6"
+          ],
+          [
+            427,
+            370,
+            427,
+            "2-6, 6-2, 7-5"
+          ],
+          [
+            340,
+            338,
+            340,
+            "6-1, 7-6"
+          ],
+          [
+            361,
+            346,
+            361,
+            "7-6, 6-4"
+          ],
+          [
+            362,
+            354,
+            362,
+            "6-3, 6-3"
+          ],
+          [
+            444,
+            375,
+            375,
+            "6-3, 4-6, 2-6"
+          ],
+          [
+            400,
+            381,
+            381,
+            "6-7, 6-7"
+          ],
+          [
+            377,
+            374,
+            374,
+            "0-6, 0-6"
+          ]
+        ],
+        [
+          [
+            336,
+            427,
+            336,
+            "6-1, 6-3"
+          ],
+          [
+            340,
+            361,
+            340,
+            "6-2, 6-3"
+          ],
+          [
+            362,
+            375,
+            362,
+            "0-6, 6-2, 6-1"
+          ],
+          [
+            381,
+            374,
+            374,
+            "0-6, 0-6"
+          ]
+        ],
+        [
+          [
+            336,
+            340,
+            336,
+            "6-2, 1-6, 6-3"
+          ],
+          [
+            362,
+            374,
+            374,
+            "0-6, 0-6"
+          ]
+        ],
+        [
+          [
+            336,
+            374,
+            374,
+            "2-6, 1-6"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 4,
       "active_matches": [
         [
-          360,
-          416,
-          null
-        ],
-        [
           336,
-          358,
-          null
-        ],
-        [
-          486,
-          427,
-          null
-        ],
-        [
-          413,
-          370,
-          null
-        ],
-        [
-          340,
-          438,
-          null
-        ],
-        [
-          338,
-          332,
-          null
-        ],
-        [
-          337,
-          361,
-          null
-        ],
-        [
-          346,
-          335,
-          null
-        ],
-        [
-          362,
-          392,
-          null
-        ],
-        [
-          354,
-          419,
-          null
-        ],
-        [
-          325,
-          444,
-          null
-        ],
-        [
-          375,
-          376,
-          null
-        ],
-        [
-          352,
-          400,
-          null
-        ],
-        [
-          381,
-          420,
-          null
-        ],
-        [
-          395,
-          377,
-          null
-        ],
-        [
           374,
-          353,
-          null
+          374,
+          "2-6, 1-6"
         ]
       ]
     },
@@ -74865,10 +75002,789 @@
       "draw_size": 128,
       "year": 2025,
       "winner_id": null,
-      "participants": [],
-      "bracket": [],
+      "participants": [
+        397,
+        392,
+        479,
+        387,
+        375,
+        398,
+        332,
+        466,
+        423,
+        331,
+        382,
+        385,
+        368,
+        359,
+        351,
+        388,
+        396,
+        448,
+        498,
+        379,
+        465,
+        422,
+        438,
+        335,
+        363,
+        349,
+        330,
+        336,
+        411,
+        345,
+        353,
+        376,
+        413,
+        414,
+        467,
+        391,
+        409,
+        455,
+        458,
+        503,
+        347,
+        450,
+        341,
+        329,
+        408,
+        377,
+        371,
+        381,
+        441,
+        390,
+        337,
+        418,
+        395,
+        462,
+        325,
+        352,
+        365,
+        339,
+        343,
+        384,
+        459,
+        403,
+        357,
+        361,
+        356,
+        407,
+        393,
+        358,
+        437,
+        453,
+        323,
+        444,
+        378,
+        370,
+        380,
+        346,
+        486,
+        404,
+        456,
+        415,
+        374,
+        338,
+        401,
+        394,
+        334,
+        389,
+        490,
+        355,
+        424,
+        447,
+        483,
+        446,
+        367,
+        333,
+        354,
+        416,
+        429,
+        434,
+        350,
+        348,
+        386,
+        412,
+        373,
+        451,
+        383,
+        364,
+        420,
+        366,
+        419,
+        405,
+        342,
+        435,
+        344,
+        372,
+        406,
+        362,
+        360,
+        443,
+        428,
+        410,
+        471,
+        427,
+        340,
+        369,
+        432,
+        400,
+        439,
+        426
+      ],
+      "bracket": [
+        [
+          [
+            397,
+            426,
+            null
+          ],
+          [
+            392,
+            439,
+            null
+          ],
+          [
+            479,
+            400,
+            null
+          ],
+          [
+            387,
+            432,
+            null
+          ],
+          [
+            375,
+            369,
+            null
+          ],
+          [
+            398,
+            340,
+            null
+          ],
+          [
+            332,
+            427,
+            null
+          ],
+          [
+            466,
+            471,
+            null
+          ],
+          [
+            423,
+            410,
+            null
+          ],
+          [
+            331,
+            428,
+            null
+          ],
+          [
+            382,
+            443,
+            null
+          ],
+          [
+            385,
+            360,
+            null
+          ],
+          [
+            368,
+            362,
+            null
+          ],
+          [
+            359,
+            406,
+            null
+          ],
+          [
+            351,
+            372,
+            null
+          ],
+          [
+            388,
+            344,
+            null
+          ],
+          [
+            396,
+            435,
+            null
+          ],
+          [
+            448,
+            342,
+            null
+          ],
+          [
+            498,
+            405,
+            null
+          ],
+          [
+            379,
+            419,
+            null
+          ],
+          [
+            465,
+            366,
+            null
+          ],
+          [
+            422,
+            420,
+            null
+          ],
+          [
+            438,
+            364,
+            null
+          ],
+          [
+            335,
+            383,
+            null
+          ],
+          [
+            363,
+            451,
+            null
+          ],
+          [
+            349,
+            373,
+            null
+          ],
+          [
+            330,
+            412,
+            null
+          ],
+          [
+            336,
+            386,
+            null
+          ],
+          [
+            411,
+            348,
+            null
+          ],
+          [
+            345,
+            350,
+            null
+          ],
+          [
+            353,
+            434,
+            null
+          ],
+          [
+            376,
+            429,
+            null
+          ],
+          [
+            413,
+            416,
+            null
+          ],
+          [
+            414,
+            354,
+            null
+          ],
+          [
+            467,
+            333,
+            null
+          ],
+          [
+            391,
+            367,
+            null
+          ],
+          [
+            409,
+            446,
+            null
+          ],
+          [
+            455,
+            483,
+            null
+          ],
+          [
+            458,
+            447,
+            null
+          ],
+          [
+            503,
+            424,
+            null
+          ],
+          [
+            347,
+            355,
+            null
+          ],
+          [
+            450,
+            490,
+            null
+          ],
+          [
+            341,
+            389,
+            null
+          ],
+          [
+            329,
+            334,
+            null
+          ],
+          [
+            408,
+            394,
+            null
+          ],
+          [
+            377,
+            401,
+            null
+          ],
+          [
+            371,
+            338,
+            null
+          ],
+          [
+            381,
+            374,
+            null
+          ],
+          [
+            441,
+            415,
+            null
+          ],
+          [
+            390,
+            456,
+            null
+          ],
+          [
+            337,
+            404,
+            null
+          ],
+          [
+            418,
+            486,
+            null
+          ],
+          [
+            395,
+            346,
+            null
+          ],
+          [
+            462,
+            380,
+            null
+          ],
+          [
+            325,
+            370,
+            null
+          ],
+          [
+            352,
+            378,
+            null
+          ],
+          [
+            365,
+            444,
+            null
+          ],
+          [
+            339,
+            323,
+            null
+          ],
+          [
+            343,
+            453,
+            null
+          ],
+          [
+            384,
+            437,
+            null
+          ],
+          [
+            459,
+            358,
+            null
+          ],
+          [
+            403,
+            393,
+            null
+          ],
+          [
+            357,
+            407,
+            null
+          ],
+          [
+            361,
+            356,
+            null
+          ]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
       "current_round": 0,
-      "active_matches": []
+      "active_matches": [
+        [
+          397,
+          426,
+          null
+        ],
+        [
+          392,
+          439,
+          null
+        ],
+        [
+          479,
+          400,
+          null
+        ],
+        [
+          387,
+          432,
+          null
+        ],
+        [
+          375,
+          369,
+          null
+        ],
+        [
+          398,
+          340,
+          null
+        ],
+        [
+          332,
+          427,
+          null
+        ],
+        [
+          466,
+          471,
+          null
+        ],
+        [
+          423,
+          410,
+          null
+        ],
+        [
+          331,
+          428,
+          null
+        ],
+        [
+          382,
+          443,
+          null
+        ],
+        [
+          385,
+          360,
+          null
+        ],
+        [
+          368,
+          362,
+          null
+        ],
+        [
+          359,
+          406,
+          null
+        ],
+        [
+          351,
+          372,
+          null
+        ],
+        [
+          388,
+          344,
+          null
+        ],
+        [
+          396,
+          435,
+          null
+        ],
+        [
+          448,
+          342,
+          null
+        ],
+        [
+          498,
+          405,
+          null
+        ],
+        [
+          379,
+          419,
+          null
+        ],
+        [
+          465,
+          366,
+          null
+        ],
+        [
+          422,
+          420,
+          null
+        ],
+        [
+          438,
+          364,
+          null
+        ],
+        [
+          335,
+          383,
+          null
+        ],
+        [
+          363,
+          451,
+          null
+        ],
+        [
+          349,
+          373,
+          null
+        ],
+        [
+          330,
+          412,
+          null
+        ],
+        [
+          336,
+          386,
+          null
+        ],
+        [
+          411,
+          348,
+          null
+        ],
+        [
+          345,
+          350,
+          null
+        ],
+        [
+          353,
+          434,
+          null
+        ],
+        [
+          376,
+          429,
+          null
+        ],
+        [
+          413,
+          416,
+          null
+        ],
+        [
+          414,
+          354,
+          null
+        ],
+        [
+          467,
+          333,
+          null
+        ],
+        [
+          391,
+          367,
+          null
+        ],
+        [
+          409,
+          446,
+          null
+        ],
+        [
+          455,
+          483,
+          null
+        ],
+        [
+          458,
+          447,
+          null
+        ],
+        [
+          503,
+          424,
+          null
+        ],
+        [
+          347,
+          355,
+          null
+        ],
+        [
+          450,
+          490,
+          null
+        ],
+        [
+          341,
+          389,
+          null
+        ],
+        [
+          329,
+          334,
+          null
+        ],
+        [
+          408,
+          394,
+          null
+        ],
+        [
+          377,
+          401,
+          null
+        ],
+        [
+          371,
+          338,
+          null
+        ],
+        [
+          381,
+          374,
+          null
+        ],
+        [
+          441,
+          415,
+          null
+        ],
+        [
+          390,
+          456,
+          null
+        ],
+        [
+          337,
+          404,
+          null
+        ],
+        [
+          418,
+          486,
+          null
+        ],
+        [
+          395,
+          346,
+          null
+        ],
+        [
+          462,
+          380,
+          null
+        ],
+        [
+          325,
+          370,
+          null
+        ],
+        [
+          352,
+          378,
+          null
+        ],
+        [
+          365,
+          444,
+          null
+        ],
+        [
+          339,
+          323,
+          null
+        ],
+        [
+          343,
+          453,
+          null
+        ],
+        [
+          384,
+          437,
+          null
+        ],
+        [
+          459,
+          358,
+          null
+        ],
+        [
+          403,
+          393,
+          null
+        ],
+        [
+          357,
+          407,
+          null
+        ],
+        [
+          361,
+          356,
+          null
+        ]
+      ]
     },
     {
       "id": 37,
@@ -87024,7 +87940,7 @@
       "category": "Challenger 75",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 384,
       "participants": [
         500,
         517,
@@ -87048,89 +87964,108 @@
           [
             500,
             481,
-            null
+            481,
+            "6-3, 1-6, 4-6"
           ],
           [
             517,
             494,
-            null
+            517,
+            "4-6, 6-4, 6-4"
           ],
           [
             384,
             433,
-            null
+            384,
+            "6-0, 6-2"
           ],
           [
             538,
             477,
-            null
+            477,
+            "3-6, 6-7"
           ],
           [
             431,
             523,
-            null
+            431,
+            "6-4, 4-6, 7-5"
           ],
           [
             402,
             463,
-            null
+            402,
+            "6-3, 3-6, 6-3"
           ],
           [
             493,
             513,
-            null
+            493,
+            "6-3, 6-4"
           ],
           [
             322,
             464,
-            null
+            464,
+            "3-6, 1-6"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            481,
+            517,
+            517,
+            "4-6, 2-6"
+          ],
+          [
+            384,
+            477,
+            384,
+            "6-4, 6-3"
+          ],
+          [
+            431,
+            402,
+            431,
+            "6-2, 6-0"
+          ],
+          [
+            493,
+            464,
+            493,
+            "6-4, 6-4"
+          ]
+        ],
+        [
+          [
+            517,
+            384,
+            384,
+            "3-6, 1-6"
+          ],
+          [
+            431,
+            493,
+            431,
+            "5-7, 6-0, 6-2"
+          ]
+        ],
+        [
+          [
+            384,
+            431,
+            384,
+            "6-1, 2-6, 6-4"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          500,
-          481,
-          null
-        ],
-        [
-          517,
-          494,
-          null
-        ],
-        [
           384,
-          433,
-          null
-        ],
-        [
-          538,
-          477,
-          null
-        ],
-        [
           431,
-          523,
-          null
-        ],
-        [
-          402,
-          463,
-          null
-        ],
-        [
-          493,
-          513,
-          null
-        ],
-        [
-          322,
-          464,
-          null
+          384,
+          "6-1, 2-6, 6-4"
         ]
       ]
     },
@@ -87142,7 +88077,7 @@
       "category": "Challenger 50",
       "draw_size": 16,
       "year": 2025,
-      "winner_id": null,
+      "winner_id": 478,
       "participants": [
         511,
         545,
@@ -87166,89 +88101,108 @@
           [
             511,
             518,
-            null
+            511,
+            "6-2, 6-4"
           ],
           [
             545,
             519,
-            null
+            519,
+            "0-6, 0-6"
           ],
           [
             531,
             478,
-            null
+            478,
+            "4-6, 1-6"
           ],
           [
             510,
             528,
-            null
+            528,
+            "4-6, 3-6"
           ],
           [
             522,
             534,
-            null
+            522,
+            "6-4, 6-2"
           ],
           [
             506,
             546,
-            null
+            506,
+            "6-2, 6-3"
           ],
           [
             499,
             530,
-            null
+            530,
+            "4-6, 4-6"
           ],
           [
             321,
             533,
-            null
+            321,
+            "6-0, 6-0"
           ]
         ],
-        [],
-        [],
-        []
+        [
+          [
+            511,
+            519,
+            511,
+            "6-3, 6-4"
+          ],
+          [
+            478,
+            528,
+            478,
+            "6-4, 7-5"
+          ],
+          [
+            522,
+            506,
+            506,
+            "3-6, 1-6"
+          ],
+          [
+            530,
+            321,
+            321,
+            "4-6, 6-4, 4-6"
+          ]
+        ],
+        [
+          [
+            511,
+            478,
+            478,
+            "4-6, 2-6"
+          ],
+          [
+            506,
+            321,
+            321,
+            "6-2, 2-6, 3-6"
+          ]
+        ],
+        [
+          [
+            478,
+            321,
+            478,
+            "6-1, 6-2"
+          ]
+        ]
       ],
-      "current_round": 0,
+      "current_round": 3,
       "active_matches": [
         [
-          511,
-          518,
-          null
-        ],
-        [
-          545,
-          519,
-          null
-        ],
-        [
-          531,
           478,
-          null
-        ],
-        [
-          510,
-          528,
-          null
-        ],
-        [
-          522,
-          534,
-          null
-        ],
-        [
-          506,
-          546,
-          null
-        ],
-        [
-          499,
-          530,
-          null
-        ],
-        [
           321,
-          533,
-          null
+          478,
+          "6-1, 6-2"
         ]
       ]
     },
@@ -127638,19 +128592,19 @@
       "top10": [
         {
           "name": "Rergoor HWAJE",
-          "matches_won": 646
+          "matches_won": 649
         },
         {
           "name": "Aydin IARGIM",
-          "matches_won": 608
+          "matches_won": 609
         },
         {
           "name": "Braeden EOZION",
-          "matches_won": 559
+          "matches_won": 564
         },
         {
           "name": "Uro ISHREBEC",
-          "matches_won": 519
+          "matches_won": 523
         },
         {
           "name": "Jewel CHENTOS",
@@ -127670,11 +128624,11 @@
         },
         {
           "name": "Zankes VU AULL",
-          "matches_won": 333
+          "matches_won": 338
         },
         {
           "name": "Ekregyks ENGRIDS",
-          "matches_won": 323
+          "matches_won": 324
         }
       ]
     },
@@ -127730,11 +128684,11 @@
       "top10": [
         {
           "name": "Rergoor HWAJE",
-          "matches_won": 163
+          "matches_won": 166
         },
         {
           "name": "Braeden EOZION",
-          "matches_won": 124
+          "matches_won": 129
         },
         {
           "name": "Jewel CHENTOS",
@@ -127742,15 +128696,15 @@
         },
         {
           "name": "Aydin IARGIM",
-          "matches_won": 109
+          "matches_won": 110
         },
         {
           "name": "Uro ISHREBEC",
-          "matches_won": 104
+          "matches_won": 108
         },
         {
           "name": "Zankes VU AULL",
-          "matches_won": 103
+          "matches_won": 108
         },
         {
           "name": "Sole TAPO",
@@ -127765,8 +128719,8 @@
           "matches_won": 77
         },
         {
-          "name": "Idles DA AUC",
-          "matches_won": 73
+          "name": "Kendak RONEX",
+          "matches_won": 74
         }
       ]
     },
@@ -127895,12 +128849,12 @@
           "t_wins": 63
         },
         {
-          "name": "Lewis Visser (R)",
+          "name": "Braeden EOZION",
           "t_wins": 59
         },
         {
-          "name": "Braeden EOZION",
-          "t_wins": 58
+          "name": "Lewis Visser (R)",
+          "t_wins": 59
         },
         {
           "name": "Ruben Madsen (R)",
@@ -128006,7 +128960,7 @@
       "top10": [
         {
           "name": "Braeden EOZION",
-          "weeks": 136
+          "weeks": 137
         },
         {
           "name": "Aydin IARGIM",
@@ -128052,31 +129006,31 @@
       "top10": [
         {
           "name": "Uro ISHREBEC",
-          "weeks": 307
+          "weeks": 308
         },
         {
           "name": "Aydin IARGIM",
-          "weeks": 307
+          "weeks": 308
         },
         {
           "name": "Rergoor HWAJE",
-          "weeks": 307
+          "weeks": 308
         },
         {
           "name": "Jewel CHENTOS",
-          "weeks": 307
+          "weeks": 308
         },
         {
           "name": "Sole TAPO",
-          "weeks": 293
+          "weeks": 294
         },
         {
           "name": "Braeden EOZION",
-          "weeks": 283
+          "weeks": 284
         },
         {
           "name": "Micaja TARRUROL",
-          "weeks": 282
+          "weeks": 283
         },
         {
           "name": "Hellio TUFIDI",
@@ -128084,7 +129038,7 @@
         },
         {
           "name": "Kendak RONEX",
-          "weeks": 217
+          "weeks": 218
         },
         {
           "name": "Ekregyks ENGRIDS",
