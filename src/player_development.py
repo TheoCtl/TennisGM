@@ -35,7 +35,7 @@ class PlayerDevelopment:
         # Sharper age-based regression
         age_factor = min(1, (player_age - 30)/7)  # Faster progression
         
-        return 0.66 * age_factor  # Higher base regression rate
+        return age_factor  # Higher base regression rate
 
     @staticmethod
     def develop_skill(current_value, chance):

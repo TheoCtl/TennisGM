@@ -304,7 +304,7 @@ class TournamentScheduler:
                 under20 = []
                 for player in available_players:
                     if player['age'] <= 20:
-                        under20.extend(player)
+                        under20.append(player)
                 available_for_week = under20[:8]
             else:
                 # ATP Finals logic
@@ -330,22 +330,24 @@ class TournamentScheduler:
                                 skipped_players = random.sample(rest, len(rest) - spots_left)
                                 rest = [p for p in rest if p not in skipped_players]
                             available_for_week = top64 + rest
+                            available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
                         else:
                             # Challenger logic
                             if all(t['category'].startswith("Challenger") for t in current_tournaments):
                                 available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
                                 available_for_week = available_players[:sum(t['draw_size'] for t in current_tournaments)]
+                                available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
                             else:
                                 # Basic logic
                                 if len(available_players) > total_spots:
                                     num_to_skip = len(available_players) - total_spots
                                     skipped_players = random.sample(available_players, num_to_skip)
                                     available_for_week = [p for p in available_players if p not in skipped_players]
+                                    available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
                                 else:
                                     available_for_week = available_players
+                                    available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
 
-        # Sort players by rank/points
-        available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
 
         # Sort tournaments by prestige order
         current_tournaments.sort(key=lambda t: self.PRESTIGE_ORDER.index(t['category']))

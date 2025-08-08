@@ -5,9 +5,7 @@ Traceback (most recent call last):
     scheduler.advance_week()
   File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 154, in advance_week
     self.assign_players_to_tournaments()
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 345, in assign_players_to_tournaments
-    available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 345, in <lambda>
-    available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
-                                          ^^^^^
-AttributeError: 'int' object has no attribute 'get'
+  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 373, in assign_players_to_tournaments
+    tournament['participants'].append(player['id'])
+                                      ~~~~~~^^^^^^
+TypeError: string indices must be integers, not 'str'
