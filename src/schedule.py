@@ -728,9 +728,9 @@ class TournamentScheduler:
                 self._add_to_hall_of_fame(player)
                 continue
             
-            # Chance-based retirement for players 35-39
-            if age >= 35:
-                retirement_chance = (age - 34) * 0.05  # 5% at 35, 10% at 36, etc.
+            # Chance-based retirement for players 36-39
+            if age >= 36:
+                retirement_chance = (age - 35) * 0.2  # 20% at 36, 40% at 37, etc.
                 if random.random() < retirement_chance:
                     player['retired'] = True
                     retired_players.append(player['name'])
@@ -871,26 +871,26 @@ class TournamentScheduler:
                 if old_rank != current_rank:
                     ranking_changes[player_id] = (old_rank, current_rank)
 
-        top16_changes = [
+        top10_changes = [
             (p['name'], change[0], change[1]) 
             for p in self.players 
             if not p.get('retired', False) 
             and p['id'] in ranking_changes 
             and (change := ranking_changes[p['id']]) 
-            and (change[1] <= 16 or change[0] <= 16)
+            and (change[1] <= 10 or change[0] <= 10)
         ]
         
-        current_top16 = [(name, old, new) for name, old, new in top16_changes if new <= 16]
-        dropped_out = [(name, old, new) for name, old, new in top16_changes if new > 16]
+        current_top10 = [(name, old, new) for name, old, new in top10_changes if new <= 10]
+        dropped_out = [(name, old, new) for name, old, new in top10_changes if new > 10]
         
-        current_top16.sort(key=lambda x: x[2])
+        current_top10.sort(key=lambda x: x[2])
         dropped_out.sort(key=lambda x: x[1])
         
-        if top16_changes:
-            self.news_feed.append(f"├─ Top 16 Changes ─┤")
-            for name, old, new in current_top16:
+        if top10_changes:
+            self.news_feed.append(f"├─ Top 10 Changes ─┤")
+            for name, old, new in current_top10:
                 self.news_feed.append(f"│ {name} ({old} -> {new})")
             for name, old, new in dropped_out:
-                self.news_feed.append(f"│ Dropped from top 16: {name} (was {old})")
+                self.news_feed.append(f"│ Dropped from top 10: {name} (was {old})")
         self.news_feed.append("└──────────────────────────────────────────────────────────────────────────────")
 
