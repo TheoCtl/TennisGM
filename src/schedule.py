@@ -299,7 +299,7 @@ class TournamentScheduler:
             # Nextgen Finals logic
             junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
             if junior_finals:
-                # Sort by age (youngest first), then by rank (lowest rank number is best)
+                # Sort by best players under 20yo
                 available_players.sort(key=lambda p: (p.get('rank', 999), p.get('age', 99)))
                 under20 = []
                 for player in available_players:

@@ -23,7 +23,7 @@ def main_menu(stdscr, scheduler):
             stdscr.addstr(0, 0, f"└─── Year {scheduler.current_year}, Week {scheduler.current_week} ───┘", curses.A_BOLD)
             news_start_row = 2
             menu_start_row = news_start_row
-            menu = ["Tournaments", "ATP Rankings", "Hall of Fame", "Achievements", "News Feed"]
+            menu = ["News Feed", "Tournaments", "ATP Rankings", "Hall of Fame", "Achievements"]
             # Check if all tournaments for the current week are completed
             current_tournaments = scheduler.get_current_week_tournaments()
             incomplete_tournaments = [t for t in current_tournaments if t['winner_id'] is None]
@@ -66,6 +66,14 @@ def main_menu(stdscr, scheduler):
                 current_row = 0
             elif menu[current_row] == "Exit":
                 break
+        elif key == ord('a'):
+            if "Advance to next week" in menu:
+                scheduler.advance_week()
+                scheduler.news_feed = []
+                stdscr.addstr(len(menu) + 5, 0, "Advanced to next week!", curses.A_BOLD)
+                stdscr.refresh()
+                stdscr.getch()
+                current_row = 0
  
 def show_news_feed(stdscr, scheduler):
     current_row = 0
@@ -326,7 +334,7 @@ def show_hof_player_details(stdscr, player):
             stdscr.addstr(8, 0, f"│ Weeks at #1 : {w1}w")
             stdscr.addstr(9, 0, f"│ Weeks in Top 10 : {w16}w")
             stdscr.addstr(10, 0, f"└─────────────────────┘")
-            stdscr.addstr(height - 1, 0, "Press 'T' to view tournaments won, ESC to return.")
+            stdscr.addstr(height - 1, 0, "Press 'A' to view tournaments won, ESC to return.")
         else:
             if numwin < 10:
                 if hofpoints < 10:
@@ -354,11 +362,11 @@ def show_hof_player_details(stdscr, player):
                 else:
                     stdscr.addstr(3, 0, f"┌─ WINS ({numwin} W, {hofpoints} HOF) ────────────────┘", curses.A_BOLD)
             display_tournament_wins(stdscr, player, start_row=3)
-            stdscr.addstr(height - 1, 0, "Press 'T' to view achievements, ESC to return.")
+            stdscr.addstr(height - 1, 0, "Press 'A' to view achievements, ESC to return.")
 
         stdscr.refresh()
         key = stdscr.getch()
-        if key in (ord('t'), ord('T')):
+        if key in (ord('a'), ord('A')):
             show_tournaments = not show_tournaments
         elif key in ESCAPE_KEYS:
             break
@@ -423,7 +431,7 @@ def show_player_details(stdscr, scheduler, player):
             stdscr.addstr(19, 0, f"│ Weeks at #1 : {w1}w")
             stdscr.addstr(20, 0, f"│ Weeks in Top 10 : {w16}w")
             stdscr.addstr(21, 0, f"└─────────────────────┘")
-            stdscr.addstr(height - 1, 0, "Press 'T' to view tournaments won, ESC to return.")
+            stdscr.addstr(height - 1, 0, "Press 'A' to view tournaments won, ESC to return.")
         else:
             numwin = len(player.get('tournament_wins'))
             hofpoints = player.get('hof_points')
@@ -453,10 +461,10 @@ def show_player_details(stdscr, scheduler, player):
                 else:
                     stdscr.addstr(14, 0, f"┌─ WINS ({numwin} W, {hofpoints} HOF) ─┘", curses.A_BOLD)
             display_tournament_wins(stdscr, player, start_row=14)
-            stdscr.addstr(height - 1, 0, "Press 'T' to view achievements, ESC to return.")
+            stdscr.addstr(height - 1, 0, "Press 'A' to view achievements, ESC to return.")
         stdscr.refresh()
         key = stdscr.getch()
-        if key in (ord('t'), ord('T')):
+        if key in (ord('a'), ord('A')):
             show_tournaments = not show_tournaments
         elif key in ESCAPE_KEYS:
             break
@@ -617,7 +625,7 @@ def manage_tournament(stdscr, scheduler, tournament):
         # Prepare content to display
         content = []
         if show_previous_rounds:
-            content.append("Previous Rounds Results: (Press 'p' to hide)")
+            content.append("Previous Rounds Results: (Press 'a' to hide)")
             if tournament['current_round'] > 0:
                 for r in range(tournament['current_round']):
                     content.append(f"Round {r + 1}:")
@@ -631,7 +639,7 @@ def manage_tournament(stdscr, scheduler, tournament):
                         else:
                             content.append(f"  {p1} vs {p2}")
         else:
-            content.append("Press 'p' to show previous rounds results.")
+            content.append("Press 'a' to show previous rounds results.")
 
         content.append(f"Round {tournament['current_round'] + 1} Matches:")
         matches = scheduler.get_current_matches(tournament['id'])
@@ -690,7 +698,7 @@ def manage_tournament(stdscr, scheduler, tournament):
         elif key in DOWN_KEYS:
             if current_row < len(matches) - 1:
                 current_row += 1
-        elif key == ord('p'):
+        elif key == ord('a'):
             show_previous_rounds = not show_previous_rounds
         elif key == curses.KEY_ENTER or key in [10, 13]:
             # Simulate the selected match
