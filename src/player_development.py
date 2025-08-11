@@ -62,30 +62,43 @@ class PlayerDevelopment:
     @staticmethod
     def develop_player(player):
         age = player['age']
-        
+
         if age >= 40 or player.get('retired', False):
             return
-        
-        # Tighter transition periods
-        if age < 28:
+
+        # Calculate overall
+        skills = player['skills']
+        overall = round(sum(skills.values()) / len(skills))
+
+        # Prevent progression if overall reaches ovrcap
+        ovrcap = player.get('ovrcap', 70)
+        if overall >= ovrcap:
+            # Only allow regression
+            if age < 28:
+                return
+            else:
+                chance_func = PlayerDevelopment.calculate_regression_chance
+                change_direction = -1
+        else:
+            if age < 28:
                 chance_func = PlayerDevelopment.calculate_improvement_chance
                 change_direction = 1
-        else:
-            # 28+: Full regression mode
-            chance_func = PlayerDevelopment.calculate_regression_chance
-            change_direction = -1
-        
+            else:
+                chance_func = PlayerDevelopment.calculate_regression_chance
+                change_direction = -1
+
         for skill in player['skills']:
             current_value = player['skills'][skill]
-            
             if change_direction == 1:
                 potential_factor = player.get('potential_factor', 1.0)
                 chance = chance_func(age, current_value, potential_factor)
+                # Apply bonus if skill matches player's bonus
+                if skill == player.get('bonus'):
+                    chance *= 1.1
                 new_value = PlayerDevelopment.develop_skill(current_value, chance)
             else:
                 chance = chance_func(age, current_value)
                 new_value = PlayerDevelopment.regress_skill(current_value, chance)
-            
             player['skills'][skill] = new_value
             
     @staticmethod

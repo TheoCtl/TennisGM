@@ -31,16 +31,20 @@ class NewGenGenerator:
         with open(self.names_path, 'w', encoding='utf-8') as f:
             json.dump(self.name_data, f, indent=2, ensure_ascii=False)
 
-        if random.random() < 0.5:
+        r = random.random()
+        if r < 0.5:
             potential_factor = round(random.uniform(1, 1.5), 3)
+        elif r > 0.9:
+            potential_factor = round(random.uniform(1.5, 2.0), 3)
         else:
             potential_factor = 1.0
+        skills = self.generate_skills()
         return {
             "id": player_id,
             "name": f"{first_name} {last_name}",
             "age": 16,
             "hand": random.choice(["Right", "Left"]),
-            "skills": self.generate_skills(),
+            "skills": skills,
             "potential_factor": potential_factor,
             "rank": player_rank,  # Initial unranked status
             "highest_ranking": 999,
@@ -53,6 +57,8 @@ class NewGenGenerator:
             "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
             "tournament_history": [],
             "tournament_wins": [],
+            "bonus": random.choice(list(skills.keys())),
+            "ovrcap": random.randint(65, 70)
         }
     
     def generate_player_id(self):
