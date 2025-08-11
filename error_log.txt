@@ -1,11 +1,8 @@
 Traceback (most recent call last):
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 774, in main
+  File "c:\Users\theoc\Desktop\TennisGM\src\main.py", line 782, in main
     main_menu(stdscr, scheduler)
-  File "C:\Users\theoc\Desktop\TennisGM\src\main.py", line 61, in main_menu
-    scheduler.advance_week()
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 154, in advance_week
-    self.assign_players_to_tournaments()
-  File "C:\Users\theoc\Desktop\TennisGM\src\schedule.py", line 373, in assign_players_to_tournaments
-    tournament['participants'].append(player['id'])
-                                      ~~~~~~^^^^^^
-TypeError: string indices must be integers, not 'str'
+  File "c:\Users\theoc\Desktop\TennisGM\src\main.py", line 55, in main_menu
+    show_rankings(stdscr, scheduler)
+  File "c:\Users\theoc\Desktop\TennisGM\src\main.py", line 508, in show_rankings
+    stdscr.addstr(i+2-start_idx, 0, f"{i}. {player['name']}: {points} pts")
+_curses.error: addwstr() returned ERR

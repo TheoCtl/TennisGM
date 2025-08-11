@@ -344,7 +344,9 @@
       ],
       "w1": 0,
       "w16": 20,
-      "hof_points": 17
+      "hof_points": 17,
+      "bonus": "backhand",
+      "ovrcap": 66
     },
     {
       "id": 341,
@@ -706,7 +708,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 15
+      "hof_points": 15,
+      "bonus": "speed",
+      "ovrcap": 66
     },
     {
       "id": 343,
@@ -1212,7 +1216,9 @@
         15
       ],
       "w1": 0,
-      "w16": 354
+      "w16": 354,
+      "bonus": "serve",
+      "ovrcap": 70
     },
     {
       "id": 344,
@@ -1571,7 +1577,9 @@
       ],
       "w1": 0,
       "w16": 15,
-      "hof_points": 22
+      "hof_points": 22,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 345,
@@ -1964,7 +1972,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 23
+      "hof_points": 23,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 347,
@@ -2358,7 +2368,9 @@
         2
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "straight",
+      "ovrcap": 68
     },
     {
       "id": 349,
@@ -2740,7 +2752,9 @@
       ],
       "w1": 0,
       "w16": 48,
-      "hof_points": 48
+      "hof_points": 48,
+      "bonus": "stamina",
+      "ovrcap": 65
     },
     {
       "id": 350,
@@ -3110,7 +3124,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 13
+      "hof_points": 13,
+      "bonus": "speed",
+      "ovrcap": 69
     },
     {
       "id": 351,
@@ -3446,7 +3462,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 21
+      "hof_points": 21,
+      "bonus": "stamina",
+      "ovrcap": 66
     },
     {
       "id": 352,
@@ -3800,7 +3818,9 @@
       ],
       "w1": 0,
       "w16": 130,
-      "hof_points": 62
+      "hof_points": 62,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 353,
@@ -4190,7 +4210,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 17
+      "hof_points": 17,
+      "bonus": "speed",
+      "ovrcap": 66
     },
     {
       "id": 354,
@@ -4544,7 +4566,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 17
+      "hof_points": 17,
+      "bonus": "forehand",
+      "ovrcap": 65
     },
     {
       "id": 355,
@@ -4806,7 +4830,9 @@
       ],
       "w1": 0,
       "w16": 111,
-      "hof_points": 13
+      "hof_points": 13,
+      "bonus": "serve",
+      "ovrcap": 69
     },
     {
       "id": 356,
@@ -5211,7 +5237,9 @@
         22
       ],
       "w1": 0,
-      "w16": 458
+      "w16": 458,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 357,
@@ -5551,7 +5579,9 @@
         3
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "backhand",
+      "ovrcap": 68
     },
     {
       "id": 358,
@@ -5899,7 +5929,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 14
+      "hof_points": 14,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 359,
@@ -6180,7 +6212,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "speed",
+      "ovrcap": 70
     },
     {
       "id": 360,
@@ -6496,7 +6530,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 26
+      "hof_points": 26,
+      "bonus": "cross",
+      "ovrcap": 69
     },
     {
       "id": 361,
@@ -6817,7 +6853,9 @@
       ],
       "w1": 0,
       "w16": 383,
-      "hof_points": 138
+      "hof_points": 138,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 362,
@@ -7109,7 +7147,9 @@
       ],
       "w1": 0,
       "w16": 3,
-      "hof_points": 14
+      "hof_points": 14,
+      "bonus": "stamina",
+      "ovrcap": 68
     },
     {
       "id": 363,
@@ -7403,7 +7443,9 @@
         2
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "forehand",
+      "ovrcap": 68
     },
     {
       "id": 364,
@@ -7686,7 +7728,9 @@
         3
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 365,
@@ -7998,7 +8042,9 @@
         4
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "cross",
+      "ovrcap": 65
     },
     {
       "id": 366,
@@ -8327,7 +8373,9 @@
         0
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 367,
@@ -8608,7 +8656,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 19
+      "hof_points": 19,
+      "bonus": "stamina",
+      "ovrcap": 66
     },
     {
       "id": 368,
@@ -8920,7 +8970,9 @@
         2
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 369,
@@ -9208,7 +9260,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 11
+      "hof_points": 11,
+      "bonus": "straight",
+      "ovrcap": 65
     },
     {
       "id": 370,
@@ -9497,7 +9551,9 @@
         0
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "backhand",
+      "ovrcap": 70
     },
     {
       "id": 371,
@@ -9849,7 +9905,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "backhand",
+      "ovrcap": 70
     },
     {
       "id": 372,
@@ -10202,7 +10260,9 @@
         0
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "backhand",
+      "ovrcap": 65
     },
     {
       "id": 373,
@@ -10485,7 +10545,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 31
+      "hof_points": 31,
+      "bonus": "speed",
+      "ovrcap": 66
     },
     {
       "id": 374,
@@ -11586,7 +11648,9 @@
         50
       ],
       "w1": 468,
-      "w16": 623
+      "w16": 623,
+      "bonus": "serve",
+      "ovrcap": 66
     },
     {
       "id": 375,
@@ -11915,7 +11979,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "stamina",
+      "ovrcap": 69
     },
     {
       "id": 376,
@@ -12241,7 +12307,9 @@
         2
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 377,
@@ -12489,7 +12557,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "backhand",
+      "ovrcap": 66
     },
     {
       "id": 378,
@@ -12818,7 +12888,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "cross",
+      "ovrcap": 66
     },
     {
       "id": 379,
@@ -13152,7 +13224,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 21
+      "hof_points": 21,
+      "bonus": "straight",
+      "ovrcap": 66
     },
     {
       "id": 380,
@@ -13437,7 +13511,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "straight",
+      "ovrcap": 66
     },
     {
       "id": 381,
@@ -13738,7 +13814,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "cross",
+      "ovrcap": 66
     },
     {
       "id": 382,
@@ -14076,7 +14154,9 @@
         4
       ],
       "w1": 0,
-      "w16": 128
+      "w16": 128,
+      "bonus": "stamina",
+      "ovrcap": 69
     },
     {
       "id": 383,
@@ -14626,7 +14706,9 @@
         17
       ],
       "w1": 0,
-      "w16": 508
+      "w16": 508,
+      "bonus": "stamina",
+      "ovrcap": 68
     },
     {
       "id": 384,
@@ -14951,7 +15033,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "backhand",
+      "ovrcap": 66
     },
     {
       "id": 385,
@@ -15244,7 +15328,9 @@
         2
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "backhand",
+      "ovrcap": 68
     },
     {
       "id": 386,
@@ -15634,7 +15720,9 @@
         2
       ],
       "w1": 0,
-      "w16": 53
+      "w16": 53,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 387,
@@ -15998,7 +16086,9 @@
         0
       ],
       "w1": 0,
-      "w16": 39
+      "w16": 39,
+      "bonus": "backhand",
+      "ovrcap": 67
     },
     {
       "id": 388,
@@ -16298,7 +16388,9 @@
         1
       ],
       "w1": 0,
-      "w16": 33
+      "w16": 33,
+      "bonus": "straight",
+      "ovrcap": 65
     },
     {
       "id": 389,
@@ -16670,7 +16762,9 @@
         9
       ],
       "w1": 0,
-      "w16": 155
+      "w16": 155,
+      "bonus": "serve",
+      "ovrcap": 66
     },
     {
       "id": 390,
@@ -17041,7 +17135,9 @@
         3
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "stamina",
+      "ovrcap": 65
     },
     {
       "id": 391,
@@ -17357,7 +17453,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "cross",
+      "ovrcap": 66
     },
     {
       "id": 392,
@@ -17642,7 +17740,9 @@
         4
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "cross",
+      "ovrcap": 65
     },
     {
       "id": 393,
@@ -18021,7 +18121,9 @@
         5
       ],
       "w1": 0,
-      "w16": 50
+      "w16": 50,
+      "bonus": "straight",
+      "ovrcap": 70
     },
     {
       "id": 394,
@@ -18334,7 +18436,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 395,
@@ -18658,7 +18762,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "cross",
+      "ovrcap": 70
     },
     {
       "id": 396,
@@ -18964,7 +19070,9 @@
         3
       ],
       "w1": 0,
-      "w16": 41
+      "w16": 41,
+      "bonus": "cross",
+      "ovrcap": 70
     },
     {
       "id": 397,
@@ -19304,7 +19412,9 @@
         4
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "cross",
+      "ovrcap": 68
     },
     {
       "id": 398,
@@ -19617,7 +19727,9 @@
         7
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "cross",
+      "ovrcap": 70
     },
     {
       "id": 399,
@@ -19897,7 +20009,9 @@
         1
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 400,
@@ -20237,7 +20351,9 @@
         2
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "backhand",
+      "ovrcap": 65
     },
     {
       "id": 401,
@@ -20587,7 +20703,9 @@
         2
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "straight",
+      "ovrcap": 66
     },
     {
       "id": 402,
@@ -20895,7 +21013,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 15
+      "hof_points": 15,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 403,
@@ -21206,7 +21326,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "stamina",
+      "ovrcap": 66
     },
     {
       "id": 404,
@@ -21650,7 +21772,9 @@
       ],
       "w1": 4,
       "w16": 342,
-      "hof_points": 441
+      "hof_points": 441,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 405,
@@ -21915,7 +22039,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 10
+      "hof_points": 10,
+      "bonus": "straight",
+      "ovrcap": 67
     },
     {
       "id": 406,
@@ -22218,7 +22344,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 35
+      "hof_points": 35,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 407,
@@ -22529,7 +22657,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 21
+      "hof_points": 21,
+      "bonus": "cross",
+      "ovrcap": 66
     },
     {
       "id": 408,
@@ -22840,7 +22970,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 409,
@@ -23212,7 +23344,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 30
+      "hof_points": 30,
+      "bonus": "backhand",
+      "ovrcap": 67
     },
     {
       "id": 410,
@@ -23557,7 +23691,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 29
+      "hof_points": 29,
+      "bonus": "backhand",
+      "ovrcap": 66
     },
     {
       "id": 411,
@@ -23852,7 +23988,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 16
+      "hof_points": 16,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 412,
@@ -24162,7 +24300,9 @@
       ],
       "w1": 0,
       "w16": 112,
-      "hof_points": 55
+      "hof_points": 55,
+      "bonus": "cross",
+      "ovrcap": 68
     },
     {
       "id": 413,
@@ -24492,7 +24632,9 @@
       ],
       "w1": 0,
       "w16": 178,
-      "hof_points": 146
+      "hof_points": 146,
+      "bonus": "stamina",
+      "ovrcap": 66
     },
     {
       "id": 414,
@@ -24822,7 +24964,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 18
+      "hof_points": 18,
+      "bonus": "stamina",
+      "ovrcap": 65
     },
     {
       "id": 415,
@@ -25125,7 +25269,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 14
+      "hof_points": 14,
+      "bonus": "stamina",
+      "ovrcap": 66
     },
     {
       "id": 416,
@@ -25415,7 +25561,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 15
+      "hof_points": 15,
+      "bonus": "straight",
+      "ovrcap": 65
     },
     {
       "id": 417,
@@ -25701,7 +25849,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 16
+      "hof_points": 16,
+      "bonus": "straight",
+      "ovrcap": 70
     },
     {
       "id": 418,
@@ -26011,7 +26161,9 @@
       ],
       "w1": 0,
       "w16": 5,
-      "hof_points": 32
+      "hof_points": 32,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 419,
@@ -26337,7 +26489,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 14
+      "hof_points": 14,
+      "bonus": "backhand",
+      "ovrcap": 65
     },
     {
       "id": 420,
@@ -26683,7 +26837,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 19
+      "hof_points": 19,
+      "bonus": "cross",
+      "ovrcap": 66
     },
     {
       "id": 421,
@@ -26936,7 +27092,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 13
+      "hof_points": 13,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 422,
@@ -27265,7 +27423,9 @@
       ],
       "w1": 0,
       "w16": 139,
-      "hof_points": 104
+      "hof_points": 104,
+      "bonus": "speed",
+      "ovrcap": 69
     },
     {
       "id": 423,
@@ -27577,7 +27737,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 44
+      "hof_points": 44,
+      "bonus": "backhand",
+      "ovrcap": 66
     },
     {
       "id": 424,
@@ -27816,7 +27978,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "cross",
+      "ovrcap": 66
     },
     {
       "id": 425,
@@ -28142,7 +28306,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 15
+      "hof_points": 15,
+      "bonus": "serve",
+      "ovrcap": 70
     },
     {
       "id": 426,
@@ -28501,7 +28667,9 @@
       ],
       "w1": 0,
       "w16": 108,
-      "hof_points": 93
+      "hof_points": 93,
+      "bonus": "speed",
+      "ovrcap": 67
     },
     {
       "id": 427,
@@ -28877,7 +29045,9 @@
       ],
       "w1": 0,
       "w16": 111,
-      "hof_points": 68
+      "hof_points": 68,
+      "bonus": "serve",
+      "ovrcap": 66
     },
     {
       "id": 428,
@@ -29198,7 +29368,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 18
+      "hof_points": 18,
+      "bonus": "speed",
+      "ovrcap": 70
     },
     {
       "id": 429,
@@ -29569,7 +29741,9 @@
       ],
       "w1": 0,
       "w16": 143,
-      "hof_points": 227
+      "hof_points": 227,
+      "bonus": "stamina",
+      "ovrcap": 65
     },
     {
       "id": 430,
@@ -29907,7 +30081,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 34
+      "hof_points": 34,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 431,
@@ -30226,7 +30402,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 23
+      "hof_points": 23,
+      "bonus": "backhand",
+      "ovrcap": 67
     },
     {
       "id": 432,
@@ -30577,7 +30755,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 11
+      "hof_points": 11,
+      "bonus": "backhand",
+      "ovrcap": 67
     },
     {
       "id": 433,
@@ -30881,7 +31061,9 @@
       ],
       "w1": 0,
       "w16": 0,
-      "hof_points": 16
+      "hof_points": 16,
+      "bonus": "straight",
+      "ovrcap": 65
     },
     {
       "id": 434,
@@ -31209,7 +31391,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 19
+      "hof_points": 19,
+      "bonus": "straight",
+      "ovrcap": 70
     },
     {
       "id": 435,
@@ -31476,7 +31660,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 10
+      "hof_points": 10,
+      "bonus": "forehand",
+      "ovrcap": 65
     },
     {
       "id": 436,
@@ -31757,7 +31943,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 11
+      "hof_points": 11,
+      "bonus": "backhand",
+      "ovrcap": 69
     },
     {
       "id": 437,
@@ -32067,7 +32255,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 15
+      "hof_points": 15,
+      "bonus": "straight",
+      "ovrcap": 68
     },
     {
       "id": 438,
@@ -32393,7 +32583,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 24
+      "hof_points": 24,
+      "bonus": "speed",
+      "ovrcap": 65
     },
     {
       "id": 439,
@@ -32725,7 +32917,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 33
+      "hof_points": 33,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 440,
@@ -33062,7 +33256,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 15
+      "hof_points": 15,
+      "bonus": "cross",
+      "ovrcap": 70
     },
     {
       "id": 441,
@@ -33455,7 +33651,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 19
+      "hof_points": 19,
+      "bonus": "backhand",
+      "ovrcap": 68
     },
     {
       "id": 442,
@@ -33759,7 +33957,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "backhand",
+      "ovrcap": 69
     },
     {
       "id": 443,
@@ -34074,7 +34274,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 16
+      "hof_points": 16,
+      "bonus": "serve",
+      "ovrcap": 68
     },
     {
       "id": 444,
@@ -34368,7 +34570,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 48
+      "hof_points": 48,
+      "bonus": "stamina",
+      "ovrcap": 67
     },
     {
       "id": 445,
@@ -34622,7 +34826,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 11
+      "hof_points": 11,
+      "bonus": "speed",
+      "ovrcap": 70
     },
     {
       "id": 446,
@@ -34954,7 +35160,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 35
+      "hof_points": 35,
+      "bonus": "serve",
+      "ovrcap": 69
     },
     {
       "id": 447,
@@ -35211,7 +35419,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 8
+      "hof_points": 8,
+      "bonus": "serve",
+      "ovrcap": 65
     },
     {
       "id": 448,
@@ -35560,7 +35770,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "speed",
+      "ovrcap": 67
     },
     {
       "id": 449,
@@ -35855,7 +36067,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "forehand",
+      "ovrcap": 68
     },
     {
       "id": 450,
@@ -36206,7 +36420,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 63
+      "hof_points": 63,
+      "bonus": "straight",
+      "ovrcap": 66
     },
     {
       "id": 451,
@@ -36542,7 +36758,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 36
+      "hof_points": 36,
+      "bonus": "cross",
+      "ovrcap": 68
     },
     {
       "id": 452,
@@ -36817,7 +37035,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 8
+      "hof_points": 8,
+      "bonus": "stamina",
+      "ovrcap": 66
     },
     {
       "id": 453,
@@ -37141,7 +37361,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 16
+      "hof_points": 16,
+      "bonus": "stamina",
+      "ovrcap": 65
     },
     {
       "id": 454,
@@ -37453,7 +37675,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 10
+      "hof_points": 10,
+      "bonus": "backhand",
+      "ovrcap": 70
     },
     {
       "id": 455,
@@ -37738,7 +37962,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 10
+      "hof_points": 10,
+      "bonus": "speed",
+      "ovrcap": 70
     },
     {
       "id": 456,
@@ -38018,7 +38244,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 25
+      "hof_points": 25,
+      "bonus": "cross",
+      "ovrcap": 70
     },
     {
       "id": 457,
@@ -38336,7 +38564,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 17
+      "hof_points": 17,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 458,
@@ -38622,7 +38852,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "backhand",
+      "ovrcap": 68
     },
     {
       "id": 459,
@@ -38917,7 +39149,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "speed",
+      "ovrcap": 66
     },
     {
       "id": 460,
@@ -39212,7 +39446,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "forehand",
+      "ovrcap": 70
     },
     {
       "id": 461,
@@ -39488,7 +39724,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 10
+      "hof_points": 10,
+      "bonus": "straight",
+      "ovrcap": 66
     },
     {
       "id": 462,
@@ -39789,7 +40027,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 15
+      "hof_points": 15,
+      "bonus": "cross",
+      "ovrcap": 67
     },
     {
       "id": 463,
@@ -40048,7 +40288,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 464,
@@ -40264,7 +40506,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 7
+      "hof_points": 7,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 465,
@@ -40568,7 +40812,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "stamina",
+      "ovrcap": 68
     },
     {
       "id": 466,
@@ -40833,7 +41079,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "serve",
+      "ovrcap": 69
     },
     {
       "id": 467,
@@ -41139,7 +41387,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 34
+      "hof_points": 34,
+      "bonus": "speed",
+      "ovrcap": 66
     },
     {
       "id": 468,
@@ -41460,7 +41710,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 14
+      "hof_points": 14,
+      "bonus": "straight",
+      "ovrcap": 70
     },
     {
       "id": 469,
@@ -41758,7 +42010,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 18
+      "hof_points": 18,
+      "bonus": "speed",
+      "ovrcap": 70
     },
     {
       "id": 470,
@@ -42087,7 +42341,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "speed",
+      "ovrcap": 69
     },
     {
       "id": 471,
@@ -42360,7 +42616,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 13
+      "hof_points": 13,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 472,
@@ -42671,7 +42929,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 17
+      "hof_points": 17,
+      "bonus": "stamina",
+      "ovrcap": 70
     },
     {
       "id": 473,
@@ -42996,7 +43256,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 9
+      "hof_points": 9,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 474,
@@ -43278,7 +43540,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 17
+      "hof_points": 17,
+      "bonus": "cross",
+      "ovrcap": 68
     },
     {
       "id": 475,
@@ -43535,7 +43799,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 8
+      "hof_points": 8,
+      "bonus": "cross",
+      "ovrcap": 67
     },
     {
       "id": 476,
@@ -43825,7 +44091,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 11
+      "hof_points": 11,
+      "bonus": "stamina",
+      "ovrcap": 69
     },
     {
       "id": 477,
@@ -44146,7 +44414,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 18
+      "hof_points": 18,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 478,
@@ -44449,7 +44719,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 10
+      "hof_points": 10,
+      "bonus": "straight",
+      "ovrcap": 69
     },
     {
       "id": 479,
@@ -44788,7 +45060,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 14
+      "hof_points": 14,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 480,
@@ -45023,7 +45297,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 9
+      "hof_points": 9,
+      "bonus": "stamina",
+      "ovrcap": 65
     },
     {
       "id": 481,
@@ -45334,7 +45610,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 8
+      "hof_points": 8,
+      "bonus": "cross",
+      "ovrcap": 66
     },
     {
       "id": 482,
@@ -45627,7 +45905,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 16
+      "hof_points": 16,
+      "bonus": "stamina",
+      "ovrcap": 69
     },
     {
       "id": 483,
@@ -45897,7 +46177,9 @@
         }
       ],
       "hof_points": 7,
-      "retired": false
+      "retired": false,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 484,
@@ -46173,7 +46455,9 @@
         }
       ],
       "hof_points": 10,
-      "retired": false
+      "retired": false,
+      "bonus": "stamina",
+      "ovrcap": 65
     },
     {
       "id": 485,
@@ -46429,7 +46713,9 @@
         }
       ],
       "hof_points": 6,
-      "retired": false
+      "retired": false,
+      "bonus": "stamina",
+      "ovrcap": 69
     },
     {
       "id": 486,
@@ -46686,7 +46972,9 @@
         }
       ],
       "hof_points": 8,
-      "retired": false
+      "retired": false,
+      "bonus": "forehand",
+      "ovrcap": 68
     },
     {
       "id": 487,
@@ -46953,7 +47241,9 @@
         }
       ],
       "hof_points": 10,
-      "retired": false
+      "retired": false,
+      "bonus": "straight",
+      "ovrcap": 69
     },
     {
       "id": 488,
@@ -47240,7 +47530,9 @@
         }
       ],
       "hof_points": 5,
-      "retired": false
+      "retired": false,
+      "bonus": "speed",
+      "ovrcap": 66
     },
     {
       "id": 489,
@@ -47477,7 +47769,9 @@
         }
       ],
       "hof_points": 4,
-      "retired": false
+      "retired": false,
+      "bonus": "backhand",
+      "ovrcap": 66
     },
     {
       "id": 490,
@@ -47786,7 +48080,9 @@
         }
       ],
       "hof_points": 13,
-      "retired": false
+      "retired": false,
+      "bonus": "cross",
+      "ovrcap": 66
     },
     {
       "id": 491,
@@ -48127,7 +48423,9 @@
         }
       ],
       "hof_points": 14,
-      "retired": false
+      "retired": false,
+      "bonus": "stamina",
+      "ovrcap": 70
     },
     {
       "id": 492,
@@ -48380,7 +48678,9 @@
         }
       ],
       "hof_points": 9,
-      "retired": false
+      "retired": false,
+      "bonus": "stamina",
+      "ovrcap": 65
     },
     {
       "id": 493,
@@ -48732,7 +49032,9 @@
         }
       ],
       "hof_points": 39,
-      "retired": false
+      "retired": false,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 494,
@@ -49006,7 +49308,9 @@
         }
       ],
       "hof_points": 19,
-      "retired": false
+      "retired": false,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 495,
@@ -49336,7 +49640,9 @@
         }
       ],
       "hof_points": 10,
-      "retired": false
+      "retired": false,
+      "bonus": "forehand",
+      "ovrcap": 68
     },
     {
       "id": 496,
@@ -49672,7 +49978,9 @@
         }
       ],
       "hof_points": 4,
-      "retired": false
+      "retired": false,
+      "bonus": "straight",
+      "ovrcap": 66
     },
     {
       "id": 497,
@@ -49983,7 +50291,9 @@
         }
       ],
       "hof_points": 16,
-      "retired": false
+      "retired": false,
+      "bonus": "stamina",
+      "ovrcap": 68
     },
     {
       "id": 498,
@@ -50314,7 +50624,9 @@
         }
       ],
       "hof_points": 25,
-      "retired": false
+      "retired": false,
+      "bonus": "straight",
+      "ovrcap": 68
     },
     {
       "id": 499,
@@ -50597,7 +50909,9 @@
         }
       ],
       "hof_points": 6,
-      "retired": false
+      "retired": false,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 500,
@@ -50843,7 +51157,9 @@
         }
       ],
       "hof_points": 4,
-      "retired": false
+      "retired": false,
+      "bonus": "serve",
+      "ovrcap": 67
     },
     {
       "id": 501,
@@ -51131,7 +51447,9 @@
         }
       ],
       "hof_points": 7,
-      "retired": false
+      "retired": false,
+      "bonus": "stamina",
+      "ovrcap": 68
     },
     {
       "id": 502,
@@ -51466,7 +51784,9 @@
         }
       ],
       "hof_points": 11,
-      "retired": false
+      "retired": false,
+      "bonus": "stamina",
+      "ovrcap": 70
     },
     {
       "id": 503,
@@ -51835,7 +52155,9 @@
         }
       ],
       "hof_points": 100,
-      "retired": false
+      "retired": false,
+      "bonus": "speed",
+      "ovrcap": 70
     },
     {
       "id": 504,
@@ -52095,7 +52417,9 @@
         }
       ],
       "hof_points": 14,
-      "retired": false
+      "retired": false,
+      "bonus": "stamina",
+      "ovrcap": 67
     },
     {
       "id": 505,
@@ -52396,7 +52720,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "straight",
+      "ovrcap": 68
     },
     {
       "id": 506,
@@ -52687,7 +53013,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 4
+      "hof_points": 4,
+      "bonus": "speed",
+      "ovrcap": 65
     },
     {
       "id": 507,
@@ -52930,7 +53258,9 @@
       ],
       "tournament_wins": [],
       "retired": false,
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "stamina",
+      "ovrcap": 70
     },
     {
       "id": 508,
@@ -53202,7 +53532,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 1
+      "hof_points": 1,
+      "bonus": "stamina",
+      "ovrcap": 69
     },
     {
       "id": 509,
@@ -53512,7 +53844,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 510,
@@ -53775,7 +54109,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 2
+      "hof_points": 2,
+      "bonus": "serve",
+      "ovrcap": 65
     },
     {
       "id": 511,
@@ -54069,7 +54405,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 14
+      "hof_points": 14,
+      "bonus": "straight",
+      "ovrcap": 67
     },
     {
       "id": 512,
@@ -54354,7 +54692,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 10
+      "hof_points": 10,
+      "bonus": "backhand",
+      "ovrcap": 67
     },
     {
       "id": 513,
@@ -54654,7 +54994,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 17
+      "hof_points": 17,
+      "bonus": "speed",
+      "ovrcap": 67
     },
     {
       "id": 514,
@@ -54909,7 +55251,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 4
+      "hof_points": 4,
+      "bonus": "serve",
+      "ovrcap": 69
     },
     {
       "id": 515,
@@ -55129,7 +55473,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "stamina",
+      "ovrcap": 67
     },
     {
       "id": 516,
@@ -55366,7 +55712,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 4
+      "hof_points": 4,
+      "bonus": "straight",
+      "ovrcap": 68
     },
     {
       "id": 517,
@@ -55660,7 +56008,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 9
+      "hof_points": 9,
+      "bonus": "cross",
+      "ovrcap": 70
     },
     {
       "id": 518,
@@ -55928,7 +56278,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 3
+      "hof_points": 3,
+      "bonus": "backhand",
+      "ovrcap": 68
     },
     {
       "id": 519,
@@ -56148,7 +56500,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "straight",
+      "ovrcap": 65
     },
     {
       "id": 520,
@@ -56404,7 +56758,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "straight",
+      "ovrcap": 67
     },
     {
       "id": 521,
@@ -56671,7 +57027,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 10
+      "hof_points": 10,
+      "bonus": "serve",
+      "ovrcap": 67
     },
     {
       "id": 522,
@@ -56895,7 +57253,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 5
+      "hof_points": 5,
+      "bonus": "forehand",
+      "ovrcap": 70
     },
     {
       "id": 523,
@@ -57202,7 +57562,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 9
+      "hof_points": 9,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 524,
@@ -57470,7 +57832,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 3
+      "hof_points": 3,
+      "bonus": "serve",
+      "ovrcap": 67
     },
     {
       "id": 525,
@@ -57754,7 +58118,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 8
+      "hof_points": 8,
+      "bonus": "serve",
+      "ovrcap": 68
     },
     {
       "id": 526,
@@ -58049,7 +58415,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 3
+      "hof_points": 3,
+      "bonus": "backhand",
+      "ovrcap": 68
     },
     {
       "id": 527,
@@ -58349,7 +58717,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 4
+      "hof_points": 4,
+      "bonus": "serve",
+      "ovrcap": 70
     },
     {
       "id": 528,
@@ -58664,7 +59034,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 7
+      "hof_points": 7,
+      "bonus": "straight",
+      "ovrcap": 65
     },
     {
       "id": 529,
@@ -58970,7 +59342,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 11
+      "hof_points": 11,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 530,
@@ -59236,7 +59610,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 12
+      "hof_points": 12,
+      "bonus": "serve",
+      "ovrcap": 66
     },
     {
       "id": 531,
@@ -59515,7 +59891,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 7
+      "hof_points": 7,
+      "bonus": "backhand",
+      "ovrcap": 69
     },
     {
       "id": 532,
@@ -59784,7 +60162,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 5
+      "hof_points": 5,
+      "bonus": "stamina",
+      "ovrcap": 68
     },
     {
       "id": 533,
@@ -60052,7 +60432,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 3
+      "hof_points": 3,
+      "bonus": "backhand",
+      "ovrcap": 69
     },
     {
       "id": 534,
@@ -60343,7 +60725,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 4
+      "hof_points": 4,
+      "bonus": "speed",
+      "ovrcap": 65
     },
     {
       "id": 535,
@@ -60605,7 +60989,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 9
+      "hof_points": 9,
+      "bonus": "cross",
+      "ovrcap": 67
     },
     {
       "id": 536,
@@ -60923,7 +61309,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 4
+      "hof_points": 4,
+      "bonus": "straight",
+      "ovrcap": 68
     },
     {
       "id": 537,
@@ -61212,7 +61600,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 13
+      "hof_points": 13,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 538,
@@ -61516,7 +61906,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 3
+      "hof_points": 3,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 539,
@@ -61781,7 +62173,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "forehand",
+      "ovrcap": 65
     },
     {
       "id": 540,
@@ -62125,7 +62519,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 2
+      "hof_points": 2,
+      "bonus": "cross",
+      "ovrcap": 68
     },
     {
       "id": 541,
@@ -62415,7 +62811,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 2
+      "hof_points": 2,
+      "bonus": "backhand",
+      "ovrcap": 67
     },
     {
       "id": 542,
@@ -62687,7 +63085,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 2
+      "hof_points": 2,
+      "bonus": "stamina",
+      "ovrcap": 67
     },
     {
       "id": 543,
@@ -62975,7 +63375,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 11
+      "hof_points": 11,
+      "bonus": "backhand",
+      "ovrcap": 66
     },
     {
       "id": 544,
@@ -63276,7 +63678,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "forehand",
+      "ovrcap": 69
     },
     {
       "id": 545,
@@ -63504,7 +63908,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 4
+      "hof_points": 4,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 546,
@@ -63762,7 +64168,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 1
+      "hof_points": 1,
+      "bonus": "cross",
+      "ovrcap": 68
     },
     {
       "id": 547,
@@ -64003,7 +64411,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 3
+      "hof_points": 3,
+      "bonus": "straight",
+      "ovrcap": 65
     },
     {
       "id": 548,
@@ -64323,7 +64733,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 29
+      "hof_points": 29,
+      "bonus": "straight",
+      "ovrcap": 67
     },
     {
       "id": 549,
@@ -64581,7 +64993,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 1
+      "hof_points": 1,
+      "bonus": "forehand",
+      "ovrcap": 66
     },
     {
       "id": 550,
@@ -64809,7 +65223,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 7
+      "hof_points": 7,
+      "bonus": "stamina",
+      "ovrcap": 68
     },
     {
       "id": 551,
@@ -65045,7 +65461,9 @@
         }
       ],
       "hof_points": 2,
-      "retired": false
+      "retired": false,
+      "bonus": "forehand",
+      "ovrcap": 67
     },
     {
       "id": 552,
@@ -65324,7 +65742,9 @@
       ],
       "tournament_wins": [],
       "retired": false,
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "forehand",
+      "ovrcap": 65
     },
     {
       "id": 553,
@@ -65641,7 +66061,9 @@
         }
       ],
       "retired": false,
-      "hof_points": 6
+      "hof_points": 6,
+      "bonus": "cross",
+      "ovrcap": 69
     },
     {
       "id": 554,
@@ -65947,7 +66369,9 @@
       ],
       "tournament_wins": [],
       "retired": false,
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "stamina",
+      "ovrcap": 70
     },
     {
       "id": 555,
@@ -66217,7 +66641,9 @@
       ],
       "tournament_wins": [],
       "retired": false,
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "speed",
+      "ovrcap": 68
     },
     {
       "id": 556,
@@ -66541,7 +66967,9 @@
       ],
       "tournament_wins": [],
       "retired": false,
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "backhand",
+      "ovrcap": 67
     },
     {
       "id": 557,
@@ -66874,7 +67302,9 @@
       ],
       "tournament_wins": [],
       "retired": false,
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "serve",
+      "ovrcap": 65
     },
     {
       "id": 558,
@@ -67198,7 +67628,9 @@
       ],
       "tournament_wins": [],
       "retired": false,
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "serve",
+      "ovrcap": 69
     },
     {
       "id": 559,
@@ -67468,7 +67900,9 @@
       ],
       "tournament_wins": [],
       "retired": false,
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "speed",
+      "ovrcap": 67
     },
     {
       "id": 560,
@@ -67755,7 +68189,10 @@
         }
       ],
       "tournament_wins": [],
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "cross",
+      "ovrcap": 67,
+      "retired": false
     },
     {
       "id": 561,
@@ -68042,7 +68479,10 @@
         }
       ],
       "tournament_wins": [],
-      "hof_points": 0
+      "hof_points": 0,
+      "bonus": "serve",
+      "ovrcap": 67,
+      "retired": false
     },
     {
       "id": 562,
@@ -68085,7 +68525,10 @@
           "surface": "indoor"
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [],
+      "bonus": "straight",
+      "ovrcap": 68,
+      "retired": false
     },
     {
       "id": 563,
@@ -68128,7 +68571,10 @@
           "surface": "indoor"
         }
       ],
-      "tournament_wins": []
+      "tournament_wins": [],
+      "bonus": "speed",
+      "ovrcap": 70,
+      "retired": false
     },
     {
       "id": 564,
@@ -68161,7 +68607,10 @@
       "highest_points": 0,
       "favorite_surface": "clay",
       "tournament_history": [],
-      "tournament_wins": []
+      "tournament_wins": [],
+      "bonus": "serve",
+      "ovrcap": 68,
+      "retired": false
     }
   ],
   "tournaments": [
@@ -110490,7 +110939,9 @@
         31
       ],
       "w1": 134,
-      "w16": 400
+      "w16": 400,
+      "bonus": "backhand",
+      "ovrcap": 67
     },
     {
       "name": "Rergoor HWAJE",
@@ -110886,7 +111337,9 @@
         42
       ],
       "w1": 4,
-      "w16": 423
+      "w16": 423,
+      "bonus": "stamina",
+      "ovrcap": 70
     },
     {
       "name": "Jewel CHENTOS",
@@ -111187,7 +111640,9 @@
         23
       ],
       "w1": 27,
-      "w16": 464
+      "w16": 464,
+      "bonus": "serve",
+      "ovrcap": 66
     },
     {
       "name": "Uro ISHREBEC",
@@ -111473,7 +111928,9 @@
         22
       ],
       "w1": 10,
-      "w16": 415
+      "w16": 415,
+      "bonus": "stamina",
+      "ovrcap": 67
     },
     {
       "name": "Ekregyks ENGRIDS",
@@ -111594,7 +112051,9 @@
         11
       ],
       "w1": 0,
-      "w16": 192
+      "w16": 192,
+      "bonus": "serve",
+      "ovrcap": 68
     },
     {
       "name": "Sole GILLAO",
@@ -111695,7 +112154,9 @@
         8
       ],
       "w1": 0,
-      "w16": 164
+      "w16": 164,
+      "bonus": "straight",
+      "ovrcap": 70
     },
     {
       "name": "Hellio TUFIDI",
@@ -111836,7 +112297,9 @@
         12
       ],
       "w1": 0,
-      "w16": 227
+      "w16": 227,
+      "bonus": "forehand",
+      "ovrcap": 65
     },
     {
       "name": "Teudgi TASTROSH",
@@ -111947,7 +112410,9 @@
         5
       ],
       "w1": 0,
-      "w16": 184
+      "w16": 184,
+      "bonus": "speed",
+      "ovrcap": 70
     },
     {
       "name": "Meing ILIN",
@@ -112038,7 +112503,9 @@
         3
       ],
       "w1": 0,
-      "w16": 113
+      "w16": 113,
+      "bonus": "serve",
+      "ovrcap": 70
     },
     {
       "name": "Naval RALASSA",
@@ -112144,7 +112611,9 @@
         3
       ],
       "w1": 0,
-      "w16": 40
+      "w16": 40,
+      "bonus": "stamina",
+      "ovrcap": 69
     },
     {
       "name": "Braeden COLEMIN",
@@ -112240,7 +112709,9 @@
         4
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "straight",
+      "ovrcap": 69
     },
     {
       "name": "Hofshog WASAWASA",
@@ -112331,7 +112802,9 @@
         0
       ],
       "w1": 0,
-      "w16": 1
+      "w16": 1,
+      "bonus": "serve",
+      "ovrcap": 67
     },
     {
       "name": "Eellayia CHICHIN",
@@ -112412,7 +112885,9 @@
         4
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "stamina",
+      "ovrcap": 67
     },
     {
       "name": "Oubei HATEEYE",
@@ -112493,7 +112968,9 @@
         0
       ],
       "w1": 0,
-      "w16": 0
+      "w16": 0,
+      "bonus": "speed",
+      "ovrcap": 70
     }
   ],
   "records": [
