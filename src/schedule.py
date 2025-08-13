@@ -480,7 +480,7 @@ class TournamentScheduler:
             if all(len(m) == 4 and m[2] is not None for m in tournament['active_matches']):
                 self._prepare_next_round(tournament)
 
-            return winner_id
+            return winner_id, game_engine.match_log
         finally:
             for player_id, original_stats in original_players.items():
                 player = next(p for p in self.players if p['id'] == player_id)
@@ -894,3 +894,13 @@ class TournamentScheduler:
                 self.news_feed.append(f"│ Dropped from top 10: {name} (was {old})")
         self.news_feed.append("└──────────────────────────────────────────────────────────────────────────────")
 
+    def simulate_current_round(self, tournament_id):
+        """
+        Simulate all matches in the current round of the tournament.
+        """
+        tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
+        matches = tournament.get('active_matches', [])
+        for match_idx, match in enumerate(matches):
+            # Only simulate matches that are not yet completed
+            if len(match) < 3 or match[2] is None:
+                self.simulate_through_match(tournament_id, match_idx)

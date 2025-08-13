@@ -5,7 +5,7 @@ import sys
 from io import StringIO
 import functools
 
-PRESTIGE_ORDER = ["Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 125", "Challenger 100", "Challenger 75", "Special"]
+PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 125", "Challenger 100", "Challenger 75"]
 
 class TennisGMApp:
     def __init__(self, root):
@@ -636,31 +636,42 @@ class TennisGMApp:
         # Redirect print statements to a buffer
         old_stdout = sys.stdout
         sys.stdout = mystdout = StringIO()
-        winner_id = self.scheduler.simulate_through_match(tournament['id'], match_idx)
+        winner_id, match_log = self.scheduler.simulate_through_match(tournament['id'], match_idx)
         sys.stdout = old_stdout
         output = mystdout.getvalue()
         screens = output.split("\n\n\na")
-        self.display_match_log(screens, tournament)
+        self.display_simple_match_log(match_log, tournament)
 
-    def display_match_log(self, screens, tournament):
+    def display_simple_match_log(self, match_log, tournament):
         idx = 0
         def show_screen(i):
             for widget in self.root.winfo_children():
                 widget.destroy()
-            tk.Label(self.root, text="Match Log", font=("Arial", 16)).pack(pady=10)
-            frame = tk.Frame(self.root)
+            tk.Label(self.root, text="Match Log", font=("Arial", 16), fg="black", bg="white").pack(pady=10)
+            frame = tk.Frame(self.root, bg="white")
             frame.pack(fill="both", expand=True)
-            text = tk.Text(frame, wrap="word", font=("Arial", 11), height=20)
+            text = tk.Text(frame, wrap="word", font=("Arial", 11), height=10, fg="black", bg="white")
             text.pack(side="left", fill="both", expand=True)
-            for line in screens[i].strip().split('\n'):
-                text.insert("end", line + "\n")
+            # Show current log line
+            text.insert("end", match_log[i] + "\n")
+            # If the next line is a set or match win, show it too
+            if i + 1 < len(match_log) and (
+                "won the set" in match_log[i+1] or "wins the match" in match_log[i+1]
+            ):
+                text.insert("end", match_log[i+1] + "\n")
+                next_idx = i + 2
+            else:
+                next_idx = i + 1
             text.config(state="disabled")
             scrollbar = tk.Scrollbar(frame, command=text.yview)
             scrollbar.pack(side="right", fill="y")
             text.config(yscrollcommand=scrollbar.set)
-            btn_next = tk.Button(self.root, text="Next", font=("Arial", 12),
-                                 command=lambda: show_screen(i+1) if i+1 < len(screens) else self.manage_tournament(tournament))
-            btn_next.pack(pady=10)
+            if next_idx < len(match_log):
+                tk.Button(self.root, text="Next play", font=("Arial", 12), fg="black", bg="white",
+                          command=lambda: show_screen(next_idx)).pack(pady=10)
+            else:
+                tk.Button(self.root, text="Back", font=("Arial", 12), fg="black", bg="white",
+                          command=lambda: self.show_tournament_bracket(tournament)).pack(pady=10)
         show_screen(idx)
 
     def simulate_entire_tournament_selected(self, tournaments):
@@ -684,10 +695,23 @@ class TennisGMApp:
     def show_tournament_bracket(self, tournament):
         for widget in self.root.winfo_children():
             widget.destroy()
-        tk.Label(self.root, text=f"{tournament['name']} Bracket", font=("Arial", 16), fg="black", bg="white").pack(pady=10)
+        # Top bar frame
+        top_bar = tk.Frame(self.root, bg="white")
+        top_bar.pack(fill="x", pady=6)
+        # Left buttons
+        left_btns = tk.Frame(top_bar, bg="white")
+        left_btns.pack(side="left")
+        tk.Button(left_btns, text="Back to Tournaments", command=self.show_tournaments, font=("Arial", 12), fg="black", bg="white").pack(side="left", padx=2)
+        tk.Button(left_btns, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12), fg="black", bg="white").pack(side="left", padx=2)
+        # Tournament name (centered)
+        tk.Label(top_bar, text=f"{tournament['name']} Bracket", font=("Arial", 16), fg="black", bg="white").pack(side="left", expand=True, padx=40)
+        # Right button
+        tk.Button(top_bar, text="Simulate Current Round", font=("Arial", 12), fg="black", bg="white",
+                  command=lambda: self.simulate_current_round_bracket(tournament)).pack(side="right", padx=2)
+
         frame = tk.Frame(self.root, bg="white")
         frame.pack(fill="both", expand=True)
-        canvas = tk.Canvas(frame, bg="white", width=1200, height=800, scrollregion=(0,0,3000,3000), highlightthickness=0)
+        canvas = tk.Canvas(frame, bg="white", width=1300, height=1600, highlightthickness=0)
         vscroll = tk.Scrollbar(frame, orient="vertical", command=canvas.yview)
         hscroll = tk.Scrollbar(frame, orient="horizontal", command=canvas.xview)
         canvas.configure(yscrollcommand=vscroll.set, xscrollcommand=hscroll.set)
@@ -781,14 +805,14 @@ class TennisGMApp:
                     set_idx = len(p1_sets) - 1 - idx
                     set_font = font_bold if set_winners and set_winners[set_idx] == 1 else font_normal
                     canvas.create_text(sx, y+match_height//2, anchor="e", text=str(val), fill="black", font=set_font)
-                    sx -= 25
+                    sx -= 14 
                 # Draw p2's scores (right aligned, reverse order)
                 sx = score_x
                 for idx, val in enumerate(reversed(p2_sets)):
                     set_idx = len(p2_sets) - 1 - idx
                     set_font = font_bold if set_winners and set_winners[set_idx] == 2 else font_normal
                     canvas.create_text(sx, y+match_height+8+match_height//2, anchor="e", text=str(val), fill="black", font=set_font)
-                    sx -= 25
+                    sx -= 14
 
                 if r == tournament['current_round']:
                     btn_sim = tk.Button(canvas, text="Simulate", font=("Arial", 10),
@@ -813,6 +837,9 @@ class TennisGMApp:
                     canvas.create_line(prev_x + rect_width, prev_y2 + match_height, x, y + match_height, fill=outline_color, width=2)
                     # Add Simulate/Watch buttons for current round matches
             
+        max_x = 40 + num_rounds * round_gap + rect_width + 100
+        max_y = y_offset + (2 ** (num_rounds-1)) * (match_height + match_gap)
+        canvas.config(scrollregion=(0, 0, max_x, max_y))
 
         canvas.yview_moveto(scroll_y)
         canvas.xview_moveto(scroll_x)
@@ -836,8 +863,9 @@ class TennisGMApp:
             xscrollcommand=lambda *args: [hscroll.set(*args), on_scroll(*args)]
         )
 
-        tk.Button(self.root, text="Back to Tournaments", command=self.show_tournaments, font=("Arial", 12), fg="black", bg="white").pack(pady=10)
-        tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12), fg="black", bg="white").pack(pady=2)
+    def simulate_current_round_bracket(self, tournament):
+        self.scheduler.simulate_current_round(tournament['id'])
+        self.show_tournament_bracket(tournament)
 
     def simulate_match_in_bracket(self, tournament, match_idx):
         match = self.scheduler.get_current_matches(tournament['id'])[match_idx]
@@ -854,11 +882,11 @@ class TennisGMApp:
             return
         old_stdout = sys.stdout
         sys.stdout = mystdout = StringIO()
-        winner_id = self.scheduler.simulate_through_match(tournament['id'], match_idx)
+        winner_id, match_log = self.scheduler.simulate_through_match(tournament['id'], match_idx)
         sys.stdout = old_stdout
         output = mystdout.getvalue()
         screens = output.split("\n\n\na")
-        self.display_match_log_bracket(screens, tournament)
+        self.display_simple_match_log(match_log, tournament)
 
     def display_match_log_bracket(self, screens, tournament):
         idx = 0
@@ -877,7 +905,7 @@ class TennisGMApp:
             scrollbar.pack(side="right", fill="y")
             text.config(yscrollcommand=scrollbar.set)
             btn_next = tk.Button(self.root, text="Next", font=("Arial", 12), fg="black", bg="white",
-                             command=lambda: show_screen(i+1) if i+1 < len(screens) else self.show_tournament_bracket(tournament))
+                                 command=lambda: show_screen(i+1) if i+1 < len(screens) else self.show_tournament_bracket(tournament))
             btn_next.pack(pady=10)
         show_screen(idx)
         
