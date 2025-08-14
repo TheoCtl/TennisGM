@@ -776,7 +776,7 @@ class TournamentScheduler:
         self.hall_of_fame = sorted(
             self.hall_of_fame,
             key=lambda x: (-x['hof_points'], len(x.get('tournament_wins', [])))
-        )[:100]
+        )[:25]
     
     def _reset_tournaments_for_new_year(self):
         self.old_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
