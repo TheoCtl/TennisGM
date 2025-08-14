@@ -140,12 +140,17 @@ class TournamentScheduler:
             self.current_year += 1
             self.current_year_retirees = self._process_retirements()
             retired_count = len(self.current_year_retirees)
-            new_player_count = retired_count
             for player in self.players:
                 if 'age' in player and not player.get('retired', False):
                     player['age'] += 1
+            new_player_count = retired_count * 2
             new_players = self.newgen_generator.generate_new_players(self.current_year, count=new_player_count, existing_players=self.players)
-            self.players.extend(new_players)
+            def player_score(player):
+                return sum(player['skills'].values()) * player.get('potential_factor', 1.0)
+            new_players.sort(key=player_score, reverse=True)
+            best_new_players = new_players[:retired_count]
+            self.players.extend(best_new_players)
+            
             self._reset_tournaments_for_new_year()
             self._rebuild_ranking_history()
         else:
