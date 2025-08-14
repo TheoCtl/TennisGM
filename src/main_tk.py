@@ -26,7 +26,7 @@ class TennisGMApp:
         ).pack(pady=10)
         # Build menu options dynamically
         menu_options = [
-            "News Feed", "Tournaments", "ATP Rankings", "Hall of Fame", "Achievements"
+            "News Feed", "Tournaments", "ATP Rankings", "Hall of Fame", "Achievements", "History"
         ]
         # Check if all tournaments for the current week are completed
         current_tournaments = self.scheduler.get_current_week_tournaments()
@@ -59,6 +59,8 @@ class TennisGMApp:
             self.show_achievements()
         elif option == "Tournaments":
             self.show_tournaments()
+        elif option == "History":
+            self.show_history()
         elif option == "Save & Quit":
             self.scheduler.save_game()  # Save before quitting
             self.root.quit()
@@ -177,7 +179,7 @@ class TennisGMApp:
         tk.Button(self.root, text="Back to Rankings", command=self.show_rankings, font=("Arial", 12)).pack(pady=2)
         tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=2)
 
-    def show_tournament_wins(self, player):
+    def show_tournament_wins(self, player, back_command=None):
         for widget in self.root.winfo_children():
             widget.destroy()
         tk.Label(self.root, text=f"{player['name']} - Tournament Wins", font=("Arial", 16)).pack(pady=10)
@@ -206,7 +208,6 @@ class TennisGMApp:
         canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
 
         any_win = False
-        row = 0
         for category in PRESTIGE_ORDER:
             if category in wins_by_category:
                 total_in_category = sum(wins_by_category[category].values())
@@ -216,7 +217,11 @@ class TennisGMApp:
                     any_win = True
         if not any_win:
             tk.Label(scroll_frame, text="No tournament wins yet", font=("Arial", 12)).pack(pady=10)
-        tk.Button(self.root, text="Back to Player Details", command=lambda: self.show_player_details(player), font=("Arial", 12)).pack(pady=10)
+        # Always show the correct back button
+        if back_command:
+            tk.Button(self.root, text="Back to Player Details", command=back_command, font=("Arial", 12)).pack(pady=10)
+        else:
+            tk.Button(self.root, text="Back to Player Details", command=lambda: self.show_player_details(player), font=("Arial", 12)).pack(pady=10)
 
     def show_hall_of_fame(self):
         for widget in self.root.winfo_children():
@@ -344,51 +349,7 @@ class TennisGMApp:
     def _toggle_hof_tournaments(self, player, show):
         self._show_tournaments = show
         self.show_hof_player_details(player)
-
-    def show_tournament_wins(self, player, back_command=None):
-        # This is the same as your previous show_tournament_wins, but allows a custom back button
-        for widget in self.root.winfo_children():
-            widget.destroy()
-        tk.Label(self.root, text=f"{player['name']} - Tournament Wins", font=("Arial", 16)).pack(pady=10)
-        wins = player.get('tournament_wins', [])
-        wins_by_category = collections.defaultdict(lambda: collections.defaultdict(int))
-        for win in wins:
-            wins_by_category[win['category']][win['name']] += 1
-
-        frame = tk.Frame(self.root)
-        frame.pack(fill="both", expand=True)
-        canvas = tk.Canvas(frame)
-        scrollbar = tk.Scrollbar(frame, orient="vertical", command=canvas.yview)
-        scroll_frame = tk.Frame(canvas)
-        scroll_frame.bind(
-            "<Configure>",
-            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-        )
-        canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
-        canvas.configure(yscrollcommand=scrollbar.set)
-        canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
-        def _on_mousewheel(event):
-            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-        canvas.bind_all("<MouseWheel>", _on_mousewheel)
-        canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
-        canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
-
-        any_win = False
-        for category in PRESTIGE_ORDER:
-            if category in wins_by_category:
-                total_in_category = sum(wins_by_category[category].values())
-                tk.Label(scroll_frame, text=f"{category} ({total_in_category})", font=("Arial", 12, "underline")).pack(anchor="w", pady=(8,2))
-                for tname, count in sorted(wins_by_category[category].items()):
-                    tk.Label(scroll_frame, text=f"- {count}x {tname}", font=("Arial", 11)).pack(anchor="w")
-                    any_win = True
-        if not any_win:
-            tk.Label(scroll_frame, text="No tournament wins yet", font=("Arial", 12)).pack(pady=10)
-        if back_command:
-            tk.Button(self.root, text="Back to Player Details", command=back_command, font=("Arial", 12)).pack(pady=10)
-        else:
-            tk.Button(self.root, text="Back to Player Details", command=lambda: self.show_player_details(player), font=("Arial", 12)).pack(pady=10)
-
+        
     def show_achievements(self):
         for widget in self.root.winfo_children():
             widget.destroy()
@@ -908,6 +869,72 @@ class TennisGMApp:
                                  command=lambda: show_screen(i+1) if i+1 < len(screens) else self.show_tournament_bracket(tournament))
             btn_next.pack(pady=10)
         show_screen(idx)
+        
+    def show_history(self):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+        tk.Label(self.root, text="Tournament History", font=("Arial", 16)).pack(pady=10)
+        # Order tournaments by category and prestige
+        tournaments_by_category = collections.defaultdict(list)
+        for t in self.scheduler.tournaments:
+            tournaments_by_category[t['category']].append(t)
+        frame = tk.Frame(self.root)
+        frame.pack(fill="both", expand=True)
+        canvas = tk.Canvas(frame)
+        scrollbar = tk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+        scroll_frame = tk.Frame(canvas)
+        scroll_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+        def _on_mousewheel(event):
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
+        canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
+        canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
+
+        for category in PRESTIGE_ORDER:
+            if category in tournaments_by_category:
+                tk.Label(scroll_frame, text=category, font=("Arial", 13, "underline")).pack(anchor="w", pady=(8,2))
+                for t in sorted(tournaments_by_category[category], key=lambda x: x['name']):
+                    btn = tk.Button(
+                        scroll_frame,
+                        text=f"{t['name']} ({t['surface']})",
+                        anchor="w",
+                        width=40,
+                        font=("Arial", 11),
+                        command=lambda tournament=t: self.show_tournament_history_details(tournament)
+                    )
+                    btn.pack(fill="x", padx=2, pady=1)
+        tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=10)
+        
+    def show_tournament_history_details(self, tournament):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+        tk.Label(self.root, text=f"{tournament['name']} ({tournament['category']}, {tournament['surface']})", font=("Arial", 16)).pack(pady=10)
+        # Winners across the years
+        history = tournament.get('history', [])
+        if history:
+            tk.Label(self.root, text="Winners by Year:", font=("Arial", 12, "bold")).pack(anchor="w", pady=(6,2))
+            for entry in sorted(history, key=lambda x: x['year'], reverse=True):
+                winner_name = entry.get('winner', 'Unknown')
+                tk.Label(self.root, text=f"{entry['year']}: {winner_name}", font=("Arial", 11)).pack(anchor="w")
+        else:
+            tk.Label(self.root, text="No history yet.", font=("Arial", 11)).pack(anchor="w", pady=6)
+        # Player(s) who won it the most
+        win_counts = collections.Counter(entry.get('winner', 'Unknown') for entry in history)
+        if win_counts:
+            max_wins = max(win_counts.values())
+            top_winners = [name for name, count in win_counts.items() if count == max_wins]
+            tk.Label(self.root, text=f"Most Titles ({max_wins}):", font=("Arial", 12, "bold")).pack(anchor="w", pady=(6,2))
+            for name in top_winners:
+                tk.Label(self.root, text=name, font=("Arial", 11)).pack(anchor="w")
+        tk.Button(self.root, text="Back to History", command=self.show_history, font=("Arial", 12)).pack(pady=10)
+        tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=2)
         
 if __name__ == "__main__":
     root = tk.Tk()

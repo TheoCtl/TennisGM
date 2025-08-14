@@ -134,6 +134,14 @@ class TournamentScheduler:
         for tournament in self.tournaments:
             if tournament['week'] == self.current_week - 1 and tournament.get('winner_id'):
                 self._update_all_player_histories(tournament)
+            if tournament['year'] < self.current_year and tournament['week'] == self.current_week:
+                # Reset only if it's time for this tournament in the new year
+                tournament['year'] = self.current_year
+                tournament['winner_id'] = None
+                tournament['participants'] = []
+                tournament['bracket'] = []
+                tournament['current_round'] = 0
+                tournament['active_matches'] = []
         self._cleanup_old_tournament_history()
         if self.current_week > 52:
             self.current_week = 1
@@ -151,7 +159,6 @@ class TournamentScheduler:
             best_new_players = new_players[:retired_count]
             self.players.extend(best_new_players)
             
-            self._reset_tournaments_for_new_year()
             self._rebuild_ranking_history()
         else:
             current_week_tournaments = [t for t in self.tournaments if t['week'] == self.current_week]
@@ -570,6 +577,12 @@ class TournamentScheduler:
                     break
             if winner_id:
                 tournament['winner_id'] = winner_id
+                if 'history' not in tournament:
+                    tournament['history'] = []
+                tournament['history'].append({
+                    'year': tournament['year'],
+                    'winner_id': tournament['winner_id']
+                })
                 winner = next((p for p in self.players if p['id'] == winner_id), None)
                 if winner:
                     if 'tournament_wins' not in winner:
