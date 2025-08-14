@@ -171,7 +171,7 @@ class TennisGMApp:
             f"Grand Slam titles: {sum(1 for win in player.get('tournament_wins', []) if win['category'] == 'Grand Slam')}",
             f"Total Matches Won: {sum(player.get('mawn', [0,0,0,0,0]))}",
             f"Weeks at #1: {player.get('w1', 0)}",
-            f"Weeks in Top 16: {player.get('w16', 0)}",
+            f"Weeks in Top 10: {player.get('w16', 0)}",
         ]
         for line in details:
             tk.Label(self.root, text=line, anchor="w", font=("Arial", 11)).pack(fill="x")

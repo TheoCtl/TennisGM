@@ -579,11 +579,13 @@ class TournamentScheduler:
                 tournament['winner_id'] = winner_id
                 if 'history' not in tournament:
                     tournament['history'] = []
-                tournament['history'].append({
-                    'year': tournament['year'],
-                    'winner_id': tournament['winner_id']
-                })
                 winner = next((p for p in self.players if p['id'] == winner_id), None)
+                winner_name = winner['name'] if winner else "Unknown"
+                tournament['history'].append({
+                    'winner': winner_name,
+                    'year': self.current_year
+                    
+                })
                 if winner:
                     if 'tournament_wins' not in winner:
                         winner['tournament_wins'] = []
