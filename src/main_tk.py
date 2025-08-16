@@ -5,7 +5,7 @@ import sys
 from io import StringIO
 import functools
 
-PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 125", "Challenger 100", "Challenger 75"]
+PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50"]
 
 class TennisGMApp:
     def __init__(self, root):

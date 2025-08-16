@@ -25,6 +25,26 @@ class TournamentScheduler:
         "Challenger 50"
     ]
     
+    @staticmethod
+    def get_seeding_order(draw_size):
+        """
+        Standard tennis seeding positions for powers of 2.
+        4  -> [1, 4, 2, 3]
+        8  -> [1, 8, 4, 5, 2, 7, 3, 6]
+        16 -> [1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11]
+        """
+        if draw_size <= 1:
+            return [1]
+        order = [1, 2]
+        while len(order) < draw_size:
+            m = len(order) * 2
+            reflected = [m + 1 - p for p in order]
+            interleaved = []
+            for a, b in zip(order, reflected):
+                interleaved.extend([a, b])
+            order = interleaved
+        return order[:draw_size]
+    
     def __init__(self, data_path='data/default_data.json', save_path='data/save.json'):
         self.data_path = data_path
         self.save_path = save_path
@@ -158,7 +178,7 @@ class TournamentScheduler:
             new_players.sort(key=player_score, reverse=True)
             best_new_players = new_players[:retired_count]
             self.players.extend(best_new_players)
-            
+            self._reset_tournaments_for_new_year()
             self._rebuild_ranking_history()
         else:
             current_week_tournaments = [t for t in self.tournaments if t['week'] == self.current_week]
@@ -280,7 +300,7 @@ class TournamentScheduler:
         # Kings Cup logic
         kings_cup = [t for t in current_tournaments if t['name'] == "Kings Cup"]
         if kings_cup:
-            gs_names = ["Australian Open", "Roland-Garros", "Wimbledon", "US Open"]
+            gs_names = ["Winter Clash", "Fall Brawl", "Summer Battle", "Spring Break"]
             gs_winners = []
             for t in self.tournaments:
                 if t['name'] in gs_names and t.get('winner_id'):
@@ -293,7 +313,7 @@ class TournamentScheduler:
                     
             if len(unique_winners) < 4:
                 for t in self.tournaments:
-                    if t['name'] == "ATP Finals" and t.get('winner_id'):
+                    if t['name'] == "Delta Finals" and t.get('winner_id'):
                         if t['winner_id'] not in unique_winners:
                             unique_winners.append(t['winner_id'])
                         break
@@ -320,7 +340,7 @@ class TournamentScheduler:
                 available_for_week = under20[:8]
             else:
                 # ATP Finals logic
-                atp_finals = [t for t in current_tournaments if t['name'] == "ATP Finals"]
+                atp_finals = [t for t in current_tournaments if t['name'] == "Delta Finals"]
                 if atp_finals:
                     available_players.sort(key=lambda x: x.get('rank', 0))
                     available_for_week.extend(available_players[:16])
@@ -390,30 +410,62 @@ class TournamentScheduler:
 
     def generate_bracket(self, tournament_id):
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
-        # Ensure participants exist
-        if 'participants' not in tournament:
+
+        # Ensure participants are assigned (handle empty lists too)
+        if not tournament.get('participants'):
             self.assign_players_to_tournaments()
-        participants = tournament.get('participants', [])
+        participants = list(tournament.get('participants', []))
         draw_size = tournament['draw_size']
-        
-        # Fill byes if needed
+
+        # Trim or pad to draw size
+        if len(participants) > draw_size:
+            participants = sorted(
+                participants,
+                key=lambda pid: next((p['rank'] for p in self.players if p['id'] == pid), 999)
+            )[:draw_size]
         while len(participants) < draw_size:
-            participants.append(None)  # Bye
-            
+            participants.append(None)
+
+        # Rank: best -> worst (None treated as worst)
+        def rank_of(pid):
+            if pid is None:
+                return 10_000_000
+            return next((p['rank'] for p in self.players if p['id'] == pid), 999)
+
+        sorted_ids = sorted(participants, key=rank_of)  # best -> worst
+
+        # Build pairs: best vs worst, 2nd best vs 2nd worst, ...
+        pairs = []
+        for i in range(draw_size // 2):
+            p1 = sorted_ids[i]            # i-th best
+            p2 = sorted_ids[-(i + 1)]     # i-th worst
+            pairs.append((p1, p2))
+
+        # Place pairs according to seeding order (pair i goes to match containing seed i+1)
+        seeding_order = TournamentScheduler.get_seeding_order(draw_size)
+        bracket_positions = [None] * draw_size
+        for i, (p_top, p_bot) in enumerate(pairs):
+            seed_pos_1based = seeding_order[i]            # where the i-th seed sits (1-based)
+            pos = seed_pos_1based - 1                     # 0-based
+            opp_pos = pos + 1 if (pos % 2 == 0) else pos - 1  # adjacent slot in same match
+            bracket_positions[pos] = p_top
+            bracket_positions[opp_pos] = p_bot
+
+        # Build bracket rounds
         num_rounds = int(ceil(log2(draw_size)))
-        tournament['bracket'] = [[] for _ in range(num_rounds)]  # Initialize all rounds as empty lists
-        
-        # Seed players (optional - could implement later)
-        random.shuffle(participants)
-        
-        # Initialize first round
-        first_round = [(participants[i], participants[draw_size-1-i], None)
-                       for i in range(draw_size // 2)]
-        tournament['bracket'][0] = first_round  # Assign first round to the bracket
-        
+        tournament['bracket'] = [[] for _ in range(num_rounds)]
+
+        # First round: adjacent positions form matches
+        first_round = []
+        for i in range(0, draw_size, 2):
+            p1 = bracket_positions[i]
+            p2 = bracket_positions[i + 1]
+            first_round.append((p1, p2, None))
+
+        tournament['bracket'][0] = first_round
         tournament['current_round'] = 0
-        tournament['active_matches'] = first_round.copy()
-    
+        tournament['active_matches'] = first_round.copy() 
+         
     def get_current_matches(self, tournament_id):
         """
         Fetch the matches for the current round of the tournament.
