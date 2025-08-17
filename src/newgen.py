@@ -58,7 +58,7 @@ class NewGenGenerator:
             "tournament_history": [],
             "tournament_wins": [],
             "bonus": random.choice(list(skills.keys())),
-            "ovrcap": random.randint(65, 70)
+            "ovrcap": random.randint(70, 75)
         }
     
     def generate_player_id(self):
