@@ -1,6 +1,7 @@
 import json
 import random
 from datetime import datetime
+import math
 
 class NewGenGenerator:
     def __init__(self, names_path='data/names.json'):
@@ -27,7 +28,6 @@ class NewGenGenerator:
         # Increment the last name and update names.json
         new_last_name = self.increment_name(last_name)
         self.name_data["last_names"][last_name_idx] = new_last_name
-        # Write back to names.json
         with open(self.names_path, 'w', encoding='utf-8') as f:
             json.dump(self.name_data, f, indent=2, ensure_ascii=False)
 
@@ -38,15 +38,18 @@ class NewGenGenerator:
             potential_factor = round(random.uniform(1.5, 2.0), 3)
         else:
             potential_factor = 1.0
+
         skills = self.generate_skills()
+        surface_mods = self.generate_surface_modifiers()
+
         return {
             "id": player_id,
             "name": f"{first_name} {last_name}",
-            "age": 16,
+            "age": 19,
             "hand": random.choice(["Right", "Left"]),
             "skills": skills,
             "potential_factor": potential_factor,
-            "rank": player_rank,  # Initial unranked status
+            "rank": player_rank,
             "highest_ranking": 999,
             "highest_overral": 0,
             "mawn": [0, 0, 0, 0, 0],
@@ -54,11 +57,12 @@ class NewGenGenerator:
             "w16": 0,
             "points": 0,
             "highest_points": 0,
-            "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
+            "surface_modifiers": surface_mods,  # per-surface multipliers
+            # Keep favorite_surface only for backward compatibility if needed:
+            # "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
             "tournament_history": [],
             "tournament_wins": [],
             "bonus": random.choice(list(skills.keys())),
-            "ovrcap": random.randint(70, 75)
         }
     
     def generate_player_id(self):
@@ -148,3 +152,15 @@ class NewGenGenerator:
             # If we looped through all and all were '9', prepend 'A'
             chars = ['A'] + chars
         return ''.join(chars)
+    
+    def generate_surface_modifiers(self):
+        """Create per-surface factors in [0.9, 1.1] and ensure their sum >= 3.8."""
+        mods = {s: round(random.uniform(0.95, 1.05), 3) for s in ["clay", "grass", "hard", "indoor"]}
+        total = sum(mods.values())
+        if total < 3.9:
+            # Raise the best value until sum reaches 3.9
+            deficit = 3.9 - total
+            increments = math.ceil(deficit / 0.01)
+            best_key = max(mods, key=mods.get)
+            mods[best_key] = round(mods[best_key] + 0.01 * increments, 3)
+        return mods

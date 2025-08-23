@@ -79,6 +79,13 @@ class RankingSystem:
             "Semi": 15,
             "Quarter": 9,
             "Round 16": 0
+        },
+        "ITF": {
+            "Winner": 25,
+            "Final": 10,
+            "Semi": 5,
+            "Quarter": 1,
+            "Round 16": 0
         }
     } 
 
@@ -109,6 +116,7 @@ class RankingSystem:
         is_masters = tournament_category.startswith("Masters 1000")
         is_gs = tournament_category.startswith("Grand Slam")
         is_kings = tournament_category.startswith("Special")
+        is_itf = tournament_category.startswith("ITF")
         round_mapping = {
             # Grand Slams (8 rounds including final)
             8: {
@@ -133,6 +141,8 @@ class RankingSystem:
         }
         
         if is_challenger:
+            mapping = round_mapping[5]
+        elif is_itf:
             mapping = round_mapping[5]
         elif is_250500:
             mapping = round_mapping[6]

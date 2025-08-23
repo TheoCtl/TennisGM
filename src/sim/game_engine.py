@@ -32,15 +32,29 @@ class GameEngine:
         self.last_shot_precision = 50
         
     def _apply_surface_bonus(self, player, surface):
-        """Apply 5% bonus to all skills if player's favorite surface matches"""
+        """Apply per-surface multiplier to all skills if available; fallback to legacy favorite_surface bonus."""
+        boosted_player = player.copy()
+
+        # Prefer new per-surface modifiers if present
+        mods = player.get("surface_modifiers")
+        if isinstance(mods, dict) and surface in mods:
+            factor = float(mods.get(surface, 1.0))
+            boosted_player["skills"] = {
+                skill: min(100, math.floor(value * factor))
+                for skill, value in player["skills"].items()
+            }
+            print(f"{player['name']} surface factor on {surface}: x{factor:.2f}")
+            return boosted_player
+
+        # Fallback to legacy favorite_surface logic for older saves
         if player.get("favorite_surface") == surface:
-            boosted_player = player.copy()
             boosted_player["skills"] = {
                 skill: min(100, math.floor(value * 1.05)) 
                 for skill, value in player["skills"].items()
             }
             print(f"{player['name']} got boosted because of {surface} court.")
             return boosted_player
+
         return player
     
     def _apply_random_form(self, player):

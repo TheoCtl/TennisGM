@@ -70,22 +70,12 @@ class PlayerDevelopment:
         skills = player['skills']
         overall = round(sum(skills.values()) / len(skills))
 
-        # Prevent progression if overall reaches ovrcap
-        ovrcap = player.get('ovrcap', 70)
-        if overall >= ovrcap:
-            # Only allow regression
-            if age < 28:
-                return
-            else:
-                chance_func = PlayerDevelopment.calculate_regression_chance
-                change_direction = -1
+        if age < 28:
+            chance_func = PlayerDevelopment.calculate_improvement_chance
+            change_direction = 1
         else:
-            if age < 28:
-                chance_func = PlayerDevelopment.calculate_improvement_chance
-                change_direction = 1
-            else:
-                chance_func = PlayerDevelopment.calculate_regression_chance
-                change_direction = -1
+            chance_func = PlayerDevelopment.calculate_regression_chance
+            change_direction = -1
 
         for skill in player['skills']:
             current_value = player['skills'][skill]

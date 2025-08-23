@@ -5,7 +5,7 @@ import sys
 from io import StringIO
 import functools
 
-PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50"]
+PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "ITF"]
 
 class TennisGMApp:
     def __init__(self, root):
@@ -26,7 +26,7 @@ class TennisGMApp:
         ).pack(pady=10)
         # Build menu options dynamically
         menu_options = [
-            "News Feed", "Tournaments", "ATP Rankings", "Hall of Fame", "Achievements", "History"
+            "News Feed", "Tournaments", "ATP Rankings", "Prospects", "Hall of Fame", "History", "Achievements"
         ]
         # Check if all tournaments for the current week are completed
         current_tournaments = self.scheduler.get_current_week_tournaments()
@@ -53,6 +53,8 @@ class TennisGMApp:
             self.show_news_feed()
         elif option == "ATP Rankings":
             self.show_rankings()
+        elif option == "Prospects":
+            self.show_prospects()
         elif option == "Hall of Fame":
             self.show_hall_of_fame()
         elif option == "Achievements":
@@ -64,6 +66,144 @@ class TennisGMApp:
         elif option == "Save & Quit":
             self.scheduler.save_game()  # Save before quitting
             self.root.quit()
+
+    def show_prospects(self):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+        tk.Label(self.root, text="Prospects (Under 20)", font=("Arial", 16)).pack(pady=10)
+
+        # Compute FUT = overall + potential_factor + sum(surface_modifiers)
+        def calc_overall(p):
+            skills = p.get("skills", {})
+            if not skills:
+                return 0.0
+            return round(sum(skills.values()) / max(1, len(skills)), 2)
+
+        def calc_surface_sum(p):
+            mods = p.get("surface_modifiers")
+            if isinstance(mods, dict) and mods:
+                return (10 * (round(sum(mods.values()), 3)))
+            # Fallback if missing: neutral 1.0 each
+            return 40.0
+
+        def calc_fut(p):
+            return (0.5*(round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+
+        u20 = [p for p in self.scheduler.players if p.get("age", 99) < 20]
+        ranked = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
+
+        # Search bar
+        search_var = tk.StringVar()
+        def update_list(*args):
+            query = search_var.get().lower()
+            for widget in scroll_frame.winfo_children():
+                widget.destroy()
+            filtered = [(p, fut) for (p, fut) in ranked if query in p.get('name', '').lower()]
+            for idx, (player, fut) in enumerate(filtered, 1):
+                text = f"{idx}. {player['name']} - FUT {fut} | OVR {calc_overall(player)} | PF {player.get('potential_factor', 1.0)}"
+                btn = tk.Button(
+                    scroll_frame,
+                    text=text,
+                    anchor="w",
+                    width=60,
+                    font=("Arial", 11),
+                    command=lambda pl=player: self.show_player_details(pl)
+                )
+                btn.pack(fill="x", padx=2, pady=1)
+
+        search_entry = tk.Entry(self.root, textvariable=search_var, font=("Arial", 12), width=40)
+        search_entry.pack(pady=4)
+        search_var.trace_add("write", update_list)
+
+        # Scrollable list
+        frame = tk.Frame(self.root)
+        frame.pack(fill="both", expand=True)
+        canvas = tk.Canvas(frame)
+        scrollbar = tk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+        scroll_frame = tk.Frame(canvas)
+        scroll_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+
+        def _on_mousewheel(event):
+            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
+        canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
+        canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
+
+        # Initial population
+        for idx, (player, fut) in enumerate(ranked, 1):
+            text = f"{idx}. {player['name']} - FUT {fut} | {player.get('age', 1.0)}yo"
+            btn = tk.Button(
+                scroll_frame,
+                text=text,
+                anchor="w",
+                width=60,
+                font=("Arial", 11),
+                command=lambda pl=player: self.show_u20_player_details(pl)
+            )
+            btn.pack(fill="x", padx=2, pady=1)
+
+        tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=10)
+
+
+    def _render_player_details(self, player, back_label, back_func):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+        tk.Label(self.root, text=f"{player['name']}", font=("Arial", 16)).pack(pady=10)
+
+        # Format surface modifiers
+        def format_surface_mods(p):
+            mods = p.get('surface_modifiers')
+            if isinstance(mods, dict):
+                parts = []
+                for s in ["clay", "grass", "hard", "indoor"]:
+                    v = mods.get(s)
+                    parts.append(f"{s.capitalize()}: {v:.3f}" if isinstance(v, (int, float)) else f"{s.capitalize()}: -")
+                return ", ".join(parts)
+            return "N/A"
+
+        details = [
+            f"Rank: {player.get('rank', 'N/A')}",
+            f"Highest Ranking: {player.get('highest_ranking', 'N/A')}",
+            f"Age: {player.get('age', 'N/A')}, {player.get('hand', 'N/A')}-handed",
+            f"Potential Factor: {player.get('potential_factor', 'N/A')}",
+            f"Surface Modifiers: {format_surface_mods(player)}",
+            "",
+            "Skills:",
+            *(f"  {skill.capitalize()}: {player['skills'].get(skill, 'N/A')}" for skill in player['skills']),
+            "",
+            f"Total titles: {sum(1 for win in player.get('tournament_wins', []))}",
+            f"Grand Slam titles: {sum(1 for win in player.get('tournament_wins', []) if win['category'] == 'Grand Slam')}",
+            f"Total Matches Won: {sum(player.get('mawn', [0,0,0,0,0]))}",
+            f"Weeks at #1: {player.get('w1', 0)}",
+            f"Weeks in Top 10: {player.get('w16', 0)}",
+        ]
+        for line in details:
+            tk.Label(self.root, text=line, anchor="w", font=("Arial", 11)).pack(fill="x")
+
+        # Make the tournament wins back link return to the same details screen (player or U20)
+        tk.Button(
+            self.root,
+            text="Show Tournament Wins",
+            command=lambda: self.show_tournament_wins(player, back_command=lambda: self._render_player_details(player, back_label, back_func)),
+            font=("Arial", 12)
+        ).pack(pady=6)
+
+        tk.Button(self.root, text=back_label, command=back_func, font=("Arial", 12)).pack(pady=2)
+        tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=2)
+
+    # Original player details (back to Rankings)
+    def show_player_details(self, player):
+        self._render_player_details(player, "Back to Rankings", self.show_rankings)
+
+    # U20 details (back to Prospects)
+    def show_u20_player_details(self, player):
+        self._render_player_details(player, "Back to Prospects", self.show_prospects)
+
+
 
     def show_news_feed(self):
         # Clear the main window
@@ -153,31 +293,6 @@ class TennisGMApp:
             btn.pack(fill="x", padx=2, pady=1)
 
         tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=10)
-
-    def show_player_details(self, player):
-        for widget in self.root.winfo_children():
-            widget.destroy()
-        tk.Label(self.root, text=f"{player['name']}", font=("Arial", 16)).pack(pady=10)
-        details = [
-            f"Rank: {player.get('rank', 'N/A')}",
-            f"Highest Ranking: {player.get('highest_ranking', 'N/A')}",
-            f"Age: {player.get('age', 'N/A')}, {player.get('hand', 'N/A')}-handed",
-            f"Favorite surface: {player.get('favorite_surface', 'N/A')}",
-            "",
-            "Skills:",
-            *(f"  {skill.capitalize()}: {player['skills'].get(skill, 'N/A')}" for skill in player['skills']),
-            "",
-            f"Total titles: {sum(1 for win in player.get('tournament_wins', []))}",
-            f"Grand Slam titles: {sum(1 for win in player.get('tournament_wins', []) if win['category'] == 'Grand Slam')}",
-            f"Total Matches Won: {sum(player.get('mawn', [0,0,0,0,0]))}",
-            f"Weeks at #1: {player.get('w1', 0)}",
-            f"Weeks in Top 10: {player.get('w16', 0)}",
-        ]
-        for line in details:
-            tk.Label(self.root, text=line, anchor="w", font=("Arial", 11)).pack(fill="x")
-        tk.Button(self.root, text="Show Tournament Wins", command=lambda: self.show_tournament_wins(player), font=("Arial", 12)).pack(pady=6)
-        tk.Button(self.root, text="Back to Rankings", command=self.show_rankings, font=("Arial", 12)).pack(pady=2)
-        tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=2)
 
     def show_tournament_wins(self, player, back_command=None):
         for widget in self.root.winfo_children():
@@ -454,6 +569,15 @@ class TennisGMApp:
         for widget in self.root.winfo_children():
             widget.destroy()
         tk.Label(self.root, text="Current Week Tournaments", font=("Arial", 16)).pack(pady=10)
+
+        # New: simulate all tournaments this week
+        tk.Button(
+            self.root,
+            text="Simulate All Tournaments This Week",
+            font=("Arial", 12),
+            command=self.simulate_all_current_week_tournaments
+        ).pack(pady=4)
+
         tournaments = self.scheduler.get_current_week_tournaments()
         frame = tk.Frame(self.root)
         frame.pack(fill="both", expand=True)
@@ -495,6 +619,27 @@ class TennisGMApp:
             btn_simulate.pack(side="left", padx=2)
 
         tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=10)
+
+    def simulate_all_current_week_tournaments(self):
+        tournaments = self.scheduler.get_current_week_tournaments()
+        results = []
+        for t in tournaments:
+            if t.get('winner_id') is None:
+                winner_id = self.scheduler.simulate_entire_tournament(t['id'])
+                winner = next((p for p in self.scheduler.players if p['id'] == winner_id), None)
+                results.append((t['name'], winner['name'] if winner else "Unknown"))
+
+        # Show a summary popup and refresh the list
+        popup = tk.Toplevel(self.root)
+        popup.title("Weekly Simulation")
+        if not results:
+            msg = "No tournaments to simulate. All are already completed."
+        else:
+            lines = [f"- {name}: {winner}" for name, winner in results]
+            msg = "Completed tournaments:\n" + "\n".join(lines)
+        tk.Label(popup, text=msg, font=("Arial", 12), justify="left").pack(pady=10, padx=10)
+        tk.Button(popup, text="OK", font=("Arial", 12),
+                  command=lambda: [popup.destroy(), self.show_tournaments()]).pack(pady=6)
 
     def manage_tournament(self, tournament):
         for widget in self.root.winfo_children():
