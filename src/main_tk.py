@@ -148,7 +148,6 @@ class TennisGMApp:
 
         tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=10)
 
-
     def _render_player_details(self, player, back_label, back_func):
         for widget in self.root.winfo_children():
             widget.destroy()
@@ -202,8 +201,6 @@ class TennisGMApp:
     # U20 details (back to Prospects)
     def show_u20_player_details(self, player):
         self._render_player_details(player, "Back to Prospects", self.show_prospects)
-
-
 
     def show_news_feed(self):
         # Clear the main window

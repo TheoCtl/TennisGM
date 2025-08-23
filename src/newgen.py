@@ -32,12 +32,10 @@ class NewGenGenerator:
             json.dump(self.name_data, f, indent=2, ensure_ascii=False)
 
         r = random.random()
-        if r < 0.5:
-            potential_factor = round(random.uniform(1, 1.5), 3)
-        elif r > 0.9:
+        if r > 0.9:
             potential_factor = round(random.uniform(1.5, 2.0), 3)
         else:
-            potential_factor = 1.0
+            potential_factor = round(random.uniform(1.0, 1.5), 3)
 
         skills = self.generate_skills()
         surface_mods = self.generate_surface_modifiers()

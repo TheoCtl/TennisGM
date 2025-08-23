@@ -441,10 +441,24 @@ class TournamentScheduler:
                             available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
                         else:
                             # Challenger logic
-                            if all(t['category'].startswith("Challenger") for t in current_tournaments):
-                                available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
-                                available_for_week = available_players[:sum(t['draw_size'] for t in current_tournaments)]
-                                available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
+                            # Trigger when the week has only Challenger and/or ITF (no ATP/GS/Masters/ATP500/250)
+                            if all(t['category'].startswith("Challenger") or t['category'] == "ITF"
+                                   for t in current_tournaments):
+                               # Only count Challenger draws here; ITF already pre-filled above
+                               ch_tournaments = [t for t in current_tournaments if t['category'].startswith("Challenger")]
+                               ch_total = sum(t['draw_size'] for t in ch_tournaments)
+
+                               # Lowest-ranked first (higher rank number is worse)
+                               available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
+
+                               # Exclude Top-70 from Challenger candidate pool
+                               challenger_candidates = [p for p in available_players if p.get('rank', 999) > 70]
+
+                               # Preserve previous behavior (-16 buffer), but avoid negatives
+                               take = max(0, ch_total)
+                               available_for_week = challenger_candidates[:take] if take > 0 else challenger_candidates[:ch_total]
+                               # Sort back ascending for clearer ordering
+                               available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
                             else:
                                 # Basic logic
                                 if len(available_players) > total_spots:
@@ -485,6 +499,11 @@ class TournamentScheduler:
                     # Block >200 from any non-ITF
                     if tournament['category'] != "ITF" and player.get('rank', 999) > 200:
                         continue
+                    # Block Top-70 from Challenger events
+                    if tournament['category'].startswith("Challenger") and player.get('rank', 999) <= 70:
+                        continue
+
+
 
                     if len(tournament['participants']) < tournament['draw_size']:
                         tournament['participants'].append(player['id'])
