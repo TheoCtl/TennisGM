@@ -11,10 +11,44 @@ class TennisGMApp:
     def __init__(self, root):
         self.root = root
         self.scheduler = TournamentScheduler()
+        self._migrate_favorites()
         self.menu_options = [
             "News Feed", "Tournaments", "ATP Rankings", "Hall of Fame", "Achievements", "Advance to next week", "Exit"
         ]
         self.build_main_menu()
+
+    def _migrate_favorites(self):
+        changed = False
+        for p in self.scheduler.players:
+            if 'ovrcap' in p:
+                p.pop('ovrcap', None)
+                changed = True
+            if 'favorite' not in p:
+                p['favorite'] = False
+                changed = True
+        if changed:
+            # Persist migration
+            if hasattr(self.scheduler, 'save_game'):
+                self.scheduler.save_game()
+
+    def _player_by_id(self, pid):
+        return next((p for p in self.scheduler.players if p['id'] == pid), None)
+
+    def _is_favorite(self, pid_or_player):
+        if isinstance(pid_or_player, dict):
+            return bool(pid_or_player.get('favorite'))
+        pl = self._player_by_id(pid_or_player)
+        return bool(pl and pl.get('favorite'))
+
+    def _tournament_has_favorite(self, tournament):
+        # Prefer participants; fallback to scanning bracket round 0
+        part_ids = list(tournament.get('participants', []))
+        if not part_ids and tournament.get('bracket'):
+            for m in tournament['bracket'][0]:
+                p1, p2 = m[0], m[1]
+                if p1: part_ids.append(p1)
+                if p2: part_ids.append(p2)
+        return any(self._is_favorite(pid) for pid in part_ids)
 
     def build_main_menu(self):
         for widget in self.root.winfo_children():
@@ -100,12 +134,14 @@ class TennisGMApp:
                 widget.destroy()
             filtered = [(p, fut) for (p, fut) in ranked if query in p.get('name', '').lower()]
             for idx, (player, fut) in enumerate(filtered, 1):
+                color = "blue" if player.get('favorite', False) else "black"
                 text = f"{idx}. {player['name']} - FUT {fut} | OVR {calc_overall(player)} | PF {player.get('potential_factor', 1.0)}"
                 btn = tk.Button(
                     scroll_frame,
                     text=text,
                     anchor="w",
                     width=60,
+                    fg=color,
                     font=("Arial", 11),
                     command=lambda pl=player: self.show_player_details(pl)
                 )
@@ -135,12 +171,14 @@ class TennisGMApp:
 
         # Initial population
         for idx, (player, fut) in enumerate(ranked, 1):
+            color = "blue" if player.get('favorite', False) else "black"
             text = f"{idx}. {player['name']} - FUT {fut} | {player.get('age', 1.0)}yo"
             btn = tk.Button(
                 scroll_frame,
                 text=text,
                 anchor="w",
                 width=60,
+                fg=color,
                 font=("Arial", 11),
                 command=lambda pl=player: self.show_u20_player_details(pl)
             )
@@ -152,6 +190,20 @@ class TennisGMApp:
         for widget in self.root.winfo_children():
             widget.destroy()
         tk.Label(self.root, text=f"{player['name']}", font=("Arial", 16)).pack(pady=10)
+
+        def _toggle_fav(pl):
+            pl['favorite'] = not pl.get('favorite', False)
+            # Persist immediately
+            try:
+                self.scheduler.save_game()
+            except Exception:
+                pass
+            # Re-render same details screen
+            self._render_player_details(pl, back_label, back_func)
+
+        fav_state = bool(player.get('favorite'))
+        fav_btn_text = "Remove from Favorites" if fav_state else "Add to Favorites"
+        tk.Button(self.root, text=fav_btn_text, font=("Arial", 12), command=lambda: _toggle_fav(player)).pack(pady=4)
 
         # Format surface modifiers
         def format_surface_mods(p):
@@ -231,33 +283,21 @@ class TennisGMApp:
         tk.Label(self.root, text="ATP Rankings", font=("Arial", 16)).pack(pady=10)
 
         search_var = tk.StringVar()
-        def update_list(*args):
-            query = search_var.get().lower()
-            for widget in scroll_frame.winfo_children():
-                widget.destroy()
-            filtered_players = [
-                (player, points) for player, points in ranked_players
-                if query in player['name'].lower()
-            ]
-            for idx, (player, points) in enumerate(filtered_players, 1):
-                btn = tk.Button(
-                    scroll_frame,
-                    text=f"{idx}. {player['name']} - {points} pts",
-                    anchor="w",
-                    width=40,
-                    font=("Arial", 11),
-                    command=lambda p=player: self.show_player_details(p)
-                )
-                btn.pack(fill="x", padx=2, pady=1)
-
-        search_entry = tk.Entry(self.root, textvariable=search_var, font=("Arial", 12), width=40)
-        search_entry.pack(pady=4)
-        search_var.trace_add("write", update_list)
+        fav_only_var = tk.BooleanVar(value=False)  # NEW: favorites-only filter
 
         ranked_players = self.scheduler.ranking_system.get_ranked_players(
             self.scheduler.players,
             self.scheduler.current_date
         )
+
+        # Controls: search + favorites-only toggle
+        controls = tk.Frame(self.root)
+        controls.pack(pady=4)
+        search_entry = tk.Entry(controls, textvariable=search_var, font=("Arial", 12), width=40)
+        search_entry.pack(side="left", padx=4)
+        tk.Checkbutton(controls, text="Show favorites only", variable=fav_only_var,
+                       font=("Arial", 11), command=lambda: update_list()).pack(side="left", padx=4)
+
         frame = tk.Frame(self.root)
         frame.pack(fill="both", expand=True)
         canvas = tk.Canvas(frame)
@@ -271,23 +311,41 @@ class TennisGMApp:
         canvas.configure(yscrollcommand=scrollbar.set)
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
+
         def _on_mousewheel(event):
             canvas.yview_scroll(int(-1*(event.delta/120)), "units")
         canvas.bind_all("<MouseWheel>", _on_mousewheel)
         canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
         canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
 
+        def update_list(*args):
+            query = search_var.get().lower()
+            fav_only = fav_only_var.get()
+            for widget in scroll_frame.winfo_children():
+                widget.destroy()
+            filtered_players = []
+            for player, points in ranked_players:
+                if fav_only and not player.get('favorite', False):
+                    continue
+                if query and query not in player['name'].lower():
+                    continue
+                filtered_players.append((player, points))
+            for idx, (player, points) in enumerate(filtered_players, 1):
+                color = "blue" if player.get('favorite', False) else "black"
+                btn = tk.Button(
+                    scroll_frame,
+                    text=f"{idx}. {player['name']} - {points} pts",
+                    anchor="w",
+                    width=40,
+                    fg=color,  # color favorites in list too
+                    font=("Arial", 11),
+                    command=lambda p=player: self.show_player_details(p)
+                )
+                btn.pack(fill="x", padx=2, pady=1)
+
         # Initial population
-        for idx, (player, points) in enumerate(ranked_players, 1):
-            btn = tk.Button(
-                scroll_frame,
-                text=f"{idx}. {player['name']} - {points} pts",
-                anchor="w",
-                width=40,
-                font=("Arial", 11),
-                command=lambda p=player: self.show_player_details(p)
-            )
-            btn.pack(fill="x", padx=2, pady=1)
+        update_list()
+        search_var.trace_add("write", update_list)
 
         tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=10)
 
@@ -567,7 +625,6 @@ class TennisGMApp:
             widget.destroy()
         tk.Label(self.root, text="Current Week Tournaments", font=("Arial", 16)).pack(pady=10)
 
-        # New: simulate all tournaments this week
         tk.Button(
             self.root,
             text="Simulate All Tournaments This Week",
@@ -598,12 +655,14 @@ class TennisGMApp:
         for idx, t in enumerate(tournaments):
             row_frame = tk.Frame(scroll_frame)
             row_frame.pack(fill="x", padx=2, pady=2)
+            fav_t = self._tournament_has_favorite(t)  # NEW
             btn_manage = tk.Button(
                 row_frame,
                 text=f"{t['name']} ({t['category']}, {t['surface']})",
                 anchor="w",
                 width=40,
                 font=("Arial", 12),
+                fg=("blue" if fav_t else "black"),
                 command=lambda tournament=t: self.show_tournament_bracket(tournament)
             )
             btn_manage.pack(side="left", padx=2)
@@ -831,8 +890,8 @@ class TennisGMApp:
         bracket = tournament.get('bracket', [])
         num_rounds = len(bracket)
         match_height = 40
-        match_gap = 100  # More vertical spacing
-        round_gap = 400  # More horizontal spacing
+        match_gap = 100
+        round_gap = 400
         y_offset = 40
 
         player_lookup = {p['id']: p for p in self.scheduler.players}
@@ -896,9 +955,14 @@ class TennisGMApp:
                 canvas.create_rectangle(x, y, x+rect_width, y+match_height, fill=box_color, outline=outline_color)
                 canvas.create_rectangle(x, y+match_height+8, x+rect_width, y+2*match_height+8, fill=box_color, outline=outline_color)
 
+                p1_color = "blue" if (p1_id and player_lookup.get(p1_id, {}).get('favorite')) else "black"
+                p2_color = "blue" if (p2_id and player_lookup.get(p2_id, {}).get('favorite')) else "black"
+
                 # Player names (left aligned)
-                canvas.create_text(x+10, y+match_height//2, anchor="w", text=p1, fill="black", font=font_bold if winner_id == p1_id else font_normal)
-                canvas.create_text(x+10, y+match_height+8+match_height//2, anchor="w", text=p2, fill="black", font=font_bold if winner_id == p2_id else font_normal)
+                canvas.create_text(x+10, y+match_height//2, anchor="w", text=p1, fill=p1_color,
+                                   font=font_bold if winner_id == p1_id else font_normal)
+                canvas.create_text(x+10, y+match_height+8+match_height//2, anchor="w", text=p2, fill=p2_color,
+                                   font=font_bold if winner_id == p2_id else font_normal)
 
                 # Scores (right aligned, each set separately, bold for set winner)
                 score_x = x+rect_width-10
