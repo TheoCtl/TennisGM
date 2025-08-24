@@ -43,7 +43,7 @@ class NewGenGenerator:
         return {
             "id": player_id,
             "name": f"{first_name} {last_name}",
-            "age": 19,
+            "age": 16,
             "hand": random.choice(["Right", "Left"]),
             "skills": skills,
             "potential_factor": potential_factor,
@@ -70,13 +70,13 @@ class NewGenGenerator:
     def generate_skills(self):
         """Generate random skills for a new player (between 30 and 50)"""
         return {
-            "serve": random.randint(30, 55),
-            "forehand": random.randint(30, 55),
-            "backhand": random.randint(30, 55),
-            "speed": random.randint(30, 55),
-            "stamina": random.randint(30, 55),
-            "straight": random.randint(30, 55),
-            "cross": random.randint(30, 55)
+            "serve": random.randint(25, 50),
+            "forehand": random.randint(25, 50),
+            "backhand": random.randint(25, 50),
+            "speed": random.randint(25, 50),
+            "stamina": random.randint(25, 50),
+            "straight": random.randint(25, 50),
+            "cross": random.randint(25, 50)
         }
     
     def generate_new_players(self, current_year, count, existing_players=None):

@@ -72,7 +72,7 @@ class TournamentScheduler:
                 player['w1'] = 0
             if 'w16' not in player:
                 player['w16'] = 0
-        self._rebuild_ranking_history
+        self._rebuild_ranking_history()  # FIX: call the method
         self.ranking_system.update_player_ranks(self.players, self.current_date)
         
     def save_game(self, save_path='data/save.json'):
@@ -169,32 +169,46 @@ class TournamentScheduler:
             self.current_year += 1
             self.current_year_retirees = self._process_retirements()
             retired_count = len(self.current_year_retirees)
+            # Age up active players
             for player in self.players:
                 if 'age' in player and not player.get('retired', False):
                     player['age'] += 1
-            new_player_count = retired_count * 2
-            while (len(self.players) + new_player_count) < 300 :
-                new_player_count += 1
-            new_players = self.newgen_generator.generate_new_players(self.current_year, count=new_player_count, existing_players=self.players)
-            def calc_overall(p):
-                skills = p.get("skills", {})
-                if not skills:
-                    return 0.0
-                return round(sum(skills.values()) / max(1, len(skills)), 2)
 
-            def calc_surface_sum(p):
-                mods = p.get("surface_modifiers")
-                if isinstance(mods, dict) and mods:
-                    return (10 * (round(sum(mods.values()), 3)))
-                # Fallback if missing: neutral 1.0 each
-                return 40.0
+            # HARD CAP and 2x retirements rule
+            target_max = 300
+            slots = max(0, target_max - len(self.players))        # available slots to reach cap
+            candidate_count = retired_count * 2                    # generate exactly 2x retirees
 
-            def calc_fut(p):
-                return (0.5*(round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
-            
-            new_players = sorted(((p, calc_fut(p)) for p in new_players), key=lambda x: x[1], reverse=True)
-            best_new_players = new_players[:retired_count]
-            self.players.extend(best_new_players)
+            if candidate_count > 0 and slots > 0:
+                new_players = self.newgen_generator.generate_new_players(
+                    self.current_year,
+                    count=candidate_count,
+                    existing_players=self.players
+                )
+
+                def calc_overall(p):
+                    skills = p.get("skills", {})
+                    if not skills:
+                        return 0.0
+                    return round(sum(skills.values()) / max(1, len(skills)), 2)
+
+                def calc_surface_sum(p):
+                    mods = p.get("surface_modifiers")
+                    if isinstance(mods, dict) and mods:
+                        return (10 * (round(sum(mods.values()), 3)))
+                    return 40.0
+
+                def calc_fut(p):
+                    return (0.5*(round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+
+                # Keep only the best up to the number of available slots
+                scored = sorted(((p, calc_fut(p)) for p in new_players), key=lambda x: x[1], reverse=True)
+                to_add = [p for p, _ in scored[:min(slots, candidate_count)]]
+                for p in to_add:
+                    p.setdefault('favorite', False)
+                self.players.extend(to_add)
+            # If no retirees or no slots, add nobody.
+
             self._reset_tournaments_for_new_year()
             self._rebuild_ranking_history()
         else:
@@ -294,6 +308,7 @@ class TournamentScheduler:
                         if player_id not in player_rounds or round_num > player_rounds[player_id]:
                             player_rounds[player_id] = round_num
                             
+
         for player_id, round_reached in player_rounds.items():
             self._update_player_tournament_history(tournament, player_id, round_reached)
     
@@ -365,7 +380,7 @@ class TournamentScheduler:
                         unique_winners.append(p['id'])
                     if len(unique_winners) == 4:
                         break
-                    
+                        
             available_for_week = [p for p in self.players if p['id'] in unique_winners]
         else:            
             # Nextgen Finals logic
@@ -596,7 +611,8 @@ class TournamentScheduler:
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
         
         original_players = {}
-        
+        match_log = []  # FIX: always defined
+        game_engine = None
         try:
             # Validate match index
             if target_match_idx < 0 or target_match_idx >= len(tournament['active_matches']):
@@ -627,15 +643,12 @@ class TournamentScheduler:
                     player2_id: player2.copy()
                 }
 
-                # Simulate the match using the Game Engine
                 sets_to_win = 3 if tournament.get('category') == "Grand Slam" or tournament.get('category') =="Special" else 2
                 game_engine = GameEngine(player1, player2, tournament['surface'], sets_to_win=sets_to_win)
                 match_winner = game_engine.simulate_match()
+                match_log = game_engine.match_log  # FIX: capture log
 
-                # Determine the winner ID
                 winner_id = match_winner['id']
-
-                # Store the final score for this match
                 final_score = game_engine.format_set_scores()
 
                 loser_id = player2_id if winner_id == player1['id'] else player1_id
@@ -649,7 +662,7 @@ class TournamentScheduler:
             if all(len(m) == 4 and m[2] is not None for m in tournament['active_matches']):
                 self._prepare_next_round(tournament)
 
-            return winner_id, game_engine.match_log
+            return winner_id, match_log  # FIX: safe return even for BYE
         finally:
             for player_id, original_stats in original_players.items():
                 player = next(p for p in self.players if p['id'] == player_id)
@@ -1003,7 +1016,6 @@ class TournamentScheduler:
                     prev_names = [entry['name'] for entry in prev.get('top10', [])]
                     curr_names = [entry['name'] for entry in rec.get('top10', [])]
 
-                    # New entries
                     a = 0
                     new_entries = [name for name in curr_names if name not in prev_names]
                     for name in new_entries:
@@ -1011,7 +1023,6 @@ class TournamentScheduler:
                         pos = curr_names.index(name) + 1
                         self.news_feed.append(f"│ {name} entered the Top 10 for {title} at n°{pos}")
 
-                    # Position changes for players still in top 10
                     for name in set(curr_names) & set(prev_names):
                         old_pos = prev_names.index(name)
                         new_pos = curr_names.index(name)
@@ -1022,9 +1033,6 @@ class TournamentScheduler:
                             )
                     if a == 1:
                         self.news_feed.append("│")
-                    else:
-                        if old_pos > new_pos:
-                            self.news_feed.append("│")
             self.news_feed.append("│")
         
         # 4. Last week's tournament winners with total career wins
