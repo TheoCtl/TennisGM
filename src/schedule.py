@@ -419,7 +419,6 @@ class TournamentScheduler:
                             for p in initial_pool:
                                 if random.random() < 0.10:
                                     dropouts_count += 1
-                                    print(f"player {p} dropped")
                                     dropped.append(p)
                                 else:
                                     kept.append(p)

@@ -246,11 +246,9 @@ class TennisGMApp:
         tk.Button(self.root, text=back_label, command=back_func, font=("Arial", 12)).pack(pady=2)
         tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=2)
 
-    # Original player details (back to Rankings)
     def show_player_details(self, player):
         self._render_player_details(player, "Back to Rankings", self.show_rankings)
 
-    # U20 details (back to Prospects)
     def show_u20_player_details(self, player):
         self._render_player_details(player, "Back to Prospects", self.show_prospects)
 
