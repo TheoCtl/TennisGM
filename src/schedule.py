@@ -223,6 +223,7 @@ class TournamentScheduler:
                 if player.get('rank', 999) < player.get('highest_ranking', 999):
                     player['highest_ranking'] = player['rank']
         PlayerDevelopment.seasonal_development(self)
+        PlayerDevelopment.weekly_development(self)
         self.previous_records = copy.deepcopy(self.records)
         self.update_weeks_at_top()
         self.records_manager.update_mawn_last_week()
