@@ -69,7 +69,7 @@ class PlayerDevelopment:
                 if cap['progcap'] >= 5:
                     continue
                 pf = player.get('potential_factor', 1.0)
-                chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 18.0 #REDUIRE SI PROG PAS ASSEZ VITE
+                chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 15.0 #REDUIRE SI PROG PAS ASSEZ VITE
                 if skill_name == player.get('bonus'):
                     chance *= 1.1
                 if random.random() < chance and current_value < 100:
@@ -78,7 +78,7 @@ class PlayerDevelopment:
             else:
                 if cap['regcap'] >= 5:
                     continue
-                chance = PlayerDevelopment.calculate_regression_chance(age, current_value) / 18.0 #REDUIRE SI REG PAS ASSEZ VITE
+                chance = PlayerDevelopment.calculate_regression_chance(age, current_value) / 15.0 #REDUIRE SI REG PAS ASSEZ VITE
                 if random.random() < chance and current_value > 0:
                     skills[skill_name] = current_value - 1
                     cap['regcap'] += 1

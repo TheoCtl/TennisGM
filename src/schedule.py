@@ -387,13 +387,25 @@ class TournamentScheduler:
             # Nextgen Finals logic
             junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
             if junior_finals:
-                # Sort by best players under 20yo
-                available_players.sort(key=lambda p: (p.get('rank', 999), p.get('age', 99)))
-                under20 = []
-                for player in available_players:
-                    if player['age'] <= 20:
-                        under20.append(player)
-                available_for_week = under20[:8]
+                # Select 8 best prospects by FUT (same formula as Prospects screen)
+                def calc_overall(p):
+                    skills = p.get("skills", {})
+                    if not skills:
+                        return 0.0
+                    return round(sum(skills.values()) / max(1, len(skills)), 2)
+
+                def calc_surface_sum(p):
+                    mods = p.get("surface_modifiers")
+                    if isinstance(mods, dict) and mods:
+                        return (10 * (round(sum(mods.values()), 3)))
+                    return 40.0
+
+                def calc_fut(p):
+                    return (0.5 * (round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+
+                u20 = [p for p in available_players if p.get('age', 99) < 20]
+                ranked_by_fut = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
+                available_for_week = [p for p, _ in ranked_by_fut[:8]]
             else:
                 # ATP Finals logic
                 atp_finals = [t for t in current_tournaments if t['name'] == "Delta Finals"]
