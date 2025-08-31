@@ -216,6 +216,22 @@ class TennisGMApp:
                 return ", ".join(parts)
             return "N/A"
 
+        # Build skill lines with progcap/regcap display
+        age = player.get('age', 0)
+        use_prog = age <= 30
+        caps = player.get('skill_caps', {})
+        skills = player.get('skills', {})
+        skill_lines = []
+        for skill_name, val in skills.items():
+            cap_dict = caps.get(skill_name, {}) if isinstance(caps, dict) else {}
+            if use_prog:
+                cap = int(cap_dict.get('progcap', 0) or 0)
+                suffix = f" (+{cap})" if cap > 0 else ""
+            else:
+                cap = int(cap_dict.get('regcap', 0) or 0)
+                suffix = f" (-{cap})" if cap > 0 else ""
+            skill_lines.append(f"  {skill_name.capitalize()}: {val}{suffix}")
+
         details = [
             f"Rank: {player.get('rank', 'N/A')}",
             f"Highest Ranking: {player.get('highest_ranking', 'N/A')}",
@@ -224,10 +240,10 @@ class TennisGMApp:
             f"Surface Modifiers: {format_surface_mods(player)}",
             "",
             "Skills:",
-            *(f"  {skill.capitalize()}: {player['skills'].get(skill, 'N/A')}" for skill in player['skills']),
+            *skill_lines,
             "",
             f"Total titles: {sum(1 for win in player.get('tournament_wins', []))}",
-            f"Grand Slam titles: {sum(1 for win in player.get('tournament_wins', []) if win['category'] == 'Grand Slam')}",
+            f"Grand Slam titles: {sum(1 for win in player.get('tournament_wins', []) if win.get('category') == 'Grand Slam')}",
             f"Total Matches Won: {sum(player.get('mawn', [0,0,0,0,0]))}",
             f"Weeks at #1: {player.get('w1', 0)}",
             f"Weeks in Top 10: {player.get('w16', 0)}",
@@ -235,7 +251,6 @@ class TennisGMApp:
         for line in details:
             tk.Label(self.root, text=line, anchor="w", font=("Arial", 11)).pack(fill="x")
 
-        # Make the tournament wins back link return to the same details screen (player or U20)
         tk.Button(
             self.root,
             text="Show Tournament Wins",
