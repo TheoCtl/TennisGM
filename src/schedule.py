@@ -320,6 +320,7 @@ class TournamentScheduler:
         """
         current_tournaments = self.get_current_week_tournaments()
         available_players = [p for p in self.players if not p.get('injured', False) and not p.get('retired', False)]
+        available_plays = [p for p in self.players if not p.get('injured', False) and not p.get('retired', False)]
         available_for_week = []
         self.ranking_system.update_player_ranks(self.players, self.current_date)
 
@@ -403,7 +404,7 @@ class TournamentScheduler:
                 def calc_fut(p):
                     return (0.5 * (round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
 
-                u20 = [p for p in available_players if p.get('age', 99) < 20]
+                u20 = [p for p in available_plays if p.get('age', 99) < 20]
                 ranked_by_fut = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
                 available_for_week = [p for p, _ in ranked_by_fut[:8]]
             else:
@@ -524,7 +525,7 @@ class TournamentScheduler:
                     if tournament['category'] == "ITF" and player.get('rank', 999) <= 200:
                         continue
                     # Block >200 from any non-ITF
-                    if tournament['category'] != "ITF" and player.get('rank', 999) > 200:
+                    if tournament['category'] != "ITF" and tournament['category'] != "Special" and player.get('rank', 999) > 200:
                         continue
                     # Block Top-70 from Challenger events
                     if tournament['category'].startswith("Challenger") and player.get('rank', 999) <= 70:

@@ -351,10 +351,31 @@ class TennisGMApp:
         for widget in self.root.winfo_children():
             widget.destroy()
         tk.Label(self.root, text=f"{player['name']} - Tournament Wins", font=("Arial", 16)).pack(pady=10)
+
+        # Bold tournaments that were won (points == Winner points for their category).
+        # All entries in tournament_history are from the last 52 weeks; skip "Special".
+        recent_wins_keys = set()
+        try:
+            points_map = self.scheduler.ranking_system.POINTS
+            for entry in player.get('tournament_history', []):
+                cat = entry.get('category')
+                if not cat or cat == "Special":
+                    continue
+                winner_pts = points_map.get(cat, {}).get("Winner")
+                if winner_pts is None:
+                    continue
+                if entry.get('points', -1) == winner_pts:
+                    recent_wins_keys.add((entry.get('name', ''), cat))
+        except Exception:
+            recent_wins_keys = set()
+
+        # Group wins by category and tournament name (historical list)
         wins = player.get('tournament_wins', [])
         wins_by_category = collections.defaultdict(lambda: collections.defaultdict(int))
         for win in wins:
-            wins_by_category[win['category']][win['name']] += 1
+            name = win.get('name', 'Unknown')
+            cat = win.get('category', 'Unknown')
+            wins_by_category[cat][name] += 1
 
         frame = tk.Frame(self.root)
         frame.pack(fill="both", expand=True)
@@ -380,12 +401,16 @@ class TennisGMApp:
             if category in wins_by_category:
                 total_in_category = sum(wins_by_category[category].values())
                 tk.Label(scroll_frame, text=f"{category} ({total_in_category})", font=("Arial", 12, "underline")).pack(anchor="w", pady=(8,2))
+                # List each tournament, bold if it was won in the last 52 weeks (and not Special)
                 for tname, count in sorted(wins_by_category[category].items()):
-                    tk.Label(scroll_frame, text=f"- {count}x {tname}", font=("Arial", 11)).pack(anchor="w")
+                    is_recent_win = (tname, category) in recent_wins_keys
+                    font_style = ("Arial", 11, "bold") if is_recent_win else ("Arial", 11)
+                    tk.Label(scroll_frame, text=f"- {count}x {tname}", font=font_style).pack(anchor="w")
                     any_win = True
         if not any_win:
             tk.Label(scroll_frame, text="No tournament wins yet", font=("Arial", 12)).pack(pady=10)
-        # Always show the correct back button
+
+        # Back button stays context-aware
         if back_command:
             tk.Button(self.root, text="Back to Player Details", command=back_command, font=("Arial", 12)).pack(pady=10)
         else:
