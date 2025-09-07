@@ -129,27 +129,34 @@ class NewGenGenerator:
         return new_players
     
     def increment_name(self, name):
+        """
+        Increment alphabetic suffix with carry:
+        - If last letter is Z, set it to A and carry to previous letter.
+        - Example: AZZ -> BAA, ZZZ -> AAAA
+        - Numbers are ignored; if no letters exist, return 'A'.
+        """
         chars = list(name)
         i = len(chars) - 1
+        saw_letter = False
+
         while i >= 0:
             c = chars[i]
-            if c == 'Z':
-                chars[i] = '0'
-                break
-            elif c == '9':
-                chars[i] = 'A'
-                i -= 1  # Carry to previous character
-            elif c in '012345678':
-                chars[i] = str(int(c) + 1)
-                break
+            if c.isalpha():
+                saw_letter = True
+                u = c.upper()
+                if u == 'Z':
+                    chars[i] = 'A'
+                    i -= 1  # carry to previous letter
+                    continue
+                else:
+                    chars[i] = chr(ord(u) + 1)
+                    return ''.join(chars)
             else:
-                # Increment character (A-Y or a-y)
-                chars[i] = chr(ord(c) + 1)
-                break
-        else:
-            # If we looped through all and all were '9', prepend 'A'
-            chars = ['A'] + chars
-        return ''.join(chars)
+                i -= 1  # skip non-letters entirely
+        # If we’re here:
+        # - either we carried past the first letter (all letters were Z -> now A),
+        # - or there were no letters at all.
+        return ('A' + ''.join(chars)) if saw_letter else 'A'
     
     def generate_surface_modifiers(self):
         """Create per-surface factors in [0.9, 1.1] and ensure their sum >= 3.8."""
