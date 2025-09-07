@@ -179,13 +179,6 @@
     ],
     "470": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 0,
         "tournament": "Xurx Challenger",
@@ -401,16 +394,16 @@
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 0
       }
     ],
     "474": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 13,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -581,13 +574,6 @@
       }
     ],
     "476": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 45,
@@ -776,6 +762,13 @@
         "tournament": "Corlot Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "477": [
@@ -935,13 +928,6 @@
       }
     ],
     "482": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -1137,16 +1123,16 @@
         "tournament": "Louse Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 18,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 1
       }
     ],
     "483": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -1356,16 +1342,16 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 18,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 1
       }
     ],
     "484": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 90,
@@ -1568,16 +1554,16 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "485": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -1755,13 +1741,6 @@
       }
     ],
     "486": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -1978,16 +1957,16 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 0
       }
     ],
     "487": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -2208,13 +2187,6 @@
     ],
     "489": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
-      {
         "date": "2071-01-22T00:00:00",
         "points": 0,
         "tournament": "Winter Clash",
@@ -2342,13 +2314,6 @@
       }
     ],
     "490": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 25,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 2
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -2558,16 +2523,16 @@
         "tournament": "Krakoa Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "491": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -2749,16 +2714,16 @@
         "tournament": "Klovas Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "493": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -2982,16 +2947,16 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "494": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -3256,13 +3221,6 @@
     ],
     "497": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 1
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 20,
         "tournament": "Beier International",
@@ -3446,13 +3404,6 @@
       }
     ],
     "498": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -3676,16 +3627,16 @@
         "tournament": "Matsuyama Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "500": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -3835,13 +3786,6 @@
       }
     ],
     "502": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -4037,16 +3981,16 @@
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 9,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 1
       }
     ],
     "503": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -4267,13 +4211,6 @@
     ],
     "505": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 20,
         "tournament": "Olalas Invitational",
@@ -4454,16 +4391,16 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 90,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 3
       }
     ],
     "506": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 45,
@@ -4680,16 +4617,16 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "507": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 60,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 3
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -5306,13 +5243,6 @@
     ],
     "511": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 2
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 20,
         "tournament": "Beier International",
@@ -5507,16 +5437,16 @@
         "tournament": "Louse Challenger",
         "category": "Challenger 100",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 35,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 2
       }
     ],
     "512": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -5705,16 +5635,16 @@
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 0
       }
     ],
     "513": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 150,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 4
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -5907,13 +5837,6 @@
     ],
     "514": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 0,
         "tournament": "Beier International",
@@ -6101,16 +6024,16 @@
         "tournament": "Louse Challenger",
         "category": "Challenger 100",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "515": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 13,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -6285,16 +6208,16 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 50,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 4
       }
     ],
     "516": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 9,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -6508,13 +6431,6 @@
     ],
     "517": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 0,
         "tournament": "Olalas Invitational",
@@ -6695,16 +6611,16 @@
         "tournament": "Krakoa Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "518": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 9,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 9,
@@ -6921,16 +6837,16 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 9,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 1
       }
     ],
     "519": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 13,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -7140,16 +7056,16 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 9,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 1
       }
     ],
     "520": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 30,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 3
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 9,
@@ -7366,16 +7282,16 @@
         "tournament": "Louse Challenger",
         "category": "Challenger 100",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 13,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "521": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 25,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -7606,16 +7522,16 @@
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 15,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 2
       }
     ],
     "523": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 2
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 90,
@@ -7922,13 +7838,6 @@
     ],
     "525": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 3
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 13,
         "tournament": "Xurx Challenger",
@@ -8130,6 +8039,13 @@
         "tournament": "Zzabra Challenger",
         "category": "Challenger 50",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "526": [
@@ -8296,13 +8212,6 @@
       }
     ],
     "527": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -8519,16 +8428,16 @@
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
         "round": 2
-      }
-    ],
-    "528": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "Biok Challenger",
         "category": "Challenger 75",
         "round": 0
-      },
+      }
+    ],
+    "528": [
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -8650,13 +8559,6 @@
       }
     ],
     "529": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 75,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 3
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -8887,16 +8789,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "530": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -9099,16 +9001,16 @@
         "tournament": "Matsuyama Challenger",
         "category": "Challenger 75",
         "round": 1
-      }
-    ],
-    "531": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "Paira Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
+      }
+    ],
+    "531": [
       {
         "date": "2071-01-15T00:00:00",
         "points": 75,
@@ -9325,6 +9227,13 @@
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 0
       }
     ],
     "532": [
@@ -9572,6 +9481,13 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "535": [
@@ -9802,13 +9718,6 @@
     ],
     "536": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 15,
         "tournament": "Altayvarnu Challenger",
@@ -9953,6 +9862,13 @@
         "points": 0,
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
+        "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
         "round": 0
       }
     ],
@@ -10166,6 +10082,13 @@
         "tournament": "Delta Finals",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 2
       }
     ],
     "538": [
@@ -10357,16 +10280,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "540": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -10583,16 +10506,16 @@
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 9,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 1
       }
     ],
     "541": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 75,
@@ -10777,13 +10700,6 @@
       }
     ],
     "542": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 25,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -11007,16 +10923,16 @@
         "tournament": "Beko Challenger",
         "category": "Challenger 100",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "543": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -11205,16 +11121,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "544": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -11396,16 +11312,16 @@
         "tournament": "Arcton Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "545": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -11608,16 +11524,16 @@
         "tournament": "Matsuyama Challenger",
         "category": "Challenger 75",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 25,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 1
       }
     ],
     "547": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 90,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 3
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 90,
@@ -11820,16 +11736,16 @@
         "tournament": "Delta Finals",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 2
       }
     ],
     "548": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 90,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 3
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 250,
@@ -12064,13 +11980,6 @@
     ],
     "549": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 0,
         "tournament": "Olalas Invitational",
@@ -12286,16 +12195,16 @@
         "tournament": "Matsuyama Challenger",
         "category": "Challenger 75",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "550": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -12477,16 +12386,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "551": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 180,
@@ -12707,13 +12616,6 @@
     ],
     "552": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 0,
         "tournament": "Xurx Challenger",
@@ -12862,13 +12764,6 @@
       }
     ],
     "553": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 90,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 3
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -13103,13 +12998,6 @@
     ],
     "554": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 250,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 5
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 150,
         "tournament": "Beier International",
@@ -13336,13 +13224,6 @@
     ],
     "555": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 1
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 0,
         "tournament": "Olalas Invitational",
@@ -13551,16 +13432,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "556": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -13763,16 +13644,16 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "557": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 125,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 4
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -13954,16 +13835,16 @@
         "tournament": "Stre Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "558": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 150,
@@ -14191,13 +14072,6 @@
     ],
     "559": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 100,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 4
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 0,
         "tournament": "Beier International",
@@ -14381,13 +14255,6 @@
       }
     ],
     "560": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 13,
@@ -14601,13 +14468,6 @@
     ],
     "561": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 1
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 0,
         "tournament": "Beier International",
@@ -14795,16 +14655,16 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 125,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 4
       }
     ],
     "562": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -15028,16 +14888,16 @@
         "tournament": "Arcton Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 2
       }
     ],
     "563": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 25,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -15247,16 +15107,16 @@
         "tournament": "Beko Challenger",
         "category": "Challenger 100",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 60,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 3
       }
     ],
     "564": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -15459,6 +15319,13 @@
         "tournament": "Tuloqo Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "585": [
@@ -15671,16 +15538,16 @@
         "tournament": "Kings Cup",
         "category": "Special",
         "round": 1
-      }
-    ],
-    "587": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 150,
         "tournament": "Chelot Open",
         "category": "ATP 250",
         "round": 4
-      },
+      }
+    ],
+    "587": [
       {
         "date": "2071-01-15T00:00:00",
         "points": 250,
@@ -15904,16 +15771,16 @@
         "tournament": "Kings Cup",
         "category": "Special",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 250,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 5
       }
     ],
     "568": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -16095,6 +15962,13 @@
         "tournament": "Tuloqo Open",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "567": [
@@ -16293,16 +16167,16 @@
         "tournament": "Delta Finals",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 90,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 3
       }
     ],
     "582": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -16484,16 +16358,16 @@
         "tournament": "Klovas Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "588": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -16724,16 +16598,16 @@
         "tournament": "Delta Finals",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "575": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 45,
@@ -16901,16 +16775,16 @@
         "tournament": "Tuloqo Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "572": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -17159,13 +17033,6 @@
     ],
     "581": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 1
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 20,
         "tournament": "Beier International",
@@ -17367,16 +17234,16 @@
         "tournament": "Delta Finals",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 150,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 4
       }
     ],
     "573": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -17604,13 +17471,6 @@
     ],
     "565": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
-      {
         "date": "2071-01-22T00:00:00",
         "points": 1200,
         "tournament": "Winter Clash",
@@ -17819,6 +17679,13 @@
         "tournament": "Delta Finals",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "571": [
@@ -18042,13 +17909,6 @@
     ],
     "598": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 90,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 3
-      },
-      {
         "date": "2071-01-22T00:00:00",
         "points": 90,
         "tournament": "Winter Clash",
@@ -18243,16 +18103,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 1
-      }
-    ],
-    "596": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "Betvarond Open",
         "category": "ATP 250",
         "round": 0
-      },
+      }
+    ],
+    "596": [
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -18455,16 +18315,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "589": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 25,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -18667,16 +18527,16 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "592": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -18886,16 +18746,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "597": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -19105,16 +18965,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "604": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 250,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 5
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 2000,
@@ -19338,16 +19198,16 @@
         "tournament": "Kings Cup",
         "category": "Special",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 250,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 5
       }
     ],
     "600": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 45,
@@ -19578,16 +19438,16 @@
         "tournament": "Delta Finals",
         "category": "Masters 1000",
         "round": 0
-      }
-    ],
-    "602": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 45,
         "tournament": "Betvarond Open",
         "category": "ATP 250",
         "round": 2
-      },
+      }
+    ],
+    "602": [
       {
         "date": "2071-01-22T00:00:00",
         "points": 45,
@@ -19790,16 +19650,16 @@
         "tournament": "Tuloqo Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "599": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 18,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 13,
@@ -19995,16 +19855,16 @@
         "tournament": "Krakoa Challenger",
         "category": "Challenger 75",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 25,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 1
       }
     ],
     "605": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 45,
@@ -20221,16 +20081,16 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 2
-      }
-    ],
-    "611": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "Betvarond Open",
         "category": "ATP 250",
         "round": 0
-      },
+      }
+    ],
+    "611": [
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -20454,6 +20314,13 @@
         "tournament": "Klovas Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "608": [
@@ -20652,6 +20519,13 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "607": [
@@ -20864,16 +20738,16 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "616": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 13,
@@ -21083,6 +20957,13 @@
         "tournament": "Iaipei Challenger",
         "category": "Challenger 125",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "615": [
@@ -21423,16 +21304,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 90,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 3
       }
     ],
     "660": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -21617,13 +21498,6 @@
       }
     ],
     "686": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 20,
@@ -21847,16 +21721,16 @@
         "tournament": "Tuloqo Open",
         "category": "ATP 250",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 2
       }
     ],
     "621": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -22052,16 +21926,16 @@
         "tournament": "Klovas Challenger",
         "category": "Challenger 125",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "702": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 0
-      },
       {
         "date": "2071-01-29T00:00:00",
         "points": 125,
@@ -22264,16 +22138,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 2
       }
     ],
     "668": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -22490,6 +22364,13 @@
         "tournament": "Tuloqo Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 2
       }
     ],
     "682": [
@@ -22653,16 +22534,16 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 2
       }
     ],
     "698": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -23084,16 +22965,16 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 18,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 1
       }
     ],
     "646": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 75,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 4
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 90,
@@ -23296,16 +23177,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 90,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 3
       }
     ],
     "667": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 18,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -23522,16 +23403,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "631": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -23720,16 +23601,16 @@
         "tournament": "Tuloqo Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "641": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 13,
@@ -23953,16 +23834,16 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "622": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 45,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -24144,16 +24025,16 @@
         "tournament": "Louse Challenger",
         "category": "Challenger 100",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 2
       }
     ],
     "648": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -24356,16 +24237,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "700": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 15,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 2
-      },
       {
         "date": "2071-01-29T00:00:00",
         "points": 0,
@@ -24547,6 +24428,13 @@
         "tournament": "Rovere Challenger",
         "category": "Challenger 100",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "658": [
@@ -24915,6 +24803,13 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "639": [
@@ -25050,16 +24945,16 @@
         "tournament": "Curitiba Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "623": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 15,
@@ -25283,16 +25178,16 @@
         "tournament": "Arcton Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "647": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -25474,6 +25369,13 @@
         "tournament": "Arcton Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "625": [
@@ -25658,6 +25560,13 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 3
       }
     ],
     "692": [
@@ -25863,6 +25772,13 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 25,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 1
       }
     ],
     "669": [
@@ -26033,6 +25949,13 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "677": [
@@ -26202,6 +26125,13 @@
         "points": 0,
         "tournament": "Cashanta Open",
         "category": "ATP 500",
+        "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
         "round": 0
       }
     ],
@@ -26415,6 +26345,13 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "676": [
@@ -26634,16 +26571,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 3
-      }
-    ],
-    "690": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "Chelot Open",
         "category": "ATP 250",
         "round": 0
-      },
+      }
+    ],
+    "690": [
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -26811,16 +26748,16 @@
         "tournament": "Arcton Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "630": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -27016,16 +26953,16 @@
         "tournament": "Klovas Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 25,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 1
       }
     ],
     "685": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -27231,13 +27168,6 @@
       }
     ],
     "643": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 18,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 1
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 25,
@@ -27475,6 +27405,13 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "650": [
@@ -27659,6 +27596,13 @@
         "tournament": "Klovas Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "696": [
@@ -27787,16 +27731,16 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 1
-      }
-    ],
-    "638": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "Slehzaarm Challenger",
         "category": "Challenger 50",
         "round": 0
-      },
+      }
+    ],
+    "638": [
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -28027,6 +27971,13 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 13,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "673": [
@@ -28130,13 +28081,6 @@
       }
     ],
     "634": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 15,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 2
-      },
       {
         "date": "2071-01-29T00:00:00",
         "points": 25,
@@ -28346,16 +28290,16 @@
         "tournament": "Tuloqo Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 45,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 2
       }
     ],
     "627": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 25,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -28565,16 +28509,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "688": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 35,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 2
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -28791,16 +28735,16 @@
         "tournament": "Louse Challenger",
         "category": "Challenger 100",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "664": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -29010,6 +28954,13 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "689": [
@@ -29145,16 +29096,16 @@
         "tournament": "Matsuyama Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "681": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 35,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 25,
@@ -29450,6 +29401,13 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 30,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 3
       }
     ],
     "697": [
@@ -29613,16 +29571,16 @@
         "tournament": "Louse Challenger",
         "category": "Challenger 100",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "651": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 18,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -29832,16 +29790,16 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 0
-      }
-    ],
-    "666": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "Paira Challenger",
         "category": "Challenger 125",
         "round": 0
-      },
+      }
+    ],
+    "666": [
       {
         "date": "2071-01-15T00:00:00",
         "points": 25,
@@ -30044,6 +30002,13 @@
         "tournament": "Krakoa Challenger",
         "category": "Challenger 75",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 75,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 3
       }
     ],
     "653": [
@@ -30300,6 +30265,13 @@
         "tournament": "Matsuyama Challenger",
         "category": "Challenger 75",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 18,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 1
       }
     ],
     "657": [
@@ -30456,16 +30428,16 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "629": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 5,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 2
-      },
       {
         "date": "2071-01-29T00:00:00",
         "points": 0,
@@ -30580,13 +30552,6 @@
       }
     ],
     "626": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -30810,16 +30775,16 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "636": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -31181,13 +31146,6 @@
       }
     ],
     "679": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -31606,13 +31564,6 @@
     ],
     "674": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 25,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 4
-      },
-      {
         "date": "2071-01-29T00:00:00",
         "points": 0,
         "tournament": "Altale Challenger",
@@ -31716,6 +31667,13 @@
         "tournament": "Temuco Challenger",
         "category": "Challenger 100",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 15,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 2
       }
     ],
     "640": [
@@ -31921,6 +31879,13 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "691": [
@@ -32024,13 +31989,6 @@
       }
     ],
     "642": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Blus Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 45,
@@ -32219,6 +32177,13 @@
         "tournament": "Matsuyama Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 75,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 4
       }
     ],
     "694": [
@@ -32524,16 +32489,16 @@
         "tournament": "Cashanta Open",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 20,
+        "tournament": "Betvarond Open",
+        "category": "ATP 250",
+        "round": 1
       }
     ],
     "617": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 20,
-        "tournament": "Chelot Open",
-        "category": "ATP 250",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -32847,13 +32812,6 @@
     ],
     "633": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Paira Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
-      {
         "date": "2071-01-22T00:00:00",
         "points": 0,
         "tournament": "Winter Clash",
@@ -33166,13 +33124,6 @@
     ],
     "645": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Biok Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
-      {
         "date": "2071-02-05T00:00:00",
         "points": 13,
         "tournament": "Yatev Challenger",
@@ -33388,6 +33339,13 @@
         "tournament": "Matsuyama Challenger",
         "category": "Challenger 75",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "675": [
@@ -33551,16 +33509,16 @@
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 25,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "670": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 50,
-        "tournament": "Slehzaarm Challenger",
-        "category": "Challenger 50",
-        "round": 4
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -33777,16 +33735,16 @@
         "tournament": "Arcton Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Chelot Open",
+        "category": "ATP 250",
+        "round": 0
       }
     ],
     "703": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "Betvarond Open",
-        "category": "ATP 250",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -33985,13 +33943,6 @@
       }
     ],
     "663": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 1,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 1,
@@ -34529,16 +34480,16 @@
         "tournament": "Louse Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "695": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 25,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 4
-      },
       {
         "date": "2071-02-12T00:00:00",
         "points": 25,
@@ -34957,6 +34908,13 @@
         "tournament": "Krakoa Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Paira Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "693": [
@@ -35968,13 +35926,6 @@
     ],
     "644": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 10,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 3
-      },
-      {
         "date": "2071-01-22T00:00:00",
         "points": 10,
         "tournament": "ITF Kolipme",
@@ -36095,13 +36046,6 @@
       }
     ],
     "656": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 5,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 5,
@@ -36233,6 +36177,13 @@
         "points": 0,
         "tournament": "Maia Challenger",
         "category": "Challenger 100",
+        "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
         "round": 0
       }
     ],
@@ -36518,6 +36469,13 @@
         "tournament": "Bamba Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 100,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 4
       }
     ],
     "717": [
@@ -36632,6 +36590,13 @@
         "tournament": "Corlot Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 13,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "705": [
@@ -36851,6 +36816,13 @@
         "tournament": "Krakoa Challenger",
         "category": "Challenger 75",
         "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 35,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 2
       }
     ],
     "709": [
@@ -37037,6 +37009,13 @@
         "tournament": "ITF Reyna",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 10,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "726": [
@@ -37242,16 +37221,16 @@
         "tournament": "Pehpe Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Blus Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "723": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 1,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2071-01-29T00:00:00",
         "points": 5,
@@ -37626,16 +37605,16 @@
         "tournament": "Corlot Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 25,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "725": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 5,
@@ -37761,6 +37740,13 @@
         "tournament": "ITF Sost",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 5,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "740": [
@@ -37861,6 +37847,13 @@
         "tournament": "Nextgen Finals",
         "category": "Special",
         "round": 3
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "Slehzaarm Challenger",
+        "category": "Challenger 50",
+        "round": 0
       }
     ],
     "738": [
@@ -38000,13 +37993,6 @@
     ],
     "764": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 10,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 3
-      },
-      {
         "date": "2071-01-22T00:00:00",
         "points": 10,
         "tournament": "ITF Idrerth",
@@ -38095,6 +38081,13 @@
         "points": 0,
         "tournament": "Nextgen Finals",
         "category": "Special",
+        "round": 2
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 5,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
         "round": 2
       }
     ],
@@ -38224,6 +38217,13 @@
         "tournament": "Nextgen Finals",
         "category": "Special",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 25,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "741": [
@@ -38310,6 +38310,13 @@
         "tournament": "ITF Oagel",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 25,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "728": [
@@ -38452,6 +38459,13 @@
         "tournament": "Torneio Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 5,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "756": [
@@ -38555,13 +38569,6 @@
       }
     ],
     "733": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-02-05T00:00:00",
         "points": 1,
@@ -38698,13 +38705,6 @@
     ],
     "739": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 5,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 2
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 1,
         "tournament": "ITF Rof",
@@ -38818,13 +38818,6 @@
       }
     ],
     "743": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 5,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 2
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 1,
@@ -39067,13 +39060,6 @@
       }
     ],
     "759": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 1,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -39648,6 +39634,13 @@
         "tournament": "ITF Thorus",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 1,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "768": [
@@ -39738,13 +39731,6 @@
     ],
     "746": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 1,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 1
-      },
-      {
         "date": "2071-02-12T00:00:00",
         "points": 10,
         "tournament": "ITF Hestea",
@@ -39799,16 +39785,16 @@
         "tournament": "ITF Chade",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 10,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "752": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-03-12T00:00:00",
         "points": 0,
@@ -39937,13 +39923,6 @@
       }
     ],
     "758": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -40287,13 +40266,6 @@
     ],
     "792": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 1,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 1
-      },
-      {
         "date": "2071-01-22T00:00:00",
         "points": 5,
         "tournament": "ITF Idrerth",
@@ -40548,6 +40520,13 @@
         "tournament": "Guayru Challenger",
         "category": "Challenger 100",
         "round": 4
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 13,
+        "tournament": "Biok Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "780": [
@@ -40676,16 +40655,16 @@
         "tournament": "ITF Chade",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 5,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "793": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-02-05T00:00:00",
         "points": 0,
@@ -40893,13 +40872,6 @@
       }
     ],
     "775": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-01-29T00:00:00",
         "points": 1,
@@ -41288,16 +41260,16 @@
         "tournament": "ITF Seynov",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "788": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-02-12T00:00:00",
         "points": 1,
@@ -41381,6 +41353,13 @@
         "tournament": "ITF Talemonoff",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "787": [
@@ -41472,6 +41451,13 @@
         "date": "2071-10-29T00:00:00",
         "points": 0,
         "tournament": "ITF Narare",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Techonia",
         "category": "ITF",
         "round": 0
       }
@@ -41588,6 +41574,13 @@
         "tournament": "ITF Seynov",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "782": [
@@ -41688,16 +41681,16 @@
         "tournament": "ITF Talemonoff",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 1,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "800": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-02-05T00:00:00",
         "points": 0,
@@ -41881,6 +41874,13 @@
         "tournament": "ITF Thorus",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 1,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "773": [
@@ -42127,13 +42127,6 @@
     ],
     "821": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 1,
         "tournament": "ITF Leviatun",
@@ -42272,16 +42265,16 @@
         "tournament": "Nextgen Finals",
         "category": "Special",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 1,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "813": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-02-05T00:00:00",
         "points": 1,
@@ -42486,6 +42479,13 @@
         "tournament": "ITF Mariovic",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "810": [
@@ -42600,6 +42600,13 @@
         "tournament": "ITF Chade",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 1,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "803": [
@@ -42704,13 +42711,6 @@
     ],
     "823": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2071-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Kormin",
@@ -42807,6 +42807,13 @@
         "tournament": "ITF Miyhines",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 1,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "808": [
@@ -42884,6 +42891,13 @@
         "date": "2071-11-19T00:00:00",
         "points": 0,
         "tournament": "ITF Thorus",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Hensink",
         "category": "ITF",
         "round": 0
       }
@@ -43189,13 +43203,6 @@
       }
     ],
     "801": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 1,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2071-01-29T00:00:00",
         "points": 1,
@@ -43542,16 +43549,16 @@
         "tournament": "ITF Miyhines",
         "category": "ITF",
         "round": 0
-      }
-    ],
-    "866": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "ITF Hensink",
         "category": "ITF",
         "round": 0
-      },
+      }
+    ],
+    "866": [
       {
         "date": "2071-01-22T00:00:00",
         "points": 0,
@@ -43690,6 +43697,13 @@
         "points": 0,
         "tournament": "Nextgen Finals",
         "category": "Special",
+        "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
         "round": 0
       }
     ],
@@ -44030,13 +44044,6 @@
     ],
     "848": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 1,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 1
-      },
-      {
         "date": "2071-01-29T00:00:00",
         "points": 1,
         "tournament": "ITF Azneya",
@@ -44172,13 +44179,6 @@
     ],
     "850": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2071-01-22T00:00:00",
         "points": 0,
         "tournament": "ITF Kolipme",
@@ -44294,6 +44294,13 @@
         "date": "2071-12-10T00:00:00",
         "points": 1,
         "tournament": "ITF Talemonoff",
+        "category": "ITF",
+        "round": 1
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 1,
+        "tournament": "ITF Techonia",
         "category": "ITF",
         "round": 1
       }
@@ -44444,13 +44451,6 @@
     ],
     "836": [
       {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2071-01-15T00:00:00",
         "points": 1,
         "tournament": "ITF Rof",
@@ -44526,6 +44526,13 @@
         "tournament": "ITF Sanaopra",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 1,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "851": [
@@ -44740,16 +44747,16 @@
         "tournament": "ITF Miyhines",
         "category": "ITF",
         "round": 0
-      }
-    ],
-    "857": [
+      },
       {
-        "date": "2071-01-08T00:00:00",
+        "date": "2072-01-08T00:00:00",
         "points": 0,
         "tournament": "ITF Techonia",
         "category": "ITF",
         "round": 0
-      },
+      }
+    ],
+    "857": [
       {
         "date": "2071-01-15T00:00:00",
         "points": 0,
@@ -44875,6 +44882,13 @@
         "tournament": "ITF Peker",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "828": [
@@ -44943,13 +44957,6 @@
       }
     ],
     "860": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 0,
-        "tournament": "ITF Techonia",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2071-02-05T00:00:00",
         "points": 1,
@@ -45341,13 +45348,6 @@
       }
     ],
     "871": [
-      {
-        "date": "2071-01-08T00:00:00",
-        "points": 1,
-        "tournament": "ITF Hensink",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2071-02-05T00:00:00",
         "points": 0,
@@ -46157,6 +46157,60 @@
         "date": "2071-12-03T00:00:00",
         "points": 0,
         "tournament": "ITF Seynov",
+        "category": "ITF",
+        "round": 0
+      }
+    ],
+    "892": [
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 0
+      }
+    ],
+    "901": [
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 0
+      }
+    ],
+    "877": [
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Techonia",
+        "category": "ITF",
+        "round": 0
+      }
+    ],
+    "910": [
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 0
+      }
+    ],
+    "906": [
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Hensink",
+        "category": "ITF",
+        "round": 0
+      }
+    ],
+    "891": [
+      {
+        "date": "2072-01-08T00:00:00",
+        "points": 0,
+        "tournament": "ITF Techonia",
         "category": "ITF",
         "round": 0
       }

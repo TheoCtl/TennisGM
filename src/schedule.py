@@ -175,7 +175,7 @@ class TournamentScheduler:
                     player['age'] += 1
 
             # HARD CAP and 2x retirements rule
-            target_max = 300
+            target_max = 400
             slots = max(0, target_max - len(self.players))        # available slots to reach cap
             candidate_count = retired_count * 2                    # generate exactly 2x retirees
 
@@ -315,45 +315,17 @@ class TournamentScheduler:
     
     def assign_players_to_tournaments(self):
         """
-        Assign players to tournaments for the current week.
-        Players are distributed across tournaments based on prestige order, and each player can only play in one tournament per week.
+        Assign players to tournaments for the current week using probability-based selection.
         """
         current_tournaments = self.get_current_week_tournaments()
         available_players = [p for p in self.players if not p.get('injured', False) and not p.get('retired', False)]
-        available_plays = [p for p in self.players if not p.get('injured', False) and not p.get('retired', False)]
-        available_for_week = []
         self.ranking_system.update_player_ranks(self.players, self.current_date)
 
         # Initialize participants for all tournaments
         for tournament in current_tournaments:
-            tournament['participants'] = []  # Ensure the 'participants' key exists
+            tournament['participants'] = []
 
-        # Calculate total spots available in tournaments
-        total_spots = sum(t['draw_size'] for t in current_tournaments)
-
-        # NEW: Pre-fill ITF tournaments with random players ranked > 200
-        itf_tournaments = [t for t in current_tournaments if t.get('category') == "ITF"]
-        if itf_tournaments:
-            eligible_itf = [p for p in available_players if p.get('rank', 999) > 200]
-            random.shuffle(eligible_itf)
-            total_itf_spots = sum(t['draw_size'] for t in itf_tournaments)
-            itf_selected = eligible_itf[:total_itf_spots]
-
-            # Assign selected players to ITF tournaments (fill in order)
-            idx = 0
-            for t in itf_tournaments:
-                need = t['draw_size']
-                chosen = itf_selected[idx: idx + need]
-                t['participants'] = [p['id'] for p in chosen]
-                idx += need
-
-            # Remove selected ITF players from the pool so they won't be assigned elsewhere
-            selected_ids = set(p['id'] for p in itf_selected)
-            available_players = [p for p in available_players if p['id'] not in selected_ids]
-
-        # Prevent >200 from entering non-ITF tournaments
-        available_players = [p for p in available_players if p.get('rank', 999) <= 200]
-
+        # Keep special tournament logic unchanged
         # Kings Cup logic
         kings_cup = [t for t in current_tournaments if t['name'] == "Kings Cup"]
         if kings_cup:
@@ -383,163 +355,212 @@ class TournamentScheduler:
                     if len(unique_winners) == 4:
                         break
                         
-            available_for_week = [p for p in self.players if p['id'] in unique_winners]
-        else:            
-            # Nextgen Finals logic
-            junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
-            if junior_finals:
-                # Select 8 best prospects by FUT (same formula as Prospects screen)
-                def calc_overall(p):
-                    skills = p.get("skills", {})
-                    if not skills:
-                        return 0.0
-                    return round(sum(skills.values()) / max(1, len(skills)), 2)
+            kings_cup[0]['participants'] = unique_winners
+            return
 
-                def calc_surface_sum(p):
-                    mods = p.get("surface_modifiers")
-                    if isinstance(mods, dict) and mods:
-                        return (10 * (round(sum(mods.values()), 3)))
-                    return 40.0
+        # Nextgen Finals logic
+        junior_finals = [t for t in current_tournaments if t['name'] == "Nextgen Finals"]
+        if junior_finals:
+            def calc_overall(p):
+                skills = p.get("skills", {})
+                if not skills:
+                    return 0.0
+                return round(sum(skills.values()) / max(1, len(skills)), 2)
 
-                def calc_fut(p):
-                    return (0.5 * (round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+            def calc_surface_sum(p):
+                mods = p.get("surface_modifiers")
+                if isinstance(mods, dict) and mods:
+                    return (10 * (round(sum(mods.values()), 3)))
+                return 40.0
 
-                u20 = [p for p in available_plays if p.get('age', 99) < 20]
-                ranked_by_fut = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
-                available_for_week = [p for p, _ in ranked_by_fut[:8]]
-            else:
-                # ATP Finals logic
-                atp_finals = [t for t in current_tournaments if t['name'] == "Delta Finals"]
-                if atp_finals:
-                    available_players.sort(key=lambda x: x.get('rank', 0))
-                    available_for_week.extend(available_players[:16])
+            def calc_fut(p):
+                return (0.5 * (round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+
+            u20 = [p for p in available_players if p.get('age', 99) < 20]
+            ranked_by_fut = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
+            junior_finals[0]['participants'] = [p['id'] for p, _ in ranked_by_fut[:8]]
+            return
+
+        # Delta Finals logic
+        delta_finals = [t for t in current_tournaments if t['name'] == "Delta Finals"]
+        if delta_finals:
+            available_players.sort(key=lambda x: x.get('rank', 0))
+            delta_finals[0]['participants'] = [p['id'] for p in available_players[:16]]
+            return
+
+        # New probability-based logic for regular tournaments
+        def get_participation_chance(player_rank, category):
+            """Get participation chance based on player rank and tournament category"""
+            if category == "Grand Slam":
+                return 0.99
+            elif category == "Masters 1000":
+                return 0.90 if player_rank <= 64 else 0.99
+            elif category == "ATP 500":
+                if player_rank <= 20:
+                    return 0.50
+                elif player_rank <= 50:
+                    return 0.75
+                elif player_rank <= 100:
+                    return 0.85
                 else:
-                    # Grand Slam logic
-                    grandslam_tournament = [t for t in current_tournaments if t['category'] == "Grand Slam"]
-                    if grandslam_tournament:
-                        available_players.sort(key=lambda x: x.get('rank', 0))
-                        available_for_week.extend(available_players[:128])
-                    else:
-                        # Masters logic
-                        masters_tournaments = [t for t in current_tournaments if t['category'] == "Masters 1000"]
-                        if masters_tournaments:
-                            available_players.sort(key=lambda x: x.get('rank', 999))
-                            masters_draw = sum(t['draw_size'] for t in masters_tournaments)
-                            initial_pool = available_players[:masters_draw]
-                            kept = []
-                            dropped = []
-                            dropouts_count = 0
-                            for p in initial_pool:
-                                if random.random() < 0.10:
-                                    dropouts_count += 1
-                                    dropped.append(p)
-                                else:
-                                    kept.append(p)
-                            
-                            # Backfill with next-best players outside the initial pool
-                            replacements = []
-                            for p in available_players[masters_draw:]:
-                                if p not in kept:
-                                    if p not in dropped:
-                                        replacements.append(p)
-                                        if len(replacements) == dropouts_count:
-                                            break
-                                    
-                            masters_pool = kept + replacements
-                            # If still short (not enough replacements), keep pulling the next-best
-                            if len(masters_pool) < masters_draw:
-                                for p in available_players[masters_draw + len(replacements):]:
-                                    if p not in masters_pool:
-                                        masters_pool.append(p)
-                                    if len(masters_pool) == masters_draw:
-                                        break
-
-                            # Remaining spots this week (for non-Masters events)
-                            spots_left = max(0, total_spots - len(masters_pool))
-
-                            # Fill the rest with next-best players not already in masters_pool
-                            rest_candidates = [p for p in available_players if p not in masters_pool and p not in dropped]
-                            if spots_left > 0:
-                                rest = rest_candidates[:spots_left]
-                            else:
-                                rest = []
-
-                            available_for_week = masters_pool + rest
-                            # Final order not critical, but keep sorted for clarity
-                            available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
-                        else:
-                            # Challenger logic
-                            # Trigger when the week has only Challenger and/or ITF (no ATP/GS/Masters/ATP500/250)
-                            if all(t['category'].startswith("Challenger") or t['category'] == "ITF"
-                                   for t in current_tournaments):
-                               # Only count Challenger draws here; ITF already pre-filled above
-                               ch_tournaments = [t for t in current_tournaments if t['category'].startswith("Challenger")]
-                               ch_total = sum(t['draw_size'] for t in ch_tournaments)
-
-                               # Lowest-ranked first (higher rank number is worse)
-                               available_players.sort(key=lambda x: x.get('rank', 0), reverse=True)
-
-                               # Exclude Top-70 from Challenger candidate pool
-                               challenger_candidates = [p for p in available_players if p.get('rank', 999) > 70]
-
-                               # Preserve previous behavior (-16 buffer), but avoid negatives
-                               take = max(0, ch_total)
-                               available_for_week = challenger_candidates[:take] if take > 0 else challenger_candidates[:ch_total]
-                               # Sort back ascending for clearer ordering
-                               available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
-                            else:
-                                # Basic logic
-                                if len(available_players) > total_spots:
-                                    num_to_skip = len(available_players) - total_spots
-                                    skipped_players = random.sample(available_players, num_to_skip)
-                                    available_for_week = [p for p in available_players if p not in skipped_players]
-                                    available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
-                                else:
-                                    available_for_week = available_players
-                                    available_for_week.sort(key=lambda x: x.get('rank', 0), reverse=False)
-
+                    return 0.99
+            elif category == "ATP 250":
+                if player_rank <= 20:
+                    return 0.20
+                elif player_rank <= 50:
+                    return 0.50
+                elif player_rank <= 100:
+                    return 0.66
+                elif player_rank <= 150:
+                    return 0.80
+                else:
+                    return 0.99
+            elif category == "Challenger 175":
+                if player_rank <= 70:
+                    return 0.0
+                elif player_rank <= 100:
+                    return 0.20
+                elif player_rank <= 150:
+                    return 0.75
+                else:
+                    return 0.99
+            elif category == "Challenger 125":
+                if player_rank <= 70:
+                    return 0.0
+                elif player_rank <= 100:
+                    return 0.15
+                elif player_rank <= 150:
+                    return 0.70
+                elif player_rank <= 200:
+                    return 0.80
+                else:
+                    return 0.99
+            elif category == "Challenger 100":
+                if player_rank <= 70:
+                    return 0.0
+                elif player_rank <= 100:
+                    return 0.10
+                elif player_rank <= 150:
+                    return 0.60
+                elif player_rank <= 200:
+                    return 0.70
+                else:
+                    return 0.99
+            elif category == "Challenger 75":
+                if player_rank <= 100:
+                    return 0.0
+                elif player_rank <= 150:
+                    return 0.40
+                elif player_rank <= 200:
+                    return 0.66
+                else:
+                    return 0.99
+            elif category == "Challenger 50":
+                if player_rank <= 150:
+                    return 0.0
+                elif player_rank <= 200:
+                    return 0.50
+                else:
+                    return 0.99
+            elif category == "ITF":
+                if player_rank <= 200:
+                    return 0.0
+                else:
+                    return 0.25
+            else:
+                return 0.99  # Default for unknown categories
 
         # Sort tournaments by prestige order
         current_tournaments.sort(key=lambda t: self.PRESTIGE_ORDER.index(t['category']))
+        
+        # Create cumulative draw size list
+        draw_sizes = [t['draw_size'] for t in current_tournaments]
+        cumulative_draws = []
+        total = 0
+        for size in draw_sizes:
+            total += size
+            cumulative_draws.append(total)
 
-        # Group tournaments by category
+        # Sort players by rank (best to worst)
+        available_players.sort(key=lambda x: x.get('rank', 999))
+        
+        available_for_week = []
+        
+        # Go through each player and check tournament participation
+        for i, player in enumerate(available_players):
+            player_rank = player.get('rank', 999)
+            current_tournament_idx = 0
+            
+            # Find which tournament we're currently filling
+            for j, cumulative in enumerate(cumulative_draws):
+                if len(available_for_week) < cumulative:
+                    current_tournament_idx = j
+                    break
+            else:
+                # All tournaments are full
+                break
+                
+            current_tournament = current_tournaments[current_tournament_idx]
+            category = current_tournament['category']
+            
+            # Safeguard: if remaining players equals remaining spots, automatically add player
+            remaining_players = len(available_players) - i
+            remaining_spots = cumulative_draws[-1] - len(available_for_week)
+            
+            if remaining_players <= remaining_spots:
+                # Automatically add player to ensure tournaments are filled
+                available_for_week.append(player)
+            else:
+                # Get participation chance and roll
+                chance = get_participation_chance(player_rank, category)
+                if random.random() < chance:
+                    available_for_week.append(player)
+                
+            # Stop if all tournaments are full
+            if len(available_for_week) >= cumulative_draws[-1]:
+                break
+
+        # Group tournaments by category for fair distribution
         tournaments_by_category = {}
-        for tournament in current_tournaments:
+        for i, tournament in enumerate(current_tournaments):
             category = tournament['category']
             if category not in tournaments_by_category:
                 tournaments_by_category[category] = []
-            tournaments_by_category[category].append(tournament)
-
-        # Assign players to tournaments
-        for player in available_for_week:
-            placed = False
-            # Shuffle tournaments for each player to randomize their assignment
-            for category in self.PRESTIGE_ORDER:
-                if category not in tournaments_by_category:
-                    continue
-
-                random.shuffle(tournaments_by_category[category])  # Shuffle tournaments in this category
-
-                for tournament in tournaments_by_category[category]:
-                    # Block top-200 from ITF
-                    if tournament['category'] == "ITF" and player.get('rank', 999) <= 200:
-                        continue
-                    # Block >200 from any non-ITF
-                    if tournament['category'] != "ITF" and tournament['category'] != "Special" and player.get('rank', 999) > 200:
-                        continue
-                    # Block Top-70 from Challenger events
-                    if tournament['category'].startswith("Challenger") and player.get('rank', 999) <= 70:
-                        continue
-
-
-
-                    if len(tournament['participants']) < tournament['draw_size']:
-                        tournament['participants'].append(player['id'])
-                        placed = True
-                        break  # placed in a tournament within this category
-
-                if placed:
-                    break  # stop scanning categories for this player
+            tournaments_by_category[category].append((tournament, i))
+        
+        # Distribute players to tournaments, shuffling within same categories
+        player_idx = 0
+        for category in self.PRESTIGE_ORDER:
+            if category not in tournaments_by_category:
+                continue
+                
+            category_tournaments = tournaments_by_category[category]
+            category_draw_size = sum(t[0]['draw_size'] for t in category_tournaments)
+            
+            # Get players for this category
+            end_idx = min(player_idx + category_draw_size, len(available_for_week))
+            category_players = available_for_week[player_idx:end_idx]
+            
+            # Shuffle players within this category to ensure fair distribution
+            random.shuffle(category_players)
+            
+            # Distribute shuffled players to tournaments in this category
+            shuffled_idx = 0
+            for tournament, original_idx in category_tournaments:
+                draw_size = tournament['draw_size']
+                tournament_players = category_players[shuffled_idx:shuffled_idx + draw_size]
+                tournament['participants'] = [p['id'] for p in tournament_players]
+                shuffled_idx += len(tournament_players)
+                
+                # If we don't have enough players for this tournament, we're done
+                if len(tournament_players) < draw_size:
+                    return
+                    
+            player_idx = end_idx
+            
+            # If we've assigned all available players, we're done
+            if player_idx >= len(available_for_week):
+                break
 
     def generate_bracket(self, tournament_id):
         tournament = next(t for t in self.tournaments if t['id'] == tournament_id)
