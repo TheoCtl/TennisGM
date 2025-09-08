@@ -1907,7 +1907,7 @@ class TournamentScheduler:
                 'winner': tie_winner,
                 'final_score': f"{team1_wins}-{team2_wins}"
             })
-
+    
     def process_world_crown_week(self):
         """Process World Crown events for current week"""
         if self.current_week == 1:
