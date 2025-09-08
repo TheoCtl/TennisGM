@@ -1567,8 +1567,49 @@ class TournamentScheduler:
         """Generate World Crown tournament news for various weeks"""
         world_crown_items = []
         
+        # Check for completed World Crown matches this week
+        if hasattr(self, 'world_crown_week_news') and self.world_crown_week_news.get('week') == self.current_week:
+            matches_info = self.world_crown_week_news['matches']
+            content = []
+            
+            # Generate results announcement
+            if self.current_week == 11:
+                content.append("The World Crown tournament has begun! The first set of quarterfinal matches have concluded:")
+            elif self.current_week == 13:
+                content.append("The World Crown quarterfinals are complete! The semifinalists have been determined:")
+            elif self.current_week == 18:
+                content.append("The first World Crown semifinal has been decided:")
+            elif self.current_week == 20:
+                content.append("The World Crown finalists are set after the conclusion of the semifinals:")
+            elif self.current_week == 47:
+                content.append("The World Crown tournament has concluded with a thrilling final:")
+            
+            # Add results for each completed match
+            for round_type, tie_id, tie_data in matches_info:
+                if tie_data.get('winner') and tie_data.get('matches'):
+                    team1 = tie_data['team1']
+                    team2 = tie_data['team2']
+                    winner = tie_data['winner']
+                    score = f"{tie_data.get('team1_wins', 0)}-{tie_data.get('team2_wins', 0)}"
+                    
+                    content.append(f"• {winner} defeated {team2 if winner == team1 else team1} ({score})")
+                    
+                    # Add some match highlights
+                    if len(tie_data['matches']) >= 3:
+                        key_matches = tie_data['matches'][:2]  # First two matches as highlights
+                        for match in key_matches:
+                            content.append(f"  - {match['winner']} def. {match['player1'] if match['winner'] == match['player2'] else match['player2']} ({match['score']})")
+            
+            content.append("Check the World Crown section for full match details!")
+            
+            world_crown_items.append({
+                'type': 'world_crown_results',
+                'title': 'WORLD CROWN RESULTS',
+                'content': content
+            })
+        
         # World Crown week announcements (11, 13, 18, 20, 47)
-        if self.current_week in [11, 13, 18, 20, 47]:
+        elif self.current_week in [11, 13, 18, 20, 47]:
             # Check if there are matches this week
             matches = self.get_world_crown_matches_for_week(self.current_week)
             if matches:
@@ -1795,8 +1836,29 @@ class TournamentScheduler:
                 p1 = team1_players[i]
                 p2 = team2_players[i]
                 
-                # Simulate match using existing match simulation logic
-                result = self.simulate_match_result(p1, p2)
+                # Simulate match using game engine - neutral conditions (no surface advantages)
+                sets_to_win = 2  # World Crown uses best of 3 sets for more upsets
+                # Create copies without surface modifiers for neutral play
+                p1_neutral = p1.copy()
+                p2_neutral = p2.copy()
+                # Remove surface advantages for fair play
+                if 'surface_modifiers' in p1_neutral:
+                    del p1_neutral['surface_modifiers']
+                if 'surface_modifiers' in p2_neutral:
+                    del p2_neutral['surface_modifiers']
+                if 'favorite_surface' in p1_neutral:
+                    del p1_neutral['favorite_surface']
+                if 'favorite_surface' in p2_neutral:
+                    del p2_neutral['favorite_surface']
+                    
+                game_engine = GameEngine(p1_neutral, p2_neutral, 'hard', sets_to_win=sets_to_win)  
+                match_winner = game_engine.simulate_match()
+                final_score = game_engine.format_set_scores()
+                
+                result = {
+                    'winner_id': match_winner['id'],
+                    'score': final_score
+                }
                 
                 matches_played.append({
                     'player1': p1['name'],
@@ -1853,6 +1915,13 @@ class TournamentScheduler:
         
         # Get matches for this week
         matches_for_week = self.get_world_crown_matches_for_week(self.current_week)
+        
+        if matches_for_week:
+            # Store news about this week's matches before simulation
+            self.world_crown_week_news = {
+                'week': self.current_week,
+                'matches': matches_for_week.copy()
+            }
         
         # Simulate each tie
         for round_type, tie_id, tie_data in matches_for_week:
