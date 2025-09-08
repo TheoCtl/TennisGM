@@ -169,10 +169,20 @@ class TournamentScheduler:
             self.current_year += 1
             self.current_year_retirees = self._process_retirements()
             retired_count = len(self.current_year_retirees)
-            # Age up active players
+            # Age up active players and update yearly ranking tracking
             for player in self.players:
                 if 'age' in player and not player.get('retired', False):
                     player['age'] += 1
+                    
+                    # Update yearly ranking tracking
+                    if 'year_start_rankings' not in player:
+                        player['year_start_rankings'] = {}
+                    
+                    # Move current year to previous year and set new current year
+                    if str(self.current_year - 1) in player['year_start_rankings']:
+                        player['year_start_rankings'][str(self.current_year - 2)] = player['year_start_rankings'][str(self.current_year - 1)]
+                    
+                    player['year_start_rankings'][str(self.current_year - 1)] = player.get('rank', 999)
 
             # HARD CAP and 2x retirements rule
             target_max = 400
@@ -397,7 +407,7 @@ class TournamentScheduler:
                 return 0.90 if player_rank <= 64 else 0.99
             elif category == "ATP 500":
                 if player_rank <= 20:
-                    return 0.50
+                    return 0.66
                 elif player_rank <= 50:
                     return 0.75
                 elif player_rank <= 100:
@@ -466,7 +476,7 @@ class TournamentScheduler:
                 if player_rank <= 200:
                     return 0.0
                 else:
-                    return 0.25
+                    return 0.33
             else:
                 return 0.99  # Default for unknown categories
 
@@ -1012,114 +1022,520 @@ class TournamentScheduler:
                 
     def generate_news_feed(self):
         self.news_feed = []
-        self.news_feed.append("┌─── NEWS FEED ───┘")
-        self.news_feed.append("│")
         
-        # 1. Progressions/regressions weeks
+        # Check if there's any news to report
+        news_items = []
+        
+        # 1. Yearly recap (Week 1 only)
+        if self.current_week == 1:
+            yearly_news = self._generate_yearly_recap()
+            news_items.extend(yearly_news)
+        
+        # 2. Player development weeks
         if self.current_week in [26, 52]:
-            self.news_feed.append("├─ Player development week! ─┤")
-            self.news_feed.append("│")
-
-        # 2. Newgens and retirements (only when they happen)
+            news_items.append({
+                'type': 'development',
+                'title': 'PLAYER DEVELOPMENT WEEK',
+                'content': 'Players across the tour are working on their skills during this development period. Expect to see improvements in technique and fitness over the coming weeks.'
+            })
+        
+        # 3. New players and retirements
         if self.current_week == 1:
             newgens = [p for p in self.players if p['age'] == 16]
             if newgens:
-                self.news_feed.append(f"├─ New players joined the tour ─┤")
-                self.news_feed.append(f"│ {', '.join(p['name'] for p in newgens)}")
-                self.news_feed.append("│")
+                # Templates for newgen announcements
+                single_newgen_templates = [
+                    "{name} has joined the professional tour at age 16, marking the beginning of what could be a promising career.",
+                    "Young talent {name} makes their professional debut, entering the ATP tour with high expectations.",
+                    "{name} steps into the professional arena at just 16 years old, ready to make their mark on tennis.",
+                    "Rising star {name} officially turns professional, beginning their journey on the ATP circuit.",
+                    "{name} launches their professional career, joining the tour as one of tennis's newest prospects."
+                ]
+                
+                few_newgens_templates = [
+                    "{names} have joined the professional tour, bringing fresh talent to the ATP circuit.",
+                    "{names} make their professional debuts, adding exciting new prospects to the tour.",
+                    "The ATP welcomes {names} as they begin their professional careers.",
+                    "{names} enter the professional ranks, ready to challenge the established order.",
+                    "Fresh faces {names} officially join the tour, marking the start of their professional journeys."
+                ]
+                
+                many_newgens_templates = [
+                    "{count} promising young players have joined the professional tour this year, including {names}.",
+                    "The ATP tour gains {count} new talents this season, headlined by {names}.",
+                    "{count} fresh prospects enter professional tennis, with {names} leading the new generation.",
+                    "This year's rookie class features {count} players, notably {names}.",
+                    "The professional tour welcomes {count} newcomers, including standouts {names}."
+                ]
+                
+                if len(newgens) == 1:
+                    template = random.choice(single_newgen_templates)
+                    content = template.format(name=newgens[0]['name'])
+                elif len(newgens) <= 3:
+                    names = ', '.join(p['name'] for p in newgens[:-1]) + f" and {newgens[-1]['name']}"
+                    template = random.choice(few_newgens_templates)
+                    content = template.format(names=names)
+                else:
+                    names = f"{newgens[0]['name']}, {newgens[1]['name']}, and {newgens[2]['name']}"
+                    template = random.choice(many_newgens_templates)
+                    content = template.format(count=len(newgens), names=names)
+                
+                news_items.append({
+                    'type': 'newgens',
+                    'title': 'FRESH FACES ON TOUR',
+                    'content': content
+                })
+        
         if self.current_week == 1 and hasattr(self, 'current_year_retirees'):
-            # Only announce if the player is in the top 100 HOF
+            # Only announce notable retirees (those in HOF or with significant achievements)
             hof_members = sorted(
                 self.hall_of_fame,
                 key=lambda x: (-x['hof_points'], len(x.get('tournament_wins', [])))
             )[:100]
             hof_names = set(p['name'] for p in hof_members)
-            hof_retirees = [p for p in self.current_year_retirees if p in hof_names]
-            if hof_retirees:
-                self.news_feed.append(f"├─ Hall of Fame entries ─┤")
-                self.news_feed.append(f"│ {', '.join(hof_retirees)}")
-                self.news_feed.append("│")
+            notable_retirees = [p for p in self.current_year_retirees if p in hof_names]
+            
+            if notable_retirees:
+                # Templates for retirement announcements
+                single_retirement_templates = [
+                    "Tennis legend {name} has officially announced their retirement from professional tennis, ending a remarkable career that has earned them a place in the Hall of Fame.",
+                    "The sport loses a true champion as {name} hangs up their racquet, concluding a distinguished career filled with memorable victories.",
+                    "{name} calls time on their illustrious career, leaving behind a legacy that will inspire future generations.",
+                    "After years of excellence, {name} steps away from professional tennis, cementing their status as one of the game's greats.",
+                    "Hall of Famer {name} announces retirement, bringing the curtain down on a career that redefined tennis excellence."
+                ]
                 
-        # 3. Top 10 Achievements changes
-        if hasattr(self, 'previous_records'):
-            if self.records != self.previous_records:
-                self.news_feed.append(f"├─ Achievements ─┤")
-            for rec, prev in zip(self.records, self.previous_records):
-                if rec.get("type") == prev.get("type") and rec.get("top10") != prev.get("top10"):
-                    title = rec.get('title', rec.get('type'))
-                    prev_names = [entry['name'] for entry in prev.get('top10', [])]
-                    curr_names = [entry['name'] for entry in rec.get('top10', [])]
-
-                    a = 0
-                    new_entries = [name for name in curr_names if name not in prev_names]
-                    for name in new_entries:
-                        a = 1
-                        pos = curr_names.index(name) + 1
-                        self.news_feed.append(f"│ {name} entered the Top 10 for {title} at n°{pos}")
-
-                    for name in set(curr_names) & set(prev_names):
-                        old_pos = prev_names.index(name)
-                        new_pos = curr_names.index(name)
-                        if old_pos > new_pos:
-                            direction = "up"
-                            self.news_feed.append(
-                                f"│ {name} moved {direction} in the Top 10 for {title}: {old_pos+1} → {new_pos+1}"
-                            )
-                    if a == 1:
-                        self.news_feed.append("│")
-            self.news_feed.append("│")
+                multiple_retirement_templates = [
+                    "The tennis world bids farewell to {names}, who have all announced their retirement from professional tennis after distinguished careers.",
+                    "An era comes to an end as {names} collectively retire, leaving behind legacies of championship excellence.",
+                    "Tennis loses several icons as {names} step away from professional competition after remarkable careers.",
+                    "The sport honors {names} as they transition into retirement, each having contributed immensely to tennis history.",
+                    "Legendary careers conclude as {names} announce their retirement from the professional tour."
+                ]
+                
+                if len(notable_retirees) == 1:
+                    template = random.choice(single_retirement_templates)
+                    content = template.format(name=notable_retirees[0])
+                else:
+                    names = ', '.join(notable_retirees[:-1]) + f" and {notable_retirees[-1]}"
+                    template = random.choice(multiple_retirement_templates)
+                    content = template.format(names=names)
+                
+                news_items.append({
+                    'type': 'retirements',
+                    'title': 'TENNIS LEGENDS RETIRE',
+                    'content': content
+                })
         
-        # 4. Last week's tournament winners with total career wins
-        last_week = self.current_week - 1 if self.current_week > 1 else 52
-        last_year = self.current_year if self.current_week > 1 else self.current_year - 1
+        # 4. Achievement milestones
+        if hasattr(self, 'previous_records') and self.records != self.previous_records:
+            achievement_news = self._generate_achievement_news()
+            news_items.extend(achievement_news)
+        
+        # 5. Tournament results
+        tournament_news = self._generate_tournament_news()
+        news_items.extend(tournament_news)
+        
+        # 6. Ranking changes
+        ranking_news = self._generate_ranking_news()
+        news_items.extend(ranking_news)
+        
+        # Format the news feed
+        if not news_items:
+            self.news_feed = ["No significant tennis news this week."]
+        else:
+            self.news_feed.append("═══════════════════════════════════════════════════════════════════════════════")
+            self.news_feed.append("                              ★ TENNIS WEEKLY ★                              ")
+            self.news_feed.append(f"                          Year {self.current_year}, Week {self.current_week}")
+            self.news_feed.append("═══════════════════════════════════════════════════════════════════════════════")
+            self.news_feed.append("")
+            
+            for i, item in enumerate(news_items):
+                # Add section header
+                self.news_feed.append(f"▼ {item['title']}")
+                self.news_feed.append("─" * (len(item['title']) + 2))
+                
+                # Add content with proper wrapping
+                if isinstance(item['content'], list):
+                    self.news_feed.extend(item['content'])
+                else:
+                    # Word wrap long content
+                    words = item['content'].split()
+                    lines = []
+                    current_line = []
+                    current_length = 0
+                    
+                    for word in words:
+                        if current_length + len(word) + len(current_line) > 75:
+                            if current_line:
+                                lines.append(' '.join(current_line))
+                                current_line = [word]
+                                current_length = len(word)
+                            else:
+                                lines.append(word)
+                        else:
+                            current_line.append(word)
+                            current_length += len(word)
+                    
+                    if current_line:
+                        lines.append(' '.join(current_line))
+                    
+                    self.news_feed.extend(lines)
+                
+                # Add spacing between sections (except for last item)
+                if i < len(news_items) - 1:
+                    self.news_feed.append("")
+                    self.news_feed.append("")
+            
+            self.news_feed.append("")
+            self.news_feed.append("═══════════════════════════════════════════════════════════════════════════════")
+
+    def _generate_yearly_recap(self):
+        """Generate yearly recap news for week 1"""
+        recap_items = []
+        
+        # Best improved players
+        improved_players = self._get_most_improved_players()
+        if improved_players:
+            content = []
+            
+            # Varied intro phrases for improvement stories
+            improvement_intros = [
+                "The biggest success stories of the past year:",
+                "These players made remarkable strides in their rankings:",
+                "Dramatic improvements highlighted last year's tour:",
+                "The most inspiring ranking climbs of the year:",
+                "These athletes transformed their careers with impressive gains:"
+            ]
+            content.append(random.choice(improvement_intros))
+            
+            # Varied templates for improvement descriptions
+            improvement_templates = [
+                "{name} (#{old_rank} → #{new_rank}, +{improvement} positions)",
+                "{name} - Rose from #{old_rank} to #{new_rank} (+{improvement})",
+                "{name}: #{old_rank} to #{new_rank} ({improvement} position climb)",
+                "{name} jumped {improvement} spots from #{old_rank} to #{new_rank}",
+                "{name} transformed from #{old_rank} to #{new_rank} (+{improvement})"
+            ]
+            
+            for i, (player, old_rank, new_rank, improvement) in enumerate(improved_players[:5], 1):
+                template = random.choice(improvement_templates)
+                formatted = template.format(
+                    name=player['name'], 
+                    old_rank=old_rank, 
+                    new_rank=new_rank, 
+                    improvement=improvement
+                )
+                content.append(f"{i}. {formatted}")
+            
+            recap_items.append({
+                'type': 'improved',
+                'title': 'MOST IMPROVED PLAYERS',
+                'content': content
+            })
+        
+        # Most tournaments won last year
+        tournament_winners = self._get_top_tournament_winners_last_year()
+        if tournament_winners:
+            content = []
+            
+            # Varied intro phrases for tournament winners
+            winner_intros = [
+                "Last year's most successful tournament champions:",
+                "The tour's most prolific winners from the previous season:",
+                "These players dominated the tournament circuit:",
+                "The most consistent champions throughout the year:",
+                "Last season's title-collecting superstars:"
+            ]
+            content.append(random.choice(winner_intros))
+            
+            # Varied templates for tournament wins
+            winner_templates = [
+                "{name} - {wins} {tournament_text}",
+                "{name} captured {wins} {tournament_text}",
+                "{name}: {wins} {tournament_text} claimed",
+                "{name} secured {wins} championship {title_suffix}",
+                "{name} dominated with {wins} {tournament_text}"
+            ]
+            
+            for i, (player, wins) in enumerate(tournament_winners[:5], 1):
+                tournament_text = "tournament" if wins == 1 else "tournaments"
+                title_suffix = "title" if wins == 1 else "titles"
+                
+                template = random.choice(winner_templates)
+                formatted = template.format(
+                    name=player['name'], 
+                    wins=wins, 
+                    tournament_text=tournament_text,
+                    title_suffix=title_suffix
+                )
+                content.append(f"{i}. {formatted}")
+            
+            recap_items.append({
+                'type': 'winners',
+                'title': 'TOP TOURNAMENT WINNERS',
+                'content': content
+            })
+        
+        return recap_items
     
-        last_week_winners = []
+    def _get_most_improved_players(self):
+        """Get players with the biggest ranking improvements from last year"""
+        improved = []
+        last_year = str(self.current_year - 1)
+        
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+                
+            year_rankings = player.get('year_start_rankings', {})
+            if last_year in year_rankings:
+                old_rank = year_rankings[last_year]
+                new_rank = player.get('rank', 999)
+                
+                # Only count improvements (lower ranking number = better)
+                if old_rank > new_rank and new_rank <= 200:  # Must be in top 200 now
+                    improvement = old_rank - new_rank
+                    improved.append((player, old_rank, new_rank, improvement))
+        
+        return sorted(improved, key=lambda x: x[3], reverse=True)
+    
+    def _get_top_tournament_winners_last_year(self):
+        """Get players who won the most tournaments last year"""
+        winner_counts = {}
+        last_year = self.current_year - 1
+        
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+                
+            wins_last_year = len([
+                win for win in player.get('tournament_wins', [])
+                if win.get('year') == last_year
+            ])
+            
+            if wins_last_year > 0:
+                winner_counts[player['id']] = (player, wins_last_year)
+        
+        return sorted(winner_counts.values(), key=lambda x: x[1], reverse=True)
+    
+    def _generate_achievement_news(self):
+        """Generate news about achievement changes"""
+        achievement_items = []
+        
+        # Templates for achievement announcements
+        achievement_templates = [
+            "{name} has entered the all-time top 10 for {title}, claiming the #{pos} position with their recent achievements.",
+            "{name} breaks into the prestigious top 10 for {title}, securing #{pos} place in tennis history.",
+            "{name} makes history by reaching #{pos} in the all-time {title} rankings.",
+            "{name} achieves a remarkable milestone, entering the top 10 for {title} at #{pos}.",
+            "{name} cements their legacy with a #{pos} ranking in the all-time {title} category.",
+            "{name} joins tennis elite by claiming #{pos} in the historical {title} standings."
+        ]
+        
+        for rec, prev in zip(self.records, self.previous_records):
+            if rec.get("type") == prev.get("type") and rec.get("top10") != prev.get("top10"):
+                title = rec.get('title', rec.get('type'))
+                prev_names = [entry['name'] for entry in prev.get('top10', [])]
+                curr_names = [entry['name'] for entry in rec.get('top10', [])]
+                
+                new_entries = [name for name in curr_names if name not in prev_names]
+                
+                if new_entries:
+                    for name in new_entries:
+                        pos = curr_names.index(name) + 1
+                        template = random.choice(achievement_templates)
+                        content = template.format(name=name, title=title.lower(), pos=pos)
+                        
+                        achievement_items.append({
+                            'type': 'achievement',
+                            'title': 'RECORD MILESTONE',
+                            'content': content
+                        })
+        
+        return achievement_items
+    
+    def _generate_tournament_news(self):
+        """Generate news about recent tournament winners"""
+        tournament_items = []
+        
+        last_week = self.current_week - 1 if self.current_week > 1 else 52
+        
+        # Get major tournament winners only (no Challengers or ITF)
+        major_winners = []
         for tournament in self.tournaments:
-            if tournament['week'] == last_week and tournament['category'].startswith("Challenger") == False and tournament['category'].startswith("ITF") == False and tournament.get('winner_id'):
+            if (tournament['week'] == last_week and 
+                not tournament['category'].startswith("Challenger") and 
+                not tournament['category'].startswith("ITF") and 
+                tournament.get('winner_id')):
+                
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner:
                     total_wins = len(winner.get('tournament_wins', []))
-                    last_week_winners.append((winner, tournament, total_wins))
-
-        if last_week_winners:
-            self.news_feed.append(f"├─ Last Week ATP Winners ─┤")
-            for winner, tournament, total_wins in last_week_winners:
-                self.news_feed.append(
-                    f"│ {winner['name']} won {tournament['name']} ({tournament['category']}, {tournament['surface']}) - Career win n°{total_wins}"
+                    major_winners.append((winner, tournament, total_wins))
+        
+        if major_winners:
+            content = []
+            
+            # Varied intro phrases
+            intro_phrases = [
+                "Last week's champions made their mark on the ATP circuit:",
+                "The ATP tour witnessed impressive victories across multiple tournaments:",
+                "Several players celebrated breakthrough moments and continued success:",
+                "Championship glory was spread across the professional circuit:",
+                "The tennis world saw commanding performances from these champions:"
+            ]
+            content.append(random.choice(intro_phrases))
+            
+            # Varied templates for tournament wins
+            win_templates = [
+                "captured", "claimed", "secured", "won", "triumphed at", "dominated", "conquered"
+            ]
+            
+            surface_templates = [
+                " on the {surface} courts",
+                " across {surface} surfaces", 
+                " on {surface}",
+                " playing on {surface}"
+            ]
+            
+            career_templates = [
+                " This marks career title #{total} for the {nationality} star.",
+                " The {nationality} player now has {total} professional titles to their name.",
+                " Career victory #{total} goes to the talented {nationality} athlete.",
+                " This brings the {nationality} champion's title count to {total}.",
+                " The {nationality} sensation adds title #{total} to their impressive resume."
+            ]
+            
+            for winner, tournament, total_wins in major_winners:
+                win_verb = random.choice(win_templates)
+                
+                surface_text = ""
+                if tournament['surface'] != 'hard':
+                    surface_template = random.choice(surface_templates)
+                    surface_text = surface_template.format(surface=tournament['surface'])
+                
+                career_template = random.choice(career_templates)
+                career_text = career_template.format(
+                    total=total_wins, 
+                    nationality=winner.get('nationality', 'international')
                 )
-        self.news_feed.append("│")
+                
+                content.append(f"• {winner['name']} {win_verb} the {tournament['name']} ({tournament['category']}){surface_text}.{career_text}")
+            
+            tournament_items.append({
+                'type': 'tournaments',
+                'title': 'TOURNAMENT CHAMPIONS',
+                'content': content
+            })
+        
+        return tournament_items
     
-        # 5. Get ranking changes
+    def _generate_ranking_news(self):
+        """Generate news about significant ranking changes"""
+        ranking_items = []
+        
         current_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
         ranking_changes = {}
+        
         if hasattr(self, 'old_rankings'):
             for player_id, current_rank in current_rankings.items():
                 old_rank = self.old_rankings.get(player_id, 999)
                 if old_rank != current_rank:
                     ranking_changes[player_id] = (old_rank, current_rank)
-
-        top10_changes = [
-            (p['name'], change[0], change[1]) 
-            for p in self.players 
-            if not p.get('retired', False) 
-            and p['id'] in ranking_changes 
-            and (change := ranking_changes[p['id']]) 
-            and (change[1] <= 10 or change[0] <= 10)
-        ]
         
-        current_top10 = [(name, old, new) for name, old, new in top10_changes if new <= 10]
-        dropped_out = [(name, old, new) for name, old, new in top10_changes if new > 10]
+        # Focus on top 20 movements and new top 10 entries
+        significant_changes = []
+        for p in self.players:
+            if (not p.get('retired', False) and 
+                p['id'] in ranking_changes):
+                
+                old_rank, new_rank = ranking_changes[p['id']]
+                
+                # New top 10 entry
+                if new_rank <= 10 and old_rank > 10:
+                    significant_changes.append((p['name'], old_rank, new_rank, 'top10_entry'))
+                # Dropped from top 10
+                elif old_rank <= 10 and new_rank > 10:
+                    significant_changes.append((p['name'], old_rank, new_rank, 'top10_exit'))
+                # Significant movement in top 20
+                elif new_rank <= 20 and abs(old_rank - new_rank) >= 5:
+                    change_type = 'big_rise' if new_rank < old_rank else 'big_drop'
+                    significant_changes.append((p['name'], old_rank, new_rank, change_type))
         
-        current_top10.sort(key=lambda x: x[2])
-        dropped_out.sort(key=lambda x: x[1])
+        if significant_changes:
+            content = []
+            
+            # Varied intro phrases
+            intro_phrases = [
+                "Notable movements in the ATP Rankings:",
+                "The latest rankings reveal significant changes:",
+                "Several players experienced dramatic ranking shifts:",
+                "This week's rankings brought major surprises:",
+                "Significant changes have shaken up the ATP hierarchy:"
+            ]
+            content.append(random.choice(intro_phrases))
+            
+            # Sort by importance: top 10 entries, then big rises, then others
+            priority = {'top10_entry': 0, 'big_rise': 1, 'big_drop': 2, 'top10_exit': 3}
+            significant_changes.sort(key=lambda x: (priority.get(x[3], 4), x[2]))
+            
+            # Templates for different types of ranking changes
+            top10_entry_templates = [
+                "breaks into the top 10 for the first time, rising to #{new_rank}",
+                "achieves a career-high ranking of #{new_rank}, entering the elite top 10",
+                "makes their top 10 debut at #{new_rank}",
+                "cracks the top 10 barrier, climbing to #{new_rank}",
+                "reaches #{new_rank}, marking their first appearance in the top 10"
+            ]
+            
+            top10_exit_templates = [
+                "drops out of the top 10, falling to #{new_rank}",
+                "slides from the elite group, now ranked #{new_rank}",
+                "loses their top 10 status, dropping to #{new_rank}",
+                "falls from grace to #{new_rank}",
+                "exits the top 10 after dropping to #{new_rank}"
+            ]
+            
+            big_rise_templates = [
+                "surges {movement} positions to #{new_rank}",
+                "climbs {movement} spots to reach #{new_rank}",
+                "rockets up {movement} places to #{new_rank}",
+                "soars {movement} positions to #{new_rank}",
+                "jumps an impressive {movement} spots to #{new_rank}"
+            ]
+            
+            big_drop_templates = [
+                "falls {movement} positions to #{new_rank}",
+                "drops {movement} spots to #{new_rank}",
+                "slides {movement} places down to #{new_rank}",
+                "tumbles {movement} positions to #{new_rank}",
+                "plummets {movement} spots to #{new_rank}"
+            ]
+            
+            for name, old_rank, new_rank, change_type in significant_changes:
+                if change_type == 'top10_entry':
+                    template = random.choice(top10_entry_templates)
+                    content.append(f"• {name} {template.format(new_rank=new_rank)}")
+                elif change_type == 'top10_exit':
+                    template = random.choice(top10_exit_templates)
+                    content.append(f"• {name} {template.format(new_rank=new_rank)}")
+                elif change_type == 'big_rise':
+                    movement = old_rank - new_rank
+                    template = random.choice(big_rise_templates)
+                    content.append(f"• {name} {template.format(movement=movement, new_rank=new_rank)}")
+                elif change_type == 'big_drop':
+                    movement = new_rank - old_rank
+                    template = random.choice(big_drop_templates)
+                    content.append(f"• {name} {template.format(movement=movement, new_rank=new_rank)}")
+            
+            ranking_items.append({
+                'type': 'rankings',
+                'title': 'RANKING MOVEMENTS',
+                'content': content
+            })
         
-        if top10_changes:
-            self.news_feed.append(f"├─ Top 10 Changes ─┤")
-            for name, old, new in current_top10:
-                self.news_feed.append(f"│ {name} ({old} -> {new})")
-            for name, old, new in dropped_out:
-                self.news_feed.append(f"│ Dropped from top 10: {name} (was {old})")
-        self.news_feed.append("└──────────────────────────────────────────────────────────────────────────────")
+        return ranking_items
 
     def simulate_current_round(self, tournament_id):
         """

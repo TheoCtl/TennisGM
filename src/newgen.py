@@ -19,6 +19,10 @@ class NewGenGenerator:
                 "last_names": [str(i) for i in range(1, 11)]
             }
     
+    NATIONALITIES = [
+        "Arcton", "Halcyon", "Rin", "Hethrion", "Haran", "Loknig", "Jeonguk", "Bleak"
+    ]
+
     def generate_player_with_ids(self, current_year, player_id, player_rank):
         """Generate a new young player with random attributes"""
         first_name = random.choice(self.name_data["first_names"])
@@ -45,6 +49,7 @@ class NewGenGenerator:
             "name": f"{first_name} {last_name}",
             "age": 16,
             "hand": random.choice(["Right", "Left"]),
+            "nationality": random.choice(self.NATIONALITIES),
             "skills": skills,
             "potential_factor": potential_factor,
             "rank": player_rank,
@@ -61,6 +66,7 @@ class NewGenGenerator:
             "tournament_history": [],
             "tournament_wins": [],
             "bonus": random.choice(list(skills.keys())),
+            "year_start_rankings": {},  # Track ranking at start of each year
         }
     
     def generate_player_id(self):

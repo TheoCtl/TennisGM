@@ -235,7 +235,7 @@ class TennisGMApp:
         details = [
             f"Rank: {player.get('rank', 'N/A')}",
             f"Highest Ranking: {player.get('highest_ranking', 'N/A')}",
-            f"Age: {player.get('age', 'N/A')}, {player.get('hand', 'N/A')}-handed",
+            f"{player.get('age', 'N/A')}yo, {player.get('hand', 'N/A')}-handed, {player.get('nationality', 'N/A')}",
             f"Potential Factor: {player.get('potential_factor', 'N/A')}",
             f"Surface Modifiers: {format_surface_mods(player)}",
             "",
@@ -337,17 +337,17 @@ class TennisGMApp:
             for widget in scroll_frame.winfo_children():
                 widget.destroy()
             filtered_players = []
-            for player, points in ranked_players:
+            for ranking_pos, (player, points) in enumerate(ranked_players, 1):
                 if fav_only and not player.get('favorite', False):
                     continue
                 if query and query not in player['name'].lower():
                     continue
-                filtered_players.append((player, points))
-            for idx, (player, points) in enumerate(filtered_players, 1):
+                filtered_players.append((ranking_pos, player, points))
+            for ranking_pos, player, points in filtered_players:
                 color = "blue" if player.get('favorite', False) else "black"
                 btn = tk.Button(
                     scroll_frame,
-                    text=f"{idx}. {player['name']} - {points} pts",
+                    text=f"{ranking_pos}. {player['name']} - {points} pts",
                     anchor="w",
                     width=40,
                     fg=color,  # color favorites in list too
