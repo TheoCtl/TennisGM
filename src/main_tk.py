@@ -3275,27 +3275,36 @@ class TennisGMApp:
             if not matches:
                 recent_matches = []
                 bracket = self.scheduler.world_crown.get('current_bracket', {})
-                
+
                 # Check all rounds for completed matches (in reverse order for most recent first)
                 for round_type in ['final', 'semifinals', 'quarterfinals']:
                     if round_type in bracket:
                         for tie_id, tie_data in bracket[round_type].items():
                             if tie_data.get('winner') and tie_data.get('matches'):
                                 recent_matches.append((round_type, tie_id, tie_data, tie_data.get('week', current_week)))
-                
+
                 if recent_matches:
                     tk.Label(scrollable_frame, 
                             text="📊 Recent World Crown Results", 
                             font=("Arial", 12, "bold"),
                             bg="white",
                             fg="#2c3e50").pack(pady=10)
-                    
-                    for round_type, tie_id, tie_data, match_week in recent_matches:
+
+                    # 2x2 grid for recent matches
+                    grid_frame = tk.Frame(scrollable_frame, bg="white")
+                    grid_frame.pack(fill="both", expand=True)
+                    for idx, (round_type, tie_id, tie_data, match_week) in enumerate(recent_matches):
+                        row = idx // 2
+                        col = idx % 2
+                        tie_container = tk.Frame(grid_frame, bg="white")
+                        tie_container.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
+                        self.world_crown_content_frame = tie_container
                         self._display_world_crown_tie_result(round_type, tie_id, tie_data, match_week)
+                    self.world_crown_content_frame = scrollable_frame
                 else:
                     no_matches_frame = tk.Frame(scrollable_frame, bg="#f8f9fa", relief="solid", bd=1)
                     no_matches_frame.pack(fill="x", padx=20, pady=50)
-                    
+
                     tk.Label(no_matches_frame, 
                             text="⏰ No World Crown matches scheduled for this week", 
                             font=("Arial", 12),
@@ -3309,10 +3318,19 @@ class TennisGMApp:
                         font=("Arial", 12, "bold"),
                         bg="white",
                         fg="#2c3e50").pack(pady=10)
-                
-                for round_type, tie_id, tie_data in matches:
+
+                # 2x2 grid for current ties
+                grid_frame = tk.Frame(scrollable_frame, bg="white")
+                grid_frame.pack(fill="both", expand=True)
+                for idx, (round_type, tie_id, tie_data) in enumerate(matches):
+                    row = idx // 2
+                    col = idx % 2
+                    tie_container = tk.Frame(grid_frame, bg="white")
+                    tie_container.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
+                    self.world_crown_content_frame = tie_container
                     self._display_world_crown_tie(round_type, tie_id, tie_data)
-        
+                self.world_crown_content_frame = scrollable_frame
+
         finally:
             # Restore original content frame
             self.world_crown_content_frame = original_content_frame
@@ -3320,7 +3338,7 @@ class TennisGMApp:
     def _display_world_crown_tie_result(self, round_type, tie_id, tie_data, week):
         """Display a completed World Crown tie result"""
         tie_frame = tk.Frame(self.world_crown_content_frame, relief="ridge", bd=2, bg="white")
-        tie_frame.pack(fill="x", padx=20, pady=10)
+        tie_frame.pack(fill="both", expand=True, padx=10, pady=10)
         
         # Title with week info
         title_frame = tk.Frame(tie_frame, bg="#4caf50")
@@ -3333,43 +3351,46 @@ class TennisGMApp:
                 bg="#4caf50",
                 fg="white",
                 pady=8).pack()
-        
+
         # Get team rosters for player identification
         team1_players = self.scheduler.world_crown['current_year_teams'].get(tie_data['team1'], [])
         team2_players = self.scheduler.world_crown['current_year_teams'].get(tie_data['team2'], [])
-        
+
         # Show match results
         if 'matches' in tie_data and tie_data['matches']:
             results_header = tk.Frame(tie_frame, bg="#2196f3")
             results_header.pack(fill="x", padx=10, pady=(10, 5))
             tk.Label(results_header, 
-                    text="🏆 INDIVIDUAL MATCH RESULTS", 
-                    font=("Arial", 11, "bold"),
-                    bg="#2196f3",
-                    fg="white",
-                    pady=5).pack()
-            
+                text="🏆 INDIVIDUAL MATCH RESULTS", 
+                font=("Arial", 11, "bold"),
+                bg="#2196f3",
+                fg="white",
+                pady=5).pack()
+
             matches_frame = tk.Frame(tie_frame, bg="white")
             matches_frame.pack(fill="x", padx=10, pady=5)
-            
+
             for i, match in enumerate(tie_data['matches'], 1):
                 match_result_frame = tk.Frame(matches_frame, bg="#f8f9fa", relief="solid", bd=1)
                 match_result_frame.pack(fill="x", pady=2)
-                
-                winner_name = match['winner']
-                loser_name = match['player1'] if match['winner'] == match['player2'] else match['player2']
-                
+
                 # Determine which team each player belongs to
-                winner_team = tie_data['team1'] if winner_name in [p['name'] for p in team1_players] else tie_data['team2']
-                loser_team = tie_data['team1'] if loser_name in [p['name'] for p in team1_players] else tie_data['team2']
-                
-                match_text = f"Match {i}: {winner_name} ({winner_team}) def. {loser_name} ({loser_team}) - {match['score']}"
-                
-                tk.Label(match_result_frame, 
-                        text=match_text, 
-                        font=("Arial", 10, "bold"),
-                        bg="#f8f9fa",
-                        anchor="w").pack(fill="x", padx=10, pady=5)
+                p1 = match['player1']
+                p2 = match['player2']
+                winner = match['winner']
+                score = match['score']
+                p1_team = tie_data['team1'] if p1 in [p['name'] for p in team1_players] else tie_data['team2']
+                p2_team = tie_data['team1'] if p2 in [p['name'] for p in team1_players] else tie_data['team2']
+
+                # Display as: PlayerA vs PlayerB  [score], winner in green
+                p1_fg = "#27ae60" if winner == p1 else "#222"
+                p2_fg = "#27ae60" if winner == p2 else "#222"
+                match_row = tk.Frame(match_result_frame, bg="#f8f9fa")
+                match_row.pack(fill="x", padx=10, pady=5)
+                tk.Label(match_row, text=p1, font=("Arial", 10, "bold"), fg=p1_fg, bg="#f8f9fa", anchor="w", width=18).pack(side="left")
+                tk.Label(match_row, text="vs", font=("Arial", 10, "bold"), bg="#f8f9fa").pack(side="left", padx=2)
+                tk.Label(match_row, text=p2, font=("Arial", 10, "bold"), fg=p2_fg, bg="#f8f9fa", anchor="w", width=18).pack(side="left")
+                tk.Label(match_row, text=score, font=("Arial", 10), bg="#f8f9fa").pack(side="left", padx=8)
             
             # Show final result
             final_result_frame = tk.Frame(tie_frame, bg="#d4edda", relief="solid", bd=2)
@@ -3384,7 +3405,7 @@ class TennisGMApp:
     def _display_world_crown_tie(self, round_type, tie_id, tie_data):
         """Display a World Crown tie (current week)"""
         tie_frame = tk.Frame(self.world_crown_content_frame, relief="ridge", bd=2, bg="white")
-        tie_frame.pack(fill="x", padx=20, pady=10)
+        tie_frame.pack(fill="both", expand=True, padx=10, pady=10)
         
         # Title with flags/colors
         title_frame = tk.Frame(tie_frame, bg="#9b59b6")
@@ -3468,45 +3489,36 @@ class TennisGMApp:
             results_header = tk.Frame(tie_frame, bg="#4caf50")
             results_header.pack(fill="x", padx=10, pady=(10, 5))
             tk.Label(results_header, 
-                    text="🏆 MATCH RESULTS", 
-                    font=("Arial", 12, "bold"),
-                    bg="#4caf50",
-                    fg="white",
-                    pady=5).pack()
-            
+                text="🏆 MATCH RESULTS", 
+                font=("Arial", 12, "bold"),
+                bg="#4caf50",
+                fg="white",
+                pady=5).pack()
+
             matches_frame = tk.Frame(tie_frame, bg="white")
             matches_frame.pack(fill="x", padx=10, pady=5)
-            
+
             for i, match in enumerate(tie_data['matches'], 1):
                 match_result_frame = tk.Frame(matches_frame, bg="#f8f9fa", relief="solid", bd=1)
                 match_result_frame.pack(fill="x", pady=2)
-                
-                winner_name = match['winner']
-                loser_name = match['player1'] if match['winner'] == match['player2'] else match['player2']
-                
-                # Determine which team each player belongs to
-                winner_team = tie_data['team1'] if winner_name in [p['name'] for p in team1_players] else tie_data['team2']
-                loser_team = tie_data['team1'] if loser_name in [p['name'] for p in team1_players] else tie_data['team2']
-                
-                match_text = f"Match {i}: {winner_name} ({winner_team}) def. {loser_name} ({loser_team}) - {match['score']}"
-                
-                tk.Label(match_result_frame, 
-                        text=match_text, 
-                        font=("Arial", 10, "bold"),
-                        bg="#f8f9fa",
-                        anchor="w").pack(fill="x", padx=10, pady=5)
-            
-            # Show final result
-            final_result_frame = tk.Frame(tie_frame, bg="#d4edda" if tie_data.get('winner') else "#f8f9fa", 
-                                        relief="solid", bd=2)
-            final_result_frame.pack(fill="x", padx=10, pady=10)
-            
-            if tie_data.get('winner'):
-                tk.Label(final_result_frame, 
-                        text=f"🏆 TIE WINNER: {tie_data['winner']} ({tie_data.get('team1_wins', 0)}-{tie_data.get('team2_wins', 0)})", 
-                        font=("Arial", 12, "bold"),
-                        bg="#d4edda",
-                        fg="#155724").pack(pady=8)
+
+            # Determine which team each player belongs to
+            p1 = match['player1']
+            p2 = match['player2']
+            winner = match['winner']
+            score = match['score']
+            p1_team = tie_data['team1'] if p1 in [p['name'] for p in team1_players] else tie_data['team2']
+            p2_team = tie_data['team1'] if p2 in [p['name'] for p in team1_players] else tie_data['team2']
+
+            # Display as: PlayerA vs PlayerB  [score], winner in green
+            p1_fg = "#27ae60" if winner == p1 else "#222"
+            p2_fg = "#27ae60" if winner == p2 else "#222"
+            match_row = tk.Frame(match_result_frame, bg="#f8f9fa")
+            match_row.pack(fill="x", padx=10, pady=5)
+            tk.Label(match_row, text=p1, font=("Arial", 10, "bold"), fg=p1_fg, bg="#f8f9fa", anchor="w", width=18).pack(side="left")
+            tk.Label(match_row, text="vs", font=("Arial", 10, "bold"), bg="#f8f9fa").pack(side="left", padx=2)
+            tk.Label(match_row, text=p2, font=("Arial", 10, "bold"), fg=p2_fg, bg="#f8f9fa", anchor="w", width=18).pack(side="left")
+            tk.Label(match_row, text=score, font=("Arial", 10), bg="#f8f9fa").pack(side="left", padx=8)
         else:
             # Matches not played yet - show simulate button
             button_frame = tk.Frame(tie_frame, bg="white")
@@ -3593,34 +3605,57 @@ class TennisGMApp:
         canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
         
-        # Display teams in a grid layout (2 columns)
+        # Display teams in a grid layout (4 columns)
         teams_container = tk.Frame(scroll_frame)
         teams_container.pack(fill="both", expand=True, padx=10, pady=5)
-        
+
         # Sort countries alphabetically for consistent display
         sorted_countries = sorted(teams.keys())
+
+        # Determine eliminated teams (teams that lost completed ties)
+        bracket = self.scheduler.world_crown.get('current_bracket', {})
+        eliminated = set()
         
+        for round_type in ['quarterfinals', 'semifinals', 'final']:
+            if round_type in bracket:
+                for tie_id, tie_data in bracket[round_type].items():
+                    # If tie has a winner, the other team is eliminated
+                    if tie_data.get('winner'):
+                        winner = tie_data['winner']
+                        team1 = tie_data['team1']
+                        team2 = tie_data['team2']
+                        
+                        # The team that is NOT the winner is eliminated
+                        if winner == team1:
+                            eliminated.add(team2)
+                        elif winner == team2:
+                            eliminated.add(team1)
+
         for i, country in enumerate(sorted_countries):
             players = teams[country]
-            
-            # Create frame for each team (2 columns layout)
-            col = i % 2
-            row = i // 2
-            
+
+            # Create frame for each team (4 columns layout)
+            col = i % 4
+            row = i // 4
+
+            # Determine color: blue for active, red for eliminated
+            is_eliminated = country in eliminated
+            bg_color = "#e74c3c" if is_eliminated else "#4a90e2"
+
             team_frame = tk.Frame(teams_container, relief="ridge", bd=2, bg="white")
             team_frame.grid(row=row, column=col, padx=5, pady=5, sticky="nsew")
-            
+
             # Configure grid weights for responsive layout
             teams_container.grid_columnconfigure(col, weight=1)
-            
+
             # Country header
-            country_header = tk.Frame(team_frame, bg="#4a90e2")
+            country_header = tk.Frame(team_frame, bg=bg_color)
             country_header.pack(fill="x")
-            
+
             tk.Label(country_header, 
                     text=f"{country} National Team", 
                     font=("Arial", 12, "bold"), 
-                    bg="#4a90e2", 
+                    bg=bg_color, 
                     fg="white").pack(pady=5)
             
             # Team composition info
