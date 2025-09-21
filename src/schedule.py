@@ -717,15 +717,21 @@ class TournamentScheduler:
                 match_events = list(game_engine.simulate_match(visualize=True))
                 match_log = game_engine.match_log
                 
-                # Extract point events with ball positions
+                # Extract point events with ball positions and find match winner
+                match_winner = None
                 if match_events:
                     for event in match_events:
                         if event['type'] == 'point':
                             point_events.append(event)
+                        elif event['type'] == 'match_end':
+                            match_winner = event['winner']
                     
-                    # Find the last point's winner
-                    match_winner = player1 if match_events[-1]['winner'] == 'player1' else player2
-                    winner_id = match_winner['id']
+                    # Set winner_id based on actual match winner
+                    if match_winner:
+                        winner_id = match_winner['id']
+                    else:
+                        # Fallback if no match_end event found
+                        winner_id = player1['id'] if game_engine.sets['player1'] > game_engine.sets['player2'] else player2['id']
                 else:
                     # Handle case with no events (quick match or error)
                     winner_id = player1['id'] if game_engine.sets['player1'] > game_engine.sets['player2'] else player2['id']

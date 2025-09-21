@@ -2168,8 +2168,15 @@ class TennisGMApp:
                     # Add match log entry
                     winner_name = player1['name'] if event['winner'] == 'player1' else player2['name']
                     match_log.append(f"Point played. Winner: {winner_name}")
-                    winner = player1 if event['winner'] == 'player1' else player2
                     
+                    # Return to capturing engine output
+                    sys.stdout = debug_output
+                    
+                elif event['type'] == 'match_end':
+                    # Restore stdout for debug
+                    sys.stdout = old_stdout
+                    # Set the actual match winner
+                    winner = event['winner']
                     # Return to capturing engine output
                     sys.stdout = debug_output
                     
@@ -3695,23 +3702,23 @@ class TennisGMApp:
                 match_result_frame = tk.Frame(matches_frame, bg="#f8f9fa", relief="solid", bd=1)
                 match_result_frame.pack(fill="x", pady=2)
 
-            # Determine which team each player belongs to
-            p1 = match['player1']
-            p2 = match['player2']
-            winner = match['winner']
-            score = match['score']
-            p1_team = tie_data['team1'] if p1 in [p['name'] for p in team1_players] else tie_data['team2']
-            p2_team = tie_data['team1'] if p2 in [p['name'] for p in team1_players] else tie_data['team2']
+                # Determine which team each player belongs to
+                p1 = match['player1']
+                p2 = match['player2']
+                winner = match['winner']
+                score = match['score']
+                p1_team = tie_data['team1'] if p1 in [p['name'] for p in team1_players] else tie_data['team2']
+                p2_team = tie_data['team1'] if p2 in [p['name'] for p in team1_players] else tie_data['team2']
 
-            # Display as: PlayerA vs PlayerB  [score], winner in green
-            p1_fg = "#27ae60" if winner == p1 else "#222"
-            p2_fg = "#27ae60" if winner == p2 else "#222"
-            match_row = tk.Frame(match_result_frame, bg="#f8f9fa")
-            match_row.pack(fill="x", padx=10, pady=5)
-            tk.Label(match_row, text=p1, font=("Arial", 10, "bold"), fg=p1_fg, bg="#f8f9fa", anchor="w", width=18).pack(side="left")
-            tk.Label(match_row, text="vs", font=("Arial", 10, "bold"), bg="#f8f9fa").pack(side="left", padx=2)
-            tk.Label(match_row, text=p2, font=("Arial", 10, "bold"), fg=p2_fg, bg="#f8f9fa", anchor="w", width=18).pack(side="left")
-            tk.Label(match_row, text=score, font=("Arial", 10), bg="#f8f9fa").pack(side="left", padx=8)
+                # Display as: PlayerA vs PlayerB  [score], winner in green
+                p1_fg = "#27ae60" if winner == p1 else "#222"
+                p2_fg = "#27ae60" if winner == p2 else "#222"
+                match_row = tk.Frame(match_result_frame, bg="#f8f9fa")
+                match_row.pack(fill="x", padx=10, pady=5)
+                tk.Label(match_row, text=p1, font=("Arial", 10, "bold"), fg=p1_fg, bg="#f8f9fa", anchor="w", width=18).pack(side="left")
+                tk.Label(match_row, text="vs", font=("Arial", 10, "bold"), bg="#f8f9fa").pack(side="left", padx=2)
+                tk.Label(match_row, text=p2, font=("Arial", 10, "bold"), fg=p2_fg, bg="#f8f9fa", anchor="w", width=18).pack(side="left")
+                tk.Label(match_row, text=score, font=("Arial", 10), bg="#f8f9fa").pack(side="left", padx=8)
         else:
             # Matches not played yet - show simulate button
             button_frame = tk.Frame(tie_frame, bg="white")

@@ -89,41 +89,64 @@ class GameEngine:
         Simulate a full match until one player wins.
         If visualize=True, yields point events for visualization.
         """
+        if visualize:
+            return self._simulate_match_visualize()
+        else:
+            return self._simulate_match_normal()
+
+    def _simulate_match_visualize(self):
+        """Simulate match with visualization (yields events)"""
         while not self.is_match_over():
             while not self.is_set_over():
-                result = self.simulate_point(visualize=visualize)
-                
-                if visualize:
-                    # When visualizing, simulate_point returns a tuple (winner_key, events)
-                    winner_key, point_events = result
-                    point_data = {
-                        'type': 'point',
-                        'events': point_events,
-                        'winner': winner_key
-                    }
-                    yield point_data
-                else:
-                    # When not visualizing, simulate_point just returns winner_key
-                    winner_key = result
-                    
+                winner_key, point_events = self.simulate_point(visualize=True)
+                point_data = {
+                    'type': 'point',
+                    'events': point_events,
+                    'winner': winner_key
+                }
+                yield point_data
                 self.update_games(winner_key)
+                self.current_server, self.current_receiver = self.current_receiver, self.current_server
+            set_winner_key = self.is_set_over()
+            self.update_sets(set_winner_key)
 
-                # Alternate server and receiver after each point
+        if self.sets["player1"] == self.sets_to_win:
+            match_winner = self.player1
+        elif self.sets["player2"] == self.sets_to_win:
+            match_winner = self.player2
+        else:
+            # This should never happen if match simulation is correct
+            raise ValueError(f"Match ended without a winner! Sets: P1={self.sets['player1']}, P2={self.sets['player2']}")
+
+        self.match_log.append(
+            f"{match_winner['name']} wins the match! Final Score: {self.format_set_scores()}"
+        )
+        yield {'type': 'match_end', 'winner': match_winner}
+
+    def _simulate_match_normal(self):
+        """Simulate match without visualization (returns winner)"""        
+        while not self.is_match_over():
+            while not self.is_set_over():
+                winner_key = self.simulate_point(visualize=False)
+                self.update_games(winner_key)
                 self.current_server, self.current_receiver = self.current_receiver, self.current_server
 
             set_winner_key = self.is_set_over()
             self.update_sets(set_winner_key)
-            
+        
         if self.sets["player1"] == self.sets_to_win:
             match_winner = self.player1
-        else:
+        elif self.sets["player2"] == self.sets_to_win:
             match_winner = self.player2
+        else:
+            # This should never happen if match simulation is correct
+            raise ValueError(f"Match ended without a winner! Sets: P1={self.sets['player1']}, P2={self.sets['player2']}")
 
         self.match_log.append(
             f"{match_winner['name']} wins the match! Final Score: {self.format_set_scores()}"
         )
         return match_winner
-
+    
     def simulate_point(self, visualize=False):
         """
         Simulate a single point in the match.
@@ -391,7 +414,7 @@ class GameEngine:
             # Combine game and set winning messages
             self.match_log.append(
                 f"{self._player_ref(winner_key)} won the game. Score: {p1_games}-{p2_games} / "
-                f"{self._player_ref(winner_key)} won the set. Sets: {self.sets['player1']}-{self.sets['player2']}"
+                f"{self._player_ref(set_winner)} won the set. Sets: {self.sets['player1']}-{self.sets['player2']}"
             )
         elif p1_games > 0 or p2_games > 0:
             # Regular game win message
