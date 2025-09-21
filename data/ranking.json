@@ -2,13 +2,6 @@
   "history": {
     "482": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 25,
         "tournament": "Seguro Challenger",
@@ -387,16 +380,16 @@
         "tournament": "Viintyr Challenger",
         "category": "Challenger 75",
         "round": 1
-      }
-    ],
-    "487": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Aare Challenger",
         "category": "Challenger 75",
         "round": 0
-      },
+      }
+    ],
+    "487": [
       {
         "date": "2072-04-29T00:00:00",
         "points": 9,
@@ -641,16 +634,16 @@
         "tournament": "Viintyr Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "490": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 13,
@@ -979,6 +972,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 25,
         "tournament": "Viintyr Challenger",
+        "category": "Challenger 75",
+        "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "Sleh Challenger",
         "category": "Challenger 75",
         "round": 2
       }
@@ -1547,16 +1547,16 @@
         "tournament": "Dierd Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "503": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -1745,16 +1745,16 @@
         "tournament": "Viintyr Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 13,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "505": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 45,
@@ -2127,6 +2127,13 @@
         "tournament": "Strytliaq Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 13,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "507": [
@@ -2244,13 +2251,6 @@
       }
     ],
     "509": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 90,
@@ -2432,16 +2432,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "511": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 35,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -2641,13 +2641,6 @@
     ],
     "512": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
-      {
         "date": "2072-04-29T00:00:00",
         "points": 13,
         "tournament": "Yudo Challenger",
@@ -2842,16 +2835,16 @@
         "tournament": "ITF Kormin",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "513": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -3054,16 +3047,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "514": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -3287,16 +3280,16 @@
         "tournament": "Gucorian Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "515": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -3485,6 +3478,13 @@
         "tournament": "Dierd Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 13,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "517": [
@@ -3694,13 +3694,6 @@
     ],
     "519": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 13,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 13,
         "tournament": "Spilit Challenger",
@@ -3888,16 +3881,16 @@
         "tournament": "Yucatan Challenger",
         "category": "Challenger 50",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "520": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 13,
@@ -4091,6 +4084,13 @@
         "date": "2073-04-02T00:00:00",
         "points": 0,
         "tournament": "Dierd Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Aare Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -4323,13 +4323,6 @@
     ],
     "523": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "Alkan Open",
@@ -4503,6 +4496,13 @@
         "tournament": "Viintyr Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 13,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "525": [
@@ -4687,16 +4687,16 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 5,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "526": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -4871,6 +4871,13 @@
         "tournament": "ITF Crale",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 10,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "529": [
@@ -5236,13 +5243,6 @@
     ],
     "531": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 13,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
-      {
         "date": "2072-06-10T00:00:00",
         "points": 13,
         "tournament": "Retyl Challenger",
@@ -5579,16 +5579,16 @@
         "tournament": "ITF Gamner",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 5,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "537": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 90,
@@ -5770,16 +5770,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
-      }
-    ],
-    "538": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
-      },
+      }
+    ],
+    "538": [
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -5980,6 +5980,13 @@
         "date": "2073-03-26T00:00:00",
         "points": 0,
         "tournament": "Bleak Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -6361,13 +6368,6 @@
     ],
     "543": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 45,
         "tournament": "Alkan Open",
@@ -6520,6 +6520,13 @@
         "tournament": "Nashalag Challenger",
         "category": "Challenger 75",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "544": [
@@ -6704,6 +6711,13 @@
         "tournament": "Gucorian Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "545": [
@@ -6867,16 +6881,16 @@
         "tournament": "Dierd Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 3
       }
     ],
     "547": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -7055,13 +7069,6 @@
     ],
     "548": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
-      {
         "date": "2072-04-29T00:00:00",
         "points": 180,
         "tournament": "Haran Masters",
@@ -7207,16 +7214,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 180,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 3
       }
     ],
     "549": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 25,
@@ -7370,16 +7377,16 @@
         "tournament": "Zadar Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "550": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 180,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 3
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -7540,16 +7547,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
-      }
-    ],
-    "551": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
-      },
+      }
+    ],
+    "551": [
       {
         "date": "2072-04-22T00:00:00",
         "points": 180,
@@ -7689,6 +7696,13 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "552": [
@@ -7901,16 +7915,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "553": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -8071,16 +8085,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 90,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "554": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 180,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 3
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 180,
@@ -8206,16 +8220,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 5
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "555": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 90,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 2
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 45,
@@ -8408,13 +8422,6 @@
     ],
     "556": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 125,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 4
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 90,
         "tournament": "Albe Open",
@@ -8602,16 +8609,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "557": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -8832,13 +8839,6 @@
     ],
     "558": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 90,
         "tournament": "Albe Open",
@@ -9005,16 +9005,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 1
-      }
-    ],
-    "559": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
-      },
+      }
+    ],
+    "559": [
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -9203,16 +9203,16 @@
         "tournament": "Strytliaq Challenger",
         "category": "Challenger 125",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 13,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "560": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -9359,16 +9359,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 3
-      }
-    ],
-    "561": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
-      },
+      }
+    ],
+    "561": [
       {
         "date": "2072-04-22T00:00:00",
         "points": 90,
@@ -9578,16 +9578,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "562": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 90,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 2
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -9783,6 +9783,13 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "563": [
@@ -9967,16 +9974,16 @@
         "tournament": "Ravar Challenger",
         "category": "Challenger 175",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "564": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -10144,16 +10151,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "585": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 1000,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 6
-      },
       {
         "date": "2072-05-13T00:00:00",
         "points": 600,
@@ -10293,6 +10300,13 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 600,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 5
       }
     ],
     "587": [
@@ -10453,13 +10467,6 @@
     ],
     "568": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
-      {
         "date": "2072-04-29T00:00:00",
         "points": 0,
         "tournament": "Haran Masters",
@@ -10616,13 +10623,6 @@
     ],
     "567": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 180,
         "tournament": "Albe Open",
@@ -10773,6 +10773,13 @@
         "date": "2073-03-26T00:00:00",
         "points": 180,
         "tournament": "Bleak Masters",
+        "category": "Masters 1000",
+        "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 180,
+        "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 3
       }
@@ -10973,16 +10980,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "588": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 90,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 90,
@@ -11157,16 +11164,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 360,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 4
       }
     ],
     "575": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -11348,16 +11355,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "572": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 90,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 2
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 90,
@@ -11486,13 +11493,6 @@
       }
     ],
     "581": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 90,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 2
-      },
       {
         "date": "2072-05-13T00:00:00",
         "points": 90,
@@ -11639,16 +11639,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 5
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 180,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 3
       }
     ],
     "573": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 180,
@@ -11809,16 +11809,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 180,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 3
       }
     ],
     "565": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 90,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 90,
@@ -11965,16 +11965,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 90,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "571": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 90,
@@ -12135,16 +12135,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "598": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 300,
@@ -12291,16 +12291,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 4
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 90,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "596": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -12508,6 +12508,13 @@
         "date": "2073-03-26T00:00:00",
         "points": 45,
         "tournament": "Bleak Masters",
+        "category": "Masters 1000",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 1
       }
@@ -12712,13 +12719,6 @@
     ],
     "592": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 45,
         "tournament": "Alkan Open",
@@ -12927,6 +12927,13 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "597": [
@@ -13083,16 +13090,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "604": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 600,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 5
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 500,
@@ -13246,16 +13253,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 4
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1000,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 6
       }
     ],
     "600": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 90,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 300,
@@ -13398,13 +13405,6 @@
       }
     ],
     "602": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-06-03T00:00:00",
         "points": 45,
@@ -13558,16 +13558,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "599": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -13740,6 +13740,13 @@
         "date": "2073-03-26T00:00:00",
         "points": 0,
         "tournament": "Bleak Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -14117,16 +14124,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "608": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -14287,16 +14294,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 1
-      }
-    ],
-    "607": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 45,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 1
-      },
+      }
+    ],
+    "607": [
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -14464,6 +14471,13 @@
         "tournament": "Hethrion Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 90,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "616": [
@@ -14606,16 +14620,16 @@
         "tournament": "Shaul Championships",
         "category": "ATP 500",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "615": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 13,
@@ -14783,16 +14797,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 100,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 4
       }
     ],
     "619": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 90,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -14950,13 +14964,6 @@
     ],
     "660": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 360,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 4
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 500,
         "tournament": "Albe Open",
@@ -15088,16 +15095,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 5
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 360,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 4
       }
     ],
     "686": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 180,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 3
-      },
       {
         "date": "2072-05-13T00:00:00",
         "points": 45,
@@ -15240,13 +15247,6 @@
       }
     ],
     "621": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -15424,13 +15424,6 @@
       }
     ],
     "702": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -15626,16 +15619,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 5
-      }
-    ],
-    "668": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 45,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 1
-      },
+      }
+    ],
+    "668": [
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -15803,16 +15796,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "682": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 75,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 3
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -15994,16 +15987,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "698": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-05-13T00:00:00",
         "points": 0,
@@ -16191,6 +16184,13 @@
         "points": 20,
         "tournament": "Skaalla Open",
         "category": "ATP 250",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
         "round": 1
       }
     ],
@@ -16390,16 +16390,16 @@
         "tournament": "Kharath Challenger",
         "category": "Challenger 125",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 125,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 4
       }
     ],
     "646": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -16560,6 +16560,13 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "667": [
@@ -16730,16 +16737,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "631": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 180,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 3
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -16935,16 +16942,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "641": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 25,
@@ -17292,13 +17299,6 @@
       }
     ],
     "648": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -17869,16 +17869,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 1
-      }
-    ],
-    "699": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
-      },
+      }
+    ],
+    "699": [
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -18046,6 +18046,13 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 4
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 90,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "639": [
@@ -18209,16 +18216,16 @@
         "tournament": "Kharath Challenger",
         "category": "Challenger 125",
         "round": 4
-      }
-    ],
-    "623": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
-      },
+      }
+    ],
+    "623": [
       {
         "date": "2072-05-13T00:00:00",
         "points": 0,
@@ -18358,16 +18365,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "647": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 360,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 4
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 90,
@@ -18563,16 +18570,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "625": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 18,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -19059,16 +19066,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "677": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 180,
@@ -19243,6 +19250,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "659": [
@@ -19455,6 +19469,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "676": [
@@ -19639,16 +19660,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 1
-      }
-    ],
-    "690": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
-      },
+      }
+    ],
+    "690": [
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -19802,6 +19823,13 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 4
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 90,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "630": [
@@ -19965,16 +19993,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "685": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -20160,13 +20188,6 @@
     ],
     "643": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "Albe Open",
@@ -20333,16 +20354,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "650": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 35,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 2
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 25,
@@ -20684,13 +20705,6 @@
     ],
     "638": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 60,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 3
-      },
-      {
         "date": "2072-05-06T00:00:00",
         "points": 45,
         "tournament": "Ryoichifu Challenger",
@@ -20870,6 +20884,13 @@
         "points": 20,
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
         "round": 1
       }
     ],
@@ -21225,16 +21246,16 @@
         "tournament": "Etemen Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 1
       }
     ],
     "627": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -21572,16 +21593,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 2
-      }
-    ],
-    "664": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 0,
         "tournament": "Halcyon Masters",
         "category": "Masters 1000",
         "round": 0
-      },
+      }
+    ],
+    "664": [
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -21728,16 +21749,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 75,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 3
       }
     ],
     "689": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 25,
@@ -21954,6 +21975,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "681": [
@@ -22145,6 +22173,13 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 3
       }
     ],
     "618": [
@@ -22287,16 +22322,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 2
       }
     ],
     "697": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -22488,13 +22523,6 @@
       }
     ],
     "651": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -22689,6 +22717,13 @@
         "points": 20,
         "tournament": "Skaalla Open",
         "category": "ATP 250",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
         "round": 1
       }
     ],
@@ -22888,16 +22923,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "653": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 2
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 25,
@@ -23044,6 +23079,13 @@
         "tournament": "Strytliaq Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 75,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 4
       }
     ],
     "624": [
@@ -23232,13 +23274,6 @@
     ],
     "657": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
-      {
         "date": "2072-06-03T00:00:00",
         "points": 0,
         "tournament": "Spring Break",
@@ -23373,13 +23408,6 @@
       }
     ],
     "629": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 13,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -23696,6 +23724,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 1
       }
     ],
     "636": [
@@ -23894,6 +23929,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 90,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "654": [
@@ -24106,6 +24148,13 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 35,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 2
       }
     ],
     "679": [
@@ -24308,13 +24357,6 @@
     ],
     "672": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 2
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "Albe Open",
@@ -24481,6 +24523,13 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 35,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 2
       }
     ],
     "674": [
@@ -24640,13 +24689,6 @@
       }
     ],
     "640": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -24856,16 +24898,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "691": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 30,
@@ -25068,6 +25110,13 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "642": [
@@ -25224,16 +25273,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "694": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 18,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 13,
@@ -25373,16 +25422,16 @@
         "tournament": "Llirek Challenger",
         "category": "Challenger 100",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "680": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 180,
@@ -25550,16 +25599,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 90,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "617": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -25755,16 +25804,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "665": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 75,
@@ -25974,6 +26023,13 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "633": [
@@ -26133,13 +26189,6 @@
       }
     ],
     "687": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 13,
@@ -26318,13 +26367,6 @@
     ],
     "645": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
-      {
         "date": "2072-05-06T00:00:00",
         "points": 60,
         "tournament": "Kawagumizu Challenger",
@@ -26459,13 +26501,6 @@
       }
     ],
     "675": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 18,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 1
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 100,
@@ -26671,13 +26706,6 @@
       }
     ],
     "670": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 100,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 4
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 175,
@@ -27019,13 +27047,6 @@
     ],
     "663": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 4
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 25,
         "tournament": "Morelos Challenger",
@@ -27149,6 +27170,13 @@
         "points": 0,
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
         "round": 0
       }
     ],
@@ -27504,6 +27532,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "683": [
@@ -27760,16 +27795,16 @@
         "tournament": "Dierd Challenger",
         "category": "Challenger 75",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 13,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "620": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 75,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 4
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 75,
@@ -27972,16 +28007,16 @@
         "tournament": "Bleak Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "652": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 13,
@@ -28535,13 +28570,6 @@
     ],
     "704": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
-      {
         "date": "2072-04-29T00:00:00",
         "points": 0,
         "tournament": "Karagaji Challenger",
@@ -28736,16 +28764,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 0
       }
     ],
     "678": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 45,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 3
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 25,
@@ -28913,16 +28941,16 @@
         "tournament": "Strytliaq Challenger",
         "category": "Challenger 125",
         "round": 1
-      }
-    ],
-    "628": [
+      },
       {
-        "date": "2072-04-15T00:00:00",
+        "date": "2073-04-16T00:00:00",
         "points": 13,
         "tournament": "Sleh Challenger",
         "category": "Challenger 75",
         "round": 1
-      },
+      }
+    ],
+    "628": [
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -29103,6 +29131,13 @@
         "points": 0,
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
         "round": 0
       }
     ],
@@ -29309,6 +29344,13 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "662": [
@@ -29458,6 +29500,13 @@
         "tournament": "Viintyr Challenger",
         "category": "Challenger 75",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "684": [
@@ -29568,13 +29617,6 @@
       }
     ],
     "635": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 18,
-        "tournament": "Valhzapo Challenger",
-        "category": "Challenger 100",
-        "round": 1
-      },
       {
         "date": "2072-06-03T00:00:00",
         "points": 0,
@@ -29738,13 +29780,6 @@
       }
     ],
     "701": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -29926,6 +29961,13 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "655": [
@@ -30089,6 +30131,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 60,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 3
       }
     ],
     "644": [
@@ -30287,6 +30336,13 @@
         "tournament": "Strytliaq Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "656": [
@@ -30476,6 +30532,13 @@
         "date": "2073-04-02T00:00:00",
         "points": 0,
         "tournament": "Kharath Challenger",
+        "category": "Challenger 125",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Andrarvyx Challenger",
         "category": "Challenger 125",
         "round": 0
       }
@@ -31002,6 +31065,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 0
       }
     ],
     "705": [
@@ -31151,6 +31221,13 @@
         "tournament": "Hethrion Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "709": [
@@ -31254,13 +31331,6 @@
       }
     ],
     "716": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -31577,16 +31647,16 @@
         "tournament": "Skaalla Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 18,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 1
       }
     ],
     "723": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 13,
@@ -31750,13 +31820,6 @@
       }
     ],
     "714": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 13,
@@ -31949,13 +32012,6 @@
     ],
     "719": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 1
-      },
-      {
         "date": "2072-05-06T00:00:00",
         "points": 0,
         "tournament": "Kawagumizu Challenger",
@@ -32094,16 +32150,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 1
       }
     ],
     "725": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 0,
@@ -32246,13 +32302,6 @@
       }
     ],
     "740": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Halcyon Masters",
-        "category": "Masters 1000",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -32441,16 +32490,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 45,
+        "tournament": "Andrarvyx Challenger",
+        "category": "Challenger 125",
+        "round": 2
       }
     ],
     "738": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 13,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -32593,13 +32642,6 @@
       }
     ],
     "764": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 13,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 9,
@@ -32764,13 +32806,6 @@
     ],
     "770": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 2
-      },
-      {
         "date": "2072-05-13T00:00:00",
         "points": 13,
         "tournament": "Wuxi Challenger",
@@ -32895,16 +32930,16 @@
         "tournament": "Theashin Grand Prix",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 18,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 1
       }
     ],
     "741": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 75,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 4
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -33090,13 +33125,6 @@
     ],
     "728": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 2
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 25,
         "tournament": "Sarasota Challenger",
@@ -33274,13 +33302,6 @@
     ],
     "756": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 13,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 1
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "Spilit Challenger",
@@ -33444,13 +33465,6 @@
     ],
     "733": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 13,
         "tournament": "Sarasota Challenger",
@@ -33603,6 +33617,13 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 18,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 1
       }
     ],
     "739": [
@@ -33724,16 +33745,16 @@
         "tournament": "Galobagas Challenger",
         "category": "Challenger 50",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "743": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 13,
@@ -34043,16 +34064,16 @@
         "tournament": "ITF Reley",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "759": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 5,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 2
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 13,
@@ -34196,13 +34217,6 @@
     ],
     "744": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 1,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 1
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 5,
         "tournament": "ITF Mugets",
@@ -34306,16 +34320,16 @@
         "tournament": "ITF Crale",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 5,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "727": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -34538,6 +34552,13 @@
         "points": 0,
         "tournament": "Strytliaq Challenger",
         "category": "Challenger 125",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
         "round": 0
       }
     ],
@@ -34830,16 +34851,16 @@
         "tournament": "Aliriones Challenger",
         "category": "Challenger 50",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "768": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 5,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 5,
@@ -34951,6 +34972,13 @@
         "tournament": "Yucatan Challenger",
         "category": "Challenger 50",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "746": [
@@ -35114,16 +35142,16 @@
         "tournament": "Gucorian Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 75,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 4
       }
     ],
     "752": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Sleh Challenger",
-        "category": "Challenger 75",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 13,
@@ -35282,6 +35310,13 @@
         "date": "2073-04-02T00:00:00",
         "points": 0,
         "tournament": "Gucorian Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Aare Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -35533,6 +35568,13 @@
         "tournament": "Gucorian Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "742": [
@@ -35633,6 +35675,13 @@
         "tournament": "Viintyr Challenger",
         "category": "Challenger 75",
         "round": 4
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 13,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "792": [
@@ -35810,16 +35859,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 18,
+        "tournament": "Valhzapo Challenger",
+        "category": "Challenger 100",
+        "round": 1
       }
     ],
     "796": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 25,
-        "tournament": "Aare Challenger",
-        "category": "Challenger 75",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 45,
@@ -35994,16 +36043,16 @@
         "tournament": "Yryblyn Championship",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Halcyon Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "777": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "Andrarvyx Challenger",
-        "category": "Challenger 125",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -36476,16 +36525,16 @@
         "tournament": "Nashalag Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "771": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 1,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 0,
@@ -36760,16 +36809,16 @@
         "tournament": "Viintyr Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Aare Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "776": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 0,
@@ -36964,13 +37013,6 @@
     ],
     "788": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "ITF Vrurus",
@@ -37105,13 +37147,6 @@
       }
     ],
     "787": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 1,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2072-05-13T00:00:00",
         "points": 1,
@@ -37281,16 +37316,16 @@
         "tournament": "ITF Shushire",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "782": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 1,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 1,
@@ -37457,13 +37492,6 @@
     ],
     "798": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 1,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 1
-      },
-      {
         "date": "2072-05-06T00:00:00",
         "points": 0,
         "tournament": "Kogara Challenger",
@@ -37612,13 +37640,6 @@
       }
     ],
     "773": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 5,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 2
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 1,
@@ -37816,6 +37837,13 @@
         "tournament": "ITF Kridta",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 5,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "821": [
@@ -37944,6 +37972,13 @@
         "tournament": "Galobagas Challenger",
         "category": "Challenger 50",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "Sleh Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "813": [
@@ -38253,16 +38288,16 @@
         "tournament": "ITF Ioan",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 10,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "823": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 10,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 3
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 5,
@@ -38599,13 +38634,6 @@
     ],
     "825": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2072-05-06T00:00:00",
         "points": 0,
         "tournament": "ITF Omaga",
@@ -38712,13 +38740,6 @@
       }
     ],
     "819": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 1,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 0,
@@ -38923,16 +38944,16 @@
         "tournament": "ITF Whibus",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 5,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "811": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 5,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 2
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 0,
@@ -39237,16 +39258,16 @@
         "tournament": "ITF Reley",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "865": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -39383,13 +39404,6 @@
     ],
     "840": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "ITF Mugets",
@@ -39493,6 +39507,13 @@
         "tournament": "ITF Reley",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 25,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "868": [
@@ -39589,13 +39610,6 @@
       }
     ],
     "848": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 1,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2072-05-06T00:00:00",
         "points": 0,
@@ -39907,6 +39921,13 @@
         "tournament": "ITF Yares",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 10,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "862": [
@@ -40049,16 +40070,16 @@
         "tournament": "ITF Homorix",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 5,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "836": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 1,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 1
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 1,
@@ -40191,6 +40212,13 @@
         "tournament": "ITF Chomara",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 10,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "851": [
@@ -41077,6 +41105,13 @@
         "tournament": "ITF Crale",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 5,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "841": [
@@ -41184,16 +41219,16 @@
         "tournament": "ITF Zabro",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "846": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 1,
@@ -41316,13 +41351,6 @@
     ],
     "835": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "ITF Vrurus",
@@ -41401,13 +41429,6 @@
       }
     ],
     "832": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2072-04-29T00:00:00",
         "points": 0,
@@ -41601,6 +41622,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 1,
         "tournament": "ITF Kormin",
+        "category": "ITF",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Ansving",
         "category": "ITF",
         "round": 1
       }
@@ -41928,13 +41956,6 @@
     ],
     "894": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2072-05-06T00:00:00",
         "points": 0,
         "tournament": "ITF Omaga",
@@ -42077,13 +42098,6 @@
     ],
     "903": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2072-05-06T00:00:00",
         "points": 0,
         "tournament": "ITF Omaga",
@@ -42159,6 +42173,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "912": [
@@ -42292,6 +42313,13 @@
         "date": "2073-04-02T00:00:00",
         "points": 1,
         "tournament": "ITF Crale",
+        "category": "ITF",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Sogend",
         "category": "ITF",
         "round": 1
       }
@@ -42509,13 +42537,6 @@
       }
     ],
     "896": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -42816,6 +42837,13 @@
         "tournament": "ITF Reley",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "892": [
@@ -43091,16 +43119,16 @@
         "tournament": "ITF Homorix",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "878": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -43415,16 +43443,16 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "900": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Lapomeq",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -43701,13 +43729,6 @@
     ],
     "917": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "ITF Vrurus",
@@ -43983,13 +44004,6 @@
     ],
     "901": [
       {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 0
-      },
-      {
         "date": "2072-04-22T00:00:00",
         "points": 0,
         "tournament": "ITF Vrurus",
@@ -44156,6 +44170,13 @@
         "tournament": "ITF Faross",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 5,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "895": [
@@ -44256,6 +44277,13 @@
         "tournament": "ITF Jenerys",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "877": [
@@ -44538,6 +44566,13 @@
         "tournament": "ITF Reley",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "910": [
@@ -44643,6 +44678,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 1,
         "tournament": "ITF Homorix",
+        "category": "ITF",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Ansving",
         "category": "ITF",
         "round": 1
       }
@@ -44845,16 +44887,16 @@
         "tournament": "ITF Yares",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "887": [
-      {
-        "date": "2072-04-15T00:00:00",
-        "points": 0,
-        "tournament": "ITF Tutera",
-        "category": "ITF",
-        "round": 0
-      },
       {
         "date": "2072-04-22T00:00:00",
         "points": 0,
@@ -45348,6 +45390,13 @@
         "tournament": "ITF Homorix",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "874": [
@@ -45772,6 +45821,13 @@
         "tournament": "ITF Reley",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "891": [
@@ -45958,6 +46014,13 @@
         "tournament": "ITF Homorix",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "920": [
@@ -46058,6 +46121,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "945": [
@@ -46151,6 +46221,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "940": [
@@ -46230,6 +46307,13 @@
         "tournament": "ITF Homorix",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "954": [
@@ -46330,6 +46414,13 @@
         "tournament": "ITF Kormin",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "937": [
@@ -46428,6 +46519,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Homorix",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Lapomeq",
         "category": "ITF",
         "round": 0
       }
@@ -46632,6 +46730,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "928": [
@@ -46730,6 +46835,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Reley",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Lapomeq",
         "category": "ITF",
         "round": 0
       }
@@ -46890,6 +47002,13 @@
         "tournament": "ITF Kormin",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "931": [
@@ -46960,6 +47079,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Reley",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Ansving",
         "category": "ITF",
         "round": 0
       }
@@ -47257,6 +47383,13 @@
         "tournament": "ITF Kormin",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "947": [
@@ -47336,6 +47469,13 @@
         "tournament": "ITF Homorix",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "933": [
@@ -47436,6 +47576,13 @@
         "tournament": "ITF Kormin",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "948": [
@@ -47494,6 +47641,13 @@
         "tournament": "ITF Reley",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "950": [
@@ -47594,6 +47748,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "934": [
@@ -47687,6 +47848,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "936": [
@@ -47771,6 +47939,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Kormin",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Ansving",
         "category": "ITF",
         "round": 0
       }
@@ -47871,6 +48046,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Kormin",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sogend",
         "category": "ITF",
         "round": 0
       }
@@ -47989,6 +48171,13 @@
         "tournament": "ITF Kormin",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "944": [
@@ -48080,6 +48269,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Kormin",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sogend",
         "category": "ITF",
         "round": 0
       }
@@ -48189,6 +48385,13 @@
         "tournament": "ITF Homorix",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "927": [
@@ -48282,6 +48485,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "918": [
@@ -48366,6 +48576,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Reley",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sogend",
         "category": "ITF",
         "round": 0
       }
@@ -48461,6 +48678,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "923": [
@@ -48533,6 +48757,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Ansving",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "930": [
@@ -48561,6 +48792,13 @@
         "date": "2073-03-26T00:00:00",
         "points": 1,
         "tournament": "ITF Zabro",
+        "category": "ITF",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Tutera",
         "category": "ITF",
         "round": 1
       }
@@ -48668,6 +48906,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Homorix",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Tutera",
         "category": "ITF",
         "round": 0
       }
@@ -48800,6 +49045,13 @@
         "tournament": "ITF Kormin",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Tutera",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "961": [
@@ -48886,6 +49138,13 @@
         "tournament": "ITF Homorix",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sogend",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "924": [
@@ -48935,6 +49194,13 @@
         "date": "2073-03-26T00:00:00",
         "points": 1,
         "tournament": "ITF Zabro",
+        "category": "ITF",
+        "round": 1
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 1,
+        "tournament": "ITF Lapomeq",
         "category": "ITF",
         "round": 1
       }
@@ -49035,6 +49301,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Kormin",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sogend",
         "category": "ITF",
         "round": 0
       }
@@ -49239,6 +49512,13 @@
         "tournament": "ITF Uryrou",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Lapomeq",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "921": [
@@ -49330,6 +49610,13 @@
         "date": "2073-04-09T00:00:00",
         "points": 0,
         "tournament": "ITF Homorix",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2073-04-16T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sogend",
         "category": "ITF",
         "round": 0
       }

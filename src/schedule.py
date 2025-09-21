@@ -699,6 +699,7 @@ class TournamentScheduler:
             elif player2_id is None:
                 winner_id = player1_id
                 final_score = "BYE"
+                match_log = ["BYE - Player advances automatically"]
                 self._update_player_tournament_history(tournament, player1_id, tournament['current_round'])
             else:
                 # Fetch player data
@@ -711,10 +712,23 @@ class TournamentScheduler:
 
                 sets_to_win = 3 if tournament.get('category') == "Grand Slam" or tournament.get('category') =="Special" else 2
                 game_engine = GameEngine(player1, player2, tournament['surface'], sets_to_win=sets_to_win)
-                match_winner = game_engine.simulate_match()
-                match_log = game_engine.match_log  # FIX: capture log
-
-                winner_id = match_winner['id']
+                # Store ball position events if in visualization mode
+                point_events = []
+                match_events = list(game_engine.simulate_match(visualize=True))
+                match_log = game_engine.match_log
+                
+                # Extract point events with ball positions
+                if match_events:
+                    for event in match_events:
+                        if event['type'] == 'point':
+                            point_events.append(event)
+                    
+                    # Find the last point's winner
+                    match_winner = player1 if match_events[-1]['winner'] == 'player1' else player2
+                    winner_id = match_winner['id']
+                else:
+                    # Handle case with no events (quick match or error)
+                    winner_id = player1['id'] if game_engine.sets['player1'] > game_engine.sets['player2'] else player2['id']
                 final_score = game_engine.format_set_scores()
 
                 loser_id = player2_id if winner_id == player1['id'] else player1_id
@@ -728,7 +742,7 @@ class TournamentScheduler:
             if all(len(m) == 4 and m[2] is not None for m in tournament['active_matches']):
                 self._prepare_next_round(tournament)
 
-            return winner_id, match_log  # FIX: safe return even for BYE
+            return winner_id, match_log, point_events  # Return point events for visualization
         finally:
             for player_id, original_stats in original_players.items():
                 player = next(p for p in self.players if p['id'] == player_id)

@@ -52,7 +52,6 @@ class GameEngine:
                 skill: min(100, math.floor(value * 1.05)) 
                 for skill, value in player["skills"].items()
             }
-            print(f"{player['name']} got boosted because of {surface} court.")
             return boosted_player
 
         return player
@@ -72,10 +71,7 @@ class GameEngine:
         Update the sets won in the match based on the winner of the set.
         """
         self.sets[winner_key] += 1
-        self.match_log.append(
-            f"{self._player_ref(winner_key)} won the set. Sets: {self.sets['player1']}-{self.sets['player2']}"
-        )
-
+        
         # Add the current set score to the set_scores list
         self.set_scores.append((self.games["player1"], self.games["player2"]))
 
@@ -88,13 +84,28 @@ class GameEngine:
         """
         return ", ".join(f"{p1}-{p2}" for p1, p2 in self.set_scores)
 
-    def simulate_match(self):
+    def simulate_match(self, visualize=False):
         """
         Simulate a full match until one player wins.
+        If visualize=True, yields point events for visualization.
         """
         while not self.is_match_over():
             while not self.is_set_over():
-                winner_key = self.simulate_point()
+                result = self.simulate_point(visualize=visualize)
+                
+                if visualize:
+                    # When visualizing, simulate_point returns a tuple (winner_key, events)
+                    winner_key, point_events = result
+                    point_data = {
+                        'type': 'point',
+                        'events': point_events,
+                        'winner': winner_key
+                    }
+                    yield point_data
+                else:
+                    # When not visualizing, simulate_point just returns winner_key
+                    winner_key = result
+                    
                 self.update_games(winner_key)
 
                 # Alternate server and receiver after each point
@@ -113,15 +124,26 @@ class GameEngine:
         )
         return match_winner
 
-    def simulate_point(self):
+    def simulate_point(self, visualize=False):
         """
         Simulate a single point in the match.
-        Returns the winner of the point (player1 or player2).
+        Returns the winner of the point (player1 or player2), or (winner, events) if visualize=True.
         """
         server = self.current_server
         receiver = self.current_receiver
         hitter = server
         defender = receiver
+        
+        # Initialize visualization events if needed
+        point_events = None
+        if visualize:
+            point_events = [{
+                'type': 'score',
+                'sets': self.set_scores.copy(),  # Previous set scores
+                'current_set': {'player1': self.games['player1'], 'player2': self.games['player2']},
+                'player1_name': self.player1['name'],
+                'player2_name': self.player2['name']
+            }]
 
         # Step 1: Server makes the first shot
         shot_direction = self.choose_shot_direction(hitter)
@@ -129,9 +151,23 @@ class GameEngine:
         shot_leftright = "left" if shot_direction == "cross" else "right"
         shot_power, shot_precision, shot_direction = self.calculate_shot(hitter, "serve", shot_direction, 1)
         side = "left" if self._get_player_key(defender) == "player1" else "right"
-        ball_side, ball_row, ball_col = self.get_ball_coordinates(
+        ball_side, target_x, target_y = self.get_ball_coordinates(
             side, shot_power, shot_leftright, None  # No precision for serve
         )
+        
+        # Add serve visualization
+        if visualize:
+            point_events.append({
+                'type': 'shot',
+                'shot_type': 'serve',
+                'ball_positions': [{
+                    'type': 'ball_position',
+                    'x': target_x,
+                    'y': target_y,
+                    'power': shot_power,
+                }],
+                'hitter_id': hitter['id']
+            })
 
         # Update positions based on the shot
         self.update_positions(defender, shot_leftright)
@@ -139,21 +175,39 @@ class GameEngine:
         # Step 2: Receiver tries to catch the shot
         caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type = "serve")
         if not caught:  # Missed shot
+            # Add the final ball position for the serve with a message indicator
+            if visualize:
+                point_events.append({
+                    'type': 'shot',
+                    'shot_type': 'serve',
+                    'ball_positions': [{
+                        'type': 'ball_position',
+                        'x': target_x,
+                        'y': target_y,
+                        'power': shot_power,
+                    }],
+                    'hitter_id': hitter['id'],
+                    'is_final': True  # Mark this as the final shot of the point
+                })            
             self.reset_stamina_and_speed()
-            return self._get_player_key(hitter)
+            winner_key = self._get_player_key(hitter)
+            return (winner_key, point_events) if visualize else winner_key
 
-        # Step 3: Alternate shots until one player fails
+        # Step 3: Alternate shots until someone misses
+        # Continue rally until someone misses
         while True:
-            # Receiver returns the shot
+            # Receiver becomes the hitter
             hitter, defender = defender, hitter
             shot_type = self.determine_shot_type(hitter, shot_leftright)
             shot_direction = self.choose_shot_direction(hitter)
+            
             # Determine shot_leftright based on hitter's position and shot_direction
             hitter_position = self.positions[hitter["id"]]  # "left" or "right"
             if hitter_position == "right":
                 shot_leftright = "left" if shot_direction == "cross" else "right"
             else:  # hitter_position == "left"
                 shot_leftright = "right" if shot_direction == "cross" else "left"
+                
             shot_power, shot_precision, shot_direction = self.calculate_shot(hitter, shot_type, shot_direction, return_multiplier)
             side = "left" if self._get_player_key(defender) == "player1" else "right"
             ball_side, ball_row, ball_col = self.get_ball_coordinates(
@@ -162,14 +216,44 @@ class GameEngine:
             # Update positions based on the shot
             self.update_positions(defender, shot_leftright)
 
+            # Add current ball position to events if visualizing
+            if visualize:
+                point_events.append({
+                    'type': 'shot',
+                    'shot_type': shot_type,
+                    'ball_positions': [{
+                        'type': 'ball_position',
+                        'x': ball_row,
+                        'y': ball_col,
+                        'power': shot_power,
+                    }],
+                    'hitter_id': hitter['id']
+                })
+
             caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type)
             if not caught:
                 side = "left" if self._get_player_key(defender) == "player1" else "right"
-                ball_side, ball_row, ball_col = self.get_ball_coordinates(
+                ball_side, target_x, target_y = self.get_ball_coordinates(
                     side, shot_power, shot_leftright, shot_precision
                 )
+                
+                # Add final missed shot position if visualizing
+                if visualize:
+                    point_events.append({
+                        'type': 'shot',
+                        'shot_type': shot_type,
+                        'ball_positions': [{
+                            'type': 'ball_position',
+                            'x': target_x,
+                            'y': target_y,
+                            'power': shot_power,
+                        }],
+                        'hitter_id': hitter['id']
+                    })
+                
                 self.reset_stamina_and_speed()
-                return self._get_player_key(hitter)
+                winner_key = self._get_player_key(hitter)
+                return (winner_key, point_events) if visualize else winner_key
 
             # Reduce stamina for catching the ball
             self.reduce_stamina(hitter, shot_power)
@@ -300,8 +384,17 @@ class GameEngine:
         self.games[winner_key] += 1
         p1_games = self.games["player1"]
         p2_games = self.games["player2"]
-        # A player wins the game if their games increased and it's not a set win yet
-        if p1_games > 0 or p2_games > 0:
+        
+        # Check if this game win results in a set win
+        set_winner = self.is_set_over()
+        if set_winner:
+            # Combine game and set winning messages
+            self.match_log.append(
+                f"{self._player_ref(winner_key)} won the game. Score: {p1_games}-{p2_games} / "
+                f"{self._player_ref(winner_key)} won the set. Sets: {self.sets['player1']}-{self.sets['player2']}"
+            )
+        elif p1_games > 0 or p2_games > 0:
+            # Regular game win message
             self.match_log.append(
                 f"{self._player_ref(winner_key)} won the game. Score: {p1_games}-{p2_games}"
             )
@@ -357,60 +450,134 @@ class GameEngine:
             
     def get_ball_coordinates(self, side, shot_power, shot_direction, shot_precision=None):
         """
-        Returns (x, y) coordinates for the ball on the ASCII court, given shot parameters and side.
+        Returns (x, y) coordinates for the ball in screen space (1200x600 court).
         side: "right" or "left"
         """
-        # Helper for y calculation
+        # Court dimensions
+        COURT_WIDTH = 1200
+        COURT_HEIGHT = 600
+        MARGIN_X = 100
+        MARGIN_Y = 75
+        BASELINE_Y = COURT_HEIGHT // 2  # Center line
+                
+        # Helper for y calculation (now in screen coordinates)
         def y_from_value(val, value_range):
             if val >= 85:
-                return value_range[0]
+                return BASELINE_Y + (value_range[0] * 20)  # Convert ASCII rows to pixels
             elif val >= 70:
-                return value_range[1]
+                return BASELINE_Y + (value_range[1] * 20)
             elif val >= 50:
-                return value_range[2]
+                return BASELINE_Y + (value_range[2] * 20)
             elif val >= 30:
-                return value_range[3]
+                return BASELINE_Y + (value_range[3] * 20)
             elif val >= 20:
-                return value_range[4]
+                return BASELINE_Y + (value_range[4] * 20)
             else:
-                return value_range[5]
+                return BASELINE_Y + (value_range[5] * 20)
 
         if side == "right":
-            x = 20 + round(min(100, shot_power) / 10)
-            if shot_precision is None:
-                x = max(7, x - 15)
-                if shot_direction == "left":
-                    y = y_from_value(shot_power, [0,1,1,2,2,3])
-                else:
-                    y = y_from_value(shot_power, [5,5,4,4,4,3])
-            else:
-                x = x - (30 - x)
-                if shot_direction == "left":
-                    y = y_from_value(shot_precision, [0,1,2,3,4,5])
-                else:
-                    y = y_from_value(shot_precision, [11,10,9,8,7,6])
-            # Clamp to field
-            x = max(0, min(29, x))
-            y = max(0, min(11, y))
-            return "right", y, x
+            # Available court space
+            court_space = COURT_WIDTH - (2 * MARGIN_X)
+            half_court = COURT_WIDTH / 2
+            
+            if shot_precision is None:  # Serve
+                # Calculate base X position
+                power_factor = shot_power / 100.0
+                x = half_court + (300 * power_factor)  # Scale between half_court and half_court + 300
+                
+                # Enforce serve X boundaries (300-900)
+                x = max(300, min(900, x))
+                
+                # Special serve positioning rules
+                if 450 < x < 600:
+                    x = 450
+                elif 600 < x < 750:
+                    x = 750
+                
+                # Calculate Y position for serve
+                precision_factor = random.uniform(-0.8, 0.8)
+                y = BASELINE_Y + (precision_factor * 200)  # Base Y calculation for serves
+                
+            else:  # Regular shots
+                # For right side, shots land between 900-1175
+                # Higher power = deeper shots (closer to 1175)
+                power_factor = shot_power / 100.0  # 0.0 to 1.0
+                x = 900 + (275 * power_factor)  # Scale between 900 and 1175
+                # Ensure we stay within bounds
+                x = min(1175, max(900, x))
+                
+                # Regular shot Y position
+                precision_factor = (shot_precision - 50) / 50.0  # -1 to 1
+                y = BASELINE_Y + (precision_factor * 250)  # Base Y calculation
+            
+            # Enforce global Y boundaries for all shots
+            if y < 100:
+                y = 100
+            elif y > 500:
+                y = 500
+            
+            if shot_direction == "left":
+                # Invert Y position for left direction
+                y = BASELINE_Y - (y - BASELINE_Y)
+                # Re-apply Y boundaries after inversion
+                if y < 100:
+                    y = 100
+                elif y > 500:
+                    y = 500
+            
+            return side, x, y
 
         elif side == "left":
-            x = 10 - round(min(100, shot_power) / 10)
-            if shot_precision is None:
-                x = min(23, x + 15)
-                if shot_direction == "left":
-                    y = y_from_value(shot_power, [11,10,10,9,9,8])
-                else:
-                    y = y_from_value(shot_power, [6,6,7,7,7,8])
-            else:
-                x = 2*x
-                if shot_direction == "left":
-                    y = y_from_value(shot_precision, [11,10,9,8,7,6])
-                else:
-                    y = y_from_value(shot_precision, [0,1,2,3,4,5])
-            x = max(0, min(29, x))
-            y = max(0, min(11, y))
-            return "left", y, x
+            # Mirror calculations for left side
+            court_space = COURT_WIDTH - (2 * MARGIN_X)
+            half_court = COURT_WIDTH / 2
+            
+            if shot_precision is None:  # Serve
+                # Calculate base X position (mirrored)
+                power_factor = shot_power / 100.0
+                x = half_court - (300 * power_factor)
+                
+                # Enforce serve X boundaries (300-900)
+                x = max(300, min(900, x))
+                
+                # Special serve positioning rules
+                if 450 < x < 600:
+                    x = 450
+                elif 600 < x < 750:
+                    x = 750
+                
+                # Calculate Y position for serve
+                precision_factor = random.uniform(-0.8, 0.8)
+                y = BASELINE_Y + (precision_factor * 200)
+                
+            else:  # Regular shots
+                # For left side, shots land between 25-300
+                # Higher power = deeper shots (closer to 25)
+                power_factor = shot_power / 100.0  # 0.0 to 1.0
+                x = 300 - (275 * power_factor)  # Scale between 300 and 25
+                # Ensure we stay within bounds
+                x = max(25, min(300, x))
+                
+                # Regular shot Y position
+                precision_factor = (shot_precision - 50) / 50.0
+                y = BASELINE_Y + (precision_factor * 250)
+            
+            # Enforce global Y boundaries for all shots
+            if y < 100:
+                y = 100
+            elif y > 500:
+                y = 500
+            
+            if shot_direction == "right":
+                # Invert Y position for right direction
+                y = BASELINE_Y - (y - BASELINE_Y)
+                # Re-apply Y boundaries after inversion
+                if y < 100:
+                    y = 100
+                elif y > 500:
+                    y = 500
+            
+            return side, x, y
 
         # fallback
-        return side, 7, 7
+        return side, COURT_WIDTH/2, BASELINE_Y

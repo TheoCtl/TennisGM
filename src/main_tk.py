@@ -1,5 +1,7 @@
 import tkinter as tk
 from schedule import TournamentScheduler
+from sim.game_engine import GameEngine
+from court_viewer import TennisCourtViewer
 import collections
 import sys
 from io import StringIO
@@ -2117,45 +2119,236 @@ class TennisGMApp:
         if match['winner']:
             self.manage_tournament(tournament)
             return
-        # Redirect print statements to a buffer
-        old_stdout = sys.stdout
-        sys.stdout = mystdout = StringIO()
-        winner_id, match_log = self.scheduler.simulate_through_match(tournament['id'], match_idx)
-        sys.stdout = old_stdout
-        output = mystdout.getvalue()
-        screens = output.split("\n\n\na")
-        self.display_simple_match_log(match_log, tournament)
 
-    def display_simple_match_log(self, match_log, tournament):
+        # Check for BYE match
+        if not match['player1'] or not match['player2']:
+            match_log = ["BYE - Player advances automatically"]
+            winner = match['player1'] or match['player2']  # Get the non-None player
+            tournament['active_matches'][match_idx][2] = winner['id']
+            self.display_simple_match_log(match_log, tournament, None)
+            return
+
+        # Get player data
+        player1 = next(p for p in self.scheduler.players if p['id'] == match['player1']['id'])
+        player2 = next(p for p in self.scheduler.players if p['id'] == match['player2']['id'])
+        
+        import sys
+        sys.stdout.flush()
+        
+        # Create game engine
+        sets_to_win = 3 if tournament.get('category') == "Grand Slam" else 2
+        game_engine = GameEngine(player1, player2, tournament['surface'], sets_to_win=sets_to_win)
+        
+        # Initialize match log and point events
+        match_log = []
+        all_point_events = []
+        
+        # Simulate match with visualization
+        winner = None
+        try:
+            
+            # Store original stdout
+            old_stdout = sys.stdout
+            from io import StringIO
+            debug_output = StringIO()
+            sys.stdout = debug_output
+            
+            for event in game_engine.simulate_match(visualize=True):
+                if event['type'] == 'point':
+                    # Restore stdout for debug
+                    sys.stdout = old_stdout
+                    
+                    # Add ball positions to point events
+                    if 'events' in event:
+                        all_point_events.append(event)
+                    else:
+                        event['events'] = []
+                        all_point_events.append(event)
+                    
+                    # Add match log entry
+                    winner_name = player1['name'] if event['winner'] == 'player1' else player2['name']
+                    match_log.append(f"Point played. Winner: {winner_name}")
+                    winner = player1 if event['winner'] == 'player1' else player2
+                    
+                    # Return to capturing engine output
+                    sys.stdout = debug_output
+                    
+            # Restore stdout
+            sys.stdout = old_stdout
+            
+        except Exception as e:
+            # Make sure we restore stdout even if there's an error
+            sys.stdout = old_stdout
+            raise
+            
+        # Update tournament with the winner
+        if winner:
+            tournament['active_matches'][match_idx][2] = winner['id']
+        
+        # Display match with visualization
+        self.display_simple_match_log(match_log, tournament, all_point_events)
+
+    def display_simple_match_log(self, match_log, tournament, point_events=None):
         idx = 0
+        canvas = None  # Keep canvas reference for cleanup
+        
+        # Store animation control
+        self.animation_active = True  # Flag to control animation
+        
+        def cleanup_bindings():
+            # Clean up mouse wheel bindings
+            if canvas:
+                canvas.unbind_all('<MouseWheel>')
+                canvas.unbind_all('<Button-4>')
+                canvas.unbind_all('<Button-5>')
+        
+        # Court is now drawn by TennisCourtViewer
+            
+        def draw_ball_positions(canvas, events, header_frame):
+            # Get score info and count shots
+            num_shots = 0
+            score_info = None
+            for event in events:
+                if event['type'] == 'shot':
+                    num_shots += 1
+                elif event['type'] == 'score':
+                    score_info = event
+            
+            # Flatten all ball positions into a single list with their properties
+            all_shots = []
+            for i, event in enumerate(events):
+                if event['type'] == 'shot':
+                    ball_positions = event.get('ball_positions', [])
+                    for ball_pos in ball_positions:
+                        all_shots.append({
+                            'x': ball_pos['x'],
+                            'y': ball_pos['y'],
+                            'power': ball_pos['power'],
+                            'is_serve': event['shot_type'] == 'serve'
+                        })
+            
+            def animate_shot(shot_index=0):
+                if shot_index < len(all_shots):
+                    # Clear previous balls
+                    canvas.delete("ball")
+                    
+                    # Draw only the current ball
+                    shot = all_shots[shot_index]
+                    x, y = shot['x'], shot['y']
+                    power = shot['power']
+                    size = min(10, 5 + (power / 20))
+                                        
+                    # Choose ball color: red for last shot, yellow for serves, white for regular shots
+                    if shot_index == len(all_shots) - 1:
+                        ball_color = "red"  # Last ball is always red
+                    else:
+                        ball_color = "yellow" if shot['is_serve'] else "white"
+                    
+                    canvas.create_oval(x-size, y-size, x+size, y+size,
+                                    fill=ball_color,
+                                    outline="white",
+                                    tags="ball")
+                    
+                    # Schedule next ball after 1 second if animation is active
+                    if self.animation_active:
+                        if shot_index == len(all_shots) - 1:
+                            # For the last ball, update score
+                            def update_header():
+                                if score_info:
+                                    # Clear previous score label
+                                    for widget in header_frame.winfo_children():
+                                        widget.destroy()
+                                    # Display new score
+                                    score_text = f"{score_info['player1_name']} vs {score_info['player2_name']}\n"
+                                    score_text += f"Sets: {score_info['sets']}\n"
+                                    score_text += f"Current Set: {score_info['current_set']['player1']}-{score_info['current_set']['player2']}"
+                                    tk.Label(header_frame, text=score_text, font=("Arial", 14)).pack()
+                            # Update score after all shots plus one second
+                            canvas.after(1000 * (num_shots + 1), update_header)
+                        canvas.after(1000, lambda: animate_shot(shot_index + 1))
+            
+            # Start the animation if it's active
+            if self.animation_active:
+                # Start ball animation
+                animate_shot()
+        
         def show_screen(i):
             for widget in self.root.winfo_children():
                 widget.destroy()
-            tk.Label(self.root, text="Match Log", font=("Arial", 16), fg="black", bg="white").pack(pady=10)
-            frame = tk.Frame(self.root, bg="white")
-            frame.pack(fill="both", expand=True)
-            text = tk.Text(frame, wrap="word", font=("Arial", 11), height=10, fg="black", bg="white")
-            text.pack(side="left", fill="both", expand=True)
-            # Show current log line
-            text.insert("end", match_log[i] + "\n")
-            # If the next line is a set or match win, show it too
-            if i + 1 < len(match_log) and (
-                "won the set" in match_log[i+1] or "wins the match" in match_log[i+1]
-            ):
-                text.insert("end", match_log[i+1] + "\n")
-                next_idx = i + 2
-            else:
-                next_idx = i + 1
-            text.config(state="disabled")
-            scrollbar = tk.Scrollbar(frame, command=text.yview)
-            scrollbar.pack(side="right", fill="y")
-            text.config(yscrollcommand=scrollbar.set)
+                
+            # Create main container
+            main_frame = tk.Frame(self.root)
+            main_frame.pack(fill="both", expand=True)
+            
+            # Header with score
+            header_frame = tk.Frame(main_frame)
+            header_frame.pack(fill="x", pady=10)
+            
+            if point_events and i < len(point_events):
+                events = point_events[i]['events']
+                for event in events:
+                    if event['type'] == 'score':
+                        sets = event['sets']
+                        current_set = event['current_set']
+                        p1_name = event['player1_name']
+                        p2_name = event['player2_name']
+                        
+                        # Display score
+                        score_text = f"{p1_name} vs {p2_name}\n"
+                        score_text += f"Sets: {sets}\nCurrent Set: {current_set['player1']}-{current_set['player2']}"
+                        tk.Label(header_frame, text=score_text, font=("Arial", 14)).pack()
+            
+            # Court visualization using TennisCourtViewer
+            canvas_frame = tk.Frame(main_frame)
+            canvas_frame.pack(fill="both", expand=True, padx=20, pady=10)
+            
+            nonlocal canvas
+            court_viewer = TennisCourtViewer(canvas_frame, width=1200, height=600, surface=tournament['surface'])
+            canvas = court_viewer.canvas
+            
+            # Control buttons
+            control_frame = tk.Frame(main_frame)
+            control_frame.pack(fill="x", padx=20, pady=(0, 10))
+            
+            def pause_animation():
+                self.animation_active = False
+                
+            def resume_animation():
+                if not self.animation_active:
+                    self.animation_active = True
+                    draw_ball_positions(canvas, point_events[i]['events'], header_frame)
+                    
+            def reset_animation():
+                canvas.delete("ball")
+                self.animation_active = True
+                draw_ball_positions(canvas, point_events[i]['events'], header_frame)
+                
+            tk.Button(control_frame, text="⏸ Pause", command=pause_animation).pack(side="left", padx=5)
+            tk.Button(control_frame, text="▶ Resume", command=resume_animation).pack(side="left", padx=5)
+            tk.Button(control_frame, text="⟲ Reset", command=reset_animation).pack(side="left", padx=5)
+            
+
+            
+            # Draw ball positions if available
+            if point_events and i < len(point_events):
+                draw_ball_positions(canvas, point_events[i]['events'], header_frame)
+            
+            # Navigation buttons
+            button_frame = tk.Frame(main_frame)
+            button_frame.pack(pady=10)
+            
+            if i > 0:
+                tk.Button(button_frame, text="Previous Point", font=("Arial", 12),
+                         command=lambda: show_screen(i-1)).pack(side="left", padx=10)
+            
+            next_idx = i + 1
             if next_idx < len(match_log):
-                tk.Button(self.root, text="Next play", font=("Arial", 12), fg="black", bg="white",
-                          command=lambda: show_screen(next_idx)).pack(pady=10)
+                tk.Button(button_frame, text="Next Point", font=("Arial", 12),
+                         command=lambda: show_screen(next_idx)).pack(side="left", padx=10)
             else:
-                tk.Button(self.root, text="Back", font=("Arial", 12), fg="black", bg="white",
-                          command=lambda: self.show_tournament_bracket(tournament)).pack(pady=10)
+                tk.Button(button_frame, text="Back to Tournament", font=("Arial", 12),
+                         command=lambda: self.show_tournament_bracket(tournament)).pack(side="left", padx=10)
+                         
         show_screen(idx)
 
     def simulate_entire_tournament_selected(self, tournaments):
@@ -2552,11 +2745,11 @@ class TennisGMApp:
             return
         old_stdout = sys.stdout
         sys.stdout = mystdout = StringIO()
-        winner_id, match_log = self.scheduler.simulate_through_match(tournament['id'], match_idx)
+        winner_id, match_log, point_events = self.scheduler.simulate_through_match(tournament['id'], match_idx)
         sys.stdout = old_stdout
         output = mystdout.getvalue()
         screens = output.split("\n\n\na")
-        self.display_simple_match_log(match_log, tournament)
+        self.display_simple_match_log(match_log, tournament, point_events)
 
     def display_match_log_bracket(self, screens, tournament):
         idx = 0
