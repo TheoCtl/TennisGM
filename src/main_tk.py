@@ -689,7 +689,7 @@ class TennisGMApp:
             ("🏆 Total Titles", total_titles),
             ("👑 Grand Slam Titles", gs_titles),
             ("🎾 Total Matches Won", sum(player.get('mawn', [0,0,0,0,0]))),
-            ("1️⃣ Weeks at #1", player.get('w1', 0)),
+            ("🏅 Weeks at #1", player.get('w1', 0)),
             ("🔟 Weeks in Top 10", player.get('w16', 0)),
         ]
         
@@ -2801,14 +2801,14 @@ class TennisGMApp:
         tab_container = tk.Frame(self.root, bg="#ecf0f1")
         tab_container.pack(fill="x", padx=20, pady=15)
         
-        self.current_history_tab = getattr(self, 'current_history_tab', "All")
+        self.current_history_tab = getattr(self, 'current_history_tab', "Special")
         
         # Get all tournament categories that exist
         tournaments_by_category = collections.defaultdict(list)
         for t in self.scheduler.tournaments:
             tournaments_by_category[t['category']].append(t)
         
-        available_categories = ["All"] + [cat for cat in PRESTIGE_ORDER if cat in tournaments_by_category]
+        available_categories = [cat for cat in PRESTIGE_ORDER if cat in tournaments_by_category]
         
         tab_frame = tk.Frame(tab_container, bg="#ecf0f1")
         tab_frame.pack()
@@ -2940,31 +2940,10 @@ class TennisGMApp:
             )
             btn_history.pack(side="left")
         
-        if self.current_history_tab == "All":
-            # Show all categories with section headers
-            for category in PRESTIGE_ORDER:
-                if category in tournaments_by_category:
-                    # Category header
-                    category_frame = tk.Frame(scroll_frame, bg="#34495e")
-                    category_frame.pack(fill="x", padx=10, pady=(15, 5))
-                    
-                    tk.Label(
-                        category_frame,
-                        text=f"📂 {category}",
-                        font=("Arial", 13, "bold"),
-                        bg="#34495e",
-                        fg="white",
-                        padx=15,
-                        pady=8
-                    ).pack(fill="x")
-                    
-                    for t in sorted(tournaments_by_category[category], key=lambda x: x['name']):
-                        create_tournament_card(t)
-        else:
-            # Show specific category
-            if self.current_history_tab in tournaments_by_category:
-                for t in sorted(tournaments_by_category[self.current_history_tab], key=lambda x: x['name']):
-                    create_tournament_card(t)
+        # Show specific category
+        if self.current_history_tab in tournaments_by_category:
+            for t in sorted(tournaments_by_category[self.current_history_tab], key=lambda x: x['name']):
+                create_tournament_card(t)
         
         # Modern back button
         back_frame = tk.Frame(self.root, bg="#ecf0f1")
