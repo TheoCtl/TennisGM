@@ -83,7 +83,14 @@ class TournamentScheduler:
             if 'w16' not in player:
                 player['w16'] = 0
         self._rebuild_ranking_history()  # FIX: call the method
-        self.ranking_system.update_player_ranks(self.players, self.current_date)
+        
+        # Initialize ELO ratings for existing players if not already set
+        for player in self.players:
+            if 'elo_rating' not in player:
+                self.ranking_system.initialize_elo_ratings(self.players)
+                break
+        
+        self.ranking_system.update_combined_rankings(self.players, self.current_date)
         
     def save_game(self, save_path='data/save.json'):
         """Save all game data to a file"""
@@ -245,11 +252,19 @@ class TournamentScheduler:
                 self.assign_players_to_tournaments()
                 for tournament in current_week_tournaments:
                     self.generate_bracket(tournament['id'])
-        self.ranking_system.update_player_ranks(self.players, self.current_date)
+        
+        # Apply weekly ELO decay to prevent rating inflation
+        self.ranking_system.apply_weekly_elo_decay(self.players)
+        
+        self.ranking_system.update_combined_rankings(self.players, self.current_date)
         for player in self.players:
             if not player.get('retired', False):
                 if player.get('rank', 999) < player.get('highest_ranking', 999):
                     player['highest_ranking'] = player['rank']
+                # Update highest ELO points (ELO rating + Championship points)
+                current_elo_points = self.ranking_system.get_elo_points(player, self.current_date)
+                if current_elo_points > player.get('highest_elo', 0):
+                    player['highest_elo'] = current_elo_points
         PlayerDevelopment.seasonal_development(self)
         PlayerDevelopment.weekly_development(self)
         self.previous_records = copy.deepcopy(self.records)
@@ -351,7 +366,7 @@ class TournamentScheduler:
         """
         current_tournaments = self.get_current_week_tournaments()
         available_players = [p for p in self.players if not p.get('injured', False) and not p.get('retired', False)]
-        self.ranking_system.update_player_ranks(self.players, self.current_date)
+        self.ranking_system.update_combined_rankings(self.players, self.current_date)
 
         # Initialize participants for all tournaments
         for tournament in current_tournaments:
@@ -739,6 +754,10 @@ class TournamentScheduler:
 
                 loser_id = player2_id if winner_id == player1['id'] else player1_id
                 self._update_player_tournament_history(tournament, loser_id, tournament['current_round'])
+                
+                # Update ELO ratings after the match
+                result = 1 if winner_id == player1['id'] else 0
+                self.ranking_system.update_elo_ratings(player1['id'], player2['id'], result, self.players)
 
             # Update the match with the winner and score
             tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
@@ -750,9 +769,19 @@ class TournamentScheduler:
 
             return winner_id, match_log, point_events  # Return point events for visualization
         finally:
+            # Restore original stats but preserve ELO rating changes
             for player_id, original_stats in original_players.items():
                 player = next(p for p in self.players if p['id'] == player_id)
+                # Save current ELO rating and highest ELO before restoring
+                current_elo_rating = player.get('elo_rating')
+                current_highest_elo = player.get('highest_elo')
+                # Restore original stats
                 player.update(original_stats)
+                # Restore the updated ELO values
+                if current_elo_rating is not None:
+                    player['elo_rating'] = current_elo_rating
+                if current_highest_elo is not None:
+                    player['highest_elo'] = current_highest_elo
             
     def _update_player_tournament_history(self, tournament, player_id, round_reached):
         """Update a player's tournament history when they lose a match"""

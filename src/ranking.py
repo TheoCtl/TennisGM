@@ -1,4 +1,5 @@
 import json
+import math
 from collections import defaultdict
 from datetime import datetime, date, timedelta
 
@@ -11,80 +12,80 @@ class RankingSystem:
             "Semi": 0
         },
         "Grand Slam": {
-            "Winner": 2000,
-            "Final": 1200,
-            "Semi": 720,
-            "Quarter": 360,
-            "Round 16": 180,
-            "Round 32": 90,
-            "Round 64": 45,
+            "Winner": 100,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
+            "Round 16": 0,
+            "Round 32": 0,
+            "Round 64": 0,
             "Round 128": 0
         },
         "Masters 1000": {
-            "Winner": 1000,
-            "Final": 600,
-            "Semi": 360,
-            "Quarter": 180,
-            "Round 16": 90,
-            "Round 32": 45,
+            "Winner": 50,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
+            "Round 16": 0,
+            "Round 32": 0,
             "Round 64": 0
         },
         "ATP 500": {
-            "Winner": 500,
-            "Final": 300,
-            "Semi": 180,
-            "Quarter": 90,
-            "Round 16": 45,
+            "Winner": 35,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
+            "Round 16": 0,
             "Round 32": 0
         },
         "ATP 250": {
-            "Winner": 250,
-            "Final": 150,
-            "Semi": 90,
-            "Quarter": 45,
-            "Round 16": 20,
+            "Winner": 25,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
+            "Round 16": 0,
             "Round 32": 0
         },
         "Challenger 175": {
-            "Winner": 175,
-            "Final": 100,
-            "Semi": 60,
-            "Quarter": 30,
+            "Winner": 15,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
             "Round 16": 0
         },
         "Challenger 125": {
-            "Winner": 125,
-            "Final": 75,
-            "Semi": 45,
-            "Quarter": 25,
+            "Winner": 13,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
             "Round 16": 0
         },
         "Challenger 100": {
-            "Winner": 100,
-            "Final": 60,
-            "Semi": 35,
-            "Quarter": 18,
+            "Winner": 11,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
             "Round 16": 0
         },
         "Challenger 75": {
-            "Winner": 75,
-            "Final": 45,
-            "Semi": 25,
-            "Quarter": 13,
+            "Winner": 9,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
             "Round 16": 0
         },
         "Challenger 50": {
-            "Winner": 50,
-            "Final": 30,
-            "Semi": 15,
-            "Quarter": 9,
+            "Winner": 7,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
             "Round 16": 0
         },
         "ITF": {
-            "Winner": 25,
-            "Final": 10,
-            "Semi": 5,
-            "Quarter": 1,
+            "Winner": 5,
+            "Final": 0,
+            "Semi": 0,
+            "Quarter": 0,
             "Round 16": 0
         }
     } 
@@ -159,32 +160,31 @@ class RankingSystem:
         return points
 
     def get_current_points(self, player_id, current_date):
-        """Calculate points from both ranking history and current tournament history"""
-
+        """Calculate championship points from tournament results in last 52 weeks using tournament_history"""
         if isinstance(current_date, datetime):
             current_date = current_date.date()
             
         player = next((p for p in self.players if p['id'] == player_id), None)
-        if player and player.get('retired', False):
+        if not player or player.get('retired', False):
             return 0
     
-        one_year_ago = current_date - timedelta(weeks=52)
-        points = 0
-    
-        # Check ranking history first
-        for entry in self.ranking_history.get(str(player_id), []):
-            entry_date = datetime.fromisoformat(entry['date']).date() if isinstance(entry['date'], str) else entry['date']
-            if entry_date <= one_year_ago:
-                points += entry.get('points', 0)
-    
-        # Double-check with player tournament history (as backup)
-        if player and 'tournament_history' in player:
-            for entry in player['tournament_history']:
-                entry_date = datetime(entry['year'], 1, 1) + timedelta(weeks=entry.get('week', 0))
-                if entry_date.date() <= one_year_ago:
-                    points += entry.get('points', 0)
-    
-        return points
+        championship_points = 0
+        
+        # Calculate points from player's tournament_history using calculate_points
+        if 'tournament_history' in player:
+            for tournament_entry in player['tournament_history']:                
+                try:
+                    points = self.calculate_points(
+                        tournament_entry.get('category', ''),
+                        tournament_entry.get('round', 0),
+                        tournament_entry.get('total_rounds', 0)
+                    )
+                    championship_points += points
+                except (ValueError, TypeError):
+                    # Skip invalid date entries
+                    continue
+        
+        return championship_points
 
     def update_ranking(self, tournament, current_date):
         """Maintain this for backward compatibility"""
@@ -259,15 +259,183 @@ class RankingSystem:
         return ranking_changes
 
     def get_ranked_players(self, players, current_date):
-        """Return players sorted by ranking points"""
+        """Return players sorted by combined rating (ELO + Championship points)"""
         self.players = players
         ranked = []
         for player in players:
             if player.get('retired', False):
                 continue
-            points = self.get_current_points(player['id'], current_date)
-            ranked.append((player, points))
+            elo_rating = self.get_elo_rating(player)
+            championship_points = self.get_current_points(player['id'], current_date)
+            combined_rating = elo_rating + championship_points
+            ranked.append((player, combined_rating))
         
-        # Sort by points descending, then by name ascending
+        # Sort by combined rating descending, then by name ascending
         ranked.sort(key=lambda x: (-x[1], x[0]['name']))
         return ranked
+
+    # ELO Rating System Implementation
+    def apply_weekly_elo_decay(self, players):
+        """Apply 1% weekly decay to all player ELO ratings to prevent inflation"""
+        decay_factor = 0.99  # 1% decay
+        
+        for player in players:
+            if not player.get('retired', False):
+                current_rating = player.get('elo_rating', 1500)
+                # Apply decay to ELO rating only (not championship points)
+                decayed_rating = round(current_rating * decay_factor)
+                player['elo_rating'] = decayed_rating
+                
+                # Note: We don't update highest_elo here as that represents peak achievement
+    
+    def calculate_expected_score(self, rating_a, rating_b):
+        """Calculate expected score for player A against player B using ELO formula"""
+        return 1 / (1 + 10**((rating_b - rating_a) / 400))
+
+    def get_k_factor(self, player_rating, games_played=None):
+        """Get K-factor based on player rating and experience"""
+        # Standard K-factors based on rating level
+        if player_rating >= 2400:
+            return 10  # Strong players
+        elif player_rating >= 2100:
+            return 20  # Intermediate players
+        else:
+            return 32  # Newer/weaker players
+
+    def update_elo_ratings(self, player1_id, player2_id, result, players):
+        """
+        Update ELO ratings after a match
+        result: 1 if player1 wins, 0 if player2 wins, 0.5 for draw
+        """
+        # Find players
+        player1 = next((p for p in players if p['id'] == player1_id), None)
+        player2 = next((p for p in players if p['id'] == player2_id), None)
+        
+        if not player1 or not player2:
+            return
+        
+        # Get current ELO ratings (initialize to 1500 if not set)
+        rating1 = player1.get('elo_rating', 1500)
+        rating2 = player2.get('elo_rating', 1500)
+        
+        # Calculate expected scores
+        expected1 = self.calculate_expected_score(rating1, rating2)
+        expected2 = self.calculate_expected_score(rating2, rating1)
+        
+        # Get K-factors
+        k1 = self.get_k_factor(rating1)
+        k2 = self.get_k_factor(rating2)
+        
+        # Update ratings
+        new_rating1 = rating1 + k1 * (result - expected1)
+        new_rating2 = rating2 + k2 * ((1 - result) - expected2)
+        
+        # Store updated ratings
+        player1['elo_rating'] = round(new_rating1)
+        player2['elo_rating'] = round(new_rating2)
+        
+        # Calculate current ELO points (rating + championship points) for comparison
+        player1_elo_points = player1['elo_rating'] + self.get_current_points(player1['id'], datetime.now().date())
+        player2_elo_points = player2['elo_rating'] + self.get_current_points(player2['id'], datetime.now().date())
+        
+        # Update highest ELO points if current ELO points are higher
+        if player1_elo_points > player1.get('highest_elo', player1_elo_points):
+            player1['highest_elo'] = player1_elo_points
+        if player2_elo_points > player2.get('highest_elo', player2_elo_points):
+            player2['highest_elo'] = player2_elo_points
+        
+        return {
+            'player1_old': rating1,
+            'player1_new': player1['elo_rating'],
+            'player2_old': rating2, 
+            'player2_new': player2['elo_rating']
+        }
+
+    def initialize_elo_ratings(self, players):
+        """Initialize ELO ratings for existing players based on their current rank"""
+        active_players = [p for p in players if not p.get('retired', False)]
+        total_players = len(active_players)
+        
+        for player in active_players:
+            # Better ELO initialization: Start from 1500 and adjust based on rank
+            current_rank = player.get('rank', total_players)
+            
+            # Clamp rank to valid range to avoid negative ELO
+            effective_rank = min(current_rank, total_players)
+            
+            # Calculate ELO based on rank percentile
+            # Rank 1 gets ~2000, middle ranks get ~1500, bottom ranks get ~1000
+            if total_players > 1:
+                percentile = 1 - (effective_rank - 1) / (total_players - 1)
+            else:
+                percentile = 1.0  # Single player gets max ELO
+                
+            base_elo = 1000 + (percentile * 1000)  # Range from 1000 to 2000
+            player['elo_rating'] = round(base_elo)
+            
+            # Initialize highest_elo to current ELO points (rating + championship) if not already set
+            if 'highest_elo' not in player:
+                championship_points = self.get_current_points(player['id'], datetime.now().date())
+                player['highest_elo'] = player['elo_rating'] + championship_points
+            
+        return players
+
+    def get_combined_rating(self, player, current_date):
+        """Get combined rating: ELO + Championship points"""
+        elo_rating = player.get('elo_rating', 0)
+        championship_points = self.get_current_points(player['id'], current_date)
+        return elo_rating + championship_points
+    
+    def get_elo_rating(self, player):
+        """Get just the ELO rating for a player"""
+        return player.get('elo_rating', 0)
+    
+    def get_elo_points(self, player, current_date):
+        """Get ELO points (ELO rating + Championship points) - this is what's displayed to users"""
+        elo_rating = player.get('elo_rating', 0)
+        championship_points = self.get_current_points(player['id'], current_date)
+        return elo_rating + championship_points
+
+    def update_combined_rankings(self, players, current_date):
+        """Update rankings based on combined ELO + Championship points"""
+        if isinstance(current_date, datetime):
+            current_date = current_date.date()
+            
+        self.players = players
+        
+        # Calculate combined ratings for all players
+        ranked_players = []
+        for player in players:
+            if player.get('retired', False):
+                continue
+            elo_rating = self.get_elo_rating(player)
+            championship_points = self.get_current_points(player['id'], current_date)
+            combined_rating = elo_rating + championship_points
+            
+            ranked_players.append({
+                'id': player['id'],
+                'name': player['name'],
+                'combined_rating': combined_rating,
+                'elo_rating': elo_rating,
+                'championship_points': championship_points
+            })
+        
+        # Sort by combined rating descending
+        ranked_players.sort(key=lambda x: (-x['combined_rating'], x['name']))
+        
+        # Update ranks in player objects
+        ranking_changes = {}
+        for rank, player_data in enumerate(ranked_players, 1):
+            for player in players:
+                if player['id'] == player_data['id']:
+                    old_rank = player.get('rank', 999)
+                    player['rank'] = rank
+                    # Store separate values for display
+                    player['points'] = player_data['combined_rating']  # Total for main display
+                    player['elo_points'] = player_data['elo_rating']  # ELO component
+                    player['championship_points'] = player_data['championship_points']  # Championship component
+                    if old_rank != rank:
+                        ranking_changes[player['id']] = (old_rank, rank)
+                    break
+                    
+        return ranking_changes

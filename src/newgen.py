@@ -43,7 +43,7 @@ class NewGenGenerator:
 
         skills = self.generate_skills()
         surface_mods = self.generate_surface_modifiers()
-
+        
         return {
             "id": player_id,
             "name": f"{first_name} {last_name}",
@@ -54,6 +54,8 @@ class NewGenGenerator:
             "potential_factor": potential_factor,
             "rank": player_rank,
             "highest_ranking": 999,
+            "elo_rating": 100,
+            "highest_elo": 100,  # Initialize to same as starting ELO rating (no championship points yet)
             "highest_overral": 0,
             "mawn": [0, 0, 0, 0, 0],
             "w1": 0,

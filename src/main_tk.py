@@ -2,6 +2,7 @@ import tkinter as tk
 from schedule import TournamentScheduler
 from sim.game_engine import GameEngine
 from court_viewer import TennisCourtViewer
+from utils.logo_utils import tournament_logo_manager
 import collections
 import sys
 from io import StringIO
@@ -585,9 +586,12 @@ class TennisGMApp:
         info_content = tk.Frame(info_card, bg="white")
         info_content.pack(fill="x", padx=15, pady=10)
         
+        # Calculate current ELO points for display
+        current_elo_points = self.scheduler.ranking_system.get_elo_points(player, self.scheduler.current_date)
+        
         basic_info = [
-            ("🏆 Current Rank", player.get('rank', 'N/A')),
-            ("🎯 Highest Ranking", player.get('highest_ranking', 'N/A')),
+            ("🏆 Current Rank/ELO", f"#{player.get('rank', 'N/A')}/{current_elo_points}"),
+            ("🎯 Highest Ranking/ELO", f"#{player.get('highest_ranking', 'N/A')}/{player.get('highest_elo', 'N/A')}"),
             ("🎂 Age", f"{player.get('age', 'N/A')} years old"),
             ("✋ Playing Hand", f"{player.get('hand', 'N/A')}-handed"),
             ("🌍 Nationality", player.get('nationality', 'N/A')),
@@ -932,7 +936,7 @@ class TennisGMApp:
 
                 entry_frame = tk.Frame(scroll_frame, bg=bg_color, relief="raised", bd=1)
                 entry_frame.pack(fill="x", padx=5, pady=2)
-                
+                                
                 btn = tk.Button(
                     entry_frame,
                     text=f"{rank_icon} {ranking_pos}. {player['name']} - {points} pts",
@@ -1096,14 +1100,44 @@ class TennisGMApp:
                             pady=2
                         ).pack(side="right")
                     
-                    tk.Label(
-                        info_frame,
-                        text=f"🏆 {count}x {tname}",
-                        font=("Arial", 11, "bold" if is_recent_win else "normal"),
-                        bg=win_frame['bg'],
-                        fg="#2c3e50",
-                        anchor="w"
-                    ).pack(side="left", fill="x", expand=True)
+                    # Tournament info with logo
+                    tournament_info_frame = tk.Frame(info_frame, bg=win_frame['bg'])
+                    tournament_info_frame.pack(side="left", fill="x", expand=True)
+                    
+                    # Try to find tournament ID from current tournaments for logo
+                    tournament_logo = None
+                    try:
+                        for t in self.scheduler.tournaments:
+                            if t.get('name') == tname:
+                                tournament_logo = tournament_logo_manager.get_tournament_logo(t.get('id'))
+                                break
+                    except:
+                        pass
+                    
+                    if tournament_logo:
+                        # Display with logo
+                        logo_label = tk.Label(tournament_info_frame, image=tournament_logo, bg=win_frame['bg'])
+                        logo_label.pack(side="left", padx=(0, 8))
+                        logo_label.image = tournament_logo  # Keep reference
+                        
+                        tk.Label(
+                            tournament_info_frame,
+                            text=f"{count}x {tname}",
+                            font=("Arial", 11, "bold" if is_recent_win else "normal"),
+                            bg=win_frame['bg'],
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(side="left", fill="x", expand=True)
+                    else:
+                        # Fallback to trophy emoji
+                        tk.Label(
+                            tournament_info_frame,
+                            text=f"🏆 {count}x {tname}",
+                            font=("Arial", 11, "bold" if is_recent_win else "normal"),
+                            bg=win_frame['bg'],
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(side="left", fill="x", expand=True)
                 
                 any_win = True
         
@@ -1441,7 +1475,7 @@ class TennisGMApp:
             
             status_info = [
                 ("🏆 HOF Points", hof_points),
-                ("🎯 Highest Ranking", player.get('highest_ranking', 'N/A')),
+                ("🎯 Highest Ranking/ELO", f"#{player.get('highest_ranking', 'N/A')}/{player.get('highest_elo', 'N/A')}"),
             ]
             
             for label, value in status_info:
@@ -1915,23 +1949,17 @@ class TennisGMApp:
             # Tournament prestige-based styling
             if t['category'] == 'Grand Slam':
                 bg_color = "#8e44ad"  # Purple for Grand Slams
-                icon = "👑"
             elif 'Masters' in t['category']:
                 bg_color = "#e67e22"  # Orange for Masters
-                icon = "🏆"
             elif 'ATP 500' == t['category']:
                 bg_color = "#f39c12"  # Gold for ATP 500
-                icon = "🥇"
             elif 'ATP 250' == t['category']:
                 bg_color = "#3498db"  # Blue for ATP 250
-                icon = "🎾"
             else:
                 bg_color = "#95a5a6"  # Gray for other tournaments
-                icon = "🏟️"
             
             if fav_t:
                 bg_color = "#e74c3c"  # Red highlight for tournaments with favorites
-                icon = "⭐"
             
             # Main tournament card
             tournament_frame = tk.Frame(scroll_frame, bg=bg_color, relief="raised", bd=2)
@@ -1941,16 +1969,53 @@ class TennisGMApp:
             info_frame = tk.Frame(tournament_frame, bg=bg_color)
             info_frame.pack(fill="x", padx=15, pady=10)
             
-            # Tournament name and details
+            # Tournament name with logo
+            name_frame = tk.Frame(info_frame, bg=bg_color)
+            name_frame.pack(fill="x")
+            
+            # Try to get tournament logo
+            logo = tournament_logo_manager.get_tournament_logo(t.get('id'))
+            
+            if logo:
+                # Display logo
+                logo_label = tk.Label(name_frame, image=logo, bg=bg_color)
+                logo_label.pack(side="left", padx=(0, 8))
+                logo_label.image = logo  # Keep reference
+            else:
+                # Fallback to emoji based on category
+                if t['category'] == 'Grand Slam':
+                    icon = "👑"
+                elif 'Masters' in t['category']:
+                    icon = "🏆"
+                elif 'ATP 500' == t['category']:
+                    icon = "🥇"
+                elif 'ATP 250' == t['category']:
+                    icon = "🎾"
+                else:
+                    icon = "🏟️"
+                
+                if fav_t:
+                    icon = "⭐"
+                    
+                icon_label = tk.Label(
+                    name_frame,
+                    text=icon,
+                    font=("Arial", 16),
+                    bg=bg_color,
+                    fg="white"
+                )
+                icon_label.pack(side="left", padx=(0, 8))
+            
+            # Tournament name
             name_label = tk.Label(
-                info_frame,
-                text=f"{icon} {t['name']}",
+                name_frame,
+                text=t['name'],
                 font=("Arial", 14, "bold"),
                 bg=bg_color,
                 fg="white",
                 anchor="w"
             )
-            name_label.pack(fill="x")
+            name_label.pack(side="left", fill="x", expand=True)
             
             details_label = tk.Label(
                 info_frame,
@@ -2385,26 +2450,53 @@ class TennisGMApp:
         header_frame.pack(fill="x")
         header_frame.pack_propagate(False)
         
-        # Tournament prestige-based styling
-        if tournament['category'] == 'Grand Slam':
-            icon = "👑"
-        elif 'Masters' in tournament['category']:
-            icon = "🏆"
-        elif 'ATP 500' == tournament['category']:
-            icon = "🥇"
-        elif 'ATP 250' == tournament['category']:
-            icon = "🎾"
-        else:
-            icon = "🏟️"
+        # Create header content frame
+        header_content = tk.Frame(header_frame, bg="#2c3e50")
+        header_content.pack(expand=True, fill="both")
         
-        title_label = tk.Label(
-            header_frame,
-            text=f"{icon} {tournament['name']} Bracket",
-            font=("Arial", 18, "bold"),
-            bg="#2c3e50",
-            fg="white"
-        )
-        title_label.pack(expand=True)
+        # Try to get tournament logo
+        logo = tournament_logo_manager.get_tournament_logo(tournament.get('id'), size=(48, 48))
+        
+        if logo:
+            # Create centered container for logo and title
+            title_container = tk.Frame(header_content, bg="#2c3e50")
+            title_container.pack(expand=True)
+            
+            # Display logo next to tournament name
+            logo_label = tk.Label(title_container, image=logo, bg="#2c3e50")
+            logo_label.pack(side="left", padx=(0, 10))
+            logo_label.image = logo  # Keep reference
+            
+            # Tournament name
+            title_label = tk.Label(
+                title_container,
+                text=f"{tournament['name']} Bracket",
+                font=("Arial", 18, "bold"),
+                bg="#2c3e50",
+                fg="white"
+            )
+            title_label.pack(side="left")
+        else:
+            # Fallback to emoji based on category
+            if tournament['category'] == 'Grand Slam':
+                icon = "👑"
+            elif 'Masters' in tournament['category']:
+                icon = "🏆"
+            elif 'ATP 500' == tournament['category']:
+                icon = "🥇"
+            elif 'ATP 250' == tournament['category']:
+                icon = "🎾"
+            else:
+                icon = "🏟️"
+            
+            title_label = tk.Label(
+                header_content,
+                text=f"{icon} {tournament['name']} Bracket",
+                font=("Arial", 18, "bold"),
+                bg="#2c3e50",
+                fg="white"
+            )
+            title_label.pack(expand=True, pady=10)
         
         # Modern control bar
         control_frame = tk.Frame(self.root, bg="#ecf0f1")
@@ -2858,19 +2950,14 @@ class TennisGMApp:
             # Tournament prestige-based styling
             if tournament['category'] == 'Grand Slam':
                 bg_color = "#8e44ad"  # Purple for Grand Slams
-                icon = "👑"
             elif 'Masters' in tournament['category']:
                 bg_color = "#e67e22"  # Orange for Masters
-                icon = "🏆"
             elif 'ATP 500' == tournament['category']:
                 bg_color = "#f39c12"  # Gold for ATP 500
-                icon = "🥇"
             elif 'ATP 250' == tournament['category']:
                 bg_color = "#3498db"  # Blue for ATP 250
-                icon = "🎾"
             else:
                 bg_color = "#95a5a6"  # Gray for other tournaments
-                icon = "🏟️"
             
             # Main tournament card
             tournament_frame = tk.Frame(scroll_frame, bg=bg_color, relief="raised", bd=2)
@@ -2880,16 +2967,50 @@ class TennisGMApp:
             info_frame = tk.Frame(tournament_frame, bg=bg_color)
             info_frame.pack(fill="x", padx=15, pady=10)
             
-            # Tournament name and surface
+            # Tournament name with logo
+            name_frame = tk.Frame(info_frame, bg=bg_color)
+            name_frame.pack(fill="x")
+            
+            # Try to get tournament logo
+            logo = tournament_logo_manager.get_tournament_logo(tournament.get('id'))
+            
+            if logo:
+                # Display logo
+                logo_label = tk.Label(name_frame, image=logo, bg=bg_color)
+                logo_label.pack(side="left", padx=(0, 8))
+                logo_label.image = logo  # Keep reference
+            else:
+                # Fallback to emoji based on category
+                if tournament['category'] == 'Grand Slam':
+                    icon = "👑"
+                elif 'Masters' in tournament['category']:
+                    icon = "🏆"
+                elif 'ATP 500' == tournament['category']:
+                    icon = "🥇"
+                elif 'ATP 250' == tournament['category']:
+                    icon = "🎾"
+                else:
+                    icon = "🏟️"
+                
+                icon_label = tk.Label(
+                    name_frame,
+                    text=icon,
+                    font=("Arial", 16),
+                    bg=bg_color,
+                    fg="white"
+                )
+                icon_label.pack(side="left", padx=(0, 8))
+            
+            # Tournament name
             name_label = tk.Label(
-                info_frame,
-                text=f"{icon} {tournament['name']}",
+                name_frame,
+                text=tournament['name'],
                 font=("Arial", 14, "bold"),
                 bg=bg_color,
                 fg="white",
                 anchor="w"
             )
-            name_label.pack(fill="x")
+            name_label.pack(side="left", fill="x", expand=True)
             
             details_label = tk.Label(
                 info_frame,
@@ -2977,26 +3098,53 @@ class TennisGMApp:
         header_frame.pack(fill="x")
         header_frame.pack_propagate(False)
         
-        # Tournament prestige-based styling
-        if tournament['category'] == 'Grand Slam':
-            icon = "👑"
-        elif 'Masters' in tournament['category']:
-            icon = "🏆"
-        elif 'ATP 500' == tournament['category']:
-            icon = "🥇"
-        elif 'ATP 250' == tournament['category']:
-            icon = "🎾"
-        else:
-            icon = "🏟️"
+        # Create header content frame
+        header_content = tk.Frame(header_frame, bg="#2c3e50")
+        header_content.pack(expand=True, fill="both")
         
-        title_label = tk.Label(
-            header_frame,
-            text=f"{icon} {tournament['name']} History",
-            font=("Arial", 18, "bold"),
-            bg="#2c3e50",
-            fg="white"
-        )
-        title_label.pack(expand=True)
+        # Try to get tournament logo
+        logo = tournament_logo_manager.get_tournament_logo(tournament.get('id'), size=(48, 48))
+        
+        if logo:
+            # Create centered container for logo and title
+            title_container = tk.Frame(header_content, bg="#2c3e50")
+            title_container.pack(expand=True)
+            
+            # Display logo next to tournament name
+            logo_label = tk.Label(title_container, image=logo, bg="#2c3e50")
+            logo_label.pack(side="left", padx=(0, 10))
+            logo_label.image = logo  # Keep reference
+            
+            # Tournament name
+            title_label = tk.Label(
+                title_container,
+                text=f"{tournament['name']} History",
+                font=("Arial", 18, "bold"),
+                bg="#2c3e50",
+                fg="white"
+            )
+            title_label.pack(side="left")
+        else:
+            # Fallback to emoji based on category
+            if tournament['category'] == 'Grand Slam':
+                icon = "👑"
+            elif 'Masters' in tournament['category']:
+                icon = "🏆"
+            elif 'ATP 500' == tournament['category']:
+                icon = "🥇"
+            elif 'ATP 250' == tournament['category']:
+                icon = "🎾"
+            else:
+                icon = "🏟️"
+            
+            title_label = tk.Label(
+                header_content,
+                text=f"{icon} {tournament['name']} History",
+                font=("Arial", 18, "bold"),
+                bg="#2c3e50",
+                fg="white"
+            )
+            title_label.pack(expand=True, pady=10)
         
         # Tournament info
         info_frame = tk.Frame(self.root, bg="#ecf0f1")
