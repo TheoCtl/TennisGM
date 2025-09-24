@@ -2446,12 +2446,12 @@ class TennisGMApp:
             widget.destroy()
         
         # Modern header
-        header_frame = tk.Frame(self.root, bg="#2c3e50", height=80)
+        header_frame = tk.Frame(self.root, bg="#ffffff", height=80)
         header_frame.pack(fill="x")
         header_frame.pack_propagate(False)
         
         # Create header content frame
-        header_content = tk.Frame(header_frame, bg="#2c3e50")
+        header_content = tk.Frame(header_frame, bg="#ffffff")
         header_content.pack(expand=True, fill="both")
         
         # Try to get tournament logo
@@ -2459,11 +2459,11 @@ class TennisGMApp:
         
         if logo:
             # Create centered container for logo and title
-            title_container = tk.Frame(header_content, bg="#2c3e50")
+            title_container = tk.Frame(header_content, bg="#ffffff")
             title_container.pack(expand=True)
             
             # Display logo next to tournament name
-            logo_label = tk.Label(title_container, image=logo, bg="#2c3e50")
+            logo_label = tk.Label(title_container, image=logo, bg="#ffffff")
             logo_label.pack(side="left", padx=(0, 10))
             logo_label.image = logo  # Keep reference
             
@@ -2472,8 +2472,8 @@ class TennisGMApp:
                 title_container,
                 text=f"{tournament['name']} Bracket",
                 font=("Arial", 18, "bold"),
-                bg="#2c3e50",
-                fg="white"
+                bg="#ffffff",
+                fg="black"
             )
             title_label.pack(side="left")
         else:
@@ -2493,7 +2493,7 @@ class TennisGMApp:
                 header_content,
                 text=f"{icon} {tournament['name']} Bracket",
                 font=("Arial", 18, "bold"),
-                bg="#2c3e50",
+                bg="#ffffff",
                 fg="white"
             )
             title_label.pack(expand=True, pady=10)
@@ -3099,19 +3099,53 @@ class TennisGMApp:
         header_frame.pack_propagate(False)
         
         # Create header content frame
-        header_content = tk.Frame(header_frame, bg="#2c3e50")
+        header_content = tk.Frame(header_frame, bg="#ffffff")
         header_content.pack(expand=True, fill="both")
+        
+        # Navigation buttons on the left
+        nav_buttons = tk.Frame(header_content, bg="#ffffff")
+        nav_buttons.pack(side="left", padx=(20, 0), pady=10)
+        
+        tk.Button(
+            nav_buttons, 
+            text="↩️ Back to History", 
+            command=self.show_history, 
+            font=("Arial", 10, "bold"),
+            bg="#95a5a6",
+            fg="white",
+            relief="flat",
+            bd=0,
+            padx=10,
+            pady=6,
+            activebackground="#ffffff",
+            activeforeground="white"
+        ).pack(pady=(0, 5))
+        
+        tk.Button(
+            nav_buttons, 
+            text="🏠 Main Menu", 
+            command=self.build_main_menu, 
+            font=("Arial", 10, "bold"),
+            bg="#3498db",
+            fg="white",
+            relief="flat",
+            bd=0,
+            padx=10,
+            pady=6,
+            activebackground="#ffffff",
+            activeforeground="white"
+        ).pack()
         
         # Try to get tournament logo
         logo = tournament_logo_manager.get_tournament_logo(tournament.get('id'), size=(48, 48))
         
         if logo:
             # Create centered container for logo and title
-            title_container = tk.Frame(header_content, bg="#2c3e50")
+            title_container = tk.Frame(header_content, bg="#ffffff")
             title_container.pack(expand=True)
             
             # Display logo next to tournament name
-            logo_label = tk.Label(title_container, image=logo, bg="#2c3e50")
+            logo_label = tk.Label(title_container, image=logo, bg="#ffffff")
             logo_label.pack(side="left", padx=(0, 10))
             logo_label.image = logo  # Keep reference
             
@@ -3120,8 +3154,8 @@ class TennisGMApp:
                 title_container,
                 text=f"{tournament['name']} History",
                 font=("Arial", 18, "bold"),
-                bg="#2c3e50",
-                fg="white"
+                bg="#ffffff",
+                fg="black"
             )
             title_label.pack(side="left")
         else:
@@ -3141,7 +3175,7 @@ class TennisGMApp:
                 header_content,
                 text=f"{icon} {tournament['name']} History",
                 font=("Arial", 18, "bold"),
-                bg="#2c3e50",
+                bg="#ffffff",
                 fg="white"
             )
             title_label.pack(expand=True, pady=10)
@@ -3286,43 +3320,6 @@ class TennisGMApp:
                 fg="#7f8c8d", 
                 pady=30
             ).pack()
-        # Navigation buttons
-        nav_frame = tk.Frame(self.root, bg="#ecf0f1")
-        nav_frame.pack(fill="x", padx=20, pady=15)
-        
-        button_container = tk.Frame(nav_frame, bg="#ecf0f1")
-        button_container.pack()
-        
-        tk.Button(
-            button_container, 
-            text="↩️ Back to History", 
-            command=self.show_history, 
-            font=("Arial", 12, "bold"),
-            bg="#95a5a6",
-            fg="white",
-            relief="flat",
-            bd=0,
-            padx=15,
-            pady=8,
-            activebackground="#7f8c8d",
-            activeforeground="white"
-        ).pack(side="left", padx=(0, 10))
-        
-        tk.Button(
-            button_container, 
-            text="🏠 Back to Main Menu", 
-            command=self.build_main_menu, 
-            font=("Arial", 12, "bold"),
-            bg="#3498db",
-            fg="white",
-            relief="flat",
-            bd=0,
-            padx=15,
-            pady=8,
-            activebackground="#2980b9",
-            activeforeground="white"
-        ).pack(side="left")
-
     def show_world_crown(self):
         """Display World Crown tournament interface"""
         for widget in self.root.winfo_children():
