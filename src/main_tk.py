@@ -1413,12 +1413,8 @@ class TennisGMApp:
         
         # Determine HOF tier for icon
         hof_points = player.get('hof_points', 0)
-        if hof_points >= 200:
+        if hof_points >= 20:
             status_icon = "👑"  # Legend
-        elif hof_points >= 100:
-            status_icon = "🏆"  # Immortal
-        elif hof_points >= 50:
-            status_icon = "⭐"  # Great
         else:
             status_icon = "🏛️"  # Inducted
         
@@ -1475,7 +1471,7 @@ class TennisGMApp:
             
             status_info = [
                 ("🏆 HOF Points", hof_points),
-                ("🎯 Highest Ranking/ELO", f"#{player.get('highest_ranking', 'N/A')}/{player.get('highest_elo', 'N/A')}"),
+                ("🎯 Highest Ranking", f"#{player.get('highest_ranking', 'N/A')}"),
             ]
             
             for label, value in status_info:

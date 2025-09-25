@@ -210,7 +210,7 @@ class TournamentScheduler:
                     player['year_start_rankings'][str(self.current_year - 1)] = player.get('rank', 999)
 
             # HARD CAP and 2x retirements rule
-            target_max = 400
+            target_max = 322
             slots = max(0, target_max - len(self.players))        # available slots to reach cap
             candidate_count = retired_count * 2                    # generate exactly 2x retirees
 
@@ -253,8 +253,8 @@ class TournamentScheduler:
                 for tournament in current_week_tournaments:
                     self.generate_bracket(tournament['id'])
         
-        # Apply weekly ELO decay to prevent rating inflation
-        self.ranking_system.apply_weekly_elo_decay(self.players)
+        # Weekly decay removed - now balancing through halved ELO gains instead
+        # self.ranking_system.apply_weekly_elo_decay(self.players)
         
         self.ranking_system.update_combined_rankings(self.players, self.current_date)
         for player in self.players:

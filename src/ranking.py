@@ -276,12 +276,15 @@ class RankingSystem:
 
     # ELO Rating System Implementation
     def apply_weekly_elo_decay(self, players):
-        """Apply 1% weekly decay to all player ELO ratings to prevent inflation"""
-        decay_factor = 0.99  # 1% decay
+        """
+        DEPRECATED: Weekly decay disabled - now using halved ELO gains instead
+        Apply 1% weekly decay to all player ELO ratings to prevent inflation
+        """
+        decay_factor = 1  # 0% decay - function disabled
         
         for player in players:
             if not player.get('retired', False):
-                current_rating = player.get('elo_rating', 1500)
+                current_rating = player.get('elo_rating', 100)
                 # Apply decay to ELO rating only (not championship points)
                 decayed_rating = round(current_rating * decay_factor)
                 player['elo_rating'] = decayed_rating
@@ -315,8 +318,8 @@ class RankingSystem:
             return
         
         # Get current ELO ratings (initialize to 1500 if not set)
-        rating1 = player1.get('elo_rating', 1500)
-        rating2 = player2.get('elo_rating', 1500)
+        rating1 = player1.get('elo_rating', 100)
+        rating2 = player2.get('elo_rating', 100)
         
         # Calculate expected scores
         expected1 = self.calculate_expected_score(rating1, rating2)
@@ -327,8 +330,17 @@ class RankingSystem:
         k2 = self.get_k_factor(rating2)
         
         # Update ratings
-        new_rating1 = rating1 + k1 * (result - expected1)
-        new_rating2 = rating2 + k2 * ((1 - result) - expected2)
+        rating_change1 = k1 * (result - expected1)
+        rating_change2 = k2 * ((1 - result) - expected2)
+        
+        # Halve gains but keep losses unchanged to balance win/loss frequency
+        if rating_change1 > 0:
+            rating_change1 = rating_change1 / 1.75
+        if rating_change2 > 0:
+            rating_change2 = rating_change2 / 1.75
+            
+        new_rating1 = rating1 + rating_change1
+        new_rating2 = rating2 + rating_change2
         
         # Store updated ratings
         player1['elo_rating'] = round(new_rating1)
