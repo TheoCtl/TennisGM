@@ -635,12 +635,21 @@ class TournamentScheduler:
 
         sorted_ids = sorted(participants, key=rank_of)  # best -> worst
 
-        # Build pairs: best vs worst, 2nd best vs 2nd worst, ...
+        # New seeding system: Only seed top half, randomize bottom half
+        half_draw = draw_size // 2
+        top_half = sorted_ids[:half_draw]  # Top seeds (ranked 1 to half_draw)
+        bottom_half = sorted_ids[half_draw:]  # Bottom half players
+        
+        # Randomize the bottom half for more interesting matchups
+        import random
+        random.shuffle(bottom_half)
+        
+        # Build pairs: top seed vs random bottom half player
         pairs = []
-        for i in range(draw_size // 2):
-            p1 = sorted_ids[i]            # i-th best
-            p2 = sorted_ids[-(i + 1)]     # i-th worst
-            pairs.append((p1, p2))
+        for i in range(half_draw):
+            p_top = top_half[i]           # i-th best seeded player
+            p_bottom = bottom_half[i]     # randomly assigned bottom half player
+            pairs.append((p_top, p_bottom))
 
         # Place pairs according to seeding order (pair i goes to match containing seed i+1)
         seeding_order = TournamentScheduler.get_seeding_order(draw_size)

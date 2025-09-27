@@ -297,13 +297,19 @@ class RankingSystem:
 
     def get_k_factor(self, player_rating, games_played=None):
         """Get K-factor based on player rating and experience"""
-        # Standard K-factors based on rating level
-        if player_rating >= 2400:
-            return 10  # Strong players
-        elif player_rating >= 2100:
-            return 20  # Intermediate players
+        # Improved K-factors with more granular tiers for better progression
+        if player_rating >= 1500:
+            return 5   # Elite players - very stable ratings
+        elif player_rating >= 1400:
+            return 10  # Strong players - moderate stability
+        elif player_rating >= 1200:
+            return 15  # Above average players - balanced changes
+        elif player_rating >= 1000:
+            return 20  # Average players - moderate volatility
+        elif player_rating >= 800:
+            return 25  # Below average players - higher volatility
         else:
-            return 32  # Newer/weaker players
+            return 32  # New/weak players - maximum volatility for development
 
     def update_elo_ratings(self, player1_id, player2_id, result, players):
         """
@@ -332,12 +338,6 @@ class RankingSystem:
         # Update ratings
         rating_change1 = k1 * (result - expected1)
         rating_change2 = k2 * ((1 - result) - expected2)
-        
-        # Halve gains but keep losses unchanged to balance win/loss frequency
-        if rating_change1 > 0:
-            rating_change1 = rating_change1 / 1.75
-        if rating_change2 > 0:
-            rating_change2 = rating_change2 / 1.75
             
         new_rating1 = rating1 + rating_change1
         new_rating2 = rating2 + rating_change2
