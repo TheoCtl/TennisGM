@@ -210,7 +210,7 @@ class TournamentScheduler:
                     player['year_start_rankings'][str(self.current_year - 1)] = player.get('rank', 999)
 
             # HARD CAP and 2x retirements rule
-            target_max = 322
+            target_max = 350
             slots = max(0, target_max - len(self.players))        # available slots to reach cap
             candidate_count = retired_count * 2                    # generate exactly 2x retirees
 

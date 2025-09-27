@@ -78,13 +78,13 @@ class NewGenGenerator:
     def generate_skills(self):
         """Generate random skills for a new player (between 30 and 50)"""
         return {
-            "serve": random.randint(25, 50),
-            "forehand": random.randint(25, 50),
-            "backhand": random.randint(25, 50),
-            "speed": random.randint(25, 50),
-            "stamina": random.randint(25, 50),
-            "straight": random.randint(25, 50),
-            "cross": random.randint(25, 50)
+            "serve": random.randint(25, 51),
+            "forehand": random.randint(25, 51),
+            "backhand": random.randint(25, 51),
+            "speed": random.randint(25, 51),
+            "stamina": random.randint(25, 51),
+            "straight": random.randint(25, 51),
+            "cross": random.randint(25, 51)
         }
     
     def generate_new_players(self, current_year, count, existing_players=None):

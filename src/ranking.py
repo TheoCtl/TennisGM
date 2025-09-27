@@ -343,8 +343,8 @@ class RankingSystem:
         new_rating2 = rating2 + rating_change2
         
         # Store updated ratings
-        player1['elo_rating'] = round(new_rating1)
-        player2['elo_rating'] = round(new_rating2)
+        player1['elo_rating'] = max(10, round(new_rating1))
+        player2['elo_rating'] = max(10, round(new_rating2))
         
         # Calculate current ELO points (rating + championship points) for comparison
         player1_elo_points = player1['elo_rating'] + self.get_current_points(player1['id'], datetime.now().date())
