@@ -125,10 +125,14 @@ class TournamentScheduler:
                 self.records = data.get('records', [])
                 
                 for player in self.players:
+                    # Initialize required player stats if missing
                     if 'tournament_history' not in player:
                         player['tournament_history'] = []
                     if 'tournament_wins' not in player:
                         player['tournament_wins'] = []
+                    if 'matches_played' not in player:
+                        # Calculate matches_played from tournament_history
+                        player['matches_played'] = len(player['tournament_history'])
                 self.ranking_system.ranking_history = defaultdict(list)
                 for player_id, entries in data.get('ranking_history', {}).items():
                     self.ranking_system.ranking_history[int(player_id)] = entries
@@ -209,8 +213,8 @@ class TournamentScheduler:
                     
                     player['year_start_rankings'][str(self.current_year - 1)] = player.get('rank', 999)
 
-            # HARD CAP and 2x retirements rule
-            target_max = 350
+            # GOAL 300
+            target_max = 300
             slots = max(0, target_max - len(self.players))        # available slots to reach cap
             candidate_count = retired_count * 2                    # generate exactly 2x retirees
 
@@ -772,6 +776,14 @@ class TournamentScheduler:
             tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
             tournament['bracket'][tournament['current_round']][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
 
+            # Update matches_played for both players right when we record the match result
+            if player1_id is not None:
+                player1 = next(p for p in self.players if p['id'] == player1_id)
+                player1['matches_played'] = player1.get('matches_played', 0) + 1
+            if player2_id is not None:
+                player2 = next(p for p in self.players if p['id'] == player2_id)
+                player2['matches_played'] = player2.get('matches_played', 0) + 1
+
             # Check if all matches in the current round are complete
             if all(len(m) == 4 and m[2] is not None for m in tournament['active_matches']):
                 self._prepare_next_round(tournament)
@@ -781,16 +793,21 @@ class TournamentScheduler:
             # Restore original stats but preserve ELO rating changes
             for player_id, original_stats in original_players.items():
                 player = next(p for p in self.players if p['id'] == player_id)
-                # Save current ELO rating and highest ELO before restoring
+                # Save current values that should persist across the temporary simulation
                 current_elo_rating = player.get('elo_rating')
                 current_highest_elo = player.get('highest_elo')
-                # Restore original stats
+                current_matches_played = player.get('matches_played', 0)
+
+                # Restore original stats (these were the pre-simulation snapshot)
                 player.update(original_stats)
-                # Restore the updated ELO values
+
+                # Restore the updated values we want to keep (ELOs and matches_played)
                 if current_elo_rating is not None:
                     player['elo_rating'] = current_elo_rating
                 if current_highest_elo is not None:
                     player['highest_elo'] = current_highest_elo
+                # Persist matches_played so the increment we applied when writing the match isn't lost
+                player['matches_played'] = current_matches_played
             
     def _update_player_tournament_history(self, tournament, player_id, round_reached):
         """Update a player's tournament history when they lose a match"""
@@ -854,8 +871,27 @@ class TournamentScheduler:
                 # Add the score if needed
                 if len(match) == 3:
                     match.append("N/A")
-                # Convert back to tuple if necessary (or keep as list)
+
+                # Persist matches_played for both players when a result is written
+                p1_id, p2_id = match[0], match[1]
+                if p1_id is not None:
+                    p1 = next((p for p in self.players if p['id'] == p1_id), None)
+                    if p1 is not None:
+                        p1['matches_played'] = p1.get('matches_played', 0) + 1
+                if p2_id is not None:
+                    p2 = next((p for p in self.players if p['id'] == p2_id), None)
+                    if p2 is not None:
+                        p2['matches_played'] = p2.get('matches_played', 0) + 1
+
+                # Update both active_matches and the bracket so the saved structure contains the score
                 tournament['active_matches'][match_index] = tuple(match)
+                # Ensure bracket exists and update it as well
+                if 'bracket' in tournament and 0 <= tournament.get('current_round', 0) < len(tournament['bracket']):
+                    try:
+                        tournament['bracket'][tournament['current_round']][match_index] = tuple(match)
+                    except Exception:
+                        # If bracket structure isn't aligned, ignore and rely on active_matches
+                        pass
                 break
             
     def _prepare_next_round(self, tournament):
@@ -1071,6 +1107,7 @@ class TournamentScheduler:
             'name' : player['name'],
             'tournament_wins' : player.get('tournament_wins', []).copy(),
             'highest_ranking': player.get('highest_ranking', 999),
+            'highest_elo': player.get('highest_elo', 999),
             'hof_points': player.get('hof_points', 0),
             'mawn': player.get('mawn'),
             'w1': player.get('w1'),
@@ -1080,7 +1117,7 @@ class TournamentScheduler:
         self.hall_of_fame = sorted(
             self.hall_of_fame,
             key=lambda x: (-x['hof_points'], len(x.get('tournament_wins', [])))
-        )[:25]
+        )[:50]
     
     def _reset_tournaments_for_new_year(self):
         self.old_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
@@ -1215,10 +1252,6 @@ class TournamentScheduler:
         # 5. Tournament results
         tournament_news = self._generate_tournament_news()
         news_items.extend(tournament_news)
-        
-        # 6. Ranking changes
-        ranking_news = self._generate_ranking_news()
-        news_items.extend(ranking_news)
         
         # 7. World Crown announcements
         world_crown_news = self._generate_world_crown_announcements()
@@ -1484,11 +1517,11 @@ class TournamentScheduler:
             ]
             
             career_templates = [
-                " This marks career title #{total} for the {nationality} star.",
+                " This marks career title #{total} for the star.",
                 " The {nationality} player now has {total} professional titles to their name.",
-                " Career victory #{total} goes to the talented {nationality} athlete.",
+                " Career victory #{total} goes to the talented athlete.",
                 " This brings the {nationality} champion's title count to {total}.",
-                " The {nationality} sensation adds title #{total} to their impressive resume."
+                " The sensation adds title #{total} to their impressive resume."
             ]
             
             for winner, tournament, total_wins in major_winners:
@@ -1515,112 +1548,6 @@ class TournamentScheduler:
         
         return tournament_items
     
-    def _generate_ranking_news(self):
-        """Generate news about significant ranking changes"""
-        ranking_items = []
-        
-        current_rankings = {p['id']: p['rank'] for p in self.players if not p.get('retired', False)}
-        ranking_changes = {}
-        
-        if hasattr(self, 'old_rankings'):
-            for player_id, current_rank in current_rankings.items():
-                old_rank = self.old_rankings.get(player_id, 999)
-                if old_rank != current_rank:
-                    ranking_changes[player_id] = (old_rank, current_rank)
-        
-        # Focus on top 20 movements and new top 10 entries
-        significant_changes = []
-        for p in self.players:
-            if (not p.get('retired', False) and 
-                p['id'] in ranking_changes):
-                
-                old_rank, new_rank = ranking_changes[p['id']]
-                
-                # New top 10 entry
-                if new_rank <= 10 and old_rank > 10:
-                    significant_changes.append((p['name'], old_rank, new_rank, 'top10_entry'))
-                # Dropped from top 10
-                elif old_rank <= 10 and new_rank > 10:
-                    significant_changes.append((p['name'], old_rank, new_rank, 'top10_exit'))
-                # Significant movement in top 20
-                elif new_rank <= 20 and abs(old_rank - new_rank) >= 5:
-                    change_type = 'big_rise' if new_rank < old_rank else 'big_drop'
-                    significant_changes.append((p['name'], old_rank, new_rank, change_type))
-        
-        if significant_changes:
-            content = []
-            
-            # Varied intro phrases
-            intro_phrases = [
-                "Notable movements in the ATP Rankings:",
-                "The latest rankings reveal significant changes:",
-                "Several players experienced dramatic ranking shifts:",
-                "This week's rankings brought major surprises:",
-                "Significant changes have shaken up the ATP hierarchy:"
-            ]
-            content.append(random.choice(intro_phrases))
-            
-            # Sort by importance: top 10 entries, then big rises, then others
-            priority = {'top10_entry': 0, 'big_rise': 1, 'big_drop': 2, 'top10_exit': 3}
-            significant_changes.sort(key=lambda x: (priority.get(x[3], 4), x[2]))
-            
-            # Templates for different types of ranking changes
-            top10_entry_templates = [
-                "breaks into the top 10 for the first time, rising to #{new_rank}",
-                "achieves a career-high ranking of #{new_rank}, entering the elite top 10",
-                "makes their top 10 debut at #{new_rank}",
-                "cracks the top 10 barrier, climbing to #{new_rank}",
-                "reaches #{new_rank}, marking their first appearance in the top 10"
-            ]
-            
-            top10_exit_templates = [
-                "drops out of the top 10, falling to #{new_rank}",
-                "slides from the elite group, now ranked #{new_rank}",
-                "loses their top 10 status, dropping to #{new_rank}",
-                "falls from grace to #{new_rank}",
-                "exits the top 10 after dropping to #{new_rank}"
-            ]
-            
-            big_rise_templates = [
-                "surges {movement} positions to #{new_rank}",
-                "climbs {movement} spots to reach #{new_rank}",
-                "rockets up {movement} places to #{new_rank}",
-                "soars {movement} positions to #{new_rank}",
-                "jumps an impressive {movement} spots to #{new_rank}"
-            ]
-            
-            big_drop_templates = [
-                "falls {movement} positions to #{new_rank}",
-                "drops {movement} spots to #{new_rank}",
-                "slides {movement} places down to #{new_rank}",
-                "tumbles {movement} positions to #{new_rank}",
-                "plummets {movement} spots to #{new_rank}"
-            ]
-            
-            for name, old_rank, new_rank, change_type in significant_changes:
-                if change_type == 'top10_entry':
-                    template = random.choice(top10_entry_templates)
-                    content.append(f"• {name} {template.format(new_rank=new_rank)}")
-                elif change_type == 'top10_exit':
-                    template = random.choice(top10_exit_templates)
-                    content.append(f"• {name} {template.format(new_rank=new_rank)}")
-                elif change_type == 'big_rise':
-                    movement = old_rank - new_rank
-                    template = random.choice(big_rise_templates)
-                    content.append(f"• {name} {template.format(movement=movement, new_rank=new_rank)}")
-                elif change_type == 'big_drop':
-                    movement = new_rank - old_rank
-                    template = random.choice(big_drop_templates)
-                    content.append(f"• {name} {template.format(movement=movement, new_rank=new_rank)}")
-            
-            ranking_items.append({
-                'type': 'rankings',
-                'title': 'RANKING MOVEMENTS',
-                'content': content
-            })
-        
-        return ranking_items
-
     def _generate_world_crown_announcements(self):
         """Generate World Crown tournament news for various weeks"""
         world_crown_items = []
@@ -1917,7 +1844,7 @@ class TournamentScheduler:
                     'winner_id': match_winner['id'],
                     'score': final_score
                 }
-                
+
                 matches_played.append({
                     'player1': p1['name'],
                     'player2': p2['name'],

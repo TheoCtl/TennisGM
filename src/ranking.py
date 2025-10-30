@@ -273,43 +273,10 @@ class RankingSystem:
         # Sort by combined rating descending, then by name ascending
         ranked.sort(key=lambda x: (-x[1], x[0]['name']))
         return ranked
-
-    # ELO Rating System Implementation
-    def apply_weekly_elo_decay(self, players):
-        """
-        DEPRECATED: Weekly decay disabled - now using halved ELO gains instead
-        Apply 1% weekly decay to all player ELO ratings to prevent inflation
-        """
-        decay_factor = 1  # 0% decay - function disabled
-        
-        for player in players:
-            if not player.get('retired', False):
-                current_rating = player.get('elo_rating', 100)
-                # Apply decay to ELO rating only (not championship points)
-                decayed_rating = round(current_rating * decay_factor)
-                player['elo_rating'] = decayed_rating
-                
-                # Note: We don't update highest_elo here as that represents peak achievement
     
     def calculate_expected_score(self, rating_a, rating_b):
         """Calculate expected score for player A against player B using ELO formula"""
         return 1 / (1 + 10**((rating_b - rating_a) / 400))
-
-    def get_k_factor(self, player_rating, games_played=None):
-        """Get K-factor based on player rating and experience"""
-        # Improved K-factors with more granular tiers for better progression
-        if player_rating >= 1500:
-            return 5   # Elite players - very stable ratings
-        elif player_rating >= 1400:
-            return 10  # Strong players - moderate stability
-        elif player_rating >= 1200:
-            return 15  # Above average players - balanced changes
-        elif player_rating >= 1000:
-            return 20  # Average players - moderate volatility
-        elif player_rating >= 800:
-            return 25  # Below average players - higher volatility
-        else:
-            return 32  # New/weak players - maximum volatility for development
 
     def update_elo_ratings(self, player1_id, player2_id, result, players):
         """
@@ -323,28 +290,36 @@ class RankingSystem:
         if not player1 or not player2:
             return
         
-        # Get current ELO ratings (initialize to 1500 if not set)
-        rating1 = player1.get('elo_rating', 100)
-        rating2 = player2.get('elo_rating', 100)
+        # Get current ELO ratings (initialize to 1500 for new players)
+        rating1 = player1.get('elo_rating', 1000)
+        rating2 = player2.get('elo_rating', 1000)
+        
+        # Get matches played count (already updated during match simulation)
+        matches_played1 = player1.get('matches_played', 0)
+        matches_played2 = player2.get('matches_played', 0)
         
         # Calculate expected scores
         expected1 = self.calculate_expected_score(rating1, rating2)
         expected2 = self.calculate_expected_score(rating2, rating1)
         
-        # Get K-factors
-        k1 = self.get_k_factor(rating1)
-        k2 = self.get_k_factor(rating2)
+        # Calculate dynamic K-factors using Tennis Abstract formula: 250/(matches_played + 5)^0.4
+        k1 = 250 / ((matches_played1 + 5) ** 0.4)
+        k2 = 250 / ((matches_played2 + 5) ** 0.4)
         
-        # Update ratings
-        rating_change1 = k1 * (result - expected1)
-        rating_change2 = k2 * ((1 - result) - expected2)
+        # Apply tournament level modifier (1.1 for Grand Slams)
+        tournament_level = player1.get('current_tournament', {}).get('category', '')
+        level_modifier = 1.1 if tournament_level == "Grand Slam" else 1.0
+        
+        # Update ratings with Tennis Abstract formula and apply stability factor
+        rating_change1 = (level_modifier * k1) * (result - expected1)
+        rating_change2 = (level_modifier * k2) * ((1 - result) - expected2)
             
         new_rating1 = rating1 + rating_change1
         new_rating2 = rating2 + rating_change2
         
-        # Store updated ratings
-        player1['elo_rating'] = max(10, round(new_rating1))
-        player2['elo_rating'] = max(10, round(new_rating2))
+        # Store updated ratings (minimum of 1000 to prevent extreme low ratings)
+        player1['elo_rating'] = max(1000, round(new_rating1))
+        player2['elo_rating'] = max(1000, round(new_rating2))
         
         # Calculate current ELO points (rating + championship points) for comparison
         player1_elo_points = player1['elo_rating'] + self.get_current_points(player1['id'], datetime.now().date())

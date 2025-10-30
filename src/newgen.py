@@ -54,9 +54,10 @@ class NewGenGenerator:
             "potential_factor": potential_factor,
             "rank": player_rank,
             "highest_ranking": 999,
-            "elo_rating": 100,
-            "highest_elo": 100,  # Initialize to same as starting ELO rating (no championship points yet)
+            "elo_rating": 1000,
+            "highest_elo": 1000,  # Initialize to same as starting ELO rating (no championship points yet)
             "highest_overral": 0,
+            "matches_played": 0,  # Initialize new players with 0 matches
             "mawn": [0, 0, 0, 0, 0],
             "w1": 0,
             "w16": 0,
@@ -78,13 +79,13 @@ class NewGenGenerator:
     def generate_skills(self):
         """Generate random skills for a new player (between 30 and 50)"""
         return {
-            "serve": random.randint(25, 51),
-            "forehand": random.randint(25, 51),
-            "backhand": random.randint(25, 51),
-            "speed": random.randint(25, 51),
-            "stamina": random.randint(25, 51),
-            "straight": random.randint(25, 51),
-            "cross": random.randint(25, 51)
+            "serve": random.randint(25, 55),
+            "forehand": random.randint(25, 55),
+            "backhand": random.randint(25, 55),
+            "speed": random.randint(25, 55),
+            "stamina": random.randint(25, 55),
+            "straight": random.randint(25, 55),
+            "cross": random.randint(25, 55)
         }
     
     def generate_new_players(self, current_year, count, existing_players=None):

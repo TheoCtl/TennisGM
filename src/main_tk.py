@@ -1471,7 +1471,7 @@ class TennisGMApp:
             
             status_info = [
                 ("🏆 HOF Points", hof_points),
-                ("🎯 Highest Ranking", f"#{player.get('highest_ranking', 'N/A')}"),
+                ("🎯 Highest Ranking/ELO", f"#{player.get('highest_ranking', 'N/A')}/{player.get('highest_elo', 'No Data')}"),
             ]
             
             for label, value in status_info:
