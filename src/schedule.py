@@ -621,6 +621,26 @@ class TournamentScheduler:
             self.assign_players_to_tournaments()
         participants = list(tournament.get('participants', []))
         draw_size = tournament['draw_size']
+        
+        # If there's only one player, automatically declare them the winner
+        if len(participants) == 1:
+            winner_id = participants[0]
+            tournament['winner_id'] = winner_id
+            tournament['bracket'] = [[(winner_id, None, winner_id, "BYE")]]
+            tournament['current_round'] = 0
+            tournament['active_matches'] = [(winner_id, None, winner_id, "BYE")]
+            self._update_player_tournament_history(tournament, winner_id, 0)
+            # Add tournament win record
+            winner = next((p for p in self.players if p['id'] == winner_id), None)
+            if winner:
+                if 'tournament_wins' not in winner:
+                    winner['tournament_wins'] = []
+                winner['tournament_wins'].append({
+                    'name': tournament['name'],
+                    'category': tournament['category'],
+                    'year': self.current_year
+                })
+            return
 
         # Trim or pad to draw size
         if len(participants) > draw_size:
@@ -718,16 +738,26 @@ class TournamentScheduler:
         
             match = tournament['active_matches'][target_match_idx]
             player1_id, player2_id = match[:2]
+            point_events = []  # Initialize point_events list
+            match_log = []  # Initialize match_log list
 
             # Handle byes
-            if player1_id is None:
+            if player1_id is None and player2_id is None:
+                # BYE vs BYE case - the next round should also get a BYE
+                winner_id = None
+                final_score = "BYE"
+                match_log = ["BYE vs BYE - No players advance, next round gets BYE"]
+            elif player1_id is None:
+                # BYE vs Player case
                 winner_id = player2_id
                 final_score = "BYE"
+                match_log = ["BYE - Player advances automatically with a default win"]
                 self._update_player_tournament_history(tournament, player2_id, tournament['current_round'])
             elif player2_id is None:
+                # Player vs BYE case
                 winner_id = player1_id
                 final_score = "BYE"
-                match_log = ["BYE - Player advances automatically"]
+                match_log = ["BYE - Player advances automatically with a default win"]
                 self._update_player_tournament_history(tournament, player1_id, tournament['current_round'])
             else:
                 # Fetch player data
@@ -941,9 +971,16 @@ class TournamentScheduler:
         # Get winners from the current round
         winners = []
         for idx, match in enumerate(tournament['active_matches']):
-            if len(match) > 2 and match[2] is not None:  # Ensure the match has a winner
-                winners.append(match[2])
-                # Store the final score in the bracket for the current round
+            if len(match) > 2:  # Match has been processed
+                if match[0] is None and match[1] is None:
+                    # This was a BYE vs BYE match, next round gets a BYE
+                    # For display purposes, mark match[0] as winner to show in bold
+                    if len(match) <= 2:
+                        tournament['bracket'][current_round][idx] = (None, None, None, "BYE")
+                    winners.append(None)
+                elif match[2] is not None:  # Regular match with a winner
+                    winners.append(match[2])
+                # Store the final score in the bracket
                 tournament['bracket'][current_round][idx] = (
                     match[0], match[1], match[2], match[3] if len(match) > 3 else "N/A"
                 )
@@ -952,9 +989,17 @@ class TournamentScheduler:
         next_round_matches = []
         for i in range(0, len(winners), 2):
             if i + 1 < len(winners):
-                next_round_matches.append((winners[i], winners[i + 1], None))
+                # If either winner is None (from BYE vs BYE), the next match gets a BYE
+                if winners[i] is None or winners[i + 1] is None:
+                    next_round_matches.append((None, None, None))
+                else:
+                    next_round_matches.append((winners[i], winners[i + 1], None))
             else:
-                next_round_matches.append((winners[i], None, None))
+                # Last match in an odd-numbered round
+                if winners[i] is None:
+                    next_round_matches.append((None, None, None))
+                else:
+                    next_round_matches.append((winners[i], None, None))
 
         # Assign matches to the next round
         if next_round >= len(tournament['bracket']):
@@ -1079,7 +1124,7 @@ class TournamentScheduler:
                 self._add_to_hall_of_fame(player)
                 continue
             
-            if age > 32 and rank > 200:
+            if age > 32 and rank > 128:
                 player['retired'] = True
                 retired_players.append(player['name'])
                 retired_count += 1
@@ -1399,7 +1444,7 @@ class TournamentScheduler:
     def _get_most_improved_players(self):
         """Get players with the biggest ranking improvements from last year"""
         improved = []
-        last_year = str(self.current_year - 1)
+        last_year = str(self.current_year - 2)
         
         for player in self.players:
             if player.get('retired', False):
