@@ -2,6 +2,7 @@ import json
 import random
 from datetime import datetime
 import math
+from archetypes import get_archetype_for_player
 
 class NewGenGenerator:
     def __init__(self, names_path='data/names.json'):
@@ -44,7 +45,7 @@ class NewGenGenerator:
         skills = self.generate_skills()
         surface_mods = self.generate_surface_modifiers()
         
-        return {
+        player = {
             "id": player_id,
             "name": f"{first_name} {last_name}",
             "age": 16,
@@ -71,6 +72,18 @@ class NewGenGenerator:
             "bonus": random.choice(list(skills.keys())),
             "year_start_rankings": {},  # Track ranking at start of each year
         }
+
+        # Assign a stable archetype at generation time so it remains constant through the career
+        try:
+            name, desc, key = get_archetype_for_player(player)
+            player['archetype'] = name
+            player['archetype_key'] = tuple(key)
+        except Exception:
+            # If archetype resolution fails for any reason, fall back to a generic value
+            player.setdefault('archetype', 'Balanced Player')
+            player.setdefault('archetype_key', tuple())
+
+        return player
     
     def generate_player_id(self):
         """Generate a unique player ID based on current timestamp"""

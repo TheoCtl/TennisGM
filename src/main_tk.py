@@ -7,6 +7,7 @@ import collections
 import sys
 from io import StringIO
 import functools
+from archetypes import ARCTYPE_MAP, get_archetype_for_player
 
 PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "ITF"]
 
@@ -29,6 +30,18 @@ class TennisGMApp:
             if 'favorite' not in p:
                 p['favorite'] = False
                 changed = True
+            # Ensure every active player has an archetype (added for backward compatibility)
+            if 'archetype' not in p or 'archetype_key' not in p:
+                try:
+                    name, desc, key = get_archetype_for_player(p)
+                    p['archetype'] = name
+                    p['archetype_key'] = tuple(key)
+                    changed = True
+                except Exception:
+                    # If archetype calculation fails, set a safe default
+                    p.setdefault('archetype', 'Balanced Player')
+                    p.setdefault('archetype_key', tuple())
+                    changed = True
         if changed:
             # Persist migration
             if hasattr(self.scheduler, 'save_game'):
@@ -569,8 +582,22 @@ class TennisGMApp:
         canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
         canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
         
-        # Basic info card
-        info_card = tk.Frame(main_frame, bg="white", relief="raised", bd=2)
+        # Create two-column layout
+        content_frame = tk.Frame(main_frame, bg="#ecf0f1")
+        content_frame.pack(fill="both", expand=True)
+        
+        left_column = tk.Frame(content_frame, bg="#ecf0f1")
+        left_column.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+        
+        right_column = tk.Frame(content_frame, bg="#ecf0f1")
+        right_column.grid(row=0, column=1, sticky="nsew", padx=(10, 0))
+        
+        # Configure grid weights for equal columns
+        content_frame.grid_columnconfigure(0, weight=1)
+        content_frame.grid_columnconfigure(1, weight=1)
+        
+        # Left Column: Basic Info Card
+        info_card = tk.Frame(left_column, bg="white", relief="raised", bd=2)
         info_card.pack(fill="x", pady=(0, 10))
         
         tk.Label(
@@ -585,6 +612,49 @@ class TennisGMApp:
         
         info_content = tk.Frame(info_card, bg="white")
         info_content.pack(fill="x", padx=15, pady=10)
+        
+        # Right Column: Start with Archetype Card
+        archetype_card = tk.Frame(right_column, bg="white", relief="raised", bd=2)
+        archetype_card.pack(fill="x", pady=(0, 10))
+        
+        tk.Label(
+            archetype_card,
+            text="🎭 Playing Style",
+            font=("Arial", 14, "bold"),
+            bg="#8e44ad",
+            fg="white",
+            padx=15,
+            pady=8
+        ).pack(fill="x")
+        
+        archetype_content = tk.Frame(archetype_card, bg="white")
+        archetype_content.pack(fill="x", padx=15, pady=10)
+        
+        # Get player's archetype based on top 3 skills
+        archetype, description = self._get_player_archetype(player)
+        
+        # Display archetype name
+        tk.Label(
+            archetype_content,
+            text=archetype,
+            font=("Arial", 12, "bold"),
+            bg="white",
+            fg="#8e44ad",
+            wraplength=350,
+            anchor="w"
+        ).pack(fill="x", pady=(0, 5))
+        
+        # Display archetype description
+        tk.Label(
+            archetype_content,
+            text=description,
+            font=("Arial", 11),
+            bg="white",
+            fg="#7f8c8d",
+            wraplength=350,
+            justify="left",
+            anchor="w"
+        ).pack(fill="x")
         
         # Calculate current ELO points for display
         current_elo_points = self.scheduler.ranking_system.get_elo_points(player, self.scheduler.current_date)
@@ -605,7 +675,7 @@ class TennisGMApp:
             tk.Label(row, text=str(value), font=("Arial", 11), bg="white", fg="#7f8c8d", anchor="w").pack(side="right")
         
         # Surface modifiers card
-        surface_card = tk.Frame(main_frame, bg="white", relief="raised", bd=2)
+        surface_card = tk.Frame(left_column, bg="white", relief="raised", bd=2)
         surface_card.pack(fill="x", pady=(0, 10))
         
         tk.Label(
@@ -633,7 +703,7 @@ class TennisGMApp:
                 tk.Label(row, text=f"{value:.3f}" if isinstance(value, (int, float)) else "-", font=("Arial", 11), bg="white", fg="#7f8c8d", anchor="w").pack(side="right")
         
         # Skills card
-        skills_card = tk.Frame(main_frame, bg="white", relief="raised", bd=2)
+        skills_card = tk.Frame(right_column, bg="white", relief="raised", bd=2)
         skills_card.pack(fill="x", pady=(0, 10))
         
         tk.Label(
@@ -668,9 +738,9 @@ class TennisGMApp:
             row.pack(fill="x", pady=2)
             tk.Label(row, text=f"🎯 {skill_name.capitalize()}:", font=("Arial", 11, "bold"), bg="white", fg="#2c3e50", anchor="w").pack(side="left")
             tk.Label(row, text=f"{val}{suffix}", font=("Arial", 11), bg="white", fg="#7f8c8d", anchor="w").pack(side="right")
-        
+                    
         # Career stats card
-        stats_card = tk.Frame(main_frame, bg="white", relief="raised", bd=2)
+        stats_card = tk.Frame(left_column, bg="white", relief="raised", bd=2)
         stats_card.pack(fill="x", pady=(0, 10))
         
         tk.Label(
@@ -1597,6 +1667,44 @@ class TennisGMApp:
     def _toggle_hof_tournaments(self, player, show):
         self._show_tournaments = show
         self.show_hof_player_details(player)
+
+    def _get_player_archetype(self, player):
+        """Return (archetype_name, archetype_description) using stored archetype when present.
+
+        Preference order:
+        1. If the player has an `archetype_key` and it exists in ARCTYPE_MAP, use that.
+        2. If the player has an `archetype` name, look it up in ARCTYPE_MAP by name.
+        3. Fallback to computing from current skills using `get_archetype_for_player`.
+        """
+        # 1) Use stored archetype_key when available
+        ak = player.get('archetype_key')
+        if ak:
+            try:
+                key = tuple(ak)
+                if key in ARCTYPE_MAP:
+                    name, desc = ARCTYPE_MAP[key]
+                    return name, desc
+            except Exception:
+                pass
+
+        # 2) Use stored archetype name to find description
+        if 'archetype' in player:
+            a_name = player['archetype']
+            for k, (n, d) in ARCTYPE_MAP.items():
+                if n == a_name:
+                    return n, d
+            # If name not found, return stored name with a short fallback description
+            return a_name, "A defined archetype assigned at generation."
+
+        # 3) Fallback: compute from current stats
+        try:
+            name, desc, key = get_archetype_for_player(player)
+            return name, desc
+        except Exception:
+            return "Balanced Player", (
+                "A well-rounded player who does not strongly fit any single archetype. "
+                "They combine steady technique, tactical awareness, and adaptable physical traits to navigate matches."
+            )
         
     def show_achievements(self):
         for widget in self.root.winfo_children():
