@@ -221,25 +221,27 @@ class GameEngine:
         while True:
             # Receiver becomes the hitter
             hitter, defender = defender, hitter
-            shot_type = self.determine_shot_type(hitter, shot_leftright)
             shot_direction = self.choose_shot_direction(hitter)
-            
-            # Determine shot_leftright based on hitter's position and shot_direction
-            hitter_position = self.positions[hitter["id"]]  # "left" or "right"
+            # Determine shot type: dropshot/volley/forehand/backhand
+            if shot_direction in ("cross", "straight"):
+                shot_type = self.determine_shot_type(hitter, shot_leftright)
+            else:
+                shot_type = shot_direction
+
+            # Determine shot_leftright for visualization/positioning
+            hitter_position = self.positions[hitter["id"]]
             if hitter_position == "right":
                 shot_leftright = "left" if shot_direction == "cross" else "right"
-            else:  # hitter_position == "left"
+            else:
                 shot_leftright = "right" if shot_direction == "cross" else "left"
-                
+
             shot_power, shot_precision, shot_direction = self.calculate_shot(hitter, shot_type, shot_direction, return_multiplier)
             side = "left" if self._get_player_key(defender) == "player1" else "right"
             ball_side, ball_row, ball_col = self.get_ball_coordinates(
                 side, shot_power, shot_leftright, shot_precision
             )
-            # Update positions based on the shot
             self.update_positions(defender, shot_leftright)
 
-            # Add current ball position to events if visualizing
             if visualize:
                 point_events.append({
                     'type': 'shot',
@@ -253,14 +255,34 @@ class GameEngine:
                     'hitter_id': hitter['id']
                 })
 
+            # Dropshot/volley mechanics
+            if shot_type == "dropshot":
+                dropshot_skill = hitter["skills"].get("dropshot", 30)
+                success_chance = max(0.05, min(0.95, (dropshot_skill - self.last_shot_power + 100) / 200))
+                if random.random() < success_chance:
+                    self.reset_stamina_and_speed()
+                    winner_key = self._get_player_key(hitter)
+                    return (winner_key, point_events) if visualize else winner_key
+                else:
+                    return_multiplier = 1.5
+            elif shot_type == "volley":
+                volley_skill = hitter["skills"].get("volley", 30)
+                success_chance = max(0.05, min(0.95, (volley_skill - self.last_shot_power + 100) / 200))
+                if random.random() < success_chance:
+                    self.reset_stamina_and_speed()
+                    winner_key = self._get_player_key(hitter)
+                    return (winner_key, point_events) if visualize else winner_key
+                else:
+                    self.reset_stamina_and_speed()
+                    winner_key = self._get_player_key(defender)
+                    return (winner_key, point_events) if visualize else winner_key
+
             caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type)
             if not caught:
                 side = "left" if self._get_player_key(defender) == "player1" else "right"
                 ball_side, target_x, target_y = self.get_ball_coordinates(
                     side, shot_power, shot_leftright, shot_precision
                 )
-                
-                # Add final missed shot position if visualizing
                 if visualize:
                     point_events.append({
                         'type': 'shot',
@@ -273,30 +295,31 @@ class GameEngine:
                         }],
                         'hitter_id': hitter['id']
                     })
-                
                 self.reset_stamina_and_speed()
                 winner_key = self._get_player_key(hitter)
                 return (winner_key, point_events) if visualize else winner_key
 
-            # Reduce stamina for catching the ball
             self.reduce_stamina(hitter, shot_power)
 
     def calculate_shot(self, player, shot_type, direction, previous_multiplier=1):
         """
         Calculate the power and placement of a shot based on the player's stats.
         Adjust shot power based on how comfortably the player catches the ball.
+        For dropshot/volley, use their own skill for both power and precision.
         """
-        base_power = player["skills"][shot_type] * previous_multiplier
-        precision_skill = player["skills"][direction]
+        if shot_type == "dropshot" or shot_type == "volley":
+            base_power = player["skills"].get(shot_type, 30) * previous_multiplier
+            precision_skill = player["skills"].get(shot_type, 30)
+        else:
+            base_power = player["skills"][shot_type] * previous_multiplier
+            precision_skill = player["skills"][direction]
         precision = self._weighted_random_precision(precision_skill)
 
         # Special handling for serves
         if shot_type == "serve":
             power_multiplier = random.uniform(0.5, 1.3)  # Serve gets a special bonus range
         else:
-            # Determine the comfort level of the shot
-            last_shot_power = self.last_shot_power  # Track the opponent's last shot power
-
+            last_shot_power = self.last_shot_power
             if last_shot_power <= 10:
                 power_multiplier = random.uniform(1, 1.5)
             elif 10 < last_shot_power <= 20:
@@ -321,7 +344,7 @@ class GameEngine:
                 power_multiplier = random.uniform(0, 0.8)
 
         shot_power = round(base_power * power_multiplier)
-        self.last_shot_power = shot_power  # Update the last shot power for the next calculation
+        self.last_shot_power = shot_power
         return shot_power, precision, direction
     
     def _weighted_random_precision(self, skill):
@@ -375,10 +398,16 @@ class GameEngine:
 
     def choose_shot_direction(self, player):
         """
-        Choose the shot direction (cross or straight).
-        For now, this is randomized. Later, you can integrate user input for human players.
+        Choose the shot direction (cross, straight, dropshot, volley) using player tendencies.
         """
-        return random.choice(["cross", "straight"])
+        tendencies = [
+            player.get("cross_tend", 40),
+            player.get("straight_tend", 40),
+            player.get("dropshot_tend", 10),
+            player.get("volley_tend", 10)
+        ]
+        shot_types = ["cross", "straight", "dropshot", "volley"]
+        return random.choices(shot_types, weights=tendencies, k=1)[0]
 
     def determine_shot_type(self, player, incoming_direction):
         """

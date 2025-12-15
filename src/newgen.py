@@ -44,7 +44,24 @@ class NewGenGenerator:
 
         skills = self.generate_skills()
         surface_mods = self.generate_surface_modifiers()
-        
+
+        # Generate tendencies
+        dropshot_tend = random.randint(0, 10)
+        volley_tend = random.randint(0, 10)
+        straight_tend = random.randint(40, 60)
+        cross_tend = 100 - (dropshot_tend + volley_tend + straight_tend)
+        # Ensure all are at least 0, and cross_tend at least 10 if possible
+        if cross_tend < 10:
+            # Reduce straight_tend if possible
+            diff = 10 - cross_tend
+            if straight_tend - diff >= 40:
+                straight_tend -= diff
+                cross_tend = 10
+            else:
+                # If not possible, set cross_tend to 10 and adjust others
+                cross_tend = 10
+                straight_tend = max(40, 100 - (dropshot_tend + volley_tend + cross_tend))
+
         player = {
             "id": player_id,
             "name": f"{first_name} {last_name}",
@@ -70,6 +87,11 @@ class NewGenGenerator:
             "tournament_history": [],
             "tournament_wins": [],
             "bonus": random.choice(list(skills.keys())),
+            # Shot tendencies
+            "cross_tend": cross_tend,
+            "straight_tend": straight_tend,
+            "dropshot_tend": dropshot_tend,
+            "volley_tend": volley_tend,
             "year_start_rankings": {},  # Track ranking at start of each year
         }
 
@@ -90,7 +112,7 @@ class NewGenGenerator:
         return int(datetime.now().timestamp() * 1000)
     
     def generate_skills(self):
-        """Generate random skills for a new player (between 30 and 50)"""
+        """Generate random skills for a new player (between 25 and 55)"""
         return {
             "serve": random.randint(25, 55),
             "forehand": random.randint(25, 55),
@@ -98,7 +120,9 @@ class NewGenGenerator:
             "speed": random.randint(25, 55),
             "stamina": random.randint(25, 55),
             "straight": random.randint(25, 55),
-            "cross": random.randint(25, 55)
+            "cross": random.randint(25, 55),
+            "dropshot": random.randint(25, 55),
+            "volley": random.randint(25, 55)
         }
     
     def generate_new_players(self, current_year, count, existing_players=None):

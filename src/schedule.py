@@ -173,6 +173,31 @@ class TournamentScheduler:
                 player['tournament_history'] = []
             if 'tournament_wins' not in player:
                 player['tournament_wins'] = []
+
+            # MIGRATION: Ensure dropshot/volley skills and tendencies exist
+            skills = player.setdefault('skills', {})
+            if 'dropshot' not in skills:
+                skills['dropshot'] = random.randint(25, 55)
+            if 'volley' not in skills:
+                skills['volley'] = random.randint(25, 55)
+            # Tendencies: cross, straight, dropshot, volley
+            if not all(k in player for k in ('cross_tend', 'straight_tend', 'dropshot_tend', 'volley_tend')):
+                dropshot_tend = random.randint(0, 10)
+                volley_tend = random.randint(0, 10)
+                straight_tend = random.randint(40, 60)
+                cross_tend = 100 - (dropshot_tend + volley_tend + straight_tend)
+                if cross_tend < 10:
+                    diff = 10 - cross_tend
+                    if straight_tend - diff >= 40:
+                        straight_tend -= diff
+                        cross_tend = 10
+                    else:
+                        cross_tend = 10
+                        straight_tend = max(40, 100 - (dropshot_tend + volley_tend + cross_tend))
+                player['cross_tend'] = cross_tend
+                player['straight_tend'] = straight_tend
+                player['dropshot_tend'] = dropshot_tend
+                player['volley_tend'] = volley_tend
     
     def get_current_week_tournaments(self):
         return [t for t in self.tournaments if t['week'] == self.current_week]

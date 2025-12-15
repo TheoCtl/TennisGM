@@ -733,10 +733,11 @@ class TennisGMApp:
             else:
                 cap = int(cap_dict.get('regcap', 0) or 0)
                 suffix = f" (-{cap})" if cap > 0 else ""
-            
+
             row = tk.Frame(skills_content, bg="white")
             row.pack(fill="x", pady=2)
-            tk.Label(row, text=f"🎯 {skill_name.capitalize()}:", font=("Arial", 11, "bold"), bg="white", fg="#2c3e50", anchor="w").pack(side="left")
+            label = tk.Label(row, text=f"{icon} {skill_name.capitalize()}:", font=("Arial", 11, "bold"), bg="white", fg="#2c3e50", anchor="w")
+            label.pack(side="left")
             tk.Label(row, text=f"{val}{suffix}", font=("Arial", 11), bg="white", fg="#7f8c8d", anchor="w").pack(side="right")
                     
         # Career stats card
