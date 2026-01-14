@@ -2546,14 +2546,23 @@ Last Title: {self.get_player_last_tournament_won(player2)}"""
         p1_elo = self.scheduler.ranking_system.get_elo_points(player1, self.scheduler.current_date)
         p2_elo = self.scheduler.ranking_system.get_elo_points(player2, self.scheduler.current_date)
         
+        # Skill abbreviation mapping
+        skill_abbreviations = {
+            'serve': 'SRV',
+            'forehand': 'FRH',
+            'backhand': 'BKH',
+            'cross': 'CRS',
+            'straight': 'STR',
+            'speed': 'SPD',
+            'stamina': 'STA',
+            'dropshot': 'DRP',
+            'volley': 'VOL'
+        }
+        
         # Helper function to create skill bars
         def create_skill_bar(parent, skill_name, p1_val, p2_val, max_val=100):
             bar_frame = tk.Frame(parent, bg="#1a2332")
-            bar_frame.pack(fill="x", pady=8)
-            
-            # Skill label
-            tk.Label(bar_frame, text=skill_name.upper(), font=("Arial", 9, "bold"), 
-                    bg="#1a2332", fg="#ecf0f1", width=12, anchor="w").pack(side="left", padx=(0, 10))
+            bar_frame.pack(fill="x", pady=15)
             
             # P1 bar and value
             p1_container = tk.Frame(bar_frame, bg="#1a2332")
@@ -2563,9 +2572,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}"""
             p1_bar_frame.pack(fill="x")
             p1_bar_frame.pack_propagate(False)
             
-            p1_fill_width = int(600 * (p1_val / 100)) if p1_val > 0 else 0
+            p1_fill_width = int(610 * (p1_val / 100)) if p1_val > 0 else 0
             p1_fill = tk.Frame(p1_bar_frame, bg="#3498db" if p1_val > p2_val else "#7f8c8d", height=12)
-            p1_fill.pack(side="left", fill="y")
+            p1_fill.pack(side="right", fill="y")
             p1_fill.pack_propagate(False)
             if p1_fill_width > 0:
                 p1_fill.config(width=p1_fill_width)
@@ -2573,9 +2582,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}"""
             tk.Label(bar_frame, text=f"{p1_val}", font=("Arial", 9, "bold"), 
                     bg="#1a2332", fg="#3498db" if p1_val > p2_val else "#ecf0f1", width=3, anchor="e").pack(side="left", padx=2)
             
-            # VS label
-            tk.Label(bar_frame, text="VS", font=("Arial", 8, "bold"), 
-                    bg="#1a2332", fg="#ecf0f1", padx=5).pack(side="left")
+            # Skill abbreviation label (replacing "VS")
+            skill_abbr = skill_abbreviations.get(skill_name, skill_name[:3].upper())
+            tk.Label(bar_frame, text=skill_abbr, font=("Arial", 9, "bold"), 
+                bg="#1a2332", fg="#ffffff", padx=5).pack(side="left")
             
             # P2 value and bar
             tk.Label(bar_frame, text=f"{p2_val}", font=("Arial", 9, "bold"), 
@@ -2588,7 +2598,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}"""
             p2_bar_frame.pack(fill="x")
             p2_bar_frame.pack_propagate(False)
             
-            p2_fill_width = int(600 * (p2_val / 100)) if p2_val > 0 else 0
+            p2_fill_width = int(610 * (p2_val / 100)) if p2_val > 0 else 0
             p2_fill = tk.Frame(p2_bar_frame, bg="#e74c3c" if p2_val > p1_val else "#7f8c8d", height=12)
             p2_fill.pack(side="left", fill="y")
             p2_fill.pack_propagate(False)
@@ -2671,7 +2681,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         tk.Label(skills_frame, text="SKILLS COMPARISON", font=("Arial", 12, "bold"), 
                 bg="#1a2332", fg="#f39c12").pack(anchor="center", pady=(0, 15))
         
-        for skill in ['serve', 'forehand', 'backhand', 'speed', 'stamina', 'dropshot', 'volley']:
+        for skill in ['serve', 'forehand', 'backhand', 'cross', 'straight', 'speed', 'stamina', 'dropshot', 'volley']:
             p1_val = p1_skills.get(skill, 0)
             p2_val = p2_skills.get(skill, 0)
             create_skill_bar(skills_frame, skill, p1_val, p2_val, max_skill)
