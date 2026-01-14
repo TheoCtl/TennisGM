@@ -1,4 +1,6 @@
-MATCH STATISTICS (Aces, Forehand/Backhand winners, Breaks, ...)
--> on-screen when watching along with player stats (considering modifiers, not general)
+FUTURE QOL IDEAS
 
-2D point visualisation (players and ball moving)
+PLAYABLE UPDATE: when in a bracket, add "play" button to control a player
+   - 2D top-down view of the court
+   - Player movement and shot selection based on stats
+   - Real-time match control during visualization

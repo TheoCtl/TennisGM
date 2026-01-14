@@ -237,8 +237,21 @@ class GameEngine:
 
             shot_power, shot_precision, shot_direction = self.calculate_shot(hitter, shot_type, shot_direction, return_multiplier)
             side = "left" if self._get_player_key(defender) == "player1" else "right"
+            
+            # For dropshot/volley, calculate success before getting coordinates
+            shot_success = None
+            if shot_type == "dropshot":
+                dropshot_skill = hitter["skills"].get("dropshot", 30)
+                success_chance = max(0.05, min(0.95, (dropshot_skill - self.last_shot_power + 100) / 200))
+                shot_success = random.random() < success_chance
+            elif shot_type == "volley":
+                volley_skill = hitter["skills"].get("volley", 30)
+                success_chance = max(0.05, min(0.95, (volley_skill - self.last_shot_power + 100) / 200))
+                shot_success = random.random() < success_chance
+            
+            # Get ball coordinates with dropshot/volley success info
             ball_side, ball_row, ball_col = self.get_ball_coordinates(
-                side, shot_power, shot_leftright, shot_precision
+                side, shot_power, shot_leftright, shot_precision, shot_type, shot_success
             )
             self.update_positions(defender, shot_leftright)
 
@@ -257,18 +270,14 @@ class GameEngine:
 
             # Dropshot/volley mechanics
             if shot_type == "dropshot":
-                dropshot_skill = hitter["skills"].get("dropshot", 30)
-                success_chance = max(0.05, min(0.95, (dropshot_skill - self.last_shot_power + 100) / 200))
-                if random.random() < success_chance:
+                if shot_success:
                     self.reset_stamina_and_speed()
                     winner_key = self._get_player_key(hitter)
                     return (winner_key, point_events) if visualize else winner_key
                 else:
                     return_multiplier = 1.5
             elif shot_type == "volley":
-                volley_skill = hitter["skills"].get("volley", 30)
-                success_chance = max(0.05, min(0.95, (volley_skill - self.last_shot_power + 100) / 200))
-                if random.random() < success_chance:
+                if shot_success:
                     self.reset_stamina_and_speed()
                     winner_key = self._get_player_key(hitter)
                     return (winner_key, point_events) if visualize else winner_key
@@ -281,7 +290,7 @@ class GameEngine:
             if not caught:
                 side = "left" if self._get_player_key(defender) == "player1" else "right"
                 ball_side, target_x, target_y = self.get_ball_coordinates(
-                    side, shot_power, shot_leftright, shot_precision
+                    side, shot_power, shot_leftright, shot_precision, shot_type, shot_success
                 )
                 if visualize:
                     point_events.append({
@@ -500,10 +509,12 @@ class GameEngine:
             original['skills'] = player['original_skills']
         return original
             
-    def get_ball_coordinates(self, side, shot_power, shot_direction, shot_precision=None):
+    def get_ball_coordinates(self, side, shot_power, shot_direction, shot_precision=None, shot_type=None, shot_success=None):
         """
         Returns (x, y) coordinates for the ball in screen space (1200x600 court).
         side: "right" or "left"
+        shot_type: "serve", "forehand", "backhand", "dropshot", "volley", etc.
+        shot_success: True/False for dropshot/volley outcomes
         """
         # Court dimensions
         COURT_WIDTH = 1200
@@ -511,28 +522,25 @@ class GameEngine:
         MARGIN_X = 100
         MARGIN_Y = 75
         BASELINE_Y = COURT_HEIGHT // 2  # Center line
-                
-        # Helper for y calculation (now in screen coordinates)
-        def y_from_value(val, value_range):
-            if val >= 85:
-                return BASELINE_Y + (value_range[0] * 20)  # Convert ASCII rows to pixels
-            elif val >= 70:
-                return BASELINE_Y + (value_range[1] * 20)
-            elif val >= 50:
-                return BASELINE_Y + (value_range[2] * 20)
-            elif val >= 30:
-                return BASELINE_Y + (value_range[3] * 20)
-            elif val >= 20:
-                return BASELINE_Y + (value_range[4] * 20)
-            else:
-                return BASELINE_Y + (value_range[5] * 20)
 
         if side == "right":
             # Available court space
             court_space = COURT_WIDTH - (2 * MARGIN_X)
             half_court = COURT_WIDTH / 2
             
-            if shot_precision is None:  # Serve
+            if shot_type in ("dropshot", "volley") and shot_success is not None:
+                # Dropshot/volley special coordinates
+                if shot_success:
+                    # Successful: randomly either [650, 100] or [650, 500]
+                    x = 650
+                    y = random.choice([125, 475])
+                else:
+                    # Unsuccessful: [900, 300]
+                    x = 900
+                    y = 300
+                return side, x, y
+            
+            elif shot_precision is None:  # Serve
                 # Calculate base X position
                 power_factor = shot_power / 100.0
                 x = half_court + (300 * power_factor)  # Scale between half_court and half_court + 300
@@ -584,7 +592,19 @@ class GameEngine:
             court_space = COURT_WIDTH - (2 * MARGIN_X)
             half_court = COURT_WIDTH / 2
             
-            if shot_precision is None:  # Serve
+            if shot_type in ("dropshot", "volley") and shot_success is not None:
+                # Dropshot/volley special coordinates
+                if shot_success:
+                    # Successful: randomly either [550, 100] or [550, 500]
+                    x = 550
+                    y = random.choice([125, 475])
+                else:
+                    # Unsuccessful: [300, 300]
+                    x = 300
+                    y = 300
+                return side, x, y
+            
+            elif shot_precision is None:  # Serve
                 # Calculate base X position (mirrored)
                 power_factor = shot_power / 100.0
                 x = half_court - (300 * power_factor)
