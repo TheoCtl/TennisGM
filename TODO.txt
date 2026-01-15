@@ -1,9 +1,5 @@
 QOL IDEAS
 
-game engine
-   -> improvements ideas (only improvements over current functionning, no new features. Only expand on existing ones.)
-
 player stats blocks when visualising
    -> possibility to switch between player stats and match stats
-   -> average stats for severals. Stats displayed : Serve, Base shots (Forehand/backhand), Physicality (Speed/stamina), Precision (cross/straight), special shots (dropshots/volleys)
    -> match stats = aces, breaks, forehand/backhand winners

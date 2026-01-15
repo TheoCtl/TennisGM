@@ -2287,233 +2287,13 @@ class TennisGMApp:
     
     def get_player_last_tournament_won(self, player):
         """Get the last tournament won by a player."""
-        for tournament in reversed(self.scheduler.tournaments):
-            if tournament.get('winner_id') == player['id']:
-                return tournament.get('name', 'Unknown Tournament')
+        # Check if the player has tournament_wins list and it's not empty
+        if 'tournament_wins' in player and player['tournament_wins']:
+            # Get the last (most recent) tournament win
+            last_win = player['tournament_wins'][-1]
+            return last_win.get('name', 'Unknown Tournament')
         return "None"
     
-    def show_player_faceoff(self, player1, player2, tournament, match_idx):
-        """Display a professional face-off screen between two players before the match."""
-        # Clear screen
-        for widget in self.root.winfo_children():
-            widget.destroy()
-        
-        main_frame = tk.Frame(self.root, bg="#1a2332")
-        main_frame.pack(fill="both", expand=True)
-        
-        # Header with title
-        header_frame = tk.Frame(main_frame, bg="#2c3e50", height=80)
-        header_frame.pack(fill="x", pady=0)
-        header_frame.pack_propagate(False)
-        
-        title = tk.Label(
-            header_frame,
-            text="MATCH PREVIEW",
-            font=("Arial", 24, "bold"),
-            bg="#2c3e50",
-            fg="white",
-            pady=20
-        )
-        title.pack()
-        
-        # Get player data
-        p1_ranking = player1.get('rank', 'N/A')
-        p2_ranking = player2.get('rank', 'N/A')
-        p1_elo = self.scheduler.ranking_system.get_elo_points(player1, self.scheduler.current_date)
-        p2_elo = self.scheduler.ranking_system.get_elo_points(player2, self.scheduler.current_date)
-        
-        # Helper function to create skill bars
-        def create_skill_bar(parent, skill_name, p1_val, p2_val, max_val=100):
-            bar_frame = tk.Frame(parent, bg="#1a2332")
-            bar_frame.pack(fill="x", pady=8)
-            
-            # Skill label
-            tk.Label(bar_frame, text=skill_name.upper(), font=("Arial", 9, "bold"), 
-                    bg="#1a2332", fg="#ecf0f1", width=12, anchor="w").pack(side="left", padx=(0, 10))
-            
-            # P1 bar and value
-            p1_container = tk.Frame(bar_frame, bg="#1a2332")
-            p1_container.pack(side="left", fill="x", expand=True, padx=(0, 5))
-            
-            p1_bar_frame = tk.Frame(p1_container, bg="#34495e", height=12, relief="sunken", bd=1)
-            p1_bar_frame.pack(fill="x")
-            p1_bar_frame.pack_propagate(False)
-            
-            p1_fill_width = int(200 * (p1_val / 100)) if p1_val > 0 else 0
-            p1_fill = tk.Frame(p1_bar_frame, bg="#3498db" if p1_val > p2_val else "#7f8c8d", height=12)
-            p1_fill.pack(side="left", fill="y")
-            p1_fill.pack_propagate(False)
-            if p1_fill_width > 0:
-                p1_fill.config(width=p1_fill_width)
-            
-            tk.Label(bar_frame, text=f"{p1_val}", font=("Arial", 9, "bold"), 
-                    bg="#1a2332", fg="#3498db" if p1_val > p2_val else "#ecf0f1", width=3, anchor="e").pack(side="left", padx=2)
-            
-            # VS label
-            tk.Label(bar_frame, text="VS", font=("Arial", 8, "bold"), 
-                    bg="#1a2332", fg="#ecf0f1", padx=5).pack(side="left")
-            
-            # P2 value and bar
-            tk.Label(bar_frame, text=f"{p2_val}", font=("Arial", 9, "bold"), 
-                    bg="#1a2332", fg="#e74c3c" if p2_val > p1_val else "#ecf0f1", width=3, anchor="w").pack(side="left", padx=2)
-            
-            p2_container = tk.Frame(bar_frame, bg="#1a2332")
-            p2_container.pack(side="left", fill="x", expand=True, padx=(5, 0))
-            
-            p2_bar_frame = tk.Frame(p2_container, bg="#34495e", height=12, relief="sunken", bd=1)
-            p2_bar_frame.pack(fill="x")
-            p2_bar_frame.pack_propagate(False)
-            
-            p2_fill_width = int(200 * (p2_val / 100)) if p2_val > 0 else 0
-            p2_fill = tk.Frame(p2_bar_frame, bg="#e74c3c" if p2_val > p1_val else "#7f8c8d", height=12)
-            p2_fill.pack(side="left", fill="y")
-            p2_fill.pack_propagate(False)
-            if p2_fill_width > 0:
-                p2_fill.config(width=p2_fill_width)
-        
-        # Main content area with top section (two player bios side by side)
-        content_frame = tk.Frame(main_frame, bg="#1a2332")
-        content_frame.pack(fill="both", expand=False, padx=30, pady=(20, 0))
-        
-        # Left player info panel
-        p1_panel = tk.Frame(content_frame, bg="#2c3e50", relief="raised", bd=2)
-        p1_panel.pack(side="left", fill="both", expand=True, padx=(0, 15))
-        
-        # Player 1 name header
-        p1_header = tk.Frame(p1_panel, bg="#3498db", height=50)
-        p1_header.pack(fill="x")
-        p1_header.pack_propagate(False)
-        
-        tk.Label(p1_header, text=player1['name'], font=("Arial", 16, "bold"), 
-                bg="#3498db", fg="white", padx=15, pady=10).pack(side="left", fill="x", expand=True)
-        
-        p1_content = tk.Frame(p1_panel, bg="#2c3e50")
-        p1_content.pack(fill="both", expand=True, padx=15, pady=15)
-        
-        # Player 1 basic info only (no skills)
-        p1_info_text = f"""Ranking: #{p1_ranking}
-ELO: {p1_elo}
-Archetype: {player1.get('archetype', 'N/A')}
-Last Title: {self.get_player_last_tournament_won(player1)}"""
-        
-        tk.Label(p1_content, text=p1_info_text, font=("Arial", 10), 
-                bg="#2c3e50", fg="#ecf0f1", justify="left", anchor="w").pack(fill="x")
-        
-        # Center "VS" divider
-        center_frame = tk.Frame(content_frame, bg="#1a2332", width=80)
-        center_frame.pack(side="left", fill="both", padx=10)
-        center_frame.pack_propagate(False)
-        
-        vs_label = tk.Label(center_frame, text="VS", font=("Arial", 20, "bold"), 
-                          bg="#1a2332", fg="#f39c12")
-        vs_label.pack(expand=True)
-        
-        # Right player info panel
-        p2_panel = tk.Frame(content_frame, bg="#2c3e50", relief="raised", bd=2)
-        p2_panel.pack(side="left", fill="both", expand=True, padx=(15, 0))
-        
-        # Player 2 name header
-        p2_header = tk.Frame(p2_panel, bg="#e74c3c", height=50)
-        p2_header.pack(fill="x")
-        p2_header.pack_propagate(False)
-        
-        tk.Label(p2_header, text=player2['name'], font=("Arial", 16, "bold"), 
-                bg="#e74c3c", fg="white", padx=15, pady=10).pack(side="right", fill="x", expand=True, anchor="e")
-        
-        p2_content = tk.Frame(p2_panel, bg="#2c3e50")
-        p2_content.pack(fill="both", expand=True, padx=15, pady=15)
-        
-        # Player 2 basic info only (no skills)
-        p2_info_text = f"""Ranking: #{p2_ranking}
-ELO: {p2_elo}
-Archetype: {player2.get('archetype', 'N/A')}
-Last Title: {self.get_player_last_tournament_won(player2)}"""
-        
-        tk.Label(p2_content, text=p2_info_text, font=("Arial", 10), 
-                bg="#2c3e50", fg="#ecf0f1", justify="left", anchor="w").pack(fill="x")
-        
-        # Centered skills comparison section below
-        p1_skills = player1.get('skills', {})
-        p2_skills = player2.get('skills', {})
-        max_skill = max(
-            max(p1_skills.values()) if p1_skills else 0,
-            max(p2_skills.values()) if p2_skills else 0,
-            100
-        )
-        
-        skills_frame = tk.Frame(main_frame, bg="#1a2332")
-        skills_frame.pack(fill="both", expand=True, padx=100, pady=20)
-        
-        tk.Label(skills_frame, text="SKILLS COMPARISON", font=("Arial", 12, "bold"), 
-                bg="#1a2332", fg="#f39c12").pack(anchor="center", pady=(0, 15))
-        
-        for skill in ['serve', 'forehand', 'backhand', 'speed', 'stamina', 'dropshot', 'volley']:
-            p1_val = p1_skills.get(skill, 0)
-            p2_val = p2_skills.get(skill, 0)
-            create_skill_bar(skills_frame, skill, p1_val, p2_val, max_skill)
-        
-        # Button frame at bottom
-        button_frame = tk.Frame(main_frame, bg="#2c3e50", height=80)
-        button_frame.pack(fill="x", pady=0)
-        button_frame.pack_propagate(False)
-        
-        def start_match():
-            # Simulate and save the match - get the exact same data to visualize
-            result = self.scheduler.simulate_through_match(tournament['id'], match_idx)
-            
-            # Unpack the returned tuple: (winner_id, match_log, point_events)
-            if isinstance(result, tuple) and len(result) == 3:
-                winner_id, match_log, all_point_events = result
-            else:
-                # Fallback if returns just winner_id
-                winner_id = result
-                match_log = []
-                all_point_events = []
-            
-            # Refresh tournament display with the saved result
-            self.manage_tournament(tournament)
-            
-            # Get the final score from the match we just saved
-            match = self.scheduler.get_current_matches(tournament['id'])[match_idx]
-            final_score = match[3] if len(match) > 3 else ""
-            
-            # Create a GameEngine object for display purposes (to access player data)
-            sets_to_win = 3 if tournament.get('category') == "Grand Slam" else 2
-            game_engine = GameEngine(player1, player2, tournament['surface'], sets_to_win=sets_to_win)
-            game_engine.final_score = final_score  # Store the final score
-            
-            # Display the visualization using the SAME data that was saved
-            self.display_simple_match_log(match_log, tournament, all_point_events, player1, player2, game_engine)
-        
-        tk.Button(
-            button_frame,
-            text="▶️ START MATCH",
-            font=("Arial", 14, "bold"),
-            bg="#27ae60",
-            fg="white",
-            padx=30,
-            pady=15,
-            relief="raised",
-            bd=0,
-            command=start_match
-        ).pack(side="left", padx=20, expand=True)
-        
-        tk.Button(
-            button_frame,
-            text="⬅️ BACK",
-            font=("Arial", 14, "bold"),
-            bg="#95a5a6",
-            fg="white",
-            padx=30,
-            pady=15,
-            relief="raised",
-            bd=0,
-            command=lambda: self.manage_tournament(tournament)
-        ).pack(side="left", padx=20, expand=True)
-        
-        # Force screen update to ensure faceoff screen is displayed
-        self.root.update()
-
     def show_player_faceoff_bracket(self, player1, player2, tournament, match_idx):
         """Display a professional face-off screen between two players before the match (for bracket tournaments)."""
         # Clear screen
@@ -2747,7 +2527,6 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         
         # Force screen update to ensure faceoff screen is displayed
         self.root.update()
-
 
     def simulate_match_in_tournament(self, tournament, match_idx):
         match = self.scheduler.get_current_matches(tournament['id'])[match_idx]
@@ -3173,11 +2952,52 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 # Create a frame for player stats with two columns
                 stats_frame = tk.Frame(main_frame, bg="#ecf0f1")
                 stats_frame.pack(fill="x", padx=20, pady=(0, 10))
-                
+
+                # Helper function to calculate the new stats
+                def calculate_new_stats(skills):
+                    # Serve (as is)
+                    serve = skills.get('serve', 0)
+
+                    # Base Shots (average of forehand and backhand)
+                    forehand = skills.get('forehand', 0)
+                    backhand = skills.get('backhand', 0)
+                    base_shots = round((forehand + backhand) / 2) if forehand + backhand > 0 else 0
+
+                    # Special Shots (average of volleys and dropshots)
+                    volley = skills.get('volley', 0)
+                    dropshot = skills.get('dropshot', 0)
+                    special_shots = round((volley + dropshot) / 2) if volley + dropshot > 0 else 0
+
+                    # Physicality (average of speed and stamina)
+                    speed = skills.get('speed', 0)
+                    stamina = skills.get('stamina', 0)
+                    physicality = round((speed + stamina) / 2) if speed + stamina > 0 else 0
+
+                    # Precision (average of cross and straight)
+                    cross = skills.get('cross', 0)
+                    straight = skills.get('straight', 0)
+                    precision = round((cross + straight) / 2) if cross + straight > 0 else 0
+
+                    # Overall (average of all previous values)
+                    overall = round((serve + base_shots + special_shots + physicality + precision) / 5)
+
+                    return {
+                        'Serve': serve,
+                        'Base Shots': base_shots,
+                        'Special Shots': special_shots,
+                        'Physicality': physicality,
+                        'Precision': precision,
+                        'Overall': overall
+                    }
+
+                # Get stats for both players
+                p1_stats = calculate_new_stats(game_engine.player1['skills'])
+                p2_stats = calculate_new_stats(game_engine.player2['skills'])
+
                 # Left column for Player 1
                 p1_stats_card = tk.Frame(stats_frame, bg="white", relief="raised", bd=2)
                 p1_stats_card.pack(side="left", fill="both", expand=True, padx=(0, 5))
-                
+
                 tk.Label(
                     p1_stats_card,
                     text=f"⬅️ {player1['name']} (P1)",
@@ -3187,28 +3007,25 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     padx=10,
                     pady=5
                 ).pack(fill="x")
-                
+
                 p1_stats_content = tk.Frame(p1_stats_card, bg="white")
                 p1_stats_content.pack(fill="both", expand=True, padx=8, pady=8)
-                
-                # Display player1's effective skills (after surface/form modifiers)
-                p1_skills = game_engine.player1['skills']
-                for skill_name in ['serve', 'forehand', 'backhand', 'speed', 'stamina', 'dropshot', 'volley']:
-                    if skill_name in p1_skills:
-                        val = p1_skills[skill_name]
-                        tk.Label(
-                            p1_stats_content,
-                            text=f"{skill_name.capitalize()}: {val}",
-                            font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
-                            anchor="w"
-                        ).pack(fill="x", pady=1)
-                
+
+                # Display player1's new stats
+                for stat_name, stat_value in p1_stats.items():
+                    tk.Label(
+                        p1_stats_content,
+                        text=f"{stat_name}: {stat_value}",
+                        font=("Arial", 9),
+                        bg="white",
+                        fg="#2c3e50",
+                        anchor="w"
+                           ).pack(fill="x", pady=1)
+    
                 # Right column for Player 2
                 p2_stats_card = tk.Frame(stats_frame, bg="white", relief="raised", bd=2)
                 p2_stats_card.pack(side="right", fill="both", expand=True, padx=(5, 0))
-                
+
                 tk.Label(
                     p2_stats_card,
                     text=f"{player2['name']} (P2) ➡️",
@@ -3218,24 +3035,21 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     padx=10,
                     pady=5
                 ).pack(fill="x")
-                
+
                 p2_stats_content = tk.Frame(p2_stats_card, bg="white")
                 p2_stats_content.pack(fill="both", expand=True, padx=8, pady=8)
-                
-                # Display player2's effective skills (after surface/form modifiers)
-                p2_skills = game_engine.player2['skills']
-                for skill_name in ['serve', 'forehand', 'backhand', 'speed', 'stamina', 'dropshot', 'volley']:
-                    if skill_name in p2_skills:
-                        val = p2_skills[skill_name]
-                        tk.Label(
-                            p2_stats_content,
-                            text=f"{skill_name.capitalize()}: {val}",
-                            font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
-                            anchor="w"
-                        ).pack(fill="x", pady=1)
-                
+
+                # Display player2's new stats
+                for stat_name, stat_value in p2_stats.items():
+                    tk.Label(
+                        p2_stats_content,
+                        text=f"{stat_name}: {stat_value}",
+                        font=("Arial", 9),
+                        bg="white",
+                        fg="#2c3e50",
+                        anchor="w"
+                    ).pack(fill="x", pady=1)
+                                    
                 # If this is the last point, automatically advance to final scoreboard after 2 seconds
                 if i >= self.max_points - 1:
                     # Store the current index and schedule auto-advance

@@ -10,10 +10,12 @@ class GameEngine:
         Each player is a dictionary containing stats like serve, forehand, backhand, speed, etc.
         """
         self.surface = surface
-        self.player1 = self._apply_surface_bonus(player1, surface)
-        self.player2 = self._apply_surface_bonus(player2, surface)
-        self.player1 = self._apply_random_form(self.player1)
-        self.player2 = self._apply_random_form(self.player2)
+        self.original_player1 = player1
+        self.original_player2 = player2
+        player1_with_surface = self._apply_surface_bonus(player1, surface)
+        player2_with_surface = self._apply_surface_bonus(player2, surface)
+        self.player1 = self._apply_random_form(player1_with_surface)
+        self.player2 = self._apply_random_form(player2_with_surface)
         self.games = {"player1": 0, "player2": 0}  # Games won in the current set
         self.sets = {"player1": 0, "player2": 0}  # Sets won in the match
         self.set_scores = []  # Track the scores of each set as tuples (player1_games, player2_games)
@@ -43,7 +45,6 @@ class GameEngine:
                 skill: min(100, math.floor(value * factor))
                 for skill, value in player["skills"].items()
             }
-            print(f"{player['name']} surface factor on {surface}: x{factor:.2f}")
             return boosted_player
 
         # Fallback to legacy favorite_surface logic for older saves
