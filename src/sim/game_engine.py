@@ -271,22 +271,81 @@ class GameEngine:
             # Dropshot/volley mechanics
             if shot_type == "dropshot":
                 if shot_success:
-                    self.reset_stamina_and_speed()
-                    winner_key = self._get_player_key(hitter)
-                    return (winner_key, point_events) if visualize else winner_key
+                    defender_speed = self.speed[defender["id"]]
+                    if defender_speed < dropshot_skill:
+                        self.reset_stamina_and_speed()
+                        winner_key = self._get_player_key(hitter)
+                        return (winner_key, point_events) if visualize else winner_key
+                    else:
+                        # Set return multiplier based on defender's speed
+                        if defender_speed < 50: 
+                            self.reset_stamina_and_speed()
+                            winner_key = self._get_player_key(hitter)
+                            return (winner_key, point_events) if visualize else winner_key
+                        elif 50 <= defender_speed < 55:
+                            return_multiplier = 0.1
+                        elif 55 <= defender_speed < 60:
+                            return_multiplier = 0.15
+                        elif 60 <= defender_speed < 65:
+                            return_multiplier = 0.2
+                        elif 65 <= defender_speed < 70:
+                            return_multiplier = 0.25
+                        elif 70 <= defender_speed < 75:
+                            return_multiplier = 0.3
+                        else:  # defender_speed >= 75
+                            return_multiplier = 0.35
+                        # The defender will try to catch with this return multiplier
                 else:
-                    return_multiplier = 1.5
-            elif shot_type == "volley":
+                    return_multiplier = 2.0  # For missed dropshot
+                    
+            if shot_type == "volley":
                 if shot_success:
-                    self.reset_stamina_and_speed()
-                    winner_key = self._get_player_key(hitter)
-                    return (winner_key, point_events) if visualize else winner_key
+                    defender_speed = self.speed[defender["id"]]
+                    if defender_speed < volley_skill:
+                        self.reset_stamina_and_speed()
+                        winner_key = self._get_player_key(hitter)
+                        return (winner_key, point_events) if visualize else winner_key
+                    else:
+                        # Set return multiplier based on defender's speed
+                        if defender_speed < 50: 
+                            self.reset_stamina_and_speed()
+                            winner_key = self._get_player_key(hitter)
+                            return (winner_key, point_events) if visualize else winner_key
+                        elif 50 <= defender_speed < 55:
+                            return_multiplier = 0.1
+                        elif 55 <= defender_speed < 60:
+                            return_multiplier = 0.15
+                        elif 60 <= defender_speed < 65:
+                            return_multiplier = 0.2
+                        elif 65 <= defender_speed < 70:
+                            return_multiplier = 0.25
+                        elif 70 <= defender_speed < 75:
+                            return_multiplier = 0.3
+                        else:  # defender_speed >= 75
+                            return_multiplier = 0.35
+                        # The defender will try to catch with this return multiplier
                 else:
-                    self.reset_stamina_and_speed()
-                    winner_key = self._get_player_key(defender)
-                    return (winner_key, point_events) if visualize else winner_key
+                    return_multiplier = 2.0  # For missed volley
 
-            caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type)
+            # For successful dropshot/volley with fast defender, skip can_catch check
+            if (shot_type in ["dropshot", "volley"] and shot_success and 
+                self.speed[defender["id"]] >= 50):
+                # We've already set the return_multiplier based on defender speed
+                # The defender automatically catches successful dropshot/volley when fast enough
+                caught = True
+                # return_multiplier is already set in the blocks above
+            else:
+                # For all other shots, use the normal can_catch logic
+                caught, catch_return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type)
+    
+                # For missed dropshot/volley, keep the 2.0 multiplier
+                if shot_type in ["dropshot", "volley"] and not shot_success and caught:
+                    # Keep return_multiplier = 2.0 that was set in the blocks above
+                    pass
+                else:
+                    # Use the normal return multiplier from can_catch
+                    return_multiplier = catch_return_multiplier
+
             if not caught:
                 side = "left" if self._get_player_key(defender) == "player1" else "right"
                 ball_side, target_x, target_y = self.get_ball_coordinates(
@@ -394,14 +453,14 @@ class GameEngine:
         # Base catch chance (speed vs power)
         speed_power_ratio = max(1, shot_power) / self.speed[player["id"]]
         # Precision factor (0.5-1.5) - higher precision makes catching harder
-        precision_factor = 0.5 + (shot_precision / 100)
+        precision_factor = 0.3 + (shot_precision / 70)
         # Combined catch score
         catch_score = speed_power_ratio * precision_factor
         # Determine if caught based on catch score
-        if catch_score > 1.2:  # Missed
+        if catch_score > 1.3:  # Missed
             return False, 0 
         elif catch_score > 1:  # Difficult catch
-            return True, 0.9  # weak return
+            return True, 0.7  # weak return
         else:  # easy catch
             return True, 1
 
