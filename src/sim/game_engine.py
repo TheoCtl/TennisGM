@@ -19,8 +19,8 @@ class GameEngine:
         self.games = {"player1": 0, "player2": 0}  # Games won in the current set
         self.sets = {"player1": 0, "player2": 0}  # Sets won in the match
         self.set_scores = []  # Track the scores of each set as tuples (player1_games, player2_games)
-        self.current_server = player1  # Player 1 serves first by default
-        self.current_receiver = player2
+        self.current_server = self.player1  # Player 1 serves first by default
+        self.current_receiver = self.player2
         self.sets_to_win = sets_to_win
         self.match_log = []
 
@@ -59,7 +59,7 @@ class GameEngine:
     
     def _apply_random_form(self, player):
         """Apply random form multiplier to all skills"""
-        form_multiplier = random.uniform(0.9, 1.1)
+        form_multiplier = random.uniform(0.95, 1.05)
         player_copy = player.copy()
         player_copy["skills"] = {
             skill: min(100, math.floor(value * form_multiplier))

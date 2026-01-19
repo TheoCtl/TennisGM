@@ -69,9 +69,6 @@ class TournamentScheduler:
         self.records_manager = RecordsManager(self)
         self.records_manager.update_all_records()
         
-        # Initialize World Crown if needed (for existing saves that haven't reached World Crown weeks yet)
-        self.initialize_world_crown_if_needed()
-        
         for player in self.players:
             if 'tournament_history' not in player:
                 player['tournament_history'] = []
@@ -300,10 +297,7 @@ class TournamentScheduler:
         self.update_weeks_at_top()
         self.records_manager.update_mawn_last_week()
         self.records_manager.update_all_records()
-        
-        # Process World Crown matches for this week
-        self.process_world_crown_week()
-        
+                
         self.generate_news_feed()
         return self.current_week
     
@@ -1322,11 +1316,7 @@ class TournamentScheduler:
         # 5. Tournament results
         tournament_news = self._generate_tournament_news()
         news_items.extend(tournament_news)
-        
-        # 7. World Crown announcements
-        world_crown_news = self._generate_world_crown_announcements()
-        news_items.extend(world_crown_news)
-        
+                
         # Format the news feed
         if not news_items:
             self.news_feed = ["No significant tennis news this week."]
@@ -1398,11 +1388,7 @@ class TournamentScheduler:
             
             # Varied templates for improvement descriptions
             improvement_templates = [
-                "{name} (#{old_rank} → #{new_rank}, +{improvement} positions)",
-                "{name} - Rose from #{old_rank} to #{new_rank} (+{improvement})",
-                "{name}: #{old_rank} to #{new_rank} ({improvement} position climb)",
-                "{name} jumped {improvement} spots from #{old_rank} to #{new_rank}",
-                "{name} transformed from #{old_rank} to #{new_rank} (+{improvement})"
+                "{name} (#{old_rank} → #{new_rank}, +{improvement})"
             ]
             
             for i, (player, old_rank, new_rank, improvement) in enumerate(improved_players[:5], 1):
@@ -1618,173 +1604,6 @@ class TournamentScheduler:
         
         return tournament_items
     
-    def _generate_world_crown_announcements(self):
-        """Generate World Crown tournament news for various weeks"""
-        world_crown_items = []
-        
-        # Check for completed World Crown matches this week
-        if hasattr(self, 'world_crown_week_news') and self.world_crown_week_news.get('week') == self.current_week:
-            matches_info = self.world_crown_week_news['matches']
-            content = []
-            
-            # Generate results announcement
-            if self.current_week == 11:
-                content.append("The World Crown tournament has begun! The first set of quarterfinal matches have concluded:")
-            elif self.current_week == 13:
-                content.append("The World Crown quarterfinals are complete! The semifinalists have been determined:")
-            elif self.current_week == 18:
-                content.append("The first World Crown semifinal has been decided:")
-            elif self.current_week == 20:
-                content.append("The World Crown finalists are set after the conclusion of the semifinals:")
-            elif self.current_week == 47:
-                content.append("The World Crown tournament has concluded with a thrilling final:")
-            
-            # Add results for each completed match
-            for round_type, tie_id, tie_data in matches_info:
-                if tie_data.get('winner') and tie_data.get('matches'):
-                    team1 = tie_data['team1']
-                    team2 = tie_data['team2']
-                    winner = tie_data['winner']
-                    score = f"{tie_data.get('team1_wins', 0)}-{tie_data.get('team2_wins', 0)}"
-                    
-                    content.append(f"• {winner} defeated {team2 if winner == team1 else team1} ({score})")
-                    
-                    # Add some match highlights
-                    if len(tie_data['matches']) >= 3:
-                        key_matches = tie_data['matches'][:2]  # First two matches as highlights
-                        for match in key_matches:
-                            content.append(f"  - {match['winner']} def. {match['player1'] if match['winner'] == match['player2'] else match['player2']} ({match['score']})")
-            
-            content.append("Check the World Crown section for full match details!")
-            
-            world_crown_items.append({
-                'type': 'world_crown_results',
-                'title': 'WORLD CROWN RESULTS',
-                'content': content
-            })
-        
-        # World Crown week announcements (11, 13, 18, 20, 47)
-        elif self.current_week in [11, 13, 18, 20, 47]:
-            # Check if there are matches this week
-            matches = self.get_world_crown_matches_for_week(self.current_week)
-            if matches:
-                content = []
-                
-                # Week-specific announcements
-                if self.current_week == 11:
-                    round_name = "Quarterfinals (First Half)"
-                    intro_templates = [
-                        "The World Crown tournament begins this week with the first set of quarterfinal matches.",
-                        "International tennis takes center stage as the World Crown quarterfinals commence.",
-                        "Eight nations compete for glory as the World Crown tournament kicks off with quarterfinal action.",
-                        "The prestigious World Crown tournament opens with exciting quarterfinal matchups."
-                    ]
-                elif self.current_week == 13:
-                    round_name = "Quarterfinals (Second Half)"
-                    intro_templates = [
-                        "The World Crown quarterfinals conclude this week, determining the final four nations.",
-                        "Semifinal spots are on the line as the remaining World Crown quarterfinals take place.",
-                        "The World Crown tournament continues with the final quarterfinal matchups.",
-                        "National pride is at stake in this week's concluding quarterfinal ties."
-                    ]
-                elif self.current_week == 18:
-                    round_name = "Semifinals (First Match)"
-                    intro_templates = [
-                        "The World Crown semifinals begin, with four nations vying for a place in the final.",
-                        "Semifinal action highlights the World Crown tournament as nations battle for the final.",
-                        "The World Crown reaches the semifinal stage with elite international competition.",
-                        "Four countries remain in contention as the World Crown semifinals commence."
-                    ]
-                elif self.current_week == 20:
-                    round_name = "Semifinals (Second Match)"
-                    intro_templates = [
-                        "The World Crown finalists will be determined in this week's semifinal conclusion.",
-                        "A place in the World Crown final is at stake in the remaining semifinal match.",
-                        "The World Crown semifinals conclude, setting up the championship showdown.",
-                        "Two nations will advance to the World Crown final after this week's semifinal action."
-                    ]
-                elif self.current_week == 47:
-                    round_name = "Final"
-                    intro_templates = [
-                        "The World Crown final takes place this week, crowning this year's champion nation.",
-                        "International tennis reaches its pinnacle with the World Crown championship match.",
-                        "The World Crown tournament concludes with the highly anticipated final showdown.",
-                        "Two nations compete for ultimate glory in the World Crown final."
-                    ]
-                
-                content.append(random.choice(intro_templates))
-                
-                # Add match details
-                match_details = []
-                for round_type, tie_id, tie_data in matches:
-                    team1 = tie_data['team1']
-                    team2 = tie_data['team2']
-                    if team1 and team2:
-                        match_details.append(f"{team1} vs {team2}")
-                    elif not team1 and not team2:
-                        match_details.append("TBD vs TBD")
-                    else:
-                        # One team is determined, the other is TBD
-                        determined_team = team1 or team2
-                        match_details.append(f"{determined_team} vs TBD")
-                
-                if match_details:
-                    if len(match_details) == 1:
-                        content.append(f"This week's match: {match_details[0]}")
-                    else:
-                        content.append(f"This week's matches: {' and '.join(match_details)}")
-                
-                content.append("Check the World Crown section to follow the action and simulate matches!")
-                
-                world_crown_items.append({
-                    'type': 'world_crown_week',
-                    'title': f'WORLD CROWN - {round_name.upper()}',
-                    'content': content
-                })
-        
-        # World Crown results announcement (Week 48 - after final)
-        if self.current_week == 48:
-            # Check if there's a completed World Crown tournament from this year
-            if (self.world_crown.get('winners_history') and 
-                any(w['year'] == self.current_year for w in self.world_crown['winners_history'])):
-                
-                # Find this year's winner
-                this_year_winner = next((w for w in self.world_crown['winners_history'] 
-                                       if w['year'] == self.current_year), None)
-                
-                if this_year_winner:
-                    content = []
-                    
-                    # Varied intro phrases for World Crown results
-                    intro_templates = [
-                        f"The {self.current_year} World Crown concluded with {this_year_winner['winner']} claiming the prestigious international trophy.",
-                        f"{this_year_winner['winner']} emerged victorious in this year's World Crown competition, representing their nation with distinction.",
-                        f"After intense competition across multiple rounds, {this_year_winner['winner']} captured the World Crown championship.",
-                        f"The World Crown trophy returns to {this_year_winner['winner']} following their commanding performance in the final.",
-                        f"{this_year_winner['winner']} celebrates World Crown glory, adding international prestige to their tennis achievements."
-                    ]
-                    
-                    content.append(random.choice(intro_templates))
-                    
-                    # Add details about the tournament format
-                    format_descriptions = [
-                        "The tournament featured the world's top 5 players from each of the 8 participating nations, competing in a knockout format throughout the year.",
-                        "Eight countries battled through quarterfinals, semifinals, and the final, with each tie decided by best-of-5 individual matches.",
-                        "The competition showcased international tennis talent across multiple stages, with matches spread throughout the tennis season.",
-                        "National pride was on display as the best players from each country represented their homeland in this unique team competition."
-                    ]
-                    
-                    content.append(random.choice(format_descriptions))
-                    content.append(f"Final result: {this_year_winner['final_score']}")
-                    
-                    world_crown_items.append({
-                        'type': 'world_crown_champion',
-                        'title': 'WORLD CROWN CHAMPIONS CROWNED',
-                        'content': content
-                    })
-        
-        return world_crown_items
-
     def simulate_current_round(self, tournament_id):
         """
         Simulate all matches in the current round of the tournament.
@@ -1795,189 +1614,3 @@ class TournamentScheduler:
             # Only simulate matches that are not yet completed
             if len(match) < 3 or match[2] is None:
                 self.simulate_through_match(tournament_id, match_idx)
-
-    # World Crown Tournament Methods
-    def initialize_world_crown_if_needed(self):
-        """Initialize World Crown for current year if we haven't reached the first World Crown week yet"""
-        # Check if World Crown is already initialized for current year
-        if self.world_crown.get('current_year_teams') and self.world_crown.get('current_bracket'):
-            return  # Already initialized
-        
-        # Only initialize if we haven't passed the first World Crown week (Week 11)
-        if self.current_week < 11:
-            self.initialize_world_crown_year()
-    
-    def initialize_world_crown_year(self):
-        """Initialize World Crown tournament for the current year"""
-        # Allow initialization any time before the first matches (week 11)
-        # The original condition was too restrictive
-            
-        # Get the 8 nationalities
-        nationalities = ["Arcton", "Halcyon", "Rin", "Hethrion", "Haran", "Loknig", "Jeonguk", "Bleak"]
-        
-        # Select top 5 players for each nationality based on ranking
-        teams = {}
-        for nationality in nationalities:
-            national_players = [p for p in self.players if p.get('nationality') == nationality and not p.get('retired', False)]
-            # Sort by current ranking (lower rank number = better)
-            national_players.sort(key=lambda x: x.get('rank', 999999))
-            teams[nationality] = national_players[:5]  # Top 5 players
-        
-        # Create bracket structure (quarterfinals)
-        # Pair countries: Arcton vs Halcyon, Rin vs Hethrion, Haran vs Loknig, Jeonguk vs Bleak
-        bracket = {
-            'quarterfinals': {
-                'qf1': {'team1': 'Arcton', 'team2': 'Halcyon', 'week': 11, 'winner': None, 'matches': []},
-                'qf2': {'team1': 'Rin', 'team2': 'Hethrion', 'week': 11, 'winner': None, 'matches': []},
-                'qf3': {'team1': 'Haran', 'team2': 'Loknig', 'week': 13, 'winner': None, 'matches': []},
-                'qf4': {'team1': 'Jeonguk', 'team2': 'Bleak', 'week': 13, 'winner': None, 'matches': []}
-            },
-            'semifinals': {
-                'sf1': {'team1': None, 'team2': None, 'week': 18, 'winner': None, 'matches': []},
-                'sf2': {'team1': None, 'team2': None, 'week': 20, 'winner': None, 'matches': []}
-            },
-            'final': {
-                'final': {'team1': None, 'team2': None, 'week': 47, 'winner': None, 'matches': []}
-            }
-        }
-        
-        self.world_crown = {
-            'current_bracket': bracket,
-            'current_year_teams': teams,
-            'match_results': {},
-            'winners_history': self.world_crown.get('winners_history', []),
-            'pending_matches': []
-        }
-
-    def get_world_crown_matches_for_week(self, week):
-        """Get World Crown matches scheduled for the given week"""
-        matches = []
-        bracket = self.world_crown.get('current_bracket', {})
-        
-        # Check quarterfinals
-        for qf_id, qf_data in bracket.get('quarterfinals', {}).items():
-            if qf_data['week'] == week and qf_data['winner'] is None:
-                matches.append(('quarterfinals', qf_id, qf_data))
-        
-        # Check semifinals 
-        for sf_id, sf_data in bracket.get('semifinals', {}).items():
-            if sf_data['week'] == week:
-                matches.append(('semifinals', sf_id, sf_data))
-        
-        # Check final
-        final_data = bracket.get('final', {}).get('final')
-        if final_data and final_data['week'] == week:
-            matches.append(('final', 'final', final_data))
-        
-        return matches
-
-    def simulate_world_crown_tie(self, round_type, tie_id):
-        """Simulate a World Crown tie (5 matches between two countries)"""
-        bracket = self.world_crown['current_bracket']
-        tie_data = bracket[round_type][tie_id]
-        
-        team1_name = tie_data['team1']
-        team2_name = tie_data['team2']
-        team1_players = self.world_crown['current_year_teams'][team1_name]
-        team2_players = self.world_crown['current_year_teams'][team2_name]
-        
-        team1_wins = 0
-        team2_wins = 0
-        matches_played = []
-        
-        # Play 5 matches (best players face each other)
-        for i in range(5):
-            if i < len(team1_players) and i < len(team2_players):
-                p1 = team1_players[i]
-                p2 = team2_players[i]
-                
-                # Simulate match using game engine - neutral conditions (no surface advantages)
-                sets_to_win = 2  # World Crown uses best of 3 sets for more upsets
-                # Create copies without surface modifiers for neutral play
-                p1_neutral = p1.copy()
-                p2_neutral = p2.copy()
-                # Remove surface advantages for fair play
-                if 'surface_modifiers' in p1_neutral:
-                    del p1_neutral['surface_modifiers']
-                if 'surface_modifiers' in p2_neutral:
-                    del p2_neutral['surface_modifiers']
-                if 'favorite_surface' in p1_neutral:
-                    del p1_neutral['favorite_surface']
-                if 'favorite_surface' in p2_neutral:
-                    del p2_neutral['favorite_surface']
-                    
-                game_engine = GameEngine(p1_neutral, p2_neutral, 'hard', sets_to_win=sets_to_win)  
-                match_winner = game_engine.simulate_match()
-                final_score = game_engine.format_set_scores()
-                
-                result = {
-                    'winner_id': match_winner['id'],
-                    'score': final_score
-                }
-
-                matches_played.append({
-                    'player1': p1['name'],
-                    'player2': p2['name'],
-                    'winner': p1['name'] if result['winner_id'] == p1['id'] else p2['name'],
-                    'score': result['score']
-                })
-                
-                if result['winner_id'] == p1['id']:
-                    team1_wins += 1
-                else:
-                    team2_wins += 1
-        
-        # Determine tie winner (first to win 3 matches)
-        tie_winner = team1_name if team1_wins >= 3 else team2_name
-        
-        # Update bracket
-        tie_data['winner'] = tie_winner
-        tie_data['matches'] = matches_played
-        tie_data['team1_wins'] = team1_wins
-        tie_data['team2_wins'] = team2_wins
-        
-        # Advance winner to next round
-        if round_type == 'quarterfinals':
-            if tie_id in ['qf1', 'qf2']:
-                sf_slot = 'sf1'
-                if bracket['semifinals']['sf1']['team1'] is None:
-                    bracket['semifinals']['sf1']['team1'] = tie_winner
-                else:
-                    bracket['semifinals']['sf1']['team2'] = tie_winner
-            else:  # qf3 or qf4
-                sf_slot = 'sf2'
-                if bracket['semifinals']['sf2']['team1'] is None:
-                    bracket['semifinals']['sf2']['team1'] = tie_winner
-                else:
-                    bracket['semifinals']['sf2']['team2'] = tie_winner
-        elif round_type == 'semifinals':
-            if bracket['final']['final']['team1'] is None:
-                bracket['final']['final']['team1'] = tie_winner
-            else:
-                bracket['final']['final']['team2'] = tie_winner
-        elif round_type == 'final':
-            # Tournament complete - add to winners history
-            self.world_crown['winners_history'].append({
-                'year': self.current_year,
-                'winner': tie_winner,
-                'final_score': f"{team1_wins}-{team2_wins}"
-            })
-    
-    def process_world_crown_week(self):
-        """Process World Crown events for current week"""
-        if self.current_week == 1:
-            self.initialize_world_crown_year()
-        
-        # Get matches for this week
-        matches_for_week = self.get_world_crown_matches_for_week(self.current_week)
-        
-        if matches_for_week:
-            # Store news about this week's matches before simulation
-            self.world_crown_week_news = {
-                'week': self.current_week,
-                'matches': matches_for_week.copy()
-            }
-        
-        # Simulate each tie
-        for round_type, tie_id, tie_data in matches_for_week:
-            self.simulate_world_crown_tie(round_type, tie_id)

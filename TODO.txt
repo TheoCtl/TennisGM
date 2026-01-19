@@ -1,5 +1,7 @@
 QOL
 
+VISUALISATION END SCREEN
+
 player details -> year-to-year ranking prog graph on right of screen
 
 player stats blocks when visualising
