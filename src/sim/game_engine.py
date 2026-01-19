@@ -284,17 +284,17 @@ class GameEngine:
                             winner_key = self._get_player_key(hitter)
                             return (winner_key, point_events) if visualize else winner_key
                         elif 50 <= defender_speed < 55:
-                            return_multiplier = 0.1
-                        elif 55 <= defender_speed < 60:
-                            return_multiplier = 0.15
-                        elif 60 <= defender_speed < 65:
                             return_multiplier = 0.2
-                        elif 65 <= defender_speed < 70:
-                            return_multiplier = 0.25
-                        elif 70 <= defender_speed < 75:
+                        elif 55 <= defender_speed < 60:
                             return_multiplier = 0.3
+                        elif 60 <= defender_speed < 65:
+                            return_multiplier = 0.4
+                        elif 65 <= defender_speed < 70:
+                            return_multiplier = 0.5
+                        elif 70 <= defender_speed < 75:
+                            return_multiplier = 0.6
                         else:  # defender_speed >= 75
-                            return_multiplier = 0.35
+                            return_multiplier = 0.7
                         # The defender will try to catch with this return multiplier
                 else:
                     return_multiplier = 2.0  # For missed dropshot

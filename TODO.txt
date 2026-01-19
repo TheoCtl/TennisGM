@@ -1,5 +1,9 @@
-QOL IDEAS
+QOL
+
+player details -> year-to-year ranking prog graph on right of screen
 
 player stats blocks when visualising
    -> possibility to switch between player stats and match stats
    -> match stats = aces, breaks, forehand/backhand winners
+   
+visualisation update (players + ball moving)
