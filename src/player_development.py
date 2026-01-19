@@ -104,7 +104,19 @@ class PlayerDevelopment:
 
         for skill_name, current_value in skills.items():
             cap = caps.get(skill_name, {'progcap': 0, 'regcap': 0})
-            if age < 28:
+            if age < 20:
+                if cap['progcap'] >= 10:
+                    continue
+                pf = player.get('potential_factor', 1.0)
+                chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 12.0
+                if skill_name == player.get('bonus'):
+                    chance *= 1.1
+                if skill_name in archetype_skills:
+                    chance *= 1.1
+                if random.random() < chance and current_value < 100:
+                    skills[skill_name] = current_value + 1
+                    cap['progcap'] += 1
+            elif age < 28:
                 if cap['progcap'] >= 5:
                     continue
                 pf = player.get('potential_factor', 1.0)
