@@ -14,13 +14,13 @@ class GameEngine:
         self.original_player2 = player2
         player1_with_surface = self._apply_surface_bonus(player1, surface)
         player2_with_surface = self._apply_surface_bonus(player2, surface)
-        self.player1 = self._apply_random_form(player1_with_surface)
-        self.player2 = self._apply_random_form(player2_with_surface)
+        self.p1 = self._apply_random_form(player1_with_surface)
+        self.p2 = self._apply_random_form(player2_with_surface)
         self.games = {"player1": 0, "player2": 0}  # Games won in the current set
         self.sets = {"player1": 0, "player2": 0}  # Sets won in the match
         self.set_scores = []  # Track the scores of each set as tuples (player1_games, player2_games)
-        self.current_server = self.player1  # Player 1 serves first by default
-        self.current_receiver = self.player2
+        self.current_server = self.p1  # Player 1 serves first by default
+        self.current_receiver = self.p2
         self.sets_to_win = sets_to_win
         self.match_log = []
 
@@ -112,9 +112,9 @@ class GameEngine:
             self.update_sets(set_winner_key)
 
         if self.sets["player1"] == self.sets_to_win:
-            match_winner = self.player1
+            match_winner = self.p1
         elif self.sets["player2"] == self.sets_to_win:
-            match_winner = self.player2
+            match_winner = self.p2
         else:
             # This should never happen if match simulation is correct
             raise ValueError(f"Match ended without a winner! Sets: P1={self.sets['player1']}, P2={self.sets['player2']}")
@@ -136,9 +136,9 @@ class GameEngine:
             self.update_sets(set_winner_key)
         
         if self.sets["player1"] == self.sets_to_win:
-            match_winner = self.player1
+            match_winner = self.p1
         elif self.sets["player2"] == self.sets_to_win:
-            match_winner = self.player2
+            match_winner = self.p2
         else:
             # This should never happen if match simulation is correct
             raise ValueError(f"Match ended without a winner! Sets: P1={self.sets['player1']}, P2={self.sets['player2']}")
@@ -165,8 +165,8 @@ class GameEngine:
                 'type': 'score',
                 'sets': self.set_scores.copy(),  # Previous set scores
                 'current_set': {'player1': self.games['player1'], 'player2': self.games['player2']},
-                'player1_name': self.player1['name'],
-                'player2_name': self.player2['name']
+                'player1_name': self.p1['name'],
+                'player2_name': self.p2['name']
             }]
 
         # Step 1: Server makes the first shot
@@ -434,7 +434,7 @@ class GameEngine:
         """
         Reset stamina and speed for both players to their original values at the end of a point.
         """
-        for player in [self.player1, self.player2]:
+        for player in [self.p1, self.p2]:
             self.stamina[player["id"]] = player["skills"]["stamina"]
             self.speed[player["id"]] = player["skills"]["speed"]
 
@@ -549,17 +549,17 @@ class GameEngine:
     
     def _player_ref(self, player_key):
         """Return player name for logging purposes"""
-        return self.player1['name'] if player_key == "player1" else self.player2['name']
+        return self.p1['name'] if player_key == "player1" else self.p2['name']
     
     def _get_player_key(self, player):
         """Return 'player1' or 'player2' based on player ID"""
-        return "player1" if player['id'] == self.player1['id'] else "player2"
+        return "player1" if player['id'] == self.p1['id'] else "player2"
     
     def get_original_players(self):
         """Return the original player stats without surface/form bonuses"""
         return {
-            'player1': self._remove_bonuses(self.player1),
-            'player2': self._remove_bonuses(self.player2)
+            'player1': self._remove_bonuses(self.p1),
+            'player2': self._remove_bonuses(self.p2)
         }
         
     def _remove_bonuses(self, player):

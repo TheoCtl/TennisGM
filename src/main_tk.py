@@ -2988,8 +2988,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     }
 
                 # Get stats for both players
-                p1_stats = calculate_new_stats(game_engine.player1['skills'])
-                p2_stats = calculate_new_stats(game_engine.player2['skills'])
+                p1_stats = calculate_new_stats(game_engine.p1['skills'])
+                p2_stats = calculate_new_stats(game_engine.p2['skills'])
 
                 # Left column for Player 1
                 p1_stats_card = tk.Frame(stats_frame, bg="white", relief="raised", bd=2)
