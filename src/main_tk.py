@@ -3258,10 +3258,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             tab_container.pack(fill="x", padx=20, pady=10)
             
             # Set default tab to show full bracket
-            self.current_bracket_tab = getattr(self, 'current_bracket_tab', "Full Bracket")
+            self.current_bracket_tab = getattr(self, 'current_bracket_tab', round_names[0])
             
             # Add "Full Bracket" option + individual rounds
-            all_tabs = ["Full Bracket"] + round_names
+            all_tabs = round_names
             
             tab_frame = tk.Frame(tab_container, bg="#ecf0f1")
             tab_frame.pack()
@@ -3358,14 +3358,14 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 return f"{player['name']} ({player.get('rank', 'N/A')})"
             return "BYE"
 
+        round_names = self._get_round_names(num_rounds)
         # Determine which rounds to display based on tab selection
-        if self.current_bracket_tab == "Full Bracket":
+        if self.current_bracket_tab == round_names[0]:
             start_round = 0
             rounds_to_show = bracket
             display_offset = 0
         else:
             # Find which round corresponds to the selected tab
-            round_names = self._get_round_names(num_rounds)
             if self.current_bracket_tab in round_names:
                 start_round = round_names.index(self.current_bracket_tab)
                 rounds_to_show = bracket[start_round:]

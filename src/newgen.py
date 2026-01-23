@@ -38,7 +38,10 @@ class NewGenGenerator:
 
         r = random.random()
         if r > 0.9:
-            potential_factor = round(random.uniform(1.5, 2.0), 3)
+            if r >= 0.95:
+                potential_factor = round(random.uniform(1.9, 2.0), 3)
+            else:
+                potential_factor = round(random.uniform(1.5, 2.0), 3)
         else:
             potential_factor = round(random.uniform(1.0, 1.5), 3)
 
@@ -114,15 +117,15 @@ class NewGenGenerator:
     def generate_skills(self):
         """Generate random skills for a new player (between 25 and 55)"""
         return {
-            "serve": random.randint(25, 55),
-            "forehand": random.randint(25, 55),
-            "backhand": random.randint(25, 55),
-            "speed": random.randint(25, 55),
-            "stamina": random.randint(25, 55),
-            "straight": random.randint(25, 55),
-            "cross": random.randint(25, 55),
-            "dropshot": random.randint(25, 55),
-            "volley": random.randint(25, 55)
+            "serve": random.randint(30, 55),
+            "forehand": random.randint(30, 55),
+            "backhand": random.randint(30, 55),
+            "speed": random.randint(30, 55),
+            "stamina": random.randint(30, 55),
+            "straight": random.randint(30, 55),
+            "cross": random.randint(30, 55),
+            "dropshot": random.randint(30, 55),
+            "volley": random.randint(30, 55)
         }
     
     def generate_new_players(self, current_year, count, existing_players=None):

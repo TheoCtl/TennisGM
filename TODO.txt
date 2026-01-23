@@ -2,9 +2,9 @@ QOL
 
 -- FIXES --
 
-VISUALISATION END SCREEN
+VISUALISATION END SCREEN : winner + score correctly fetched
 
-BUG DOESN'T LAUNCH SIM SOMETIMES :
+DOESN'T LAUNCH VIS SOMETIMES :
 Exception in Tkinter callback
 Traceback (most recent call last):
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tkinter\__init__.py", line 1968, in __call__
@@ -15,12 +15,16 @@ Traceback (most recent call last):
             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
 IndexError: list index out of range
 
+no seeding in ITF/Challengers
+
 -- FEATURES --
 
 player details -> year-to-year ranking prog graph on right of screen
 
-player stats blocks when visualising
-   -> possibility to switch between player stats and match stats
-   -> match stats = aces, breaks, forehand/backhand winners
+bracket : 
+   number in parenthesis = rank among tournament participants instead of global rank
+   clickable name -> tooltip box (player rank, ELO, age, archetype, number of times he won tournament)
 
-visualisation update (players + ball moving)
+player stats blocks when visualising match
+   -> possibility to switch tabs -> player stats/match stats
+   -> match stats = aces, breaks, forehand/backhand/special winners
