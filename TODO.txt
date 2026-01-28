@@ -6,13 +6,6 @@ SURVEILLER PROGRESSION
 
 -- FEATURES --
 
-player details :
-  -> year-to-year ranking prog graph on right of screen thanks to year start ranking.
-
-bracket : 
-   number in parenthesis = rank among tournament participants instead of global rank
-   clickable name -> tooltip box (player rank, ELO, age, archetype, number of times he won tournament)
-
 player stats blocks when visualising match :
    -> possibility to switch tabs -> player stats/match stats
    -> match stats = aces, breaks, forehand/backhand/special winners
@@ -20,8 +13,7 @@ player stats blocks when visualising match :
 mental stat (and add it to the visualisation player stats blocks) :
    -> when at least one of the players has at least 5 points in the current set, the 
    player with the highest rated "mental" has a *1.02 rating boost to his stats
-
-ADD NEW ARCHETYPES
+   -> ADD NEW ARCHETYPES
 
 change behavior of dropshots/volleys to add more variation and strategy. 
    -> Now if a player does a volley, he is in volley mode until the end of the point 

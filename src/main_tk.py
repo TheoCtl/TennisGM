@@ -564,19 +564,23 @@ class TennisGMApp:
         canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
         canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
         
-        # Create two-column layout
+        # Create three-column layout
         content_frame = tk.Frame(main_frame, bg="#ecf0f1")
         content_frame.pack(fill="both", expand=True)
         
         left_column = tk.Frame(content_frame, bg="#ecf0f1")
         left_column.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
         
-        right_column = tk.Frame(content_frame, bg="#ecf0f1")
-        right_column.grid(row=0, column=1, sticky="nsew", padx=(10, 0))
+        middle_column = tk.Frame(content_frame, bg="#ecf0f1")
+        middle_column.grid(row=0, column=1, sticky="nsew", padx=(10, 10))
         
-        # Configure grid weights for equal columns
+        right_column = tk.Frame(content_frame, bg="#ecf0f1")
+        right_column.grid(row=0, column=2, sticky="nsew", padx=(10, 0))
+        
+        # Configure grid weights for three equal columns
         content_frame.grid_columnconfigure(0, weight=1)
         content_frame.grid_columnconfigure(1, weight=1)
+        content_frame.grid_columnconfigure(2, weight=1)
         
         # Left Column: Basic Info Card
         info_card = tk.Frame(left_column, bg="white", relief="raised", bd=2)
@@ -595,8 +599,8 @@ class TennisGMApp:
         info_content = tk.Frame(info_card, bg="white")
         info_content.pack(fill="x", padx=15, pady=10)
         
-        # Right Column: Start with Archetype Card
-        archetype_card = tk.Frame(right_column, bg="white", relief="raised", bd=2)
+        # Right Column: Start with Archetype Card (moved to middle)
+        archetype_card = tk.Frame(middle_column, bg="white", relief="raised", bd=2)
         archetype_card.pack(fill="x", pady=(0, 10))
         
         tk.Label(
@@ -684,8 +688,8 @@ class TennisGMApp:
                 tk.Label(row, text=f"{icon} {surface.capitalize()}:", font=("Arial", 11, "bold"), bg="white", fg="#2c3e50", anchor="w").pack(side="left")
                 tk.Label(row, text=f"{value:.3f}" if isinstance(value, (int, float)) else "-", font=("Arial", 11), bg="white", fg="#7f8c8d", anchor="w").pack(side="right")
         
-        # Skills card
-        skills_card = tk.Frame(right_column, bg="white", relief="raised", bd=2)
+        # Skills card - in middle column
+        skills_card = tk.Frame(middle_column, bg="white", relief="raised", bd=2)
         skills_card.pack(fill="x", pady=(0, 10))
         
         tk.Label(
@@ -721,7 +725,27 @@ class TennisGMApp:
             label = tk.Label(row, text=f"{icon} {skill_name.capitalize()}:", font=("Arial", 11, "bold"), bg="white", fg="#2c3e50", anchor="w")
             label.pack(side="left")
             tk.Label(row, text=f"{val}{suffix}", font=("Arial", 11), bg="white", fg="#7f8c8d", anchor="w").pack(side="right")
-                    
+        
+        # Right Column: Ranking Evolution Graph (full height)
+        ranking_card = tk.Frame(right_column, bg="white", relief="raised", bd=2)
+        ranking_card.pack(fill="both", expand=True, pady=(0, 10))
+        
+        tk.Label(
+            ranking_card,
+            text="📈 Ranking Evolution",
+            font=("Arial", 14, "bold"),
+            bg="#e74c3c",
+            fg="white",
+            padx=15,
+            pady=8
+        ).pack(fill="x")
+        
+        ranking_content = tk.Frame(ranking_card, bg="white")
+        ranking_content.pack(fill="both", expand=True, padx=15, pady=10)
+        
+        # Create ranking evolution graph
+        self._create_ranking_graph(ranking_content, player)
+        
         # Career stats card
         stats_card = tk.Frame(left_column, bg="white", relief="raised", bd=2)
         stats_card.pack(fill="x", pady=(0, 10))
@@ -1648,6 +1672,63 @@ class TennisGMApp:
         self._show_tournaments = show
         self.show_hof_player_details(player)
 
+    def _create_ranking_graph(self, parent_frame, player):
+        """Create and display a ranking evolution graph using year_start_rankings data (last 10 years)."""
+        import matplotlib.pyplot as plt
+        from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+        
+        # Get ranking data
+        year_rankings = player.get('year_start_rankings', {})
+        
+        if not year_rankings:
+            # No ranking data available
+            tk.Label(parent_frame, text="No ranking history available.", 
+                    font=("Arial", 10), bg="white", fg="#7f8c8d").pack(pady=10)
+            return
+        
+        # Sort years and get rankings, then take only last 10 years
+        years = sorted([int(y) for y in year_rankings.keys()])
+        years = years[-10:]  # Keep only last 10 years
+        rankings = [year_rankings[str(y)] for y in years]
+        
+        # Create figure with matplotlib
+        fig, ax = plt.subplots(figsize=(5, 3), dpi=100)
+        fig.patch.set_facecolor('white')
+        
+        # Plot the ranking evolution (inverted Y-axis so lower rank number is higher)
+        ax.plot(years, rankings, marker='o', linewidth=2, markersize=6, 
+               color='#e74c3c', markerfacecolor='#c0392b')
+        
+        # Invert Y-axis so rank 1 is at top
+        ax.invert_yaxis()
+        
+        # Styling
+        ax.set_xlabel('Year', fontsize=10, fontweight='bold')
+        ax.set_ylabel('Ranking', fontsize=10, fontweight='bold')
+        ax.set_title('Ranking Evolution', fontsize=11, fontweight='bold', pad=10)
+        ax.grid(True, alpha=0.3, linestyle='--')
+        
+        # Format Y-axis to show ranking positions
+        ax.yaxis.set_major_locator(plt.MaxNLocator(integer=True))
+        
+        # Set reasonable Y-axis limits with some padding
+        max_rank = max(rankings) if rankings else 100
+        min_rank = min(rankings) if rankings else 1
+        y_padding = (max_rank - min_rank) * 0.1 if (max_rank - min_rank) > 0 else 10
+        ax.set_ylim(max_rank + y_padding, max(1, min_rank - y_padding))
+        
+        # Set X-axis limits
+        if len(years) > 1:
+            year_padding = (years[-1] - years[0]) * 0.05
+            ax.set_xlim(years[0] - year_padding, years[-1] + year_padding)
+        
+        fig.tight_layout(pad=0.5)
+        
+        # Embed in tkinter
+        canvas = FigureCanvasTkAgg(fig, master=parent_frame)
+        canvas.draw()
+        canvas.get_tk_widget().pack(fill="both", expand=True)
+    
     def _get_player_archetype(self, player):
         """Return (archetype_name, archetype_description) using stored archetype when present.
 
@@ -3231,6 +3312,88 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     names.append(f"Round {i + 1}")
             return names
     
+    def show_bracket_player_popup(self, player_id, tournament, event):
+        """Show a popup with player info when clicked in bracket"""
+        player = next((p for p in self.scheduler.players if p['id'] == player_id), None)
+        if not player:
+            return
+        
+        # Create popup window
+        popup = tk.Toplevel(self.root)
+        popup.title(f"{player['name']}")
+        popup.geometry("300x200")
+        popup.resizable(False, False)
+        
+        # Position popup near mouse cursor
+        popup.geometry(f"+{event.x_root + 10}+{event.y_root + 10}")
+        
+        # Main frame with padding
+        main_frame = tk.Frame(popup, bg="white", relief="solid", bd=1)
+        main_frame.pack(fill="both", expand=True, padx=10, pady=10)
+        
+        # Player name header
+        name_label = tk.Label(
+            main_frame,
+            text=player['name'],
+            font=("Arial", 13, "bold"),
+            bg="white",
+            fg="#2c3e50"
+        )
+        name_label.pack(fill="x", pady=(0, 10))
+        
+        # Global rank/ELO
+        current_elo_points = self.scheduler.ranking_system.get_elo_points(player, self.scheduler.current_date)
+        rank_text = f"Rank: #{player.get('rank', 'N/A')} | ELO: {current_elo_points}"
+        rank_label = tk.Label(
+            main_frame,
+            text=rank_text,
+            font=("Arial", 10),
+            bg="white",
+            fg="#7f8c8d"
+        )
+        rank_label.pack(fill="x", pady=5)
+        
+        # Archetype
+        archetype, _ = self._get_player_archetype(player)
+        archetype_label = tk.Label(
+            main_frame,
+            text=f"Archetype: {archetype}",
+            font=("Arial", 10),
+            bg="white",
+            fg="#8e44ad",
+            wraplength=280,
+            justify="left"
+        )
+        archetype_label.pack(fill="x", pady=5)
+        
+        # Tournament wins count
+        tournament_wins = sum(1 for win in player.get('tournament_wins', []) if win.get('name') == tournament['name'])
+        wins_label = tk.Label(
+            main_frame,
+            text=f"Titles in {tournament['name']}: {tournament_wins}",
+            font=("Arial", 10),
+            bg="white",
+            fg="#27ae60",
+            wraplength=280,
+            justify="left"
+        )
+        wins_label.pack(fill="x", pady=5)
+        
+        # Close button
+        close_btn = tk.Button(
+            main_frame,
+            text="Close",
+            font=("Arial", 9),
+            bg="#95a5a6",
+            fg="white",
+            relief="flat",
+            bd=0,
+            padx=10,
+            pady=4,
+            command=popup.destroy
+        )
+        close_btn.pack(pady=(10, 0))
+    
     def switch_bracket_tab(self, tab, tournament):
         """Switch between bracket view tabs"""
         self.current_bracket_tab = tab
@@ -3262,10 +3425,27 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         y_offset = 40
 
         player_lookup = {p['id']: p for p in self.scheduler.players}
+        
+        # Get all participant IDs and create a ranking by global rank
+        all_participants = []
+        for round_matches in bracket:
+            for match in round_matches:
+                if match[0]:  # p1_id
+                    if match[0] not in [p[0] for p in all_participants]:
+                        all_participants.append((match[0], player_lookup.get(match[0], {}).get('rank', 999)))
+                if match[1]:  # p2_id
+                    if match[1] not in [p[0] for p in all_participants]:
+                        all_participants.append((match[1], player_lookup.get(match[1], {}).get('rank', 999)))
+        
+        # Sort by global rank to get participant rankings
+        all_participants.sort(key=lambda x: x[1])
+        participant_rank_map = {pid: idx + 1 for idx, (pid, _) in enumerate(all_participants)}
+        
         def get_name_rank(pid):
             player = player_lookup.get(pid)
             if player:
-                return f"{player['name']} ({player.get('rank', 'N/A')})"
+                participant_rank = participant_rank_map.get(pid, 'N/A')
+                return f"{player['name']} ({participant_rank})"
             return "BYE"
 
         round_names = self._get_round_names(num_rounds)
@@ -3344,11 +3524,17 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 p1_color = "blue" if (p1_id and player_lookup.get(p1_id, {}).get('favorite')) else "black"
                 p2_color = "blue" if (p2_id and player_lookup.get(p2_id, {}).get('favorite')) else "black"
 
-                # Player names (left aligned)
-                canvas.create_text(x+10, y+match_height//2, anchor="w", text=p1, fill=p1_color,
-                                   font=font_bold if winner_id == p1_id else font_normal)
-                canvas.create_text(x+10, y+match_height+8+match_height//2, anchor="w", text=p2, fill=p2_color,
-                                   font=font_bold if winner_id == p2_id else font_normal)
+                # Player names (left aligned) - make clickable
+                p1_text_id = canvas.create_text(x+10, y+match_height//2, anchor="w", text=p1, fill=p1_color,
+                                   font=font_bold if winner_id == p1_id else font_normal, tags=f"player_{p1_id}")
+                p2_text_id = canvas.create_text(x+10, y+match_height+8+match_height//2, anchor="w", text=p2, fill=p2_color,
+                                   font=font_bold if winner_id == p2_id else font_normal, tags=f"player_{p2_id}")
+                
+                # Bind click events to player names (only if they have an ID)
+                if p1_id:
+                    canvas.tag_bind(f"player_{p1_id}", "<Button-1>", lambda e, pid=p1_id, t=tournament: self.show_bracket_player_popup(pid, t, e))
+                if p2_id:
+                    canvas.tag_bind(f"player_{p2_id}", "<Button-1>", lambda e, pid=p2_id, t=tournament: self.show_bracket_player_popup(pid, t, e))
 
                 # Scores (right aligned, each set separately, bold for set winner)
                 score_x = x+rect_width-10
