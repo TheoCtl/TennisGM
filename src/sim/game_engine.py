@@ -353,7 +353,7 @@ class GameEngine:
                 # If defender catches a dropshot, check if they're already in volley mode for *3 bonus
                 if self.volley_mode[defender["id"]]:
                     # Already in volley mode - apply *3 multiplier
-                    return_multiplier *= 3
+                    return_multiplier = 3
                 # Enter volley mode after catching the dropshot
                 self.volley_mode[defender["id"]] = True
                 # return_multiplier is already set in the blocks above
@@ -366,12 +366,12 @@ class GameEngine:
                     # Keep return_multiplier = 2.0 that was set in the blocks above
                     # Apply *3 multiplier if defender is in volley mode and catching a dropshot
                     if self.volley_mode[defender["id"]]:
-                        return_multiplier *= 3
+                        return_multiplier = 3
                 else:
                     # Use the normal return multiplier from can_catch
                     # Apply *3 multiplier if defender is in volley mode and catching a dropshot
                     if shot_type == "dropshot" and self.volley_mode[defender["id"]]:
-                        catch_return_multiplier *= 3
+                        catch_return_multiplier = 3
                     return_multiplier = catch_return_multiplier
                 
                 # Activate volley mode if defender catches a volley
@@ -433,7 +433,7 @@ class GameEngine:
             # Volley power boost: 1.[volley_stat-10], simulating time compression for opponent
             if shot_type == "volley":
                 volley_skill = player["skills"].get("volley", 30)
-                volley_power_boost = 1.0 + max(0, (volley_skill - 20) / 100)  # 1.0 to 1.6x
+                volley_power_boost = 1.0 + max(0, (volley_skill - 30) / 100)  # 1.0 to 1.5x
                 base_power = base_power * volley_power_boost
         
         precision = self._weighted_random_precision(precision_skill)
@@ -516,7 +516,7 @@ class GameEngine:
         precision_factor = 0.3 + (shot_precision / 70)
         # If hitter is in volley mode, precision factor is harder (downside of volley mode)
         if hitter and self.volley_mode[hitter["id"]]:
-            precision_factor *= 1.1
+            precision_factor *= 1.2
         # Combined catch score
         catch_score = speed_power_ratio * precision_factor
         # Determine if caught based on catch score
