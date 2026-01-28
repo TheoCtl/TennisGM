@@ -2693,7 +2693,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             'x': ball_pos['x'],
                             'y': ball_pos['y'],
                             'power': ball_pos['power'],
-                            'is_serve': event['shot_type'] == 'serve'
+                            'is_serve': event['shot_type'] == 'serve',
+                            'shot_type': event['shot_type']
                         })
             
             def animate_shot(shot_index=0):
@@ -2713,10 +2714,25 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     else:
                         ball_color = "yellow" if shot['is_serve'] else "white"
                     
-                    canvas.create_oval(x-size, y-size, x+size, y+size,
-                                    fill=ball_color,
-                                    outline="white",
-                                    tags="ball")
+                    # Draw triangle for volleys, circle for other shots
+                    if shot['shot_type'] == 'volley':
+                        # Draw triangle pointing up for volley
+                        triangle_size = size * 1.5
+                        points = [
+                            x, y - triangle_size,  # Top point
+                            x - triangle_size, y + triangle_size,  # Bottom left
+                            x + triangle_size, y + triangle_size   # Bottom right
+                        ]
+                        canvas.create_polygon(points,
+                                            fill=ball_color,
+                                            outline="white",
+                                            tags="ball")
+                    else:
+                        # Draw circle for non-volley shots
+                        canvas.create_oval(x-size, y-size, x+size, y+size,
+                                        fill=ball_color,
+                                        outline="white",
+                                        tags="ball")
                     
                     # Schedule next ball after 1 second if animation is active
                     if self.animation_active:
@@ -2864,77 +2880,123 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             header_frame = tk.Frame(main_frame, bg="#2c3e50", relief="raised", bd=2)
             header_frame.pack(fill="x", padx=10, pady=10)
             
-            if point_events and i < len(point_events):
-                events = point_events[i]['events']
-                for event in events:
-                    if event['type'] == 'score':
-                        sets = event['sets']
-                        current_set = event['current_set']
-                        p1_name = event['player1_name']
-                        p2_name = event['player2_name']
-                        
-                        # Create simple scoreboard - only player names and completed/current sets
-                        score_frame = tk.Frame(header_frame, bg="#34495e")
-                        score_frame.pack(fill="x", padx=100)
-                            
-                        # Determine which sets each player won
-                        set_winners = []
-                        for set_idx, set_tuple in enumerate(sets):
-                            p1_games, p2_games = set_tuple
-                            # A set is won when someone reaches 6+ games with 2+ game lead
-                            if p1_games >= 6 and p1_games - p2_games >= 2:
-                                set_winners.append(1)  # Player 1 won
-                            elif p2_games >= 6 and p2_games - p1_games >= 2:
-                                set_winners.append(2)  # Player 2 won
-                            elif p1_games == 7 and p2_games == 6:
-                                set_winners.append(1)
-                            elif p2_games == 7 and p1_games == 6:
-                                set_winners.append(2)
+            # Function to display scoreboard
+            def display_scoreboard():
+                if not is_match_finished:
+                    # During match: show previous point's score to avoid spoilers
+                    if i > 0 and point_events and (i - 1) < len(point_events):
+                        events = point_events[i - 1]['events']
+                        for event in events:
+                            if event['type'] == 'score':
+                                sets = event['sets']
+                                current_set = event['current_set']
+                                p1_name = event['player1_name']
+                                p2_name = event['player2_name']
+                                break
+                        else:
+                            return False
+                    elif i == 0:
+                        # First point: show initial score
+                        if point_events and len(point_events) > 0:
+                            events = point_events[0]['events']
+                            for event in events:
+                                if event['type'] == 'score':
+                                    # Subtract 1 from current_set to get pre-point state
+                                    sets = event['sets']
+                                    current_set = {'player1': 0, 'player2': 0}
+                                    p1_name = event['player1_name']
+                                    p2_name = event['player2_name']
+                                    break
                             else:
-                                set_winners.append(0)  # Set still in progress
-                            
-                        # Build set scores display - only completed sets + current
-                        # Player 1 row
-                        p1_row = tk.Frame(score_frame, bg="#3498db")
-                        p1_row.pack(fill="x", pady=2)
-                        
-                        # Create a frame to hold all score elements with mixed formatting
-                        p1_score_frame = tk.Frame(p1_row, bg="#3498db")
-                        p1_score_frame.pack(padx=10, pady=5)
-                        
-                        # Add player name
-                        tk.Label(p1_score_frame, text=p1_name + "  ", font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
-                        
-                        # Add each completed set score with appropriate formatting
-                        for set_idx, set_tuple in enumerate(sets):
-                            score_val = str(set_tuple[0])
-                            is_winner = set_idx < len(set_winners) and set_winners[set_idx] == 1
-                            font = ("Arial", 11, "bold") if is_winner else ("Arial", 11)
-                            tk.Label(p1_score_frame, text=score_val + "  ", font=font, bg="#3498db", fg="white").pack(side="left")
-                        
-                        # Add current set in progress
-                        tk.Label(p1_score_frame, text=str(current_set['player1']), font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
-                        
-                        # Player 2 row
-                        p2_row = tk.Frame(score_frame, bg="#e74c3c")
-                        p2_row.pack(fill="x", pady=2)
-                        
-                        # Create a frame to hold all score elements with mixed formatting
-                        p2_score_frame = tk.Frame(p2_row, bg="#e74c3c")
-                        p2_score_frame.pack(padx=10, pady=5)
-                        
-                        # Add player name
-                        tk.Label(p2_score_frame, text=p2_name + "  ", font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
-                        
-                        # Add each completed set score with appropriate formatting
-                        for set_idx, set_tuple in enumerate(sets):
-                            score_val = str(set_tuple[1])
-                            is_winner = set_idx < len(set_winners) and set_winners[set_idx] == 2
-                            font = ("Arial", 11, "bold") if is_winner else ("Arial", 11)
-                            tk.Label(p2_score_frame, text=score_val + "  ", font=font, bg="#e74c3c", fg="white").pack(side="left")
-                        
-                        # Add current set in progress
-                        tk.Label(p2_score_frame, text=str(current_set['player2']), font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
+                                return False
+                        else:
+                            return False
+                    else:
+                        return False
+                else:
+                    # End screen: use final data from the LAST point event
+                    if point_events and len(point_events) > 0:
+                        last_events = point_events[-1]['events']
+                        for event in last_events:
+                            if event['type'] == 'score':
+                                sets = event['sets']
+                                current_set = event['current_set']
+                                p1_name = event['player1_name']
+                                p2_name = event['player2_name']
+                                break
+                        else:
+                            return False
+                    else:
+                        return False
+                
+                # Create simple scoreboard - only player names and completed/current sets
+                score_frame = tk.Frame(header_frame, bg="#34495e")
+                score_frame.pack(fill="x", padx=100)
+                    
+                # Determine which sets each player won
+                set_winners = []
+                for set_idx, set_tuple in enumerate(sets):
+                    p1_games, p2_games = set_tuple
+                    # A set is won when someone reaches 6+ games with 2+ game lead
+                    if p1_games >= 6 and p1_games - p2_games >= 2:
+                        set_winners.append(1)  # Player 1 won
+                    elif p2_games >= 6 and p2_games - p1_games >= 2:
+                        set_winners.append(2)  # Player 2 won
+                    elif p1_games == 7 and p2_games == 6:
+                        set_winners.append(1)
+                    elif p2_games == 7 and p1_games == 6:
+                        set_winners.append(2)
+                    else:
+                        set_winners.append(0)  # Set still in progress
+                    
+                # Build set scores display - only completed sets + current
+                # Player 1 row
+                p1_row = tk.Frame(score_frame, bg="#3498db")
+                p1_row.pack(fill="x", pady=2)
+                
+                # Create a frame to hold all score elements with mixed formatting
+                p1_score_frame = tk.Frame(p1_row, bg="#3498db")
+                p1_score_frame.pack(padx=10, pady=5)
+                
+                # Add player name
+                tk.Label(p1_score_frame, text=p1_name + "  ", font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
+                
+                # Add each completed set score with appropriate formatting
+                for set_idx, set_tuple in enumerate(sets):
+                    score_val = str(set_tuple[0])
+                    is_winner = set_idx < len(set_winners) and set_winners[set_idx] == 1
+                    font = ("Arial", 11, "bold") if is_winner else ("Arial", 11)
+                    tk.Label(p1_score_frame, text=score_val + "  ", font=font, bg="#3498db", fg="white").pack(side="left")
+                
+                # Add current set in progress (only if not finished)
+                if current_set and current_set.get('player1', 0) > 0:
+                    tk.Label(p1_score_frame, text=str(current_set['player1']), font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
+                
+                # Player 2 row
+                p2_row = tk.Frame(score_frame, bg="#e74c3c")
+                p2_row.pack(fill="x", pady=2)
+                
+                # Create a frame to hold all score elements with mixed formatting
+                p2_score_frame = tk.Frame(p2_row, bg="#e74c3c")
+                p2_score_frame.pack(padx=10, pady=5)
+                
+                # Add player name
+                tk.Label(p2_score_frame, text=p2_name + "  ", font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
+                
+                # Add each completed set score with appropriate formatting
+                for set_idx, set_tuple in enumerate(sets):
+                    score_val = str(set_tuple[1])
+                    is_winner = set_idx < len(set_winners) and set_winners[set_idx] == 2
+                    font = ("Arial", 11, "bold") if is_winner else ("Arial", 11)
+                    tk.Label(p2_score_frame, text=score_val + "  ", font=font, bg="#e74c3c", fg="white").pack(side="left")
+                
+                # Add current set in progress (only if not finished)
+                if current_set and current_set.get('player2', 0) > 0:
+                    tk.Label(p2_score_frame, text=str(current_set['player2']), font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
+                
+                return True
+            
+            display_scoreboard()
             
             # Court visualization using TennisCourtViewer
             canvas_frame = tk.Frame(main_frame)
@@ -2997,61 +3059,295 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             p1_stats = calculate_new_stats(game_engine.p1['skills'])
             p2_stats = calculate_new_stats(game_engine.p2['skills'])
 
-            # Left column for Player 1
-            p1_stats_card = tk.Frame(stats_frame, bg="white", relief="raised", bd=2)
-            p1_stats_card.pack(side="left", fill="both", expand=True, padx=(0, 5))
-
-            tk.Label(
-                p1_stats_card,
-                text=f"⬅️ {player1['name']} (P1)",
-                font=("Arial", 11, "bold"),
-                bg="#3498db",
+            # Create tab system for player stats
+            tab_frame = tk.Frame(stats_frame, bg="#34495e")
+            tab_frame.pack(fill="x", pady=(0, 5))
+            
+            # Initialize instance variable for stats tab if not already set
+            if not hasattr(self, 'current_match_stats_tab'):
+                self.current_match_stats_tab = "player_stats"
+            
+            def switch_stats_tab(tab_name):
+                self.current_match_stats_tab = tab_name
+                update_stats_display()
+                # Update button colors
+                stats_tab1_btn.config(bg="#3498db" if self.current_match_stats_tab == "player_stats" else "#7f8c8d")
+                stats_tab2_btn.config(bg="#3498db" if self.current_match_stats_tab == "match_stats" else "#7f8c8d")
+            
+            # Tab buttons
+            stats_tab1_btn = tk.Button(
+                tab_frame,
+                text="Player Stats",
+                font=("Arial", 10, "bold"),
+                bg="#3498db" if self.current_match_stats_tab == "player_stats" else "#7f8c8d",
                 fg="white",
+                relief="flat",
+                bd=0,
                 padx=10,
-                pady=5
-            ).pack(fill="x")
-
-            p1_stats_content = tk.Frame(p1_stats_card, bg="white")
-            p1_stats_content.pack(fill="both", expand=True, padx=8, pady=8)
-
-            # Display player1's new stats
-            for stat_name, stat_value in p1_stats.items():
-                tk.Label(
-                    p1_stats_content,
-                    text=f"{stat_name}: {stat_value}",
-                    font=("Arial", 9),
-                    bg="white",
-                    fg="#2c3e50",
-                    anchor="w"
-                       ).pack(fill="x", pady=1)
-    
-            # Right column for Player 2
-            p2_stats_card = tk.Frame(stats_frame, bg="white", relief="raised", bd=2)
-            p2_stats_card.pack(side="right", fill="both", expand=True, padx=(5, 0))
-
-            tk.Label(
-                p2_stats_card,
-                text=f"{player2['name']} (P2) ➡️",
-                font=("Arial", 11, "bold"),
-                bg="#e74c3c",
+                pady=5,
+                command=lambda: switch_stats_tab("player_stats")
+            )
+            stats_tab1_btn.pack(side="left", padx=2)
+            
+            stats_tab2_btn = tk.Button(
+                tab_frame,
+                text="Match Stats",
+                font=("Arial", 10, "bold"),
+                bg="#3498db" if self.current_match_stats_tab == "match_stats" else "#7f8c8d",
                 fg="white",
+                relief="flat",
+                bd=0,
                 padx=10,
-                pady=5
-            ).pack(fill="x")
+                pady=5,
+                command=lambda: switch_stats_tab("match_stats")
+            )
+            stats_tab2_btn.pack(side="left", padx=2)
+            
+            # Container for stats content
+            stats_content_frame = tk.Frame(stats_frame, bg="white")
+            stats_content_frame.pack(fill="both", expand=True)
+            
+            def update_stats_display():
+                # Clear the content frame
+                for widget in stats_content_frame.winfo_children():
+                    widget.destroy()
+                
+                # Get match stats: during animation show PREVIOUS point's stats to avoid spoilers
+                # After animation completes (at end screen), show final stats
+                match_stats_p1 = None
+                match_stats_p2 = None
+                
+                if not is_match_finished:
+                    # During match: show previous point's stats (use point i-1 so current point doesn't spoil)
+                    if i > 0 and point_events and (i - 1) < len(point_events) and 'events' in point_events[i - 1]:
+                        events = point_events[i - 1]['events']
+                        if events and 'match_stats' in events[0]:
+                            match_stats_p1 = events[0]['match_stats']['player1']
+                            match_stats_p2 = events[0]['match_stats']['player2']
+                    elif i == 0:
+                        # First point: no previous stats, show zeros
+                        match_stats_p1 = {'aces': 0, 'breaks': 0, 'forehand_winners': 0, 'backhand_winners': 0, 'dropshot_winners': 0, 'volley_winners': 0}
+                        match_stats_p2 = {'aces': 0, 'breaks': 0, 'forehand_winners': 0, 'backhand_winners': 0, 'dropshot_winners': 0, 'volley_winners': 0}
+                else:
+                    # End screen: use final stats from the LAST point event
+                    if point_events and len(point_events) > 0:
+                        last_events = point_events[-1]['events']
+                        if last_events and 'match_stats' in last_events[0]:
+                            match_stats_p1 = last_events[0]['match_stats']['player1']
+                            match_stats_p2 = last_events[0]['match_stats']['player2']
+                
+                if self.current_match_stats_tab == "player_stats":
+                    # Display player skills
+                    display_frame = tk.Frame(stats_content_frame, bg="white")
+                    display_frame.pack(fill="both", expand=True)
+                    
+                    # Left column for Player 1
+                    p1_stats_card = tk.Frame(display_frame, bg="white", relief="raised", bd=2)
+                    p1_stats_card.pack(side="left", fill="both", expand=True, padx=(5, 2), pady=5)
 
-            p2_stats_content = tk.Frame(p2_stats_card, bg="white")
-            p2_stats_content.pack(fill="both", expand=True, padx=8, pady=8)
+                    tk.Label(
+                        p1_stats_card,
+                        text=f"⬅️ {player1['name']} (P1)",
+                        font=("Arial", 10, "bold"),
+                        bg="#3498db",
+                        fg="white",
+                        padx=10,
+                        pady=5
+                    ).pack(fill="x")
 
-            # Display player2's new stats
-            for stat_name, stat_value in p2_stats.items():
-                tk.Label(
-                    p2_stats_content,
-                    text=f"{stat_name}: {stat_value}",
-                    font=("Arial", 9),
-                    bg="white",
-                    fg="#2c3e50",
-                    anchor="w"
-                ).pack(fill="x", pady=1)
+                    p1_stats_content = tk.Frame(p1_stats_card, bg="white")
+                    p1_stats_content.pack(fill="both", expand=True, padx=8, pady=8)
+
+                    # Display player1's new stats
+                    for stat_name, stat_value in p1_stats.items():
+                        tk.Label(
+                            p1_stats_content,
+                            text=f"{stat_name}: {stat_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+        
+                    # Right column for Player 2
+                    p2_stats_card = tk.Frame(display_frame, bg="white", relief="raised", bd=2)
+                    p2_stats_card.pack(side="right", fill="both", expand=True, padx=(2, 5), pady=5)
+
+                    tk.Label(
+                        p2_stats_card,
+                        text=f"{player2['name']} (P2) ➡️",
+                        font=("Arial", 10, "bold"),
+                        bg="#e74c3c",
+                        fg="white",
+                        padx=10,
+                        pady=5
+                    ).pack(fill="x")
+
+                    p2_stats_content = tk.Frame(p2_stats_card, bg="white")
+                    p2_stats_content.pack(fill="both", expand=True, padx=8, pady=8)
+
+                    # Display player2's new stats
+                    for stat_name, stat_value in p2_stats.items():
+                        tk.Label(
+                            p2_stats_content,
+                            text=f"{stat_name}: {stat_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+                
+                else:
+                    # Display match stats (aces, breaks, winners)
+                    if match_stats_p1 and match_stats_p2:
+                        display_frame = tk.Frame(stats_content_frame, bg="white")
+                        display_frame.pack(fill="both", expand=True)
+                        
+                        # Left column for Player 1
+                        p1_match_card = tk.Frame(display_frame, bg="white", relief="raised", bd=2)
+                        p1_match_card.pack(side="left", fill="both", expand=True, padx=(5, 2), pady=5)
+
+                        tk.Label(
+                            p1_match_card,
+                            text=f"⬅️ {player1['name']} (P1)",
+                            font=("Arial", 10, "bold"),
+                            bg="#3498db",
+                            fg="white",
+                            padx=10,
+                            pady=5
+                        ).pack(fill="x")
+
+                        p1_match_content = tk.Frame(p1_match_card, bg="white")
+                        p1_match_content.pack(fill="both", expand=True, padx=8, pady=8)
+
+                        # Display player1's match stats with combined labels
+                        # Aces
+                        aces_value = match_stats_p1.get('aces', 0)
+                        tk.Label(
+                            p1_match_content,
+                            text=f"Aces: {aces_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+                        
+                        # Breaks
+                        breaks_value = match_stats_p1.get('breaks', 0)
+                        tk.Label(
+                            p1_match_content,
+                            text=f"Breaks: {breaks_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+                        
+                        # Spacing
+                        tk.Label(p1_match_content, text="-- WINNERS --", bg="white").pack(fill="x", pady=2)
+                        
+                        # Forehand/Backhand winners
+                        fh_value = match_stats_p1.get('forehand_winners', 0)
+                        bh_value = match_stats_p1.get('backhand_winners', 0)
+                        tk.Label(
+                            p1_match_content,
+                            text=f"FH / BH : {fh_value} / {bh_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+                        
+                        # Dropshot/Volley winners
+                        ds_value = match_stats_p1.get('dropshot_winners', 0)
+                        vol_value = match_stats_p1.get('volley_winners', 0)
+                        tk.Label(
+                            p1_match_content,
+                            text=f"DP / VO : {ds_value} / {vol_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+        
+                        # Right column for Player 2
+                        p2_match_card = tk.Frame(display_frame, bg="white", relief="raised", bd=2)
+                        p2_match_card.pack(side="right", fill="both", expand=True, padx=(2, 5), pady=5)
+
+                        tk.Label(
+                            p2_match_card,
+                            text=f"{player2['name']} (P2) ➡️",
+                            font=("Arial", 10, "bold"),
+                            bg="#e74c3c",
+                            fg="white",
+                            padx=10,
+                            pady=5
+                        ).pack(fill="x")
+
+                        p2_match_content = tk.Frame(p2_match_card, bg="white")
+                        p2_match_content.pack(fill="both", expand=True, padx=8, pady=8)
+
+                        # Display player2's match stats with combined labels
+                        # Aces
+                        aces_value = match_stats_p2.get('aces', 0)
+                        tk.Label(
+                            p2_match_content,
+                            text=f"Aces: {aces_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+                        
+                        # Breaks
+                        breaks_value = match_stats_p2.get('breaks', 0)
+                        tk.Label(
+                            p2_match_content,
+                            text=f"Breaks: {breaks_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+                        
+                        # Spacing
+                        tk.Label(p2_match_content, text="-- WINNERS --", bg="white").pack(fill="x", pady=2)
+                        
+                        # Forehand/Backhand winners
+                        fh_value = match_stats_p2.get('forehand_winners', 0)
+                        bh_value = match_stats_p2.get('backhand_winners', 0)
+                        tk.Label(
+                            p2_match_content,
+                            text=f"FH / BH : {fh_value} / {bh_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+                        
+                        # Dropshot/Volley winners
+                        ds_value = match_stats_p2.get('dropshot_winners', 0)
+                        vol_value = match_stats_p2.get('volley_winners', 0)
+                        tk.Label(
+                            p2_match_content,
+                            text=f"DP / VO : {ds_value} / {vol_value}",
+                            font=("Arial", 9),
+                            bg="white",
+                            fg="#2c3e50",
+                            anchor="w"
+                        ).pack(fill="x", pady=1)
+                    else:
+                        # No match stats available yet
+                        tk.Label(
+                            stats_content_frame,
+                            text="Match stats not yet available",
+                            font=("Arial", 10),
+                            bg="white",
+                            fg="#7f8c8d"
+                        ).pack(pady=20)
+            
+            # Initial display
+            update_stats_display()
             
             # Control buttons
             control_frame = tk.Frame(main_frame)

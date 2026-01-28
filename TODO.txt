@@ -5,24 +5,3 @@ SURVEILLER PROGRESSION
 
 
 -- FEATURES --
-
-player stats blocks when visualising match :
-   -> possibility to switch tabs -> player stats/match stats
-   -> match stats = aces, breaks, forehand/backhand/special winners
-
-mental stat (and add it to the visualisation player stats blocks) :
-   -> when at least one of the players has at least 5 points in the current set, the 
-   player with the highest rated "mental" has a *1.02 rating boost to his stats
-   -> ADD NEW ARCHETYPES
-
-change behavior of dropshots/volleys to add more variation and strategy. 
-   -> Now if a player does a volley, he is in volley mode until the end of the point 
-   (only does volleys). Volleys values and coordinates are calculated like normal shots 
-   instead of like dropshots.
-   -> If a player catches an opponent's dropshot, he's now in volley mode until the
-   end of the point.
-   -> find a way in visualisation to show a player is at the net.
-This means if a player has good volley stats, he should use it to go to the net to 
-finish the points more efficiently than a player with low stats. Also if a player
-with a good dropshot faces a player with bad volley, he can use the dropshot to make
-the opponent advance to the net, where his bad volley will make him loose the point.

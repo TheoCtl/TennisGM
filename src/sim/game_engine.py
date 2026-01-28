@@ -33,6 +33,31 @@ class GameEngine:
         self.last_shot_power = 0  # Initialize last shot power
         self.last_shot_precision = 50
         
+        # Track volley mode for each player (once a player hits a volley, they can only hit volleys)
+        self.volley_mode = {player1["id"]: False, player2["id"]: False}
+        
+        # Track match statistics for each player
+        self.match_stats = {
+            player1["id"]: {
+                "aces": 0,
+                "breaks": 0,
+                "forehand_winners": 0,
+                "backhand_winners": 0,
+                "dropshot_winners": 0,
+                "volley_winners": 0
+            },
+            player2["id"]: {
+                "aces": 0,
+                "breaks": 0,
+                "forehand_winners": 0,
+                "backhand_winners": 0,
+                "dropshot_winners": 0,
+                "volley_winners": 0
+            }
+        }
+        # Track the last shot type for winner classification
+        self.last_shot_type = None
+        
     def _apply_surface_bonus(self, player, surface):
         """Apply per-surface multiplier to all skills if available; fallback to legacy favorite_surface bonus."""
         boosted_player = player.copy()
@@ -100,13 +125,23 @@ class GameEngine:
         while not self.is_match_over():
             while not self.is_set_over():
                 winner_key, point_events = self.simulate_point(visualize=True)
+                # Update games and stats BEFORE yielding so the point_events reflect the updated state
+                self.update_games(winner_key)
+                
+                # Update the score event in point_events with the current score and stats AFTER the point was won
+                if point_events and point_events[0]['type'] == 'score':
+                    point_events[0]['current_set'] = {'player1': self.games['player1'], 'player2': self.games['player2']}
+                    point_events[0]['match_stats'] = {
+                        'player1': self.match_stats[self.p1['id']].copy(),
+                        'player2': self.match_stats[self.p2['id']].copy()
+                    }
+                
                 point_data = {
                     'type': 'point',
                     'events': point_events,
                     'winner': winner_key
                 }
                 yield point_data
-                self.update_games(winner_key)
                 self.current_server, self.current_receiver = self.current_receiver, self.current_server
             set_winner_key = self.is_set_over()
             self.update_sets(set_winner_key)
@@ -166,7 +201,11 @@ class GameEngine:
                 'sets': self.set_scores.copy(),  # Previous set scores
                 'current_set': {'player1': self.games['player1'], 'player2': self.games['player2']},
                 'player1_name': self.p1['name'],
-                'player2_name': self.p2['name']
+                'player2_name': self.p2['name'],
+                'match_stats': {
+                    'player1': self.match_stats[self.p1['id']].copy(),
+                    'player2': self.match_stats[self.p2['id']].copy()
+                }
             }]
 
         # Step 1: Server makes the first shot
@@ -197,7 +236,7 @@ class GameEngine:
         self.update_positions(defender, shot_leftright)
 
         # Step 2: Receiver tries to catch the shot
-        caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type = "serve")
+        caught, return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type="serve", hitter=hitter)
         if not caught:  # Missed shot
             # Add the final ball position for the serve with a message indicator
             if visualize:
@@ -215,6 +254,8 @@ class GameEngine:
                 })            
             self.reset_stamina_and_speed()
             winner_key = self._get_player_key(hitter)
+            # Track ace
+            self.match_stats[hitter['id']]["aces"] += 1
             return (winner_key, point_events) if visualize else winner_key
 
         # Step 3: Alternate shots until someone misses
@@ -239,15 +280,11 @@ class GameEngine:
             shot_power, shot_precision, shot_direction = self.calculate_shot(hitter, shot_type, shot_direction, return_multiplier)
             side = "left" if self._get_player_key(defender) == "player1" else "right"
             
-            # For dropshot/volley, calculate success before getting coordinates
+            # For dropshot, calculate success before getting coordinates
             shot_success = None
             if shot_type == "dropshot":
                 dropshot_skill = hitter["skills"].get("dropshot", 30)
                 success_chance = max(0.05, min(0.95, (dropshot_skill - self.last_shot_power + 100) / 200))
-                shot_success = random.random() < success_chance
-            elif shot_type == "volley":
-                volley_skill = hitter["skills"].get("volley", 30)
-                success_chance = max(0.05, min(0.95, (volley_skill - self.last_shot_power + 100) / 200))
                 shot_success = random.random() < success_chance
             
             # Get ball coordinates with dropshot/volley success info
@@ -276,12 +313,20 @@ class GameEngine:
                     if defender_speed < dropshot_skill:
                         self.reset_stamina_and_speed()
                         winner_key = self._get_player_key(hitter)
+                        self.match_stats[hitter['id']]["dropshot_winners"] += 1
+                        # Track break
+                        if self._get_player_key(hitter) != self._get_player_key(server):
+                            self.match_stats[hitter['id']]["breaks"] += 1
                         return (winner_key, point_events) if visualize else winner_key
                     else:
                         # Set return multiplier based on defender's speed
                         if defender_speed < 50: 
                             self.reset_stamina_and_speed()
                             winner_key = self._get_player_key(hitter)
+                            self.match_stats[hitter['id']]["dropshot_winners"] += 1
+                            # Track break
+                            if self._get_player_key(hitter) != self._get_player_key(server):
+                                self.match_stats[hitter['id']]["breaks"] += 1
                             return (winner_key, point_events) if visualize else winner_key
                         elif 50 <= defender_speed < 55:
                             return_multiplier = 0.2
@@ -298,54 +343,40 @@ class GameEngine:
                         # The defender will try to catch with this return multiplier
                 else:
                     return_multiplier = 2.0  # For missed dropshot
-                    
-            if shot_type == "volley":
-                if shot_success:
-                    defender_speed = self.speed[defender["id"]]
-                    if defender_speed < volley_skill:
-                        self.reset_stamina_and_speed()
-                        winner_key = self._get_player_key(hitter)
-                        return (winner_key, point_events) if visualize else winner_key
-                    else:
-                        # Set return multiplier based on defender's speed
-                        if defender_speed < 50: 
-                            self.reset_stamina_and_speed()
-                            winner_key = self._get_player_key(hitter)
-                            return (winner_key, point_events) if visualize else winner_key
-                        elif 50 <= defender_speed < 55:
-                            return_multiplier = 0.1
-                        elif 55 <= defender_speed < 60:
-                            return_multiplier = 0.15
-                        elif 60 <= defender_speed < 65:
-                            return_multiplier = 0.2
-                        elif 65 <= defender_speed < 70:
-                            return_multiplier = 0.25
-                        elif 70 <= defender_speed < 75:
-                            return_multiplier = 0.3
-                        else:  # defender_speed >= 75
-                            return_multiplier = 0.35
-                        # The defender will try to catch with this return multiplier
-                else:
-                    return_multiplier = 2.0  # For missed volley
 
-            # For successful dropshot/volley with fast defender, skip can_catch check
-            if (shot_type in ["dropshot", "volley"] and shot_success and 
+            # For successful dropshot with fast defender, skip can_catch check
+            if (shot_type == "dropshot" and shot_success and 
                 self.speed[defender["id"]] >= 50):
                 # We've already set the return_multiplier based on defender speed
-                # The defender automatically catches successful dropshot/volley when fast enough
+                # The defender automatically catches successful dropshot when fast enough
                 caught = True
+                # If defender catches a dropshot, check if they're already in volley mode for *3 bonus
+                if self.volley_mode[defender["id"]]:
+                    # Already in volley mode - apply *3 multiplier
+                    return_multiplier *= 3
+                # Enter volley mode after catching the dropshot
+                self.volley_mode[defender["id"]] = True
                 # return_multiplier is already set in the blocks above
             else:
                 # For all other shots, use the normal can_catch logic
-                caught, catch_return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type)
+                caught, catch_return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type, hitter=hitter)
     
-                # For missed dropshot/volley, keep the 2.0 multiplier
-                if shot_type in ["dropshot", "volley"] and not shot_success and caught:
+                # For missed dropshot, keep the 2.0 multiplier
+                if shot_type == "dropshot" and not shot_success and caught:
                     # Keep return_multiplier = 2.0 that was set in the blocks above
-                    pass
+                    # Apply *3 multiplier if defender is in volley mode and catching a dropshot
+                    if self.volley_mode[defender["id"]]:
+                        return_multiplier *= 3
                 else:
                     # Use the normal return multiplier from can_catch
+                    # Apply *3 multiplier if defender is in volley mode and catching a dropshot
+                    if shot_type == "dropshot" and self.volley_mode[defender["id"]]:
+                        catch_return_multiplier *= 3
                     return_multiplier = catch_return_multiplier
+                
+                # Activate volley mode if defender catches a volley
+                if shot_type == "volley" and caught:
+                    self.volley_mode[defender["id"]] = True
 
             if not caught:
                 side = "left" if self._get_player_key(defender) == "player1" else "right"
@@ -366,6 +397,21 @@ class GameEngine:
                     })
                 self.reset_stamina_and_speed()
                 winner_key = self._get_player_key(hitter)
+                
+                # Track winner by shot type
+                if shot_type == "forehand":
+                    self.match_stats[hitter['id']]["forehand_winners"] += 1
+                elif shot_type == "backhand":
+                    self.match_stats[hitter['id']]["backhand_winners"] += 1
+                elif shot_type == "dropshot":
+                    self.match_stats[hitter['id']]["dropshot_winners"] += 1
+                elif shot_type == "volley":
+                    self.match_stats[hitter['id']]["volley_winners"] += 1
+                
+                # Track break (point won by non-server while not on serve)
+                if self._get_player_key(hitter) != self._get_player_key(server):
+                    self.match_stats[hitter['id']]["breaks"] += 1
+                
                 return (winner_key, point_events) if visualize else winner_key
 
             self.reduce_stamina(hitter, shot_power)
@@ -374,14 +420,22 @@ class GameEngine:
         """
         Calculate the power and placement of a shot based on the player's stats.
         Adjust shot power based on how comfortably the player catches the ball.
-        For dropshot/volley, use their own skill for both power and precision.
+        For dropshot, use their own skill for both power and precision.
+        Volleys get a power boost based on volley skill (upside of volley mode).
         """
-        if shot_type == "dropshot" or shot_type == "volley":
+        if shot_type == "dropshot":
             base_power = player["skills"].get(shot_type, 30) * previous_multiplier
             precision_skill = player["skills"].get(shot_type, 30)
         else:
             base_power = player["skills"][shot_type] * previous_multiplier
             precision_skill = player["skills"][direction]
+            
+            # Volley power boost: 1.[volley_stat-10], simulating time compression for opponent
+            if shot_type == "volley":
+                volley_skill = player["skills"].get("volley", 30)
+                volley_power_boost = 1.0 + max(0, (volley_skill - 20) / 100)  # 1.0 to 1.6x
+                base_power = base_power * volley_power_boost
+        
         precision = self._weighted_random_precision(precision_skill)
 
         # Special handling for serves
@@ -433,20 +487,25 @@ class GameEngine:
     def reset_stamina_and_speed(self):
         """
         Reset stamina and speed for both players to their original values at the end of a point.
+        Also reset volley mode for both players.
         """
         for player in [self.p1, self.p2]:
             self.stamina[player["id"]] = player["skills"]["stamina"]
             self.speed[player["id"]] = player["skills"]["speed"]
+            self.volley_mode[player["id"]] = False
 
-    def can_catch(self, player, shot_power, shot_precision, shot_type):
+    def can_catch(self, player, shot_power, shot_precision, shot_type, hitter=None):
         """
         Determine if the player can catch the shot based on their speed and shot power.
+        If hitter is in volley mode, precision_factor is increased by 1.1x (downside of volley mode).
         """
         # Special case for serve returns
         if shot_type == "serve":  # Default serve precision
             # Simple serve return check: if serve power > speed, can't return
             if shot_power > self.speed[player["id"]]:
                 return False, 0
+            elif (self.speed[player["id"]] - shot_power) <= 10:
+                return True, 0.8
             else:
                 # Good return gets full power
                 return True, 1.0
@@ -455,6 +514,9 @@ class GameEngine:
         speed_power_ratio = max(1, shot_power) / self.speed[player["id"]]
         # Precision factor (0.5-1.5) - higher precision makes catching harder
         precision_factor = 0.3 + (shot_precision / 70)
+        # If hitter is in volley mode, precision factor is harder (downside of volley mode)
+        if hitter and self.volley_mode[hitter["id"]]:
+            precision_factor *= 1.1
         # Combined catch score
         catch_score = speed_power_ratio * precision_factor
         # Determine if caught based on catch score
@@ -468,7 +530,12 @@ class GameEngine:
     def choose_shot_direction(self, player):
         """
         Choose the shot direction (cross, straight, dropshot, volley) using player tendencies.
+        If player is in volley mode, they can only hit volleys.
         """
+        # If player is in volley mode, they can only hit volleys
+        if self.volley_mode[player["id"]]:
+            return "volley"
+        
         tendencies = [
             player.get("cross_tend", 40),
             player.get("straight_tend", 40),
@@ -588,8 +655,8 @@ class GameEngine:
             court_space = COURT_WIDTH - (2 * MARGIN_X)
             half_court = COURT_WIDTH / 2
             
-            if shot_type in ("dropshot", "volley") and shot_success is not None:
-                # Dropshot/volley special coordinates
+            if shot_type == "dropshot" and shot_success is not None:
+                # Dropshot special coordinates only
                 if shot_success:
                     # Successful: randomly either [650, 100] or [650, 500]
                     x = 650
@@ -652,8 +719,8 @@ class GameEngine:
             court_space = COURT_WIDTH - (2 * MARGIN_X)
             half_court = COURT_WIDTH / 2
             
-            if shot_type in ("dropshot", "volley") and shot_success is not None:
-                # Dropshot/volley special coordinates
+            if shot_type == "dropshot" and shot_success is not None:
+                # Dropshot special coordinates only
                 if shot_success:
                     # Successful: randomly either [550, 100] or [550, 500]
                     x = 550

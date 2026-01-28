@@ -51,7 +51,7 @@ class NewGenGenerator:
         # Generate tendencies
         dropshot_tend = random.randint(0, 5)
         volley_tend = random.randint(0, 5)
-        straight_tend = random.randint(40, 60)
+        straight_tend = random.randint(35, 55)
         cross_tend = 100 - (dropshot_tend + volley_tend + straight_tend)
         # Ensure all are at least 0, and cross_tend at least 10 if possible
         if cross_tend < 10:
