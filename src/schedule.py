@@ -598,7 +598,10 @@ class TournamentScheduler:
                 tournaments_by_category[category] = []
             tournaments_by_category[category].append((tournament, i))
         
-        # Distribute players to tournaments, shuffling within same categories
+        # Define premium tournament categories that get ranking-based seeding
+        PREMIUM_CATEGORIES = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250"]
+        
+        # Distribute players to tournaments, using ranking seeding for premium tournaments
         player_idx = 0
         for category in self.PRESTIGE_ORDER:
             if category not in tournaments_by_category:
@@ -611,10 +614,11 @@ class TournamentScheduler:
             end_idx = min(player_idx + category_draw_size, len(available_for_week))
             category_players = available_for_week[player_idx:end_idx]
             
-            # Shuffle players within this category to ensure fair distribution
-            random.shuffle(category_players)
+            # If this is a premium category, keep ranking order; otherwise shuffle for random seeding
+            if category not in PREMIUM_CATEGORIES:
+                random.shuffle(category_players)
             
-            # Distribute shuffled players to tournaments in this category
+            # Distribute players to tournaments in this category
             shuffled_idx = 0
             for tournament, original_idx in category_tournaments:
                 draw_size = tournament['draw_size']
@@ -670,39 +674,47 @@ class TournamentScheduler:
         while len(participants) < draw_size:
             participants.append(None)
 
+        # Define premium tournament categories that get ranking-based seeding
+        PREMIUM_CATEGORIES = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250"]
+        use_ranking_seeding = tournament['category'] in PREMIUM_CATEGORIES
+        
         # Rank: best -> worst (None treated as worst)
         def rank_of(pid):
             if pid is None:
                 return 10_000_000
             return next((p['rank'] for p in self.players if p['id'] == pid), 999)
 
-        sorted_ids = sorted(participants, key=rank_of)  # best -> worst
+        if use_ranking_seeding:
+            # Premium tournaments: use ranking-based seeding (top half vs randomized bottom half)
+            sorted_ids = sorted(participants, key=rank_of)  # best -> worst
 
-        # New seeding system: Only seed top half, randomize bottom half
-        half_draw = draw_size // 2
-        top_half = sorted_ids[:half_draw]  # Top seeds (ranked 1 to half_draw)
-        bottom_half = sorted_ids[half_draw:]  # Bottom half players
-        
-        # Randomize the bottom half for more interesting matchups
-        import random
-        random.shuffle(bottom_half)
-        
-        # Build pairs: top seed vs random bottom half player
-        pairs = []
-        for i in range(half_draw):
-            p_top = top_half[i]           # i-th best seeded player
-            p_bottom = bottom_half[i]     # randomly assigned bottom half player
-            pairs.append((p_top, p_bottom))
+            half_draw = draw_size // 2
+            top_half = sorted_ids[:half_draw]  # Top seeds (ranked 1 to half_draw)
+            bottom_half = sorted_ids[half_draw:]  # Bottom half players
+            
+            # Randomize the bottom half for more interesting matchups
+            random.shuffle(bottom_half)
+            
+            # Build pairs: top seed vs random bottom half player
+            pairs = []
+            for i in range(half_draw):
+                p_top = top_half[i]           # i-th best seeded player
+                p_bottom = bottom_half[i]     # randomly assigned bottom half player
+                pairs.append((p_top, p_bottom))
 
-        # Place pairs according to seeding order (pair i goes to match containing seed i+1)
-        seeding_order = TournamentScheduler.get_seeding_order(draw_size)
-        bracket_positions = [None] * draw_size
-        for i, (p_top, p_bot) in enumerate(pairs):
-            seed_pos_1based = seeding_order[i]            # where the i-th seed sits (1-based)
-            pos = seed_pos_1based - 1                     # 0-based
-            opp_pos = pos + 1 if (pos % 2 == 0) else pos - 1  # adjacent slot in same match
-            bracket_positions[pos] = p_top
-            bracket_positions[opp_pos] = p_bot
+            # Place pairs according to seeding order (pair i goes to match containing seed i+1)
+            seeding_order = TournamentScheduler.get_seeding_order(draw_size)
+            bracket_positions = [None] * draw_size
+            for i, (p_top, p_bot) in enumerate(pairs):
+                seed_pos_1based = seeding_order[i]            # where the i-th seed sits (1-based)
+                pos = seed_pos_1based - 1                     # 0-based
+                opp_pos = pos + 1 if (pos % 2 == 0) else pos - 1  # adjacent slot in same match
+                bracket_positions[pos] = p_top
+                bracket_positions[opp_pos] = p_bot
+        else:
+            # Challenger/ITF tournaments: use random seeding (shuffle all participants)
+            random.shuffle(participants)
+            bracket_positions = participants
 
         # Build bracket rounds
         num_rounds = int(ceil(log2(draw_size)))

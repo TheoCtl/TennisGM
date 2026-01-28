@@ -5,18 +5,14 @@ from archetypes import ARCTYPE_MAP, get_archetype_for_player
 class PlayerDevelopment:
     @staticmethod
     def calculate_improvement_chance(player_age, current_skill, potential_factor=1.0):
-        """Tighter progression curve with earlier peak"""
-        # Age factor - sharp peak at 18-21
-        if player_age <= 20:
-            age_factor = 1.3
-        elif player_age <= 23:
-            age_factor = 1.2
-        elif player_age <= 26:
-            age_factor = 1.1
+        """Progression curve with peak between 24-28"""
+        # Age factor - strong progression until 24, then refinement until 28
+        if player_age <= 24:
+            age_factor = 1.5  # Peak development years
         elif player_age <= 28:
-            age_factor = 1
+            age_factor = 0.7  # Refinement phase - slower but still possible
         else:
-            age_factor = 0
+            age_factor = 0  # No more progression after 28
 
         # Smoother skill difficulty curve
         skill_factor = 1.15 * math.exp(-0.045 * (current_skill - 25))
@@ -28,12 +24,16 @@ class PlayerDevelopment:
 
     @staticmethod
     def calculate_regression_chance(player_age, current_skill):
-        """More aggressive regression curve"""
-        if player_age < 31:  # Regression starts slightly earlier
-            return 0
-        # Sharper age-based regression
-        age_factor = min(1, (player_age - 30)/7)  # Faster progression
-        return age_factor  # Higher base regression rate
+        """Regression starts at 29 (slow), accelerates at 31"""
+        if player_age < 29:
+            return 0  # No regression before 29
+        elif player_age <= 30:
+            # Very slow regression at 29-30
+            return (player_age - 28) * 0.15
+        else:
+            # Normal regression from 31 onwards
+            age_factor = min(1, (player_age - 30) / 7)
+            return age_factor
 
     @staticmethod
     def develop_skill(current_value, chance):
@@ -104,8 +104,9 @@ class PlayerDevelopment:
 
         for skill_name, current_value in skills.items():
             cap = caps.get(skill_name, {'progcap': 0, 'regcap': 0})
-            if age < 20:
-                if cap['progcap'] >= 10:
+            if age < 24:
+                # Strong progression phase
+                if cap['progcap'] >= 12:
                     continue
                 pf = player.get('potential_factor', 1.0)
                 chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 12.0
@@ -117,7 +118,8 @@ class PlayerDevelopment:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1
             elif age < 28:
-                if cap['progcap'] >= 5:
+                # Refinement phase - slower progression
+                if cap['progcap'] >= 2:
                     continue
                 pf = player.get('potential_factor', 1.0)
                 chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 12.0
@@ -128,7 +130,11 @@ class PlayerDevelopment:
                 if random.random() < chance and current_value < 100:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1
+            elif age < 29:
+                # Peak reached, no more progression
+                continue
             else:
+                # Regression phase
                 if cap['regcap'] >= 5:
                     continue
                 chance = PlayerDevelopment.calculate_regression_chance(age, current_value) / 12.0
