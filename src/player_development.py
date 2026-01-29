@@ -7,8 +7,8 @@ class PlayerDevelopment:
     def calculate_improvement_chance(player_age, current_skill, potential_factor=1.0):
         """Progression curve with peak between 24-28"""
         # Age factor - strong progression until 24, then refinement until 28
-        if player_age <= 24:
-            age_factor = 1.5  # Peak development years
+        if player_age < 24:
+            age_factor = 1.7  # Peak development years
         elif player_age <= 28:
             age_factor = 0.7  # Refinement phase - slower but still possible
         else:
@@ -29,7 +29,7 @@ class PlayerDevelopment:
             return 0  # No regression before 29
         elif player_age <= 30:
             # Very slow regression at 29-30
-            return (player_age - 28) * 0.15
+            return (player_age - 28) * 0.07
         else:
             # Normal regression from 31 onwards
             age_factor = min(1, (player_age - 30) / 7)

@@ -209,7 +209,7 @@ class GameEngine:
             }]
 
         # Step 1: Server makes the first shot
-        shot_direction = self.choose_shot_direction(hitter)
+        shot_direction = self.choose_shot_direction(hitter, opponent=defender)
         # Determine shot_leftright based on hitter's position and shot_direction
         shot_leftright = "left" if shot_direction == "cross" else "right"
         shot_power, shot_precision, shot_direction = self.calculate_shot(hitter, "serve", shot_direction, 1)
@@ -263,12 +263,16 @@ class GameEngine:
         while True:
             # Receiver becomes the hitter
             hitter, defender = defender, hitter
-            shot_direction = self.choose_shot_direction(hitter)
+            shot_direction = self.choose_shot_direction(hitter, opponent=defender)
             # Determine shot type: dropshot/volley/forehand/backhand
             if shot_direction in ("cross", "straight"):
                 shot_type = self.determine_shot_type(hitter, shot_leftright)
             else:
                 shot_type = shot_direction
+            
+            # If hitter chooses to hit a volley, activate volley mode
+            if shot_type == "volley":
+                self.volley_mode[hitter["id"]] = True
 
             # Determine shot_leftright for visualization/positioning
             hitter_position = self.positions[hitter["id"]]
@@ -373,10 +377,6 @@ class GameEngine:
                     if shot_type == "dropshot" and self.volley_mode[defender["id"]]:
                         catch_return_multiplier = 3
                     return_multiplier = catch_return_multiplier
-                
-                # Activate volley mode if defender catches a volley
-                if shot_type == "volley" and caught:
-                    self.volley_mode[defender["id"]] = True
 
             if not caught:
                 side = "left" if self._get_player_key(defender) == "player1" else "right"
@@ -516,7 +516,7 @@ class GameEngine:
         precision_factor = 0.3 + (shot_precision / 70)
         # If hitter is in volley mode, precision factor is harder (downside of volley mode)
         if hitter and self.volley_mode[hitter["id"]]:
-            precision_factor *= 1.2
+            precision_factor *= 1.25
         # Combined catch score
         catch_score = speed_power_ratio * precision_factor
         # Determine if caught based on catch score
@@ -527,15 +527,17 @@ class GameEngine:
         else:  # easy catch
             return True, 1
 
-    def choose_shot_direction(self, player):
+    def choose_shot_direction(self, player, opponent=None):
         """
         Choose the shot direction (cross, straight, dropshot, volley) using player tendencies.
         If player is in volley mode, they can only hit volleys.
+        If opponent is in volley mode, this player cannot choose volleys (to prevent double volleys).
         """
         # If player is in volley mode, they can only hit volleys
         if self.volley_mode[player["id"]]:
             return "volley"
         
+        # Get player tendencies
         tendencies = [
             player.get("cross_tend", 40),
             player.get("straight_tend", 40),
@@ -543,6 +545,14 @@ class GameEngine:
             player.get("volley_tend", 10)
         ]
         shot_types = ["cross", "straight", "dropshot", "volley"]
+        
+        # If opponent is in volley mode, remove volley from available options
+        if opponent and self.volley_mode[opponent["id"]]:
+            # Remove volley option and renormalize weights
+            volley_idx = shot_types.index("volley")
+            shot_types.pop(volley_idx)
+            tendencies.pop(volley_idx)
+        
         return random.choices(shot_types, weights=tendencies, k=1)[0]
 
     def determine_shot_type(self, player, incoming_direction):
