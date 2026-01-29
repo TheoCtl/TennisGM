@@ -514,8 +514,8 @@ class GameEngine:
         speed_power_ratio = max(1, shot_power) / self.speed[player["id"]]
         # Precision factor (0.5-1.5) - higher precision makes catching harder
         precision_factor = 0.3 + (shot_precision / 70)
-        # If hitter is in volley mode, precision factor is harder (downside of volley mode)
-        if hitter and self.volley_mode[hitter["id"]]:
+        # If catcher (player) is in volley mode, precision factor is harder (downside of volley mode)
+        if self.volley_mode[player["id"]]:
             precision_factor *= 1.25
         # Combined catch score
         catch_score = speed_power_ratio * precision_factor
