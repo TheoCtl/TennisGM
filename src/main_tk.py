@@ -1703,9 +1703,7 @@ class TennisGMApp:
         ax.invert_yaxis()
         
         # Styling
-        ax.set_xlabel('Year', fontsize=10, fontweight='bold')
         ax.set_ylabel('Ranking', fontsize=10, fontweight='bold')
-        ax.set_title('Ranking Evolution', fontsize=11, fontweight='bold', pad=10)
         ax.grid(True, alpha=0.3, linestyle='--')
         
         # Format Y-axis to show ranking positions
