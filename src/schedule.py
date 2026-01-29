@@ -97,10 +97,8 @@ class TournamentScheduler:
             'current_date': self.current_date.isoformat(),
             'players': self.players,
             'tournaments': self.tournaments,
-            'ranking_history': dict(self.ranking_system.ranking_history),
             'hall_of_fame': self.hall_of_fame,
-            'records': self.records,
-            'world_crown': self.world_crown
+            'records': self.records
         }
     
         with open(save_path, 'w') as f:
@@ -256,11 +254,11 @@ class TournamentScheduler:
                 def calc_surface_sum(p):
                     mods = p.get("surface_modifiers")
                     if isinstance(mods, dict) and mods:
-                        return (10 * (round(sum(mods.values()), 3)))
+                        return (5 * (round(sum(mods.values()), 3)))
                     return 40.0
 
                 def calc_fut(p):
-                    return (0.5*(round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+                    return (0.5*(round(calc_overall(p) + (22.5 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
 
                 # Keep only the best up to the number of available slots
                 scored = sorted(((p, calc_fut(p)) for p in new_players), key=lambda x: x[1], reverse=True)

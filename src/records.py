@@ -24,8 +24,6 @@ class RecordsManager:
                 return (4, "")
             elif rec["type"] == "most_matches_won":
                 return (5, "")
-            elif rec["type"].startswith("most_matches_won_"):
-                return (6, rec["type"])
             return (99, rec["type"])
         self.scheduler.records.sort(key=record_sort_key)
 
@@ -215,30 +213,6 @@ class RecordsManager:
             "title": "Most Matches Won",
             "top10": top10_total
         }
-
-        # Most Matches Won (surface)
-        surfaces = ['clay', 'grass', 'hard', 'indoor']
-        for idx, surf in enumerate(surfaces):
-            surf_mawn = []
-            for player in all_players:
-                is_retired = player.get('id') not in active_ids
-                display_name = player["name"] + (" (R)" if is_retired else "")
-                surf_mawn.append({"name": display_name, "matches_won": player['mawn'][idx]})
-            top10_surf = sorted(surf_mawn, key=lambda x: -x["matches_won"])[:10]
-            record_surf = {
-                "type": f"most_matches_won_{surf}",
-                "title": f" MMW ({surf.capitalize()})",
-                "top10": top10_surf
-            }
-            # Replace or add in scheduler.records
-            found = False
-            for i, rec in enumerate(self.scheduler.records):
-                if rec.get("type") == record_surf["type"]:
-                    self.scheduler.records[i] = record_surf
-                    found = True
-                    break
-            if not found:
-                self.scheduler.records.append(record_surf)
 
         # Add/update total matches won record
         found = False

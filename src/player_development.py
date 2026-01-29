@@ -9,7 +9,7 @@ class PlayerDevelopment:
         # Age factor - strong progression until 24, then refinement until 28
         if player_age < 24:
             age_factor = 1.7  # Peak development years
-        elif player_age <= 28:
+        elif player_age < 28:
             age_factor = 0.7  # Refinement phase - slower but still possible
         else:
             age_factor = 0  # No more progression after 28
@@ -25,14 +25,14 @@ class PlayerDevelopment:
     @staticmethod
     def calculate_regression_chance(player_age, current_skill):
         """Regression starts at 29 (slow), accelerates at 31"""
-        if player_age < 29:
+        if player_age < 28:
             return 0  # No regression before 29
         elif player_age <= 30:
-            # Very slow regression at 29-30
-            return (player_age - 28) * 0.07
+            # Very slow regression at 28-30
+            return (player_age - 27) * 0.05
         else:
             # Normal regression from 31 onwards
-            age_factor = min(1, (player_age - 30) / 7)
+            age_factor = min(1, (player_age - 30) / 6)
             return age_factor
 
     @staticmethod
@@ -130,9 +130,6 @@ class PlayerDevelopment:
                 if random.random() < chance and current_value < 100:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1
-            elif age < 29:
-                # Peak reached, no more progression
-                continue
             else:
                 # Regression phase
                 if cap['regcap'] >= 5:

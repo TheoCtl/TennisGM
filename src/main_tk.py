@@ -874,15 +874,7 @@ class TennisGMApp:
             text.pack(side="left", fill="both", expand=True)
             
             for line in news:
-                # Add some formatting to news entries
-                if any(keyword in line.lower() for keyword in ["wins", "champion", "victory"]):
-                    text.insert("end", f"🏆 {line}\n", "winner")
-                else:
-                    text.insert("end", f"• {line}\n", "normal")
-            
-            # Configure text tags for styling
-            text.tag_configure("winner", foreground="#27ae60", font=("Arial", 12, "bold"))
-            text.tag_configure("normal", foreground="#2c3e50")
+                text.insert("end", f"• {line}\n")
             
             text.config(state="disabled")
             scrollbar = tk.Scrollbar(frame, command=text.yview)
@@ -1905,9 +1897,6 @@ class TennisGMApp:
                 text = f"{idx+1}. {entry['name']} - {entry['m1000_wins']} Masters 1000"
             elif record_type == "most_matches_won":
                 text = f"{idx+1}. {entry['name']} - {entry['matches_won']} Matches"
-            elif record_type.startswith("most_matches_won_"):
-                surface = record_type.replace("most_matches_won_", "").capitalize()
-                text = f"{idx+1}. {entry['name']} - {entry['matches_won']} Matches on {surface}"
             elif record_type == "most_weeks_at_1":
                 text = f"{idx+1}. {entry['name']} - {entry['weeks']} Weeks at #1"
             elif record_type == "most_weeks_in_16":
@@ -1960,11 +1949,6 @@ class TennisGMApp:
                 tk.Label(scroll_frame, text=f"{idx+1}. {entry['name']} - {entry['m1000_wins']} Masters", font=("Arial", 11)).pack(anchor="w")
         elif record["type"] == "most_matches_won":
             tk.Label(scroll_frame, text="Top 10 Total Matches Won:", font=("Arial", 12, "bold")).pack(anchor="w", pady=(4,2))
-            for idx, entry in enumerate(record["top10"]):
-                tk.Label(scroll_frame, text=f"{idx+1}. {entry['name']} - {entry['matches_won']} matches", font=("Arial", 11)).pack(anchor="w")
-        elif record["type"].startswith("most_matches_won_"):
-            surface = record["type"].replace("most_matches_won_", "").capitalize()
-            tk.Label(scroll_frame, text=f"Top 10 Matches Won on {surface}:", font=("Arial", 12, "bold")).pack(anchor="w", pady=(4,2))
             for idx, entry in enumerate(record["top10"]):
                 tk.Label(scroll_frame, text=f"{idx+1}. {entry['name']} - {entry['matches_won']} matches", font=("Arial", 11)).pack(anchor="w")
         elif record["type"] == "most_weeks_at_1":
