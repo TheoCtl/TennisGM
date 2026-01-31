@@ -1590,6 +1590,13 @@
         "tournament": "Hilwen Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "740": [
@@ -1823,6 +1830,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "738": [
@@ -3014,6 +3028,13 @@
         "tournament": "Marsan Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 9,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 4
       }
     ],
     "728": [
@@ -5219,6 +5240,13 @@
         "tournament": "Svijany Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "746": [
@@ -5804,6 +5832,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "796": [
@@ -6051,6 +6086,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "777": [
@@ -6275,6 +6317,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -6587,6 +6636,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "793": [
@@ -6918,6 +6974,13 @@
         "tournament": "Hilwen Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "771": [
@@ -7192,6 +7255,13 @@
         "points": 0,
         "tournament": "Marsan Challenger",
         "category": "Challenger 125",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
         "round": 0
       }
     ],
@@ -7531,6 +7601,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "776": [
@@ -8151,6 +8228,13 @@
         "tournament": "Gonchica Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "788": [
@@ -8452,6 +8536,13 @@
         "date": "2026-07-23T00:00:00",
         "points": 0,
         "tournament": "Granby Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -9039,6 +9130,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "782": [
@@ -9927,6 +10025,13 @@
         "tournament": "Gonchica Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "773": [
@@ -10223,6 +10328,13 @@
         "tournament": "ITF Drion",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "815": [
@@ -10505,6 +10617,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "821": [
@@ -10780,6 +10899,13 @@
         "tournament": "Abercaro Open",
         "category": "ATP 250",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "813": [
@@ -11041,6 +11167,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "812": [
@@ -11337,6 +11470,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "810": [
@@ -11596,6 +11736,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 1
       }
@@ -12225,6 +12372,13 @@
         "tournament": "Marsan Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 3
       }
     ],
     "808": [
@@ -12885,6 +13039,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 1
       }
@@ -15057,6 +15218,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "840": [
@@ -15316,6 +15484,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 2
       }
@@ -15579,6 +15754,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "848": [
@@ -15819,6 +16001,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "850": [
@@ -16115,6 +16304,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "870": [
@@ -16369,6 +16565,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "862": [
@@ -16740,6 +16943,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -17623,6 +17833,13 @@
         "tournament": "Metronima Challenger",
         "category": "Challenger 125",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "857": [
@@ -18297,6 +18514,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Lexington Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -19250,6 +19474,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "871": [
@@ -19545,6 +19776,13 @@
         "points": 0,
         "tournament": "Hilwen Open",
         "category": "ATP 250",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
         "round": 0
       }
     ],
@@ -19882,6 +20120,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -21110,6 +21355,13 @@
         "tournament": "Granby Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "844": [
@@ -21439,6 +21691,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -21984,6 +22243,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 50,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 6
       }
     ],
     "894": [
@@ -24014,6 +24280,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "900": [
@@ -24282,6 +24555,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "917": [
@@ -24520,6 +24800,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 1
       }
@@ -25065,6 +25352,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "877": [
@@ -25331,6 +25625,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -25613,6 +25914,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Svijany Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -26191,6 +26499,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 1
       }
@@ -27729,6 +28044,13 @@
         "tournament": "Svijany Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "891": [
@@ -28265,6 +28587,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 3
       }
     ],
     "920": [
@@ -28920,6 +29249,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "940": [
@@ -29230,6 +29566,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "954": [
@@ -29477,6 +29820,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 6
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "937": [
@@ -29780,6 +30130,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "943": [
@@ -30365,6 +30722,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "959": [
@@ -30773,6 +31137,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "928": [
@@ -31025,6 +31396,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -31295,6 +31673,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 5
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "957": [
@@ -31619,6 +32004,13 @@
         "tournament": "Toprak Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 9,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 4
       }
     ],
     "931": [
@@ -31893,6 +32285,13 @@
         "points": 0,
         "tournament": "Hilwen Open",
         "category": "ATP 250",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
         "round": 0
       }
     ],
@@ -32183,6 +32582,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "949": [
@@ -33120,6 +33526,13 @@
         "tournament": "Svijany Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "947": [
@@ -33675,6 +34088,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Lexington Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -34523,6 +34943,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "936": [
@@ -35157,6 +35584,13 @@
         "tournament": "Marsan Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "956": [
@@ -35719,6 +36153,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -36487,6 +36928,13 @@
         "points": 0,
         "tournament": "Marsan Challenger",
         "category": "Challenger 125",
+        "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
         "round": 1
       }
     ],
@@ -37411,6 +37859,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "923": [
@@ -38045,6 +38500,13 @@
         "tournament": "Metronima Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "938": [
@@ -38390,6 +38852,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "922": [
@@ -38649,6 +39118,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Svijany Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -38938,6 +39414,13 @@
         "date": "2026-07-23T00:00:00",
         "points": 0,
         "tournament": "Chtud Challenger",
+        "category": "Challenger 75",
+        "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
         "category": "Challenger 75",
         "round": 2
       }
@@ -39779,6 +40262,13 @@
         "tournament": "Lony Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "929": [
@@ -40124,6 +40614,13 @@
         "tournament": "Iasi Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "942": [
@@ -40427,6 +40924,13 @@
         "tournament": "Svijany Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "925": [
@@ -40674,6 +41178,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "921": [
@@ -41026,6 +41537,13 @@
         "tournament": "Svijany Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "926": [
@@ -41280,6 +41798,13 @@
         "tournament": "ITF Atherough",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "971": [
@@ -41520,6 +42045,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 5
       }
     ],
     "985": [
@@ -41816,6 +42348,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "986": [
@@ -42133,6 +42672,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "993": [
@@ -42456,6 +43002,13 @@
         "points": 0,
         "tournament": "Akko Open",
         "category": "ATP 500",
+        "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
         "round": 3
       }
     ],
@@ -43084,6 +43637,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "1003": [
@@ -43345,6 +43905,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "983": [
@@ -43676,6 +44243,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "994": [
@@ -43972,6 +44546,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "992": [
@@ -44287,6 +44868,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 3
       }
@@ -44874,6 +45462,13 @@
         "tournament": "Marsan Challenger",
         "category": "Challenger 125",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "1000": [
@@ -45431,6 +46026,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 4
       }
     ],
     "976": [
@@ -46522,6 +47124,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "962": [
@@ -46788,6 +47397,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -47121,6 +47737,13 @@
         "tournament": "Marsan Challenger",
         "category": "Challenger 125",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 3
       }
     ],
     "989": [
@@ -47417,6 +48040,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 3
       }
     ],
     "999": [
@@ -47748,6 +48378,13 @@
         "tournament": "Hilwen Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "965": [
@@ -48009,6 +48646,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "1002": [
@@ -48368,6 +49012,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "1025": [
@@ -48629,6 +49280,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "1023": [
@@ -49249,6 +49907,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 2
       }
     ],
     "1011": [
@@ -49573,6 +50238,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 1
       }
     ],
     "1021": [
@@ -49883,6 +50555,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "1017": [
@@ -51391,6 +52070,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 3
       }
     ],
     "1022": [
@@ -51736,6 +52422,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 0
       }
     ],
     "1006": [
@@ -52025,6 +52718,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1029": [
@@ -52257,6 +52957,13 @@
         "points": 0,
         "tournament": "Winnipeg Challenger",
         "category": "Challenger 50",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
         "round": 0
       }
     ],
@@ -52610,6 +53317,13 @@
         "tournament": "Svijany Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "1033": [
@@ -52920,6 +53634,13 @@
         "tournament": "Eden Masters",
         "category": "Masters 1000",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
+        "category": "Masters 1000",
+        "round": 4
       }
     ],
     "1037": [
@@ -53165,6 +53886,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Eden Masters",
+        "category": "Masters 1000",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Loknig Masters",
         "category": "Masters 1000",
         "round": 0
       }
@@ -54090,6 +54818,13 @@
         "tournament": "Marsan Challenger",
         "category": "Challenger 125",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "1035": [
@@ -54633,6 +55368,13 @@
         "tournament": "ITF Buyphia",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1038": [
@@ -55593,6 +56335,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1193": [
@@ -55961,6 +56710,13 @@
         "tournament": "ITF Cruusbridge",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "1061": [
@@ -57112,6 +57868,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "1051": [
@@ -57685,6 +58448,13 @@
         "tournament": "ITF Isoit",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1058": [
@@ -57939,6 +58709,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "1175": [
@@ -58214,6 +58991,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1126": [
@@ -58412,6 +59196,13 @@
         "tournament": "Boisilis Challenger",
         "category": "Challenger 50",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "1129": [
@@ -58885,6 +59676,13 @@
         "tournament": "Svijany Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 2
       }
     ],
     "1103": [
@@ -59090,6 +59888,13 @@
         "tournament": "ITF Estersey",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1188": [
@@ -59407,6 +60212,13 @@
         "tournament": "Metronima Challenger",
         "category": "Challenger 125",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 9,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 4
       }
     ],
     "1119": [
@@ -59640,6 +60452,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1153": [
@@ -60148,6 +60967,13 @@
         "tournament": "Chtud Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 3
       }
     ],
     "1192": [
@@ -60626,6 +61452,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Svijany Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -61602,6 +62435,13 @@
         "tournament": "ITF Zaam",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 5,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "1070": [
@@ -62004,6 +62844,13 @@
         "points": 0,
         "tournament": "ITF Fline",
         "category": "ITF",
+        "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
         "round": 1
       }
     ],
@@ -62413,6 +63260,13 @@
         "tournament": "ITF Zaam",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1079": [
@@ -63012,6 +63866,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1182": [
@@ -63252,6 +64113,13 @@
         "tournament": "Granby Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1114": [
@@ -63772,6 +64640,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "1118": [
@@ -64224,6 +65099,13 @@
         "tournament": "Granby Challenger",
         "category": "Challenger 75",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1180": [
@@ -64858,6 +65740,13 @@
         "tournament": "ITF Atherough",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1096": [
@@ -65399,6 +66288,13 @@
         "tournament": "ITF Trora",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1115": [
@@ -65823,6 +66719,13 @@
         "tournament": "Schwaben Challenger",
         "category": "Challenger 50",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 5,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "1176": [
@@ -66308,6 +67211,13 @@
         "date": "2026-07-30T00:00:00",
         "points": 0,
         "tournament": "Gonchica Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -66858,6 +67768,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "1183": [
@@ -67315,6 +68232,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "Lexington Challenger",
+        "category": "Challenger 75",
+        "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
         "category": "Challenger 75",
         "round": 1
       }
@@ -68049,6 +68973,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "1063": [
@@ -68604,6 +69535,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "1206": [
@@ -68779,6 +69717,13 @@
         "date": "2026-07-30T00:00:00",
         "points": 0,
         "tournament": "Gonchica Challenger",
+        "category": "Challenger 75",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
         "category": "Challenger 75",
         "round": 0
       }
@@ -69329,6 +70274,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1163": [
@@ -69639,6 +70591,13 @@
         "tournament": "ITF Isoit",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "1197": [
@@ -70187,6 +71146,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1078": [
@@ -70329,6 +71295,13 @@
         "tournament": "ITF Zaam",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1087": [
@@ -70639,6 +71612,13 @@
         "tournament": "Dobsil Open",
         "category": "ATP 250",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bogo Challenger",
+        "category": "Challenger 75",
+        "round": 1
       }
     ],
     "1105": [
@@ -70942,6 +71922,13 @@
         "tournament": "ITF Umnov",
         "category": "ITF",
         "round": 3
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "1160": [
@@ -71490,6 +72477,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1113": [
@@ -71905,6 +72899,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "1092": [
@@ -72467,6 +73468,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "1052": [
@@ -72903,6 +73911,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1080": [
@@ -73269,6 +74284,13 @@
         "tournament": "ITF Eqolrith",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "1151": [
@@ -73803,6 +74825,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1077": [
@@ -74248,6 +75277,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 5,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "1138": [
@@ -74933,6 +75969,13 @@
         "tournament": "Lexington Challenger",
         "category": "Challenger 75",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Clino Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1128": [
@@ -75413,6 +76456,13 @@
         "tournament": "Granby Challenger",
         "category": "Challenger 75",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 9,
+        "tournament": "Venzi Challenger",
+        "category": "Challenger 75",
+        "round": 4
       }
     ],
     "1117": [
@@ -75954,6 +77004,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1228": [
@@ -76376,6 +77433,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1214": [
@@ -76602,6 +77666,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "Bonn Challenger",
+        "category": "Challenger 75",
+        "round": 0
       }
     ],
     "1207": [
@@ -77502,6 +78573,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1215": [
@@ -78022,6 +79100,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 4
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1218": [
@@ -78623,6 +79708,13 @@
         "tournament": "ITF Estersey",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 5,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 4
       }
     ],
     "1226": [
@@ -79176,6 +80268,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Evea",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
         "category": "ITF",
         "round": 0
       }
@@ -79740,6 +80839,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1227": [
@@ -80302,6 +81408,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "1223": [
@@ -80659,6 +81772,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Krosford",
+        "category": "ITF",
+        "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
         "category": "ITF",
         "round": 1
       }
@@ -81708,6 +82828,13 @@
         "tournament": "ITF Trora",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1235": [
@@ -82270,6 +83397,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1246": [
@@ -82825,6 +83959,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1234": [
@@ -83261,6 +84402,13 @@
         "tournament": "ITF Trora",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1240": [
@@ -83823,6 +84971,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1244": [
@@ -84378,6 +85533,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1237": [
@@ -84912,6 +86074,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 3
       }
     ],
     "1250": [
@@ -85481,6 +86650,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1249": [
@@ -86043,6 +87219,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 2
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1258": [
@@ -86591,6 +87774,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1247": [
@@ -87153,6 +88343,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 2
       }
     ],
     "1255": [
@@ -87713,6 +88910,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Bilao",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
         "category": "ITF",
         "round": 0
       }
@@ -88277,6 +89481,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1271": [
@@ -88837,6 +90048,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Krosford",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
         "category": "ITF",
         "round": 0
       }
@@ -89401,6 +90619,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1276": [
@@ -89961,6 +91186,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Kieron",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
         "category": "ITF",
         "round": 0
       }
@@ -90525,6 +91757,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1263": [
@@ -91087,6 +92326,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1261": [
@@ -91647,6 +92893,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Kieron",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
         "category": "ITF",
         "round": 0
       }
@@ -92211,6 +93464,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1266": [
@@ -92771,6 +94031,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Kieron",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
         "category": "ITF",
         "round": 0
       }
@@ -93335,6 +94602,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 1
       }
     ],
     "1267": [
@@ -93897,6 +95171,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1291": [
@@ -94114,6 +95395,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Bilao",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
         "category": "ITF",
         "round": 0
       }
@@ -94335,6 +95623,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1278": [
@@ -94552,6 +95847,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Evea",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
         "category": "ITF",
         "round": 0
       }
@@ -94773,6 +96075,13 @@
         "tournament": "ITF Bilao",
         "category": "ITF",
         "round": 1
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Sunz",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1284": [
@@ -94990,6 +96299,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Kieron",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
         "category": "ITF",
         "round": 0
       }
@@ -95211,6 +96527,13 @@
         "tournament": "ITF Evea",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1294": [
@@ -95428,6 +96751,13 @@
         "date": "2026-08-06T00:00:00",
         "points": 0,
         "tournament": "ITF Krosford",
+        "category": "ITF",
+        "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Fuigan",
         "category": "ITF",
         "round": 0
       }
@@ -95649,6 +96979,13 @@
         "tournament": "ITF Kieron",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Coben",
+        "category": "ITF",
+        "round": 0
       }
     ],
     "1295": [
@@ -95868,6 +97205,13 @@
         "tournament": "ITF Krosford",
         "category": "ITF",
         "round": 0
+      },
+      {
+        "date": "2026-08-13T00:00:00",
+        "points": 0,
+        "tournament": "ITF Pihull",
+        "category": "ITF",
+        "round": 1
       }
     ]
   }

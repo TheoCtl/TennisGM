@@ -166,5 +166,5 @@ class PlayerDevelopment:
 
     @staticmethod
     def seasonal_development(scheduler):
-        if scheduler.current_week in [26, 52]:
+        if scheduler.current_week in [1, 27]:
             PlayerDevelopment.reset_caps(scheduler)
