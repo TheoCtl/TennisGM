@@ -119,7 +119,7 @@ class PlayerDevelopment:
                     cap['progcap'] += 1
             elif age < 28:
                 # Refinement phase - slower progression
-                if cap['progcap'] >= 2:
+                if cap['progcap'] >= 1:
                     continue
                 pf = player.get('potential_factor', 1.0)
                 chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 12.0

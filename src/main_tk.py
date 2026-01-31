@@ -22,6 +22,8 @@ class TennisGMApp:
         # State tracking for rankings screen
         self.rankings_search_query = ""
         self.rankings_scroll_position = 0.0
+        # Track matplotlib figures to close them when navigating away
+        self.current_figure = None
         self.build_main_menu()
 
     def _migrate_favorites(self):
@@ -70,6 +72,9 @@ class TennisGMApp:
         return any(self._is_favorite(pid) for pid in part_ids)
 
     def build_main_menu(self):
+        # Close any previously opened matplotlib figures
+        self._close_matplotlib_figures()
+        
         for widget in self.root.winfo_children():
             widget.destroy()
             
@@ -450,6 +455,9 @@ class TennisGMApp:
         self.show_prospects()
 
     def _render_player_details(self, player, back_label, back_func):
+        # Close any previously opened matplotlib figures
+        self._close_matplotlib_figures()
+        
         for widget in self.root.winfo_children():
             widget.destroy()
         
@@ -894,6 +902,9 @@ class TennisGMApp:
                  activebackground="#2980b9", activeforeground="white", bd=0, padx=20, pady=8).pack(expand=True)
 
     def show_rankings(self):
+        # Close any previously opened matplotlib figures
+        self._close_matplotlib_figures()
+        
         for widget in self.root.winfo_children():
             widget.destroy()
             
@@ -1074,6 +1085,16 @@ class TennisGMApp:
         """Save the current scroll position of the rankings canvas."""
         try:
             self.rankings_scroll_position = canvas.yview()[0]
+        except:
+            pass
+
+    def _close_matplotlib_figures(self):
+        """Close any open matplotlib figures to free memory."""
+        try:
+            import matplotlib.pyplot as plt
+            if self.current_figure is not None:
+                plt.close(self.current_figure)
+                self.current_figure = None
         except:
             pass
 
@@ -1304,6 +1325,9 @@ class TennisGMApp:
             ).pack()
 
     def show_hall_of_fame(self):
+        # Close any previously opened matplotlib figures
+        self._close_matplotlib_figures()
+        
         for widget in self.root.winfo_children():
             widget.destroy()
         
@@ -1516,6 +1540,9 @@ class TennisGMApp:
         ).pack()
 
     def show_hof_player_details(self, player):
+        # Close any previously opened matplotlib figures
+        self._close_matplotlib_figures()
+        
         for widget in self.root.winfo_children():
             widget.destroy()
         show_tournaments = getattr(self, "_show_tournaments", False)
@@ -1717,6 +1744,9 @@ class TennisGMApp:
         import matplotlib.pyplot as plt
         from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
         
+        # Close any previously opened figures
+        self._close_matplotlib_figures()
+        
         # Get ranking data
         year_rankings = player.get('year_start_rankings', {})
         
@@ -1734,6 +1764,9 @@ class TennisGMApp:
         # Create figure with matplotlib
         fig, ax = plt.subplots(figsize=(5, 3), dpi=100)
         fig.patch.set_facecolor('white')
+        
+        # Store figure reference for later cleanup
+        self.current_figure = fig
         
         # Plot the ranking evolution (inverted Y-axis so lower rank number is higher)
         ax.plot(years, rankings, marker='o', linewidth=2, markersize=6, 
