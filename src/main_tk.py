@@ -19,6 +19,9 @@ class TennisGMApp:
         self.menu_options = [
             "News Feed", "Tournaments", "ATP Rankings", "Hall of Fame", "Achievements", "Advance to next week", "Exit"
         ]
+        # State tracking for rankings screen
+        self.rankings_search_query = ""
+        self.rankings_scroll_position = 0.0
         self.build_main_menu()
 
     def _migrate_favorites(self):
@@ -929,7 +932,7 @@ class TennisGMApp:
         content_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
         # Search box with styling
-        search_var = tk.StringVar()
+        search_var = tk.StringVar(value=self.rankings_search_query)
         search_frame = tk.Frame(content_frame, bg="#ecf0f1")
         search_frame.pack(pady=10)
         tk.Label(search_frame, text="🔍 Search Players:", font=("Arial", 11, "bold"), 
@@ -960,7 +963,9 @@ class TennisGMApp:
         canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
 
         def update_list(*args):
-            query = search_var.get().lower()
+            query = search_var.get().lower().strip()
+            # Save search query for next time
+            self.rankings_search_query = query
             for widget in scroll_frame.winfo_children():
                 widget.destroy()
                 
@@ -969,13 +974,36 @@ class TennisGMApp:
                 self.scheduler.current_date
             )
             
+            # Check if query is an age filter (e.g., "<25", ">20", "=18")
+            age_filter = None
+            age_operator = None
+            if query and query[0] in ['<', '>', '=']:
+                try:
+                    age_operator = query[0]
+                    age_value = int(query[1:])
+                    age_filter = age_value
+                except (ValueError, IndexError):
+                    pass
+            
             filtered_players = []
             for ranking_pos, (player, points) in enumerate(ranked_players, 1):
                 # Tab-based filtering
                 if self.current_rankings_tab == "Favorites" and not player.get('favorite', False):
                     continue
-                if query and query not in player['name'].lower():
+                
+                # Age filter
+                if age_filter is not None:
+                    player_age = player.get('age', 0)
+                    if age_operator == '<' and not (player_age < age_filter):
+                        continue
+                    elif age_operator == '>' and not (player_age > age_filter):
+                        continue
+                    elif age_operator == '=' and not (player_age == age_filter):
+                        continue
+                # Name search
+                elif query and query not in player['name'].lower():
                     continue
+                    
                 filtered_players.append((ranking_pos, player, points))
                 
             for ranking_pos, player, points in filtered_players:
@@ -1019,6 +1047,9 @@ class TennisGMApp:
                     command=lambda p=player: self.show_player_details(p)
                 )
                 btn.pack(fill="x")
+            
+            # Save scroll position after rendering
+            self.root.after(10, lambda: self._save_rankings_scroll_position(canvas))
 
         # Store update function for tab switching
         self.update_rankings_list = update_list
@@ -1026,6 +1057,9 @@ class TennisGMApp:
         # Initial population
         update_list()
         search_var.trace_add("write", update_list)
+        
+        # Restore scroll position after initial render
+        self.root.after(50, lambda: self._restore_rankings_scroll_position(canvas))
 
         # Styled back button
         button_frame = tk.Frame(self.root, bg="#2c3e50", height=60)
@@ -1035,6 +1069,20 @@ class TennisGMApp:
         tk.Button(button_frame, text="← Back to Main Menu", command=self.build_main_menu, 
                  font=("Arial", 12, "bold"), bg="#3498db", fg="white", relief="flat",
                  activebackground="#2980b9", activeforeground="white", bd=0, padx=20, pady=8).pack(expand=True)
+
+    def _save_rankings_scroll_position(self, canvas):
+        """Save the current scroll position of the rankings canvas."""
+        try:
+            self.rankings_scroll_position = canvas.yview()[0]
+        except:
+            pass
+
+    def _restore_rankings_scroll_position(self, canvas):
+        """Restore the saved scroll position of the rankings canvas."""
+        try:
+            canvas.yview_moveto(self.rankings_scroll_position)
+        except:
+            pass
 
     def switch_rankings_tab(self, tab):
         self.current_rankings_tab = tab
