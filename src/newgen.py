@@ -209,11 +209,11 @@ class NewGenGenerator:
     
     def generate_surface_modifiers(self):
         """Create per-surface factors in [0.9, 1.1] and ensure their sum >= 3.8."""
-        mods = {s: round(random.uniform(0.95, 1.05), 3) for s in ["clay", "grass", "hard", "indoor"]}
+        mods = {s: round(random.uniform(0.97, 1.03), 3) for s in ["clay", "grass", "hard", "indoor"]}
         total = sum(mods.values())
-        if total < 3.9:
+        if total < 4:
             # Raise the best value until sum reaches 3.9
-            deficit = 3.9 - total
+            deficit = 4 - total
             increments = math.ceil(deficit / 0.01)
             best_key = max(mods, key=mods.get)
             mods[best_key] = round(mods[best_key] + 0.01 * increments, 3)
