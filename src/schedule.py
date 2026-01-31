@@ -612,8 +612,9 @@ class TournamentScheduler:
             end_idx = min(player_idx + category_draw_size, len(available_for_week))
             category_players = available_for_week[player_idx:end_idx]
             
-            # If this is a premium category, keep ranking order; otherwise shuffle for random seeding
-            if category not in PREMIUM_CATEGORIES:
+            # If there are multiple tournaments in this category, shuffle to randomly distribute players across them
+            # Otherwise, keep ranking order for single premium tournaments (for better seeding)
+            if len(category_tournaments) > 1 or category not in PREMIUM_CATEGORIES:
                 random.shuffle(category_players)
             
             # Distribute players to tournaments in this category

@@ -29,7 +29,7 @@ class PlayerDevelopment:
             return 0  # No regression before 29
         elif player_age <= 30:
             # Very slow regression at 28-30
-            return (player_age - 27) * 0.05
+            return 0.15
         else:
             # Normal regression from 31 onwards
             age_factor = min(1, (player_age - 30) / 6)
