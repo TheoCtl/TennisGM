@@ -438,11 +438,11 @@ class TournamentScheduler:
             def calc_surface_sum(p):
                 mods = p.get("surface_modifiers")
                 if isinstance(mods, dict) and mods:
-                    return (10 * (round(sum(mods.values()), 3)))
+                    return (5 * (round(sum(mods.values()), 3)))
                 return 40.0
 
             def calc_fut(p):
-                return (0.5 * (round(calc_overall(p) + (50 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+                return (0.5*(round(calc_overall(p) + (22.5 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
 
             u20 = [p for p in available_players if p.get('age', 99) < 20]
             ranked_by_fut = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)

@@ -122,7 +122,7 @@ class PlayerDevelopment:
                 if cap['progcap'] >= 1:
                     continue
                 pf = player.get('potential_factor', 1.0)
-                chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 12.0
+                chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 10.0
                 if skill_name == player.get('bonus'):
                     chance *= 1.1
                 if skill_name in archetype_skills:
