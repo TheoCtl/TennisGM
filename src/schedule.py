@@ -23,7 +23,8 @@ class TournamentScheduler:
         "Challenger 100",
         "Challenger 75",
         "Challenger 50",
-        "ITF"
+        "ITF",
+        "Juniors"
     ]
     
     @staticmethod
@@ -88,6 +89,7 @@ class TournamentScheduler:
                 break
         
         self.ranking_system.update_combined_rankings(self.players, self.current_date)
+        self.ranking_system.update_all_junior_rankings(self.players)
         
     def save_game(self, save_path='data/save.json'):
         """Save all game data to a file"""
@@ -281,6 +283,7 @@ class TournamentScheduler:
         # self.ranking_system.apply_weekly_elo_decay(self.players)
         
         self.ranking_system.update_combined_rankings(self.players, self.current_date)
+        self.ranking_system.update_all_junior_rankings(self.players)
         for player in self.players:
             if not player.get('retired', False):
                 if player.get('rank', 999) < player.get('highest_ranking', 999):
@@ -445,8 +448,18 @@ class TournamentScheduler:
                 return (0.5*(round(calc_overall(p) + (22.5 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
 
             u20 = [p for p in available_players if p.get('age', 99) < 20]
+            
+            # Get top 4 by FUT
             ranked_by_fut = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
-            junior_finals[0]['participants'] = [p['id'] for p, _ in ranked_by_fut[:8]]
+            top_fut_players = [p['id'] for p, _ in ranked_by_fut[:4]]
+            
+            # Get top 4 by junior_ranking
+            ranked_by_jr = sorted(((p, p.get('junior_ranking', 0)) for p in u20), key=lambda x: x[1], reverse=True)
+            top_jr_players = [p['id'] for p, _ in ranked_by_jr[:4] if p.get('junior_ranking', 0) > 0]
+            
+            # Combine (avoiding duplicates) - if we have fewer than 8, just use what we have
+            participants_set = set(top_fut_players) | set(top_jr_players)
+            junior_finals[0]['participants'] = list(participants_set)[:8]
             return
 
         # Delta Finals logic
@@ -454,6 +467,39 @@ class TournamentScheduler:
         if delta_finals:
             available_players.sort(key=lambda x: x.get('rank', 0))
             delta_finals[0]['participants'] = [p['id'] for p in available_players[:16]]
+            return
+
+        # Junior tournaments logic - players aged 16-19 ranked outside top 250
+        juniors = [t for t in current_tournaments if t['category'] == "Juniors"]
+        junior_player_ids = set()
+        if juniors:
+            # Filter eligible junior players: aged 16-19 and ranked outside top 250
+            eligible_juniors = [
+                p for p in available_players 
+                if 16 <= p.get('age', 99) <= 19 and p.get('rank', 999) > 250
+            ]
+            
+            # Randomly select up to 16 eligible players for each junior tournament
+            for tournament in juniors:
+                if len(eligible_juniors) >= 16:
+                    # Randomly select 16 from eligible pool
+                    selected = random.sample(eligible_juniors, 16)
+                    tournament['participants'] = [p['id'] for p in selected]
+                    junior_player_ids.update(p['id'] for p in selected)
+                    # Remove selected players from eligible pool for other junior tournaments
+                    eligible_juniors = [p for p in eligible_juniors if p not in selected]
+                else:
+                    # If not enough players, assign all eligible players
+                    tournament['participants'] = [p['id'] for p in eligible_juniors]
+                    junior_player_ids.update(p['id'] for p in eligible_juniors)
+                    eligible_juniors = []
+
+        # Exclude junior participants and junior tournaments from the regular assignment flow
+        if junior_player_ids:
+            available_players = [p for p in available_players if p['id'] not in junior_player_ids]
+        current_tournaments = [t for t in current_tournaments if t['category'] != "Juniors"]
+
+        if not current_tournaments:
             return
 
         # New probability-based logic for regular tournaments
@@ -1545,12 +1591,13 @@ class TournamentScheduler:
         
         last_week = self.current_week - 1 if self.current_week > 1 else 52
         
-        # Get major tournament winners only (no Challengers or ITF)
+        # Get major tournament winners only (no Challengers, ITF, or Juniors)
         major_winners = []
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and 
                 not tournament['category'].startswith("Challenger") and 
                 not tournament['category'].startswith("ITF") and 
+                not tournament['category'] == "Juniors" and 
                 tournament.get('winner_id')):
                 
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)

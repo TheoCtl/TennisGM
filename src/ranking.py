@@ -118,6 +118,7 @@ class RankingSystem:
         is_gs = tournament_category.startswith("Grand Slam")
         is_kings = tournament_category.startswith("Special")
         is_itf = tournament_category.startswith("ITF")
+        is_jun = tournament_category.startswith("Juniors")
         round_mapping = {
             # Grand Slams (8 rounds including final)
             8: {
@@ -144,6 +145,8 @@ class RankingSystem:
         if is_challenger:
             mapping = round_mapping[5]
         elif is_itf:
+            mapping = round_mapping[5]
+        elif is_jun:
             mapping = round_mapping[5]
         elif is_250500:
             mapping = round_mapping[6]
@@ -426,3 +429,47 @@ class RankingSystem:
                     break
                     
         return ranking_changes
+    
+    def calculate_junior_ranking(self, player):
+        """
+        Calculate junior ranking points for players aged 16-19 based on Juniors tournament results.
+        Points awarded based on round reached:
+        - Round 0: 0 points
+        - Round 1: 1 point
+        - Round 2: 2 points
+        - Round 3: 5 points
+        - Round 4: 10 points
+        """
+        # Only calculate for players aged 16-19
+        age = player.get('age', 0)
+        if age < 16 or age > 19:
+            return 0
+        
+        junior_points = 0
+        tournament_history = player.get('tournament_history', [])
+        
+        # Iterate through tournament history looking for Juniors tournaments
+        for tournament_entry in tournament_history:
+            if tournament_entry.get('category') == 'Juniors':
+                round_reached = tournament_entry.get('round', 0)
+                
+                # Award points based on round reached
+                if round_reached == 0:
+                    points = 0
+                elif round_reached == 1:
+                    points = 1
+                elif round_reached == 2:
+                    points = 3
+                elif round_reached == 3:
+                    points = 5
+                else:  # Round 4 or higher
+                    points = 10
+                
+                junior_points += points
+        
+        return junior_points
+    
+    def update_all_junior_rankings(self, players):
+        """Update junior_ranking for all players"""
+        for player in players:
+            player['junior_ranking'] = self.calculate_junior_ranking(player)

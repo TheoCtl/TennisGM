@@ -9,7 +9,7 @@ from io import StringIO
 import functools
 from archetypes import ARCTYPE_MAP, get_archetype_for_player
 
-PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "ITF"]
+PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "ITF", "Juniors"]
 
 class TennisGMApp:
     def __init__(self, root):
@@ -323,12 +323,12 @@ class TennisGMApp:
         
         self.current_prospects_tab = getattr(self, 'current_prospects_tab', "All")
         
-        tabs = ["All", "19", "18", "17", "16"]
+        tabs = ["All", "Junior Ranking", "19", "18", "17", "16"]
         for tab in tabs:
             is_active = tab == self.current_prospects_tab
             bg_color = "#e67e22" if is_active else "#5d6d7e"  # Orange for prospects
             
-            btn = tk.Button(tab_frame, text=f"{tab} years" if tab != "All" else tab, 
+            btn = tk.Button(tab_frame, text=f"{tab} years" if tab not in ["All", "Junior Ranking"] else tab, 
                           bg=bg_color, fg="white",
                           command=lambda t=tab: self.switch_prospects_tab(t),
                           font=("Arial", 11, "bold" if is_active else "normal"), 
@@ -384,14 +384,23 @@ class TennisGMApp:
             # Get prospects based on tab selection
             if self.current_prospects_tab == "All":
                 u20 = [p for p in self.scheduler.players if p.get("age", 99) < 20]
+                ranked = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
+                filtered = [(p, fut) for (p, fut) in ranked if query in p.get('name', '').lower()]
+                display_field = "FUT"
+            elif self.current_prospects_tab == "Junior Ranking":
+                # Filter players aged 16-19 with junior_ranking > 0
+                u20 = [p for p in self.scheduler.players if 16 <= p.get("age", 99) <= 19 and p.get("junior_ranking", 0) > 0]
+                ranked = sorted(((p, p.get("junior_ranking", 0)) for p in u20), key=lambda x: x[1], reverse=True)
+                filtered = [(p, jr) for (p, jr) in ranked if query in p.get('name', '').lower()]
+                display_field = "JR"
             else:
                 target_age = int(self.current_prospects_tab)
                 u20 = [p for p in self.scheduler.players if p.get("age", 99) == target_age]
+                ranked = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
+                filtered = [(p, fut) for (p, fut) in ranked if query in p.get('name', '').lower()]
+                display_field = "FUT"
             
-            ranked = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
-            filtered = [(p, fut) for (p, fut) in ranked if query in p.get('name', '').lower()]
-            
-            for idx, (player, fut) in enumerate(filtered, 1):
+            for idx, (player, score) in enumerate(filtered, 1):
                 # Create card-style entry for prospects
                 is_favorite = player.get('favorite', False)
                 
@@ -416,7 +425,7 @@ class TennisGMApp:
                 entry_frame = tk.Frame(scroll_frame, bg=bg_color, relief="raised", bd=1)
                 entry_frame.pack(fill="x", padx=5, pady=2)
                 
-                text = f"{rank_icon} {idx}. {player['name']} - FUT {fut} | {player.get('age', 1.0)}yo"
+                text = f"{rank_icon} {idx}. {player['name']} - {display_field} {score} | {player.get('age', 1.0)}yo"
                 btn = tk.Button(
                     entry_frame,
                     text=text,
@@ -1189,6 +1198,15 @@ class TennisGMApp:
                 elif 'ATP 250' == category:
                     cat_color = "#3498db"  # Blue
                     cat_icon = "🎾"
+                elif 'Challenger' in category:
+                    cat_color = "#27ae60"  # Green
+                    cat_icon = "🏟️"
+                elif category == 'ITF':
+                    cat_color = "#7f8c8d"  # Dark gray
+                    cat_icon = "🏟️"
+                elif category == 'Juniors':
+                    cat_color = "#1abc9c"  # Teal
+                    cat_icon = "🏟️"
                 else:
                     cat_color = "#95a5a6"  # Gray
                     cat_icon = "🏟️"
@@ -2075,7 +2093,8 @@ class TennisGMApp:
         
         # Get current week tournaments and extract categories
         tournaments = self.scheduler.get_current_week_tournaments()
-        categories = sorted(set(t['category'] for t in tournaments))
+        categories_set = set(t['category'] for t in tournaments)
+        categories = sorted(categories_set, key=lambda c: PRESTIGE_ORDER.index(c) if c in PRESTIGE_ORDER else 999)
         
         self.tournaments_current_tab = getattr(self, 'tournaments_current_tab', 'all')
         
@@ -2138,6 +2157,8 @@ class TennisGMApp:
         
         # Get tournaments for this tab
         all_tournaments = self.scheduler.get_current_week_tournaments()
+        # Sort tournaments by prestige order
+        all_tournaments.sort(key=lambda t: PRESTIGE_ORDER.index(t['category']) if t['category'] in PRESTIGE_ORDER else 999)
         if tab_id == 'all':
             tournaments = all_tournaments
         else:
@@ -2183,11 +2204,14 @@ class TennisGMApp:
                 bg_color = "#f39c12"  # Gold for ATP 500
             elif 'ATP 250' == t['category']:
                 bg_color = "#3498db"  # Blue for ATP 250
+            elif 'Challenger' in t['category']:
+                bg_color = "#27ae60"  # Green for Challengers
+            elif t['category'] == 'ITF':
+                bg_color = "#7f8c8d"  # Dark gray for ITF
+            elif t['category'] == 'Juniors':
+                bg_color = "#1abc9c"  # Teal for Juniors
             else:
                 bg_color = "#95a5a6"  # Gray for other tournaments
-            
-            if fav_t:
-                bg_color = "#e74c3c"  # Red highlight for tournaments with favorites
             
             # Main tournament card
             tournament_frame = tk.Frame(scroll_frame, bg=bg_color, relief="raised", bd=2)
@@ -2222,9 +2246,6 @@ class TennisGMApp:
                 else:
                     icon = "🏟️"
                 
-                if fav_t:
-                    icon = "⭐"
-                    
                 icon_label = tk.Label(
                     name_frame,
                     text=icon,
@@ -2234,10 +2255,11 @@ class TennisGMApp:
                 )
                 icon_label.pack(side="left", padx=(0, 8))
             
-            # Tournament name
+            # Tournament name (with star if favorite player is in it)
+            display_name = t['name'] + (" ⭐" if fav_t else "")
             name_label = tk.Label(
                 name_frame,
-                text=t['name'],
+                text=display_name,
                 font=("Arial", 14, "bold"),
                 bg=bg_color,
                 fg="white",
@@ -2295,6 +2317,14 @@ class TennisGMApp:
 
     def simulate_all_current_week_tournaments(self):
         tournaments = self.scheduler.get_current_week_tournaments()
+        # Sort by prestige order so Juniors appear after ITFs
+        def _prestige_key(t):
+            cat = t.get('category', '')
+            try:
+                return PRESTIGE_ORDER.index(cat)
+            except ValueError:
+                return len(PRESTIGE_ORDER)
+        tournaments.sort(key=_prestige_key)
         results = []
         for t in tournaments:
             if t.get('winner_id') is None:
@@ -3090,7 +3120,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 # Base Shots (average of forehand and backhand)
                 forehand = skills.get('forehand', 0)
                 backhand = skills.get('backhand', 0)
-                base_shots = round((forehand + backhand) / 2) if forehand + backhand > 0 else 0
+                base_shots = round((serve + forehand + backhand) / 3) if forehand + backhand > 0 else 0
 
                 # Special Shots (average of volleys and dropshots)
                 volley = skills.get('volley', 0)
@@ -3110,11 +3140,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 overall = round((serve + base_shots + special_shots + physicality + precision) / 5)
 
                 return {
-                    'Serve': serve,
                     'Base Shots': base_shots,
-                    'Special Shots': special_shots,
                     'Physicality': physicality,
                     'Precision': precision,
+                    'Special Shots': special_shots,
                     'Overall': overall
                 }
 
@@ -3680,11 +3709,27 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         # Create popup window
         popup = tk.Toplevel(self.root)
         popup.title(f"{player['name']}")
-        popup.geometry("300x200")
         popup.resizable(False, False)
         
-        # Position popup near mouse cursor
-        popup.geometry(f"+{event.x_root + 10}+{event.y_root + 10}")
+        # Set popup size
+        popup_width = 300
+        popup_height = 220
+        
+        # Position popup near mouse cursor, but ensure it stays on screen
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        
+        x = event.x_root + 10
+        y = event.y_root + 10
+        
+        # Adjust if popup would go off the right edge
+        if x + popup_width > screen_width:
+            x = event.x_root - popup_width - 10
+        # Adjust if popup would go off the bottom edge
+        if y + popup_height > screen_height:
+            y = event.y_root - popup_height - 10
+        
+        popup.geometry(f"{popup_width}x{popup_height}+{x}+{y}")
         
         # Main frame with padding
         main_frame = tk.Frame(popup, bg="white", relief="solid", bd=1)
@@ -3700,9 +3745,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         )
         name_label.pack(fill="x", pady=(0, 10))
         
-        # Global rank/ELO
+        # Global rank/ELO/Age
         current_elo_points = self.scheduler.ranking_system.get_elo_points(player, self.scheduler.current_date)
-        rank_text = f"Rank: #{player.get('rank', 'N/A')} | ELO: {current_elo_points}"
+        rank_text = f"Rank: #{player.get('rank', 'N/A')} | ELO: {current_elo_points} | Age: {player.get('age', 'N/A')}"
         rank_label = tk.Label(
             main_frame,
             text=rank_text,
