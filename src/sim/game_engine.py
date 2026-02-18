@@ -314,7 +314,8 @@ class GameEngine:
             if shot_type == "dropshot":
                 if shot_success:
                     defender_speed = self.speed[defender["id"]]
-                    if defender_speed < dropshot_skill:
+                    diff = defender_speed - dropshot_skill
+                    if diff < 0:
                         self.reset_stamina_and_speed()
                         winner_key = self._get_player_key(hitter)
                         self.match_stats[hitter['id']]["dropshot_winners"] += 1
@@ -322,35 +323,22 @@ class GameEngine:
                         if self._get_player_key(hitter) != self._get_player_key(server):
                             self.match_stats[hitter['id']]["breaks"] += 1
                         return (winner_key, point_events) if visualize else winner_key
-                    else:
-                        # Set return multiplier based on defender's speed
-                        if defender_speed < 50: 
-                            self.reset_stamina_and_speed()
-                            winner_key = self._get_player_key(hitter)
-                            self.match_stats[hitter['id']]["dropshot_winners"] += 1
-                            # Track break
-                            if self._get_player_key(hitter) != self._get_player_key(server):
-                                self.match_stats[hitter['id']]["breaks"] += 1
-                            return (winner_key, point_events) if visualize else winner_key
-                        elif 50 <= defender_speed < 55:
-                            return_multiplier = 0.2
-                        elif 55 <= defender_speed < 60:
-                            return_multiplier = 0.3
-                        elif 60 <= defender_speed < 65:
-                            return_multiplier = 0.4
-                        elif 65 <= defender_speed < 70:
-                            return_multiplier = 0.5
-                        elif 70 <= defender_speed < 75:
-                            return_multiplier = 0.6
-                        else:  # defender_speed >= 75
-                            return_multiplier = 0.7
-                        # The defender will try to catch with this return multiplier
+                    elif diff < 2:
+                        return_multiplier = 0.3
+                    elif diff < 4:
+                        return_multiplier = 0.4
+                    elif diff < 6:
+                        return_multiplier = 0.5
+                    elif diff <= 7:
+                        return_multiplier = 0.6
+                    else:  # diff > 7
+                        return_multiplier = 0.75
                 else:
                     return_multiplier = 2.0  # For missed dropshot
 
             # For successful dropshot with fast defender, skip can_catch check
             if (shot_type == "dropshot" and shot_success and 
-                self.speed[defender["id"]] >= 50):
+                diff > 0):
                 # We've already set the return_multiplier based on defender speed
                 # The defender automatically catches successful dropshot when fast enough
                 caught = True
@@ -516,7 +504,7 @@ class GameEngine:
         precision_factor = 0.3 + (shot_precision / 70)
         # If catcher (player) is in volley mode, precision factor is harder (downside of volley mode)
         if self.volley_mode[player["id"]]:
-            precision_factor *= 1.25
+            precision_factor *= 1.5
         # Combined catch score
         catch_score = speed_power_ratio * precision_factor
         # Determine if caught based on catch score

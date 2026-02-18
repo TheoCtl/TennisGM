@@ -397,7 +397,7 @@ class TournamentScheduler:
         # Kings Cup logic
         kings_cup = [t for t in current_tournaments if t['name'] == "Kings Cup"]
         if kings_cup:
-            gs_names = ["Winter Clash", "Fall Brawl", "Summer Battle", "Spring Break"]
+            gs_names = ["WINTER SPLIT", "AUTUMN SPLIT", "SUMMER SPLIT", "SPRING SPLIT"]
             gs_winners = []
             for t in self.tournaments:
                 if t['name'] in gs_names and t.get('winner_id'):
