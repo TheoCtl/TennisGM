@@ -30,22 +30,46 @@ class TournamentScheduler:
     @staticmethod
     def get_seeding_order(draw_size):
         """
-        Standard tennis seeding positions for powers of 2.
-        4  -> [1, 4, 2, 3]
-        8  -> [1, 8, 4, 5, 2, 7, 3, 6]
-        16 -> [1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11]
+        Standard professional tennis seeding positions for powers of 2.
+        Returns a list where result[i] is the 1-based bracket position for seed i+1.
+
+        Ensures proper separation:
+        - Seeds 1 and 2 in opposite halves (meet only in Final)
+        - Seeds 3 and 4 split across halves (3 with 2, 4 with 1 — meet 1/2 in SF)
+        - Seeds 5-8 one per quarter, etc.
+
+        4   -> [1, 4, 3, 2]         → SF: 1v4, 2v3
+        8   -> [1, 8, 5, 4, 3, 6, 7, 2]  → QF: 1v8, 4v5, 3v6, 2v7
+        16  -> [1, 16, 9, 8, 5, 12, 13, 4, 3, 14, 11, 6, 7, 10, 15, 2]
         """
         if draw_size <= 1:
             return [1]
-        order = [1, 2]
-        while len(order) < draw_size:
-            m = len(order) * 2
-            reflected = [m + 1 - p for p in order]
-            interleaved = []
-            for a, b in zip(order, reflected):
-                interleaved.extend([a, b])
-            order = interleaved
-        return order[:draw_size]
+
+        # positions[i] = 0-based bracket position for seed (i+1)
+        positions = [None] * draw_size
+        positions[0] = 0                  # Seed 1 at top
+        positions[1] = draw_size - 1      # Seed 2 at bottom
+
+        placed = [1, 2]
+        group_size = draw_size
+
+        while len(placed) < draw_size:
+            group_size //= 2
+            new_sum = len(placed) * 2 + 1  # paired seeds sum to this
+            new_seeds = list(range(len(placed) + 1, len(placed) * 2 + 1))
+
+            for s in placed:
+                opponent = new_sum - s
+                s_pos = positions[s - 1]
+                s_group = s_pos // group_size
+                s_pos_in_group = s_pos % group_size
+                # Mirror within the same group
+                opp_pos = s_group * group_size + (group_size - 1 - s_pos_in_group)
+                positions[opponent - 1] = opp_pos
+
+            placed.extend(new_seeds)
+
+        return [p + 1 for p in positions]  # convert to 1-based
     
     def __init__(self, data_path='data/default_data.json', save_path='data/save.json'):
         self.data_path = data_path
@@ -1200,7 +1224,7 @@ class TournamentScheduler:
                 self._add_to_hall_of_fame(player)
                 continue
             
-            if age > 28 and rank > 150:
+            if age >= 28 and rank > 150:
                 player['retired'] = True
                 retired_players.append(player['name'])
                 retired_count += 1

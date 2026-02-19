@@ -1136,20 +1136,14 @@ class TennisGMApp:
         )
         title_label.pack(expand=True)
 
-        # Bold tournaments that were won (points == Winner points for their category).
-        # All entries in tournament_history are from the last 52 weeks; skip "Special".
+        # Highlight tournaments where this player is the most recent winner (last history entry).
         recent_wins_keys = set()
         try:
-            points_map = self.scheduler.ranking_system.POINTS
-            for entry in player.get('tournament_history', []):
-                cat = entry.get('category')
-                if not cat or cat == "Special":
-                    continue
-                winner_pts = points_map.get(cat, {}).get("Winner")
-                if winner_pts is None:
-                    continue
-                if entry.get('points', -1) == winner_pts:
-                    recent_wins_keys.add((entry.get('name', ''), cat))
+            player_name = player.get('name', '')
+            for t in self.scheduler.tournaments:
+                history = t.get('history', [])
+                if history and history[-1].get('winner') == player_name:
+                    recent_wins_keys.add((t.get('name', ''), t.get('category', '')))
         except Exception:
             recent_wins_keys = set()
 
@@ -2575,6 +2569,18 @@ class TennisGMApp:
         p1_content = tk.Frame(p1_panel, bg="#2c3e50")
         p1_content.pack(fill="both", expand=True, padx=15, pady=15)
         
+        # Get surface modifier for current tournament
+        surface = tournament.get('surface', '')
+        p1_surf_mod = player1.get('surface_modifiers', {}).get(surface, 1.0)
+        p1_surf_pct = (p1_surf_mod - 1.0) * 100
+        p1_surf_sign = "+" if p1_surf_pct >= 0 else ""
+        p1_surf_str = f"{p1_surf_sign}{p1_surf_pct:.1f}%"
+        
+        p2_surf_mod = player2.get('surface_modifiers', {}).get(surface, 1.0)
+        p2_surf_pct = (p2_surf_mod - 1.0) * 100
+        p2_surf_sign = "+" if p2_surf_pct >= 0 else ""
+        p2_surf_str = f"{p2_surf_sign}{p2_surf_pct:.1f}%"
+        
         # Player 1 basic info only (no skills)
         p1_info_text = f"""Ranking: #{p1_ranking} - ELO: {p1_elo}
 Archetype: {player1.get('archetype', 'N/A')}
@@ -2583,6 +2589,11 @@ Last Title: {self.get_player_last_tournament_won(player1)}
         
         tk.Label(p1_content, text=p1_info_text, font=("Arial", 10), 
                 bg="#2c3e50", fg="#ecf0f1", justify="left", anchor="w").pack(fill="x")
+        
+        # Surface modifier label for P1
+        p1_surf_color = "#2ecc71" if p1_surf_pct > 0 else ("#e74c3c" if p1_surf_pct < 0 else "#ecf0f1")
+        tk.Label(p1_content, text=f"{surface.capitalize()} affinity: {p1_surf_str}", font=("Arial", 10, "bold"), 
+                bg="#2c3e50", fg=p1_surf_color, justify="left", anchor="w").pack(fill="x", pady=(5, 0))
         
         # Center "VS" divider
         center_frame = tk.Frame(content_frame, bg="#1a2332", width=80)
@@ -2616,6 +2627,11 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         
         tk.Label(p2_content, text=p2_info_text, font=("Arial", 10), 
                 bg="#2c3e50", fg="#ecf0f1", justify="left", anchor="w").pack(fill="x")
+        
+        # Surface modifier label for P2
+        p2_surf_color = "#2ecc71" if p2_surf_pct > 0 else ("#e74c3c" if p2_surf_pct < 0 else "#ecf0f1")
+        tk.Label(p2_content, text=f"{surface.capitalize()} affinity: {p2_surf_str}", font=("Arial", 10, "bold"), 
+                bg="#2c3e50", fg=p2_surf_color, justify="left", anchor="w").pack(fill="x", pady=(5, 0))
         
         # Centered skills comparison section below
         p1_skills = player1.get('skills', {})
