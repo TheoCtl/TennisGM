@@ -511,20 +511,20 @@ class TournamentScheduler:
                 return 0.90 if player_rank <= 64 else 0.99
             elif category == "ATP 500":
                 if player_rank <= 20:
-                    return 0.66
+                    return 0.4
                 elif player_rank <= 50:
-                    return 0.75
+                    return 0.6
                 elif player_rank <= 100:
                     return 0.85
                 else:
                     return 0.99
             elif category == "ATP 250":
                 if player_rank <= 20:
-                    return 0.20
+                    return 0.2
                 elif player_rank <= 50:
-                    return 0.50
+                    return 0.4
                 elif player_rank <= 100:
-                    return 0.66
+                    return 0.6
                 elif player_rank <= 150:
                     return 0.80
                 else:
@@ -1200,7 +1200,7 @@ class TournamentScheduler:
                 self._add_to_hall_of_fame(player)
                 continue
             
-            if age > 32 and rank > 128:
+            if age > 28 and rank > 150:
                 player['retired'] = True
                 retired_players.append(player['name'])
                 retired_count += 1

@@ -106,7 +106,7 @@ class PlayerDevelopment:
             cap = caps.get(skill_name, {'progcap': 0, 'regcap': 0})
             if age < 24:
                 # Strong progression phase
-                if cap['progcap'] >= 12:
+                if cap['progcap'] >= 10:
                     continue
                 pf = player.get('potential_factor', 1.0)
                 chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 12.0
@@ -134,7 +134,7 @@ class PlayerDevelopment:
                 # Regression phase
                 if cap['regcap'] >= 5:
                     continue
-                chance = PlayerDevelopment.calculate_regression_chance(age, current_value) / 12.0
+                chance = PlayerDevelopment.calculate_regression_chance(age, current_value) / 10.0
                 if random.random() < chance and current_value > 0:
                     skills[skill_name] = current_value - 1
                     cap['regcap'] += 1
