@@ -150,10 +150,9 @@ ARCTYPE_MAP = {
 
     ('cross', 'forehand', 'serve'): (
         'Crosscourt Server-Attacker',
-        "This player excels at creating wide angles: a well-placed serve followed by a forehand that opens the court with crosscourt winners and sharp angles. "
+        "This player excels at creating wide angles: a well-placed serve followed by a crossing forehand that opens the court. "
         "They build points by stretching opponents wide, then penetrating the open court with pace and placement or by changing direction to catch defenders off-balance. "
-        "Their game blends spin and directional control, using the diagonal geometry to manufacture space for finishing shots, and they are comfortable constructing points that require both patience and sudden burst aggression. "
-        "Match plans typically exploit crosscourt exchanges to elicit short replies that the forehand can punish."
+        "They are comfortable constructing points that require both patience and sudden burst aggression. "
     ),
 
     ('backhand', 'serve', 'speed'): (

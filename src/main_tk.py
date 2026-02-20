@@ -4,6 +4,7 @@ from sim.game_engine import GameEngine
 from court_viewer import TennisCourtViewer
 from utils.logo_utils import tournament_logo_manager
 import collections
+import math
 import sys
 from io import StringIO
 import functools
@@ -24,7 +25,14 @@ class TennisGMApp:
         self.rankings_scroll_position = 0.0
         # Track matplotlib figures to close them when navigating away
         self.current_figure = None
+        self._update_window_title()
         self.build_main_menu()
+
+    def _update_window_title(self):
+        """Update window title to show current game state."""
+        year = getattr(self.scheduler, 'current_year', '?')
+        week = getattr(self.scheduler, 'current_week', '?')
+        self.root.title(f"TennisGM  \u2014  Year {year}, Week {week}")
 
     def _migrate_favorites(self):
         changed = False
@@ -93,10 +101,12 @@ class TennisGMApp:
         content_frame.pack(fill="both", expand=True, padx=20, pady=20)
         
         # Build menu options in the requested layout
-        # News Feed centered at top
+        # News Feed centered at top (with unread count badge)
+        news_count = len(self.scheduler.news_feed) if hasattr(self.scheduler, 'news_feed') else 0
+        news_badge = f"  ({news_count})" if news_count > 0 else ""
         news_btn = tk.Button(
             content_frame,
-            text="📰 News Feed",
+            text=f"📰 News Feed{news_badge}",
             font=("Arial", 12, "bold"),
             bg="#223e50",
             fg="white",
@@ -282,6 +292,7 @@ class TennisGMApp:
     def handle_menu(self, option):
         if option == "Advance to next week":
             self.scheduler.advance_week()
+            self._update_window_title()
             self.build_main_menu()
         elif option == "News Feed":
             self.show_news_feed()
@@ -499,26 +510,59 @@ class TennisGMApp:
         )
         title_label.pack(expand=True)
 
-        # Favorite toggle section
+        # Top bar: navigation buttons (left) + favorite toggle (center)
         def _toggle_fav(pl):
             pl['favorite'] = not pl.get('favorite', False)
-            # Persist immediately
             try:
                 self.scheduler.save_game()
             except Exception:
                 pass
-            # Re-render same details screen
             self._render_player_details(pl, back_label, back_func)
 
-        fav_frame = tk.Frame(self.root, bg="#ecf0f1")
-        fav_frame.pack(fill="x", padx=20, pady=10)
+        top_bar = tk.Frame(self.root, bg="#ecf0f1")
+        top_bar.pack(fill="x", padx=20, pady=10)
         
+        # Left: nav buttons
+        nav_left = tk.Frame(top_bar, bg="#ecf0f1")
+        nav_left.pack(side="left")
+        
+        tk.Button(
+            nav_left, 
+            text=f"↩️ {back_label}", 
+            command=back_func, 
+            font=("Arial", 11, "bold"),
+            bg="#95a5a6",
+            fg="white",
+            relief="flat",
+            bd=0,
+            padx=12,
+            pady=6,
+            activebackground="#7f8c8d",
+            activeforeground="white"
+        ).pack(side="left", padx=(0, 5))
+        
+        tk.Button(
+            nav_left, 
+            text="🏠 Main Menu", 
+            command=self.build_main_menu, 
+            font=("Arial", 11, "bold"),
+            bg="#3498db",
+            fg="white",
+            relief="flat",
+            bd=0,
+            padx=12,
+            pady=6,
+            activebackground="#2980b9",
+            activeforeground="white"
+        ).pack(side="left")
+        
+        # Center: favorite button
         fav_state = bool(player.get('favorite'))
         fav_btn_text = "⭐ Remove from Favorites" if fav_state else "⭐ Add to Favorites"
         fav_color = "#e74c3c" if fav_state else "#f39c12"
         
-        tk.Button(
-            fav_frame, 
+        fav_btn = tk.Button(
+            top_bar, 
             text=fav_btn_text, 
             font=("Arial", 12, "bold"),
             bg=fav_color,
@@ -526,11 +570,12 @@ class TennisGMApp:
             relief="flat",
             bd=0,
             padx=15,
-            pady=8,
+            pady=6,
             activebackground="#c0392b" if fav_state else "#e67e22",
             activeforeground="white",
             command=lambda: _toggle_fav(player)
-        ).pack()
+        )
+        fav_btn.pack(expand=True)
 
         # Format surface modifiers
         def format_surface_mods(p):
@@ -725,7 +770,7 @@ class TennisGMApp:
         skills_content = tk.Frame(skills_card, bg="white")
         skills_content.pack(fill="x", padx=15, pady=10)
         
-        # Build skill display with caps
+        # Build skill display with visual bars and caps
         age = player.get('age', 0)
         use_prog = age <= 30
         caps = player.get('skill_caps', {})
@@ -742,9 +787,58 @@ class TennisGMApp:
 
             row = tk.Frame(skills_content, bg="white")
             row.pack(fill="x", pady=2)
-            label = tk.Label(row, text=f"{icon} {skill_name.capitalize()}:", font=("Arial", 11, "bold"), bg="white", fg="#2c3e50", anchor="w")
-            label.pack(side="left")
-            tk.Label(row, text=f"{val}{suffix}", font=("Arial", 11), bg="white", fg="#7f8c8d", anchor="w").pack(side="right")
+            
+            # Skill name label on its own line
+            tk.Label(row, text=skill_name.capitalize(), font=("Arial", 10, "bold"),
+                     bg="white", fg="#2c3e50", anchor="w").pack(fill="x")
+            
+            # Bar container below the label
+            bar_outer = tk.Frame(row, bg="#ecf0f1", height=18, relief="sunken", bd=1)
+            bar_outer.pack(fill="x", padx=(0, 5))
+            bar_outer.pack_propagate(False)
+            
+            # Smooth gradient: red -> orange -> yellow -> green -> blue
+            if val >= 80:
+                bar_color = "#2980b9"  # Blue
+            elif val <= 40:
+                bar_color = "#e74c3c"  # Red
+            else:
+                # 4-segment gradient across 40-80
+                # 40-50: red (#e74c3c) -> orange (#e67e22)
+                # 50-60: orange (#e67e22) -> yellow (#f1c40f)
+                # 60-70: yellow (#f1c40f) -> green (#27ae60)
+                # 70-80: green (#27ae60) -> blue (#2980b9)
+                if val < 50:
+                    t = (val - 40) / 10.0
+                    r = int(231 + t * (230 - 231))
+                    g = int(76 + t * (126 - 76))
+                    b = int(60 + t * (34 - 60))
+                elif val < 60:
+                    t = (val - 50) / 10.0
+                    r = int(230 + t * (241 - 230))
+                    g = int(126 + t * (196 - 126))
+                    b = int(34 + t * (15 - 34))
+                elif val < 70:
+                    t = (val - 60) / 10.0
+                    r = int(241 + t * (39 - 241))
+                    g = int(196 + t * (174 - 196))
+                    b = int(15 + t * (96 - 15))
+                else:
+                    t = (val - 70) / 10.0
+                    r = int(39 + t * (41 - 39))
+                    g = int(174 + t * (128 - 174))
+                    b = int(96 + t * (185 - 96))
+                bar_color = f"#{r:02x}{g:02x}{b:02x}"   
+            
+            bar_fill = tk.Frame(bar_outer, bg=bar_color, height=16)
+            # Use place for precise percentage width
+            bar_fill.place(relwidth=max(0.02, val / 100.0), relheight=1.0)
+            
+            # Value text on top of bar
+            val_label = tk.Label(bar_outer, text=f"{val}{suffix}", font=("Arial", 9, "bold"),
+                                 bg=bar_color if val >= 30 else "#ecf0f1",
+                                 fg="white" if val >= 30 else "#2c3e50", anchor="w")
+            val_label.place(x=4, rely=0.5, anchor="w")
         
         # Right Column: Ranking Evolution Graph (full height)
         ranking_card = tk.Frame(right_column, bg="white", relief="raised", bd=2)
@@ -819,40 +913,6 @@ class TennisGMApp:
             activeforeground="white"
         ).pack(pady=(0, 10))
 
-        # Navigation buttons
-        nav_frame = tk.Frame(button_frame, bg="#ecf0f1")
-        nav_frame.pack()
-        
-        tk.Button(
-            nav_frame, 
-            text=f"↩️ {back_label}", 
-            command=back_func, 
-            font=("Arial", 12, "bold"),
-            bg="#95a5a6",
-            fg="white",
-            relief="flat",
-            bd=0,
-            padx=15,
-            pady=8,
-            activebackground="#7f8c8d",
-            activeforeground="white"
-        ).pack(side="left", padx=(0, 10))
-        
-        tk.Button(
-            nav_frame, 
-            text="🏠 Back to Main Menu", 
-            command=self.build_main_menu, 
-            font=("Arial", 12, "bold"),
-            bg="#3498db",
-            fg="white",
-            relief="flat",
-            bd=0,
-            padx=15,
-            pady=8,
-            activebackground="#2980b9",
-            activeforeground="white"
-        ).pack(side="left")
-
     def show_player_details(self, player):
         self._render_player_details(player, "Back to Rankings", self.show_rankings)
 
@@ -863,50 +923,83 @@ class TennisGMApp:
         # Clear the main window
         for widget in self.root.winfo_children():
             widget.destroy()
-            
+
         # Modern header
         header_frame = tk.Frame(self.root, bg="#2c3e50", height=70)
         header_frame.pack(fill="x", pady=0)
         header_frame.pack_propagate(False)
-        
-        tk.Label(header_frame, text="📰 News Feed", 
+
+        tk.Label(header_frame, text="\U0001F4F0 News Feed",
                 font=("Arial", 18, "bold"), fg="white", bg="#2c3e50").pack(expand=True)
-                
+
         news = self.scheduler.news_feed if hasattr(self.scheduler, 'news_feed') else []
-        
+
         # Content area
         content_frame = tk.Frame(self.root, bg="#ecf0f1")
         content_frame.pack(fill="both", expand=True, padx=10, pady=5)
-        
+
         if not news:
-            # No news message with styling
             no_news_frame = tk.Frame(content_frame, bg="white", relief="solid", bd=1)
             no_news_frame.pack(fill="x", padx=20, pady=50)
-            tk.Label(no_news_frame, text="📰 No news yet.", font=("Arial", 14), 
+            tk.Label(no_news_frame, text="\U0001F4F0 No news this week.", font=("Arial", 14),
                     bg="white", fg="#7f8c8d", pady=30).pack()
         else:
-            # Use a scrollable Text widget for long news feeds with styling
             frame = tk.Frame(content_frame, bg="#ecf0f1")
             frame.pack(fill="both", expand=True, padx=10, pady=10)
-            
-            text = tk.Text(frame, wrap="word", font=("Arial", 12), height=20, 
-                          bg="white", fg="#2c3e50", relief="solid", bd=1, padx=15, pady=15)
+
+            text = tk.Text(frame, wrap="word", font=("Arial", 11), height=20,
+                          bg="#ecf0f1", fg="#2c3e50", relief="flat", bd=0, padx=10, pady=10)
             text.pack(side="left", fill="both", expand=True)
-            
-            for line in news:
-                text.insert("end", f"• {line}\n")
-            
+
+            # Configure text tags for styled rendering
+            text.tag_configure("header", font=("Arial", 14, "bold"), foreground="#2c3e50",
+                              spacing1=10, spacing3=5, justify="center")
+            text.tag_configure("subheader", font=("Arial", 10), foreground="#7f8c8d",
+                              spacing3=10, justify="center")
+            text.tag_configure("title", font=("Arial", 12, "bold"), foreground="#2c3e50",
+                              spacing1=15, spacing3=3)
+            text.tag_configure("content", font=("Arial", 11), foreground="#34495e",
+                              spacing3=2, lmargin1=10, lmargin2=10)
+            text.tag_configure("tweet_title", font=("Arial", 12, "bold"), foreground="#3498db",
+                              spacing1=15, spacing3=3)
+            text.tag_configure("tweet_content", font=("Arial", 11, "italic"), foreground="#2980b9",
+                              spacing3=2, lmargin1=10, lmargin2=10)
+            text.tag_configure("separator", font=("Arial", 6), foreground="#bdc3c7",
+                              spacing1=5, spacing3=5, justify="center")
+
+            # Week header
+            text.insert("end", "\u2605 TENNIS WEEKLY \u2605\n", "header")
+            text.insert("end",
+                f"Year {self.scheduler.current_year}, Week {self.scheduler.current_week}\n",
+                "subheader")
+
+            for i, item in enumerate(news):
+                if i > 0:
+                    text.insert("end", "\u2500" * 60 + "\n", "separator")
+
+                is_tweet = item.get('type') == 'tweet'
+                title_tag = "tweet_title" if is_tweet else "title"
+                body_tag = "tweet_content" if is_tweet else "content"
+
+                text.insert("end", f"{item['title']}\n", title_tag)
+
+                if isinstance(item['content'], list):
+                    for line in item['content']:
+                        text.insert("end", f"{line}\n", body_tag)
+                else:
+                    text.insert("end", f"{item['content']}\n", body_tag)
+
             text.config(state="disabled")
             scrollbar = tk.Scrollbar(frame, command=text.yview)
             scrollbar.pack(side="right", fill="y")
             text.config(yscrollcommand=scrollbar.set)
-            
+
         # Styled back button
         button_frame = tk.Frame(self.root, bg="#2c3e50", height=60)
         button_frame.pack(fill="x", pady=0)
         button_frame.pack_propagate(False)
-        
-        tk.Button(button_frame, text="← Back to Main Menu", command=self.build_main_menu, 
+
+        tk.Button(button_frame, text="\u2190 Back to Main Menu", command=self.build_main_menu,
                  font=("Arial", 12, "bold"), bg="#3498db", fg="white", relief="flat",
                  activebackground="#2980b9", activeforeground="white", bd=0, padx=20, pady=8).pack(expand=True)
 
@@ -1488,9 +1581,9 @@ class TennisGMApp:
         for player in self.scheduler.hall_of_fame:
             player['hof_points'] = 0
             for win in player.get('tournament_wins', []):
-                if win['category'] == 'Special':
+                if win.get('name') == "Kings Cup":
                     player['hof_points'] += 50
-                elif win.get('name') == "ATP Finals":
+                elif win.get('name') == "Final Masters":
                     player['hof_points'] += 30
                 elif win.get('name') == "Nextgen Finals":
                     player['hof_points'] += 5
@@ -2633,9 +2726,11 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         tk.Label(p2_content, text=f"{surface.capitalize()} affinity: {p2_surf_str}", font=("Arial", 10, "bold"), 
                 bg="#2c3e50", fg=p2_surf_color, justify="left", anchor="w").pack(fill="x", pady=(5, 0))
         
-        # Centered skills comparison section below
-        p1_skills = player1.get('skills', {})
-        p2_skills = player2.get('skills', {})
+        # Centered skills comparison section below (apply surface modifiers)
+        p1_skills_raw = player1.get('skills', {})
+        p2_skills_raw = player2.get('skills', {})
+        p1_skills = {s: min(100, math.floor(v * p1_surf_mod)) for s, v in p1_skills_raw.items()}
+        p2_skills = {s: min(100, math.floor(v * p2_surf_mod)) for s, v in p2_skills_raw.items()}
         max_skill = max(
             max(p1_skills.values()) if p1_skills else 0,
             max(p2_skills.values()) if p2_skills else 0,
@@ -4529,5 +4624,6 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("TennisGM")
+    root.minsize(1200, 700)
     app = TennisGMApp(root)
     root.mainloop()

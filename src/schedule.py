@@ -437,7 +437,7 @@ class TournamentScheduler:
                     
             if len(unique_winners) < 4:
                 for t in self.tournaments:
-                    if t['name'] == "Delta Finals" and t.get('winner_id'):
+                    if t['name'] == "Final Masters" and t.get('winner_id'):
                         if t['winner_id'] not in unique_winners:
                             unique_winners.append(t['winner_id'])
                         break
@@ -473,21 +473,32 @@ class TournamentScheduler:
 
             u20 = [p for p in available_players if p.get('age', 99) < 20]
             
-            # Get top 4 by FUT
+            # Get full FUT ranking and top 4 by junior_ranking
             ranked_by_fut = sorted(((p, calc_fut(p)) for p in u20), key=lambda x: x[1], reverse=True)
             top_fut_players = [p['id'] for p, _ in ranked_by_fut[:4]]
             
-            # Get top 4 by junior_ranking
             ranked_by_jr = sorted(((p, p.get('junior_ranking', 0)) for p in u20), key=lambda x: x[1], reverse=True)
             top_jr_players = [p['id'] for p, _ in ranked_by_jr[:4] if p.get('junior_ranking', 0) > 0]
             
-            # Combine (avoiding duplicates) - if we have fewer than 8, just use what we have
-            participants_set = set(top_fut_players) | set(top_jr_players)
-            junior_finals[0]['participants'] = list(participants_set)[:8]
+            # Start with top 4 FUT, then add top 4 junior_ranking (skip duplicates)
+            participants = list(top_fut_players)
+            for pid in top_jr_players:
+                if pid not in participants:
+                    participants.append(pid)
+            
+            # Fill remaining spots from next best FUT players until we have 8
+            fut_idx = 4
+            while len(participants) < 8 and fut_idx < len(ranked_by_fut):
+                candidate_id = ranked_by_fut[fut_idx][0]['id']
+                if candidate_id not in participants:
+                    participants.append(candidate_id)
+                fut_idx += 1
+            
+            junior_finals[0]['participants'] = participants[:8]
             return
 
-        # Delta Finals logic
-        delta_finals = [t for t in current_tournaments if t['name'] == "Delta Finals"]
+        # Final Masters logic
+        delta_finals = [t for t in current_tournaments if t['name'] == "Final Masters"]
         if delta_finals:
             available_players.sort(key=lambda x: x.get('rank', 0))
             delta_finals[0]['participants'] = [p['id'] for p in available_players[:16]]
@@ -1198,9 +1209,9 @@ class TournamentScheduler:
             # Calculate HOF points before adding to Hall of Fame
             hof_points = 0
             for win in player.get('tournament_wins', []):
-                if win['category'] == 'Special':
+                if win['name'] == "Kings Cup":
                     hof_points += 50
-                elif win['name'] == "ATP Finals":
+                elif win['name'] == "Final Masters":
                     hof_points += 30
                 elif win['name'] == "Nextgen Finals":
                     hof_points += 5
@@ -1397,56 +1408,13 @@ class TournamentScheduler:
         # 5. Tournament results
         tournament_news = self._generate_tournament_news()
         news_items.extend(tournament_news)
-                
-        # Format the news feed
-        if not news_items:
-            self.news_feed = ["No significant tennis news this week."]
-        else:
-            self.news_feed.append("═══════════════════════════════════════════════════════════════════════════════")
-            self.news_feed.append("                              ★ TENNIS WEEKLY ★                              ")
-            self.news_feed.append(f"                          Year {self.current_year}, Week {self.current_week}")
-            self.news_feed.append("═══════════════════════════════════════════════════════════════════════════════")
-            self.news_feed.append("")
-            
-            for i, item in enumerate(news_items):
-                # Add section header
-                self.news_feed.append(f"▼ {item['title']}")
-                self.news_feed.append("─" * (len(item['title']) + 2))
-                
-                # Add content with proper wrapping
-                if isinstance(item['content'], list):
-                    self.news_feed.extend(item['content'])
-                else:
-                    # Word wrap long content
-                    words = item['content'].split()
-                    lines = []
-                    current_line = []
-                    current_length = 0
-                    
-                    for word in words:
-                        if current_length + len(word) + len(current_line) > 75:
-                            if current_line:
-                                lines.append(' '.join(current_line))
-                                current_line = [word]
-                                current_length = len(word)
-                            else:
-                                lines.append(word)
-                        else:
-                            current_line.append(word)
-                            current_length += len(word)
-                    
-                    if current_line:
-                        lines.append(' '.join(current_line))
-                    
-                    self.news_feed.extend(lines)
-                
-                # Add spacing between sections (except for last item)
-                if i < len(news_items) - 1:
-                    self.news_feed.append("")
-                    self.news_feed.append("")
-            
-            self.news_feed.append("")
-            self.news_feed.append("═══════════════════════════════════════════════════════════════════════════════")
+
+        # 6. Tweet-style color news
+        tweet_news = self._generate_tweet_news()
+        news_items.extend(tweet_news)
+
+        # Store structured news items (formatting is handled by the UI)
+        self.news_feed = news_items
 
     def _generate_yearly_recap(self):
         """Generate yearly recap news for week 1"""
@@ -1610,81 +1578,237 @@ class TournamentScheduler:
         return achievement_items
     
     def _generate_tournament_news(self):
-        """Generate news about recent tournament winners"""
+        """Generate news about recent tournament winners with contextual info"""
         tournament_items = []
-        
+
         last_week = self.current_week - 1 if self.current_week > 1 else 52
-        
-        # Get major tournament winners only (no Challengers, ITF, or Juniors)
-        major_winners = []
+
         for tournament in self.tournaments:
-            if (tournament['week'] == last_week and 
-                not tournament['category'].startswith("Challenger") and 
-                not tournament['category'].startswith("ITF") and 
-                not tournament['category'] == "Juniors" and 
+            if (tournament['week'] == last_week and
+                not tournament['category'].startswith("Challenger") and
+                not tournament['category'].startswith("ITF") and
+                not tournament['category'] == "Juniors" and
                 tournament.get('winner_id')):
-                
+
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
-                if winner:
-                    total_wins = len(winner.get('tournament_wins', []))
-                    major_winners.append((winner, tournament, total_wins))
-        
-        if major_winners:
-            content = []
-            
-            # Varied intro phrases
-            intro_phrases = [
-                "Last week's champions made their mark on the ATP circuit:",
-                "The ATP tour witnessed impressive victories across multiple tournaments:",
-                "Several players celebrated breakthrough moments and continued success:",
-                "Championship glory was spread across the professional circuit:",
-                "The tennis world saw commanding performances from these champions:"
-            ]
-            content.append(random.choice(intro_phrases))
-            
-            # Varied templates for tournament wins
-            win_templates = [
-                "captured", "claimed", "secured", "won", "triumphed at", "dominated", "conquered"
-            ]
-            
-            surface_templates = [
-                " on the {surface} courts",
-                " across {surface} surfaces", 
-                " on {surface}",
-                " playing on {surface}"
-            ]
-            
-            career_templates = [
-                " This marks career title #{total} for the star.",
-                " The {nationality} player now has {total} professional titles to their name.",
-                " Career victory #{total} goes to the talented athlete.",
-                " This brings the {nationality} champion's title count to {total}.",
-                " The sensation adds title #{total} to their impressive resume."
-            ]
-            
-            for winner, tournament, total_wins in major_winners:
-                win_verb = random.choice(win_templates)
-                
-                surface_text = ""
-                if tournament['surface'] != 'hard':
-                    surface_template = random.choice(surface_templates)
-                    surface_text = surface_template.format(surface=tournament['surface'])
-                
-                career_template = random.choice(career_templates)
-                career_text = career_template.format(
-                    total=total_wins, 
-                    nationality=winner.get('nationality', 'international')
-                )
-                
-                content.append(f"• {winner['name']} {win_verb} the {tournament['name']} ({tournament['category']}){surface_text}.{career_text}")
-            
-            tournament_items.append({
-                'type': 'tournaments',
-                'title': 'TOURNAMENT CHAMPIONS',
-                'content': content
-            })
-        
+                if not winner:
+                    continue
+
+                wins = winner.get('tournament_wins', [])
+                total_wins = len(wins)
+                category = tournament['category']
+
+                # Build contextual flavor instead of mentioning nationality
+                context_line = self._get_win_context(winner, tournament, wins, total_wins)
+
+                win_verbs = ["captured", "claimed", "secured", "won", "triumphed at", "conquered"]
+                verb = random.choice(win_verbs)
+
+                headline = f"{winner['name']} {verb} the {tournament['name']} ({category})."
+                content = f"{headline} {context_line}"
+
+                tournament_items.append({
+                    'type': 'tournaments',
+                    'title': f"\U0001F3C6 {tournament['name'].upper()}",
+                    'content': content
+                })
+
         return tournament_items
+
+    def _get_win_context(self, winner, tournament, wins, total_wins):
+        """Generate contextual information about a tournament win instead of nationality."""
+        category = tournament['category']
+
+        is_first_title = total_wins == 1
+
+        # Count wins by category
+        gs_wins = [w for w in wins if w['category'] == 'Grand Slam']
+        m1000_wins = [w for w in wins if w['category'] == 'Masters 1000']
+
+        is_first_gs = category == 'Grand Slam' and len(gs_wins) == 1
+        is_first_m1000 = category == 'Masters 1000' and len(m1000_wins) == 1
+
+        # Is this the biggest win of their career?
+        prestige_index = self.PRESTIGE_ORDER.index(category) if category in self.PRESTIGE_ORDER else 99
+        previous_wins = wins[:-1] if total_wins > 1 else []
+        prev_best = min(
+            (self.PRESTIGE_ORDER.index(w['category'])
+             for w in previous_wins if w['category'] in self.PRESTIGE_ORDER),
+            default=99
+        )
+        is_biggest_win = prestige_index < prev_best and total_wins > 1
+
+        # Is defending champion?
+        is_defending = any(
+            w['name'] == tournament['name'] and w['year'] == self.current_year - 1
+            for w in previous_wins
+        )
+
+        is_young = winner.get('age', 30) < 20
+
+        # Priority-ordered context selection
+        if is_first_title:
+            return random.choice([
+                "It's the first professional title of his career!",
+                "A breakthrough moment \u2014 his first ever title on the professional tour!",
+                "He lifts his maiden trophy in what could be the start of something special.",
+            ])
+
+        if is_first_gs:
+            return random.choice([
+                "It's his first Grand Slam title \u2014 a career-defining moment!",
+                "He finally breaks through at Grand Slam level!",
+                "A landmark achievement \u2014 Grand Slam champion for the first time!",
+            ])
+
+        if category == 'Grand Slam' and len(gs_wins) > 1:
+            count = len(gs_wins)
+            ordinal = f"{count}{'nd' if count == 2 else 'rd' if count == 3 else 'th'}"
+            return random.choice([
+                f"That's Grand Slam title #{count} for the champion.",
+                f"He adds a {ordinal} Grand Slam to his collection.",
+                f"Grand Slam #{count} \u2014 cementing his place among the greats.",
+            ])
+
+        if is_defending:
+            return random.choice([
+                "He successfully defends his title from last year.",
+                "Back-to-back champion! He retains his crown.",
+                "The defending champion proves his dominance once more.",
+            ])
+
+        if is_biggest_win:
+            return random.choice([
+                "It's the biggest tournament win of his career so far.",
+                "A new career milestone \u2014 his most prestigious title to date.",
+                "He reaches new heights with the biggest title of his career.",
+            ])
+
+        if is_first_m1000:
+            return random.choice([
+                "It's his first Masters 1000 title \u2014 a major step forward.",
+                "He breaks through at Masters level for the first time.",
+                "A first Masters 1000 crown \u2014 a sign of things to come.",
+            ])
+
+        if is_young:
+            return random.choice([
+                f"At just {winner['age']}, he's already collecting titles at this level.",
+                f"Only {winner['age']} years old and already a champion here.",
+                f"Remarkable maturity from the {winner['age']}-year-old.",
+            ])
+
+        # Default: career title count
+        return random.choice([
+            f"That's career title #{total_wins} for him.",
+            f"Title #{total_wins} goes on the resume.",
+            f"He now has {total_wins} professional titles to his name.",
+        ])
+
+    def _generate_tweet_news(self):
+        """Generate short tweet-style news items about interesting events."""
+        tweets = []
+        last_week = self.current_week - 1 if self.current_week > 1 else 52
+
+        # 1. Young players (<20) with deep runs in significant tournaments
+        for tournament in self.tournaments:
+            if (tournament['week'] == last_week and
+                not tournament['category'].startswith("ITF") and
+                not tournament['category'] == "Juniors"):
+
+                bracket = tournament.get('bracket', [])
+                if not bracket:
+                    continue
+
+                total_rounds = len(bracket)
+                for round_idx, round_matches in enumerate(bracket):
+                    # Only care about SF and F (last 2 rounds)
+                    if round_idx < total_rounds - 2:
+                        continue
+                    for match in round_matches:
+                        for pid in match[:2]:
+                            if pid is None:
+                                continue
+                            if pid == tournament.get('winner_id'):
+                                continue  # Winners are already covered in tournament news
+                            player = next((p for p in self.players if p['id'] == pid), None)
+                            if not player or player.get('age', 30) >= 20:
+                                continue
+                            archetype = player.get('archetype', 'Balanced Player')
+                            round_name = "final" if round_idx == total_rounds - 1 else "semifinals"
+                            tweet_templates = [
+                                f"Keep an eye on {player['name']}! The {player['age']}-year-old {archetype.lower()} reached the {round_name} of the {tournament['name']}.",
+                                f"{player['name']} ({player['age']}) is showing serious promise. The young {archetype.lower()} made it to the {round_name} at the {tournament['name']}.",
+                                f"Prospect alert: {player['name']}, a {player['age']}-year-old {archetype.lower()}, just reached the {round_name} of a {tournament['category']} event.",
+                                f"The future looks bright for {player['name']}. At {player['age']}, the {archetype.lower()} is already competing deep in {tournament['category']} draws.",
+                            ]
+                            tweets.append({
+                                'type': 'tweet',
+                                'title': '\U0001F4AC PROSPECT WATCH',
+                                'content': random.choice(tweet_templates)
+                            })
+
+        # 2. Players who had a big ranking rise this year
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            year_rankings = player.get('year_start_rankings', {})
+            current_rank = player.get('rank', 999)
+            last_year_key = str(self.current_year - 1)
+            if last_year_key in year_rankings:
+                old_rank = year_rankings[last_year_key]
+                if old_rank > 100 and current_rank <= 50:
+                    if random.random() < 0.08:  # Small chance per week to avoid spam
+                        archetype = player.get('archetype', 'player')
+                        tweets.append({
+                            'type': 'tweet',
+                            'title': '\U0001F4AC RISING STAR',
+                            'content': random.choice([
+                                f"{player['name']} has been on a tear this season \u2014 from #{old_rank} to #{current_rank}. The {archetype.lower()} is making a statement.",
+                                f"Remember the name: {player['name']}. Ranked #{old_rank} at the start of the year, now all the way up to #{current_rank}.",
+                                f"{player['name']}'s rise continues. The {archetype.lower()} started the year at #{old_rank} and now sits at #{current_rank}.",
+                            ])
+                        })
+
+        # 3. New world #1 (first time ever)
+        current_no1 = next(
+            (p for p in self.players if p.get('rank') == 1 and not p.get('retired', False)),
+            None
+        )
+        if current_no1 and current_no1.get('w1', 0) == 1:
+            tweets.append({
+                'type': 'tweet',
+                'title': '\U0001F451 NEW WORLD #1',
+                'content': random.choice([
+                    f"{current_no1['name']} reaches the summit! A new world #1 is crowned.",
+                    f"History is made \u2014 {current_no1['name']} rises to the #1 ranking for the first time!",
+                    f"A new era begins. {current_no1['name']} is the new world #1.",
+                ])
+            })
+
+        # 4. Veteran still winning (age >= 32, won a title recently)
+        for tournament in self.tournaments:
+            if (tournament['week'] == last_week and tournament.get('winner_id') and
+                not tournament['category'].startswith("Challenger") and
+                not tournament['category'].startswith("ITF") and
+                not tournament['category'] == "Juniors"):
+                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
+                if winner and winner.get('age', 20) >= 32:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '\U0001F4AC AGELESS',
+                        'content': random.choice([
+                            f"Age is just a number. {winner['name']}, {winner['age']}, proves he still has what it takes with a title at the {tournament['name']}.",
+                            f"Don't count out the veterans. {winner['name']} ({winner['age']}) is still winning at the highest level.",
+                            f"{winner['name']} rolls back the years. At {winner['age']}, the {winner.get('archetype', 'veteran').lower()} shows no signs of slowing down.",
+                        ])
+                    })
+
+        # Limit to avoid flooding the feed
+        if len(tweets) > 3:
+            tweets = random.sample(tweets, 3)
+
+        return tweets
     
     def simulate_current_round(self, tournament_id):
         """
