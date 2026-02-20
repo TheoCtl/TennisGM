@@ -115,8 +115,8 @@ class TournamentScheduler:
         self.ranking_system.update_combined_rankings(self.players, self.current_date)
         self.ranking_system.update_all_junior_rankings(self.players)
 
-        # Generate initial news feed so there's content on game start
-        self.generate_news_feed()
+        # Generate only the tournament showcase at launch
+        self.news_feed = self._generate_tournament_showcase()
         
     def save_game(self, save_path='data/save.json'):
         """Save all game data to a file"""
@@ -1939,11 +1939,15 @@ class TournamentScheduler:
         pop_min, pop_max = pop_ranges.get(category, (10000, 100000))
         population = rng.randint(pop_min, pop_max)
 
-        # Format population nicely
+        # Format population nicely (compact: 15k, 1.2m, etc.)
         if population >= 1000000:
-            pop_str = f"{population / 1000000:.1f} million"
+            val = population / 1000000
+            pop_str = f"{val:.1f}m" if val != int(val) else f"{int(val)}m"
+        elif population >= 1000:
+            val = population / 1000
+            pop_str = f"{val:.0f}k" if val == int(val) else f"{val:.1f}k"
         else:
-            pop_str = f"{population:,}"
+            pop_str = str(population)
 
         # City descriptors based on surface (gives a sense of climate/geography)
         surface_vibes = {
@@ -1995,18 +1999,12 @@ class TournamentScheduler:
         ]
         landmark = rng.choice(landmarks)
 
-        # Founded year (deterministic)
-        founded = rng.randint(200, 1800)
-
-        # Tournament-specific establishment year
-        tournament_est = rng.randint(2025 - rng.randint(15, 80), 2024)
-
         # Build the lore sentence
         templates = [
-            f"Welcome to {city_name}, a {city_adj} city of {pop_str} inhabitants, {landmark}. The tournament has been a fixture of the tennis calendar since {tournament_est}.",
-            f"{city_name} (pop. {pop_str}) — a {city_adj} destination {landmark}. Tennis has been played here since {tournament_est}, making it one of the tour's cherished stops.",
-            f"The tour arrives in {city_name}, a {city_adj} city of {pop_str}. Founded in {founded}, the city is {landmark}. This tournament was first held in {tournament_est}.",
-            f"Nestled in the heart of its region, {city_name} is a {city_adj} city of {pop_str}, {landmark}. This event has been a staple since {tournament_est}.",
+            f"Welcome to {city_name}, a {city_adj} city of {pop_str} inhabitants, {landmark}.",
+            f"{city_name} (pop. {pop_str}) — a {city_adj} destination {landmark}.",
+            f"The tour arrives in {city_name}, a {city_adj} city of {pop_str}. The city is {landmark}.",
+            f"Nestled in the heart of its region, {city_name} is a {city_adj} city of {pop_str}, {landmark}.",
         ]
 
         return rng.choice(templates)
@@ -2016,10 +2014,10 @@ class TournamentScheduler:
         rng = random.Random(42 + hash(surface))  # Vary slightly per surface
 
         intro_options = [
-            "Eden — the crown jewel of world tennis. With a population of 4.2 million, it is the second-largest city on the planet and the undisputed capital of the sport.",
-            "Welcome to Eden (pop. 4.2 million), the legendary city where every Grand Slam is played. No other venue carries more history, more prestige, or more pressure.",
-            "The tour returns to Eden, the sprawling metropolis of 4.2 million souls that serves as the spiritual home of professional tennis.",
-            "Eden. Population: 4.2 million. The second-biggest city in the world and the only place on Earth to host all four Grand Slams.",
+            "Eden — the crown jewel of world tennis. With a population of 4.2m, it is the second-largest city on the planet and the undisputed capital of the sport.",
+            "Welcome to Eden (pop. 4.2m), the legendary city where every Grand Slam is played. No other venue carries more history, more prestige, or more pressure.",
+            "The tour returns to Eden, the sprawling metropolis of 4.2m souls that serves as the spiritual home of professional tennis.",
+            "Eden. Population: 4.2m. The second-biggest city in the world and the only place on Earth to host all four Grand Slams.",
         ]
         intro = rng.choice(intro_options)
 
@@ -2048,10 +2046,10 @@ class TournamentScheduler:
         rng = random.Random(77 + hash(tournament_name))  # Vary per event
 
         intro_options = [
-            "Halcyon — the largest city in the world (pop. 6.8 million) and the stage where legends are crowned. The season's most decisive events are all played here.",
-            "Welcome to Halcyon, the planet's greatest metropolis with 6.8 million inhabitants. When tennis needs its grandest stage, it comes here.",
-            "The tour descends on Halcyon (pop. 6.8 million), the colossal capital of commerce, culture, and elite tennis.",
-            "Halcyon. Population: 6.8 million. The biggest city in the world, and the place where season-defining titles are won and lost.",
+            "Halcyon — the largest city in the world (pop. 6.8m) and the stage where legends are crowned. The season's most decisive events are all played here.",
+            "Welcome to Halcyon, the planet's greatest metropolis with 6.8m inhabitants. When tennis needs its grandest stage, it comes here.",
+            "The tour descends on Halcyon (pop. 6.8m), the colossal capital of commerce, culture, and elite tennis.",
+            "Halcyon. Population: 6.8m. The biggest city in the world, and the place where season-defining titles are won and lost.",
         ]
         intro = rng.choice(intro_options)
 
