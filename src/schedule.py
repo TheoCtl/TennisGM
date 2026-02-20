@@ -316,6 +316,11 @@ class TournamentScheduler:
                 current_elo_points = self.ranking_system.get_elo_points(player, self.current_date)
                 if current_elo_points > player.get('highest_elo', 0):
                     player['highest_elo'] = current_elo_points
+        # Snapshot skills before development so news can report improvements
+        self._pre_dev_skills = {
+            p['id']: {k: v for k, v in p.get('skills', {}).items()}
+            for p in self.players if not p.get('retired', False)
+        }
         PlayerDevelopment.seasonal_development(self)
         PlayerDevelopment.weekly_development(self)
         self.previous_records = copy.deepcopy(self.records)
@@ -1409,7 +1414,11 @@ class TournamentScheduler:
         tournament_news = self._generate_tournament_news()
         news_items.extend(tournament_news)
 
-        # 6. Tweet-style color news
+        # 6. Tournament Showcase (upcoming week preview)
+        showcase_news = self._generate_tournament_showcase()
+        news_items.extend(showcase_news)
+
+        # 7. Tweet-style color news
         tweet_news = self._generate_tweet_news()
         news_items.extend(tweet_news)
 
@@ -1705,12 +1714,372 @@ class TournamentScheduler:
             f"He now has {total_wins} professional titles to his name.",
         ])
 
+    def _generate_tournament_showcase(self):
+        """Generate a preview/showcase for the most prestigious upcoming tournament this week."""
+        items = []
+
+        # Find the most prestigious tournament happening THIS week (current_week)
+        current_tournaments = [
+            t for t in self.tournaments
+            if t['week'] == self.current_week
+            and not t['category'].startswith("ITF")
+            and t['category'] != "Juniors"
+        ]
+
+        if not current_tournaments:
+            return items
+
+        # Pick the most prestigious one
+        def prestige_score(t):
+            try:
+                return len(self.PRESTIGE_ORDER) - self.PRESTIGE_ORDER.index(t['category'])
+            except ValueError:
+                return 0
+
+        best_tournament = max(current_tournaments, key=prestige_score)
+        cat = best_tournament['category']
+
+        # Skip challengers — not exciting enough for a showcase
+        if cat.startswith("Challenger"):
+            return items
+
+        name = best_tournament['name']
+        surface = best_tournament.get('surface', 'hard')
+        draw_size = best_tournament.get('draw_size', 32)
+        history = best_tournament.get('history', [])
+
+        # ── City lore generation (deterministic from tournament name) ──
+        city_name = self._extract_city_name(name)
+        city_lore = self._generate_city_lore(city_name, surface, cat, name)
+
+        # ── Last winner ──
+        last_winner_str = None
+        if history:
+            last_entry = history[-1]
+            last_winner_name = last_entry.get('winner', 'Unknown')
+            last_year = last_entry.get('year', '?')
+            last_winner_str = f"Defending champion: {last_winner_name} ({last_year})."
+
+        # ── All-time most successful player at this tournament ──
+        dynasty_str = None
+        if history:
+            from collections import Counter
+            winner_counts = Counter(h['winner'] for h in history)
+            most_wins_name, most_wins_count = winner_counts.most_common(1)[0]
+            if most_wins_count >= 2:
+                dynasty_str = f"All-time leader: {most_wins_name} ({most_wins_count} titles)."
+
+        # ── Favorite to win (based on ranking + surface modifier) ──
+        favorite_str = None
+        participants = best_tournament.get('participants', [])
+        if participants:
+            candidate_players = []
+            for pid in participants:
+                p = next((pl for pl in self.players if pl['id'] == pid), None)
+                if p and not p.get('retired', False):
+                    surf_mod = p.get('surface_modifiers', {}).get(surface, 1.0)
+                    rank = p.get('rank', 999)
+                    # Lower rank = better; higher surf_mod = better
+                    # Score: inverse rank weighted by surface mod
+                    score = surf_mod * (1000 - min(rank, 999))
+                    candidate_players.append((p, score, surf_mod, rank))
+
+            if candidate_players:
+                candidate_players.sort(key=lambda x: x[1], reverse=True)
+                fav, fav_score, fav_surf, fav_rank = candidate_players[0]
+                surf_desc = ""
+                if fav_surf >= 1.02:
+                    surf_desc = f", a {surface} specialist"
+                elif fav_surf >= 1.01:
+                    surf_desc = f", comfortable on {surface}"
+
+                favorite_str = random.choice([
+                    f"Pre-tournament favorite: #{fav_rank} {fav['name']}{surf_desc}.",
+                    f"Bookmakers' pick: {fav['name']} (#{fav_rank}){surf_desc}.",
+                    f"The one to beat: {fav['name']}, currently ranked #{fav_rank}{surf_desc}.",
+                ])
+
+                # Add a dark horse if there is one
+                if len(candidate_players) >= 5:
+                    # Dark horse: someone ranked lower but with great surface mod
+                    dark_horses = [
+                        (p, sc, sm, r) for p, sc, sm, r in candidate_players[3:10]
+                        if sm >= 1.015 and r > candidate_players[0][3] + 20
+                    ]
+                    if dark_horses:
+                        dh = dark_horses[0]
+                        favorite_str += random.choice([
+                            f" Dark horse: #{dh[3]} {dh[0]['name']} — deadly on {surface}.",
+                            f" Watch out for {dh[0]['name']} (#{dh[3]}), a {surface} specialist who could upset the draw.",
+                            f" Sleeper pick: {dh[0]['name']} (#{dh[3]}) thrives on {surface} courts.",
+                        ])
+
+        # ── Surface context ──
+        surface_flavor = {
+            'clay': random.choice([
+                f"Played on clay — expect long rallies, heavy topspin, and grueling baseline battles.",
+                f"The red clay courts will reward patience and endurance this week.",
+                f"Clay-court tennis at its finest. Footwork and stamina will be key.",
+            ]),
+            'grass': random.choice([
+                f"The fast grass courts will favor big servers and aggressive net play.",
+                f"Grass season is here — low bounces, quick points, and serve-and-volley magic.",
+                f"On grass, the ball skids and stays low. Adaptability is everything.",
+            ]),
+            'hard': random.choice([
+                f"Hard courts provide a balanced test — rewarding all-around excellence.",
+                f"On hard courts, there's nowhere to hide. The most complete player usually wins.",
+                f"The hard-court surface levels the playing field — pure tennis fundamentals decide.",
+            ]),
+            'indoor': random.choice([
+                f"Indoor conditions mean controlled environments, fast surfaces, and big serving.",
+                f"No wind, no sun — just pure skill under the roof. Indoor tennis rewards precision.",
+                f"The indoor courts offer speed and consistency. Serve and return will be crucial.",
+            ]),
+            'neutral': random.choice([
+                f"A unique surface that tests every aspect of a player's game equally.",
+                f"On neutral courts, there are no surface advantages — only talent matters.",
+            ]),
+        }
+
+        # ── Build the showcase content ──
+        lines = []
+
+        # Opening with city lore
+        if city_lore:
+            lines.append(city_lore)
+        lines.append("")
+
+        # Tournament details
+        draw_text = f"{draw_size}-player draw"
+        lines.append(f"📋 {cat} | {surface.capitalize()} | {draw_text}")
+        lines.append(surface_flavor.get(surface, ""))
+
+        if last_winner_str:
+            lines.append(f"🏆 {last_winner_str}")
+        if dynasty_str:
+            lines.append(f"👑 {dynasty_str}")
+        if favorite_str:
+            lines.append(f"⭐ {favorite_str}")
+
+        # Fun stat about the tournament's history
+        if len(history) >= 3:
+            unique_winners = len(set(h['winner'] for h in history))
+            total_editions = len(history)
+            if unique_winners == total_editions:
+                lines.append(f"📊 {total_editions} editions, {unique_winners} different champions — no repeat winners yet!")
+            elif unique_winners <= total_editions // 2:
+                lines.append(f"📊 Only {unique_winners} different champions in {total_editions} editions. An exclusive club.")
+            else:
+                lines.append(f"📊 {unique_winners} different champions across {total_editions} editions of this tournament.")
+
+        items.append({
+            'type': 'showcase',
+            'title': f'🏟️ TOURNAMENT SHOWCASE: {name.upper()}',
+            'content': lines
+        })
+
+        return items
+
+    # Mapping of tournament names to their host city
+    TOURNAMENT_CITY_MAP = {
+        'WINTER SPLIT': 'Eden',
+        'SPRING SPLIT': 'Eden',
+        'SUMMER SPLIT': 'Eden',
+        'AUTUMN SPLIT': 'Eden',
+        'Eden Masters': 'Eden',
+        'Final Masters': 'Halcyon',
+        'Nextgen Finals': 'Halcyon',
+        'Kings Cup': 'Halcyon',
+        'Halcyon Masters': 'Halcyon',
+    }
+
+    def _extract_city_name(self, tournament_name):
+        """Extract the city/location name from a tournament name."""
+        # Check explicit mapping first
+        if tournament_name in self.TOURNAMENT_CITY_MAP:
+            return self.TOURNAMENT_CITY_MAP[tournament_name]
+        # Remove common suffixes to get the city name
+        for suffix in [' Open', ' Championships', ' Championship', ' Masters',
+                       ' Challenger', ' Grand Prix', ' Champs', ' Tournament',
+                       ' International', ' Invitational', ' Finals']:
+            if tournament_name.endswith(suffix):
+                return tournament_name[:-len(suffix)]
+        return tournament_name
+
+    def _generate_city_lore(self, city_name, surface, category, tournament_name=''):
+        """Generate deterministic fictional city lore based on city name."""
+
+        # ── Special handcrafted lore for major cities ──
+        if city_name == 'Eden':
+            return self._eden_lore(surface, category)
+        if city_name == 'Halcyon':
+            return self._halcyon_lore(surface, category, tournament_name)
+
+        # Use hash of city name as seed for consistent generation
+        seed = sum(ord(c) for c in city_name)
+        rng = random.Random(seed)
+
+        # Population ranges based on tournament category
+        pop_ranges = {
+            'Grand Slam': (800000, 5000000),
+            'Special': (500000, 3000000),
+            'Masters 1000': (400000, 2500000),
+            'ATP 500': (150000, 800000),
+            'ATP 250': (50000, 400000),
+            'Challenger 175': (30000, 150000),
+            'Challenger 125': (20000, 100000),
+            'Challenger 100': (15000, 80000),
+            'Challenger 75': (8000, 50000),
+            'Challenger 50': (5000, 30000),
+        }
+        pop_min, pop_max = pop_ranges.get(category, (10000, 100000))
+        population = rng.randint(pop_min, pop_max)
+
+        # Format population nicely
+        if population >= 1000000:
+            pop_str = f"{population / 1000000:.1f} million"
+        else:
+            pop_str = f"{population:,}"
+
+        # City descriptors based on surface (gives a sense of climate/geography)
+        surface_vibes = {
+            'clay': [
+                'sun-drenched', 'Mediterranean-style', 'warm', 'terracotta-roofed',
+                'hillside', 'vineyard-surrounded', 'coastal',
+            ],
+            'grass': [
+                'lush', 'garden-lined', 'temperate', 'green',
+                'historic', 'sprawling', 'river-side',
+            ],
+            'hard': [
+                'modern', 'bustling', 'cosmopolitan', 'vibrant',
+                'fast-growing', 'dynamic', 'urban',
+            ],
+            'indoor': [
+                'northern', 'industrial', 'sleek', 'architecturally striking',
+                'culturally rich', 'sophisticated', 'winter-weathered',
+            ],
+            'neutral': [
+                'prestigious', 'iconic', 'legendary', 'celebrated',
+            ],
+        }
+        descriptors = surface_vibes.get(surface, ['notable'])
+        city_adj = rng.choice(descriptors)
+
+        # Landmarks / features
+        landmarks = [
+            f"famous for its annual food festival",
+            f"known for its centuries-old university",
+            f"home to the iconic {city_name} Cathedral",
+            f"built around a historic harbor",
+            f"renowned for its botanical gardens",
+            f"famous for its bustling open-air markets",
+            f"home to the prestigious {city_name} Academy of Arts",
+            f"known for its ancient city walls",
+            f"celebrated for its musical heritage",
+            f"built along the banks of the River {city_name[:3].capitalize()}or",
+            f"famous for its annual carnival",
+            f"renowned for its architecture and public squares",
+            f"home to one of the oldest tennis clubs in the region",
+            f"known for its thriving café culture",
+            f"surrounded by scenic mountain trails",
+            f"famous for its thermal springs",
+            f"home to the {city_name} National Museum",
+            f"known for its vibrant nightlife and music scene",
+            f"celebrated for its tradition of sporting excellence",
+            f"built on the ruins of an ancient trading post",
+        ]
+        landmark = rng.choice(landmarks)
+
+        # Founded year (deterministic)
+        founded = rng.randint(200, 1800)
+
+        # Tournament-specific establishment year
+        tournament_est = rng.randint(2025 - rng.randint(15, 80), 2024)
+
+        # Build the lore sentence
+        templates = [
+            f"Welcome to {city_name}, a {city_adj} city of {pop_str} inhabitants, {landmark}. The tournament has been a fixture of the tennis calendar since {tournament_est}.",
+            f"{city_name} (pop. {pop_str}) — a {city_adj} destination {landmark}. Tennis has been played here since {tournament_est}, making it one of the tour's cherished stops.",
+            f"The tour arrives in {city_name}, a {city_adj} city of {pop_str}. Founded in {founded}, the city is {landmark}. This tournament was first held in {tournament_est}.",
+            f"Nestled in the heart of its region, {city_name} is a {city_adj} city of {pop_str}, {landmark}. This event has been a staple since {tournament_est}.",
+        ]
+
+        return rng.choice(templates)
+
+    def _eden_lore(self, surface, category):
+        """Handcrafted lore for Eden — the second-largest city in the world, host of all Grand Slams and the Eden Masters."""
+        rng = random.Random(42 + hash(surface))  # Vary slightly per surface
+
+        intro_options = [
+            "Eden — the crown jewel of world tennis. With a population of 4.2 million, it is the second-largest city on the planet and the undisputed capital of the sport.",
+            "Welcome to Eden (pop. 4.2 million), the legendary city where every Grand Slam is played. No other venue carries more history, more prestige, or more pressure.",
+            "The tour returns to Eden, the sprawling metropolis of 4.2 million souls that serves as the spiritual home of professional tennis.",
+            "Eden. Population: 4.2 million. The second-biggest city in the world and the only place on Earth to host all four Grand Slams.",
+        ]
+        intro = rng.choice(intro_options)
+
+        surface_fragments = {
+            'hard': "The iconic Eden Arena — with its retractable roof and 22,000-seat centre court — transforms into a hard-court cathedral every season.",
+            'clay': "When clay season arrives, Eden's courts are resurfaced with the famous red terre battue, and the city's tree-lined boulevards fill with the sound of sliding footwork.",
+            'grass': "The pristine grass courts of Eden are the pride of the groundskeeping world — trimmed to exactly 8mm, they reward touch, precision, and courage at the net.",
+            'indoor': "As autumn descends, Eden's arenas seal their roofs and the atmosphere becomes electric under the lights — serve speed climbs, rallies shorten, and the crowd's roar reverberates off every surface.",
+        }
+
+        color_options = [
+            "Home to the Eden Grand Library, the Meridian Tower, and the famous riverside promenade, the city buzzes with energy year-round.",
+            "Beyond tennis, Eden is renowned for its world-class universities, its skyline of glass and stone, and a café culture that rivals any on the continent.",
+            "The city's six districts each have their own character — from the historic Old Quarter to the gleaming financial hub of Meridian South.",
+            "Eden's cultural heritage is unmatched: opera houses, galleries, and the legendary Founders' Park where the first-ever professional tennis match was played.",
+        ]
+
+        parts = [intro]
+        if surface in surface_fragments:
+            parts.append(surface_fragments[surface])
+        parts.append(rng.choice(color_options))
+        return " ".join(parts)
+
+    def _halcyon_lore(self, surface, category, tournament_name=''):
+        """Handcrafted lore for Halcyon — the largest city in the world, host of the Final Masters, Nextgen Finals, Kings Cup, and Halcyon Masters."""
+        rng = random.Random(77 + hash(tournament_name))  # Vary per event
+
+        intro_options = [
+            "Halcyon — the largest city in the world (pop. 6.8 million) and the stage where legends are crowned. The season's most decisive events are all played here.",
+            "Welcome to Halcyon, the planet's greatest metropolis with 6.8 million inhabitants. When tennis needs its grandest stage, it comes here.",
+            "The tour descends on Halcyon (pop. 6.8 million), the colossal capital of commerce, culture, and elite tennis.",
+            "Halcyon. Population: 6.8 million. The biggest city in the world, and the place where season-defining titles are won and lost.",
+        ]
+        intro = rng.choice(intro_options)
+
+        event_flavors = {
+            'Final Masters': "The Final Masters — reserved for the top 8 players in the world — transforms Halcyon's Sovereign Arena into the most exclusive venue in sport. Only the elite are invited.",
+            'Nextgen Finals': "The Nextgen Finals spotlight the brightest young talents on the tour. In the cavernous Halcyon Youth Arena, future champions announce themselves to the world.",
+            'Kings Cup': "The Kings Cup is tennis royalty made literal: only Grand Slam champions are invited. Halcyon's Throne Court — with its golden accents and royal box — is the fitting backdrop.",
+            'Halcyon Masters': "The Halcyon Masters brings Masters 1000 tennis to the world's biggest city. The Halcyon Central Courts, set against the iconic skyline, draw crowds of over 80,000 across the week.",
+        }
+        event_bit = event_flavors.get(tournament_name, '')
+
+        color_options = [
+            "Halcyon's neon-lit skyline, its titanic Sovereign Bridge, and the legendary Night Market district make it a city unlike any other.",
+            "Beyond the courts, Halcyon offers the Grand Observatory, miles of waterfront parkland, and a dining scene that draws visitors from every nation.",
+            "The city never sleeps: Halcyon's eight interconnected districts pulse with commerce, art, and sport from dawn until well past midnight.",
+            "From the ancient Starfall Citadel in the old town to the gleaming spires of the New Central, Halcyon is a city of contrasts and ambition.",
+        ]
+
+        parts = [intro]
+        if event_bit:
+            parts.append(event_bit)
+        parts.append(rng.choice(color_options))
+        return " ".join(parts)
+
     def _generate_tweet_news(self):
         """Generate short tweet-style news items about interesting events."""
         tweets = []
         last_week = self.current_week - 1 if self.current_week > 1 else 52
 
-        # 1. Young players (<20) with deep runs in significant tournaments
+        # ── 1. Young players (<20) with deep runs — KEEP ONLY THE BEST ONE ──
+        best_prospect = None  # (player, round_idx, total_rounds, tournament)
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and
                 not tournament['category'].startswith("ITF") and
@@ -1721,34 +2090,43 @@ class TournamentScheduler:
                     continue
 
                 total_rounds = len(bracket)
+                # Score prestige of tournament category
+                cat_prestige = len(self.PRESTIGE_ORDER) - (
+                    self.PRESTIGE_ORDER.index(tournament['category'])
+                    if tournament['category'] in self.PRESTIGE_ORDER else 0)
+
                 for round_idx, round_matches in enumerate(bracket):
-                    # Only care about SF and F (last 2 rounds)
                     if round_idx < total_rounds - 2:
                         continue
                     for match in round_matches:
                         for pid in match[:2]:
-                            if pid is None:
+                            if pid is None or pid == tournament.get('winner_id'):
                                 continue
-                            if pid == tournament.get('winner_id'):
-                                continue  # Winners are already covered in tournament news
                             player = next((p for p in self.players if p['id'] == pid), None)
                             if not player or player.get('age', 30) >= 20:
                                 continue
-                            archetype = player.get('archetype', 'Balanced Player')
-                            round_name = "final" if round_idx == total_rounds - 1 else "semifinals"
-                            tweet_templates = [
-                                f"Keep an eye on {player['name']}! The {player['age']}-year-old {archetype.lower()} reached the {round_name} of the {tournament['name']}.",
-                                f"{player['name']} ({player['age']}) is showing serious promise. The young {archetype.lower()} made it to the {round_name} at the {tournament['name']}.",
-                                f"Prospect alert: {player['name']}, a {player['age']}-year-old {archetype.lower()}, just reached the {round_name} of a {tournament['category']} event.",
-                                f"The future looks bright for {player['name']}. At {player['age']}, the {archetype.lower()} is already competing deep in {tournament['category']} draws.",
-                            ]
-                            tweets.append({
-                                'type': 'tweet',
-                                'title': '\U0001F4AC PROSPECT WATCH',
-                                'content': random.choice(tweet_templates)
-                            })
+                            # Score: higher round + higher prestige = better story
+                            score = round_idx * 10 + cat_prestige
+                            if best_prospect is None or score > best_prospect[4]:
+                                best_prospect = (player, round_idx, total_rounds, tournament, score)
 
-        # 2. Players who had a big ranking rise this year
+        if best_prospect:
+            player, round_idx, total_rounds, tournament, _ = best_prospect
+            archetype = player.get('archetype', 'Balanced Player')
+            round_name = "final" if round_idx == total_rounds - 1 else "semifinals"
+            tweet_templates = [
+                f"Keep an eye on {player['name']}! The {player['age']}-year-old {archetype.lower()} reached the {round_name} of the {tournament['name']}.",
+                f"{player['name']} ({player['age']}) is showing serious promise. The young {archetype.lower()} made it to the {round_name} at the {tournament['name']}.",
+                f"Prospect alert: {player['name']}, a {player['age']}-year-old {archetype.lower()}, just reached the {round_name} of a {tournament['category']} event.",
+                f"The future looks bright for {player['name']}. At {player['age']}, the {archetype.lower()} is already competing deep in {tournament['category']} draws.",
+            ]
+            tweets.append({
+                'type': 'tweet',
+                'title': '💬 PROSPECT WATCH',
+                'content': random.choice(tweet_templates)
+            })
+
+        # ── 2. Seasonal ranking rise ──
         for player in self.players:
             if player.get('retired', False):
                 continue
@@ -1758,19 +2136,19 @@ class TournamentScheduler:
             if last_year_key in year_rankings:
                 old_rank = year_rankings[last_year_key]
                 if old_rank > 100 and current_rank <= 50:
-                    if random.random() < 0.08:  # Small chance per week to avoid spam
+                    if random.random() < 0.08:
                         archetype = player.get('archetype', 'player')
                         tweets.append({
                             'type': 'tweet',
-                            'title': '\U0001F4AC RISING STAR',
+                            'title': '💬 RISING STAR',
                             'content': random.choice([
-                                f"{player['name']} has been on a tear this season \u2014 from #{old_rank} to #{current_rank}. The {archetype.lower()} is making a statement.",
+                                f"{player['name']} has been on a tear this season — from #{old_rank} to #{current_rank}. The {archetype.lower()} is making a statement.",
                                 f"Remember the name: {player['name']}. Ranked #{old_rank} at the start of the year, now all the way up to #{current_rank}.",
                                 f"{player['name']}'s rise continues. The {archetype.lower()} started the year at #{old_rank} and now sits at #{current_rank}.",
                             ])
                         })
 
-        # 3. New world #1 (first time ever)
+        # ── 3. New world #1 (first time ever) ──
         current_no1 = next(
             (p for p in self.players if p.get('rank') == 1 and not p.get('retired', False)),
             None
@@ -1778,15 +2156,15 @@ class TournamentScheduler:
         if current_no1 and current_no1.get('w1', 0) == 1:
             tweets.append({
                 'type': 'tweet',
-                'title': '\U0001F451 NEW WORLD #1',
+                'title': '👑 NEW WORLD #1',
                 'content': random.choice([
                     f"{current_no1['name']} reaches the summit! A new world #1 is crowned.",
-                    f"History is made \u2014 {current_no1['name']} rises to the #1 ranking for the first time!",
+                    f"History is made — {current_no1['name']} rises to the #1 ranking for the first time!",
                     f"A new era begins. {current_no1['name']} is the new world #1.",
                 ])
             })
 
-        # 4. Veteran still winning (age >= 32, won a title recently)
+        # ── 4. Veteran still winning (age >= 32) ──
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and tournament.get('winner_id') and
                 not tournament['category'].startswith("Challenger") and
@@ -1796,7 +2174,7 @@ class TournamentScheduler:
                 if winner and winner.get('age', 20) >= 32:
                     tweets.append({
                         'type': 'tweet',
-                        'title': '\U0001F4AC AGELESS',
+                        'title': '💬 AGELESS',
                         'content': random.choice([
                             f"Age is just a number. {winner['name']}, {winner['age']}, proves he still has what it takes with a title at the {tournament['name']}.",
                             f"Don't count out the veterans. {winner['name']} ({winner['age']}) is still winning at the highest level.",
@@ -1804,9 +2182,699 @@ class TournamentScheduler:
                         ])
                     })
 
-        # Limit to avoid flooding the feed
-        if len(tweets) > 3:
-            tweets = random.sample(tweets, 3)
+        # ── 5. Weekly stat improvements (who gained skill points this week) ──
+        pre_dev = getattr(self, '_pre_dev_skills', {})
+        if pre_dev:
+            improvers = []
+            for player in self.players:
+                if player.get('retired', False) or player['id'] not in pre_dev:
+                    continue
+                old_skills = pre_dev[player['id']]
+                new_skills = player.get('skills', {})
+                gained = {}
+                for sk, new_val in new_skills.items():
+                    old_val = old_skills.get(sk, new_val)
+                    if new_val > old_val:
+                        gained[sk] = new_val - old_val
+                if gained:
+                    total_gain = sum(gained.values())
+                    improvers.append((player, gained, total_gain))
+
+            # Sort by total gain descending, take top few
+            improvers.sort(key=lambda x: x[2], reverse=True)
+            for player, gained, total_gain in improvers[:2]:
+                skill_names = list(gained.keys())
+                if len(skill_names) == 1:
+                    skill_str = f"{skill_names[0]} (+{gained[skill_names[0]]})"
+                elif len(skill_names) == 2:
+                    skill_str = f"{skill_names[0]} (+{gained[skill_names[0]]}) and {skill_names[1]} (+{gained[skill_names[1]]})"
+                else:
+                    skill_str = ", ".join(f"{s} (+{gained[s]})" for s in skill_names[:3])
+
+                age = player.get('age', 20)
+                archetype = player.get('archetype', 'player')
+                templates = [
+                    f"📈 {player['name']} has been putting in the work. Noticeable improvement in {skill_str} this week.",
+                    f"Training paying off for {player['name']}! The {archetype.lower()} improved his {skill_str}.",
+                    f"{player['name']} ({age}) leveling up — gains in {skill_str}. Watch this space.",
+                    f"The grind never stops. {player['name']} showing improvement in {skill_str}.",
+                ]
+                if age < 20:
+                    templates.append(f"Only {age} and already improving fast. {player['name']} boosted his {skill_str} this week.")
+                tweets.append({
+                    'type': 'tweet',
+                    'title': '📊 DEVELOPMENT UPDATE',
+                    'content': random.choice(templates)
+                })
+
+        # ── 6. Ranking milestones (first time top 10, top 50, career high) ──
+        old_ranks = getattr(self, 'old_rankings', {})
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            current_rank = player.get('rank', 999)
+            old_rank = old_ranks.get(player['id'], 999)
+
+            # First time top 10
+            if current_rank <= 10 and old_rank > 10:
+                tweets.append({
+                    'type': 'tweet',
+                    'title': '🔟 TOP 10 BREAKTHROUGH',
+                    'content': random.choice([
+                        f"Welcome to the elite! {player['name']} breaks into the top 10 for the first time, climbing to #{current_rank}.",
+                        f"{player['name']} cracks the top 10! A milestone moment in his career — now ranked #{current_rank}.",
+                        f"Top 10 alert: {player['name']} has arrived. From #{old_rank} to #{current_rank} this week.",
+                    ])
+                })
+            # First time top 50
+            elif current_rank <= 50 and old_rank > 50:
+                if random.random() < 0.5:  # Don't always report top 50 entries
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '💬 CLIMBING THE RANKS',
+                        'content': random.choice([
+                            f"{player['name']} enters the top 50 for the first time! Now ranked #{current_rank}.",
+                            f"Milestone: {player['name']} moves to #{current_rank}, breaking into the top 50.",
+                            f"Steady climb for {player['name']} — he's now a top-50 player at #{current_rank}.",
+                        ])
+                    })
+
+            # New career-high ranking (only for players already ranked decently)
+            if (current_rank < old_rank and current_rank <= 30 and
+                current_rank == player.get('highest_ranking', 999)):
+                # Only report if it's a meaningful jump
+                if old_rank - current_rank >= 3:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '⬆️ CAREER HIGH',
+                        'content': random.choice([
+                            f"New career-high ranking for {player['name']}! He jumps from #{old_rank} to #{current_rank}.",
+                            f"{player['name']} hits a new peak — #{current_rank} is the highest he's ever been ranked.",
+                            f"Career best! {player['name']} surges to #{current_rank}, up {old_rank - current_rank} spots this week.",
+                        ])
+                    })
+
+        # ── 7. Biggest ranking drop of the week ──
+        biggest_drop = None
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            current_rank = player.get('rank', 999)
+            old_rank = old_ranks.get(player['id'], 999)
+            drop = current_rank - old_rank
+            if drop >= 10 and old_rank <= 50:  # Only notable drops for top players
+                if biggest_drop is None or drop > biggest_drop[1]:
+                    biggest_drop = (player, drop, old_rank, current_rank)
+
+        if biggest_drop:
+            player, drop, old_rank, current_rank = biggest_drop
+            tweets.append({
+                'type': 'tweet',
+                'title': '📉 ROUGH WEEK',
+                'content': random.choice([
+                    f"Tough times for {player['name']}. Drops {drop} spots from #{old_rank} to #{current_rank}.",
+                    f"{player['name']} slides from #{old_rank} to #{current_rank}. What's going on?",
+                    f"Not the week {player['name']} wanted — down {drop} places to #{current_rank}.",
+                    f"Concerned fans watching {player['name']} fall from #{old_rank} to #{current_rank}. Time to regroup.",
+                ])
+            })
+
+        # ── 8. Title collection hot streak (multiple wins in recent weeks) ──
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            recent_wins = [w for w in player.get('tournament_wins', [])
+                          if w.get('year') == self.current_year]
+            if len(recent_wins) >= 3:
+                if random.random() < 0.12:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '🔥 HOT STREAK',
+                        'content': random.choice([
+                            f"{player['name']} is on fire this season! Already {len(recent_wins)} titles in {self.current_year}.",
+                            f"Can anyone stop {player['name']}? That's {len(recent_wins)} tournament wins this year and counting.",
+                            f"{player['name']} is collecting trophies like it's nothing — {len(recent_wins)} titles in {self.current_year} so far.",
+                            f"Dominant season from {player['name']}. {len(recent_wins)} titles this year. The rest of the tour is on notice.",
+                        ])
+                    })
+
+        # ── 9. Upset alert — low-ranked player won a big tournament ──
+        for tournament in self.tournaments:
+            if (tournament['week'] == last_week and tournament.get('winner_id') and
+                tournament['category'] in ('Grand Slam', 'Masters 1000', 'ATP 500')):
+                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
+                if winner and winner.get('rank', 999) > 50:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '😱 UPSET SPECIAL',
+                        'content': random.choice([
+                            f"Nobody saw this coming! World #{winner.get('rank', '?')} {winner['name']} wins the {tournament['name']}. The bracket is in shambles.",
+                            f"UPSET OF THE YEAR candidate: #{winner.get('rank', '?')} {winner['name']} takes down the field at the {tournament['name']}!",
+                            f"{winner['name']}, ranked #{winner.get('rank', '?')}, just won a {tournament['category']} event. Tennis is chaos and we love it.",
+                        ])
+                    })
+
+        # ── 10. Surface specialist commentary ──
+        for tournament in self.tournaments:
+            if (tournament['week'] == last_week and tournament.get('winner_id') and
+                not tournament['category'].startswith("Challenger") and
+                not tournament['category'].startswith("ITF") and
+                not tournament['category'] == "Juniors"):
+                surface = tournament.get('surface', '')
+                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
+                if winner and surface:
+                    surface_mod = winner.get('surface_modifiers', {}).get(surface, 1.0)
+                    surface_wins = [w for w in winner.get('tournament_wins', [])
+                                   if any(t.get('surface') == surface and t['name'] == w['name']
+                                         for t in self.tournaments)]
+                    if surface_mod >= 1.02 and len(surface_wins) >= 3:
+                        tweets.append({
+                            'type': 'tweet',
+                            'title': f'🎾 {surface.upper()} KING',
+                            'content': random.choice([
+                                f"{winner['name']} is absolutely lethal on {surface}. Another title on his favorite surface.",
+                                f"Is {winner['name']} the best {surface}-court player on tour? The results speak for themselves.",
+                                f"{winner['name']} + {surface} = automatic titles. The {winner.get('archetype', 'player').lower()} is a {surface} specialist.",
+                            ])
+                        })
+
+        # ── 11. HOT TAKES & color commentary (randomized filler tweets) ──
+        # Top player hasn't won a slam this year
+        top_5 = [p for p in self.players if p.get('rank', 999) <= 5 and not p.get('retired', False)]
+        for p in top_5:
+            gs_wins_this_year = [w for w in p.get('tournament_wins', [])
+                                if w.get('year') == self.current_year and w.get('category') == 'Grand Slam']
+            total_gs = len([w for w in p.get('tournament_wins', []) if w.get('category') == 'Grand Slam'])
+            if total_gs > 0 and len(gs_wins_this_year) == 0 and self.current_week > 30:
+                if random.random() < 0.04:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '🗣️ HOT TAKE',
+                        'content': random.choice([
+                            f"Is {p['name']} past his Grand Slam-winning days? Still ranked #{p['rank']} but no Slam title in {self.current_year}.",
+                            f"Hot take: {p['name']} won't add another Grand Slam to his collection. Prove me wrong.",
+                            f"For a player of {p['name']}'s caliber, a year without a Grand Slam title has to sting.",
+                        ])
+                    })
+
+        # Random stat leader spotlight
+        if random.random() < 0.15:
+            stat_choices = [
+                ('serve', '🎯 SERVE MACHINE'),
+                ('forehand', '💥 FOREHAND WEAPON'),
+                ('backhand', '🔄 BACKHAND MAESTRO'),
+                ('speed', '⚡ SPEED DEMON'),
+                ('volley', '🏐 NET WIZARD'),
+                ('dropshot', '🪶 TOUCH ARTIST'),
+            ]
+            stat_key, title = random.choice(stat_choices)
+            active = [p for p in self.players if not p.get('retired', False) and p.get('rank', 999) <= 100]
+            if active:
+                best = max(active, key=lambda p: p.get('skills', {}).get(stat_key, 0))
+                stat_val = best.get('skills', {}).get(stat_key, 0)
+                if stat_val >= 70:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': title,
+                        'content': random.choice([
+                            f"{best['name']} has the best {stat_key} on tour right now ({stat_val} rating). Absolute weapon.",
+                            f"Stat check: {best['name']}'s {stat_key} is rated {stat_val}. Best among top-100 players.",
+                            f"Want to see elite {stat_key} technique? Watch {best['name']}. {stat_val} rating, best on tour.",
+                        ])
+                    })
+
+        # ── 12. Biggest weekly ranking climber ──
+        biggest_climb = None
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            current_rank = player.get('rank', 999)
+            old_rank = old_ranks.get(player['id'], 999)
+            climb = old_rank - current_rank
+            if climb >= 10 and current_rank <= 100:
+                if biggest_climb is None or climb > biggest_climb[1]:
+                    biggest_climb = (player, climb, old_rank, current_rank)
+
+        if biggest_climb:
+            player, climb, old_rank, current_rank = biggest_climb
+            tweets.append({
+                'type': 'tweet',
+                'title': '🚀 BIGGEST MOVER',
+                'content': random.choice([
+                    f"Biggest mover of the week: {player['name']} rockets up {climb} spots to #{current_rank}!",
+                    f"{player['name']} is this week's biggest climber — #{old_rank} → #{current_rank}. (+{climb})",
+                    f"Up {climb} ranks! {player['name']} jumps from #{old_rank} to #{current_rank} in a single week.",
+                ])
+            })
+
+        # ── 13. First career title (only for challengers/smaller events) ──
+        for tournament in self.tournaments:
+            if (tournament['week'] == last_week and tournament.get('winner_id') and
+                tournament['category'].startswith("Challenger")):
+                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
+                if winner:
+                    total_wins = len(winner.get('tournament_wins', []))
+                    if total_wins == 1:
+                        tweets.append({
+                            'type': 'tweet',
+                            'title': '💬 FIRST STEPS',
+                            'content': random.choice([
+                                f"Everyone starts somewhere. {winner['name']} picks up his first professional title at the {tournament['name']}. A career begins.",
+                                f"First title secured! {winner['name']} wins the {tournament['name']}. From unknown to champion.",
+                                f"{winner['name']} will never forget this week — his first ever professional title, at the {tournament['name']}.",
+                            ])
+                        })
+
+        # ── 14. Veterans declining (big drop for old player) ──
+        for player in self.players:
+            if player.get('retired', False) or player.get('age', 20) < 30:
+                continue
+            current_rank = player.get('rank', 999)
+            old_rank = old_ranks.get(player['id'], 999)
+            if current_rank - old_rank >= 8 and old_rank <= 60:
+                if random.random() < 0.3:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '💬 FATHER TIME',
+                        'content': random.choice([
+                            f"Is the end near for {player['name']}? The {player['age']}-year-old drops from #{old_rank} to #{current_rank}.",
+                            f"{player['name']} ({player['age']}) sliding down the rankings — #{old_rank} to #{current_rank}. Retirement talk incoming?",
+                            f"Father Time remains undefeated. {player['name']}, {player['age']}, falls to #{current_rank}.",
+                        ])
+                    })
+
+        # ── 15. Close to milestone title count ──
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            total_wins = len(player.get('tournament_wins', []))
+            if total_wins in [9, 19, 24, 29, 49]:
+                if random.random() < 0.05:
+                    milestone = total_wins + 1
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '🏆 MILESTONE WATCH',
+                        'content': random.choice([
+                            f"{player['name']} sits at {total_wins} career titles. Can he reach {milestone} this season?",
+                            f"Just one more win from a milestone — {player['name']} has {total_wins} titles. #{milestone} is calling.",
+                            f"Milestone alert: {player['name']} is one title away from {milestone} career wins.",
+                        ])
+                    })
+
+        # ── 16. Young prodigy enters top 30 (under 24 — peak development age) ──
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            current_rank = player.get('rank', 999)
+            old_rank = old_ranks.get(player['id'], 999)
+            age = player.get('age', 30)
+            if age < 24 and current_rank <= 30 and old_rank > 30:
+                archetype = player.get('archetype', 'player')
+                tweets.append({
+                    'type': 'tweet',
+                    'title': '🌟 FUTURE STAR',
+                    'content': random.choice([
+                        f"{player['name']} enters the top 30 at just {age} years old! Still in his prime development years — the ceiling is scary.",
+                        f"Only {age} and already #{current_rank} in the world. {player['name']} hasn't even hit his peak yet. Remember this tweet.",
+                        f"{player['name']} ({age}) breaks into the top 30. With years of development still ahead, this {archetype.lower()} could be special.",
+                        f"Top 30 before turning 24. {player['name']} is doing things ahead of schedule — and he's only going to get better.",
+                    ])
+                })
+
+        # ── 17. Scouting report — under 20 enters top 150 ──
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            current_rank = player.get('rank', 999)
+            old_rank = old_ranks.get(player['id'], 999)
+            age = player.get('age', 30)
+            if age < 20 and current_rank <= 150 and old_rank > 150:
+                archetype = player.get('archetype', 'player')
+                potential = player.get('potential_factor', 1.0)
+                tweets.append({
+                    'type': 'tweet',
+                    'title': '🔎 SCOUTING REPORT',
+                    'content': random.choice([
+                        f"Scouts are buzzing about {player['name']}. The {age}-year-old {archetype.lower()} just broke into the top 150. Future superstar material?",
+                        f"Add {player['name']} to your watchlist. At {age}, reaching #{current_rank} is extremely rare. This kid is the real deal.",
+                        f"📋 Scouting alert: {player['name']} ({age}) enters the top 150 at #{current_rank}. The {archetype.lower()} is years ahead of the curve.",
+                        f"They don't reach the top 150 at {age} unless they're something special. {player['name']} is one to watch very closely.",
+                    ])
+                })
+
+        # ── 18. Young vs Old matchup narrative ──
+        for tournament in self.tournaments:
+            if tournament['week'] == last_week and tournament.get('bracket'):
+                bracket = tournament['bracket']
+                total_rounds = len(bracket)
+                # Check the final specifically
+                if total_rounds >= 1:
+                    final_round = bracket[-1]
+                    for match in final_round:
+                        if len(match) >= 3 and match[2] is not None:
+                            p1 = next((p for p in self.players if p['id'] == match[0]), None)
+                            p2 = next((p for p in self.players if p['id'] == match[1]), None)
+                            if p1 and p2:
+                                age_diff = abs(p1.get('age', 25) - p2.get('age', 25))
+                                young = p1 if p1.get('age', 25) < p2.get('age', 25) else p2
+                                old = p2 if young == p1 else p1
+                                if age_diff >= 10 and young.get('age', 25) <= 22:
+                                    winner = next((p for p in self.players if p['id'] == match[2]), None)
+                                    if winner:
+                                        if winner['id'] == young['id']:
+                                            tweets.append({
+                                                'type': 'tweet',
+                                                'title': '⚔️ CLASH OF GENERATIONS',
+                                                'content': f"Youth prevails! {young['name']} ({young['age']}) defeats {old['name']} ({old['age']}) in the {tournament['name']} final. The changing of the guard continues."
+                                            })
+                                        else:
+                                            tweets.append({
+                                                'type': 'tweet',
+                                                'title': '⚔️ CLASH OF GENERATIONS',
+                                                'content': f"Experience wins out! {old['name']} ({old['age']}) holds off {young['name']} ({young['age']}) in the {tournament['name']} final. Not yet, kid."
+                                            })
+
+        # ── 18. Overall rating spotlight ──
+        if random.random() < 0.10:
+            active = [p for p in self.players if not p.get('retired', False)]
+            if active:
+                def calc_ovr(p):
+                    skills = p.get('skills', {})
+                    return round(sum(skills.values()) / max(1, len(skills)), 1) if skills else 0
+
+                best_ovr = max(active, key=calc_ovr)
+                ovr = calc_ovr(best_ovr)
+                if ovr >= 65:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '👤 PLAYER SPOTLIGHT',
+                        'content': random.choice([
+                            f"{best_ovr['name']} currently has the highest overall rating on tour ({ovr}). The complete package.",
+                            f"By the numbers, {best_ovr['name']} is the most complete player in tennis right now. OVR: {ovr}.",
+                            f"No weaknesses. {best_ovr['name']} tops the tour with a {ovr} overall rating.",
+                        ])
+                    })
+
+        # ── 19. Nationality dominance ──
+        if random.random() < 0.08:
+            from collections import Counter
+            nationalities = Counter(
+                p.get('nationality', 'Unknown')
+                for p in self.players
+                if not p.get('retired', False) and p.get('rank', 999) <= 20
+            )
+            if nationalities:
+                top_nat, count = nationalities.most_common(1)[0]
+                if count >= 3:
+                    players_from = [p['name'] for p in self.players
+                                   if p.get('nationality') == top_nat and p.get('rank', 999) <= 20
+                                   and not p.get('retired', False)][:3]
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '🌍 NATIONAL PRIDE',
+                        'content': random.choice([
+                            f"{top_nat} is dominating tennis right now! {count} players in the top 20, including {', '.join(players_from)}.",
+                            f"What are they putting in the water in {top_nat}? {count} top-20 players and counting.",
+                            f"{top_nat} tennis is having a golden era — {', '.join(players_from)} all in the top 20.",
+                        ])
+                    })
+
+        # ── 20. Weekly matches played milestone ──
+        for player in self.players:
+            if player.get('retired', False):
+                continue
+            mp = player.get('matches_played', 0)
+            if mp in [100, 250, 500, 750, 1000]:
+                tweets.append({
+                    'type': 'tweet',
+                    'title': '📊 MATCH MILESTONE',
+                    'content': random.choice([
+                        f"{player['name']} has now played {mp} professional matches. A testament to longevity and dedication.",
+                        f"Milestone: {player['name']} reaches {mp} career matches played. What a journey.",
+                        f"{mp} matches and counting for {player['name']}. The body of work speaks for itself.",
+                    ])
+                })
+
+        # ── 21. Title defense upcoming ──
+        next_week = self.current_week + 1 if self.current_week < 52 else 1
+        for tournament in self.tournaments:
+            if tournament['week'] == next_week:
+                for player in self.players:
+                    if player.get('retired', False):
+                        continue
+                    defending = any(
+                        w['name'] == tournament['name'] and w.get('year') == self.current_year - 1
+                        for w in player.get('tournament_wins', [])
+                    )
+                    if defending:
+                        career_wins_here = len([
+                            w for w in player.get('tournament_wins', [])
+                            if w['name'] == tournament['name']
+                        ])
+                        tweets.append({
+                            'type': 'tweet',
+                            'title': '🏟️ TITLE DEFENSE',
+                            'content': random.choice([
+                                f"All eyes on {player['name']} next week as he defends his {tournament['name']} title. Can he do it again?",
+                                f"{player['name']} returns to the {tournament['name']} as defending champion. The pressure is on.",
+                                f"Reminder: {player['name']} won the {tournament['name']} last year. He'll look to defend his crown next week.",
+                                f"Must-watch next week: {player['name']} puts his {tournament['name']} title on the line.",
+                            ]) if career_wins_here <= 1 else random.choice([
+                                f"{player['name']} heads to the {tournament['name']} as defending champion — and he's won it {career_wins_here} times. Good luck to the field.",
+                                f"The {tournament['name']} is {player['name']}'s kingdom. He returns to defend title #{career_wins_here}.",
+                            ])
+                        })
+
+        # ── 22. Early regression (age 28-30 only — rare and newsworthy) ──
+        if pre_dev:
+            for player in self.players:
+                if player.get('retired', False) or player['id'] not in pre_dev:
+                    continue
+                age = player.get('age', 20)
+                if age < 28 or age > 30:
+                    continue
+                old_skills = pre_dev[player['id']]
+                new_skills = player.get('skills', {})
+                lost = {}
+                for sk, new_val in new_skills.items():
+                    old_val = old_skills.get(sk, new_val)
+                    if new_val < old_val:
+                        lost[sk] = old_val - new_val
+                if lost:
+                    skill_str = " and ".join(f"{s} (-{lost[s]})" for s in list(lost.keys())[:2])
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '⚠️ EARLY REGRESSION',
+                        'content': random.choice([
+                            f"Concerning signs for {player['name']} ({age}). His {skill_str} took a dip this week. Too early to panic?",
+                            f"{player['name']} is only {age}, but his {skill_str} already showing signs of decline. Unusual at this age.",
+                            f"Early regression alert: {player['name']}'s {skill_str} dropped this week. At {age}, this is worth monitoring closely.",
+                            f"The clock might be ticking earlier than expected for {player['name']}. {skill_str} declining at just {age}.",
+                        ])
+                    })
+
+        # ── 23. Archetype showdown in a final ──
+        for tournament in self.tournaments:
+            if tournament['week'] == last_week and tournament.get('bracket'):
+                bracket = tournament['bracket']
+                if not bracket:
+                    continue
+                final_round = bracket[-1]
+                for match in final_round:
+                    if len(match) >= 3 and match[0] is not None and match[1] is not None:
+                        p1 = next((p for p in self.players if p['id'] == match[0]), None)
+                        p2 = next((p for p in self.players if p['id'] == match[1]), None)
+                        if p1 and p2:
+                            a1 = p1.get('archetype', '')
+                            a2 = p2.get('archetype', '')
+                            k1 = set(p1.get('archetype_key', []))
+                            k2 = set(p2.get('archetype_key', []))
+                            # Only report if archetypes are different and skill overlap is low
+                            if a1 and a2 and a1 != a2 and len(k1 & k2) <= 1:
+                                if not tournament['category'].startswith("Challenger") and not tournament['category'].startswith("ITF") and tournament['category'] != "Juniors":
+                                    tweets.append({
+                                        'type': 'tweet',
+                                        'title': '🎯 ARCHETYPE SHOWDOWN',
+                                        'content': random.choice([
+                                            f"What a final at the {tournament['name']}! {p1['name']} ({a1}) vs {p2['name']} ({a2}). Two completely different styles going head to head.",
+                                            f"Style clash at the {tournament['name']} final: the {a1.lower()} {p1['name']} against the {a2.lower()} {p2['name']}. Tactics will decide this one.",
+                                            f"{a1} meets {a2} in the {tournament['name']} final. {p1['name']} vs {p2['name']} — contrasting philosophies, one trophy.",
+                                        ])
+                                    })
+
+        # ── 24. Stat comparison — two top players head to head ──
+        if random.random() < 0.10:
+            top_players = [p for p in self.players
+                          if not p.get('retired', False) and p.get('rank', 999) <= 15]
+            if len(top_players) >= 2:
+                p1, p2 = random.sample(top_players, 2)
+                s1 = p1.get('skills', {})
+                s2 = p2.get('skills', {})
+                # Find skills where each player leads
+                p1_leads = [(sk, s1.get(sk, 0), s2.get(sk, 0)) for sk in s1
+                           if s1.get(sk, 0) > s2.get(sk, 0) + 5]
+                p2_leads = [(sk, s2.get(sk, 0), s1.get(sk, 0)) for sk in s2
+                           if s2.get(sk, 0) > s1.get(sk, 0) + 5]
+                if p1_leads and p2_leads:
+                    p1_best = max(p1_leads, key=lambda x: x[1] - x[2])
+                    p2_best = max(p2_leads, key=lambda x: x[1] - x[2])
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '📊 STAT COMPARISON',
+                        'content': random.choice([
+                            f"{p1['name']} vs {p2['name']} — who's better? {p1['name']}'s {p1_best[0]} ({p1_best[1]}) edges out ({p1_best[2]}), but {p2['name']}'s {p2_best[0]} ({p2_best[1]}) is superior ({p2_best[2]}). Depends what you value.",
+                            f"Tale of the tape: {p1['name']} has the {p1_best[0]} advantage ({p1_best[1]} vs {p1_best[2]}), {p2['name']} wins on {p2_best[0]} ({p2_best[1]} vs {p2_best[2]}). Who would you rather have?",
+                            f"Quick comparison — {p1['name']}: {p1_best[0]} {p1_best[1]}. {p2['name']}: {p2_best[0]} {p2_best[1]}. Both elite, completely different strengths.",
+                        ])
+                    })
+
+        # ── 25. Dynasty watch — same tournament won 3+ times ──
+        for tournament in self.tournaments:
+            if (tournament['week'] == last_week and tournament.get('winner_id') and
+                not tournament['category'].startswith("ITF") and
+                not tournament['category'] == "Juniors"):
+                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
+                if winner:
+                    times_won = len([
+                        w for w in winner.get('tournament_wins', [])
+                        if w['name'] == tournament['name']
+                    ])
+                    if times_won >= 3:
+                        ordinal = f"{times_won}{'rd' if times_won == 3 else 'th'}"
+                        tweets.append({
+                            'type': 'tweet',
+                            'title': '🏆 DYNASTY WATCH',
+                            'content': random.choice([
+                                f"{winner['name']} wins the {tournament['name']} for the {ordinal} time. He owns this tournament.",
+                                f"Dynasty alert: {winner['name']} captures his {ordinal} {tournament['name']} title. Does anyone else even bother entering?",
+                                f"The {tournament['name']} belongs to {winner['name']}. Title #{times_won} at his favorite hunting ground.",
+                                f"{times_won} titles at the same tournament. {winner['name']} and the {tournament['name']} — a love story for the ages.",
+                            ])
+                        })
+
+        # ── 26. Cold streak — top-30 player, no title all year (late season) ──
+        if self.current_week > 30:
+            for player in self.players:
+                if player.get('retired', False):
+                    continue
+                current_rank = player.get('rank', 999)
+                if current_rank > 30:
+                    continue
+                titles_this_year = [w for w in player.get('tournament_wins', [])
+                                   if w.get('year') == self.current_year]
+                if len(titles_this_year) == 0:
+                    if random.random() < 0.04:
+                        tweets.append({
+                            'type': 'tweet',
+                            'title': '🧊 COLD STREAK',
+                            'content': random.choice([
+                                f"Week {self.current_week} and still no title for #{current_rank} {player['name']} in {self.current_year}. The drought continues.",
+                                f"{player['name']} is ranked #{current_rank} but has zero titles this year. Is something off, or just unlucky?",
+                                f"Titleless in {self.current_year}: {player['name']} (#{current_rank}) still searching for silverware. Time is running out.",
+                                f"For someone ranked #{current_rank}, going titleless this deep into the season is unusual. {player['name']} needs a breakthrough.",
+                            ])
+                        })
+
+        # ── 27. Youngest in top X ──
+        if random.random() < 0.10:
+            active_ranked = [p for p in self.players
+                            if not p.get('retired', False) and p.get('rank', 999) <= 150]
+            if active_ranked:
+                youngest = min(active_ranked, key=lambda p: (p.get('age', 99), p.get('rank', 999)))
+                age = youngest.get('age', 99)
+                rank = youngest.get('rank', 999)
+                if age <= 20:
+                    if rank <= 10:
+                        tier = "top 10"
+                    elif rank <= 20:
+                        tier = "top 20"
+                    elif rank <= 50:
+                        tier = "top 50"
+                    elif rank <= 100:
+                        tier = "top 100"
+                    else:
+                        tier = "top 150"
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '👶 YOUNGEST ON TOUR',
+                        'content': random.choice([
+                            f"At just {age}, {youngest['name']} is the youngest player in the {tier}. The future of tennis, right here.",
+                            f"Fun fact: {youngest['name']} ({age}) is the youngest {tier} player on tour right now. Ranked #{rank}.",
+                            f"Nobody in the {tier} is younger than {youngest['name']}. At {age}, he's got the whole tennis world ahead of him.",
+                            f"{youngest['name']}, {age} years old, #{rank} in the world. Youngest player in the {tier}. Let that sink in.",
+                        ])
+                    })
+
+        # ── 28. Fanboy tweet ──
+        if random.random() < 0.20:
+            candidates = [p for p in self.players
+                         if not p.get('retired', False) and p.get('rank', 999) <= 80
+                         and p.get('archetype')]
+            if candidates:
+                player = random.choice(candidates)
+                archetype = player.get('archetype', 'player')
+                arch_key = player.get('archetype_key', [])
+                skills = player.get('skills', {})
+                # Pick the best skill from their archetype key skills
+                best_skill = None
+                best_val = 0
+                for sk in arch_key:
+                    val = skills.get(sk, 0)
+                    if val > best_val:
+                        best_skill = sk
+                        best_val = val
+                if not best_skill:
+                    # Fallback to their overall best skill
+                    if skills:
+                        best_skill = max(skills, key=skills.get)
+                        best_val = skills[best_skill]
+
+                if best_skill and best_val > 0:
+                    rank = player.get('rank', '?')
+                    age = player.get('age', '?')
+
+                    # Skill flavor descriptions
+                    skill_flavors = {
+                        'serve': ['serving', 'serve', 'delivery'],
+                        'forehand': ['forehand', 'forehand technique', 'forehand power'],
+                        'backhand': ['backhand', 'backhand precision', 'two-hander' if random.random() < 0.5 else 'backhand'],
+                        'speed': ['movement', 'court coverage', 'footwork'],
+                        'stamina': ['endurance', 'fitness', 'stamina'],
+                        'straight': ['down-the-line game', 'straight shots', 'line-painting'],
+                        'cross': ['cross-court game', 'angles', 'cross-court winners'],
+                        'dropshot': ['touch', 'dropshots', 'feel at the net'],
+                        'volley': ['net game', 'volleys', 'hands at the net'],
+                    }
+                    skill_word = random.choice(skill_flavors.get(best_skill, [best_skill]))
+
+                    fan_tweets = [
+                        f"{player['name']} is playing so well recently. His style of {archetype.lower()} is so fun to watch and his {skill_word} is absolutely elite right now! 🎾🔥",
+                        f"I don't care what anyone says, {player['name']} is the most entertaining player on tour. That {skill_word}?? Unreal. Pure {archetype.lower()} magic ✨",
+                        f"Just watched {player['name']} highlights and WOW. The {skill_word} is on another level. {archetype} at its finest 🙌",
+                        f"Hot take: {player['name']} is underrated. #{rank} doesn't do him justice. The way he plays as a {archetype.lower()} with that {skill_word}... chef's kiss 👨‍🍳",
+                        f"My guy {player['name']} making the {archetype.lower()} style look so smooth. That {skill_word} is a thing of beauty 😍",
+                        f"Been watching {player['name']} since day one. {age} years old, ranked #{rank}, and that {skill_word} keeps getting better. {archetype} GOAT don't @ me 🐐",
+                        f"If you're not watching {player['name']} play, you're missing out. The {archetype.lower()} playstyle combined with his {skill_word}... poetry in motion 📝",
+                        f"Unpopular opinion: {player['name']}'s {skill_word} is the best on tour and it's not even close. {archetype} built different 💪",
+                    ]
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '🗨️ FAN ZONE',
+                        'content': random.choice(fan_tweets)
+                    })
+
+        # Shuffle and limit to keep the feed interesting but not overwhelming
+        random.shuffle(tweets)
+        if len(tweets) > 12:
+            # Always keep priority tweets (new #1, top 10 breakthrough, upset)
+            priority_titles = {'👑 NEW WORLD #1', '🔟 TOP 10 BREAKTHROUGH', '😱 UPSET SPECIAL',
+                              '⚔️ CLASH OF GENERATIONS', '🚀 BIGGEST MOVER', '🌟 FUTURE STAR',
+                              '🔎 SCOUTING REPORT', '🏆 DYNASTY WATCH', '⚠️ EARLY REGRESSION'}
+            priority = [t for t in tweets if t['title'] in priority_titles]
+            others = [t for t in tweets if t['title'] not in priority_titles]
+            random.shuffle(others)
+            tweets = priority + others
+            tweets = tweets[:12]
 
         return tweets
     

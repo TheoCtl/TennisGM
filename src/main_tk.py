@@ -757,9 +757,13 @@ class TennisGMApp:
         skills_card = tk.Frame(middle_column, bg="white", relief="raised", bd=2)
         skills_card.pack(fill="x", pady=(0, 10))
         
+        # Compute OVR (average of all skills)
+        _skills_vals = list(player.get('skills', {}).values())
+        _ovr = round(sum(_skills_vals) / max(1, len(_skills_vals)), 1) if _skills_vals else 0
+        
         tk.Label(
             skills_card,
-            text="⚡ Skills & Abilities",
+            text=f"⚡ Skills ({_ovr})",
             font=("Arial", 14, "bold"),
             bg="#9b59b6",
             fg="white",
@@ -947,7 +951,7 @@ class TennisGMApp:
             frame = tk.Frame(content_frame, bg="#ecf0f1")
             frame.pack(fill="both", expand=True, padx=10, pady=10)
 
-            text = tk.Text(frame, wrap="word", font=("Arial", 11), height=20,
+            text = tk.Text(frame, wrap="word", font=("Arial", 11), height=35,
                           bg="#ecf0f1", fg="#2c3e50", relief="flat", bd=0, padx=10, pady=10)
             text.pack(side="left", fill="both", expand=True)
 
@@ -964,6 +968,10 @@ class TennisGMApp:
                               spacing1=15, spacing3=3)
             text.tag_configure("tweet_content", font=("Arial", 11, "italic"), foreground="#2980b9",
                               spacing3=2, lmargin1=10, lmargin2=10)
+            text.tag_configure("showcase_title", font=("Arial", 13, "bold"), foreground="#d4a017",
+                              spacing1=15, spacing3=5)
+            text.tag_configure("showcase_content", font=("Arial", 11), foreground="#b8860b",
+                              spacing3=2, lmargin1=10, lmargin2=10)
             text.tag_configure("separator", font=("Arial", 6), foreground="#bdc3c7",
                               spacing1=5, spacing3=5, justify="center")
 
@@ -977,9 +985,16 @@ class TennisGMApp:
                 if i > 0:
                     text.insert("end", "\u2500" * 60 + "\n", "separator")
 
-                is_tweet = item.get('type') == 'tweet'
-                title_tag = "tweet_title" if is_tweet else "title"
-                body_tag = "tweet_content" if is_tweet else "content"
+                item_type = item.get('type', '')
+                if item_type == 'showcase':
+                    title_tag = "showcase_title"
+                    body_tag = "showcase_content"
+                elif item_type == 'tweet':
+                    title_tag = "tweet_title"
+                    body_tag = "tweet_content"
+                else:
+                    title_tag = "title"
+                    body_tag = "content"
 
                 text.insert("end", f"{item['title']}\n", title_tag)
 
@@ -1028,7 +1043,7 @@ class TennisGMApp:
         
         self.current_rankings_tab = getattr(self, 'current_rankings_tab', "All Players")
         
-        tabs = ["All Players", "Favorites"]
+        tabs = ["All Players", "By OVR", "Favorites"]
         for tab in tabs:
             is_active = tab == self.current_rankings_tab
             bg_color = "#3498db" if is_active else "#5d6d7e"
@@ -1081,11 +1096,25 @@ class TennisGMApp:
             self.rankings_search_query = query
             for widget in scroll_frame.winfo_children():
                 widget.destroy()
-                
-            ranked_players = self.scheduler.ranking_system.get_ranked_players(
-                self.scheduler.players,
-                self.scheduler.current_date
-            )
+            
+            # Determine sorting mode
+            use_ovr = self.current_rankings_tab == "By OVR"
+            
+            if use_ovr:
+                # Sort all players by OVR (average of skills)
+                def _calc_ovr(p):
+                    vals = list(p.get('skills', {}).values())
+                    return round(sum(vals) / max(1, len(vals)), 1) if vals else 0
+                ovr_ranked = sorted(
+                    ((p, _calc_ovr(p)) for p in self.scheduler.players),
+                    key=lambda x: x[1], reverse=True
+                )
+                ranked_players = ovr_ranked
+            else:
+                ranked_players = self.scheduler.ranking_system.get_ranked_players(
+                    self.scheduler.players,
+                    self.scheduler.current_date
+                )
             
             # Check if query is an age filter (e.g., "<25", ">20", "=18")
             age_filter = None
@@ -1146,7 +1175,7 @@ class TennisGMApp:
                                 
                 btn = tk.Button(
                     entry_frame,
-                    text=f"{rank_icon} {ranking_pos}. {player['name']} - {points} pts",
+                    text=f"{rank_icon} {ranking_pos}. {player['name']} - {points}{' OVR' if use_ovr else ' pts'}",
                     anchor="w",
                     bg=bg_color,
                     fg=fg_color,
