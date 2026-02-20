@@ -114,6 +114,9 @@ class TournamentScheduler:
         
         self.ranking_system.update_combined_rankings(self.players, self.current_date)
         self.ranking_system.update_all_junior_rankings(self.players)
+
+        # Generate initial news feed so there's content on game start
+        self.generate_news_feed()
         
     def save_game(self, save_path='data/save.json'):
         """Save all game data to a file"""
