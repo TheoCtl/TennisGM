@@ -2083,6 +2083,7 @@ class TournamentScheduler:
         best_prospect = None  # (player, round_idx, total_rounds, tournament)
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and
+                not tournament['category'].startswith("Challenger") and
                 not tournament['category'].startswith("ITF") and
                 not tournament['category'] == "Juniors"):
 
@@ -2091,13 +2092,12 @@ class TournamentScheduler:
                     continue
 
                 total_rounds = len(bracket)
-                # Score prestige of tournament category
                 cat_prestige = len(self.PRESTIGE_ORDER) - (
                     self.PRESTIGE_ORDER.index(tournament['category'])
                     if tournament['category'] in self.PRESTIGE_ORDER else 0)
 
                 for round_idx, round_matches in enumerate(bracket):
-                    if round_idx < total_rounds - 2:
+                    if round_idx < total_rounds - 3:
                         continue
                     for match in round_matches:
                         for pid in match[:2]:
@@ -2106,7 +2106,6 @@ class TournamentScheduler:
                             player = next((p for p in self.players if p['id'] == pid), None)
                             if not player or player.get('age', 30) >= 20:
                                 continue
-                            # Score: higher round + higher prestige = better story
                             score = round_idx * 10 + cat_prestige
                             if best_prospect is None or score > best_prospect[4]:
                                 best_prospect = (player, round_idx, total_rounds, tournament, score)
@@ -2114,17 +2113,23 @@ class TournamentScheduler:
         if best_prospect:
             player, round_idx, total_rounds, tournament, _ = best_prospect
             archetype = player.get('archetype', 'Balanced Player')
-            round_name = "final" if round_idx == total_rounds - 1 else "semifinals"
-            tweet_templates = [
-                f"Keep an eye on {player['name']}! The {player['age']}-year-old {archetype.lower()} reached the {round_name} of the {tournament['name']}.",
-                f"{player['name']} ({player['age']}) is showing serious promise. The young {archetype.lower()} made it to the {round_name} at the {tournament['name']}.",
-                f"Prospect alert: {player['name']}, a {player['age']}-year-old {archetype.lower()}, just reached the {round_name} of a {tournament['category']} event.",
-                f"The future looks bright for {player['name']}. At {player['age']}, the {archetype.lower()} is already competing deep in {tournament['category']} draws.",
-            ]
+            if round_idx == total_rounds - 1:
+                round_name = "final"
+            elif round_idx == total_rounds - 2:
+                round_name = "semifinals"
+            else:
+                round_name = "quarterfinals"
             tweets.append({
                 'type': 'tweet',
                 'title': '💬 PROSPECT WATCH',
-                'content': random.choice(tweet_templates)
+                'content': random.choice([
+                    f"Keep an eye on {player['name']}! The {player['age']}-year-old {archetype.lower()} reached the {round_name} of the {tournament['name']}.",
+                    f"{player['name']} ({player['age']}) is showing serious promise. The young {archetype.lower()} made it to the {round_name} at the {tournament['name']}.",
+                    f"Prospect alert: {player['name']}, a {player['age']}-year-old {archetype.lower()}, just reached the {round_name} of a {tournament['category']} event.",
+                    f"The {tournament['name']} {round_name} featured {player['name']}, just {player['age']} years old. This {archetype.lower()} has a bright future.",
+                    f"At {player['age']}, most players are still grinding Challengers. {player['name']} just made the {round_name} of the {tournament['name']}. Different breed.",
+                    f"📋 {player['name']} ({player['age']}) — {round_name} appearance at the {tournament['name']}. The {archetype.lower()} is developing fast.",
+                ])
             })
 
         # ── 2. Seasonal ranking rise ──
@@ -2146,6 +2151,9 @@ class TournamentScheduler:
                                 f"{player['name']} has been on a tear this season — from #{old_rank} to #{current_rank}. The {archetype.lower()} is making a statement.",
                                 f"Remember the name: {player['name']}. Ranked #{old_rank} at the start of the year, now all the way up to #{current_rank}.",
                                 f"{player['name']}'s rise continues. The {archetype.lower()} started the year at #{old_rank} and now sits at #{current_rank}.",
+                                f"From #{old_rank} to #{current_rank} in one season. {player['name']} is rewriting his career story as a {archetype.lower()}.",
+                                f"Breakout season alert: {player['name']} was #{old_rank} last year. Now? #{current_rank}. The {archetype.lower()} is legitimate.",
+                                f"What a year for {player['name']}. Started at #{old_rank}, now #{current_rank}. This {archetype.lower()} was hiding in plain sight.",
                             ])
                         })
 
@@ -2162,6 +2170,9 @@ class TournamentScheduler:
                     f"{current_no1['name']} reaches the summit! A new world #1 is crowned.",
                     f"History is made — {current_no1['name']} rises to the #1 ranking for the first time!",
                     f"A new era begins. {current_no1['name']} is the new world #1.",
+                    f"The throne has a new king. {current_no1['name']} is officially the #1 player in the world.",
+                    f"Breaking: {current_no1['name']} is your NEW world #1. Tennis has a new face at the top.",
+                    f"It's official. After years of climbing, {current_no1['name']} sits at the very top of the rankings.",
                 ])
             })
 
@@ -2180,6 +2191,9 @@ class TournamentScheduler:
                             f"Age is just a number. {winner['name']}, {winner['age']}, proves he still has what it takes with a title at the {tournament['name']}.",
                             f"Don't count out the veterans. {winner['name']} ({winner['age']}) is still winning at the highest level.",
                             f"{winner['name']} rolls back the years. At {winner['age']}, the {winner.get('archetype', 'veteran').lower()} shows no signs of slowing down.",
+                            f"They said he was done. {winner['name']} ({winner['age']}) just won the {tournament['name']}. Legends don't fade quietly.",
+                            f"{winner['age']} years old and still picking up trophies. {winner['name']} is a phenomenon.",
+                            f"Someone tell {winner['name']} he's {winner['age']}. The man just won the {tournament['name']} like it was nothing.",
                         ])
                     })
 
@@ -2201,7 +2215,6 @@ class TournamentScheduler:
                     total_gain = sum(gained.values())
                     improvers.append((player, gained, total_gain))
 
-            # Sort by total gain descending, take top few
             improvers.sort(key=lambda x: x[2], reverse=True)
             for player, gained, total_gain in improvers[:2]:
                 skill_names = list(gained.keys())
@@ -2219,9 +2232,12 @@ class TournamentScheduler:
                     f"Training paying off for {player['name']}! The {archetype.lower()} improved his {skill_str}.",
                     f"{player['name']} ({age}) leveling up — gains in {skill_str}. Watch this space.",
                     f"The grind never stops. {player['name']} showing improvement in {skill_str}.",
+                    f"Lab work paying dividends for {player['name']}. Notable gains in {skill_str} this week.",
+                    f"{player['name']} quietly getting better. {skill_str} improvement detected — the {archetype.lower()} is evolving.",
                 ]
                 if age < 20:
                     templates.append(f"Only {age} and already improving fast. {player['name']} boosted his {skill_str} this week.")
+                    templates.append(f"The development curve is steep for {player['name']} ({age}). {skill_str} gains this week — sky's the limit.")
                 tweets.append({
                     'type': 'tweet',
                     'title': '📊 DEVELOPMENT UPDATE',
@@ -2245,11 +2261,14 @@ class TournamentScheduler:
                         f"Welcome to the elite! {player['name']} breaks into the top 10 for the first time, climbing to #{current_rank}.",
                         f"{player['name']} cracks the top 10! A milestone moment in his career — now ranked #{current_rank}.",
                         f"Top 10 alert: {player['name']} has arrived. From #{old_rank} to #{current_rank} this week.",
+                        f"The top 10 has a new member. {player['name']} climbs from #{old_rank} to #{current_rank}. He belongs here.",
+                        f"Breakthrough moment: {player['name']} enters the top 10 at #{current_rank}. Years of work paying off.",
+                        f"Add another name to the top 10: {player['name']}. From #{old_rank} to #{current_rank} — this is just the beginning.",
                     ])
                 })
             # First time top 50
             elif current_rank <= 50 and old_rank > 50:
-                if random.random() < 0.5:  # Don't always report top 50 entries
+                if random.random() < 0.5:
                     tweets.append({
                         'type': 'tweet',
                         'title': '💬 CLIMBING THE RANKS',
@@ -2257,13 +2276,15 @@ class TournamentScheduler:
                             f"{player['name']} enters the top 50 for the first time! Now ranked #{current_rank}.",
                             f"Milestone: {player['name']} moves to #{current_rank}, breaking into the top 50.",
                             f"Steady climb for {player['name']} — he's now a top-50 player at #{current_rank}.",
+                            f"Another step forward: {player['name']} cracks the top 50 at #{current_rank}. The trajectory is clear.",
+                            f"{player['name']} can now call himself a top-50 player. Currently #{current_rank} and rising.",
+                            f"Top 50 breakthrough for {player['name']}! Ranked #{current_rank}, he's knocking on the door of the elite.",
                         ])
                     })
 
-            # New career-high ranking (only for players already ranked decently)
+            # New career-high ranking
             if (current_rank < old_rank and current_rank <= 30 and
                 current_rank == player.get('highest_ranking', 999)):
-                # Only report if it's a meaningful jump
                 if old_rank - current_rank >= 3:
                     tweets.append({
                         'type': 'tweet',
@@ -2272,6 +2293,9 @@ class TournamentScheduler:
                             f"New career-high ranking for {player['name']}! He jumps from #{old_rank} to #{current_rank}.",
                             f"{player['name']} hits a new peak — #{current_rank} is the highest he's ever been ranked.",
                             f"Career best! {player['name']} surges to #{current_rank}, up {old_rank - current_rank} spots this week.",
+                            f"Personal best for {player['name']}! #{current_rank} — he's never been ranked this high before.",
+                            f"{player['name']} rewrites his personal history. New career-high: #{current_rank}, up from #{old_rank}.",
+                            f"Keep climbing! {player['name']} reaches a new career-high of #{current_rank}. Uncharted territory.",
                         ])
                     })
 
@@ -2283,7 +2307,7 @@ class TournamentScheduler:
             current_rank = player.get('rank', 999)
             old_rank = old_ranks.get(player['id'], 999)
             drop = current_rank - old_rank
-            if drop >= 10 and old_rank <= 50:  # Only notable drops for top players
+            if drop >= 5 and old_rank <= 50:
                 if biggest_drop is None or drop > biggest_drop[1]:
                     biggest_drop = (player, drop, old_rank, current_rank)
 
@@ -2297,6 +2321,8 @@ class TournamentScheduler:
                     f"{player['name']} slides from #{old_rank} to #{current_rank}. What's going on?",
                     f"Not the week {player['name']} wanted — down {drop} places to #{current_rank}.",
                     f"Concerned fans watching {player['name']} fall from #{old_rank} to #{current_rank}. Time to regroup.",
+                    f"Freefall for {player['name']}: #{old_rank} → #{current_rank}. That's a {drop}-spot drop in one week.",
+                    f"Rough patch for {player['name']}. Down {drop} places to #{current_rank}. The rankings are unforgiving.",
                 ])
             })
 
@@ -2307,17 +2333,18 @@ class TournamentScheduler:
             recent_wins = [w for w in player.get('tournament_wins', [])
                           if w.get('year') == self.current_year]
             if len(recent_wins) >= 3:
-                if random.random() < 0.12:
-                    tweets.append({
-                        'type': 'tweet',
-                        'title': '🔥 HOT STREAK',
-                        'content': random.choice([
-                            f"{player['name']} is on fire this season! Already {len(recent_wins)} titles in {self.current_year}.",
-                            f"Can anyone stop {player['name']}? That's {len(recent_wins)} tournament wins this year and counting.",
-                            f"{player['name']} is collecting trophies like it's nothing — {len(recent_wins)} titles in {self.current_year} so far.",
-                            f"Dominant season from {player['name']}. {len(recent_wins)} titles this year. The rest of the tour is on notice.",
-                        ])
-                    })
+                tweets.append({
+                    'type': 'tweet',
+                    'title': '🔥 HOT STREAK',
+                    'content': random.choice([
+                        f"{player['name']} is on fire this season! Already {len(recent_wins)} titles in {self.current_year}.",
+                        f"Can anyone stop {player['name']}? That's {len(recent_wins)} tournament wins this year and counting.",
+                        f"{player['name']} is collecting trophies like it's nothing — {len(recent_wins)} titles in {self.current_year} so far.",
+                        f"Dominant season from {player['name']}. {len(recent_wins)} titles this year. The rest of the tour is on notice.",
+                        f"{len(recent_wins)} titles and the year isn't over. {player['name']} is making {self.current_year} his own.",
+                        f"The {player['name']} show continues: {len(recent_wins)} titles in {self.current_year}. Everyone else is playing for second.",
+                    ])
+                })
 
         # ── 9. Upset alert — low-ranked player won a big tournament ──
         for tournament in self.tournaments:
@@ -2332,51 +2359,31 @@ class TournamentScheduler:
                             f"Nobody saw this coming! World #{winner.get('rank', '?')} {winner['name']} wins the {tournament['name']}. The bracket is in shambles.",
                             f"UPSET OF THE YEAR candidate: #{winner.get('rank', '?')} {winner['name']} takes down the field at the {tournament['name']}!",
                             f"{winner['name']}, ranked #{winner.get('rank', '?')}, just won a {tournament['category']} event. Tennis is chaos and we love it.",
+                            f"From qualifier territory to champion. #{winner.get('rank', '?')} {winner['name']} stuns the world at the {tournament['name']}.",
+                            f"Cinderella story at the {tournament['name']}! {winner['name']} (#{winner.get('rank', '?')}) goes all the way. Incredible.",
+                            f"What just happened?! {winner['name']}, ranked #{winner.get('rank', '?')}, wins the {tournament['name']}. Nobody had this on their bingo card.",
                         ])
                     })
 
-        # ── 10. Surface specialist commentary ──
-        for tournament in self.tournaments:
-            if (tournament['week'] == last_week and tournament.get('winner_id') and
-                not tournament['category'].startswith("Challenger") and
-                not tournament['category'].startswith("ITF") and
-                not tournament['category'] == "Juniors"):
-                surface = tournament.get('surface', '')
-                winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
-                if winner and surface:
-                    surface_mod = winner.get('surface_modifiers', {}).get(surface, 1.0)
-                    surface_wins = [w for w in winner.get('tournament_wins', [])
-                                   if any(t.get('surface') == surface and t['name'] == w['name']
-                                         for t in self.tournaments)]
-                    if surface_mod >= 1.02 and len(surface_wins) >= 3:
-                        tweets.append({
-                            'type': 'tweet',
-                            'title': f'🎾 {surface.upper()} KING',
-                            'content': random.choice([
-                                f"{winner['name']} is absolutely lethal on {surface}. Another title on his favorite surface.",
-                                f"Is {winner['name']} the best {surface}-court player on tour? The results speak for themselves.",
-                                f"{winner['name']} + {surface} = automatic titles. The {winner.get('archetype', 'player').lower()} is a {surface} specialist.",
-                            ])
-                        })
-
-        # ── 11. HOT TAKES & color commentary (randomized filler tweets) ──
-        # Top player hasn't won a slam this year
+        # ── 11. HOT TAKES & color commentary ──
         top_5 = [p for p in self.players if p.get('rank', 999) <= 5 and not p.get('retired', False)]
         for p in top_5:
             gs_wins_this_year = [w for w in p.get('tournament_wins', [])
                                 if w.get('year') == self.current_year and w.get('category') == 'Grand Slam']
             total_gs = len([w for w in p.get('tournament_wins', []) if w.get('category') == 'Grand Slam'])
             if total_gs > 0 and len(gs_wins_this_year) == 0 and self.current_week > 30:
-                if random.random() < 0.04:
-                    tweets.append({
-                        'type': 'tweet',
-                        'title': '🗣️ HOT TAKE',
-                        'content': random.choice([
-                            f"Is {p['name']} past his Grand Slam-winning days? Still ranked #{p['rank']} but no Slam title in {self.current_year}.",
-                            f"Hot take: {p['name']} won't add another Grand Slam to his collection. Prove me wrong.",
-                            f"For a player of {p['name']}'s caliber, a year without a Grand Slam title has to sting.",
-                        ])
-                    })
+                tweets.append({
+                    'type': 'tweet',
+                    'title': '🗣️ HOT TAKE',
+                    'content': random.choice([
+                        f"Is {p['name']} past his Grand Slam-winning days? Still ranked #{p['rank']} but no Slam title in {self.current_year}.",
+                        f"Hot take: {p['name']} won't add another Grand Slam to his collection. Prove me wrong.",
+                        f"For a player of {p['name']}'s caliber, a year without a Grand Slam title has to sting.",
+                        f"Serious question: can {p['name']} still win a Slam? Ranked #{p['rank']} but no major in {self.current_year}.",
+                        f"{p['name']} without a Slam in {self.current_year}. For a top-5 player with {total_gs} career majors, that's alarming.",
+                        f"The pressure is building on {p['name']}. Still no Grand Slam this year — is the window closing?",
+                    ])
+                })
 
         # Random stat leader spotlight
         if random.random() < 0.15:
@@ -2399,8 +2406,11 @@ class TournamentScheduler:
                         'title': title,
                         'content': random.choice([
                             f"{best['name']} has the best {stat_key} on tour right now ({stat_val} rating). Absolute weapon.",
-                            f"Stat check: {best['name']}'s {stat_key} is rated {stat_val}. Best among top-100 players.",
+                            f"Stat check: {best['name']}'s {stat_key} is rated {stat_val}. Best among all players.",
                             f"Want to see elite {stat_key} technique? Watch {best['name']}. {stat_val} rating, best on tour.",
+                            f"Nobody does it better. {best['name']}'s {stat_key} ({stat_val}) is the highest-rated on the entire tour.",
+                            f"The {stat_key} king: {best['name']} leads all active players with a {stat_val} rating. Pure class.",
+                            f"If you could clone one player's {stat_key}, you'd pick {best['name']}. {stat_val} rating — untouchable.",
                         ])
                     })
 
@@ -2425,10 +2435,13 @@ class TournamentScheduler:
                     f"Biggest mover of the week: {player['name']} rockets up {climb} spots to #{current_rank}!",
                     f"{player['name']} is this week's biggest climber — #{old_rank} → #{current_rank}. (+{climb})",
                     f"Up {climb} ranks! {player['name']} jumps from #{old_rank} to #{current_rank} in a single week.",
+                    f"The rankings movers list is topped by {player['name']}: +{climb} positions to #{current_rank}.",
+                    f"{player['name']} with a massive leap: #{old_rank} → #{current_rank}. That's {climb} spots in one week!",
+                    f"Elevator going up: {player['name']} climbs {climb} places to #{current_rank}. Biggest mover this week.",
                 ])
             })
 
-        # ── 13. First career title (only for challengers/smaller events) ──
+        # ── 13. First career title ──
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and tournament.get('winner_id') and
                 tournament['category'].startswith("Challenger")):
@@ -2443,6 +2456,9 @@ class TournamentScheduler:
                                 f"Everyone starts somewhere. {winner['name']} picks up his first professional title at the {tournament['name']}. A career begins.",
                                 f"First title secured! {winner['name']} wins the {tournament['name']}. From unknown to champion.",
                                 f"{winner['name']} will never forget this week — his first ever professional title, at the {tournament['name']}.",
+                                f"The first of many? {winner['name']} claims his maiden professional title at the {tournament['name']}.",
+                                f"Title #1 is always the sweetest. Congratulations to {winner['name']}, champion of the {tournament['name']}.",
+                                f"A star is born? {winner['name']} breaks through with his first career title at the {tournament['name']}.",
                             ])
                         })
 
@@ -2461,6 +2477,9 @@ class TournamentScheduler:
                             f"Is the end near for {player['name']}? The {player['age']}-year-old drops from #{old_rank} to #{current_rank}.",
                             f"{player['name']} ({player['age']}) sliding down the rankings — #{old_rank} to #{current_rank}. Retirement talk incoming?",
                             f"Father Time remains undefeated. {player['name']}, {player['age']}, falls to #{current_rank}.",
+                            f"The decline is real: {player['name']} ({player['age']}) drops from #{old_rank} to #{current_rank}. How much longer?",
+                            f"Tough to watch. {player['name']}, at {player['age']}, slides to #{current_rank}. The legs just aren't what they used to be.",
+                            f"{player['name']} ({player['age']}) from #{old_rank} to #{current_rank}. Every champion faces this moment eventually.",
                         ])
                     })
 
@@ -2470,19 +2489,21 @@ class TournamentScheduler:
                 continue
             total_wins = len(player.get('tournament_wins', []))
             if total_wins in [9, 19, 24, 29, 49]:
-                if random.random() < 0.05:
-                    milestone = total_wins + 1
-                    tweets.append({
-                        'type': 'tweet',
-                        'title': '🏆 MILESTONE WATCH',
-                        'content': random.choice([
-                            f"{player['name']} sits at {total_wins} career titles. Can he reach {milestone} this season?",
-                            f"Just one more win from a milestone — {player['name']} has {total_wins} titles. #{milestone} is calling.",
-                            f"Milestone alert: {player['name']} is one title away from {milestone} career wins.",
-                        ])
-                    })
+                milestone = total_wins + 1
+                tweets.append({
+                    'type': 'tweet',
+                    'title': '🏆 MILESTONE WATCH',
+                    'content': random.choice([
+                        f"{player['name']} sits at {total_wins} career titles. Can he reach {milestone} this season?",
+                        f"Just one more win from a milestone — {player['name']} has {total_wins} titles. #{milestone} is calling.",
+                        f"Milestone alert: {player['name']} is one title away from {milestone} career wins.",
+                        f"{player['name']} has {total_wins} career titles. One more and he hits the magic number {milestone}.",
+                        f"The chase for #{milestone}: {player['name']} needs just one more title to reach the milestone.",
+                        f"So close to history. {player['name']} ({total_wins} titles) is one win away from career title #{milestone}.",
+                    ])
+                })
 
-        # ── 16. Young prodigy enters top 30 (under 24 — peak development age) ──
+        # ── 16. Young prodigy enters top 30 (under 24) ──
         for player in self.players:
             if player.get('retired', False):
                 continue
@@ -2499,6 +2520,8 @@ class TournamentScheduler:
                         f"Only {age} and already #{current_rank} in the world. {player['name']} hasn't even hit his peak yet. Remember this tweet.",
                         f"{player['name']} ({age}) breaks into the top 30. With years of development still ahead, this {archetype.lower()} could be special.",
                         f"Top 30 before turning 24. {player['name']} is doing things ahead of schedule — and he's only going to get better.",
+                        f"The future is now for {player['name']}. #{current_rank} at just {age} — and the {archetype.lower()} hasn't peaked yet.",
+                        f"Mark this date: {player['name']} ({age}) enters the top 30. The {archetype.lower()} is on an elite trajectory.",
                     ])
                 })
 
@@ -2511,7 +2534,6 @@ class TournamentScheduler:
             age = player.get('age', 30)
             if age < 20 and current_rank <= 150 and old_rank > 150:
                 archetype = player.get('archetype', 'player')
-                potential = player.get('potential_factor', 1.0)
                 tweets.append({
                     'type': 'tweet',
                     'title': '🔎 SCOUTING REPORT',
@@ -2520,6 +2542,8 @@ class TournamentScheduler:
                         f"Add {player['name']} to your watchlist. At {age}, reaching #{current_rank} is extremely rare. This kid is the real deal.",
                         f"📋 Scouting alert: {player['name']} ({age}) enters the top 150 at #{current_rank}. The {archetype.lower()} is years ahead of the curve.",
                         f"They don't reach the top 150 at {age} unless they're something special. {player['name']} is one to watch very closely.",
+                        f"Talent evaluation: {player['name']} ({age}) — top 150 entry. The {archetype.lower()} plays beyond his years. Big future.",
+                        f"Draft boards would have {player['name']} circled in red. Just {age} and already #{current_rank}. The {archetype.lower()} is coming.",
                     ])
                 })
 
@@ -2528,7 +2552,6 @@ class TournamentScheduler:
             if tournament['week'] == last_week and tournament.get('bracket'):
                 bracket = tournament['bracket']
                 total_rounds = len(bracket)
-                # Check the final specifically
                 if total_rounds >= 1:
                     final_round = bracket[-1]
                     for match in final_round:
@@ -2546,16 +2569,24 @@ class TournamentScheduler:
                                             tweets.append({
                                                 'type': 'tweet',
                                                 'title': '⚔️ CLASH OF GENERATIONS',
-                                                'content': f"Youth prevails! {young['name']} ({young['age']}) defeats {old['name']} ({old['age']}) in the {tournament['name']} final. The changing of the guard continues."
+                                                'content': random.choice([
+                                                    f"Youth prevails! {young['name']} ({young['age']}) defeats {old['name']} ({old['age']}) in the {tournament['name']} final. The changing of the guard continues.",
+                                                    f"The torch is passed! {young['name']} ({young['age']}) beats {old['name']} ({old['age']}) in the {tournament['name']} final. A generational shift.",
+                                                    f"Out with the old, in with the new. {young['name']} ({young['age']}) takes down veteran {old['name']} ({old['age']}) for the {tournament['name']} title.",
+                                                ])
                                             })
                                         else:
                                             tweets.append({
                                                 'type': 'tweet',
                                                 'title': '⚔️ CLASH OF GENERATIONS',
-                                                'content': f"Experience wins out! {old['name']} ({old['age']}) holds off {young['name']} ({young['age']}) in the {tournament['name']} final. Not yet, kid."
+                                                'content': random.choice([
+                                                    f"Experience wins out! {old['name']} ({old['age']}) holds off {young['name']} ({young['age']}) in the {tournament['name']} final. Not yet, kid.",
+                                                    f"The veteran prevails. {old['name']} ({old['age']}) fends off {young['name']} ({young['age']}) at the {tournament['name']}. Still the king.",
+                                                    f"Not so fast, youngster. {old['name']} ({old['age']}) teaches {young['name']} ({young['age']}) a lesson in the {tournament['name']} final.",
+                                                ])
                                             })
 
-        # ── 18. Overall rating spotlight ──
+        # ── 19. Overall rating spotlight ──
         if random.random() < 0.10:
             active = [p for p in self.players if not p.get('retired', False)]
             if active:
@@ -2573,30 +2604,9 @@ class TournamentScheduler:
                             f"{best_ovr['name']} currently has the highest overall rating on tour ({ovr}). The complete package.",
                             f"By the numbers, {best_ovr['name']} is the most complete player in tennis right now. OVR: {ovr}.",
                             f"No weaknesses. {best_ovr['name']} tops the tour with a {ovr} overall rating.",
-                        ])
-                    })
-
-        # ── 19. Nationality dominance ──
-        if random.random() < 0.08:
-            from collections import Counter
-            nationalities = Counter(
-                p.get('nationality', 'Unknown')
-                for p in self.players
-                if not p.get('retired', False) and p.get('rank', 999) <= 20
-            )
-            if nationalities:
-                top_nat, count = nationalities.most_common(1)[0]
-                if count >= 3:
-                    players_from = [p['name'] for p in self.players
-                                   if p.get('nationality') == top_nat and p.get('rank', 999) <= 20
-                                   and not p.get('retired', False)][:3]
-                    tweets.append({
-                        'type': 'tweet',
-                        'title': '🌍 NATIONAL PRIDE',
-                        'content': random.choice([
-                            f"{top_nat} is dominating tennis right now! {count} players in the top 20, including {', '.join(players_from)}.",
-                            f"What are they putting in the water in {top_nat}? {count} top-20 players and counting.",
-                            f"{top_nat} tennis is having a golden era — {', '.join(players_from)} all in the top 20.",
+                            f"The most well-rounded player alive? {best_ovr['name']} leads the tour with an OVR of {ovr}.",
+                            f"When you look at the numbers, {best_ovr['name']} has no holes in his game. OVR: {ovr}. Elite.",
+                            f"Swiss army knife: {best_ovr['name']} does everything well. {ovr} overall — the gold standard.",
                         ])
                     })
 
@@ -2613,15 +2623,22 @@ class TournamentScheduler:
                         f"{player['name']} has now played {mp} professional matches. A testament to longevity and dedication.",
                         f"Milestone: {player['name']} reaches {mp} career matches played. What a journey.",
                         f"{mp} matches and counting for {player['name']}. The body of work speaks for itself.",
+                        f"Another milestone for {player['name']}: {mp} career matches. That's a lot of tennis.",
+                        f"{player['name']} hits {mp} career matches. Win or lose, showing up is half the battle.",
+                        f"Career match #{mp} for {player['name']}. From his first pro match to now — what a ride.",
                     ])
                 })
 
         # ── 21. Title defense upcoming ──
-        next_week = self.current_week + 1 if self.current_week < 52 else 1
         for tournament in self.tournaments:
-            if tournament['week'] == next_week:
+            if tournament['week'] == self.current_week:
+                participants = tournament.get('participants', [])
+                if not participants:
+                    continue
                 for player in self.players:
                     if player.get('retired', False):
+                        continue
+                    if player['id'] not in participants:
                         continue
                     defending = any(
                         w['name'] == tournament['name'] and w.get('year') == self.current_year - 1
@@ -2636,82 +2653,28 @@ class TournamentScheduler:
                             'type': 'tweet',
                             'title': '🏟️ TITLE DEFENSE',
                             'content': random.choice([
-                                f"All eyes on {player['name']} next week as he defends his {tournament['name']} title. Can he do it again?",
+                                f"All eyes on {player['name']} this week as he defends his {tournament['name']} title. Can he do it again?",
                                 f"{player['name']} returns to the {tournament['name']} as defending champion. The pressure is on.",
-                                f"Reminder: {player['name']} won the {tournament['name']} last year. He'll look to defend his crown next week.",
-                                f"Must-watch next week: {player['name']} puts his {tournament['name']} title on the line.",
+                                f"Reminder: {player['name']} won the {tournament['name']} last year. He'll look to defend his crown this week.",
+                                f"Must-watch this week: {player['name']} puts his {tournament['name']} title on the line.",
+                                f"The defending champion is in the draw. {player['name']} aims to hold onto his {tournament['name']} crown.",
+                                f"Back to defend: {player['name']} arrives at the {tournament['name']} as the man to beat.",
                             ]) if career_wins_here <= 1 else random.choice([
                                 f"{player['name']} heads to the {tournament['name']} as defending champion — and he's won it {career_wins_here} times. Good luck to the field.",
                                 f"The {tournament['name']} is {player['name']}'s kingdom. He returns to defend title #{career_wins_here}.",
+                                f"{career_wins_here}-time champion {player['name']} is back at the {tournament['name']}. The rest of the draw shivers.",
+                                f"Here we go again: {player['name']} defends his {tournament['name']} title for the {career_wins_here}th time. This tournament is his playground.",
                             ])
                         })
 
-        # ── 22. Early regression (age 28-30 only — rare and newsworthy) ──
-        if pre_dev:
-            for player in self.players:
-                if player.get('retired', False) or player['id'] not in pre_dev:
-                    continue
-                age = player.get('age', 20)
-                if age < 28 or age > 30:
-                    continue
-                old_skills = pre_dev[player['id']]
-                new_skills = player.get('skills', {})
-                lost = {}
-                for sk, new_val in new_skills.items():
-                    old_val = old_skills.get(sk, new_val)
-                    if new_val < old_val:
-                        lost[sk] = old_val - new_val
-                if lost:
-                    skill_str = " and ".join(f"{s} (-{lost[s]})" for s in list(lost.keys())[:2])
-                    tweets.append({
-                        'type': 'tweet',
-                        'title': '⚠️ EARLY REGRESSION',
-                        'content': random.choice([
-                            f"Concerning signs for {player['name']} ({age}). His {skill_str} took a dip this week. Too early to panic?",
-                            f"{player['name']} is only {age}, but his {skill_str} already showing signs of decline. Unusual at this age.",
-                            f"Early regression alert: {player['name']}'s {skill_str} dropped this week. At {age}, this is worth monitoring closely.",
-                            f"The clock might be ticking earlier than expected for {player['name']}. {skill_str} declining at just {age}.",
-                        ])
-                    })
-
-        # ── 23. Archetype showdown in a final ──
-        for tournament in self.tournaments:
-            if tournament['week'] == last_week and tournament.get('bracket'):
-                bracket = tournament['bracket']
-                if not bracket:
-                    continue
-                final_round = bracket[-1]
-                for match in final_round:
-                    if len(match) >= 3 and match[0] is not None and match[1] is not None:
-                        p1 = next((p for p in self.players if p['id'] == match[0]), None)
-                        p2 = next((p for p in self.players if p['id'] == match[1]), None)
-                        if p1 and p2:
-                            a1 = p1.get('archetype', '')
-                            a2 = p2.get('archetype', '')
-                            k1 = set(p1.get('archetype_key', []))
-                            k2 = set(p2.get('archetype_key', []))
-                            # Only report if archetypes are different and skill overlap is low
-                            if a1 and a2 and a1 != a2 and len(k1 & k2) <= 1:
-                                if not tournament['category'].startswith("Challenger") and not tournament['category'].startswith("ITF") and tournament['category'] != "Juniors":
-                                    tweets.append({
-                                        'type': 'tweet',
-                                        'title': '🎯 ARCHETYPE SHOWDOWN',
-                                        'content': random.choice([
-                                            f"What a final at the {tournament['name']}! {p1['name']} ({a1}) vs {p2['name']} ({a2}). Two completely different styles going head to head.",
-                                            f"Style clash at the {tournament['name']} final: the {a1.lower()} {p1['name']} against the {a2.lower()} {p2['name']}. Tactics will decide this one.",
-                                            f"{a1} meets {a2} in the {tournament['name']} final. {p1['name']} vs {p2['name']} — contrasting philosophies, one trophy.",
-                                        ])
-                                    })
-
         # ── 24. Stat comparison — two top players head to head ──
-        if random.random() < 0.10:
+        if random.random() < 0.25:
             top_players = [p for p in self.players
                           if not p.get('retired', False) and p.get('rank', 999) <= 15]
             if len(top_players) >= 2:
                 p1, p2 = random.sample(top_players, 2)
                 s1 = p1.get('skills', {})
                 s2 = p2.get('skills', {})
-                # Find skills where each player leads
                 p1_leads = [(sk, s1.get(sk, 0), s2.get(sk, 0)) for sk in s1
                            if s1.get(sk, 0) > s2.get(sk, 0) + 5]
                 p2_leads = [(sk, s2.get(sk, 0), s1.get(sk, 0)) for sk in s2
@@ -2726,6 +2689,9 @@ class TournamentScheduler:
                             f"{p1['name']} vs {p2['name']} — who's better? {p1['name']}'s {p1_best[0]} ({p1_best[1]}) edges out ({p1_best[2]}), but {p2['name']}'s {p2_best[0]} ({p2_best[1]}) is superior ({p2_best[2]}). Depends what you value.",
                             f"Tale of the tape: {p1['name']} has the {p1_best[0]} advantage ({p1_best[1]} vs {p1_best[2]}), {p2['name']} wins on {p2_best[0]} ({p2_best[1]} vs {p2_best[2]}). Who would you rather have?",
                             f"Quick comparison — {p1['name']}: {p1_best[0]} {p1_best[1]}. {p2['name']}: {p2_best[0]} {p2_best[1]}. Both elite, completely different strengths.",
+                            f"Numbers don't lie: {p1['name']} leads in {p1_best[0]} ({p1_best[1]} vs {p1_best[2]}), {p2['name']} owns {p2_best[0]} ({p2_best[1]} vs {p2_best[2]}). Who's the better player?",
+                            f"Head-to-head stat battle: {p1['name']}'s {p1_best[0]} ({p1_best[1]}) vs {p2['name']}'s {p2_best[0]} ({p2_best[1]}). Two different beasts.",
+                            f"The debate rages on: {p1['name']} ({p1_best[0]}: {p1_best[1]}) or {p2['name']} ({p2_best[0]}: {p2_best[1]})? You decide. 🤔",
                         ])
                     })
 
@@ -2750,134 +2716,167 @@ class TournamentScheduler:
                                 f"Dynasty alert: {winner['name']} captures his {ordinal} {tournament['name']} title. Does anyone else even bother entering?",
                                 f"The {tournament['name']} belongs to {winner['name']}. Title #{times_won} at his favorite hunting ground.",
                                 f"{times_won} titles at the same tournament. {winner['name']} and the {tournament['name']} — a love story for the ages.",
+                                f"They should just rename it the {winner['name']} Open. {ordinal} title at the {tournament['name']}. Ridiculous.",
+                                f"At this point, {winner['name']} has a reserved parking spot at the {tournament['name']}. Title #{times_won}.",
                             ])
                         })
 
-        # ── 26. Cold streak — top-30 player, no title all year (late season) ──
+        # ── 26. Cold streak — top-16 player, no title all year (late season) ──
         if self.current_week > 30:
             for player in self.players:
                 if player.get('retired', False):
                     continue
                 current_rank = player.get('rank', 999)
-                if current_rank > 30:
+                if current_rank > 16:
                     continue
                 titles_this_year = [w for w in player.get('tournament_wins', [])
                                    if w.get('year') == self.current_year]
                 if len(titles_this_year) == 0:
-                    if random.random() < 0.04:
-                        tweets.append({
-                            'type': 'tweet',
-                            'title': '🧊 COLD STREAK',
-                            'content': random.choice([
-                                f"Week {self.current_week} and still no title for #{current_rank} {player['name']} in {self.current_year}. The drought continues.",
-                                f"{player['name']} is ranked #{current_rank} but has zero titles this year. Is something off, or just unlucky?",
-                                f"Titleless in {self.current_year}: {player['name']} (#{current_rank}) still searching for silverware. Time is running out.",
-                                f"For someone ranked #{current_rank}, going titleless this deep into the season is unusual. {player['name']} needs a breakthrough.",
-                            ])
-                        })
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '🧊 COLD STREAK',
+                        'content': random.choice([
+                            f"Week {self.current_week} and still no title for #{current_rank} {player['name']} in {self.current_year}. The drought continues.",
+                            f"{player['name']} is ranked #{current_rank} but has zero titles this year. Is something off, or just unlucky?",
+                            f"Titleless in {self.current_year}: {player['name']} (#{current_rank}) still searching for silverware. Time is running out.",
+                            f"For someone ranked #{current_rank}, going titleless this deep into the season is unusual. {player['name']} needs a breakthrough.",
+                            f"The trophy case gathers dust. {player['name']} (#{current_rank}) — zero titles in {self.current_year}. Can he turn it around?",
+                            f"Week {self.current_week}. Zero titles. {player['name']} (#{current_rank}) is having a {self.current_year} to forget.",
+                        ])
+                    })
 
-        # ── 27. Youngest in top X ──
-        if random.random() < 0.10:
-            active_ranked = [p for p in self.players
-                            if not p.get('retired', False) and p.get('rank', 999) <= 150]
-            if active_ranked:
-                youngest = min(active_ranked, key=lambda p: (p.get('age', 99), p.get('rank', 999)))
+        # ── 27. Youngest in top X — check each tier independently ──
+        if random.random() < 0.30:
+            tiers = [
+                (20, "top 20"),
+                (50, "top 50"),
+                (100, "top 100"),
+                (150, "top 150"),
+            ]
+            # Pick one tier at random to avoid flooding
+            tier_cutoff, tier_label = random.choice(tiers)
+            tier_players = [p for p in self.players
+                           if not p.get('retired', False) and p.get('rank', 999) <= tier_cutoff]
+            if tier_players:
+                youngest = min(tier_players, key=lambda p: (p.get('age', 99), p.get('rank', 999)))
                 age = youngest.get('age', 99)
                 rank = youngest.get('rank', 999)
-                if age <= 20:
-                    if rank <= 10:
-                        tier = "top 10"
-                    elif rank <= 20:
-                        tier = "top 20"
-                    elif rank <= 50:
-                        tier = "top 50"
-                    elif rank <= 100:
-                        tier = "top 100"
-                    else:
-                        tier = "top 150"
+                if age <= 22:
+                    archetype = youngest.get('archetype', 'player')
                     tweets.append({
                         'type': 'tweet',
                         'title': '👶 YOUNGEST ON TOUR',
                         'content': random.choice([
-                            f"At just {age}, {youngest['name']} is the youngest player in the {tier}. The future of tennis, right here.",
-                            f"Fun fact: {youngest['name']} ({age}) is the youngest {tier} player on tour right now. Ranked #{rank}.",
-                            f"Nobody in the {tier} is younger than {youngest['name']}. At {age}, he's got the whole tennis world ahead of him.",
-                            f"{youngest['name']}, {age} years old, #{rank} in the world. Youngest player in the {tier}. Let that sink in.",
+                            f"At just {age}, {youngest['name']} is the youngest player in the {tier_label}. The future of tennis, right here.",
+                            f"Fun fact: {youngest['name']} ({age}) is the youngest {tier_label} player on tour right now. Ranked #{rank}.",
+                            f"Nobody in the {tier_label} is younger than {youngest['name']}. At {age}, he's got the whole tennis world ahead of him.",
+                            f"{youngest['name']}, {age} years old, #{rank} in the world. Youngest player in the {tier_label}. Let that sink in.",
+                            f"The youngest face in the {tier_label}: {youngest['name']} at just {age}. This {archetype.lower()} is ahead of schedule.",
+                            f"Baby of the {tier_label}: {youngest['name']} ({age}) sits at #{rank}. Most players his age are still in the Challengers.",
+                            f"Just {age} and already in the {tier_label}. {youngest['name']} (#{rank}) is writing his own timeline.",
+                            f"Youngest {tier_label} player alert: {youngest['name']}, {age}, ranked #{rank}. The {archetype.lower()} has years to improve. Scary thought.",
                         ])
                     })
 
         # ── 28. Fanboy tweet ──
-        if random.random() < 0.20:
-            candidates = [p for p in self.players
-                         if not p.get('retired', False) and p.get('rank', 999) <= 80
-                         and p.get('archetype')]
-            if candidates:
-                player = random.choice(candidates)
-                archetype = player.get('archetype', 'player')
-                arch_key = player.get('archetype_key', [])
-                skills = player.get('skills', {})
-                # Pick the best skill from their archetype key skills
-                best_skill = None
-                best_val = 0
-                for sk in arch_key:
-                    val = skills.get(sk, 0)
-                    if val > best_val:
-                        best_skill = sk
-                        best_val = val
-                if not best_skill:
-                    # Fallback to their overall best skill
-                    if skills:
-                        best_skill = max(skills, key=skills.get)
-                        best_val = skills[best_skill]
-
-                if best_skill and best_val > 0:
-                    rank = player.get('rank', '?')
-                    age = player.get('age', '?')
-
-                    # Skill flavor descriptions
-                    skill_flavors = {
-                        'serve': ['serving', 'serve', 'delivery'],
-                        'forehand': ['forehand', 'forehand technique', 'forehand power'],
-                        'backhand': ['backhand', 'backhand precision', 'two-hander' if random.random() < 0.5 else 'backhand'],
-                        'speed': ['movement', 'court coverage', 'footwork'],
-                        'stamina': ['endurance', 'fitness', 'stamina'],
-                        'straight': ['down-the-line game', 'straight shots', 'line-painting'],
-                        'cross': ['cross-court game', 'angles', 'cross-court winners'],
-                        'dropshot': ['touch', 'dropshots', 'feel at the net'],
-                        'volley': ['net game', 'volleys', 'hands at the net'],
-                    }
-                    skill_word = random.choice(skill_flavors.get(best_skill, [best_skill]))
-
-                    fan_tweets = [
-                        f"{player['name']} is playing so well recently. His style of {archetype.lower()} is so fun to watch and his {skill_word} is absolutely elite right now! 🎾🔥",
-                        f"I don't care what anyone says, {player['name']} is the most entertaining player on tour. That {skill_word}?? Unreal. Pure {archetype.lower()} magic ✨",
-                        f"Just watched {player['name']} highlights and WOW. The {skill_word} is on another level. {archetype} at its finest 🙌",
-                        f"Hot take: {player['name']} is underrated. #{rank} doesn't do him justice. The way he plays as a {archetype.lower()} with that {skill_word}... chef's kiss 👨‍🍳",
-                        f"My guy {player['name']} making the {archetype.lower()} style look so smooth. That {skill_word} is a thing of beauty 😍",
-                        f"Been watching {player['name']} since day one. {age} years old, ranked #{rank}, and that {skill_word} keeps getting better. {archetype} GOAT don't @ me 🐐",
-                        f"If you're not watching {player['name']} play, you're missing out. The {archetype.lower()} playstyle combined with his {skill_word}... poetry in motion 📝",
-                        f"Unpopular opinion: {player['name']}'s {skill_word} is the best on tour and it's not even close. {archetype} built different 💪",
-                    ]
-                    tweets.append({
-                        'type': 'tweet',
-                        'title': '🗨️ FAN ZONE',
-                        'content': random.choice(fan_tweets)
-                    })
+        if random.random() < 0.50:
+            self._add_fan_zone_tweet(tweets)
 
         # Shuffle and limit to keep the feed interesting but not overwhelming
         random.shuffle(tweets)
         if len(tweets) > 12:
-            # Always keep priority tweets (new #1, top 10 breakthrough, upset)
             priority_titles = {'👑 NEW WORLD #1', '🔟 TOP 10 BREAKTHROUGH', '😱 UPSET SPECIAL',
                               '⚔️ CLASH OF GENERATIONS', '🚀 BIGGEST MOVER', '🌟 FUTURE STAR',
-                              '🔎 SCOUTING REPORT', '🏆 DYNASTY WATCH', '⚠️ EARLY REGRESSION'}
+                              '🔎 SCOUTING REPORT', '🏆 DYNASTY WATCH', '🏟️ TITLE DEFENSE', '🗨️ FAN ZONE'}
             priority = [t for t in tweets if t['title'] in priority_titles]
             others = [t for t in tweets if t['title'] not in priority_titles]
             random.shuffle(others)
             tweets = priority + others
             tweets = tweets[:12]
 
+        # Pad with FAN ZONE tweets if fewer than 6
+        while len(tweets) < 12:
+            self._add_fan_zone_tweet(tweets)
+
         return tweets
+
+    def _add_fan_zone_tweet(self, tweets):
+        """Generate and append a single FAN ZONE tweet."""
+        candidates = [p for p in self.players
+                     if not p.get('retired', False) and p.get('rank', 999) <= 80
+                     and p.get('archetype')]
+        if not candidates:
+            return
+        # Avoid picking a player already featured in FAN ZONE
+        existing_names = set()
+        for t in tweets:
+            if t.get('title') == '🗨️ FAN ZONE':
+                content = t.get('content', '')
+                for c in candidates:
+                    if c['name'] in content:
+                        existing_names.add(c['name'])
+        available = [c for c in candidates if c['name'] not in existing_names]
+        if not available:
+            available = candidates  # Fallback if all used
+
+        player = random.choice(available)
+        archetype = player.get('archetype', 'player')
+        arch_key = player.get('archetype_key', [])
+        skills = player.get('skills', {})
+        best_skill = None
+        best_val = 0
+        for sk in arch_key:
+            val = skills.get(sk, 0)
+            if val > best_val:
+                best_skill = sk
+                best_val = val
+        if not best_skill:
+            if skills:
+                best_skill = max(skills, key=skills.get)
+                best_val = skills[best_skill]
+
+        if not best_skill or best_val <= 0:
+            return
+
+        rank = player.get('rank', '?')
+        age = player.get('age', '?')
+
+        skill_flavors = {
+            'serve': ['serving', 'serve', 'delivery'],
+            'forehand': ['forehand', 'forehand technique', 'forehand power'],
+            'backhand': ['backhand', 'backhand precision', 'two-hander' if random.random() < 0.5 else 'backhand'],
+            'speed': ['movement', 'court coverage', 'footwork'],
+            'stamina': ['endurance', 'fitness', 'stamina'],
+            'straight': ['down-the-line game', 'straight shots', 'line-painting'],
+            'cross': ['cross-court game', 'angles', 'cross-court winners'],
+            'dropshot': ['touch', 'dropshots', 'feel at the net'],
+            'volley': ['net game', 'volleys', 'hands at the net'],
+        }
+        skill_word = random.choice(skill_flavors.get(best_skill, [best_skill]))
+
+        fan_tweets = [
+            f"{player['name']} is playing so well recently. His style of {archetype.lower()} is so fun to watch and his {skill_word} is absolutely elite right now! 🎾🔥",
+            f"I don't care what anyone says, {player['name']} is the most entertaining player on tour. That {skill_word}?? Unreal. Pure {archetype.lower()} magic ✨",
+            f"Just watched {player['name']} highlights and WOW. The {skill_word} is on another level. {archetype} at its finest 🙌",
+            f"Hot take: {player['name']} is underrated. #{rank} doesn't do him justice. The way he plays as a {archetype.lower()} with that {skill_word}... chef's kiss 👨‍🍳",
+            f"My guy {player['name']} making the {archetype.lower()} style look so smooth. That {skill_word} is a thing of beauty 😍",
+            f"Been watching {player['name']} since day one. {age} years old, ranked #{rank}, and that {skill_word} keeps getting better. {archetype} GOAT don't @ me 🐐",
+            f"If you're not watching {player['name']} play, you're missing out. The {archetype.lower()} playstyle combined with his {skill_word}... poetry in motion 📝",
+            f"Unpopular opinion: {player['name']}'s {skill_word} is the best on tour and it's not even close. {archetype} built different 💪",
+            f"Anyone else think {player['name']} doesn't get enough credit? The {archetype.lower()} with the elite {skill_word}. #{rank} and climbing! 📈",
+            f"In a world of boring baseliners, {player['name']} brings joy. That {skill_word}... *chef's kiss*. {archetype} class 🏆",
+            f"Fell asleep last night watching {player['name']} highlights. No regrets. That {skill_word} is mesmerizing. {archetype.lower()} perfection 🌙",
+            f"New fan here. Just discovered {player['name']} and I'm obsessed. The {archetype.lower()} style, the {skill_word}... where has this guy been all my life? 🎾",
+            f"Casual reminder that {player['name']} exists. #{rank}, {age} years old, elite {skill_word}. That's the tweet. 🎤⬇️",
+            f"Took my kid to watch {player['name']} play and now they want to be a {archetype.lower()} too. That {skill_word} inspired a new generation 🥹",
+            f"I would run through a wall for {player['name']}. The {archetype.lower()} swagger, the {skill_word}, everything. Top 5 most fun player on tour 🔥",
+            f"Some people watch tennis. I watch {player['name']}. There's a difference. That {skill_word} is art, not sport 🎨",
+        ]
+        tweets.append({
+            'type': 'tweet',
+            'title': '🗨️ FAN ZONE',
+            'content': random.choice(fan_tweets)
+        })
     
     def simulate_current_round(self, tournament_id):
         """
