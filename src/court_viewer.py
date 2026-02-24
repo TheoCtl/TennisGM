@@ -1,236 +1,297 @@
 import tkinter as tk
 
+
 class TennisCourtViewer:
     SURFACE_COLORS = {
-        'grass': '#1F4A0C',    # Darker green
-        'hard': '#1E4785',     # Dark blue
-        'clay': '#A85A1C',     # Darker orange
-        'indoor': '#1A365F',   # Darker indoor blue
-        'neutral': '#404040'   # Darker grey
+        'grass': '#1F4A0C',
+        'hard': '#1E4785',
+        'clay': '#A85A1C',
+        'indoor': '#1A365F',
+        'neutral': '#404040'
     }
 
-    def __init__(self, master, width=800, height=400, surface='grass'):
+    # Court coordinate constants (matches game_engine 1200x600 space)
+    P1_BASELINE_X = 30       # Player 1 baseline (left side)
+    P2_BASELINE_X = 1170     # Player 2 baseline (right side)
+    P1_VOLLEY_X = 450        # Player 1 volley position (near net)
+    P2_VOLLEY_X = 750        # Player 2 volley position (near net)
+    NET_X = 600               # Net x position
+    CENTER_Y = 300            # Vertical center
+    MIN_Y = 80                # Top court boundary for players
+    MAX_Y = 520               # Bottom court boundary for players
+    PLAYER_RADIUS = 14        # Player circle radius
+
+    def __init__(self, master, width=1200, height=600, surface='grass'):
         self.master = master
         self.width = width
         self.height = height
         self.surface = surface
-        
-        # Create canvas for drawing
+
         bg_color = self.SURFACE_COLORS.get(surface.lower(), self.SURFACE_COLORS['neutral'])
         self.canvas = tk.Canvas(master, width=width, height=height, bg=bg_color)
         self.canvas.pack(expand=True)
-        
-        # Court dimensions with accurate tennis court proportions
-        self.court_margin = 20  # Reduced margin to use more canvas space
-        
-        # Standard tennis court is 78ft x 36ft (27ft singles width)
-        # We want to maintain this 78:36 ratio (approximately 2.17:1)
-        court_ratio = 78/36  # Approximately 2.17
-        
-        # Use full width and calculate height to maintain ratio
+
+        # Court dimensions
+        self.court_margin = 20
+        court_ratio = 78 / 36
         self.court_width = width - 2 * self.court_margin
         self.court_height = self.court_width / court_ratio
-        
-        # If height exceeds canvas, scale both down
         if self.court_height > height - 2 * self.court_margin:
             self.court_height = height - 2 * self.court_margin
             self.court_width = self.court_height * court_ratio
-            
-        # Standard tennis court proportions
-        self.baseline_margin = 30  # Smaller space behind baseline
-        self.alley_width = self.court_height * (4.5/36)  # Doubles alley is 4.5ft of 36ft total
-        self.service_box_depth = self.court_width * (21/78)  # Service box is 21ft of 78ft length
-        
-        # Player positions (initialized at baseline)
-        self.player1_pos = [10, height / 2]
-        self.player2_pos = [1190, height / 2]
-        
-        # Ball position
-        self.ball_pos = [width / 2, height / 2]
-        
-        # Initialize scoreboard data
-        self.player1_name = ""
-        self.player2_name = ""
-        self.score = {"sets": [], "current_game": "0-0"}
-        
-        self.draw_court()
-        self.draw_ball()
-    
-    def draw_court(self):
-        """Draw the tennis court lines with accurate proportions"""
-        # Main court outline (doubles court)
-        doubles_court = self.canvas.create_rectangle(
-            self.court_margin, self.court_margin,
-            self.width - self.court_margin, self.height - self.court_margin,
-            outline='white', width=2
-        )
-        
-        # Make alleys narrower - standard tennis court proportions
-        # Singles court is 27ft wide, doubles adds 4.5ft on each side
-        # So alleys should be about 1/6 of the singles court width
-        self.alley_width = self.court_width * 0.075  # Reduced from 0.111
-        
-        # Singles court lines (top and bottom of singles court)
-        singles_top = self.court_margin + self.alley_width
-        singles_bottom = self.height - self.court_margin - self.alley_width
-        self.canvas.create_line(
-            self.court_margin, singles_top,
-            self.width - self.court_margin, singles_top,
-            fill='white', width=2
-        )
-        self.canvas.create_line(
-            self.court_margin, singles_bottom,
-            self.width - self.court_margin, singles_bottom,
-            fill='white', width=2
-        )
-        
-        # Center line (net) - now extends full height
-        center_x = self.width / 2
-        self.canvas.create_line(
-            center_x, 0,  # Extend to top
-            center_x, self.height,  # Extend to bottom
-            fill='white', width=2
-        )
-        
-        # Service boxes - front line (same distance from net on both sides)
-        service_distance = self.court_height * 0.25  # Distance from net to service line
-        service_line_left = center_x - service_distance
-        service_line_right = center_x + service_distance
-        
-        # Service box lines
-        
-        # Service box lines
-        # Calculate quarter points of court width for service lines
-        quarter_court = self.court_width / 4
-        service_line_left = self.court_margin + quarter_court
-        service_line_right = self.width - self.court_margin - quarter_court
-        court_midpoint = singles_top + ((singles_bottom - singles_top) / 2)
+        self.alley_width = self.court_height * (4.5 / 36)
 
-        # Vertical service lines at 1/4 and 3/4 of court width
-        self.canvas.create_line(
-            service_line_left, singles_top,
-            service_line_left, singles_bottom,
-            fill='white', width=2
-        )
-        self.canvas.create_line(
-            service_line_right, singles_top,
-            service_line_right, singles_bottom,
-            fill='white', width=2
-        )
-        
-        # Horizontal service line at mid-court
-        self.canvas.create_line(
-            service_line_left, court_midpoint,
-            service_line_right, court_midpoint,
-            fill='white', width=2
-        )
-        
-        # Center service line connecting both service boxes
-        self.canvas.create_line(
-            center_x, service_line_left,
-            center_x, service_line_right,
-            fill='white', width=2
-        )
-        
-        # Baseline markers (for serve positioning)
-        marker_width = 10
-        # Top baseline markers
-        self.canvas.create_line(
-            self.court_margin, singles_top - marker_width,
-            self.court_margin, singles_top + marker_width,
-            fill='white', width=2
-        )
-        self.canvas.create_line(
-            self.width - self.court_margin, singles_top - marker_width,
-            self.width - self.court_margin, singles_top + marker_width,
-            fill='white', width=2
-        )
-        # Bottom baseline markers
-        self.canvas.create_line(
-            self.court_margin, singles_bottom - marker_width,
-            self.court_margin, singles_bottom + marker_width,
-            fill='white', width=2
-        )
-        self.canvas.create_line(
-            self.width - self.court_margin, singles_bottom - marker_width,
-            self.width - self.court_margin, singles_bottom + marker_width,
-            fill='white', width=2
-        )
-        
+        # Player state
+        self.p1_pos = [self.P1_BASELINE_X, self.CENTER_Y]
+        self.p2_pos = [self.P2_BASELINE_X, self.CENTER_Y]
+        self.p1_name = "Player 1"
+        self.p2_name = "Player 2"
+
+        # Ball state
+        self.ball_pos = [self.width // 2, self.height // 2]
+        self.ball_visible = False
+
+        # Animation tracking
+        self._anim_ids = []
+
+        self.draw_court()
+        self.draw_players()
+
+    # ------------------------------------------------------------------
+    # Court drawing
+    # ------------------------------------------------------------------
+    def draw_court(self):
+        """Draw tennis court lines."""
+        m = self.court_margin
+        w = self.width
+        h = self.height
+
+        # Doubles court outline
+        self.canvas.create_rectangle(m, m, w - m, h - m, outline='white', width=2)
+
+        # Singles sidelines
+        aw = self.court_width * 0.075
+        singles_top = m + aw
+        singles_bottom = h - m - aw
+        self.canvas.create_line(m, singles_top, w - m, singles_top, fill='white', width=2)
+        self.canvas.create_line(m, singles_bottom, w - m, singles_bottom, fill='white', width=2)
+
+        # Net
+        cx = w / 2
+        self.canvas.create_line(cx, 0, cx, h, fill='white', width=2)
+
+        # Service box lines
+        qc = self.court_width / 4
+        sl_left = m + qc
+        sl_right = w - m - qc
+        mid_y = singles_top + (singles_bottom - singles_top) / 2
+
+        self.canvas.create_line(sl_left, singles_top, sl_left, singles_bottom, fill='white', width=2)
+        self.canvas.create_line(sl_right, singles_top, sl_right, singles_bottom, fill='white', width=2)
+        self.canvas.create_line(sl_left, mid_y, sl_right, mid_y, fill='white', width=2)
+        self.canvas.create_line(cx, sl_left, cx, sl_right, fill='white', width=2)
+
+        # Baseline tick marks
+        mw = 10
+        for x in (m, w - m):
+            for y in (singles_top, singles_bottom):
+                self.canvas.create_line(x, y - mw, x, y + mw, fill='white', width=2)
+
+    # ------------------------------------------------------------------
+    # Player drawing
+    # ------------------------------------------------------------------
+    def draw_players(self):
+        """Draw both players as coloured circles with name labels."""
+        self.canvas.delete('p1_sprite', 'p1_label', 'p2_sprite', 'p2_label')
+        r = self.PLAYER_RADIUS
+
+        # Player 1 – blue
+        x1, y1 = self.p1_pos
+        self.canvas.create_oval(x1 - r, y1 - r, x1 + r, y1 + r,
+                                fill='#3498db', outline='white', width=2, tags='p1_sprite')
+        self.canvas.create_text(x1, y1 - r - 10, text=self.p1_name,
+                                fill='white', font=('Arial', 9, 'bold'), tags='p1_label')
+
+        # Player 2 – red
+        x2, y2 = self.p2_pos
+        self.canvas.create_oval(x2 - r, y2 - r, x2 + r, y2 + r,
+                                fill='#e74c3c', outline='white', width=2, tags='p2_sprite')
+        self.canvas.create_text(x2, y2 - r - 10, text=self.p2_name,
+                                fill='white', font=('Arial', 9, 'bold'), tags='p2_label')
+
+    # ------------------------------------------------------------------
+    # Ball drawing
+    # ------------------------------------------------------------------
     def draw_ball(self):
-        """Draw the tennis ball"""
-        ball_size = 5
+        """Draw the tennis ball at its current position (or hide it)."""
         self.canvas.delete('ball')
-        self.canvas.create_oval(
-            self.ball_pos[0] - ball_size, self.ball_pos[1] - ball_size,
-            self.ball_pos[0] + ball_size, self.ball_pos[1] + ball_size,
-            fill='yellow', tags='ball'
-        )
-        
-    def animate_ball(self, start, end, max_height=100, spin=0, duration=500):
-        """Animate the ball along a curved trajectory"""
-        start_x, start_y = start
-        end_x, end_y = end
-        steps = 20
-        shadow_size = 3
-        
-        def bezier(t, p0, p1, p2, p3):
-            return (1-t)**3 * p0 + 3*(1-t)**2 * t * p1 + 3*(1-t) * t**2 * p2 + t**3 * p3
-            
-        # Create control points for curved trajectory
-        mid_x = (start_x + end_x) / 2
-        cp1_x = start_x + (mid_x - start_x) / 2
-        cp2_x = end_x - (end_x - mid_x) / 2
-        
-        # Add curve based on spin
-        curve_offset = spin * 50  # Adjust spin influence
-        cp1_y = start_y - max_height + curve_offset
-        cp2_y = end_y - max_height - curve_offset
-        
-        def move_ball(step):
-            if step >= steps:
-                self.ball_pos = [end_x, end_y]
-                self.draw_ball()
-                return
-                
-            t = step / steps
-            # Calculate position along Bezier curve
-            x = bezier(t, start_x, cp1_x, cp2_x, end_x)
-            y = bezier(t, start_y, cp1_y, cp2_y, end_y)
-            
-            # Update ball position
-            self.ball_pos = [x, y]
-            
-            # Draw shadow (gets larger as ball gets higher)
-            height_factor = 1 - abs(2 * t - 1)  # 0 at start/end, 1 at apex
-            shadow_y = end_y + 5  # Slight offset for visual effect
-            self.canvas.delete('shadow')
-            self.canvas.create_oval(
-                x - shadow_size, shadow_y - shadow_size,
-                x + shadow_size, shadow_y + shadow_size,
-                fill='gray', tags='shadow'
-            )
-            
-            self.draw_ball()
-            
-            # Schedule next frame
-            ms_per_step = duration / steps
-            self.master.after(int(ms_per_step), lambda: move_ball(step + 1))
-            
-        move_ball(0)
-        
-    def reset_positions(self):
-        """Reset ball and player positions to their starting locations"""
-        self.player1_pos = [self.court_margin + self.baseline_margin, self.height / 2]
-        self.player2_pos = [self.width - self.court_margin - self.baseline_margin, self.height / 2]
-        self.ball_pos = [self.width / 2, self.height / 2]
-        self.draw_ball()
-            
-    def update_ball_position(self, x, y):
-        """Update the ball's position"""
+        if self.ball_visible:
+            r = 6
+            x, y = self.ball_pos
+            self.canvas.create_oval(x - r, y - r, x + r, y + r,
+                                    fill='yellow', outline='white', width=1, tags='ball')
+
+    def show_ball_at(self, x, y):
+        """Instantly place and show the ball at (x, y)."""
         self.ball_pos = [x, y]
+        self.ball_visible = True
         self.draw_ball()
-    
+
+    def hide_ball(self):
+        self.ball_visible = False
+        self.draw_ball()
+
+    def draw_rebound_mark(self, x, y):
+        """Draw a small grey circle marking the first rebound location."""
+        r = 5
+        self.canvas.create_oval(x - r, y - r, x + r, y + r,
+                                fill='#888888', outline='#aaaaaa', width=1, tags='rebound')
+
+    def draw_winner_mark(self, x, y):
+        """Draw a red circle marking the winning shot rebound location."""
+        r = 7
+        self.canvas.create_oval(x - r, y - r, x + r, y + r,
+                                fill='#e74c3c', outline='#c0392b', width=2, tags='rebound')
+
+    def clear_marks(self):
+        """Remove all rebound marks from the court."""
+        self.canvas.delete('rebound')
+
+    # ------------------------------------------------------------------
+    # Animation helpers
+    # ------------------------------------------------------------------
+    def _schedule(self, ms, fn):
+        """Schedule *fn* after *ms* milliseconds, tracking the id."""
+        aid = self.master.after(ms, fn)
+        self._anim_ids.append(aid)
+        return aid
+
+    def cancel_animations(self):
+        """Cancel every pending animation callback."""
+        for aid in self._anim_ids:
+            try:
+                self.master.after_cancel(aid)
+            except Exception:
+                pass
+        self._anim_ids.clear()
+
+    # ------------------------------------------------------------------
+    # Ball animation – straight line
+    # ------------------------------------------------------------------
+    def animate_ball_to(self, target_x, target_y, duration_ms=1000, callback=None):
+        """Animate ball in a straight line from current pos to target."""
+        sx, sy = self.ball_pos
+        steps = max(1, duration_ms // 16)          # ~60 fps
+        dx = (target_x - sx) / steps
+        dy = (target_y - sy) / steps
+        self.ball_visible = True
+        interval = max(1, duration_ms // steps)
+
+        def _step(i):
+            if i >= steps:
+                self.ball_pos = [target_x, target_y]
+                self.draw_ball()
+                if callback:
+                    callback()
+                return
+            self.ball_pos = [sx + dx * i, sy + dy * i]
+            self.draw_ball()
+            self._schedule(interval, lambda: _step(i + 1))
+
+        _step(0)
+
+    def animate_ball_through(self, mid_x, mid_y, end_x, end_y,
+                             duration_ms=1000, mid_callback=None, callback=None,
+                             winner=False):
+        """Animate ball from current pos through (mid) to (end).
+
+        A rebound mark is placed when the ball reaches *mid*.  If *winner*
+        is True the mark is red; otherwise grey.  *mid_callback*
+        fires at that moment.  *callback* fires when the ball reaches *end*.
+        The total travel time is *duration_ms*; the mid-point is reached
+        proportionally based on distance."""
+        import math
+        sx, sy = self.ball_pos
+        d1 = math.hypot(mid_x - sx, mid_y - sy)
+        d2 = math.hypot(end_x - mid_x, end_y - mid_y)
+        total = d1 + d2
+        if total < 1:
+            self.ball_pos = [end_x, end_y]
+            self.draw_ball()
+            if callback:
+                callback()
+            return
+        frac1 = d1 / total
+        ms1 = max(1, int(duration_ms * frac1))
+        ms2 = max(1, duration_ms - ms1)
+
+        def _phase2():
+            if winner:
+                self.draw_winner_mark(mid_x, mid_y)
+            else:
+                self.draw_rebound_mark(mid_x, mid_y)
+            if mid_callback:
+                mid_callback()
+            self.animate_ball_to(end_x, end_y, ms2, callback)
+
+        self.animate_ball_to(mid_x, mid_y, ms1, _phase2)
+
+    # ------------------------------------------------------------------
+    # Player animation – move to target position
+    # ------------------------------------------------------------------
+    def animate_player_to(self, player_num, target_x, target_y,
+                          duration_ms=900, callback=None):
+        """Smoothly move a player to (target_x, target_y)."""
+        pos = self.p1_pos if player_num == 1 else self.p2_pos
+        sx, sy = pos
+        steps = max(1, duration_ms // 16)
+        dx = (target_x - sx) / steps
+        dy = (target_y - sy) / steps
+        interval = max(1, duration_ms // steps)
+
+        def _step(i):
+            if i >= steps:
+                new = [target_x, target_y]
+                if player_num == 1:
+                    self.p1_pos = new
+                else:
+                    self.p2_pos = new
+                self.draw_players()
+                if callback:
+                    callback()
+                return
+            new = [sx + dx * i, sy + dy * i]
+            if player_num == 1:
+                self.p1_pos = new
+            else:
+                self.p2_pos = new
+            self.draw_players()
+            self._schedule(interval, lambda: _step(i + 1))
+
+        _step(0)
+
+    # ------------------------------------------------------------------
+    # Convenience helpers
+    # ------------------------------------------------------------------
+    def set_player_names(self, name1, name2):
+        self.p1_name = name1
+        self.p2_name = name2
+        self.draw_players()
+
+    def reset_positions(self):
+        """Return both players to baseline centre and hide ball."""
+        self.p1_pos = [self.P1_BASELINE_X, self.CENTER_Y]
+        self.p2_pos = [self.P2_BASELINE_X, self.CENTER_Y]
+        self.ball_visible = False
+        self.clear_marks()
+        self.draw_players()
+        self.draw_ball()
+
+    def update_ball_position(self, x, y):
+        self.ball_pos = [x, y]
+        self.ball_visible = True
+        self.draw_ball()
+
     def clear_ball(self):
-        """Remove the ball from the court"""
+        self.ball_visible = False
         self.canvas.delete('ball')

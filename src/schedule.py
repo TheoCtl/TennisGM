@@ -1314,44 +1314,63 @@ class TournamentScheduler:
         
         # 2. Player development weeks
         if self.current_week in [26, 52]:
+            dev_templates = [
+                'The tour enters its mid-season development window. Players across the rankings are retreating to their training bases to sharpen their games, with coaches reporting intensive work on technique, conditioning, and tactical adjustments ahead of the second half of the season.',
+                'It\'s development week on the ATP circuit. From the top 10 to the lower ranks, players are using this scheduled break to refine their skills. Training courts around the world are buzzing with activity as athletes look to gain any edge they can for the weeks ahead.',
+                'The professional tour pauses for its biannual development period. Players and their coaching teams are taking advantage of this window to address weaknesses, build on strengths, and prepare physically for the demanding stretch of tournaments to come.',
+                'Development week is upon us. Across training academies worldwide, ATP professionals are grinding through intensive sessions — working on everything from serve mechanics to match fitness. The improvements made this week could define the rest of the season.',
+                'The ATP calendar marks this as an official development period. Players at every level of the sport are investing in their long-term growth, with many expected to emerge with noticeable improvements in the coming weeks.',
+                'A brief pause in competitive action as the tour enters its development phase. Behind closed doors, players are putting in the hard yards — refining their technique, building stamina, and studying film to prepare for what lies ahead.',
+            ]
             news_items.append({
                 'type': 'development',
                 'title': 'PLAYER DEVELOPMENT WEEK',
-                'content': 'Players across the tour are working on their skills during this development period. Expect to see improvements in technique and fitness over the coming weeks.'
+                'content': random.choice(dev_templates)
             })
         
         # 3. New players and retirements
         if self.current_week == 1:
             newgens = [p for p in self.players if p['age'] == 16]
             if newgens:
-                # Templates for newgen announcements
+                # Gather archetype info for flavor
+                archetype_counts = {}
+                for ng in newgens:
+                    arch = ng.get('archetype', 'Unknown')
+                    archetype_counts[arch] = archetype_counts.get(arch, 0) + 1
+                top_archetypes = sorted(archetype_counts.items(), key=lambda x: -x[1])[:2]
+                arch_flavor = ' and '.join(a[0].lower() for a in top_archetypes)
+
                 single_newgen_templates = [
-                    "{name} has joined the professional tour at age 16, marking the beginning of what could be a promising career.",
-                    "Young talent {name} makes their professional debut, entering the ATP tour with high expectations.",
-                    "{name} steps into the professional arena at just 16 years old, ready to make their mark on tennis.",
-                    "Rising star {name} officially turns professional, beginning their journey on the ATP circuit.",
-                    "{name} launches their professional career, joining the tour as one of tennis's newest prospects."
+                    "The ATP Tour officially welcomes its newest member: {name}, who turns professional at just 16 years of age. The young {archetype} has been generating buzz in junior circuits and will look to make an immediate impact on the Challenger and ITF tours this season.",
+                    "At 16, {name} has made the leap to professional tennis. The {archetype} arrives with considerable hype from the junior ranks, and scouts will be watching closely to see how quickly the teenager can adapt to the demands of the senior tour.",
+                    "{name} begins a new chapter today, officially joining the professional tour at age 16. The {archetype} has shown remarkable maturity in junior competition and now faces the ultimate test — can he translate that promise against the world's best?",
+                    "Professional tennis has a new face: {name}, 16, who enters the ATP Tour as one of the most anticipated prospects of the year. Playing as a {archetype}, the youngster has all the tools to climb quickly through the rankings.",
+                    "The wait is over for {name}. After an impressive junior career, the 16-year-old {archetype} officially turns professional and joins the ATP circuit. The road ahead is long, but the talent is undeniable.",
+                    "Tennis insiders have been tracking {name} for years, and now the 16-year-old {archetype} finally steps onto the professional stage. The youngest new addition to the tour, he carries the weight of enormous expectation.",
                 ]
-                
+
                 few_newgens_templates = [
-                    "{names} have joined the professional tour, bringing fresh talent to the ATP circuit.",
-                    "{names} make their professional debuts, adding exciting new prospects to the tour.",
-                    "The ATP welcomes {names} as they begin their professional careers.",
-                    "{names} enter the professional ranks, ready to challenge the established order.",
-                    "Fresh faces {names} officially join the tour, marking the start of their professional journeys."
+                    "The new season brings fresh blood to the ATP Tour as {names} all turn professional. Each brings a unique style to the circuit, and tennis observers will be eager to track their development through the early months of the year.",
+                    "{names} have officially begun their professional careers, joining the tour as part of this year's incoming class. With diverse playing styles and raw potential, these young players represent the next wave of talent in professional tennis.",
+                    "The ATP Tour welcomes {names} to the professional ranks this season. All aged 16, these newcomers have earned their cards through junior excellence and now face the steep learning curve of senior competition.",
+                    "A new generation arrives: {names} make their professional debuts this week. The tennis world is watching closely — among this small group could be the future stars of the sport.",
+                    "Professional tennis gains {names} as its newest touring professionals. The young trio brings energy and ambition to a tour that is always hungry for fresh narratives and emerging talent.",
+                    "This year's crop of debutants includes {names}, who officially join the ATP circuit. Having impressed in junior and exhibition events, these players are ready to test themselves against the established order.",
                 ]
-                
+
                 many_newgens_templates = [
-                    "{count} promising young players have joined the professional tour this year, including {names}.",
-                    "The ATP tour gains {count} new talents this season, headlined by {names}.",
-                    "{count} fresh prospects enter professional tennis, with {names} leading the new generation.",
-                    "This year's rookie class features {count} players, notably {names}.",
-                    "The professional tour welcomes {count} newcomers, including standouts {names}."
+                    "{count} promising young players have joined the professional tour for the {year} season, headlined by {names}. This year's rookie class is one of the deepest in recent memory, featuring a mix of playing styles including {arch_flavor} profiles that could make an immediate impact on the lower tours.",
+                    "The ATP Tour's {year} rookie class is officially here: {count} new professionals led by {names}. Scouts have identified several potential fast-risers among the group, with {arch_flavor} styles particularly well-represented in this year's intake.",
+                    "A total of {count} teenagers have turned professional ahead of the {year} season, the most notable being {names}. The influx of young talent promises to reshape the lower tiers of the rankings and inject fresh energy into Challenger and ITF events worldwide.",
+                    "It's the largest rookie class in years: {count} new players join the professional tour, with {names} drawing the most attention from talent evaluators. The {arch_flavor} contingent looks especially strong, and several are expected to make waves early.",
+                    "{count} new professionals enter the ATP ecosystem this season. Among the standouts are {names}, who have been identified by coaching staffs as players with genuine top-100 upside. The {year} generation has arrived.",
+                    "Professional tennis welcomes {count} newcomers to its ranks for {year}. The incoming class, spearheaded by {names}, features promising {arch_flavor} players who have dominated age-group competition and now seek to prove themselves at the highest level.",
                 ]
-                
+
                 if len(newgens) == 1:
+                    archetype = newgens[0].get('archetype', 'player').lower()
                     template = random.choice(single_newgen_templates)
-                    content = template.format(name=newgens[0]['name'])
+                    content = template.format(name=newgens[0]['name'], archetype=archetype)
                 elif len(newgens) <= 3:
                     names = ', '.join(p['name'] for p in newgens[:-1]) + f" and {newgens[-1]['name']}"
                     template = random.choice(few_newgens_templates)
@@ -1359,8 +1378,8 @@ class TournamentScheduler:
                 else:
                     names = f"{newgens[0]['name']}, {newgens[1]['name']}, and {newgens[2]['name']}"
                     template = random.choice(many_newgens_templates)
-                    content = template.format(count=len(newgens), names=names)
-                
+                    content = template.format(count=len(newgens), names=names, year=self.current_year, arch_flavor=arch_flavor)
+
                 news_items.append({
                     'type': 'newgens',
                     'title': 'FRESH FACES ON TOUR',
@@ -1375,36 +1394,48 @@ class TournamentScheduler:
             )[:100]
             hof_names = set(p['name'] for p in hof_members)
             notable_retirees = [p for p in self.current_year_retirees if p in hof_names]
-            
+
             if notable_retirees:
-                # Templates for retirement announcements
+                # Try to find career stats for the retiree(s)
+                def _retiree_stats(name):
+                    hof_entry = next((h for h in self.hall_of_fame if h['name'] == name), None)
+                    if hof_entry:
+                        titles = len(hof_entry.get('tournament_wins', []))
+                        gs = len([w for w in hof_entry.get('tournament_wins', []) if w.get('category') == 'Grand Slam'])
+                        return titles, gs
+                    return 0, 0
+
                 single_retirement_templates = [
-                    "Tennis legend {name} has officially announced their retirement from professional tennis, ending a remarkable career that has earned them a place in the Hall of Fame.",
-                    "The sport loses a true champion as {name} hangs up their racquet, concluding a distinguished career filled with memorable victories.",
-                    "{name} calls time on their illustrious career, leaving behind a legacy that will inspire future generations.",
-                    "After years of excellence, {name} steps away from professional tennis, cementing their status as one of the game's greats.",
-                    "Hall of Famer {name} announces retirement, bringing the curtain down on a career that redefined tennis excellence."
+                    "After a storied career spanning multiple seasons, {name} has officially announced his retirement from professional tennis. The Hall of Famer departs with {titles} career titles{gs_note}, leaving behind a legacy that will be remembered for generations. Colleagues and rivals alike have paid tribute to one of the sport's finest competitors.",
+                    "The tennis world received the news it had been dreading: {name} is retiring. With {titles} titles to his name{gs_note}, the former champion exits the sport on his own terms, having cemented his status as one of the all-time greats. His impact on the game extends far beyond the numbers.",
+                    "{name} hangs up his racquet for the final time. The decorated champion, who amassed {titles} professional titles{gs_note} over the course of his career, confirmed his retirement in a statement to the press. Tennis loses one of its most compelling figures.",
+                    "The curtain falls on {name}'s remarkable career. The Hall of Fame member, owner of {titles} career titles{gs_note}, steps away from competitive tennis after years of excellence at the highest level. His farewell marks the end of an era in the sport.",
+                    "It is with heavy hearts that we report {name}'s retirement from professional tennis. The champion retires with {titles} titles{gs_note} and the respect of the entire tennis community. Few players have left such an indelible mark on the sport.",
+                    "{name} has played his last professional match. The {titles}-time champion{gs_note} confirmed the decision through his management team, bringing closure to one of the most celebrated careers in modern tennis history. His legacy is secure.",
                 ]
-                
+
                 multiple_retirement_templates = [
-                    "The tennis world bids farewell to {names}, who have all announced their retirement from professional tennis after distinguished careers.",
-                    "An era comes to an end as {names} collectively retire, leaving behind legacies of championship excellence.",
-                    "Tennis loses several icons as {names} step away from professional competition after remarkable careers.",
-                    "The sport honors {names} as they transition into retirement, each having contributed immensely to tennis history.",
-                    "Legendary careers conclude as {names} announce their retirement from the professional tour."
+                    "The professional tour bids farewell to several of its most distinguished competitors as {names} all announce their retirement from tennis. Between them, these players have accumulated countless titles and memorable moments that shaped the sport's modern era. Their collective departure marks a significant changing of the guard.",
+                    "An era draws to a close: {names} have each confirmed their retirement from professional tennis. These Hall of Fame members leave behind legacies of championship-level excellence, and their absence will be deeply felt on the tour. The sport is poorer for their departure, but richer for their contributions.",
+                    "The tennis world processes a wave of high-profile retirements as {names} step away from professional competition. Each brought a unique style and competitive fire to the tour, and their combined impact on the sport cannot be overstated. Future generations will study their games with admiration.",
+                    "Multiple tennis icons have called time on their careers. {names} have all officially retired, ending chapters of professional excellence that spanned years of top-level competition. The tour will look very different without their presence in the draw sheets.",
+                    "Retirement season claims some of the sport's biggest names: {names} have all hung up their racquets. Their combined trophy cabinets tell the story of an extraordinary generation of players, and the sport will miss their brilliance and competitive spirit.",
+                    "The professional tour loses a generation of champions as {names} collectively announce their retirement. These players defined eras and inspired millions, and their farewell from competitive tennis leaves a void that the next generation must fill.",
                 ]
-                
+
                 if len(notable_retirees) == 1:
+                    titles, gs = _retiree_stats(notable_retirees[0])
+                    gs_note = f", including {gs} Grand Slam{'s' if gs != 1 else ''}" if gs > 0 else ""
                     template = random.choice(single_retirement_templates)
-                    content = template.format(name=notable_retirees[0])
+                    content = template.format(name=notable_retirees[0], titles=titles, gs_note=gs_note)
                 else:
                     names = ', '.join(notable_retirees[:-1]) + f" and {notable_retirees[-1]}"
                     template = random.choice(multiple_retirement_templates)
                     content = template.format(names=names)
-                
+
                 news_items.append({
                     'type': 'retirements',
-                    'title': 'TENNIS LEGENDS RETIRE',
+                    'title': 'END OF AN ERA',
                     'content': content
                 })
         
@@ -1429,88 +1460,104 @@ class TournamentScheduler:
         self.news_feed = news_items
 
     def _generate_yearly_recap(self):
-        """Generate yearly recap news for week 1"""
+        """Generate yearly recap news for week 1 — newspaper-style season review."""
         recap_items = []
-        
-        # Best improved players
+        last_year = self.current_year - 1
+
+        # ── Most improved players ──
         improved_players = self._get_most_improved_players()
         if improved_players:
             content = []
-            
-            # Varied intro phrases for improvement stories
             improvement_intros = [
-                "The biggest success stories of the past year:",
-                "These players made remarkable strides in their rankings:",
-                "Dramatic improvements highlighted last year's tour:",
-                "The most inspiring ranking climbs of the year:",
-                "These athletes transformed their careers with impressive gains:"
+                f"The {last_year} season produced several stunning ranking transformations. Here are the players who made the biggest leaps:",
+                f"When the {last_year} rankings are compared year-over-year, these players stand out as the tour's most dramatic improvers:",
+                f"Every season has its breakout stories, and {last_year} was no exception. These five players made the most significant ranking jumps of the year:",
+                f"From the fringes to the spotlight — these players rewrote their careers in {last_year} with remarkable ranking climbs:",
+                f"The numbers don't lie: these five players made the biggest upward moves in the {last_year} rankings, each transforming their career trajectory:",
+                f"As we enter {self.current_year}, we look back at the players who defied expectations with the most impressive ranking gains of last season:",
             ]
             content.append(random.choice(improvement_intros))
-            
-            # Varied templates for improvement descriptions
+
             improvement_templates = [
-                "{name} (#{old_rank} → #{new_rank}, +{improvement})"
+                "{name} — climbed from #{old_rank} to #{new_rank} (+{improvement} positions)",
+                "{name}: #{old_rank} → #{new_rank}, a rise of {improvement} places",
+                "{name} surged {improvement} spots, finishing at #{new_rank} (was #{old_rank})",
+                "{name} — from #{old_rank} to #{new_rank}. A {improvement}-place improvement.",
+                "{name} (+{improvement}) — entered the year at #{old_rank}, now ranked #{new_rank}",
+                "{name}: started at #{old_rank}, ended at #{new_rank}. That's {improvement} places gained.",
             ]
-            
+
             for i, (player, old_rank, new_rank, improvement) in enumerate(improved_players[:5], 1):
                 template = random.choice(improvement_templates)
                 formatted = template.format(
-                    name=player['name'], 
-                    old_rank=old_rank, 
-                    new_rank=new_rank, 
-                    improvement=improvement
+                    name=player['name'], old_rank=old_rank,
+                    new_rank=new_rank, improvement=improvement
                 )
                 content.append(f"{i}. {formatted}")
-            
+
             recap_items.append({
                 'type': 'improved',
-                'title': 'MOST IMPROVED PLAYERS',
+                'title': f'{last_year} MOST IMPROVED',
                 'content': content
             })
-        
-        # Most tournaments won last year
+
+        # ── Top tournament winners ──
         tournament_winners = self._get_top_tournament_winners_last_year()
         if tournament_winners:
             content = []
-            
-            # Varied intro phrases for tournament winners
             winner_intros = [
-                "Last year's most successful tournament champions:",
-                "The tour's most prolific winners from the previous season:",
-                "These players dominated the tournament circuit:",
-                "The most consistent champions throughout the year:",
-                "Last season's title-collecting superstars:"
+                f"The {last_year} title race saw some dominant campaigns. Here are the players who collected the most tournament trophies:",
+                f"When it came to hoisting trophies in {last_year}, these players led the way across all levels of the tour:",
+                f"Silverware distribution in {last_year} was dominated by a familiar cast. The season's most prolific champions:",
+                f"Who won the most in {last_year}? The answer may (or may not) surprise you. Here are the tour's top title-holders:",
+                f"From Grand Slams to 250s, these players racked up more wins than anyone else in {last_year}:",
+                f"The {last_year} trophy table is topped by these five players, each of whom enjoyed outstanding seasons on the title front:",
             ]
             content.append(random.choice(winner_intros))
-            
-            # Varied templates for tournament wins
+
             winner_templates = [
-                "{name} - {wins} {tournament_text}",
-                "{name} captured {wins} {tournament_text}",
-                "{name}: {wins} {tournament_text} claimed",
-                "{name} secured {wins} championship {title_suffix}",
-                "{name} dominated with {wins} {tournament_text}"
+                "{name} — {wins} {title_suffix} won",
+                "{name}: {wins} {title_suffix} across the season",
+                "{name} collected {wins} {title_suffix} in {last_year}",
+                "{name} — {wins} championship {title_suffix} to his name",
+                "{name} finished with {wins} {title_suffix} on the year",
+                "{name}: a {wins}-{title_suffix} haul in {last_year}",
             ]
-            
+
             for i, (player, wins) in enumerate(tournament_winners[:5], 1):
-                tournament_text = "tournament" if wins == 1 else "tournaments"
                 title_suffix = "title" if wins == 1 else "titles"
-                
                 template = random.choice(winner_templates)
                 formatted = template.format(
-                    name=player['name'], 
-                    wins=wins, 
-                    tournament_text=tournament_text,
-                    title_suffix=title_suffix
+                    name=player['name'], wins=wins,
+                    title_suffix=title_suffix, last_year=last_year
                 )
                 content.append(f"{i}. {formatted}")
-            
+
             recap_items.append({
                 'type': 'winners',
-                'title': 'TOP TOURNAMENT WINNERS',
+                'title': f'{last_year} TOP CHAMPIONS',
                 'content': content
             })
-        
+
+        # ── Year-end #1 recognition ──
+        year_end_no1 = next(
+            (p for p in self.players if p.get('rank') == 1 and not p.get('retired', False)), None
+        )
+        if year_end_no1:
+            w1_count = year_end_no1.get('w1', 0)
+            ye_titles = len([w for w in year_end_no1.get('tournament_wins', [])
+                            if w.get('year') == last_year])
+            ye_templates = [
+                f"{year_end_no1['name']} enters {self.current_year} as the world's top-ranked player. The {year_end_no1.get('archetype', 'champion').lower()} finished last season with {ye_titles} titles and has now spent {w1_count} week{'s' if w1_count != 1 else ''} at #1 in his career.",
+                f"The {self.current_year} season opens with {year_end_no1['name']} sitting atop the rankings. After a {ye_titles}-title campaign in {last_year}, the world #1 shows no signs of relinquishing his throne.",
+                f"As the new season begins, {year_end_no1['name']} remains the man to beat. The {year_end_no1.get('archetype', 'player').lower()} carries {w1_count} career weeks at #1 into {self.current_year}, with {ye_titles} titles from last season reinforcing his dominance.",
+            ]
+            recap_items.append({
+                'type': 'year_end_no1',
+                'title': f'{self.current_year} WORLD #1',
+                'content': random.choice(ye_templates)
+            })
+
         return recap_items
     
     def _get_most_improved_players(self):
@@ -1554,43 +1601,44 @@ class TournamentScheduler:
         return sorted(winner_counts.values(), key=lambda x: x[1], reverse=True)
     
     def _generate_achievement_news(self):
-        """Generate news about achievement changes"""
+        """Generate newspaper-style news about all-time record changes."""
         achievement_items = []
-        
-        # Templates for achievement announcements
+
         achievement_templates = [
-            "{name} has entered the all-time top 10 for {title}, claiming the #{pos} position with their recent achievements.",
-            "{name} breaks into the prestigious top 10 for {title}, securing #{pos} place in tennis history.",
-            "{name} makes history by reaching #{pos} in the all-time {title} rankings.",
-            "{name} achieves a remarkable milestone, entering the top 10 for {title} at #{pos}.",
-            "{name} cements their legacy with a #{pos} ranking in the all-time {title} category.",
-            "{name} joins tennis elite by claiming #{pos} in the historical {title} standings."
+            "In a significant milestone, {name} has entered the all-time top 10 for {title}, claiming the #{pos} position. This achievement places him among the most accomplished players in the history of the sport in this category, and his ongoing career suggests he could climb even higher.",
+            "{name} writes his name into the history books this week, breaking into the prestigious all-time top 10 for {title} at #{pos}. The accomplishment is the culmination of years of sustained excellence and marks a defining moment in an already impressive career.",
+            "A place in tennis history: {name} now ranks #{pos} on the all-time {title} leaderboard. The milestone was reached following his recent results, and analysts believe he has the trajectory to continue climbing the historical rankings.",
+            "The all-time {title} standings have a new entrant. {name} secures the #{pos} position, joining an exclusive club of the sport's most decorated competitors. It is a testament to the consistency and quality that has defined his career.",
+            "{name} adds another line to an extraordinary résumé, entering the all-time top 10 for {title} at #{pos}. Tennis historians note that very few active players have achieved this distinction, underscoring the significance of the moment.",
+            "Record alert: {name} has officially reached #{pos} in the all-time {title} category. The achievement was recognized by the tour this week and cements his legacy as one of the finest players of his generation — and perhaps of all time.",
+            "The history books are rewritten once again as {name} breaks into the all-time top 10 for {title}, slotting in at #{pos}. With his career still in full swing, the question now is: how high can he go?",
+            "Legacy-defining news for {name}: he is now ranked #{pos} all-time in {title}. This milestone, reached through sheer accumulation of excellence, places him in the company of the sport's immortals.",
         ]
-        
+
         for rec, prev in zip(self.records, self.previous_records):
             if rec.get("type") == prev.get("type") and rec.get("top10") != prev.get("top10"):
                 title = rec.get('title', rec.get('type'))
                 prev_names = [entry['name'] for entry in prev.get('top10', [])]
                 curr_names = [entry['name'] for entry in rec.get('top10', [])]
-                
+
                 new_entries = [name for name in curr_names if name not in prev_names]
-                
+
                 if new_entries:
                     for name in new_entries:
                         pos = curr_names.index(name) + 1
                         template = random.choice(achievement_templates)
                         content = template.format(name=name, title=title.lower(), pos=pos)
-                        
+
                         achievement_items.append({
                             'type': 'achievement',
-                            'title': 'RECORD MILESTONE',
+                            'title': 'HISTORICAL MILESTONE',
                             'content': content
                         })
-        
+
         return achievement_items
     
     def _generate_tournament_news(self):
-        """Generate news about recent tournament winners with contextual info"""
+        """Generate newspaper-style reports about recent tournament results."""
         tournament_items = []
 
         last_week = self.current_week - 1 if self.current_week > 1 else 52
@@ -1609,15 +1657,63 @@ class TournamentScheduler:
                 wins = winner.get('tournament_wins', [])
                 total_wins = len(wins)
                 category = tournament['category']
+                rank = winner.get('rank', '?')
+                age = winner.get('age', '?')
+                archetype = winner.get('archetype', 'player').lower()
 
-                # Build contextual flavor instead of mentioning nationality
+                # Find runner-up from final match
+                runner_up = None
+                bracket = tournament.get('bracket', [])
+                if bracket:
+                    final_round = bracket[-1]
+                    for match in final_round:
+                        if len(match) >= 3 and match[2] == winner['id']:
+                            loser_id = match[1] if match[0] == winner['id'] else match[0]
+                            runner_up = next((p for p in self.players if p['id'] == loser_id), None)
+                            break
+
+                # Build context line
                 context_line = self._get_win_context(winner, tournament, wins, total_wins)
 
-                win_verbs = ["captured", "claimed", "secured", "won", "triumphed at", "conquered"]
-                verb = random.choice(win_verbs)
+                # Newspaper-style headline structures (varied)
+                if runner_up:
+                    ru_rank = runner_up.get('rank', '?')
+                    headline_templates = [
+                        f"{winner['name']} claims the {tournament['name']} title, defeating {runner_up['name']} in the final.",
+                        f"{winner['name']} defeats {runner_up['name']} to win the {tournament['name']}.",
+                        f"The {tournament['name']} goes to {winner['name']}, who overcame {runner_up['name']} in the championship match.",
+                        f"{winner['name']} outlasts {runner_up['name']} to lift the {tournament['name']} trophy.",
+                        f"Championship: {winner['name']} prevails over {runner_up['name']} in the {tournament['name']} final.",
+                        f"{winner['name']} crowned {tournament['name']} champion after final victory over {runner_up['name']}.",
+                        f"The {tournament['name']} final ends in glory for {winner['name']}, who denied {runner_up['name']} the title.",
+                        f"{winner['name']} triumphs at the {tournament['name']}, beating {runner_up['name']} in a {category} final.",
+                    ]
+                else:
+                    headline_templates = [
+                        f"{winner['name']} captures the {tournament['name']} title.",
+                        f"{winner['name']} wins the {tournament['name']} ({category}).",
+                        f"The {tournament['name']} belongs to {winner['name']}.",
+                        f"{winner['name']} lifts the {tournament['name']} trophy.",
+                        f"Title goes to {winner['name']} at the {tournament['name']}.",
+                        f"{winner['name']} emerges victorious at the {tournament['name']}.",
+                        f"Champion crowned: {winner['name']} wins the {tournament['name']}.",
+                        f"{winner['name']} takes the {tournament['name']} crown ({category}).",
+                    ]
 
-                headline = f"{winner['name']} {verb} the {tournament['name']} ({category})."
-                content = f"{headline} {context_line}"
+                headline = random.choice(headline_templates)
+
+                # Additional detail paragraph
+                detail_templates = [
+                    f"The world #{rank} {archetype}, aged {age}, adds another line to an impressive résumé.",
+                    f"Ranked #{rank}, the {age}-year-old {archetype} continues to prove himself at the {category} level.",
+                    f"The {age}-year-old, currently ranked #{rank}, showed the form that has made him one of the tour's most dangerous {archetype}s.",
+                    f"At #{rank} in the rankings, {winner['name']} demonstrated why the {archetype} style remains a force on tour.",
+                    f"The #{rank}-ranked {archetype} was in imperious form throughout the week.",
+                    f"Playing with the composure of a seasoned champion, the {age}-year-old #{rank} seed was clinical.",
+                ]
+                detail = random.choice(detail_templates)
+
+                content = f"{headline} {context_line} {detail}"
 
                 tournament_items.append({
                     'type': 'tournaments',
@@ -1628,7 +1724,7 @@ class TournamentScheduler:
         return tournament_items
 
     def _get_win_context(self, winner, tournament, wins, total_wins):
-        """Generate contextual information about a tournament win instead of nationality."""
+        """Generate contextual information about a tournament win."""
         category = tournament['category']
 
         is_first_title = total_wins == 1
@@ -1656,65 +1752,100 @@ class TournamentScheduler:
             for w in previous_wins
         )
 
+        # Times won this specific tournament
+        times_won_here = len([w for w in wins if w['name'] == tournament['name']])
+
         is_young = winner.get('age', 30) < 20
 
         # Priority-ordered context selection
         if is_first_title:
             return random.choice([
-                "It's the first professional title of his career!",
-                "A breakthrough moment \u2014 his first ever title on the professional tour!",
-                "He lifts his maiden trophy in what could be the start of something special.",
+                "It is the first professional title of his career — a breakthrough that has been a long time coming.",
+                "A maiden title at last. He lifts his first professional trophy in what could prove to be a pivotal moment in his career.",
+                "First career title secured. The emotion was visible as he celebrated a victory that marks the true beginning of his professional journey.",
+                "The monkey is off his back — he's a champion for the first time. A moment he'll remember forever.",
+                "Title number one. Every champion starts somewhere, and this victory could be the launching pad for much more.",
+                "His first professional crown. After years of near-misses, he finally gets his hands on a trophy.",
             ])
 
         if is_first_gs:
             return random.choice([
-                "It's his first Grand Slam title \u2014 a career-defining moment!",
-                "He finally breaks through at Grand Slam level!",
-                "A landmark achievement \u2014 Grand Slam champion for the first time!",
+                "It is his first Grand Slam title — a career-defining achievement that places him among the sport's elite.",
+                "Grand Slam champion for the first time. The weight of the moment was clear, but he handled it with remarkable composure.",
+                "A maiden major crown. Years of work have culminated in the biggest victory of his professional life.",
+                "First Grand Slam. The tears flowed as he realized the magnitude of what he had just accomplished.",
+                "He can now call himself a Grand Slam champion. A landmark achievement that changes his career trajectory forever.",
+                "Major breakthrough: his first Grand Slam title. An accomplishment that separates the good from the truly great.",
             ])
 
         if category == 'Grand Slam' and len(gs_wins) > 1:
             count = len(gs_wins)
             ordinal = f"{count}{'nd' if count == 2 else 'rd' if count == 3 else 'th'}"
             return random.choice([
-                f"That's Grand Slam title #{count} for the champion.",
-                f"He adds a {ordinal} Grand Slam to his collection.",
-                f"Grand Slam #{count} \u2014 cementing his place among the greats.",
+                f"That's Grand Slam title number {count} for the champion, further cementing his status among the all-time greats.",
+                f"He adds a {ordinal} Grand Slam to his collection — a feat that demands respect from even his fiercest critics.",
+                f"Grand Slam #{count}. With each major title, the case for his place in tennis immortality grows stronger.",
+                f"Major number {count}. The champion's hunger shows no sign of diminishing, and the record books continue to be rewritten.",
+                f"A {ordinal} Grand Slam crown. The dominance at this level is becoming a defining feature of the modern era.",
+                f"{count} Grand Slams and counting. At this rate, the all-time records are very much within reach.",
+            ])
+
+        if is_defending and times_won_here >= 3:
+            ordinal = f"{times_won_here}{'rd' if times_won_here == 3 else 'th'}"
+            return random.choice([
+                f"He defends his title successfully — that's now {times_won_here} times he's won this tournament. He owns this event.",
+                f"A {ordinal} title at this venue. The defending champion has made this tournament his personal fortress.",
+                f"Title #{times_won_here} here. The dynasty continues as he retains his crown once again.",
             ])
 
         if is_defending:
             return random.choice([
-                "He successfully defends his title from last year.",
-                "Back-to-back champion! He retains his crown.",
-                "The defending champion proves his dominance once more.",
+                "He successfully defends his title from last year, proving his triumph was no fluke.",
+                "Back-to-back champion. The defending champion rose to the occasion when it mattered most.",
+                "The defending champion retains his crown, fending off all challengers with characteristic resolve.",
+                "Title retained. He came in as champion and leaves as champion — consistency at its finest.",
+                "Successful title defense. Defending a crown is often harder than winning it the first time, but he made it look natural.",
+                "He does it again. The defending champion proves that his affinity for this event is no coincidence.",
             ])
 
         if is_biggest_win:
             return random.choice([
-                "It's the biggest tournament win of his career so far.",
-                "A new career milestone \u2014 his most prestigious title to date.",
-                "He reaches new heights with the biggest title of his career.",
+                "It is the most prestigious title of his career to date — a significant step up in class.",
+                "A new career-best result. He has never won at this level before, and the significance of the achievement is not lost on him.",
+                "His biggest tournament win yet. The victory represents a clear elevation in his standing on the tour.",
+                "A career milestone: his most prestigious crown to date. He is announcing himself at a higher echelon of the sport.",
+                "He reaches new heights with the most significant title of his professional career.",
+                "The biggest win of his career so far. This victory signals a player ready to compete at the very highest level.",
             ])
 
         if is_first_m1000:
             return random.choice([
-                "It's his first Masters 1000 title \u2014 a major step forward.",
-                "He breaks through at Masters level for the first time.",
-                "A first Masters 1000 crown \u2014 a sign of things to come.",
+                "It is his first Masters 1000 crown — a statement victory that announces his arrival among the tour's premier competitors.",
+                "A first Masters 1000 title. Breaking through at this level is a milestone that only the best achieve.",
+                "Maiden Masters victory. The step up to this tier of tournament is significant, and he handled the pressure superbly.",
+                "His first title at the Masters 1000 level. Winning here demands a sustained week of elite-level tennis.",
+                "First Masters crown secured. This level of tournament separates contenders from pretenders, and he passed the test.",
+                "A breakthrough at Masters level. His first 1000-level title marks a turning point in his career.",
             ])
 
         if is_young:
             return random.choice([
-                f"At just {winner['age']}, he's already collecting titles at this level.",
-                f"Only {winner['age']} years old and already a champion here.",
-                f"Remarkable maturity from the {winner['age']}-year-old.",
+                f"At just {winner['age']} years old, he is already collecting hardware at this level — a remarkable feat for a player so young.",
+                f"Only {winner['age']} and already a champion here. The maturity on display belied his tender age.",
+                f"Remarkable maturity from the {winner['age']}-year-old. Most players his age are still finding their feet at this level.",
+                f"Just {winner['age']} years old. Winning at this stage of a career that has barely begun is a sign of extraordinary talent.",
+                f"A champion at {winner['age']}. The precocious talent delivered when it mattered most, playing beyond his years.",
+                f"At {winner['age']}, the tennis world is at his feet. Champions this young tend to go on to achieve great things.",
             ])
 
         # Default: career title count
         return random.choice([
-            f"That's career title #{total_wins} for him.",
-            f"Title #{total_wins} goes on the resume.",
-            f"He now has {total_wins} professional titles to his name.",
+            f"That brings his career title count to {total_wins} — a respectable and growing collection.",
+            f"Title number {total_wins} for the champion. The consistency continues season after season.",
+            f"He now holds {total_wins} professional titles, adding another chapter to an already impressive career.",
+            f"Career title #{total_wins}. Each trophy tells its own story, and this one was earned through sheer quality.",
+            f"With {total_wins} titles to his name, he has built a career that commands respect across the tour.",
+            f"That's {total_wins} career titles now. A testament to sustained excellence at the professional level.",
         ])
 
     def _generate_tournament_showcase(self):
@@ -1784,7 +1915,7 @@ class TournamentScheduler:
                     rank = p.get('rank', 999)
                     # Lower rank = better; higher surf_mod = better
                     # Score: inverse rank weighted by surface mod
-                    score = surf_mod * (1000 - min(rank, 999))
+                    score = surf_mod * (200 - min(rank, 999))
                     candidate_players.append((p, score, surf_mod, rank))
 
             if candidate_players:
@@ -2488,20 +2619,21 @@ class TournamentScheduler:
             if player.get('retired', False):
                 continue
             total_wins = len(player.get('tournament_wins', []))
-            if total_wins in [9, 19, 24, 29, 49]:
+            if total_wins in [39, 49, 59, 69, 79, 89, 99]:
                 milestone = total_wins + 1
-                tweets.append({
-                    'type': 'tweet',
-                    'title': '🏆 MILESTONE WATCH',
-                    'content': random.choice([
-                        f"{player['name']} sits at {total_wins} career titles. Can he reach {milestone} this season?",
-                        f"Just one more win from a milestone — {player['name']} has {total_wins} titles. #{milestone} is calling.",
-                        f"Milestone alert: {player['name']} is one title away from {milestone} career wins.",
-                        f"{player['name']} has {total_wins} career titles. One more and he hits the magic number {milestone}.",
-                        f"The chase for #{milestone}: {player['name']} needs just one more title to reach the milestone.",
-                        f"So close to history. {player['name']} ({total_wins} titles) is one win away from career title #{milestone}.",
-                    ])
-                })
+                if player.get('age') < 34 and random.random() < 0.20:
+                    tweets.append({
+                        'type': 'tweet',
+                        'title': '🏆 MILESTONE WATCH',
+                        'content': random.choice([
+                            f"{player['name']} sits at {total_wins} career titles. Can he reach {milestone} this season?",
+                            f"Just one more win from a milestone — {player['name']} has {total_wins} titles. #{milestone} is calling.",
+                            f"Milestone alert: {player['name']} is one title away from {milestone} career wins.",
+                            f"{player['name']} has {total_wins} career titles. One more and he hits the magic number {milestone}.",
+                            f"The chase for #{milestone}: {player['name']} needs just one more title to reach the milestone.",
+                            f"So close to history. {player['name']} ({total_wins} titles) is one win away from career title #{milestone}.",
+                        ])
+                    })
 
         # ── 16. Young prodigy enters top 30 (under 24) ──
         for player in self.players:

@@ -680,8 +680,14 @@ class GameEngine:
                     x = 750
                 
                 # Calculate Y position for serve
-                precision_factor = random.uniform(-0.8, 0.8)
-                y = BASELINE_Y + (precision_factor * 200)  # Base Y calculation for serves
+                # High power → ball lands on the exteriors (far from centre)
+                # Low power  → ball stays near the centre
+                spread = power_factor  # 0..1
+                min_offset = spread * 120          # power 100 → at least 120px from centre
+                max_offset = 80 + spread * 120     # power 100 → up to 200px from centre
+                offset = random.uniform(min_offset, max_offset)
+                direction = random.choice([-1, 1])
+                y = BASELINE_Y + direction * offset
                 
             else:  # Regular shots
                 # For right side, shots land between 900-1175
@@ -743,9 +749,13 @@ class GameEngine:
                 elif 600 < x < 750:
                     x = 750
                 
-                # Calculate Y position for serve
-                precision_factor = random.uniform(-0.8, 0.8)
-                y = BASELINE_Y + (precision_factor * 200)
+                # Calculate Y position for serve (mirrors right side logic)
+                spread = power_factor
+                min_offset = spread * 120
+                max_offset = 80 + spread * 120
+                offset = random.uniform(min_offset, max_offset)
+                direction = random.choice([-1, 1])
+                y = BASELINE_Y + direction * offset
                 
             else:  # Regular shots
                 # For left side, shots land between 25-300

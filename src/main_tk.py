@@ -776,7 +776,7 @@ class TennisGMApp:
         
         # Build skill display with visual bars and caps
         age = player.get('age', 0)
-        use_prog = age <= 30
+        use_prog = age < 28
         caps = player.get('skill_caps', {})
         skills = player.get('skills', {})
         
@@ -2878,6 +2878,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         # Store animation control
         self.animation_active = True  # Flag to control animation
         self.pending_callbacks = []  # Store callback IDs to cancel them
+        self.current_court_viewer = None  # Track court viewer for cleanup
         self.current_point_idx = 0  # Track current point for keyboard navigation
         self.max_points = len(match_log) if match_log else 0  # Track max points
         self.scheduled_advance_idx = -1  # Track if auto-advance is scheduled
@@ -2891,6 +2892,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     canvas.unbind_all('<Button-5>')
                 except:
                     pass
+            # Cancel court viewer animations
+            if hasattr(self, 'current_court_viewer') and self.current_court_viewer:
+                self.current_court_viewer.cancel_animations()
             # Cancel any pending callbacks safely
             callbacks_to_remove = []
             for callback_id in self.pending_callbacks:
@@ -2904,169 +2908,315 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             for callback_id in callbacks_to_remove:
                 self.pending_callbacks.remove(callback_id)
         
-        # Court is now drawn by TennisCourtViewer
-            
-        def draw_ball_positions(canvas, events, header_frame, next_idx=None):
-            # Get score info and count shots
-            num_shots = 0
+        # Court is now drawn by TennisCourtViewer with real-time animation
+
+        def _update_score_header(header_frame, score_info):
+            """Update the scoreboard header with score data after a point."""
+            for widget in header_frame.winfo_children():
+                widget.destroy()
+            sets = score_info['sets']
+            current_set = score_info['current_set']
+            p1_name = score_info['player1_name']
+            p2_name = score_info['player2_name']
+            score_frame = tk.Frame(header_frame, bg="#34495e")
+            score_frame.pack(fill="x", padx=100)
+            set_winners = []
+            for set_tuple in sets:
+                p1g, p2g = set_tuple
+                if p1g >= 6 and p1g - p2g >= 2:
+                    set_winners.append(1)
+                elif p2g >= 6 and p2g - p1g >= 2:
+                    set_winners.append(2)
+                elif p1g == 7 and p2g == 6:
+                    set_winners.append(1)
+                elif p2g == 7 and p1g == 6:
+                    set_winners.append(2)
+                else:
+                    set_winners.append(0)
+            # Player 1 row
+            p1_row = tk.Frame(score_frame, bg="#3498db")
+            p1_row.pack(fill="x", pady=2)
+            p1sf = tk.Frame(p1_row, bg="#3498db")
+            p1sf.pack(padx=10, pady=5)
+            tk.Label(p1sf, text=p1_name + "  ", font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
+            for si, st in enumerate(sets):
+                f = ("Arial", 11, "bold") if si < len(set_winners) and set_winners[si] == 1 else ("Arial", 11)
+                tk.Label(p1sf, text=str(st[0]) + "  ", font=f, bg="#3498db", fg="white").pack(side="left")
+            tk.Label(p1sf, text=str(current_set['player1']), font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
+            # Player 2 row
+            p2_row = tk.Frame(score_frame, bg="#e74c3c")
+            p2_row.pack(fill="x", pady=2)
+            p2sf = tk.Frame(p2_row, bg="#e74c3c")
+            p2sf.pack(padx=10, pady=5)
+            tk.Label(p2sf, text=p2_name + "  ", font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
+            for si, st in enumerate(sets):
+                f = ("Arial", 11, "bold") if si < len(set_winners) and set_winners[si] == 2 else ("Arial", 11)
+                tk.Label(p2sf, text=str(st[1]) + "  ", font=f, bg="#e74c3c", fg="white").pack(side="left")
+            tk.Label(p2sf, text=str(current_set['player2']), font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
+
+        def animate_point(cv, events, p1_id, p2_id, on_complete=None):
+            """Animate a full point: ball moves in straight lines, players intercept."""
+            import math
+            from court_viewer import TennisCourtViewer as _CV
+            P1_BL = _CV.P1_BASELINE_X
+            P2_BL = _CV.P2_BASELINE_X
+            P1_VL = _CV.P1_VOLLEY_X
+            P2_VL = _CV.P2_VOLLEY_X
+            NET_X = _CV.NET_X
+            CTR_Y = _CV.CENTER_Y
+            MIN_Y = _CV.MIN_Y
+            MAX_Y = _CV.MAX_Y
+
+            # Extract shots and score info from events
+            shots = []
             score_info = None
-            for event in events:
-                if event['type'] == 'shot':
-                    num_shots += 1
-                elif event['type'] == 'score':
-                    score_info = event
-            
-            # Flatten all ball positions into a single list with their properties
-            all_shots = []
-            for i, event in enumerate(events):
-                if event['type'] == 'shot':
-                    ball_positions = event.get('ball_positions', [])
-                    for ball_pos in ball_positions:
-                        all_shots.append({
-                            'x': ball_pos['x'],
-                            'y': ball_pos['y'],
-                            'power': ball_pos['power'],
-                            'is_serve': event['shot_type'] == 'serve',
-                            'shot_type': event['shot_type']
-                        })
-            
-            def animate_shot(shot_index=0):
-                if shot_index < len(all_shots):
-                    # Clear previous balls
-                    canvas.delete("ball")
-                    
-                    # Draw only the current ball
-                    shot = all_shots[shot_index]
-                    x, y = shot['x'], shot['y']
-                    power = shot['power']
-                    size = min(10, 5 + (power / 20))
-                                        
-                    # Choose ball color: red for last shot, yellow for serves, white for regular shots
-                    if shot_index == len(all_shots) - 1:
-                        ball_color = "red"  # Last ball is always red
+            for ev in events:
+                if ev['type'] == 'shot':
+                    bp = ev.get('ball_positions', [{}])[0]
+                    shots.append({
+                        'hitter_id': ev['hitter_id'],
+                        'x': bp.get('x', 600),
+                        'y': bp.get('y', 300),
+                        'power': bp.get('power', 50),
+                        'shot_type': ev.get('shot_type', 'forehand'),
+                        'is_final': ev.get('is_final', False),
+                    })
+                elif ev['type'] == 'score':
+                    score_info = ev
+
+            if not shots:
+                if on_complete:
+                    on_complete(score_info)
+                return
+
+            # Mutable player-position state: (x, y) for each player
+            state = {
+                'p1_x': cv.p1_pos[0], 'p1_y': cv.p1_pos[1],
+                'p2_x': cv.p2_pos[0], 'p2_y': cv.p2_pos[1],
+                'p1_volley': False, 'p2_volley': False,
+            }
+
+            def _pnum(pid):
+                return 1 if pid == p1_id else 2
+
+            def _get_pos(pid):
+                if pid == p1_id:
+                    return (state['p1_x'], state['p1_y'])
+                return (state['p2_x'], state['p2_y'])
+
+            def _set_pos(pid, x, y):
+                if pid == p1_id:
+                    state['p1_x'] = x; state['p1_y'] = y
+                else:
+                    state['p2_x'] = x; state['p2_y'] = y
+
+            def _set_volley(pid, flag):
+                if pid == p1_id:
+                    state['p1_volley'] = flag
+                else:
+                    state['p2_volley'] = flag
+
+            def _is_volley(pid):
+                return state['p1_volley'] if pid == p1_id else state['p2_volley']
+
+            def _home_x(pid):
+                """Return home X: volley position if in volley mode, else baseline."""
+                if pid == p1_id:
+                    return P1_VL if state['p1_volley'] else P1_BL
+                return P2_VL if state['p2_volley'] else P2_BL
+
+            def _baseline_x(pid):
+                return P1_BL if pid == p1_id else P2_BL
+
+            def _defender_id(hid):
+                return p2_id if hid == p1_id else p1_id
+
+            def _get_serve_stat(hid):
+                """Look up the serve skill of the hitter."""
+                if player1 and hid == player1.get('id'):
+                    return player1.get('skills', {}).get('serve', 50)
+                if player2 and hid == player2.get('id'):
+                    return player2.get('skills', {}).get('serve', 50)
+                return 50
+
+            def _clamp_y(y):
+                return max(MIN_Y, min(MAX_Y, y))
+
+            def _intercept_y(hp, tx, ty, dbx):
+                """Extend line hitter→target to baseline x dbx."""
+                hx, hy = hp
+                dx = tx - hx
+                if abs(dx) < 1:
+                    return _clamp_y(ty)
+                slope = (ty - hy) / dx
+                iy = hy + slope * (dbx - hx)
+                return _clamp_y(iy)
+
+            def _do_shot(idx):
+                if not self.animation_active:
+                    return
+                if idx >= len(shots):
+                    # Point complete – return players to baseline centre
+                    cv.clear_marks()
+                    state['p1_volley'] = False
+                    state['p2_volley'] = False
+                    done = [0]
+                    def _home():
+                        done[0] += 1
+                        if done[0] >= 2:
+                            cv.hide_ball()
+                            if on_complete:
+                                on_complete(score_info)
+                    cv.animate_player_to(1, P1_BL, CTR_Y, 400, _home)
+                    cv.animate_player_to(2, P2_BL, CTR_Y, 400, _home)
+                    return
+
+                shot = shots[idx]
+                tx, ty = shot['x'], shot['y']
+                hid = shot['hitter_id']
+                did = _defender_id(hid)
+                h_num = _pnum(hid)
+                d_num = _pnum(did)
+                stype = shot['shot_type']
+
+                prev_hid = shots[idx - 1]['hitter_id'] if idx > 0 else None
+                same_hitter = (hid == prev_hid)
+
+                # Is this the winning / unreturnable shot?
+                is_winner = (
+                    idx == len(shots) - 1
+                    or (idx + 1 < len(shots) and shots[idx + 1]['hitter_id'] == hid)
+                )
+
+                # Track volley mode
+                if stype == 'volley':
+                    _set_volley(hid, True)
+
+                if same_hitter:
+                    # Duplicate shot from engine (is_final marker) – skip it,
+                    # the winner animation already handled everything.
+                    _do_shot(idx + 1)
+                    return
+
+                # ---- Positions ----
+                hp = _get_pos(hid)
+                dp = _get_pos(did)
+                d_home_x = _home_x(did)
+
+                # Place ball at hitter
+                cv.show_ball_at(hp[0], hp[1])
+
+                # ---- Where does defender need to go? ----
+                if stype == 'dropshot':
+                    # Dropshot: defender needs to run diagonally toward the
+                    # rebound position (near the net)
+                    if is_winner:
+                        # Can't reach – go only ~60 % of the way
+                        def_target_x = dp[0] + 0.6 * (tx - dp[0])
+                        def_target_y = dp[1] + 0.6 * (ty - dp[1])
                     else:
-                        ball_color = "yellow" if shot['is_serve'] else "white"
-                    
-                    # Draw triangle for volleys, circle for other shots
-                    if shot['shot_type'] == 'volley':
-                        # Draw triangle pointing up for volley
-                        triangle_size = size * 1.5
-                        points = [
-                            x, y - triangle_size,  # Top point
-                            x - triangle_size, y + triangle_size,  # Bottom left
-                            x + triangle_size, y + triangle_size   # Bottom right
-                        ]
-                        canvas.create_polygon(points,
-                                            fill=ball_color,
-                                            outline="white",
-                                            tags="ball")
+                        # Successfully reaches the ball at its rebound
+                        def_target_x = tx
+                        def_target_y = ty
+                elif _is_volley(did):
+                    # Defender is in volley mode – positioned near net,
+                    # intercept the ball before it rebounds
+                    iy = _intercept_y(hp, tx, ty, d_home_x)
+                    def_target_x = d_home_x
+                    def_target_y = iy if not is_winner else dp[1] + 0.6 * (iy - dp[1])
+                else:
+                    # Normal shot – defender moves on baseline (Y only)
+                    dbx = _baseline_x(did)
+                    iy = _intercept_y(hp, tx, ty, dbx)
+                    def_target_x = dbx
+                    if is_winner:
+                        def_target_y = dp[1] + 0.6 * (iy - dp[1])
                     else:
-                        # Draw circle for non-volley shots
-                        canvas.create_oval(x-size, y-size, x+size, y+size,
-                                        fill=ball_color,
-                                        outline="white",
-                                        tags="ball")
-                    
-                    # Schedule next ball after 1 second if animation is active
-                    if self.animation_active:
-                        if shot_index == len(all_shots) - 1:
-                            # For the last ball, update score
-                            def update_header():
-                                if score_info:
-                                    # Clear previous score label
-                                    for widget in header_frame.winfo_children():
-                                        widget.destroy()
-                                    
-                                    # Create simple scoreboard - only player names and scores
-                                    sets = score_info['sets']
-                                    current_set = score_info['current_set']
-                                    p1_name = score_info['player1_name']
-                                    p2_name = score_info['player2_name']
-                                    
-                                    score_frame = tk.Frame(header_frame, bg="#34495e")
-                                    score_frame.pack(fill="x", padx=100)
-                                    
-                                    # Determine which sets each player won
-                                    set_winners = []
-                                    for set_idx, set_tuple in enumerate(sets):
-                                        p1_games, p2_games = set_tuple
-                                        # A set is won when someone reaches 6+ games with 2+ game lead
-                                        if p1_games >= 6 and p1_games - p2_games >= 2:
-                                            set_winners.append(1)  # Player 1 won
-                                        elif p2_games >= 6 and p2_games - p1_games >= 2:
-                                            set_winners.append(2)  # Player 2 won
-                                        elif p1_games == 7 and p2_games == 6:
-                                            set_winners.append(1)
-                                        elif p2_games == 7 and p1_games == 6:
-                                            set_winners.append(2)
-                                        else:
-                                            set_winners.append(0)  # Set still in progress
-                                    
-                                    # Player 1 row
-                                    p1_row = tk.Frame(score_frame, bg="#3498db")
-                                    p1_row.pack(fill="x", pady=2)
-                                    
-                                    # Create a frame to hold all score elements with mixed formatting
-                                    p1_score_frame = tk.Frame(p1_row, bg="#3498db")
-                                    p1_score_frame.pack(padx=10, pady=5)
-                                    
-                                    # Add player name
-                                    tk.Label(p1_score_frame, text=p1_name + "  ", font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
-                                    
-                                    # Add each completed set score with appropriate formatting
-                                    for set_idx, set_tuple in enumerate(sets):
-                                        score_val = str(set_tuple[0])
-                                        is_winner = set_idx < len(set_winners) and set_winners[set_idx] == 1
-                                        font = ("Arial", 11, "bold") if is_winner else ("Arial", 11)
-                                        tk.Label(p1_score_frame, text=score_val + "  ", font=font, bg="#3498db", fg="white").pack(side="left")
-                                    
-                                    # Add current set in progress
-                                    tk.Label(p1_score_frame, text=str(current_set['player1']), font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
-                                    
-                                    # Player 2 row
-                                    p2_row = tk.Frame(score_frame, bg="#e74c3c")
-                                    p2_row.pack(fill="x", pady=2)
-                                    
-                                    # Create a frame to hold all score elements with mixed formatting
-                                    p2_score_frame = tk.Frame(p2_row, bg="#e74c3c")
-                                    p2_score_frame.pack(padx=10, pady=5)
-                                    
-                                    # Add player name
-                                    tk.Label(p2_score_frame, text=p2_name + "  ", font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
-                                    
-                                    # Add each completed set score with appropriate formatting
-                                    for set_idx, set_tuple in enumerate(sets):
-                                        score_val = str(set_tuple[1])
-                                        is_winner = set_idx < len(set_winners) and set_winners[set_idx] == 2
-                                        font = ("Arial", 11, "bold") if is_winner else ("Arial", 11)
-                                        tk.Label(p2_score_frame, text=score_val + "  ", font=font, bg="#e74c3c", fg="white").pack(side="left")
-                                    
-                                    # Add current set in progress
-                                    tk.Label(p2_score_frame, text=str(current_set['player2']), font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
-                            # Update score after all shots
-                            callback_id = canvas.after(2000, update_header)
-                            self.pending_callbacks.append(callback_id)
-                            
-                            # Schedule auto-advance after the animation completes (2 seconds)
-                            if next_idx is not None and next_idx < len(match_log):
-                                # Use after_idle to safely schedule the screen transition after current event processing
-                                def safe_advance():
-                                    try:
-                                        if self.animation_active:
-                                            show_screen(next_idx)
-                                    except Exception as e:
-                                        print(f"Error in auto-advance: {e}")
-                                
-                                callback_id = canvas.after(2000, lambda: self.root.after_idle(safe_advance))
-                                self.pending_callbacks.append(callback_id)
-                        callback_id = canvas.after(1000, lambda: animate_shot(shot_index + 1))
-                        self.pending_callbacks.append(callback_id)
-            
-            # Start the animation if it's active
+                        def_target_y = iy
+
+                # ---- Ball end-point ----
+                if _is_volley(did) and not is_winner and stype != 'dropshot':
+                    # Defender in volley mode intercepts before rebound –
+                    # ball goes to defender position, no rebound mark
+                    ball_end_x = def_target_x
+                    ball_end_y = def_target_y
+                    use_through = False
+                elif stype == 'dropshot' and not is_winner:
+                    # Successful dropshot: ball stops at rebound point
+                    ball_end_x = tx
+                    ball_end_y = ty
+                    use_through = False
+                elif is_winner:
+                    # Winner: ball continues through rebound with red mark
+                    dbx_w = _baseline_x(did)
+                    iy_w = _intercept_y(hp, tx, ty, dbx_w)
+                    ball_end_x = dbx_w
+                    ball_end_y = iy_w
+                    use_through = True
+                else:
+                    # Ball reaches defender's interception point
+                    ball_end_x = def_target_x
+                    ball_end_y = def_target_y
+                    use_through = True
+
+                # ---- Ball velocity (pixels / second) ----
+                shot_power = shot.get('power', 50)
+                if stype == 'serve':
+                    # Scale by hitter's serve stat (35–90)
+                    serve_stat = _get_serve_stat(hid)
+                    serve_t = max(0.0, min(1.0, (serve_stat - 35) / 55.0))
+                    ball_velocity = 850 + serve_t * 1100   # 850 .. 1950 px/s
+                elif stype == 'dropshot':
+                    # Dropshots are visibly slower
+                    ball_velocity = 400 + (shot_power / 100.0) * 150  # 400 .. 550 px/s
+                else:
+                    # Regular / volley shots – based on power
+                    power_t = max(0.0, min(1.0, shot_power / 100.0))
+                    ball_velocity = 700 + power_t * 1000   # 700 .. 1700 px/s
+
+                # Ball travel distance
+                if use_through:
+                    ball_dist = (math.hypot(tx - hp[0], ty - hp[1])
+                                 + math.hypot(ball_end_x - tx, ball_end_y - ty))
+                else:
+                    ball_dist = math.hypot(ball_end_x - hp[0], ball_end_y - hp[1])
+
+                dur = max(300, min(2000, int(ball_dist / ball_velocity * 1000)))
+
+                # ---- Attacker replacement: move back toward home position ----
+                att_home_x = _home_x(hid)
+                att_home_y = CTR_Y
+                _set_pos(hid, att_home_x, att_home_y)
+                cv.animate_player_to(h_num, att_home_x, att_home_y, max(dur, 700), None)
+
+                # ---- Defender movement (synchronised with ball) ----
+                _set_pos(did, def_target_x, def_target_y)
+                cv.animate_player_to(d_num, def_target_x, def_target_y, dur, None)
+
+                # Capture is_winner for closure
+                _winner = is_winner
+
+                def _on_ball_done():
+                    if _winner:
+                        cv.hide_ball()
+                        cv._schedule(800, lambda: _do_shot(idx + 1))
+                    else:
+                        _do_shot(idx + 1)
+
+                if use_through:
+                    cv.animate_ball_through(
+                        tx, ty,
+                        ball_end_x, ball_end_y,
+                        dur, None, _on_ball_done,
+                        winner=_winner
+                    )
+                else:
+                    cv.animate_ball_to(ball_end_x, ball_end_y, dur, _on_ball_done)
+
+            # Kick off
             if self.animation_active:
-                # Start ball animation
-                animate_shot()
-        
+                _do_shot(0)
+
         def show_screen(i):
             # Cancel any pending callbacks and clean up before transitioning
             cleanup_bindings()
@@ -3201,9 +3351,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     font = ("Arial", 11, "bold") if is_winner else ("Arial", 11)
                     tk.Label(p1_score_frame, text=score_val + "  ", font=font, bg="#3498db", fg="white").pack(side="left")
                 
-                # Add current set in progress (only if not finished)
-                if current_set and current_set.get('player1', 0) > 0:
-                    tk.Label(p1_score_frame, text=str(current_set['player1']), font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
+                # Add current set in progress (always show, even if 0)
+                if current_set is not None:
+                    tk.Label(p1_score_frame, text=str(current_set.get('player1', 0)), font=("Arial", 11, "bold"), bg="#3498db", fg="white").pack(side="left")
                 
                 # Player 2 row
                 p2_row = tk.Frame(score_frame, bg="#e74c3c")
@@ -3223,9 +3373,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     font = ("Arial", 11, "bold") if is_winner else ("Arial", 11)
                     tk.Label(p2_score_frame, text=score_val + "  ", font=font, bg="#e74c3c", fg="white").pack(side="left")
                 
-                # Add current set in progress (only if not finished)
-                if current_set and current_set.get('player2', 0) > 0:
-                    tk.Label(p2_score_frame, text=str(current_set['player2']), font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
+                # Add current set in progress (always show, even if 0)
+                if current_set is not None:
+                    tk.Label(p2_score_frame, text=str(current_set.get('player2', 0)), font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
                 
                 return True
             
@@ -3585,10 +3735,29 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             control_frame = tk.Frame(main_frame)
             control_frame.pack(fill="x", padx=20, pady=(0, 10))            
             
-            # Draw ball positions if available (only during active match)
+            # Animate point with real-time player + ball movement
             next_idx = i + 1
             if not is_match_finished and point_events and i < len(point_events):
-                draw_ball_positions(canvas, point_events[i]['events'], header_frame, next_idx)
+                court_viewer.set_player_names(player1['name'], player2['name'])
+                self.current_court_viewer = court_viewer
+
+                def on_point_complete(score_info, _next=next_idx):
+                    if not self.animation_active:
+                        return
+                    if score_info:
+                        _update_score_header(header_frame, score_info)
+                    if _next is not None and _next < len(match_log):
+                        def safe_advance():
+                            try:
+                                if self.animation_active:
+                                    show_screen(_next)
+                            except Exception as e:
+                                print(f"Error in auto-advance: {e}")
+                        cid = self.root.after(1500, lambda: self.root.after_idle(safe_advance))
+                        self.pending_callbacks.append(cid)
+
+                animate_point(court_viewer, point_events[i]['events'],
+                              player1['id'], player2['id'], on_point_complete)
             
             # Navigation buttons
             button_frame = tk.Frame(main_frame)
