@@ -3165,14 +3165,14 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     # Scale by hitter's serve stat (35–90)
                     serve_stat = _get_serve_stat(hid)
                     serve_t = max(0.0, min(1.0, (serve_stat - 35) / 55.0))
-                    ball_velocity = 850 + serve_t * 1100   # 850 .. 1950 px/s
+                    ball_velocity = 850 + serve_t * 1350   # 850 .. 2200 px/s
                 elif stype == 'dropshot':
                     # Dropshots are visibly slower
-                    ball_velocity = 400 + (shot_power / 100.0) * 150  # 400 .. 550 px/s
+                    ball_velocity = 550  # 400 .. 550 px/s
                 else:
                     # Regular / volley shots – based on power
                     power_t = max(0.0, min(1.0, shot_power / 100.0))
-                    ball_velocity = 700 + power_t * 1000   # 700 .. 1700 px/s
+                    ball_velocity = 700 + power_t * 1300   # 700 .. 2000 px/s
 
                 # Ball travel distance
                 if use_through:

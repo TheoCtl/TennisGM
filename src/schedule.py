@@ -2457,9 +2457,14 @@ class TournamentScheduler:
                 ])
             })
 
-        # ── 8. Title collection hot streak (multiple wins in recent weeks) ──
+        # ── 8. Title collection hot streak (only if they won last week) ──
+        last_week_winner_ids = set()
+        for tournament in self.tournaments:
+            if tournament['week'] == last_week and tournament.get('winner_id'):
+                last_week_winner_ids.add(tournament['winner_id'])
+
         for player in self.players:
-            if player.get('retired', False):
+            if player.get('retired', False) or player['id'] not in last_week_winner_ids:
                 continue
             recent_wins = [w for w in player.get('tournament_wins', [])
                           if w.get('year') == self.current_year]
