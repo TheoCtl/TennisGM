@@ -6,13 +6,13 @@ class PlayerDevelopment:
     @staticmethod
     def calculate_improvement_chance(player_age, current_skill, potential_factor=1.0):
         """Progression curve with peak between 24-28"""
-        # Age factor - strong progression until 24, then refinement until 28
+        # Age factor - strong progression until 24, refinement at 24, stagnation 25-27
         if player_age < 24:
             age_factor = 1.7  # Peak development years
-        elif player_age < 28:
+        elif player_age == 24:
             age_factor = 0.7  # Refinement phase - slower but still possible
         else:
-            age_factor = 0  # No more progression after 28
+            age_factor = 0  # No more progression from 25 onwards
 
         # Smoother skill difficulty curve
         skill_factor = 1.15 * math.exp(-0.045 * (current_skill - 25))
@@ -117,9 +117,9 @@ class PlayerDevelopment:
                 if random.random() < chance and current_value < 100:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1
-            elif age < 28:
+            elif age == 24:
                 # Refinement phase - slower progression
-                if cap['progcap'] >= 1:
+                if cap['progcap'] >= 2:
                     continue
                 pf = player.get('potential_factor', 1.0)
                 chance = PlayerDevelopment.calculate_improvement_chance(age, current_value, pf) / 10.0
@@ -130,7 +130,7 @@ class PlayerDevelopment:
                 if random.random() < chance and current_value < 100:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1
-            else:
+            elif age >= 28:
                 # Regression phase
                 if cap['regcap'] >= 5:
                     continue
@@ -138,6 +138,8 @@ class PlayerDevelopment:
                 if random.random() < chance and current_value > 0:
                     skills[skill_name] = current_value - 1
                     cap['regcap'] += 1
+            else:
+                continue
 
             caps[skill_name] = cap
 
