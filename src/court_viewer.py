@@ -47,6 +47,10 @@ class TennisCourtViewer:
         self.p1_name = "Player 1"
         self.p2_name = "Player 2"
 
+        # Stamina state (0.0 – 1.0)
+        self.p1_stamina_pct = 1.0
+        self.p2_stamina_pct = 1.0
+
         # Ball state
         self.ball_pos = [self.width // 2, self.height // 2]
         self.ball_visible = False
@@ -100,8 +104,38 @@ class TennisCourtViewer:
     # ------------------------------------------------------------------
     # Player drawing
     # ------------------------------------------------------------------
+    # Stamina bar visual constants
+    STAMINA_BAR_W = 30       # total bar width in pixels
+    STAMINA_BAR_H = 5        # bar height
+    STAMINA_BAR_OFFSET_Y = 8 # gap between bar bottom and circle top
+
+    @staticmethod
+    def _stamina_color(pct):
+        """Return a fill colour for the stamina bar based on percentage."""
+        if pct > 0.55:
+            return '#2ecc71'   # green
+        if pct > 0.25:
+            return '#f39c12'   # orange
+        return '#e74c3c'       # red
+
+    def _draw_stamina_bar(self, cx, cy, pct, tag):
+        """Draw a small horizontal stamina bar centred at (cx, cy-offset)."""
+        w = self.STAMINA_BAR_W
+        h = self.STAMINA_BAR_H
+        r = self.PLAYER_RADIUS
+        top = cy - r - self.STAMINA_BAR_OFFSET_Y - h
+        left = cx - w // 2
+        # background (dark)
+        self.canvas.create_rectangle(left, top, left + w, top + h,
+                                     fill='#2c3e50', outline='#1a252f', width=1, tags=tag)
+        # filled portion
+        fill_w = max(0, int(w * max(0.0, min(1.0, pct))))
+        if fill_w > 0:
+            self.canvas.create_rectangle(left, top, left + fill_w, top + h,
+                                         fill=self._stamina_color(pct), outline='', tags=tag)
+
     def draw_players(self):
-        """Draw both players as coloured circles with name labels."""
+        """Draw both players as coloured circles with stamina bars."""
         self.canvas.delete('p1_sprite', 'p1_label', 'p2_sprite', 'p2_label')
         r = self.PLAYER_RADIUS
 
@@ -109,15 +143,13 @@ class TennisCourtViewer:
         x1, y1 = self.p1_pos
         self.canvas.create_oval(x1 - r, y1 - r, x1 + r, y1 + r,
                                 fill='#3498db', outline='white', width=2, tags='p1_sprite')
-        self.canvas.create_text(x1, y1 - r - 10, text=self.p1_name,
-                                fill='white', font=('Arial', 9, 'bold'), tags='p1_label')
+        self._draw_stamina_bar(x1, y1, self.p1_stamina_pct, 'p1_label')
 
         # Player 2 – red
         x2, y2 = self.p2_pos
         self.canvas.create_oval(x2 - r, y2 - r, x2 + r, y2 + r,
                                 fill='#e74c3c', outline='white', width=2, tags='p2_sprite')
-        self.canvas.create_text(x2, y2 - r - 10, text=self.p2_name,
-                                fill='white', font=('Arial', 9, 'bold'), tags='p2_label')
+        self._draw_stamina_bar(x2, y2, self.p2_stamina_pct, 'p2_label')
 
     # ------------------------------------------------------------------
     # Ball drawing
@@ -278,10 +310,20 @@ class TennisCourtViewer:
         self.p2_name = name2
         self.draw_players()
 
+    def update_stamina(self, player_num, pct):
+        """Update stamina fraction (0.0-1.0) for player 1 or 2 and redraw."""
+        if player_num == 1:
+            self.p1_stamina_pct = max(0.0, min(1.0, pct))
+        else:
+            self.p2_stamina_pct = max(0.0, min(1.0, pct))
+        self.draw_players()
+
     def reset_positions(self):
-        """Return both players to baseline centre and hide ball."""
+        """Return both players to baseline centre, reset stamina bars and hide ball."""
         self.p1_pos = [self.P1_BASELINE_X, self.CENTER_Y]
         self.p2_pos = [self.P2_BASELINE_X, self.CENTER_Y]
+        self.p1_stamina_pct = 1.0
+        self.p2_stamina_pct = 1.0
         self.ball_visible = False
         self.clear_marks()
         self.draw_players()

@@ -57,6 +57,15 @@ class GameEngine:
         }
         # Track the last shot type for winner classification
         self.last_shot_type = None
+
+    def _stamina_snapshot(self):
+        """Return a dict with both players' stamina as fraction 0.0-1.0."""
+        p1_max = self.p1['skills']['stamina']
+        p2_max = self.p2['skills']['stamina']
+        return {
+            self.p1['id']: max(0.0, self.stamina[self.p1['id']] / p1_max) if p1_max else 1.0,
+            self.p2['id']: max(0.0, self.stamina[self.p2['id']] / p2_max) if p2_max else 1.0,
+        }
         
     def _apply_surface_bonus(self, player, surface):
         """Apply per-surface multiplier to all skills if available; fallback to legacy favorite_surface bonus."""
@@ -229,8 +238,10 @@ class GameEngine:
                     'y': target_y,
                     'power': shot_power,
                 }],
-                'hitter_id': hitter['id']
+                'hitter_id': hitter['id'],
+                'stamina': self._stamina_snapshot(),
             })
+        rally_length = 1
 
         # Update positions based on the shot
         self.update_positions(defender, shot_leftright)
@@ -250,12 +261,25 @@ class GameEngine:
                         'power': shot_power,
                     }],
                     'hitter_id': hitter['id'],
-                    'is_final': True  # Mark this as the final shot of the point
+                    'is_final': True,
+                    'stamina': self._stamina_snapshot(),
                 })            
             self.reset_stamina_and_speed()
             winner_key = self._get_player_key(hitter)
             # Track ace
             self.match_stats[hitter['id']]["aces"] += 1
+            if visualize:
+                point_events.append({
+                    'type': 'point_summary',
+                    'winner_id': hitter['id'],
+                    'loser_id': defender['id'],
+                    'winning_shot': 'serve',
+                    'is_ace': True,
+                    'rally_length': rally_length,
+                    'ball_y': target_y,
+                    'server_id': server['id'],
+                    'is_break': False,
+                })
             return (winner_key, point_events) if visualize else winner_key
 
         # Step 3: Alternate shots until someone misses
@@ -297,6 +321,7 @@ class GameEngine:
             )
             self.update_positions(defender, shot_leftright)
 
+            rally_length += 1
             if visualize:
                 point_events.append({
                     'type': 'shot',
@@ -307,7 +332,8 @@ class GameEngine:
                         'y': ball_col,
                         'power': shot_power,
                     }],
-                    'hitter_id': hitter['id']
+                    'hitter_id': hitter['id'],
+                    'stamina': self._stamina_snapshot(),
                 })
 
             # Dropshot/volley mechanics
@@ -381,7 +407,8 @@ class GameEngine:
                             'y': target_y,
                             'power': shot_power,
                         }],
-                        'hitter_id': hitter['id']
+                        'hitter_id': hitter['id'],
+                        'stamina': self._stamina_snapshot(),
                     })
                 self.reset_stamina_and_speed()
                 winner_key = self._get_player_key(hitter)
@@ -397,8 +424,22 @@ class GameEngine:
                     self.match_stats[hitter['id']]["volley_winners"] += 1
                 
                 # Track break (point won by non-server while not on serve)
-                if self._get_player_key(hitter) != self._get_player_key(server):
+                is_break = self._get_player_key(hitter) != self._get_player_key(server)
+                if is_break:
                     self.match_stats[hitter['id']]["breaks"] += 1
+                
+                if visualize:
+                    point_events.append({
+                        'type': 'point_summary',
+                        'winner_id': hitter['id'],
+                        'loser_id': defender['id'],
+                        'winning_shot': shot_type,
+                        'is_ace': False,
+                        'rally_length': rally_length,
+                        'ball_y': target_y,
+                        'server_id': server['id'],
+                        'is_break': is_break,
+                    })
                 
                 return (winner_key, point_events) if visualize else winner_key
 

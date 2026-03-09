@@ -9,6 +9,7 @@ import sys
 from io import StringIO
 import functools
 from archetypes import ARCTYPE_MAP, get_archetype_for_player
+from commentary import generate_commentary
 
 PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "ITF", "Juniors"]
 
@@ -2967,9 +2968,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             MIN_Y = _CV.MIN_Y
             MAX_Y = _CV.MAX_Y
 
-            # Extract shots and score info from events
+            # Extract shots, score info and point summary from events
             shots = []
             score_info = None
+            point_summary = None
             for ev in events:
                 if ev['type'] == 'shot':
                     bp = ev.get('ball_positions', [{}])[0]
@@ -2980,13 +2982,16 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                         'power': bp.get('power', 50),
                         'shot_type': ev.get('shot_type', 'forehand'),
                         'is_final': ev.get('is_final', False),
+                        'stamina': ev.get('stamina', {}),
                     })
                 elif ev['type'] == 'score':
                     score_info = ev
+                elif ev['type'] == 'point_summary':
+                    point_summary = ev
 
             if not shots:
                 if on_complete:
-                    on_complete(score_info)
+                    on_complete(score_info, point_summary)
                 return
 
             # Mutable player-position state: (x, y) for each player
@@ -3060,13 +3065,15 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     cv.clear_marks()
                     state['p1_volley'] = False
                     state['p2_volley'] = False
+                    cv.p1_stamina_pct = 1.0
+                    cv.p2_stamina_pct = 1.0
                     done = [0]
                     def _home():
                         done[0] += 1
                         if done[0] >= 2:
                             cv.hide_ball()
                             if on_complete:
-                                on_complete(score_info)
+                                on_complete(score_info, point_summary)
                     cv.animate_player_to(1, P1_BL, CTR_Y, 400, _home)
                     cv.animate_player_to(2, P2_BL, CTR_Y, 400, _home)
                     return
@@ -3078,6 +3085,14 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 h_num = _pnum(hid)
                 d_num = _pnum(did)
                 stype = shot['shot_type']
+
+                # Update stamina bars from snapshot
+                stam = shot.get('stamina', {})
+                if stam:
+                    if p1_id in stam:
+                        cv.update_stamina(1, stam[p1_id])
+                    if p2_id in stam:
+                        cv.update_stamina(2, stam[p2_id])
 
                 prev_hid = shots[idx - 1]['hitter_id'] if idx > 0 else None
                 same_hitter = (hid == prev_hid)
@@ -3381,6 +3396,15 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             
             display_scoreboard()
             
+            # Commentary label between scoreboard and court
+            commentary_frame = tk.Frame(main_frame, bg="#1a252f")
+            commentary_frame.pack(fill="x", padx=10, pady=(0, 2))
+            commentary_label = tk.Label(
+                commentary_frame, text=getattr(self, '_last_commentary', ''), font=("Arial", 10, "italic"),
+                bg="#1a252f", fg="#f0e68c", wraplength=1100, pady=4, padx=10, anchor="center"
+            )
+            commentary_label.pack(fill="x")
+            
             # Court visualization using TennisCourtViewer
             canvas_frame = tk.Frame(main_frame)
             canvas_frame.pack(fill="both", expand=True, padx=20, pady=10)
@@ -3524,20 +3548,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     display_frame.pack(fill="both", expand=True)
                     
                     # Left column for Player 1
-                    p1_stats_card = tk.Frame(display_frame, bg="white", relief="raised", bd=2)
+                    p1_stats_card = tk.Frame(display_frame, bg="#3498db", relief="raised", bd=2)
                     p1_stats_card.pack(side="left", fill="both", expand=True, padx=(5, 2), pady=5)
 
-                    tk.Label(
-                        p1_stats_card,
-                        text=f"⬅️ {player1['name']} (P1)",
-                        font=("Arial", 10, "bold"),
-                        bg="#3498db",
-                        fg="white",
-                        padx=10,
-                        pady=5
-                    ).pack(fill="x")
-
-                    p1_stats_content = tk.Frame(p1_stats_card, bg="white")
+                    p1_stats_content = tk.Frame(p1_stats_card, bg="#3498db")
                     p1_stats_content.pack(fill="both", expand=True, padx=8, pady=8)
 
                     # Display player1's new stats
@@ -3546,26 +3560,16 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p1_stats_content,
                             text=f"{stat_name}: {stat_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#3498db",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
         
                     # Right column for Player 2
-                    p2_stats_card = tk.Frame(display_frame, bg="white", relief="raised", bd=2)
+                    p2_stats_card = tk.Frame(display_frame, bg="#e74c3c", relief="raised", bd=2)
                     p2_stats_card.pack(side="right", fill="both", expand=True, padx=(2, 5), pady=5)
 
-                    tk.Label(
-                        p2_stats_card,
-                        text=f"{player2['name']} (P2) ➡️",
-                        font=("Arial", 10, "bold"),
-                        bg="#e74c3c",
-                        fg="white",
-                        padx=10,
-                        pady=5
-                    ).pack(fill="x")
-
-                    p2_stats_content = tk.Frame(p2_stats_card, bg="white")
+                    p2_stats_content = tk.Frame(p2_stats_card, bg="#e74c3c")
                     p2_stats_content.pack(fill="both", expand=True, padx=8, pady=8)
 
                     # Display player2's new stats
@@ -3574,8 +3578,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p2_stats_content,
                             text=f"{stat_name}: {stat_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#e74c3c",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
                 
@@ -3586,20 +3590,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                         display_frame.pack(fill="both", expand=True)
                         
                         # Left column for Player 1
-                        p1_match_card = tk.Frame(display_frame, bg="white", relief="raised", bd=2)
+                        p1_match_card = tk.Frame(display_frame, bg="#3498db", relief="raised", bd=2)
                         p1_match_card.pack(side="left", fill="both", expand=True, padx=(5, 2), pady=5)
 
-                        tk.Label(
-                            p1_match_card,
-                            text=f"⬅️ {player1['name']} (P1)",
-                            font=("Arial", 10, "bold"),
-                            bg="#3498db",
-                            fg="white",
-                            padx=10,
-                            pady=5
-                        ).pack(fill="x")
-
-                        p1_match_content = tk.Frame(p1_match_card, bg="white")
+                        p1_match_content = tk.Frame(p1_match_card, bg="#3498db")
                         p1_match_content.pack(fill="both", expand=True, padx=8, pady=8)
 
                         # Display player1's match stats with combined labels
@@ -3609,8 +3603,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p1_match_content,
                             text=f"Aces: {aces_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#3498db",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
                         
@@ -3620,13 +3614,13 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p1_match_content,
                             text=f"Breaks: {breaks_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#3498db",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
                         
                         # Spacing
-                        tk.Label(p1_match_content, text="-- WINNERS --", bg="white").pack(fill="x", pady=2)
+                        tk.Label(p1_match_content, text="-- WINNERS --", bg="#3498db", fg="white").pack(fill="x", pady=2)
                         
                         # Forehand/Backhand winners
                         fh_value = match_stats_p1.get('forehand_winners', 0)
@@ -3635,8 +3629,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p1_match_content,
                             text=f"FH / BH : {fh_value} / {bh_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#3498db",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
                         
@@ -3647,26 +3641,16 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p1_match_content,
                             text=f"DP / VO : {ds_value} / {vol_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#3498db",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
         
                         # Right column for Player 2
-                        p2_match_card = tk.Frame(display_frame, bg="white", relief="raised", bd=2)
+                        p2_match_card = tk.Frame(display_frame, bg="#e74c3c", relief="raised", bd=2)
                         p2_match_card.pack(side="right", fill="both", expand=True, padx=(2, 5), pady=5)
 
-                        tk.Label(
-                            p2_match_card,
-                            text=f"{player2['name']} (P2) ➡️",
-                            font=("Arial", 10, "bold"),
-                            bg="#e74c3c",
-                            fg="white",
-                            padx=10,
-                            pady=5
-                        ).pack(fill="x")
-
-                        p2_match_content = tk.Frame(p2_match_card, bg="white")
+                        p2_match_content = tk.Frame(p2_match_card, bg="#e74c3c")
                         p2_match_content.pack(fill="both", expand=True, padx=8, pady=8)
 
                         # Display player2's match stats with combined labels
@@ -3676,8 +3660,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p2_match_content,
                             text=f"Aces: {aces_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#e74c3c",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
                         
@@ -3687,13 +3671,13 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p2_match_content,
                             text=f"Breaks: {breaks_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#e74c3c",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
                         
                         # Spacing
-                        tk.Label(p2_match_content, text="-- WINNERS --", bg="white").pack(fill="x", pady=2)
+                        tk.Label(p2_match_content, text="-- WINNERS --", bg="#e74c3c", fg="white").pack(fill="x", pady=2)
                         
                         # Forehand/Backhand winners
                         fh_value = match_stats_p2.get('forehand_winners', 0)
@@ -3702,8 +3686,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p2_match_content,
                             text=f"FH / BH : {fh_value} / {bh_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#e74c3c",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
                         
@@ -3714,8 +3698,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             p2_match_content,
                             text=f"DP / VO : {ds_value} / {vol_value}",
                             font=("Arial", 9),
-                            bg="white",
-                            fg="#2c3e50",
+                            bg="#e74c3c",
+                            fg="white",
                             anchor="w"
                         ).pack(fill="x", pady=1)
                     else:
@@ -3741,11 +3725,19 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 court_viewer.set_player_names(player1['name'], player2['name'])
                 self.current_court_viewer = court_viewer
 
-                def on_point_complete(score_info, _next=next_idx):
+                def on_point_complete(score_info, pt_summary=None, _next=next_idx):
                     if not self.animation_active:
                         return
                     if score_info:
                         _update_score_header(header_frame, score_info)
+                    # Show commentary for the point that just finished
+                    if pt_summary and player1 and player2:
+                        ctext = generate_commentary(pt_summary, score_info, player1, player2, tournament)
+                        self._last_commentary = ctext
+                        try:
+                            commentary_label.config(text=ctext)
+                        except Exception:
+                            pass
                     if _next is not None and _next < len(match_log):
                         def safe_advance():
                             try:
