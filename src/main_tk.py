@@ -3080,6 +3080,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     def _home():
                         done[0] += 1
                         if done[0] >= 2:
+                            cv.p1_pose = 'ready'
+                            cv.p2_pose = 'ready'
                             cv.hide_ball()
                             if on_complete:
                                 on_complete(score_info, point_summary)
@@ -3126,6 +3128,15 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 hp = _get_pos(hid)
                 dp = _get_pos(did)
                 d_home_x = _home_x(did)
+
+                # Set player poses for this shot
+                cv.set_player_pose(d_num, 'ready')
+                if stype == 'serve':
+                    cv.set_player_pose(h_num, 'serve')
+                elif stype == 'backhand':
+                    cv.set_player_pose(h_num, 'hit_backhand')
+                else:
+                    cv.set_player_pose(h_num, 'hit_forehand')
 
                 # Place ball at hitter
                 cv.show_ball_at(hp[0], hp[1])
@@ -3222,6 +3233,14 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
                 def _on_ball_done():
                     if _winner:
+                        # Show end-of-point reactions
+                        if point_summary:
+                            w_id = point_summary.get('winner_id')
+                            l_id = point_summary.get('loser_id')
+                            if w_id:
+                                cv.set_player_pose(_pnum(w_id), 'celebrate')
+                            if l_id:
+                                cv.set_player_pose(_pnum(l_id), 'dejected')
                         cv.hide_ball()
                         cv._schedule(800, lambda: _do_shot(idx + 1))
                     else:
