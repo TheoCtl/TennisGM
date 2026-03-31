@@ -3,6 +3,7 @@ import random
 from datetime import datetime
 import math
 from archetypes import get_archetype_for_player
+from face_generator import generate_face
 
 class NewGenGenerator:
     def __init__(self, names_path='data/names.json'):
@@ -52,22 +53,22 @@ class NewGenGenerator:
         skills = self.generate_skills()
         surface_mods = self.generate_surface_modifiers()
 
-        # Generate tendencies
+        # Generate tendencies (6 total: cross, straight, dropshot, volley, lift, slice)
         dropshot_tend = random.randint(0, 5)
         volley_tend = random.randint(0, 5)
-        straight_tend = random.randint(35, 55)
-        cross_tend = 100 - (dropshot_tend + volley_tend + straight_tend)
-        # Ensure all are at least 0, and cross_tend at least 10 if possible
+        lift_tend = random.randint(3, 20)
+        slice_tend = random.randint(3, 20)
+        straight_tend = random.randint(30, 50)
+        cross_tend = 100 - (dropshot_tend + volley_tend + lift_tend + slice_tend + straight_tend)
+        # Ensure cross_tend at least 10
         if cross_tend < 10:
-            # Reduce straight_tend if possible
             diff = 10 - cross_tend
-            if straight_tend - diff >= 40:
+            if straight_tend - diff >= 30:
                 straight_tend -= diff
                 cross_tend = 10
             else:
-                # If not possible, set cross_tend to 10 and adjust others
                 cross_tend = 10
-                straight_tend = max(40, 100 - (dropshot_tend + volley_tend + cross_tend))
+                straight_tend = max(30, 100 - (dropshot_tend + volley_tend + lift_tend + slice_tend + cross_tend))
 
         player = {
             "id": player_id,
@@ -99,9 +100,14 @@ class NewGenGenerator:
             "straight_tend": straight_tend,
             "dropshot_tend": dropshot_tend,
             "volley_tend": volley_tend,
+            "lift_tend": lift_tend,
+            "slice_tend": slice_tend,
             "mentality": random.choices(self.MENTALITIES, weights=self.MENTALITY_WEIGHTS, k=1)[0],
             "year_start_rankings": {},  # Track ranking at start of each year
         }
+
+        # Generate a unique face based on player ID and nationality
+        player['face'] = generate_face(player_id=player_id, nationality=player['nationality'])
 
         # Assign a stable archetype at generation time so it remains constant through the career
         try:
@@ -127,10 +133,14 @@ class NewGenGenerator:
             "backhand": random.randint(35, 55),
             "speed": random.randint(35, 55),
             "stamina": random.randint(35, 55),
+            "mental": random.randint(35, 55),
             "straight": random.randint(35, 55),
             "cross": random.randint(35, 55),
             "dropshot": random.randint(35, 55),
-            "volley": random.randint(35, 55)
+            "volley": random.randint(35, 55),
+            "lift": random.randint(35, 55),
+            "slice": random.randint(35, 55),
+            "iq": random.randint(35, 55)
         }
     
     def generate_new_players(self, current_year, count, existing_players=None):

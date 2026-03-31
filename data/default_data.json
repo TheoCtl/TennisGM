@@ -12,13 +12,19 @@
         "speed": 78,
         "stamina": 79,
         "straight": 79,
-        "cross": 76
+        "cross": 76,
+        "mental": 80,
+        "lift": 80,
+        "slice": 80,
+        "iq": 80
       },
       "rank": 1,
       "points": 9930,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 6,
+      "slice_tend": 14
     },
     {
       "id": 2,
@@ -32,13 +38,19 @@
         "speed": 76,
         "stamina": 70,
         "straight": 75,
-        "cross": 74
+        "cross": 74,
+        "mental": 75,
+        "lift": 75,
+        "slice": 75,
+        "iq": 75
       },
       "rank": 2,
       "points": 8085,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 8,
+      "slice_tend": 16
     },
     {
       "id": 3,
@@ -52,13 +64,19 @@
         "speed": 82,
         "stamina": 74,
         "straight": 79,
-        "cross": 79
+        "cross": 79,
+        "mental": 77,
+        "lift": 77,
+        "slice": 77,
+        "iq": 77
       },
       "rank": 3,
       "points": 8050,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 16,
+      "slice_tend": 8
     },
     {
       "id": 4,
@@ -72,13 +90,19 @@
         "speed": 72,
         "stamina": 70,
         "straight": 74,
-        "cross": 71
+        "cross": 71,
+        "mental": 73,
+        "lift": 73,
+        "slice": 73,
+        "iq": 73
       },
       "rank": 4,
       "points": 5115,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 20,
+      "slice_tend": 8
     },
     {
       "id": 5,
@@ -92,13 +116,19 @@
         "speed": 81,
         "stamina": 76,
         "straight": 78,
-        "cross": 80
+        "cross": 80,
+        "mental": 79,
+        "lift": 79,
+        "slice": 79,
+        "iq": 79
       },
       "rank": 5,
       "points": 4120,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 16,
+      "slice_tend": 16
     },
     {
       "id": 6,
@@ -112,13 +142,19 @@
         "speed": 74,
         "stamina": 60,
         "straight": 73,
-        "cross": 70
+        "cross": 70,
+        "mental": 71,
+        "lift": 71,
+        "slice": 71,
+        "iq": 71
       },
       "rank": 6,
       "points": 3820,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 7,
@@ -132,13 +168,19 @@
         "speed": 84,
         "stamina": 85,
         "straight": 70,
-        "cross": 65
+        "cross": 65,
+        "mental": 72,
+        "lift": 72,
+        "slice": 72,
+        "iq": 72
       },
       "rank": 7,
       "points": 3585,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 12,
+      "slice_tend": 16
     },
     {
       "id": 8,
@@ -152,13 +194,19 @@
         "speed": 72,
         "stamina": 78,
         "straight": 82,
-        "cross": 74
+        "cross": 74,
+        "mental": 75,
+        "lift": 75,
+        "slice": 75,
+        "iq": 75
       },
       "rank": 8,
       "points": 3530,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 16,
+      "slice_tend": 8
     },
     {
       "id": 9,
@@ -172,13 +220,19 @@
         "speed": 83,
         "stamina": 65,
         "straight": 79,
-        "cross": 75
+        "cross": 75,
+        "mental": 76,
+        "lift": 76,
+        "slice": 76,
+        "iq": 76
       },
       "rank": 9,
       "points": 3480,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 18,
+      "slice_tend": 10
     },
     {
       "id": 10,
@@ -192,13 +246,19 @@
         "speed": 82,
         "stamina": 88,
         "straight": 80,
-        "cross": 75
+        "cross": 75,
+        "mental": 80,
+        "lift": 80,
+        "slice": 80,
+        "iq": 80
       },
       "rank": 10,
       "points": 3290,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 11,
@@ -212,13 +272,19 @@
         "speed": 76,
         "stamina": 65,
         "straight": 77,
-        "cross": 83
+        "cross": 83,
+        "mental": 74,
+        "lift": 74,
+        "slice": 74,
+        "iq": 74
       },
       "rank": 11,
       "points": 3200,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 12,
+      "slice_tend": 14
     },
     {
       "id": 12,
@@ -232,13 +298,19 @@
         "speed": 80,
         "stamina": 78,
         "straight": 76,
-        "cross": 74
+        "cross": 74,
+        "mental": 76,
+        "lift": 76,
+        "slice": 76,
+        "iq": 76
       },
       "rank": 12,
       "points": 3160,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 6,
+      "slice_tend": 6
     },
     {
       "id": 13,
@@ -252,13 +324,19 @@
         "speed": 80,
         "stamina": 68,
         "straight": 74,
-        "cross": 70
+        "cross": 70,
+        "mental": 74,
+        "lift": 74,
+        "slice": 74,
+        "iq": 74
       },
       "rank": 13,
       "points": 3020,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 6,
+      "slice_tend": 6
     },
     {
       "id": 14,
@@ -272,13 +350,19 @@
         "speed": 80,
         "stamina": 65,
         "straight": 76,
-        "cross": 78
+        "cross": 78,
+        "mental": 75,
+        "lift": 75,
+        "slice": 75,
+        "iq": 75
       },
       "rank": 14,
       "points": 2920,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 20,
+      "slice_tend": 6
     },
     {
       "id": 15,
@@ -292,13 +376,19 @@
         "speed": 77,
         "stamina": 82,
         "straight": 76,
-        "cross": 79
+        "cross": 79,
+        "mental": 77,
+        "lift": 77,
+        "slice": 77,
+        "iq": 77
       },
       "rank": 15,
       "points": 2815,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 10,
+      "slice_tend": 18
     },
     {
       "id": 16,
@@ -312,13 +402,19 @@
         "speed": 76,
         "stamina": 75,
         "straight": 75,
-        "cross": 73
+        "cross": 73,
+        "mental": 76,
+        "lift": 76,
+        "slice": 76,
+        "iq": 76
       },
       "rank": 16,
       "points": 2595,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 10,
+      "slice_tend": 8
     },
     {
       "id": 17,
@@ -332,13 +428,19 @@
         "speed": 76,
         "stamina": 78,
         "straight": 76,
-        "cross": 75
+        "cross": 75,
+        "mental": 75,
+        "lift": 75,
+        "slice": 75,
+        "iq": 75
       },
       "rank": 17,
       "points": 2550,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 16
     },
     {
       "id": 18,
@@ -352,13 +454,19 @@
         "speed": 75,
         "stamina": 78,
         "straight": 76,
-        "cross": 71
+        "cross": 71,
+        "mental": 75,
+        "lift": 75,
+        "slice": 75,
+        "iq": 75
       },
       "rank": 18,
       "points": 2415,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 20,
+      "slice_tend": 16
     },
     {
       "id": 19,
@@ -372,13 +480,19 @@
         "speed": 75,
         "stamina": 68,
         "straight": 70,
-        "cross": 67
+        "cross": 67,
+        "mental": 70,
+        "lift": 70,
+        "slice": 70,
+        "iq": 70
       },
       "rank": 19,
       "points": 2375,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 8,
+      "slice_tend": 8
     },
     {
       "id": 20,
@@ -392,13 +506,19 @@
         "speed": 72,
         "stamina": 65,
         "straight": 67,
-        "cross": 63
+        "cross": 63,
+        "mental": 66,
+        "lift": 66,
+        "slice": 66,
+        "iq": 66
       },
       "rank": 20,
       "points": 2235,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 6,
+      "slice_tend": 16
     },
     {
       "id": 21,
@@ -412,13 +532,19 @@
         "speed": 70,
         "stamina": 74,
         "straight": 68,
-        "cross": 71
+        "cross": 71,
+        "mental": 69,
+        "lift": 69,
+        "slice": 69,
+        "iq": 69
       },
       "rank": 21,
       "points": 2225,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 12
     },
     {
       "id": 22,
@@ -432,13 +558,19 @@
         "speed": 70,
         "stamina": 66,
         "straight": 69,
-        "cross": 67
+        "cross": 67,
+        "mental": 69,
+        "lift": 69,
+        "slice": 69,
+        "iq": 69
       },
       "rank": 22,
       "points": 2185,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 20,
+      "slice_tend": 8
     },
     {
       "id": 23,
@@ -452,13 +584,19 @@
         "speed": 69,
         "stamina": 62,
         "straight": 65,
-        "cross": 64
+        "cross": 64,
+        "mental": 67,
+        "lift": 67,
+        "slice": 67,
+        "iq": 67
       },
       "rank": 23,
       "points": 2032,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 14,
+      "slice_tend": 14
     },
     {
       "id": 24,
@@ -472,13 +610,19 @@
         "speed": 73,
         "stamina": 68,
         "straight": 71,
-        "cross": 69
+        "cross": 69,
+        "mental": 71,
+        "lift": 71,
+        "slice": 71,
+        "iq": 71
       },
       "rank": 24,
       "points": 2020,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 20
     },
     {
       "id": 25,
@@ -492,13 +636,19 @@
         "speed": 68,
         "stamina": 72,
         "straight": 71,
-        "cross": 70
+        "cross": 70,
+        "mental": 71,
+        "lift": 71,
+        "slice": 71,
+        "iq": 71
       },
       "rank": 25,
       "points": 1960,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 20,
+      "slice_tend": 14
     },
     {
       "id": 26,
@@ -512,13 +662,19 @@
         "speed": 66,
         "stamina": 64,
         "straight": 63,
-        "cross": 61
+        "cross": 61,
+        "mental": 64,
+        "lift": 64,
+        "slice": 64,
+        "iq": 64
       },
       "rank": 26,
       "points": 1860,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 10,
+      "slice_tend": 6
     },
     {
       "id": 27,
@@ -532,13 +688,19 @@
         "speed": 68,
         "stamina": 65,
         "straight": 67,
-        "cross": 64
+        "cross": 64,
+        "mental": 67,
+        "lift": 67,
+        "slice": 67,
+        "iq": 67
       },
       "rank": 27,
       "points": 1795,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 28,
@@ -552,13 +714,19 @@
         "speed": 65,
         "stamina": 67,
         "straight": 69,
-        "cross": 66
+        "cross": 66,
+        "mental": 68,
+        "lift": 68,
+        "slice": 68,
+        "iq": 68
       },
       "rank": 28,
       "points": 1755,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 16,
+      "slice_tend": 18
     },
     {
       "id": 29,
@@ -572,13 +740,19 @@
         "speed": 71,
         "stamina": 68,
         "straight": 66,
-        "cross": 67
+        "cross": 67,
+        "mental": 67,
+        "lift": 67,
+        "slice": 67,
+        "iq": 67
       },
       "rank": 29,
       "points": 1745,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 14
     },
     {
       "id": 30,
@@ -592,13 +766,19 @@
         "speed": 72,
         "stamina": 66,
         "straight": 69,
-        "cross": 68
+        "cross": 68,
+        "mental": 69,
+        "lift": 69,
+        "slice": 69,
+        "iq": 69
       },
       "rank": 30,
       "points": 1726,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 6,
+      "slice_tend": 6
     },
     {
       "id": 31,
@@ -612,13 +792,19 @@
         "speed": 66,
         "stamina": 69,
         "straight": 68,
-        "cross": 65
+        "cross": 65,
+        "mental": 67,
+        "lift": 67,
+        "slice": 67,
+        "iq": 67
       },
       "rank": 31,
       "points": 1620,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 18,
+      "slice_tend": 14
     },
     {
       "id": 32,
@@ -632,13 +818,19 @@
         "speed": 68,
         "stamina": 65,
         "straight": 66,
-        "cross": 64
+        "cross": 64,
+        "mental": 66,
+        "lift": 66,
+        "slice": 66,
+        "iq": 66
       },
       "rank": 32,
       "points": 1605,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 6,
+      "slice_tend": 10
     },
     {
       "id": 33,
@@ -652,13 +844,19 @@
         "speed": 71,
         "stamina": 73,
         "straight": 65,
-        "cross": 64
+        "cross": 64,
+        "mental": 66,
+        "lift": 66,
+        "slice": 66,
+        "iq": 66
       },
       "rank": 33,
       "points": 1580,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 34,
@@ -672,13 +870,19 @@
         "speed": 65,
         "stamina": 66,
         "straight": 66,
-        "cross": 65
+        "cross": 65,
+        "mental": 66,
+        "lift": 66,
+        "slice": 66,
+        "iq": 66
       },
       "rank": 34,
       "points": 1575,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 14,
+      "slice_tend": 20
     },
     {
       "id": 35,
@@ -692,13 +896,19 @@
         "speed": 67,
         "stamina": 65,
         "straight": 65,
-        "cross": 66
+        "cross": 66,
+        "mental": 66,
+        "lift": 66,
+        "slice": 66,
+        "iq": 66
       },
       "rank": 35,
       "points": 1525,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 20,
+      "slice_tend": 10
     },
     {
       "id": 36,
@@ -712,13 +922,19 @@
         "speed": 67,
         "stamina": 65,
         "straight": 64,
-        "cross": 63
+        "cross": 63,
+        "mental": 65,
+        "lift": 65,
+        "slice": 65,
+        "iq": 65
       },
       "rank": 36,
       "points": 1520,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 16
     },
     {
       "id": 37,
@@ -732,13 +948,19 @@
         "speed": 63,
         "stamina": 61,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 37,
       "points": 1464,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 18,
+      "slice_tend": 6
     },
     {
       "id": 38,
@@ -752,13 +974,19 @@
         "speed": 66,
         "stamina": 62,
         "straight": 64,
-        "cross": 63
+        "cross": 63,
+        "mental": 64,
+        "lift": 64,
+        "slice": 64,
+        "iq": 64
       },
       "rank": 38,
       "points": 1445,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 39,
@@ -772,13 +1000,19 @@
         "speed": 65,
         "stamina": 64,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 39,
       "points": 1366,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 18,
+      "slice_tend": 10
     },
     {
       "id": 40,
@@ -792,13 +1026,19 @@
         "speed": 66,
         "stamina": 67,
         "straight": 64,
-        "cross": 63
+        "cross": 63,
+        "mental": 65,
+        "lift": 65,
+        "slice": 65,
+        "iq": 65
       },
       "rank": 40,
       "points": 1365,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 18
     },
     {
       "id": 41,
@@ -812,13 +1052,19 @@
         "speed": 65,
         "stamina": 66,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 64,
+        "lift": 64,
+        "slice": 64,
+        "iq": 64
       },
       "rank": 41,
       "points": 1355,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 10,
+      "slice_tend": 14
     },
     {
       "id": 42,
@@ -832,13 +1078,19 @@
         "speed": 68,
         "stamina": 62,
         "straight": 64,
-        "cross": 63
+        "cross": 63,
+        "mental": 64,
+        "lift": 64,
+        "slice": 64,
+        "iq": 64
       },
       "rank": 42,
       "points": 1255,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 43,
@@ -852,13 +1104,19 @@
         "speed": 64,
         "stamina": 65,
         "straight": 64,
-        "cross": 63
+        "cross": 63,
+        "mental": 64,
+        "lift": 64,
+        "slice": 64,
+        "iq": 64
       },
       "rank": 43,
       "points": 1245,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 12,
+      "slice_tend": 10
     },
     {
       "id": 44,
@@ -872,13 +1130,19 @@
         "speed": 66,
         "stamina": 65,
         "straight": 64,
-        "cross": 63
+        "cross": 63,
+        "mental": 64,
+        "lift": 64,
+        "slice": 64,
+        "iq": 64
       },
       "rank": 44,
       "points": 1240,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 18,
+      "slice_tend": 10
     },
     {
       "id": 45,
@@ -892,13 +1156,19 @@
         "speed": 65,
         "stamina": 64,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 45,
       "points": 1240,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 10,
+      "slice_tend": 18
     },
     {
       "id": 46,
@@ -912,13 +1182,19 @@
         "speed": 65,
         "stamina": 64,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 46,
       "points": 1229,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 6,
+      "slice_tend": 12
     },
     {
       "id": 47,
@@ -932,13 +1208,19 @@
         "speed": 65,
         "stamina": 64,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 47,
       "points": 1166,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 6,
+      "slice_tend": 10
     },
     {
       "id": 48,
@@ -952,13 +1234,19 @@
         "speed": 64,
         "stamina": 65,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 48,
       "points": 1130,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 6,
+      "slice_tend": 8
     },
     {
       "id": 49,
@@ -972,13 +1260,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 49,
       "points": 1121,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 6,
+      "slice_tend": 10
     },
     {
       "id": 50,
@@ -992,13 +1286,19 @@
         "speed": 64,
         "stamina": 63,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 50,
       "points": 1096,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 8,
+      "slice_tend": 8
     },
     {
       "id": 51,
@@ -1012,13 +1312,19 @@
         "speed": 63,
         "stamina": 64,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 51,
       "points": 1010,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 14,
+      "slice_tend": 12
     },
     {
       "id": 52,
@@ -1032,13 +1338,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 52,
       "points": 1005,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 14,
+      "slice_tend": 6
     },
     {
       "id": 53,
@@ -1052,13 +1364,19 @@
         "speed": 64,
         "stamina": 65,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 53,
       "points": 1002,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 6,
+      "slice_tend": 10
     },
     {
       "id": 54,
@@ -1072,13 +1390,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 54,
       "points": 995,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 8,
+      "slice_tend": 6
     },
     {
       "id": 55,
@@ -1092,13 +1416,19 @@
         "speed": 62,
         "stamina": 63,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 55,
       "points": 979,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 12,
+      "slice_tend": 8
     },
     {
       "id": 56,
@@ -1112,13 +1442,19 @@
         "speed": 63,
         "stamina": 64,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 56,
       "points": 976,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 6,
+      "slice_tend": 16
     },
     {
       "id": 57,
@@ -1132,13 +1468,19 @@
         "speed": 61,
         "stamina": 63,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 57,
       "points": 965,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 6,
+      "slice_tend": 6
     },
     {
       "id": 58,
@@ -1152,13 +1494,19 @@
         "speed": 64,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 58,
       "points": 955,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 59,
@@ -1172,13 +1520,19 @@
         "speed": 62,
         "stamina": 63,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 59,
       "points": 947,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 6,
+      "slice_tend": 6
     },
     {
       "id": 60,
@@ -1192,13 +1546,19 @@
         "speed": 65,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 60,
       "points": 922,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 61,
@@ -1212,13 +1572,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 61,
       "points": 911,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 62,
@@ -1232,13 +1598,19 @@
         "speed": 62,
         "stamina": 63,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 62,
       "points": 908,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 63,
@@ -1252,13 +1624,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 60,
+        "lift": 60,
+        "slice": 60,
+        "iq": 60
       },
       "rank": 63,
       "points": 906,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 8
     },
     {
       "id": 64,
@@ -1272,13 +1650,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 64,
       "points": 898,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 6
     },
     {
       "id": 65,
@@ -1292,13 +1676,19 @@
         "speed": 65,
         "stamina": 61,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 64,
+        "lift": 64,
+        "slice": 64,
+        "iq": 64
       },
       "rank": 65,
       "points": 897,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 12
     },
     {
       "id": 66,
@@ -1312,13 +1702,19 @@
         "speed": 64,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 66,
       "points": 893,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 14,
+      "slice_tend": 10
     },
     {
       "id": 67,
@@ -1332,13 +1728,19 @@
         "speed": 63,
         "stamina": 64,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 67,
       "points": 892,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 20,
+      "slice_tend": 10
     },
     {
       "id": 68,
@@ -1352,13 +1754,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 68,
       "points": 883,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 6,
+      "slice_tend": 8
     },
     {
       "id": 69,
@@ -1372,13 +1780,19 @@
         "speed": 63,
         "stamina": 61,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 69,
       "points": 880,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 70,
@@ -1392,13 +1806,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 70,
       "points": 872,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 6
     },
     {
       "id": 71,
@@ -1412,13 +1832,19 @@
         "speed": 62,
         "stamina": 64,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 71,
       "points": 872,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 12,
+      "slice_tend": 10
     },
     {
       "id": 72,
@@ -1432,13 +1858,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 60,
+        "lift": 60,
+        "slice": 60,
+        "iq": 60
       },
       "rank": 72,
       "points": 869,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 73,
@@ -1452,13 +1884,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 73,
       "points": 856,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 74,
@@ -1472,13 +1910,19 @@
         "speed": 64,
         "stamina": 63,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 74,
       "points": 849,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 16,
+      "slice_tend": 6
     },
     {
       "id": 75,
@@ -1492,13 +1936,19 @@
         "speed": 62,
         "stamina": 60,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 75,
       "points": 820,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 12
     },
     {
       "id": 76,
@@ -1512,13 +1962,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 76,
       "points": 809,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 14,
+      "slice_tend": 10
     },
     {
       "id": 77,
@@ -1532,13 +1988,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 77,
       "points": 805,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 8
     },
     {
       "id": 78,
@@ -1552,13 +2014,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 78,
       "points": 791,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 6,
+      "slice_tend": 6
     },
     {
       "id": 79,
@@ -1572,13 +2040,19 @@
         "speed": 61,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 79,
       "points": 790,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 6,
+      "slice_tend": 8
     },
     {
       "id": 80,
@@ -1592,13 +2066,19 @@
         "speed": 64,
         "stamina": 61,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 80,
       "points": 776,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 81,
@@ -1612,13 +2092,19 @@
         "speed": 62,
         "stamina": 60,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 60,
+        "lift": 60,
+        "slice": 60,
+        "iq": 60
       },
       "rank": 81,
       "points": 776,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 18
     },
     {
       "id": 82,
@@ -1632,13 +2118,19 @@
         "speed": 65,
         "stamina": 61,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 82,
       "points": 759,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 18
     },
     {
       "id": 83,
@@ -1652,13 +2144,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 83,
       "points": 758,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 16,
+      "slice_tend": 8
     },
     {
       "id": 84,
@@ -1672,13 +2170,19 @@
         "speed": 64,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 84,
       "points": 754,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 20,
+      "slice_tend": 8
     },
     {
       "id": 85,
@@ -1692,13 +2196,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 85,
       "points": 750,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 12
     },
     {
       "id": 86,
@@ -1712,13 +2222,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 86,
       "points": 749,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 14,
+      "slice_tend": 10
     },
     {
       "id": 87,
@@ -1732,13 +2248,19 @@
         "speed": 63,
         "stamina": 63,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 87,
       "points": 745,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 6,
+      "slice_tend": 10
     },
     {
       "id": 88,
@@ -1752,13 +2274,19 @@
         "speed": 62,
         "stamina": 63,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 88,
       "points": 743,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 8
     },
     {
       "id": 89,
@@ -1772,13 +2300,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 89,
       "points": 721,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 6
     },
     {
       "id": 90,
@@ -1792,13 +2326,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 90,
       "points": 669,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 91,
@@ -1812,13 +2352,19 @@
         "speed": 63,
         "stamina": 65,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 91,
       "points": 667,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 8,
+      "slice_tend": 8
     },
     {
       "id": 92,
@@ -1832,13 +2378,19 @@
         "speed": 64,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 92,
       "points": 648,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 16,
+      "slice_tend": 14
     },
     {
       "id": 93,
@@ -1852,13 +2404,19 @@
         "speed": 63,
         "stamina": 62,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 93,
       "points": 639,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 18,
+      "slice_tend": 8
     },
     {
       "id": 94,
@@ -1872,13 +2430,19 @@
         "speed": 63,
         "stamina": 64,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 94,
       "points": 628,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 95,
@@ -1892,13 +2456,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 60,
+        "lift": 60,
+        "slice": 60,
+        "iq": 60
       },
       "rank": 95,
       "points": 619,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 6,
+      "slice_tend": 6
     },
     {
       "id": 96,
@@ -1912,13 +2482,19 @@
         "speed": 62,
         "stamina": 63,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 96,
       "points": 607,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 12,
+      "slice_tend": 10
     },
     {
       "id": 97,
@@ -1932,13 +2508,19 @@
         "speed": 64,
         "stamina": 62,
         "straight": 62,
-        "cross": 61
+        "cross": 61,
+        "mental": 62,
+        "lift": 62,
+        "slice": 62,
+        "iq": 62
       },
       "rank": 97,
       "points": 601,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 20
     },
     {
       "id": 98,
@@ -1952,13 +2534,19 @@
         "speed": 63,
         "stamina": 61,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 98,
       "points": 599,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 6,
+      "slice_tend": 20
     },
     {
       "id": 99,
@@ -1972,13 +2560,19 @@
         "speed": 62,
         "stamina": 63,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 99,
       "points": 599,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 20,
+      "slice_tend": 18
     },
     {
       "id": 100,
@@ -1992,13 +2586,19 @@
         "speed": 64,
         "stamina": 60,
         "straight": 61,
-        "cross": 60
+        "cross": 60,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 100,
       "points": 597,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 18,
+      "slice_tend": 6
     },
     {
       "id": 101,
@@ -2012,13 +2612,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 60,
+        "lift": 60,
+        "slice": 60,
+        "iq": 60
       },
       "rank": 101,
       "points": 596,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 6,
+      "slice_tend": 8
     },
     {
       "id": 102,
@@ -2032,13 +2638,19 @@
         "speed": 62,
         "stamina": 61,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 60,
+        "lift": 60,
+        "slice": 60,
+        "iq": 60
       },
       "rank": 102,
       "points": 581,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 8,
+      "slice_tend": 12
     },
     {
       "id": 103,
@@ -2052,13 +2664,19 @@
         "speed": 55,
         "stamina": 59,
         "straight": 59,
-        "cross": 58
+        "cross": 58,
+        "mental": 60,
+        "lift": 60,
+        "slice": 60,
+        "iq": 60
       },
       "rank": 103,
       "points": 579,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 18,
+      "slice_tend": 10
     },
     {
       "id": 104,
@@ -2072,13 +2690,19 @@
         "speed": 63,
         "stamina": 64,
         "straight": 63,
-        "cross": 62
+        "cross": 62,
+        "mental": 63,
+        "lift": 63,
+        "slice": 63,
+        "iq": 63
       },
       "rank": 104,
       "points": 576,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 8
     },
     {
       "id": 105,
@@ -2092,13 +2716,19 @@
         "speed": 62,
         "stamina": 64,
         "straight": 62,
-        "cross": 58
+        "cross": 58,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 105,
       "points": 576,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 6,
+      "slice_tend": 20
     },
     {
       "id": 106,
@@ -2112,13 +2742,19 @@
         "speed": 61,
         "stamina": 58,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 61,
+        "lift": 61,
+        "slice": 61,
+        "iq": 61
       },
       "rank": 106,
       "points": 573,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 10,
+      "slice_tend": 6
     },
     {
       "id": 107,
@@ -2132,13 +2768,19 @@
         "speed": 62,
         "stamina": 57,
         "straight": 59,
-        "cross": 58
+        "cross": 58,
+        "mental": 59,
+        "lift": 59,
+        "slice": 59,
+        "iq": 59
       },
       "rank": 107,
       "points": 571,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 8
     },
     {
       "id": 108,
@@ -2152,13 +2794,19 @@
         "speed": 59,
         "stamina": 57,
         "straight": 59,
-        "cross": 58
+        "cross": 58,
+        "mental": 59,
+        "lift": 59,
+        "slice": 59,
+        "iq": 59
       },
       "rank": 108,
       "points": 565,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 6,
+      "slice_tend": 8
     },
     {
       "id": 109,
@@ -2172,13 +2820,19 @@
         "speed": 58,
         "stamina": 59,
         "straight": 60,
-        "cross": 59
+        "cross": 59,
+        "mental": 60,
+        "lift": 60,
+        "slice": 60,
+        "iq": 60
       },
       "rank": 109,
       "points": 563,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 8,
+      "slice_tend": 10
     },
     {
       "id": 110,
@@ -2192,13 +2846,19 @@
         "speed": 60,
         "stamina": 58,
         "straight": 58,
-        "cross": 57
+        "cross": 57,
+        "mental": 58,
+        "lift": 58,
+        "slice": 58,
+        "iq": 58
       },
       "rank": 110,
       "points": 561,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 10,
+      "slice_tend": 8
     },
     {
       "id": 111,
@@ -2212,13 +2872,19 @@
         "speed": 59,
         "stamina": 57,
         "straight": 59,
-        "cross": 58
+        "cross": 58,
+        "mental": 59,
+        "lift": 59,
+        "slice": 59,
+        "iq": 59
       },
       "rank": 111,
       "points": 539,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 112,
@@ -2232,13 +2898,19 @@
         "speed": 57,
         "stamina": 56,
         "straight": 59,
-        "cross": 58
+        "cross": 58,
+        "mental": 58,
+        "lift": 58,
+        "slice": 58,
+        "iq": 58
       },
       "rank": 112,
       "points": 536,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 10,
+      "slice_tend": 6
     },
     {
       "id": 113,
@@ -2252,13 +2924,19 @@
         "speed": 61,
         "stamina": 58,
         "straight": 58,
-        "cross": 57
+        "cross": 57,
+        "mental": 59,
+        "lift": 59,
+        "slice": 59,
+        "iq": 59
       },
       "rank": 113,
       "points": 532,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 10,
+      "slice_tend": 14
     },
     {
       "id": 114,
@@ -2272,13 +2950,19 @@
         "speed": 60,
         "stamina": 56,
         "straight": 57,
-        "cross": 56
+        "cross": 56,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 114,
       "points": 522,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 10,
+      "slice_tend": 10
     },
     {
       "id": 115,
@@ -2292,13 +2976,19 @@
         "speed": 59,
         "stamina": 58,
         "straight": 58,
-        "cross": 57
+        "cross": 57,
+        "mental": 58,
+        "lift": 58,
+        "slice": 58,
+        "iq": 58
       },
       "rank": 115,
       "points": 521,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 10,
+      "slice_tend": 6
     },
     {
       "id": 116,
@@ -2312,13 +3002,19 @@
         "speed": 62,
         "stamina": 57,
         "straight": 59,
-        "cross": 58
+        "cross": 58,
+        "mental": 59,
+        "lift": 59,
+        "slice": 59,
+        "iq": 59
       },
       "rank": 116,
       "points": 508,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 8,
+      "slice_tend": 20
     },
     {
       "id": 117,
@@ -2332,13 +3028,19 @@
         "speed": 59,
         "stamina": 57,
         "straight": 57,
-        "cross": 56
+        "cross": 56,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 117,
       "points": 506,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 8,
+      "slice_tend": 14
     },
     {
       "id": 118,
@@ -2352,13 +3054,19 @@
         "speed": 60,
         "stamina": 56,
         "straight": 57,
-        "cross": 56
+        "cross": 56,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 118,
       "points": 504,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 18,
+      "slice_tend": 14
     },
     {
       "id": 119,
@@ -2372,13 +3080,19 @@
         "speed": 61,
         "stamina": 55,
         "straight": 56,
-        "cross": 55
+        "cross": 55,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 119,
       "points": 494,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 16,
+      "slice_tend": 8
     },
     {
       "id": 120,
@@ -2392,13 +3106,19 @@
         "speed": 59,
         "stamina": 56,
         "straight": 56,
-        "cross": 55
+        "cross": 55,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 120,
       "points": 493,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 14,
+      "slice_tend": 20
     },
     {
       "id": 121,
@@ -2412,13 +3132,19 @@
         "speed": 59,
         "stamina": 57,
         "straight": 57,
-        "cross": 56
+        "cross": 56,
+        "mental": 58,
+        "lift": 58,
+        "slice": 58,
+        "iq": 58
       },
       "rank": 121,
       "points": 487,
       "injured": false,
       "retired": false,
-      "favorite_surface": "hard"
+      "favorite_surface": "hard",
+      "lift_tend": 10,
+      "slice_tend": 8
     },
     {
       "id": 122,
@@ -2432,13 +3158,19 @@
         "speed": 59,
         "stamina": 56,
         "straight": 56,
-        "cross": 55
+        "cross": 55,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 122,
       "points": 484,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 10,
+      "slice_tend": 8
     },
     {
       "id": 123,
@@ -2452,13 +3184,19 @@
         "speed": 57,
         "stamina": 57,
         "straight": 58,
-        "cross": 57
+        "cross": 57,
+        "mental": 58,
+        "lift": 58,
+        "slice": 58,
+        "iq": 58
       },
       "rank": 123,
       "points": 478,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 6,
+      "slice_tend": 6
     },
     {
       "id": 124,
@@ -2472,13 +3210,19 @@
         "speed": 57,
         "stamina": 58,
         "straight": 59,
-        "cross": 58
+        "cross": 58,
+        "mental": 59,
+        "lift": 59,
+        "slice": 59,
+        "iq": 59
       },
       "rank": 124,
       "points": 476,
       "injured": false,
       "retired": false,
-      "favorite_surface": "grass"
+      "favorite_surface": "grass",
+      "lift_tend": 10,
+      "slice_tend": 16
     },
     {
       "id": 125,
@@ -2492,13 +3236,19 @@
         "speed": 59,
         "stamina": 56,
         "straight": 57,
-        "cross": 56
+        "cross": 56,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 125,
       "points": 476,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 18,
+      "slice_tend": 20
     },
     {
       "id": 126,
@@ -2512,13 +3262,19 @@
         "speed": 58,
         "stamina": 57,
         "straight": 57,
-        "cross": 56
+        "cross": 56,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 126,
       "points": 469,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 8,
+      "slice_tend": 8
     },
     {
       "id": 127,
@@ -2532,13 +3288,19 @@
         "speed": 59,
         "stamina": 55,
         "straight": 56,
-        "cross": 55
+        "cross": 55,
+        "mental": 56,
+        "lift": 56,
+        "slice": 56,
+        "iq": 56
       },
       "rank": 127,
       "points": 466,
       "injured": false,
       "retired": false,
-      "favorite_surface": "clay"
+      "favorite_surface": "clay",
+      "lift_tend": 6,
+      "slice_tend": 16
     },
     {
       "id": 128,
@@ -2552,13 +3314,19 @@
         "speed": 58,
         "stamina": 56,
         "straight": 56,
-        "cross": 55
+        "cross": 55,
+        "mental": 57,
+        "lift": 57,
+        "slice": 57,
+        "iq": 57
       },
       "rank": 128,
       "points": 463,
       "injured": false,
       "retired": false,
-      "favorite_surface": "indoor"
+      "favorite_surface": "indoor",
+      "lift_tend": 6,
+      "slice_tend": 20
     }
   ],
   "tournaments": [
@@ -2961,7 +3729,7 @@
       "draw_size": 32,
       "year": 2025,
       "winner_id": null
-    },    
+    },
     {
       "id": 40,
       "name": "Generali Open",

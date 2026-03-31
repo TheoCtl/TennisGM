@@ -10,6 +10,7 @@ from io import StringIO
 import functools
 from archetypes import ARCTYPE_MAP, get_archetype_for_player
 from commentary import generate_commentary
+from face_generator import generate_face, create_face_canvas
 
 PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "ITF", "Juniors"]
 
@@ -63,6 +64,34 @@ class TennisGMApp:
                     ["neutral", "opportunist", "strategist"],
                     weights=[50, 25, 25], k=1
                 )[0]
+                changed = True
+            # Ensure every player has a 'mental' skill (backfill for existing saves)
+            if 'mental' not in p.get('skills', {}):
+                skills = p.get('skills', {})
+                if skills:
+                    avg_skill = round(sum(skills.values()) / max(1, len(skills)))
+                    skills['mental'] = avg_skill
+                else:
+                    skills['mental'] = 50
+                changed = True
+            # Ensure every player has lift, slice, iq skills (backfill for existing saves)
+            for new_skill in ('lift', 'slice', 'iq'):
+                if new_skill not in p.get('skills', {}):
+                    skills = p.get('skills', {})
+                    if skills:
+                        other_vals = [v for k, v in skills.items() if k != new_skill]
+                        skills[new_skill] = round(sum(other_vals) / max(1, len(other_vals)))
+                    else:
+                        skills[new_skill] = 50
+                    changed = True
+            # Ensure every player has lift_tend, slice_tend
+            if 'lift_tend' not in p:
+                import random
+                p['lift_tend'] = random.randint(3, 20)
+                changed = True
+            if 'slice_tend' not in p:
+                import random
+                p['slice_tend'] = random.randint(3, 20)
                 changed = True
         if changed:
             # Persist migration
@@ -656,6 +685,22 @@ class TennisGMApp:
         content_frame.grid_columnconfigure(1, weight=1)
         content_frame.grid_columnconfigure(2, weight=1)
         
+        # Left Column: Face Card
+        # Ensure the player has a v4 head-only face (migration for old/missing saves)
+        face_data = player.get('face', {})
+        needs_face = (
+            'face' not in player
+            or face_data.get('version', 0) < 4
+        )
+        if needs_face:
+            player['face'] = generate_face(player_id=player.get('id'), nationality=player.get('nationality'))
+
+        face_card = tk.Frame(left_column, bg="white", relief="raised", bd=2)
+        face_card.pack(fill="x", pady=(0, 10))
+
+        face_canvas = create_face_canvas(face_card, player['face'], width=160, height=160, bg="white")
+        face_canvas.pack(padx=10, pady=10)
+
         # Left Column: Basic Info Card
         info_card = tk.Frame(left_column, bg="white", relief="raised", bd=2)
         info_card.pack(fill="x", pady=(0, 10))
@@ -2632,14 +2677,18 @@ class TennisGMApp:
             'straight': 'STR',
             'speed': 'SPD',
             'stamina': 'STA',
+            'mental': 'MNT',
             'dropshot': 'DRP',
-            'volley': 'VOL'
+            'volley': 'VOL',
+            'lift': 'LFT',
+            'slice': 'SLC',
+            'iq': 'IQ'
         }
         
         # Helper function to create skill bars
         def create_skill_bar(parent, skill_name, p1_val, p2_val, max_val=100):
             bar_frame = tk.Frame(parent, bg="#1a2332")
-            bar_frame.pack(fill="x", pady=15)
+            bar_frame.pack(fill="x", pady=4)
             
             # P1 bar and value
             p1_container = tk.Frame(bar_frame, bg="#1a2332")
@@ -2782,7 +2831,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         tk.Label(skills_frame, text="SKILLS COMPARISON", font=("Arial", 12, "bold"), 
                 bg="#1a2332", fg="#f39c12").pack(anchor="center", pady=(0, 15))
         
-        for skill in ['serve', 'forehand', 'backhand', 'cross', 'straight', 'speed', 'stamina', 'dropshot', 'volley']:
+        for skill in ['serve', 'forehand', 'backhand', 'cross', 'straight', 'speed', 'stamina', 'mental', 'dropshot', 'volley', 'lift', 'slice', 'iq']:
             p1_val = p1_skills.get(skill, 0)
             p2_val = p2_skills.get(skill, 0)
             create_skill_bar(skills_frame, skill, p1_val, p2_val, max_skill)
@@ -3139,6 +3188,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     cv.set_player_pose(h_num, 'hit_forehand')
 
                 # Place ball at hitter
+                cv.ball_shot_type = stype
                 cv.show_ball_at(hp[0], hp[1])
 
                 # ---- Where does defender need to go? ----
@@ -3456,35 +3506,38 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
             # Helper function to calculate the new stats
             def calculate_new_stats(skills):
-                # Serve (as is)
+                # Base Shots (average of serve, forehand, backhand)
                 serve = skills.get('serve', 0)
-
-                # Base Shots (average of forehand and backhand)
                 forehand = skills.get('forehand', 0)
                 backhand = skills.get('backhand', 0)
-                base_shots = round((serve + forehand + backhand) / 3) if forehand + backhand > 0 else 0
+                base_shots = round((serve + forehand + backhand) / 3) if serve + forehand + backhand > 0 else 0
 
-                # Special Shots (average of volleys and dropshots)
+                # Special Shots (average of volley, dropshot, lift, slice)
                 volley = skills.get('volley', 0)
                 dropshot = skills.get('dropshot', 0)
-                special_shots = round((volley + dropshot) / 2) if volley + dropshot > 0 else 0
-                # Physicality (average of speed and stamina)
+                lift = skills.get('lift', 0)
+                slc = skills.get('slice', 0)
+                special_shots = round((volley + dropshot + lift + slc) / 4) if volley + dropshot + lift + slc > 0 else 0
+
+                # Physicality (average of speed, stamina)
                 speed = skills.get('speed', 0)
                 stamina = skills.get('stamina', 0)
                 physicality = round((speed + stamina) / 2) if speed + stamina > 0 else 0
 
-                # Precision (average of cross and straight)
+                # Tactics (average of cross, straight, iq, mental)
                 cross = skills.get('cross', 0)
                 straight = skills.get('straight', 0)
-                precision = round((cross + straight) / 2) if cross + straight > 0 else 0
+                iq = skills.get('iq', 0)
+                mental = skills.get('mental', 50)
+                tactics = round((cross + straight + iq + mental) / 4) if cross + straight + iq + mental > 0 else 0
 
-                # Overall (average of all previous values)
-                overall = round((serve + base_shots + special_shots + physicality + precision) / 5)
+                # Overall (average of all categories)
+                overall = round((base_shots + special_shots + physicality + tactics) / 4)
 
                 return {
                     'Base Shots': base_shots,
                     'Physicality': physicality,
-                    'Precision': precision,
+                    'Tactics': tactics,
                     'Special Shots': special_shots,
                     'Overall': overall
                 }

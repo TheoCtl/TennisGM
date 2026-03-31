@@ -1,1 +1,0 @@
-- more player stats (for example Mental, slices, lifts, etc). Make the game feel more like Football Manager, with a lot more stats that would complexify the game. The problem is that each new stat would increase the number of archetypes by an insane number.

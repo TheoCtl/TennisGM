@@ -204,6 +204,15 @@ class TournamentScheduler:
                 skills['dropshot'] = random.randint(25, 55)
             if 'volley' not in skills:
                 skills['volley'] = random.randint(25, 55)
+            # MIGRATION: Ensure mental skill exists (set to average of other skills)
+            if 'mental' not in skills:
+                other_vals = [v for k, v in skills.items() if k != 'mental']
+                skills['mental'] = round(sum(other_vals) / max(1, len(other_vals))) if other_vals else 50
+            # MIGRATION: Ensure lift, slice, iq skills exist (set to average of other skills)
+            for new_skill in ('lift', 'slice', 'iq'):
+                if new_skill not in skills:
+                    other_vals = [v for k, v in skills.items() if k != new_skill]
+                    skills[new_skill] = round(sum(other_vals) / max(1, len(other_vals))) if other_vals else 50
             # Tendencies: cross, straight, dropshot, volley
             if not all(k in player for k in ('cross_tend', 'straight_tend', 'dropshot_tend', 'volley_tend')):
                 dropshot_tend = random.randint(0, 10)
@@ -222,6 +231,11 @@ class TournamentScheduler:
                 player['straight_tend'] = straight_tend
                 player['dropshot_tend'] = dropshot_tend
                 player['volley_tend'] = volley_tend
+            # MIGRATION: Ensure lift_tend, slice_tend exist
+            if 'lift_tend' not in player:
+                player['lift_tend'] = random.randint(3, 20)
+            if 'slice_tend' not in player:
+                player['slice_tend'] = random.randint(3, 20)
     
     def get_current_week_tournaments(self):
         return [t for t in self.tournaments if t['week'] == self.current_week]

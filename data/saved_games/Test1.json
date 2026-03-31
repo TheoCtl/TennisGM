@@ -10,12 +10,18 @@
         "backhand": 93,
         "serve": 88,
         "speed": 89,
-        "stamina": 94
+        "stamina": 94,
+        "mental": 92,
+        "lift": 92,
+        "slice": 92,
+        "iq": 92
       },
       "rank": 1,
       "points": 9930,
       "injured": false,
-      "retired": false
+      "retired": false,
+      "lift_tend": 6,
+      "slice_tend": 10
     },
     {
       "id": 2,
@@ -27,12 +33,18 @@
         "backhand": 90,
         "serve": 85,
         "speed": 93,
-        "stamina": 91
+        "stamina": 91,
+        "mental": 90,
+        "lift": 90,
+        "slice": 90,
+        "iq": 90
       },
       "rank": 2,
       "points": 8085,
       "injured": false,
-      "retired": false
+      "retired": false,
+      "lift_tend": 10,
+      "slice_tend": 20
     }
   ],
   "tournaments": [

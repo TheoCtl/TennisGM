@@ -28,7 +28,8 @@ class GameEngine:
         self.positions = {player1["id"]: "right", player2["id"]: "left"}
 
         # Track stamina and speed for each player
-        self.stamina = {player1["id"]: player1["skills"]["stamina"], player2["id"]: player2["skills"]["stamina"]}
+        # match_stamina: persistent 0-100 pool that drains over the match
+        self.match_stamina = {player1["id"]: 100.0, player2["id"]: 100.0}
         self.speed = {player1["id"]: player1["skills"]["speed"], player2["id"]: player2["skills"]["speed"]}
         self.last_shot_power = 0  # Initialize last shot power
         self.last_shot_precision = 50
@@ -44,7 +45,9 @@ class GameEngine:
                 "forehand_winners": 0,
                 "backhand_winners": 0,
                 "dropshot_winners": 0,
-                "volley_winners": 0
+                "volley_winners": 0,
+                "lift_winners": 0,
+                "slice_winners": 0
             },
             player2["id"]: {
                 "aces": 0,
@@ -52,19 +55,19 @@ class GameEngine:
                 "forehand_winners": 0,
                 "backhand_winners": 0,
                 "dropshot_winners": 0,
-                "volley_winners": 0
+                "volley_winners": 0,
+                "lift_winners": 0,
+                "slice_winners": 0
             }
         }
         # Track the last shot type for winner classification
         self.last_shot_type = None
 
     def _stamina_snapshot(self):
-        """Return a dict with both players' stamina as fraction 0.0-1.0."""
-        p1_max = self.p1['skills']['stamina']
-        p2_max = self.p2['skills']['stamina']
+        """Return a dict with both players' match stamina as fraction 0.0-1.0."""
         return {
-            self.p1['id']: max(0.0, self.stamina[self.p1['id']] / p1_max) if p1_max else 1.0,
-            self.p2['id']: max(0.0, self.stamina[self.p2['id']] / p2_max) if p2_max else 1.0,
+            self.p1['id']: max(0.0, self.match_stamina[self.p1['id']] / 100.0),
+            self.p2['id']: max(0.0, self.match_stamina[self.p2['id']] / 100.0),
         }
         
     def _apply_surface_bonus(self, player, surface):
@@ -154,6 +157,7 @@ class GameEngine:
                 self.current_server, self.current_receiver = self.current_receiver, self.current_server
             set_winner_key = self.is_set_over()
             self.update_sets(set_winner_key)
+            self.recover_set_stamina()
 
         if self.sets["player1"] == self.sets_to_win:
             match_winner = self.p1
@@ -178,6 +182,7 @@ class GameEngine:
 
             set_winner_key = self.is_set_over()
             self.update_sets(set_winner_key)
+            self.recover_set_stamina()
         
         if self.sets["player1"] == self.sets_to_win:
             match_winner = self.p1
@@ -192,11 +197,81 @@ class GameEngine:
         )
         return match_winner
     
+    def _is_important_point(self):
+        """
+        Determine if the current point is an 'important point' where mental stat matters.
+        Important points: set points, match points, and break points.
+        Returns a dict mapping player_key -> True if that player is facing pressure
+        (i.e. their opponent has a set/match/break point).
+        Both players are considered under pressure during important points.
+        """
+        p1_games = self.games["player1"]
+        p2_games = self.games["player2"]
+        p1_sets = self.sets["player1"]
+        p2_sets = self.sets["player2"]
+
+        important = False
+
+        # Set point: one player is one game away from winning the set
+        # (at 5-x with x<5, or 6-5, or 6-6 tiebreak scenarios)
+        if (p1_games >= 5 and p1_games > p2_games) or (p2_games >= 5 and p2_games > p1_games):
+            important = True
+
+        # Match point: one player is one game from winning the set AND 
+        # that set win would give them the match
+        if (p1_games >= 5 and p1_games > p2_games and p1_sets == self.sets_to_win - 1):
+            important = True
+        if (p2_games >= 5 and p2_games > p1_games and p2_sets == self.sets_to_win - 1):
+            important = True
+
+        # Tiebreak (6-6) is always important
+        if p1_games == 6 and p2_games == 6:
+            important = True
+
+        return important
+
+    def _get_mental_modifier(self, player):
+        """
+        Calculate the mental stat modifier for important points.
+        Mental stat of 50 = neutral (no change).
+        Formula: skills * (1 + (mental - 50) / 500)
+        At mental 80: +6% boost. At mental 20: -6% penalty.
+        Range is roughly -10% to +10%.
+        """
+        mental = player["skills"].get("mental", 50)
+        return 1.0 + (mental - 50) / 500.0
+
+    def _apply_mental_boost(self):
+        """Apply mental modifier to both players' skills during important points."""
+        self._mental_backup = {}
+        for player in [self.p1, self.p2]:
+            modifier = self._get_mental_modifier(player)
+            self._mental_backup[player["id"]] = player["skills"].copy()
+            player["skills"] = {
+                skill: min(100, math.floor(value * modifier)) if skill != "mental" else value
+                for skill, value in player["skills"].items()
+            }
+            # Update speed tracking with both mental boost and stamina modifier
+            self.speed[player["id"]] = int(player["skills"]["speed"] * self._get_stamina_speed_modifier(player))
+
+    def _revert_mental_boost(self):
+        """Revert mental modifier after the point is over."""
+        if hasattr(self, '_mental_backup'):
+            for player in [self.p1, self.p2]:
+                if player["id"] in self._mental_backup:
+                    player["skills"] = self._mental_backup[player["id"]]
+            del self._mental_backup
+
     def simulate_point(self, visualize=False):
         """
         Simulate a single point in the match.
         Returns the winner of the point (player1 or player2), or (winner, events) if visualize=True.
         """
+        # Apply mental boost if this is an important point
+        is_important = self._is_important_point()
+        if is_important:
+            self._apply_mental_boost()
+
         server = self.current_server
         receiver = self.current_receiver
         hitter = server
@@ -288,9 +363,15 @@ class GameEngine:
             # Receiver becomes the hitter
             hitter, defender = defender, hitter
             shot_direction = self.choose_shot_direction(hitter, opponent=defender)
-            # Determine shot type: dropshot/volley/forehand/backhand
+            # Determine shot type: dropshot/volley/lift/slice/forehand/backhand
             if shot_direction in ("cross", "straight"):
                 shot_type = self.determine_shot_type(hitter, shot_leftright)
+            elif shot_direction in ("lift", "slice"):
+                shot_type = shot_direction
+                # Determine actual ball direction based on cross/straight tendencies
+                c_w = max(1, hitter.get("cross_tend", 50))
+                s_w = max(1, hitter.get("straight_tend", 50))
+                shot_direction = random.choices(["cross", "straight"], weights=[c_w, s_w], k=1)[0]
             else:
                 shot_type = shot_direction
             
@@ -316,8 +397,10 @@ class GameEngine:
                 shot_success = random.random() < success_chance
             
             # Get ball coordinates with dropshot/volley success info
+            # For dropshot, always use success coordinates (ball near net)
+            ball_coords_success = True if shot_type == "dropshot" else shot_success
             ball_side, ball_row, ball_col = self.get_ball_coordinates(
-                side, shot_power, shot_leftright, shot_precision, shot_type, shot_success
+                side, shot_power, shot_leftright, shot_precision, shot_type, ball_coords_success
             )
             self.update_positions(defender, shot_leftright)
 
@@ -362,35 +445,21 @@ class GameEngine:
                 else:
                     return_multiplier = 2.0  # For missed dropshot
 
-            # For successful dropshot with fast defender, skip can_catch check
-            if (shot_type == "dropshot" and shot_success and 
-                diff > 0):
-                # We've already set the return_multiplier based on defender speed
-                # The defender automatically catches successful dropshot when fast enough
+            # Handle catching
+            if shot_type == "dropshot":
+                # Dropshot: opponent always catches (if not already a winner which returned above)
                 caught = True
-                # If defender catches a dropshot, check if they're already in volley mode for *3 bonus
                 if self.volley_mode[defender["id"]]:
-                    # Already in volley mode - apply *3 multiplier
                     return_multiplier = 3
-                # Enter volley mode after catching the dropshot
                 self.volley_mode[defender["id"]] = True
-                # return_multiplier is already set in the blocks above
             else:
                 # For all other shots, use the normal can_catch logic
                 caught, catch_return_multiplier = self.can_catch(defender, shot_power, shot_precision, shot_type, hitter=hitter)
-    
-                # For missed dropshot, keep the 2.0 multiplier
-                if shot_type == "dropshot" and not shot_success and caught:
-                    # Keep return_multiplier = 2.0 that was set in the blocks above
-                    # Apply *3 multiplier if defender is in volley mode and catching a dropshot
-                    if self.volley_mode[defender["id"]]:
-                        return_multiplier = 3
-                else:
-                    # Use the normal return multiplier from can_catch
-                    # Apply *3 multiplier if defender is in volley mode and catching a dropshot
-                    if shot_type == "dropshot" and self.volley_mode[defender["id"]]:
-                        catch_return_multiplier = 3
-                    return_multiplier = catch_return_multiplier
+                return_multiplier = catch_return_multiplier
+
+            # Lift: weak lifts give opponent a better return multiplier
+            if shot_type == "lift" and caught and shot_power < 35:
+                return_multiplier = max(return_multiplier, 1.3 + (35 - shot_power) / 50)
 
             if not caught:
                 side = "left" if self._get_player_key(defender) == "player1" else "right"
@@ -422,6 +491,10 @@ class GameEngine:
                     self.match_stats[hitter['id']]["dropshot_winners"] += 1
                 elif shot_type == "volley":
                     self.match_stats[hitter['id']]["volley_winners"] += 1
+                elif shot_type == "lift":
+                    self.match_stats[hitter['id']]["lift_winners"] += 1
+                elif shot_type == "slice":
+                    self.match_stats[hitter['id']]["slice_winners"] += 1
                 
                 # Track break (point won by non-server while not on serve)
                 is_break = self._get_player_key(hitter) != self._get_player_key(server)
@@ -451,10 +524,25 @@ class GameEngine:
         Adjust shot power based on how comfortably the player catches the ball.
         For dropshot, use their own skill for both power and precision.
         Volleys get a power boost based on volley skill (upside of volley mode).
+        Lift: power boost over neutral, low precision scaling with lift skill.
+        Slice: very high precision, power malus scaling with slice skill.
         """
         if shot_type == "dropshot":
             base_power = player["skills"].get(shot_type, 30) * previous_multiplier
             precision_skill = player["skills"].get(shot_type, 30)
+        elif shot_type == "lift":
+            lift_skill = player["skills"].get("lift", 30)
+            # Power boost compared to neutral shots
+            base_power = lift_skill * previous_multiplier * 1.3
+            # Low precision that scales with lift skill
+            precision_skill = max(5, int(lift_skill * 0.4 + 5))
+        elif shot_type == "slice":
+            slice_skill = player["skills"].get("slice", 30)
+            # Power malus: low slice = very low power, high slice = moderate power
+            power_factor = 0.2 + (slice_skill / 100) * 0.5  # 0.2 to 0.7
+            base_power = slice_skill * previous_multiplier * power_factor
+            # Very high precision compared to neutral shots
+            precision_skill = min(95, int(slice_skill * 1.2 + 20))
         else:
             base_power = player["skills"][shot_type] * previous_multiplier
             precision_skill = player["skills"][direction]
@@ -495,7 +583,7 @@ class GameEngine:
             else:
                 power_multiplier = random.uniform(0, 0.8)
 
-        shot_power = round(base_power * power_multiplier)
+        shot_power = round(base_power * power_multiplier * self._get_stamina_power_modifier(player))
         self.last_shot_power = shot_power
         return shot_power, precision, direction
     
@@ -504,25 +592,57 @@ class GameEngine:
         precision = random.triangular(1, 100, skill)
         return min(100, max(1, round(precision)))
 
+    def _get_stamina_speed_modifier(self, player):
+        """Speed penalty when match_stamina drops below 40%.
+        At 40: no penalty. At 0: -25% speed."""
+        ms = self.match_stamina[player["id"]]
+        if ms >= 40:
+            return 1.0
+        return 1.0 - (40 - ms) / 40 * 0.25
+
+    def _get_stamina_power_modifier(self, player):
+        """Power penalty when match_stamina drops below 20%.
+        At 20: no penalty. At 0: -30% power."""
+        ms = self.match_stamina[player["id"]]
+        if ms >= 20:
+            return 1.0
+        return 1.0 - (20 - ms) / 20 * 0.30
+
     def reduce_stamina(self, player, opponent_shot_precision):
         """
-        Reduce the player's stamina based on the opponent's shot precision.
-        Higher precision means the ball is placed further from the player, requiring more travel.
-        Halve the player's speed if stamina reaches 0 or lower.
+        Small per-catch drain for rally-length sensitivity and visual feedback.
+        The main stamina drain happens per-point in reset_stamina_and_speed.
         """
-        self.stamina[player["id"]] -= round(opponent_shot_precision / 3)
-        if self.stamina[player["id"]] <= 0:
-            self.speed[player["id"]] = player["skills"]["speed"] // 2
+        stamina_skill = max(1, player["skills"]["stamina"])
+        drain = opponent_shot_precision / (stamina_skill * 10.0)
+        self.match_stamina[player["id"]] = max(0, self.match_stamina[player["id"]] - drain)
+        # Update speed with current stamina penalty
+        self.speed[player["id"]] = int(player["skills"]["speed"] * self._get_stamina_speed_modifier(player))
 
     def reset_stamina_and_speed(self):
         """
-        Reset stamina and speed for both players to their original values at the end of a point.
-        Also reset volley mode for both players.
+        Called after each point. Applies the main per-point stamina drain (every point
+        costs energy regardless of rally length), then a tiny recovery between points.
+        Also resets volley mode and reverts mental boost.
         """
+        self._revert_mental_boost()
         for player in [self.p1, self.p2]:
-            self.stamina[player["id"]] = player["skills"]["stamina"]
-            self.speed[player["id"]] = player["skills"]["speed"]
+            stamina_skill = max(1, player["skills"]["stamina"])
+            # Per-game drain: each game costs significant energy
+            drain = 3.5 * (100.0 / (stamina_skill + 50))
+            self.match_stamina[player["id"]] = max(0, self.match_stamina[player["id"]] - drain)
+            # Small recovery between games
+            recovery = stamina_skill / 100.0
+            self.match_stamina[player["id"]] = min(100.0, self.match_stamina[player["id"]] + recovery)
+            # Update speed with current stamina penalty
+            self.speed[player["id"]] = int(player["skills"]["speed"] * self._get_stamina_speed_modifier(player))
             self.volley_mode[player["id"]] = False
+
+    def recover_set_stamina(self):
+        """Bigger stamina recovery between sets (changeover rest)."""
+        for player in [self.p1, self.p2]:
+            recovery = player["skills"]["stamina"] / 8.0
+            self.match_stamina[player["id"]] = min(100.0, self.match_stamina[player["id"]] + recovery)
 
     def can_catch(self, player, shot_power, shot_precision, shot_type, hitter=None):
         """
@@ -546,7 +666,7 @@ class GameEngine:
         precision_factor = 0.3 + (shot_precision / 70)
         # If catcher (player) is in volley mode, precision factor is harder (downside of volley mode)
         if self.volley_mode[player["id"]]:
-            precision_factor *= 1.75
+            precision_factor *= 1.85
         # Combined catch score
         catch_score = speed_power_ratio * precision_factor
         # Determine if caught based on catch score
@@ -578,12 +698,41 @@ class GameEngine:
             # cross → right, straight → left
             return "cross" if target_side == "right" else "straight"
 
-    def _get_mentality_adjusted_tendencies(self, player, opponent):
-        """Adjust shot tendencies based on player mentality.
+    def _apply_archetype_tendencies(self, player, tendencies):
+        """Adjust tendencies based on player archetype so playstyle matches archetype identity.
         
-        Neutral: no adjustment.
-        Opportunist: boosts tendencies toward the player's own strongest shot skills.
-        Strategist: boosts tendencies that exploit the opponent's weakest attributes.
+        Skills in the archetype key that map to shot types get boosted tendencies.
+        E.g. a 'Serve & Volley' archetype (key contains 'volley') will hit volleys much more often.
+        """
+        archetype_key = player.get('archetype_key', ())
+        if not archetype_key:
+            return tendencies
+
+        # Tendency indices: 0=cross, 1=straight, 2=dropshot, 3=volley, 4=lift, 5=slice
+        SKILL_TENDENCY_MAP = {
+            'dropshot': {2: 3.0},          # Dropshot archetype → 3x dropshot tendency
+            'volley': {3: 3.0},            # Volley archetype → 3x volley tendency
+            'cross': {0: 1.4},             # Cross specialist → 1.4x cross tendency
+            'straight': {1: 1.4},          # Straight specialist → 1.4x straight tendency
+            'lift': {4: 2.0},              # Lift player → 2x lift tendency
+            'slice': {5: 2.0},             # Slice player → 2x slice tendency
+            'serve': {1: 1.15},            # Servers tend to play more linear
+            'speed': {2: 1.3, 3: 1.3},    # Fast players exploit net/short balls more
+        }
+
+        for skill in archetype_key:
+            if skill in SKILL_TENDENCY_MAP:
+                for idx, mult in SKILL_TENDENCY_MAP[skill].items():
+                    tendencies[idx] *= mult
+
+        return tendencies
+
+    def _get_mentality_adjusted_tendencies(self, player, opponent):
+        """Adjust shot tendencies based on player archetype and mentality.
+        
+        First: archetype shapes the player's natural playstyle.
+        Then: mentality further adjusts based on opportunism or strategy.
+        Finally: IQ refines decision-making.
         """
         mentality = player.get("mentality", "neutral")
 
@@ -592,7 +741,12 @@ class GameEngine:
             player.get("straight_tend", 40),
             player.get("dropshot_tend", 10),
             player.get("volley_tend", 10),
+            player.get("lift_tend", 10),
+            player.get("slice_tend", 10),
         ]
+
+        # Apply archetype influence before mentality
+        base = self._apply_archetype_tendencies(player, base)
 
         if mentality == "opportunist":
             skills = player["skills"]
@@ -601,24 +755,30 @@ class GameEngine:
             # Boost cross/straight based on player's own directional skill strength
             cross_bonus = 1 + max(0, skills["cross"] - avg_skill) / 100
             straight_bonus = 1 + max(0, skills["straight"] - avg_skill) / 100
-            # Boost dropshot/volley more aggressively if they are above average
+            # Boost special shots more aggressively if they are above average
             dropshot_bonus = 1 + max(0, skills["dropshot"] - avg_skill) / 50
             volley_bonus = 1 + max(0, skills["volley"] - avg_skill) / 50
+            lift_bonus = 1 + max(0, skills.get("lift", 0) - avg_skill) / 50
+            slice_bonus = 1 + max(0, skills.get("slice", 0) - avg_skill) / 50
 
-            return [
+            result = [
                 base[0] * cross_bonus,
                 base[1] * straight_bonus,
                 base[2] * dropshot_bonus,
                 base[3] * volley_bonus,
+                base[4] * lift_bonus,
+                base[5] * slice_bonus,
             ]
+            return self._apply_iq_to_tendencies(player, opponent, result)
 
         elif mentality == "strategist":
             opp_skills = opponent["skills"]
             opp_avg = sum(opp_skills.values()) / len(opp_skills)
 
-            # More dropshots when the opponent is slow
+            # More dropshots/lifts when the opponent is slow
             speed_weakness = max(0, opp_avg - opp_skills["speed"]) / max(1, opp_avg)
             dropshot_boost = 1 + speed_weakness * 3
+            lift_boost = 1 + speed_weakness * 2
 
             # Target the opponent's weaker groundstroke side
             weak_direction = self._get_direction_targeting_weak_side(player, opponent)
@@ -628,20 +788,91 @@ class GameEngine:
             cross_mult = side_boost if weak_direction == "cross" else 1.0
             straight_mult = side_boost if weak_direction == "straight" else 1.0
 
-            return [
+            # Boost slice when opponent has low stamina relative to average
+            stam_weakness = max(0, opp_avg - opp_skills.get("stamina", 50)) / max(1, opp_avg)
+            slice_boost = 1 + stam_weakness * 2
+
+            result = [
                 base[0] * cross_mult,
                 base[1] * straight_mult,
                 base[2] * dropshot_boost,
                 base[3],  # volley unchanged
+                base[4] * lift_boost,
+                base[5] * slice_boost,
             ]
+            return self._apply_iq_to_tendencies(player, opponent, result)
 
         # neutral or unknown → raw tendencies
-        return base
+        return self._apply_iq_to_tendencies(player, opponent, base)
+
+    def _apply_iq_to_tendencies(self, player, opponent, tendencies):
+        """Apply IQ-based adjustments to shot tendencies.
+        
+        IQ modifies decisions to be more intelligent:
+        - Favor player's stronger directional skill
+        - Favor player's best special shot
+        - Target opponent's weaknesses (slow opponents → more dropshots/lifts)
+        - Target opponent's weaker groundstroke side
+        IQ 50 = neutral. Range: ~-0.2 to +0.2 scaling factor.
+        """
+        iq = player["skills"].get("iq", 50)
+        iq_factor = (iq - 50) / 250.0  # Range: -0.2 to +0.2
+
+        if abs(iq_factor) < 0.01:
+            return tendencies
+
+        skills = player["skills"]
+
+        # 1. Favor player's stronger direction
+        cross_val = skills.get("cross", 50)
+        straight_val = skills.get("straight", 50)
+        if cross_val != straight_val:
+            stronger_idx = 0 if cross_val > straight_val else 1
+            diff = abs(cross_val - straight_val)
+            tendencies[stronger_idx] *= (1 + iq_factor * diff / 80.0)
+
+        # 2. Favor player's best special shot among dropshot/volley/lift/slice
+        special_map = {
+            2: skills.get("dropshot", 30),
+            3: skills.get("volley", 30),
+            4: skills.get("lift", 30),
+            5: skills.get("slice", 30),
+        }
+        avg_special = sum(special_map.values()) / max(1, len(special_map))
+        for idx, val in special_map.items():
+            if val > avg_special:
+                tendencies[idx] *= (1 + iq_factor * (val - avg_special) / 80.0)
+            elif val < avg_special:
+                tendencies[idx] *= max(0.5, 1 - abs(iq_factor) * (avg_special - val) / 160.0)
+
+        # 3. Target opponent weaknesses
+        opp_skills = opponent["skills"]
+        opp_avg = sum(opp_skills.values()) / max(1, len(opp_skills))
+
+        # Slow opponent → boost dropshot and lift
+        opp_speed = opp_skills.get("speed", 50)
+        if opp_speed < opp_avg:
+            slowness = (opp_avg - opp_speed) / max(1, opp_avg)
+            tendencies[2] *= (1 + iq_factor * slowness * 2)   # dropshot
+            tendencies[4] *= (1 + iq_factor * slowness * 1.5)  # lift
+
+        # Weak groundstroke side → target it
+        opp_fh = opp_skills.get("forehand", 50)
+        opp_bh = opp_skills.get("backhand", 50)
+        if abs(opp_fh - opp_bh) > 3:
+            weak_dir = self._get_direction_targeting_weak_side(player, opponent)
+            weakness = abs(opp_fh - opp_bh) / 100.0
+            if weak_dir == "cross":
+                tendencies[0] *= (1 + iq_factor * weakness * 2)
+            else:
+                tendencies[1] *= (1 + iq_factor * weakness * 2)
+
+        return tendencies
 
     def choose_shot_direction(self, player, opponent=None):
         """
-        Choose the shot direction (cross, straight, dropshot, volley) using player tendencies,
-        adjusted by the player's mentality (neutral / opportunist / strategist).
+        Choose the shot direction (cross, straight, dropshot, volley, lift, slice)
+        using player tendencies, adjusted by mentality and IQ.
         If player is in volley mode, they can only hit volleys.
         If opponent is in volley mode, this player cannot choose volleys (to prevent double volleys).
         """
@@ -651,11 +882,10 @@ class GameEngine:
         
         # Get mentality-adjusted tendencies
         tendencies = self._get_mentality_adjusted_tendencies(player, opponent or player)
-        shot_types = ["cross", "straight", "dropshot", "volley"]
+        shot_types = ["cross", "straight", "dropshot", "volley", "lift", "slice"]
         
         # If opponent is in volley mode, remove volley from available options
         if opponent and self.volley_mode[opponent["id"]]:
-            # Remove volley option and renormalize weights
             volley_idx = shot_types.index("volley")
             shot_types.pop(volley_idx)
             tendencies.pop(volley_idx)

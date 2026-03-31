@@ -79,6 +79,7 @@ class TennisCourtViewer:
         # Ball state
         self.ball_pos = [self.width // 2, self.height // 2]
         self.ball_visible = False
+        self.ball_shot_type = None  # Current shot type for color coding
         self._ball_trail = []  # list of recent (x, y) positions for trail effect
 
         # Animation tracking
@@ -338,14 +339,33 @@ class TennisCourtViewer:
             return
         x, y = self.ball_pos
 
+        # Determine ball colors based on shot type
+        if self.ball_shot_type == 'lift':
+            ball_fill = '#00aaff'   # Blue
+            ball_outline = '#0088cc'
+            ball_highlight = '#88ddff'
+            trail_r, trail_g, trail_b = 0, 170, 255
+        elif self.ball_shot_type == 'slice':
+            ball_fill = '#ff8800'   # Orange
+            ball_outline = '#cc6600'
+            ball_highlight = '#ffbb66'
+            trail_r, trail_g, trail_b = 255, 136, 0
+        else:
+            ball_fill = '#ccff00'   # Default green-yellow
+            ball_outline = '#aadd00'
+            ball_highlight = '#eeff88'
+            trail_r, trail_g, trail_b = 204, 255, 0
+
         # Trail — fading ghost balls
         trail_len = min(len(self._ball_trail), self.BALL_TRAIL_LENGTH)
         for i, (tx, ty) in enumerate(self._ball_trail[-trail_len:]):
             alpha_i = i / max(1, trail_len)  # 0..1
             tr = max(1, int(5 - self.BALL_TRAIL_FADE * (1 - alpha_i)))
-            # Progressively more transparent yellow
-            grey = int(180 + 75 * (1 - alpha_i))
-            trail_color = f'#{grey:02x}{grey:02x}00'
+            fade = 1 - alpha_i
+            cr = min(255, int(trail_r + (255 - trail_r) * fade))
+            cg = min(255, int(trail_g + (255 - trail_g) * fade))
+            cb = min(255, int(trail_b + (255 - trail_b) * fade))
+            trail_color = f'#{cr:02x}{cg:02x}{cb:02x}'
             self.canvas.create_oval(tx - tr, ty - tr, tx + tr, ty + tr,
                                     fill=trail_color, outline='', tags='ball_trail')
 
@@ -357,12 +377,11 @@ class TennisCourtViewer:
 
         # Ball
         r = 6
-        # Bright tennis-ball green-yellow with highlight
         self.canvas.create_oval(x - r, y - r, x + r, y + r,
-                                fill='#ccff00', outline='#aadd00', width=1, tags='ball')
+                                fill=ball_fill, outline=ball_outline, width=1, tags='ball')
         # Highlight dot
         self.canvas.create_oval(x - 2, y - 3, x + 1, y - 1,
-                                fill='#eeff88', outline='', tags='ball')
+                                fill=ball_highlight, outline='', tags='ball')
 
     def _update_trail(self):
         """Append current ball position to trail, keeping it bounded."""
@@ -379,6 +398,7 @@ class TennisCourtViewer:
 
     def hide_ball(self):
         self.ball_visible = False
+        self.ball_shot_type = None
         self._ball_trail.clear()
         self.draw_ball()
 
