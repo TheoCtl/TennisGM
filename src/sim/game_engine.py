@@ -443,7 +443,7 @@ class GameEngine:
                 
                 return (winner_key, point_events) if visualize else winner_key
 
-            self.reduce_stamina(hitter, shot_power)
+            self.reduce_stamina(defender, shot_precision)
 
     def calculate_shot(self, player, shot_type, direction, previous_multiplier=1):
         """
@@ -504,12 +504,13 @@ class GameEngine:
         precision = random.triangular(1, 100, skill)
         return min(100, max(1, round(precision)))
 
-    def reduce_stamina(self, player, opponent_shot_power):
+    def reduce_stamina(self, player, opponent_shot_precision):
         """
-        Reduce the player's stamina based on the opponent's shot power.
+        Reduce the player's stamina based on the opponent's shot precision.
+        Higher precision means the ball is placed further from the player, requiring more travel.
         Halve the player's speed if stamina reaches 0 or lower.
         """
-        self.stamina[player["id"]] -= round(opponent_shot_power / 3)
+        self.stamina[player["id"]] -= round(opponent_shot_precision / 3)
         if self.stamina[player["id"]] <= 0:
             self.speed[player["id"]] = player["skills"]["speed"] // 2
 
@@ -556,9 +557,91 @@ class GameEngine:
         else:  # easy catch
             return True, 1
 
+    def _get_direction_targeting_weak_side(self, hitter, opponent):
+        """Determine which direction (cross/straight) targets opponent's weaker groundstroke."""
+        opp_fh = opponent["skills"]["forehand"]
+        opp_bh = opponent["skills"]["backhand"]
+
+        # Determine which shot_leftright forces the opponent onto their weaker wing
+        if opponent["hand"] == "Right":
+            # Right-hander: backhand when ball lands on "right" side
+            target_side = "right" if opp_bh < opp_fh else "left"
+        else:
+            # Left-hander: backhand when ball lands on "left" side
+            target_side = "left" if opp_bh < opp_fh else "right"
+
+        hitter_pos = self.positions[hitter["id"]]
+        if hitter_pos == "right":
+            # cross → left, straight → right
+            return "straight" if target_side == "right" else "cross"
+        else:
+            # cross → right, straight → left
+            return "cross" if target_side == "right" else "straight"
+
+    def _get_mentality_adjusted_tendencies(self, player, opponent):
+        """Adjust shot tendencies based on player mentality.
+        
+        Neutral: no adjustment.
+        Opportunist: boosts tendencies toward the player's own strongest shot skills.
+        Strategist: boosts tendencies that exploit the opponent's weakest attributes.
+        """
+        mentality = player.get("mentality", "neutral")
+
+        base = [
+            player.get("cross_tend", 40),
+            player.get("straight_tend", 40),
+            player.get("dropshot_tend", 10),
+            player.get("volley_tend", 10),
+        ]
+
+        if mentality == "opportunist":
+            skills = player["skills"]
+            avg_skill = sum(skills.values()) / len(skills)
+
+            # Boost cross/straight based on player's own directional skill strength
+            cross_bonus = 1 + max(0, skills["cross"] - avg_skill) / 100
+            straight_bonus = 1 + max(0, skills["straight"] - avg_skill) / 100
+            # Boost dropshot/volley more aggressively if they are above average
+            dropshot_bonus = 1 + max(0, skills["dropshot"] - avg_skill) / 50
+            volley_bonus = 1 + max(0, skills["volley"] - avg_skill) / 50
+
+            return [
+                base[0] * cross_bonus,
+                base[1] * straight_bonus,
+                base[2] * dropshot_bonus,
+                base[3] * volley_bonus,
+            ]
+
+        elif mentality == "strategist":
+            opp_skills = opponent["skills"]
+            opp_avg = sum(opp_skills.values()) / len(opp_skills)
+
+            # More dropshots when the opponent is slow
+            speed_weakness = max(0, opp_avg - opp_skills["speed"]) / max(1, opp_avg)
+            dropshot_boost = 1 + speed_weakness * 3
+
+            # Target the opponent's weaker groundstroke side
+            weak_direction = self._get_direction_targeting_weak_side(player, opponent)
+            fh_bh_diff = abs(opp_skills["forehand"] - opp_skills["backhand"])
+            side_boost = 1 + (fh_bh_diff / 100) * 1.5
+
+            cross_mult = side_boost if weak_direction == "cross" else 1.0
+            straight_mult = side_boost if weak_direction == "straight" else 1.0
+
+            return [
+                base[0] * cross_mult,
+                base[1] * straight_mult,
+                base[2] * dropshot_boost,
+                base[3],  # volley unchanged
+            ]
+
+        # neutral or unknown → raw tendencies
+        return base
+
     def choose_shot_direction(self, player, opponent=None):
         """
-        Choose the shot direction (cross, straight, dropshot, volley) using player tendencies.
+        Choose the shot direction (cross, straight, dropshot, volley) using player tendencies,
+        adjusted by the player's mentality (neutral / opportunist / strategist).
         If player is in volley mode, they can only hit volleys.
         If opponent is in volley mode, this player cannot choose volleys (to prevent double volleys).
         """
@@ -566,13 +649,8 @@ class GameEngine:
         if self.volley_mode[player["id"]]:
             return "volley"
         
-        # Get player tendencies
-        tendencies = [
-            player.get("cross_tend", 40),
-            player.get("straight_tend", 40),
-            player.get("dropshot_tend", 10),
-            player.get("volley_tend", 10)
-        ]
+        # Get mentality-adjusted tendencies
+        tendencies = self._get_mentality_adjusted_tendencies(player, opponent or player)
         shot_types = ["cross", "straight", "dropshot", "volley"]
         
         # If opponent is in volley mode, remove volley from available options

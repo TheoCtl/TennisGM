@@ -56,6 +56,14 @@ class TennisGMApp:
                     p.setdefault('archetype', 'Balanced Player')
                     p.setdefault('archetype_key', tuple())
                     changed = True
+            # Ensure every player has a mentality (neutral/opportunist/strategist)
+            if 'mentality' not in p:
+                import random
+                p['mentality'] = random.choices(
+                    ["neutral", "opportunist", "strategist"],
+                    weights=[50, 25, 25], k=1
+                )[0]
+                changed = True
         if changed:
             # Persist migration
             if hasattr(self.scheduler, 'save_game'):
@@ -718,6 +726,7 @@ class TennisGMApp:
             ("✋ Playing Hand", f"{player.get('hand', 'N/A')}-handed"),
             ("🌍 Nationality", player.get('nationality', 'N/A')),
             ("⚡ Potential Factor", player.get('potential_factor', 'N/A')),
+            ("🧠 Mentality", player.get('mentality', 'neutral').capitalize()),
         ]
         
         for label, value in basic_info:

@@ -1,3 +1,3 @@
--- FEATURES --
-
--- FIXES --
+- more player stats (for example Mental, slices, lifts, etc). Make the game feel more like Football Manager, with a lot more stats that would complexify the game. The problem is that each new stat would increase the number of archetypes by an insane number.
+- better visualisation. Make the match visualisation more cool-looking. Right now it's very robotic. For example I'd like for the game to become not a top-down view but rather have the same view angle we get in pro tennis matches, player sprites, more realistic feeling to the movements, etc. Overall, have matches be more exciting to watch and less linear.
+- Playability update. Make it possible for the user to control one of the two players when visualising a match.

@@ -24,6 +24,10 @@ class NewGenGenerator:
         "Arcton", "Halcyon", "Rin", "Hethrion", "Haran", "Loknig", "Jeonguk", "Bleak"
     ]
 
+    MENTALITIES = ["neutral", "opportunist", "strategist"]
+    # Probability weights: ~50% neutral, ~25% opportunist, ~25% strategist
+    MENTALITY_WEIGHTS = [50, 25, 25]
+
     def generate_player_with_ids(self, current_year, player_id, player_rank):
         """Generate a new young player with random attributes"""
         first_name = random.choice(self.name_data["first_names"])
@@ -95,6 +99,7 @@ class NewGenGenerator:
             "straight_tend": straight_tend,
             "dropshot_tend": dropshot_tend,
             "volley_tend": volley_tend,
+            "mentality": random.choices(self.MENTALITIES, weights=self.MENTALITY_WEIGHTS, k=1)[0],
             "year_start_rankings": {},  # Track ranking at start of each year
         }
 
