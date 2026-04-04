@@ -1513,6 +1513,11 @@ class TennisGMApp:
                 activeforeground="white"
             ).pack()
 
+    def _calculate_hof_points(self, player):
+        """Delegate to TournamentScheduler's shared formula."""
+        from schedule import TournamentScheduler
+        return TournamentScheduler.calculate_hof_points(player)
+
     def show_hall_of_fame(self):
         # Close any previously opened matplotlib figures
         self._close_matplotlib_figures()
@@ -1559,14 +1564,14 @@ class TennisGMApp:
                 hof_points = player['hof_points']
                 wins = len(player.get('tournament_wins', []))
                 
-                if hof_points >= 200:
-                    tier_color = "#f1c40f"  # Gold for legends
+                if hof_points >= 500:
+                    tier_color = "#504001"  # Gold for legends
                     tier_icon = "👑"
                     tier_name = "LEGEND"
                 elif hof_points >= 100:
-                    tier_color = "#c0392b"  # Deep red for hall of fame
+                    tier_color = "#5c1d16"  # Deep red for hall of fame
                     tier_icon = "🏆"
-                    tier_name = "IMMORTAL"
+                    tier_name = "INDUCTEE"
                 elif hof_points >= 50:
                     tier_color = "#8e44ad"  # Purple for great
                     tier_icon = "⭐"
@@ -1621,9 +1626,24 @@ class TennisGMApp:
                 tier_label.pack(side="right")
                 
                 # Stats
+                best_rank = player.get('highest_ranking', 'N/A')
+                w1_val = player.get('w1') or 0
+                w16_val = player.get('w16') or 0
+                mawn_list = player.get('mawn') or [0,0,0,0,0]
+                total_mw = sum(mawn_list) if isinstance(mawn_list, list) else 0
+                stats_parts = [f"HOF: {hof_points}pts"]
+                stats_parts.append(f"Best #{best_rank}")
+                if wins:
+                    stats_parts.append(f"{wins} titles")
+                if w1_val:
+                    stats_parts.append(f"{w1_val}w #1")
+                if w16_val:
+                    stats_parts.append(f"{w16_val}w top 10")
+                if total_mw:
+                    stats_parts.append(f"{total_mw}W")
                 stats_label = tk.Label(
                     info_frame,
-                    text=f"HOF Points: {hof_points} • Tournament Wins: {wins}",
+                    text=" • ".join(stats_parts),
                     font=("Arial", 10),
                     bg=tier_color,
                     fg="#ecf0f1",
@@ -1661,30 +1681,13 @@ class TennisGMApp:
         
         search_var.trace_add("write", update_list)
 
-        # Calculate hof_points for each player
+        # Calculate hof_points for each player using comprehensive formula
         for player in self.scheduler.hall_of_fame:
-            player['hof_points'] = 0
-            for win in player.get('tournament_wins', []):
-                if win.get('name') == "Kings Cup":
-                    player['hof_points'] += 50
-                elif win.get('name') == "Final Masters":
-                    player['hof_points'] += 30
-                elif win.get('name') == "Nextgen Finals":
-                    player['hof_points'] += 5
-                elif win['category'] == "Grand Slam":
-                    player['hof_points'] += 40
-                elif win['category'] == "Masters 1000":
-                    player['hof_points'] += 20
-                elif win['category'] == "ATP 500":
-                    player['hof_points'] += 10
-                elif win['category'] == "ATP 250":
-                    player['hof_points'] += 5
-                elif win['category'].startswith("Challenger"):
-                    player['hof_points'] += 1
+            player['hof_points'] = self._calculate_hof_points(player)
 
         hof_members = sorted(
             self.scheduler.hall_of_fame,
-            key=lambda x: (-x['hof_points'], len(x.get('tournament_wins', [])))
+            key=lambda x: (-x['hof_points'], x.get('highest_ranking', 999))
         )[:100]
 
         frame = tk.Frame(self.root)

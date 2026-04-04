@@ -1280,21 +1280,88 @@ class TournamentScheduler:
             print(f"\nThe following players have retired: {', '.join(retired_players)}")
         return retired_players
     
+    @staticmethod
+    def calculate_hof_points(player):
+        """Comprehensive HOF scoring that rewards sustained greatness,
+        not just tournament volume.  Higher = better."""
+        pts = 0
+
+        # --- 1. Tournament titles (still matters, but less dominant) ---
+        for win in player.get('tournament_wins', []):
+            name = win.get('name', '')
+            cat = win.get('category', '')
+            if name == 'Kings Cup':
+                pts += 50
+            elif name == 'Final Masters':
+                pts += 30
+            elif name == 'Nextgen Finals':
+                pts += 5
+            elif cat == 'Grand Slam':
+                pts += 40
+            elif cat == 'Masters 1000':
+                pts += 20
+            elif cat == 'ATP 500':
+                pts += 10
+            elif cat == 'ATP 250':
+                pts += 5
+            elif cat.startswith('Challenger'):
+                pts += 1
+
+        # --- 2. Peak ranking bonus ---
+        best = player.get('highest_ranking', 999)
+        if best == 1:
+            pts += 80
+        elif best <= 3:
+            pts += 50
+        elif best <= 5:
+            pts += 35
+        elif best <= 10:
+            pts += 25
+        elif best <= 20:
+            pts += 15
+        elif best <= 50:
+            pts += 5
+
+        # --- 3. Weeks at #1 (logarithmic to avoid runaway) ---
+        w1 = player.get('w1') or 0
+        if w1 > 0:
+            import math
+            pts += int(30 * math.log2(1 + w1))  # 1w→30, 10w→103, 50w→173, 100w→201
+
+        # --- 4. Weeks in top 10 ---
+        w16 = player.get('w16') or 0
+        if w16 > 0:
+            import math
+            pts += int(10 * math.log2(1 + w16))  # 10w→35, 50w→57, 200w→77
+
+        # --- 5. Total career match wins ---
+        mawn = player.get('mawn') or [0, 0, 0, 0, 0]
+        total_wins = sum(mawn) if isinstance(mawn, list) else 0
+        if total_wins > 0:
+            import math
+            pts += int(8 * math.log2(1 + total_wins))  # 50w→45, 200w→62, 500w→72
+
+        return pts
+
     def _add_to_hall_of_fame(self, player):
         hof_entry = {
             'name' : player['name'],
             'tournament_wins' : player.get('tournament_wins', []).copy(),
             'highest_ranking': player.get('highest_ranking', 999),
             'highest_elo': player.get('highest_elo', 999),
-            'hof_points': player.get('hof_points', 0),
+            'hof_points': 0,
             'mawn': player.get('mawn'),
             'w1': player.get('w1'),
             'w16': player.get('w16')
         }
+        hof_entry['hof_points'] = self.calculate_hof_points(hof_entry)
         self.hall_of_fame.append(hof_entry)
+        # Re-score everyone and keep top 50
+        for p in self.hall_of_fame:
+            p['hof_points'] = self.calculate_hof_points(p)
         self.hall_of_fame = sorted(
             self.hall_of_fame,
-            key=lambda x: (-x['hof_points'], len(x.get('tournament_wins', [])))
+            key=lambda x: (-x['hof_points'], x.get('highest_ranking', 999))
         )[:50]
     
     def _reset_tournaments_for_new_year(self):
