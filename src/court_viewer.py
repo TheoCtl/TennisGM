@@ -535,6 +535,17 @@ class TennisCourtViewer:
                 self.ball_pos = [end_x, end_y]
                 self._update_trail()
                 self.draw_ball()
+                # Draw rebound mark if it wasn't drawn during animation
+                # (happens when frac_mid is so close to 1.0 that no
+                # intermediate step reached it before completion)
+                if not mid_drawn[0]:
+                    mid_drawn[0] = True
+                    if winner:
+                        self.draw_winner_mark(mid_x, mid_y)
+                    else:
+                        self.draw_rebound_mark(mid_x, mid_y)
+                    if mid_callback:
+                        mid_callback()
                 if winner:
                     self._flash_impact(end_x, end_y, '#e74c3c', 18)
                 else:

@@ -239,6 +239,11 @@ class TournamentScheduler:
             # MIGRATION: Ensure peak_skills exists (snapshot current skills as initial peak)
             if 'peak_skills' not in player:
                 player['peak_skills'] = {k: v for k, v in player.get('skills', {}).items()}
+            # MIGRATION: Assign new mentality to players with old/missing mentality
+            _NEW_MENTALITIES = ["neutral", "opportunist", "strategist", "disruptor", "marathonian",
+                                "brute", "baseliner", "net-player", "specialist", "wildcard"]
+            if player.get('mentality', 'neutral') not in _NEW_MENTALITIES:
+                player['mentality'] = random.choice(_NEW_MENTALITIES)
         # MIGRATION: Generate peak_skills for HOF members that lack them
         for hof in self.hall_of_fame:
             if 'peak_skills' not in hof or not hof.get('peak_skills'):

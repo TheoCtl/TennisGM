@@ -1847,7 +1847,7 @@ class TennisGMApp:
                 peak_card = tk.Frame(main_frame, bg="white", relief="raised", bd=2)
                 peak_card.pack(fill="x", pady=(0, 10))
                 
-                peak_ovr = round(sum(peak_skills.values()) / len(peak_skills)) if peak_skills else 0
+                peak_ovr = round(sum(peak_skills.values()) / len(peak_skills), 1) if peak_skills else 0
                 tk.Label(
                     peak_card,
                     text=f"⚡ Peak Skills (Overall: {peak_ovr})",
@@ -1873,6 +1873,27 @@ class TennisGMApp:
                     ("Physicality", ['speed', 'stamina']),
                     ("Tactics", ['cross', 'straight', 'iq', 'mental']),
                 ]
+                
+                def _peak_bar_color(val):
+                    if val >= 80:
+                        return "#2980b9"
+                    elif val <= 40:
+                        return "#e74c3c"
+                    else:
+                        if val < 50:
+                            t = (val - 40) / 10.0
+                            r = int(231 + t * (230 - 231)); g = int(76 + t * (126 - 76)); b = int(60 + t * (34 - 60))
+                        elif val < 60:
+                            t = (val - 50) / 10.0
+                            r = int(230 + t * (241 - 230)); g = int(126 + t * (196 - 126)); b = int(34 + t * (15 - 34))
+                        elif val < 70:
+                            t = (val - 60) / 10.0
+                            r = int(241 + t * (39 - 241)); g = int(196 + t * (174 - 196)); b = int(15 + t * (96 - 15))
+                        else:
+                            t = (val - 70) / 10.0
+                            r = int(39 + t * (41 - 39)); g = int(174 + t * (128 - 174)); b = int(96 + t * (185 - 96))
+                        return f"#{r:02x}{g:02x}{b:02x}"
+
                 for group_name, skills_list in skill_groups:
                     grp_frame = tk.Frame(peak_content, bg="white")
                     grp_frame.pack(fill="x", pady=(4, 0))
@@ -1881,18 +1902,19 @@ class TennisGMApp:
                     for sk in skills_list:
                         val = peak_skills.get(sk, 0)
                         row = tk.Frame(peak_content, bg="white")
-                        row.pack(fill="x", pady=1)
-                        tk.Label(row, text=f"  {skill_abbr.get(sk, sk)}:", font=("Arial", 10, "bold"),
-                                bg="white", fg="#2c3e50", anchor="w", width=6).pack(side="left")
-                        # Skill bar
-                        bar_bg = tk.Frame(row, bg="#ecf0f1", height=10, width=200)
-                        bar_bg.pack(side="left", padx=(5, 5))
-                        bar_bg.pack_propagate(False)
-                        fill_w = max(1, int(200 * val / 100))
-                        color = "#27ae60" if val >= 75 else "#f39c12" if val >= 60 else "#e74c3c"
-                        tk.Frame(bar_bg, bg=color, height=10, width=fill_w).pack(side="left")
-                        tk.Label(row, text=str(val), font=("Arial", 10),
-                                bg="white", fg="#7f8c8d").pack(side="left")
+                        row.pack(fill="x", pady=2)
+                        tk.Label(row, text=sk.capitalize(), font=("Arial", 10, "bold"),
+                                bg="white", fg="#2c3e50", anchor="w").pack(fill="x")
+                        bar_outer = tk.Frame(row, bg="#ecf0f1", height=18, relief="sunken", bd=1)
+                        bar_outer.pack(fill="x", padx=(0, 5))
+                        bar_outer.pack_propagate(False)
+                        bc = _peak_bar_color(val)
+                        bar_fill = tk.Frame(bar_outer, bg=bc, height=16)
+                        bar_fill.place(relwidth=max(0.02, val / 100.0), relheight=1.0)
+                        val_label = tk.Label(bar_outer, text=str(val), font=("Arial", 9, "bold"),
+                                             bg=bc if val >= 30 else "#ecf0f1",
+                                             fg="white" if val >= 30 else "#2c3e50", anchor="w")
+                        val_label.place(x=4, rely=0.5, anchor="w")
             
             # Action button
             button_frame = tk.Frame(main_frame, bg="#ecf0f1")

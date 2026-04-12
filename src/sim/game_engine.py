@@ -79,6 +79,11 @@ class GameEngine:
         }
         # Track the last shot type for winner classification
         self.last_shot_type = None
+        # Current return multiplier (updated each rally exchange for mentality access)
+        self.current_return_multiplier = 1.0
+        # Wildcard mentality state: random boosts regenerated each game
+        self._wildcard_boosts = {}
+        self._wildcard_game_key = None
 
     def _stamina_snapshot(self):
         """Return a dict with both players' match stamina as fraction 0.0-1.0."""
@@ -286,6 +291,7 @@ class GameEngine:
             }]
 
         # Step 1: Server makes the first shot
+        self.current_return_multiplier = 1.0
         shot_direction = self.choose_shot_direction(hitter, opponent=defender)
         # Determine shot_leftright based on hitter's position and shot_direction
         shot_leftright = "left" if shot_direction == "cross" else "right"
@@ -355,6 +361,7 @@ class GameEngine:
         while True:
             # Receiver becomes the hitter
             hitter, defender = defender, hitter
+            self.current_return_multiplier = return_multiplier
             shot_direction = self.choose_shot_direction(hitter, opponent=defender)
             # Determine shot type: dropshot/volley/lift/slice/forehand/backhand
             if shot_direction in ("cross", "straight"):
@@ -362,8 +369,8 @@ class GameEngine:
             elif shot_direction in ("lift", "slice"):
                 shot_type = shot_direction
                 # Determine actual ball direction based on cross/straight tendencies
-                c_w = max(1, hitter.get("cross_tend", 50))
-                s_w = max(1, hitter.get("straight_tend", 50))
+                c_w = 50
+                s_w = 50
                 shot_direction = random.choices(["cross", "straight"], weights=[c_w, s_w], k=1)[0]
             else:
                 shot_type = shot_direction
@@ -726,111 +733,104 @@ class GameEngine:
             # cross → right, straight → left
             return "cross" if target_side == "right" else "straight"
 
-    def _apply_archetype_tendencies(self, player, tendencies):
-        """Adjust tendencies based on player archetype so playstyle matches archetype identity.
-        
-        Skills in the archetype key that map to shot types get boosted tendencies.
-        E.g. a 'Serve & Volley' archetype (key contains 'volley') will hit volleys much more often.
-        """
-        archetype_key = player.get('archetype_key', ())
-        if not archetype_key:
-            return tendencies
-
-        # Tendency indices: 0=cross, 1=straight, 2=dropshot, 3=volley, 4=lift, 5=slice
-        SKILL_TENDENCY_MAP = {
-            'dropshot': {2: 3.0},          # Dropshot archetype → 3x dropshot tendency
-            'volley': {3: 3.0},            # Volley archetype → 3x volley tendency
-            'cross': {0: 1.4},             # Cross specialist → 1.4x cross tendency
-            'straight': {1: 1.4},          # Straight specialist → 1.4x straight tendency
-            'lift': {4: 2.0},              # Lift player → 2x lift tendency
-            'slice': {5: 2.0},             # Slice player → 2x slice tendency
-            'serve': {1: 1.15},            # Servers tend to play more linear
-            'speed': {2: 1.3, 3: 1.3},    # Fast players exploit net/short balls more
-        }
-
-        for skill in archetype_key:
-            if skill in SKILL_TENDENCY_MAP:
-                for idx, mult in SKILL_TENDENCY_MAP[skill].items():
-                    tendencies[idx] *= mult
-
-        return tendencies
-
     def _get_mentality_adjusted_tendencies(self, player, opponent):
-        """Adjust shot tendencies based on player archetype and mentality.
+        """Adjust shot tendencies based on player mentality.
         
-        First: archetype shapes the player's natural playstyle.
-        Then: mentality further adjusts based on opportunism or strategy.
-        Finally: IQ refines decision-making.
+        Mentality is the sole driver of playstyle tendency adjustments.
+        IQ refines decision-making on top.
+        Tendency indices: 0=cross, 1=straight, 2=dropshot, 3=volley, 4=lift, 5=slice
         """
         mentality = player.get("mentality", "neutral")
 
-        base = [
-            player.get("cross_tend", 40),
-            player.get("straight_tend", 40),
-            player.get("dropshot_tend", 10),
-            player.get("volley_tend", 10),
-            player.get("lift_tend", 10),
-            player.get("slice_tend", 10),
-        ]
-
-        # Apply archetype influence before mentality
-        base = self._apply_archetype_tendencies(player, base)
+        # Fixed neutral base tendencies for all players (mentality modifies these)
+        # cross=35, straight=35, dropshot=5, volley=5, lift=10, slice=10
+        base = [35, 35, 5, 5, 10, 10]
 
         if mentality == "opportunist":
-            skills = player["skills"]
-            avg_skill = sum(skills.values()) / len(skills)
-
-            # Boost cross/straight based on player's own directional skill strength
-            cross_bonus = 1 + max(0, skills["cross"] - avg_skill) / 100
-            straight_bonus = 1 + max(0, skills["straight"] - avg_skill) / 100
-            # Boost special shots more aggressively if they are above average
-            dropshot_bonus = 1 + max(0, skills["dropshot"] - avg_skill) / 50
-            volley_bonus = 1 + max(0, skills["volley"] - avg_skill) / 50
-            lift_bonus = 1 + max(0, skills.get("lift", 0) - avg_skill) / 50
-            slice_bonus = 1 + max(0, skills.get("slice", 0) - avg_skill) / 50
-
-            result = [
-                base[0] * cross_bonus,
-                base[1] * straight_bonus,
-                base[2] * dropshot_bonus,
-                base[3] * volley_bonus,
-                base[4] * lift_bonus,
-                base[5] * slice_bonus,
-            ]
-            return self._apply_iq_to_tendencies(player, opponent, result)
+            # Comfort zone at high return_mult (easy ball) → fewer specials.
+            # Under pressure (low return_mult) → more specials to escape.
+            rm = self.current_return_multiplier
+            if rm >= 1.0:
+                # Easy position: play safe, reduce specials
+                base[2] *= 0.6   # dropshot
+                base[3] *= 0.6   # volley
+                base[4] *= 0.7   # lift
+                base[5] *= 0.7   # slice
+            elif rm <= 0.7:
+                # Under pressure: boost specials to disrupt
+                boost = 1 + (0.7 - rm) * 2  # up to ~2.4x at rm=0
+                base[2] *= boost  # dropshot
+                base[3] *= boost  # volley
+                base[4] *= boost  # lift
+                base[5] *= boost  # slice
 
         elif mentality == "strategist":
-            opp_skills = opponent["skills"]
-            opp_avg = sum(opp_skills.values()) / len(opp_skills)
-
-            # More dropshots/lifts when the opponent is slow
-            speed_weakness = max(0, opp_avg - opp_skills["speed"]) / max(1, opp_avg)
-            dropshot_boost = 1 + speed_weakness * 3
-            lift_boost = 1 + speed_weakness * 2
-
-            # Target the opponent's weaker groundstroke side
+            # Target opponent's weaker groundstroke side
             weak_direction = self._get_direction_targeting_weak_side(player, opponent)
+            opp_skills = opponent["skills"]
             fh_bh_diff = abs(opp_skills["forehand"] - opp_skills["backhand"])
-            side_boost = 1 + (fh_bh_diff / 100) * 1.5
+            side_boost = 1 + (fh_bh_diff / 100) * 1.8
+            if weak_direction == "cross":
+                base[0] *= side_boost
+            else:
+                base[1] *= side_boost
 
-            cross_mult = side_boost if weak_direction == "cross" else 1.0
-            straight_mult = side_boost if weak_direction == "straight" else 1.0
+        elif mentality == "disruptor":
+            # Dropshots vs slow opponents, volleys vs fast
+            opp_skills = opponent["skills"]
+            opp_avg = sum(opp_skills.values()) / max(1, len(opp_skills))
+            speed_diff = (opp_skills["speed"] - opp_avg) / max(1, opp_avg)
+            if speed_diff < 0:
+                # Slow opponent: boost dropshots
+                base[2] *= 1 + abs(speed_diff) * 3
+            else:
+                # Fast opponent: boost volleys
+                base[3] *= 1 + speed_diff * 3
 
-            # Boost slice when opponent has low stamina relative to average
-            stam_weakness = max(0, opp_avg - opp_skills.get("stamina", 50)) / max(1, opp_avg)
-            slice_boost = 1 + stam_weakness * 2
+        elif mentality == "marathonian":
+            # More slices, fewer lifts
+            base[5] *= 1.8   # slice
+            base[4] *= 0.6   # lift
 
-            result = [
-                base[0] * cross_mult,
-                base[1] * straight_mult,
-                base[2] * dropshot_boost,
-                base[3],  # volley unchanged
-                base[4] * lift_boost,
-                base[5] * slice_boost,
-            ]
-            return self._apply_iq_to_tendencies(player, opponent, result)
+        elif mentality == "brute":
+            # More lifts, fewer slices
+            base[4] *= 1.8   # lift
+            base[5] *= 0.6   # slice
 
-        # neutral or unknown → raw tendencies
+        elif mentality == "baseliner":
+            # Low dropshots and volleys
+            base[2] *= 0.4   # dropshot
+            base[3] *= 0.4   # volley
+
+        elif mentality == "net-player":
+            # High dropshots and volleys
+            base[2] *= 2.0   # dropshot
+            base[3] *= 2.0   # volley
+
+        elif mentality == "specialist":
+            # Boost whichever is higher between the player's cross/straight skill
+            skills = player["skills"]
+            if skills.get("cross", 50) >= skills.get("straight", 50):
+                base[0] *= 1.5  # cross
+            else:
+                base[1] *= 1.5  # straight
+
+        elif mentality == "wildcard":
+            # Random boost regenerated each game
+            game_key = (self.games["player1"], self.games["player2"],
+                        self.sets["player1"], self.sets["player2"])
+            pid = player["id"]
+            if self._wildcard_game_key != game_key or pid not in self._wildcard_boosts:
+                self._wildcard_game_key = game_key
+                # Pick one of slice/lift and one of cross/straight to boost
+                spin_idx = random.choice([4, 5])     # lift or slice
+                dir_idx = random.choice([0, 1])      # cross or straight
+                self._wildcard_boosts[pid] = (spin_idx, dir_idx)
+            spin_idx, dir_idx = self._wildcard_boosts[pid]
+            base[spin_idx] *= 1.7
+            base[dir_idx] *= 1.4
+
+        # neutral or unknown → raw tendencies, no modification
         return self._apply_iq_to_tendencies(player, opponent, base)
 
     def _apply_iq_to_tendencies(self, player, opponent, tendencies):

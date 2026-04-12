@@ -25,9 +25,9 @@ class NewGenGenerator:
         "Arcton", "Halcyon", "Rin", "Hethrion", "Haran", "Loknig", "Jeonguk", "Bleak"
     ]
 
-    MENTALITIES = ["neutral", "opportunist", "strategist"]
-    # Probability weights: ~50% neutral, ~25% opportunist, ~25% strategist
-    MENTALITY_WEIGHTS = [50, 25, 25]
+    MENTALITIES = ["neutral", "opportunist", "strategist", "disruptor", "marathonian",
+                   "brute", "baseliner", "net-player", "specialist", "wildcard"]
+    MENTALITY_WEIGHTS = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 
     def generate_player_with_ids(self, current_year, player_id, player_rank):
         """Generate a new young player with random attributes"""
@@ -52,23 +52,6 @@ class NewGenGenerator:
 
         skills = self.generate_skills()
 
-        # Generate tendencies (6 total: cross, straight, dropshot, volley, lift, slice)
-        dropshot_tend = random.randint(0, 5)
-        volley_tend = random.randint(0, 5)
-        lift_tend = random.randint(3, 20)
-        slice_tend = random.randint(3, 20)
-        straight_tend = random.randint(30, 50)
-        cross_tend = 100 - (dropshot_tend + volley_tend + lift_tend + slice_tend + straight_tend)
-        # Ensure cross_tend at least 10
-        if cross_tend < 10:
-            diff = 10 - cross_tend
-            if straight_tend - diff >= 30:
-                straight_tend -= diff
-                cross_tend = 10
-            else:
-                cross_tend = 10
-                straight_tend = max(30, 100 - (dropshot_tend + volley_tend + lift_tend + slice_tend + cross_tend))
-
         player = {
             "id": player_id,
             "name": f"{first_name} {last_name}",
@@ -91,13 +74,6 @@ class NewGenGenerator:
             "tournament_history": [],
             "tournament_wins": [],
             "bonus": random.choice(list(skills.keys())),
-            # Shot tendencies
-            "cross_tend": cross_tend,
-            "straight_tend": straight_tend,
-            "dropshot_tend": dropshot_tend,
-            "volley_tend": volley_tend,
-            "lift_tend": lift_tend,
-            "slice_tend": slice_tend,
             "mentality": random.choices(self.MENTALITIES, weights=self.MENTALITY_WEIGHTS, k=1)[0],
             "year_start_rankings": {},  # Track ranking at start of each year
         }
