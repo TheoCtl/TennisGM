@@ -51,7 +51,6 @@ class NewGenGenerator:
             potential_factor = round(random.uniform(1.0, 1.5), 3)
 
         skills = self.generate_skills()
-        surface_mods = self.generate_surface_modifiers()
 
         # Generate tendencies (6 total: cross, straight, dropshot, volley, lift, slice)
         dropshot_tend = random.randint(0, 5)
@@ -89,9 +88,6 @@ class NewGenGenerator:
             "w16": 0,
             "points": 0,
             "highest_points": 0,
-            "surface_modifiers": surface_mods,  # per-surface multipliers
-            # Keep favorite_surface only for backward compatibility if needed:
-            # "favorite_surface": random.choice(["clay", "grass", "hard", "indoor"]),
             "tournament_history": [],
             "tournament_wins": [],
             "bonus": random.choice(list(skills.keys())),
@@ -221,15 +217,3 @@ class NewGenGenerator:
         # - either we carried past the first letter (all letters were Z -> now A),
         # - or there were no letters at all.
         return ('A' + ''.join(chars)) if saw_letter else 'A'
-    
-    def generate_surface_modifiers(self):
-        """Create per-surface factors in [0.9, 1.1] and ensure their sum >= 3.8."""
-        mods = {s: round(random.uniform(0.975, 1.025), 3) for s in ["clay", "grass", "hard", "indoor"]}
-        total = sum(mods.values())
-        if total < 4:
-            # Raise the best value until sum reaches 4
-            deficit = 4 - total
-            increments = math.ceil(deficit / 0.01)
-            worst_key = min(mods, key=mods.get)
-            mods[worst_key] = round(mods[worst_key] + 0.01 * increments, 3)
-        return mods

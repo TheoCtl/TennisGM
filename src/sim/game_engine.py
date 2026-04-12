@@ -1,6 +1,24 @@
 import random
 import math
 
+# Surface gameplay effects: modifiers applied during match simulation.
+# Each surface makes certain shots/mechanics naturally stronger or weaker.
+# Format: {surface: {effect_key: multiplier}}
+#   serve_power    – multiplied onto serve shot_power
+#   forehand_power – multiplied onto forehand shot_power
+#   lift_power     – multiplied onto lift base_power
+#   volley_power   – multiplied onto volley base_power
+#   straight_prec  – multiplied onto straight precision_skill
+#   slice_stamina  – multiplied onto stamina drain when receiving a slice
+#   stamina_drain  – multiplied onto all per-rally stamina drain
+#   speed          – multiplied onto effective speed in can_catch
+SURFACE_EFFECTS = {
+    "clay":    {"stamina_drain": 0.8, "lift_power": 1.05, "dropshot_power": 1.05},
+    "grass":   {"serve_power": 1.05, "slice_stamina": 1.7, "backhand_power": 1.05},
+    "hard":    {"forehand_power": 1.05, "speed": 1.05, "cross_prec": 1.05},
+    "indoor":  {"volley_power": 1.05, "straight_prec": 1.05, "serve_power": 1.05},
+}
+
 class GameEngine:
     SURFACES = ["clay", "grass", "hard", "indoor"]
     
@@ -10,12 +28,11 @@ class GameEngine:
         Each player is a dictionary containing stats like serve, forehand, backhand, speed, etc.
         """
         self.surface = surface
+        self.surface_fx = SURFACE_EFFECTS.get(surface, {})
         self.original_player1 = player1
         self.original_player2 = player2
-        player1_with_surface = self._apply_surface_bonus(player1, surface)
-        player2_with_surface = self._apply_surface_bonus(player2, surface)
-        self.p1 = self._apply_random_form(player1_with_surface)
-        self.p2 = self._apply_random_form(player2_with_surface)
+        self.p1 = self._apply_random_form(player1.copy())
+        self.p2 = self._apply_random_form(player2.copy())
         self.games = {"player1": 0, "player2": 0}  # Games won in the current set
         self.sets = {"player1": 0, "player2": 0}  # Sets won in the match
         self.set_scores = []  # Track the scores of each set as tuples (player1_games, player2_games)
@@ -70,30 +87,6 @@ class GameEngine:
             self.p2['id']: max(0.0, self.match_stamina[self.p2['id']] / 100.0),
         }
         
-    def _apply_surface_bonus(self, player, surface):
-        """Apply per-surface multiplier to all skills if available; fallback to legacy favorite_surface bonus."""
-        boosted_player = player.copy()
-
-        # Prefer new per-surface modifiers if present
-        mods = player.get("surface_modifiers")
-        if isinstance(mods, dict) and surface in mods:
-            factor = float(mods.get(surface, 1.0))
-            boosted_player["skills"] = {
-                skill: min(100, math.floor(value * factor))
-                for skill, value in player["skills"].items()
-            }
-            return boosted_player
-
-        # Fallback to legacy favorite_surface logic for older saves
-        if player.get("favorite_surface") == surface:
-            boosted_player["skills"] = {
-                skill: min(100, math.floor(value * 1.05)) 
-                for skill, value in player["skills"].items()
-            }
-            return boosted_player
-
-        return player
-    
     def _apply_random_form(self, player):
         """Apply random form multiplier to all skills"""
         form_multiplier = random.uniform(0.975, 1.025)
@@ -516,7 +509,7 @@ class GameEngine:
                 
                 return (winner_key, point_events) if visualize else winner_key
 
-            self.reduce_stamina(defender, shot_precision)
+            self.reduce_stamina(defender, shot_precision, shot_type=shot_type)
 
     def calculate_shot(self, player, shot_type, direction, previous_multiplier=1):
         """
@@ -527,13 +520,19 @@ class GameEngine:
         Lift: power boost over neutral, low precision scaling with lift skill.
         Slice: very high precision, power malus scaling with slice skill.
         """
+        fx = self.surface_fx
+
         if shot_type == "dropshot":
             base_power = player["skills"].get(shot_type, 30) * previous_multiplier
+            # Surface: clay boosts dropshot power
+            base_power *= fx.get("dropshot_power", 1.0)
             precision_skill = player["skills"].get(shot_type, 30)
         elif shot_type == "lift":
             lift_skill = player["skills"].get("lift", 30)
             # Power boost compared to neutral shots
             base_power = lift_skill * previous_multiplier * 1.3
+            # Surface: clay boosts lift power
+            base_power *= fx.get("lift_power", 1.0)
             # Low precision that scales with lift skill
             precision_skill = max(5, int(lift_skill * 0.4 + 5))
         elif shot_type == "slice":
@@ -546,18 +545,36 @@ class GameEngine:
         else:
             base_power = player["skills"][shot_type] * previous_multiplier
             precision_skill = player["skills"][direction]
-            
+
+            # Surface: grass boosts backhand power
+            if shot_type == "backhand":
+                base_power *= fx.get("backhand_power", 1.0)
+
             # Volley power boost: 1.[volley_stat-10], simulating time compression for opponent
             if shot_type == "volley":
                 volley_skill = player["skills"].get("volley", 30)
                 volley_power_boost = 1.0 + max(0, (volley_skill - 30) / 100)  # 1.0 to 1.5x
                 base_power = base_power * volley_power_boost
+                # Surface: indoor boosts volley power
+                base_power *= fx.get("volley_power", 1.0)
+
+            # Surface: hard boosts forehand power
+            if shot_type == "forehand":
+                base_power *= fx.get("forehand_power", 1.0)
+
+            # Surface: indoor boosts straight precision, hard boosts cross precision
+            if direction == "straight":
+                precision_skill = int(precision_skill * fx.get("straight_prec", 1.0))
+            if direction == "cross":
+                precision_skill = int(precision_skill * fx.get("cross_prec", 1.0))
         
         precision = self._weighted_random_precision(precision_skill)
 
         # Special handling for serves
         if shot_type == "serve":
             power_multiplier = random.uniform(0.5, 1.3)  # Serve gets a special bonus range
+            # Surface: grass boosts serve power
+            power_multiplier *= fx.get("serve_power", 1.0)
         else:
             last_shot_power = self.last_shot_power
             if last_shot_power <= 10:
@@ -608,13 +625,21 @@ class GameEngine:
             return 1.0
         return 1.0 - (20 - ms) / 20 * 0.30
 
-    def reduce_stamina(self, player, opponent_shot_precision):
+    def reduce_stamina(self, player, opponent_shot_precision, shot_type=None):
         """
         Small per-catch drain for rally-length sensitivity and visual feedback.
         The main stamina drain happens per-point in reset_stamina_and_speed.
+        Receiving a slice costs 1.5x stamina (1.7x on grass).
+        Surface stamina_drain modifier (e.g. clay 0.8x) applies to all drain.
         """
+        fx = self.surface_fx
         stamina_skill = max(1, player["skills"]["stamina"])
         drain = opponent_shot_precision / (stamina_skill * 10.0)
+        # Slices wear down the receiver (grass amplifies this further)
+        if shot_type == "slice":
+            drain *= fx.get("slice_stamina", 1.5)
+        # Surface stamina drain modifier (e.g. clay = 0.8x → less drain)
+        drain *= fx.get("stamina_drain", 1.0)
         self.match_stamina[player["id"]] = max(0, self.match_stamina[player["id"]] - drain)
         # Update speed with current stamina penalty
         self.speed[player["id"]] = int(player["skills"]["speed"] * self._get_stamina_speed_modifier(player))
@@ -649,19 +674,22 @@ class GameEngine:
         Determine if the player can catch the shot based on their speed and shot power.
         If hitter is in volley mode, precision_factor is increased by 1.1x (downside of volley mode).
         """
+        # Effective speed (surface modifier, e.g. hard ×1.2)
+        eff_speed = self.speed[player["id"]] * self.surface_fx.get("speed", 1.0)
+
         # Special case for serve returns
         if shot_type == "serve":  # Default serve precision
             # Simple serve return check: if serve power > speed, can't return
-            if shot_power > self.speed[player["id"]]:
+            if shot_power > eff_speed:
                 return False, 0
-            elif (self.speed[player["id"]] - shot_power) <= 10:
+            elif (eff_speed - shot_power) <= 10:
                 return True, 0.8
             else:
                 # Good return gets full power
                 return True, 1.0
         
         # Base catch chance (speed vs power)
-        speed_power_ratio = max(1, shot_power) / self.speed[player["id"]]
+        speed_power_ratio = max(1, shot_power) / eff_speed
         # Precision factor (0.5-1.5) - higher precision makes catching harder
         precision_factor = 0.3 + (shot_precision / 70)
         # If catcher (player) is in volley mode, precision factor is harder (downside of volley mode)

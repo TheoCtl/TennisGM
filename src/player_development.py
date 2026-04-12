@@ -117,7 +117,7 @@ class PlayerDevelopment:
                 if random.random() < chance and current_value < 100:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1
-            elif age >= 24:
+            elif age < 28:
                 # Refinement phase - slower progression
                 if cap['progcap'] >= 2:
                     continue

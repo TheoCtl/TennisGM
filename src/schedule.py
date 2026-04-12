@@ -236,6 +236,17 @@ class TournamentScheduler:
                 player['lift_tend'] = random.randint(3, 20)
             if 'slice_tend' not in player:
                 player['slice_tend'] = random.randint(3, 20)
+            # MIGRATION: Ensure peak_skills exists (snapshot current skills as initial peak)
+            if 'peak_skills' not in player:
+                player['peak_skills'] = {k: v for k, v in player.get('skills', {}).items()}
+        # MIGRATION: Generate peak_skills for HOF members that lack them
+        for hof in self.hall_of_fame:
+            if 'peak_skills' not in hof or not hof.get('peak_skills'):
+                hof['peak_skills'] = self._generate_hof_peak_skills(hof)
+            if 'hand' not in hof:
+                hof['hand'] = random.choice(['Right', 'Right', 'Right', 'Left'])
+            if 'archetype' not in hof:
+                hof['archetype'] = 'All-Rounder'
     
     def get_current_week_tournaments(self):
         return [t for t in self.tournaments if t['week'] == self.current_week]
@@ -294,14 +305,8 @@ class TournamentScheduler:
                         return 0.0
                     return round(sum(skills.values()) / max(1, len(skills)), 2)
 
-                def calc_surface_sum(p):
-                    mods = p.get("surface_modifiers")
-                    if isinstance(mods, dict) and mods:
-                        return (5 * (round(sum(mods.values()), 3)))
-                    return 40.0
-
                 def calc_fut(p):
-                    return (0.5*(round(calc_overall(p) + (22.5 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+                    return (0.5*(round(calc_overall(p) + (22.5 * p.get("potential_factor", 1.0)), 1)))
 
                 # Keep only the best up to the number of available slots
                 scored = sorted(((p, calc_fut(p)) for p in new_players), key=lambda x: x[1], reverse=True)
@@ -340,6 +345,17 @@ class TournamentScheduler:
         }
         PlayerDevelopment.seasonal_development(self)
         PlayerDevelopment.weekly_development(self)
+        # Track peak skills: snapshot skills when overall is a new personal best
+        for p in self.players:
+            if p.get('retired', False):
+                continue
+            skills = p.get('skills', {})
+            if skills:
+                current_ovr = sum(skills.values()) / len(skills)
+                peak = p.get('peak_skills', {})
+                peak_ovr = sum(peak.values()) / len(peak) if peak else 0
+                if current_ovr > peak_ovr:
+                    p['peak_skills'] = {k: v for k, v in skills.items()}
         self.previous_records = copy.deepcopy(self.records)
         self.update_weeks_at_top()
         self.records_manager.update_mawn_last_week()
@@ -484,14 +500,8 @@ class TournamentScheduler:
                     return 0.0
                 return round(sum(skills.values()) / max(1, len(skills)), 2)
 
-            def calc_surface_sum(p):
-                mods = p.get("surface_modifiers")
-                if isinstance(mods, dict) and mods:
-                    return (5 * (round(sum(mods.values()), 3)))
-                return 40.0
-
             def calc_fut(p):
-                return (0.5*(round(calc_overall(p) + (22.5 * p.get("potential_factor", 1.0)) + calc_surface_sum(p), 1)))
+                return (0.5*(round(calc_overall(p) + (22.5 * p.get("potential_factor", 1.0)), 1)))
 
             u20 = [p for p in available_players if p.get('age', 99) < 20]
             
@@ -1343,6 +1353,38 @@ class TournamentScheduler:
 
         return pts
 
+    def _generate_hof_peak_skills(self, hof_entry):
+        """Generate plausible peak skills for HOF members based on their best rank.
+        
+        Skill ranges by peak rank tier:
+          #1       → overall 73-75  (individual skills ~68-82)
+          #2-5     → overall 71-73  (individual skills ~66-80)
+          #6-25    → overall 68-71  (individual skills ~62-77)
+          #26-50   → overall 65-68  (individual skills ~58-74)
+          #51+     → overall 62-66  (individual skills ~55-72)
+        """
+        best_rank = hof_entry.get('highest_ranking', 999)
+        if best_rank <= 1:
+            target_ovr, spread = 74, 7
+        elif best_rank <= 5:
+            target_ovr, spread = 72, 7
+        elif best_rank <= 25:
+            target_ovr, spread = 69.5, 7.5
+        elif best_rank <= 50:
+            target_ovr, spread = 66.5, 8
+        else:
+            target_ovr, spread = 64, 8.5
+
+        skill_names = ['serve', 'forehand', 'backhand', 'cross', 'straight',
+                       'speed', 'stamina', 'mental', 'dropshot', 'volley',
+                       'lift', 'slice', 'iq']
+        # Generate raw values around target, then rescale to hit target_ovr
+        raw = {s: random.gauss(target_ovr, spread) for s in skill_names}
+        raw_mean = sum(raw.values()) / len(raw)
+        shift = target_ovr - raw_mean
+        skills = {s: max(35, min(100, round(v + shift))) for s, v in raw.items()}
+        return skills
+
     def _add_to_hall_of_fame(self, player):
         hof_entry = {
             'name' : player['name'],
@@ -1352,7 +1394,10 @@ class TournamentScheduler:
             'hof_points': 0,
             'mawn': player.get('mawn'),
             'w1': player.get('w1'),
-            'w16': player.get('w16')
+            'w16': player.get('w16'),
+            'peak_skills': player.get('peak_skills', {k: v for k, v in player.get('skills', {}).items()}),
+            'hand': player.get('hand', 'Right'),
+            'archetype': player.get('archetype', 'All-Rounder'),
         }
         hof_entry['hof_points'] = self.calculate_hof_points(hof_entry)
         self.hall_of_fame.append(hof_entry)
@@ -1984,28 +2029,40 @@ class TournamentScheduler:
             if most_wins_count >= 2:
                 dynasty_str = f"All-time leader: {most_wins_name} ({most_wins_count} titles)."
 
-        # ── Favorite to win (based on ranking + surface modifier) ──
+        # ── Favorite to win (based on ranking + surface affinity) ──
+        from sim.game_engine import SURFACE_EFFECTS
+        # Map surface effect keys to the player skills that benefit from them
+        _effect_to_skill = {
+            "serve_power": "serve", "forehand_power": "forehand",
+            "backhand_power": "backhand", "lift_power": "lift",
+            "volley_power": "volley", "dropshot_power": "dropshot",
+            "straight_prec": "straight", "cross_prec": "cross",
+            "speed": "speed", "stamina_drain": "stamina",
+            "slice_stamina": "slice",
+        }
         favorite_str = None
         participants = best_tournament.get('participants', [])
         if participants:
+            fx = SURFACE_EFFECTS.get(surface, {})
+            relevant_skills = [_effect_to_skill[k] for k in fx if k in _effect_to_skill]
             candidate_players = []
             for pid in participants:
                 p = next((pl for pl in self.players if pl['id'] == pid), None)
                 if p and not p.get('retired', False):
-                    surf_mod = p.get('surface_modifiers', {}).get(surface, 1.0)
+                    skills = p.get('skills', {})
+                    # Surface affinity: average of the skills that matter on this surface
+                    affinity = sum(skills.get(s, 50) for s in relevant_skills) / max(1, len(relevant_skills)) if relevant_skills else 50
                     rank = p.get('rank', 999)
-                    # Lower rank = better; higher surf_mod = better
-                    # Score: inverse rank weighted by surface mod
-                    score = surf_mod * (200 - min(rank, 999))
-                    candidate_players.append((p, score, surf_mod, rank))
+                    score = (affinity / 50.0) * (200 - min(rank, 999))
+                    candidate_players.append((p, score, affinity, rank))
 
             if candidate_players:
                 candidate_players.sort(key=lambda x: x[1], reverse=True)
-                fav, fav_score, fav_surf, fav_rank = candidate_players[0]
+                fav, fav_score, fav_affinity, fav_rank = candidate_players[0]
                 surf_desc = ""
-                if fav_surf >= 1.02:
+                if fav_affinity >= 75:
                     surf_desc = f", a {surface} specialist"
-                elif fav_surf >= 1.01:
+                elif fav_affinity >= 60:
                     surf_desc = f", comfortable on {surface}"
 
                 favorite_str = random.choice([
@@ -2016,10 +2073,9 @@ class TournamentScheduler:
 
                 # Add a dark horse if there is one
                 if len(candidate_players) >= 5:
-                    # Dark horse: someone ranked lower but with great surface mod
                     dark_horses = [
-                        (p, sc, sm, r) for p, sc, sm, r in candidate_players[3:10]
-                        if sm >= 1.015 and r > candidate_players[0][3] + 20
+                        (p, sc, af, r) for p, sc, af, r in candidate_players[3:10]
+                        if af >= 70 and r > candidate_players[0][3] + 20
                     ]
                     if dark_horses:
                         dh = dark_horses[0]
