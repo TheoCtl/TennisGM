@@ -299,21 +299,21 @@ ARCTYPE_MAP = {
     
     ('backhand', 'cross', 'dropshot'): (
         'Crafty Backhand Disruptor',
-        "This player uses a reliable backhand to set up deceptive cross-court angles and sudden drop shots. "
+        "This player uses a reliable backhand to set up deceptive cross-court angles and sudden dropshots. "
         "They disrupt the opponent's rhythm by mixing depth with touch, pulling them out of position. "
         "Most effective on varied surfaces where changing pace is crucial."
     ),
     
     ('dropshot', 'forehand', 'serve'): (
         'Aggressive First-Strike Artist',
-        "A powerful serve and dominant forehand create immediate pressure, finished with tactical drop shots. "
+        "A powerful serve and dominant forehand create immediate pressure, finished with tactical dropshots. "
         "They look to end points quickly but possess the delicate touch to exploit any short reply. "
         "Most effective when their primary weapons are firing accurately."
     ),
     
     ('backhand', 'dropshot', 'serve'): (
         'Unpredictable Serve & Touch Player',
-        "A solid serve and backhand provide a stable platform for surprising, well-disguised drop shots. "
+        "A solid serve and backhand provide a stable platform for surprising, well-disguised dropshots. "
         "They keep opponents guessing by blending power from the baseline with sudden changes of pace. "
         "Most effective against players who struggle with forward movement."
     ),
@@ -327,42 +327,42 @@ ARCTYPE_MAP = {
     
     ('dropshot', 'serve', 'stamina'): (
         'Enduring Drop Shot Specialist',
-        "Combines a consistent serve with high stamina to patiently construct points, culminating in draining drop shots. "
+        "Combines a consistent serve with high stamina to patiently construct points, culminating in draining dropshots. "
         "They wear opponents down physically and mentally with relentless variety. "
         "Most effective in long, grueling matches on slow courts."
     ),
     
     ('dropshot', 'serve', 'straight'): (
         'Linear Serve & Drop Tactician',
-        "Uses a penetrating, straight-line serve to pin opponents, following up with decisive drop shots down the line. "
+        "Uses a penetrating, straight-line serve to pin opponents, following up with decisive dropshots down the line. "
         "Their game is built on precise, direct attacks and sharp changes of pace. "
         "Most effective when targeting an opponent's lateral movement."
     ),
     
     ('cross', 'dropshot', 'serve'): (
         'Wide-Serving Angle Creator',
-        "A wide-serving arsenal and cross-court consistency open the court for lethal, angled drop shots. "
+        "A wide-serving arsenal and cross-court consistency open the court for lethal, angled dropshots. "
         "They use spin and placement to stretch opponents before delivering the finishing touch. "
         "Most effective on courts that reward serve and angle combinations."
     ),
     
     ('dropshot', 'serve', 'volley'): (
         'Classic Serve-Volley Trickster',
-        "A pure serve-and-volley style enhanced with deft drop volleys and half-volley drop shots. "
+        "A pure serve-and-volley style enhanced with deft drop volleys and half-volley dropshots. "
         "They rush the net relentlessly, using touch as both a weapon and a surprise element. "
         "Most effective on fast surfaces where net pressure is paramount."
     ),
     
     ('backhand', 'dropshot', 'forehand'): (
         'Complete Baseline Illusionist',
-        "Possesses balanced groundstrokes, using both the forehand and backhand to set up perfectly timed drop shots. "
+        "Possesses balanced groundstrokes, using both the forehand and backhand to set up perfectly timed dropshots. "
         "They control baseline rallies with depth before introducing disruptive touch. "
         "Most effective against opponents who prefer a predictable rhythm."
     ),
     
     ('dropshot', 'forehand', 'speed'): (
         'Dynamic Forehand Threat',
-        "Blistering speed and a powerful forehand are used to run opponents side-to-side, finished with sudden drop shots. "
+        "Blistering speed and a powerful forehand are used to run opponents side-to-side, finished with sudden dropshots. "
         "Their athleticism allows them to create and convert offensive opportunities from anywhere. "
         "Most effective in open-court rallies."
     ),
@@ -376,21 +376,21 @@ ARCTYPE_MAP = {
     
     ('dropshot', 'forehand', 'straight'): (
         'Direct Forehand Assassin',
-        "Aims to hit through opponents with crushing straight-line forehands, using drop shots as a punishing variation down the same line. "
+        "Aims to hit through opponents with crushing straight-line forehands, using dropshots as a punishing variation down the same line. "
         "Their game is built on aggressive, linear precision. "
         "Most effective when attacking an opponent's weaker side."
     ),
     
     ('cross', 'dropshot', 'forehand'): (
         'Forehand Pattern Weaver',
-        "Uses a heavy cross-court forehand to dictate rallies, seamlessly integrating drop shots to break the pattern. "
+        "Uses a heavy cross-court forehand to dictate rallies, seamlessly integrating dropshots to break the pattern. "
         "They expertly manipulate width and depth to expose court space. "
         "Most effective when establishing forehand dominance early."
     ),
     
     ('dropshot', 'forehand', 'volley'): (
         'All-Court Touch Master',
-        "A potent forehand and confident volley are complemented by exceptional drop shots, both from the baseline and the net. "
+        "A potent forehand and confident volley are complemented by exceptional dropshots, both from the baseline and the net. "
         "They transition forward aggressively and finish points with finesse. "
         "Most effective on surfaces that reward all-court play."
     ),
@@ -404,7 +404,7 @@ ARCTYPE_MAP = {
     
     ('backhand', 'dropshot', 'stamina'): (
         'Grinding Backhand Technician',
-        "A relentless, consistent backhand and high stamina form the foundation for opportunistic drop shots. "
+        "A relentless, consistent backhand and high stamina form the foundation for opportunistic dropshots. "
         "They engage in protracted backhand exchanges before disrupting the rally with touch. "
         "Most effective in wearing down one-dimensional opponents."
     ),
@@ -418,28 +418,28 @@ ARCTYPE_MAP = {
     
     ('backhand', 'dropshot', 'volley'): (
         'Backhand-Volley Virtuoso',
-        "A strong backhand, both as a passing shot and approach, sets up frequent net forays finished with touch volleys and drop shots. "
+        "A strong backhand, both as a passing shot and approach, sets up frequent net forays finished with touch volleys and dropshots. "
         "They are comfortable ending points at the net, especially on the backhand side. "
         "Most effective against baseline-bound players."
     ),
     
     ('dropshot', 'speed', 'straight'): (
         'Speed Demon',
-        "Relies on explosive speed to chase down balls and hit damaging straight-line winners or drop shots on the run. "
+        "Relies on explosive speed to chase down balls and hit damaging straight-line winners or dropshots on the run. "
         "Their athleticism allows for aggressive, direct shot-making from defensive positions. "
         "Most effective in fast, chaotic rallies."
     ),
     
     ('dropshot', 'speed', 'stamina'): (
         'Relentless Retrieval Artist',
-        "Combines elite speed and stamina to extend every point, using drop shots as a offensive tool from positions of defense. "
+        "Combines elite speed and stamina to extend every point, using dropshots as a offensive tool from positions of defense. "
         "They simply refuse to lose a point, outlasting and out-thinking opponents. "
         "Most effective in marathon matches under hot conditions."
     ),
     
     ('cross', 'dropshot', 'speed'): (
         'Angelic Speedster',
-        "Uses incredible speed to create extreme cross-court angles, finishing with drop shots when opponents are pulled wide. "
+        "Uses incredible speed to create extreme cross-court angles, finishing with dropshots when opponents are pulled wide. "
         "They cover the court effortlessly and exploit every inch of it. "
         "Most effective on courts with high bounce and wide angles."
     ),
@@ -453,21 +453,21 @@ ARCTYPE_MAP = {
     
     ('dropshot', 'stamina', 'straight'): (
         'Patient Line Painter',
-        "Marries high stamina with straight-line precision, using drop shots to exploit the space created by their consistent depth. "
+        "Marries high stamina with straight-line precision, using dropshots to exploit the space created by their consistent depth. "
         "They win through attrition, waiting for the perfect moment to change pace down the line. "
         "Most effective in strategic, point-construction battles."
     ),
     
     ('cross', 'dropshot', 'stamina'): (
         'Cross-Court Marathoner',
-        "Engages in lengthy cross-court exchanges thanks to great stamina, using drop shots as a tactical change-up to break the rhythm. "
+        "Engages in lengthy cross-court exchanges thanks to great stamina, using dropshots as a tactical change-up to break the rhythm. "
         "They are the embodiment of consistent, intelligent, and draining tennis. "
         "Most effective in forcing errors through relentless pressure."
     ),
     
     ('dropshot', 'stamina', 'volley'): (
         'Enduring Net Presence',
-        "Uses superior stamina to sustain net-rushing tactics over long matches, finishing points with volleys and drop shots. "
+        "Uses superior stamina to sustain net-rushing tactics over long matches, finishing points with volleys and dropshots. "
         "They maintain their aggressive positioning and touch even in late sets. "
         "Most effective in five-set matches where net pressure is constant."
     ),
@@ -488,7 +488,7 @@ ARCTYPE_MAP = {
     
     ('cross', 'dropshot', 'volley'): (
         'Angle-Volley Maestro',
-        "Creates sharp cross-court angles to open the court, then advances to finish with volleys or touch drop shots. "
+        "Creates sharp cross-court angles to open the court, then advances to finish with volleys or touch dropshots. "
         "They use spin and placement to set up their net game. "
         "Most effective when their first volley is a swing volley into open space."
     ),
@@ -708,9 +708,9 @@ ARCTYPE_MAP = {
 
     ('dropshot', 'mental', 'serve'): (
         'Tactical Pressure Artist',
-        "Blends a strong serve and delicate drop shots with the composure to deploy them on the biggest points. "
+        "Blends a strong serve and delicate dropshots with the composure to deploy them on the biggest points. "
         "While others play safe under pressure, this player has the nerve to produce unexpected tactical variety. "
-        "Their drop shots in clutch moments disrupt opponents who prepare for power. "
+        "Their dropshots in clutch moments disrupt opponents who prepare for power. "
         "Most effective against baseline-bound opponents in high-stakes rallies."
     ),
 
@@ -756,9 +756,9 @@ ARCTYPE_MAP = {
 
     ('dropshot', 'forehand', 'mental'): (
         'Nerve-Holding Touch Attacker',
-        "Combines a powerful forehand with delicate drop shots and the nerve to use both at the most critical moments. "
+        "Combines a powerful forehand with delicate dropshots and the nerve to use both at the most critical moments. "
         "Their willingness to vary pace under pressure keeps opponents permanently uncertain. "
-        "They are particularly dangerous when producing unexpected drop shots on big points. "
+        "They are particularly dangerous when producing unexpected dropshots on big points. "
         "Most effective against opponents who tighten up tactically in tense situations."
     ),
 
@@ -804,7 +804,7 @@ ARCTYPE_MAP = {
 
     ('backhand', 'dropshot', 'mental'): (
         'Cool-Headed Backhand Tactician',
-        "Combines a solid backhand with clever drop shots and the nerve to deploy them on pressure points. "
+        "Combines a solid backhand with clever dropshots and the nerve to deploy them on pressure points. "
         "They add tactical variety when it matters most, keeping opponents guessing in tense rallies. "
         "Their willingness to use touch under pressure reveals supreme confidence in their game. "
         "Most effective against one-dimensional baseliners."
@@ -844,7 +844,7 @@ ARCTYPE_MAP = {
 
     ('dropshot', 'mental', 'speed'): (
         'Nerveless Speed Trickster',
-        "Combines elite speed with deceiving drop shots and the composure to deploy both on the biggest points. "
+        "Combines elite speed with deceiving dropshots and the composure to deploy both on the biggest points. "
         "In pressure situations, they maintain their artistic, varied game rather than defaulting to power. "
         "Their ability to mix pace and position under duress makes them uniquely hard to read. "
         "Most effective against opponents who narrow their tactical range under pressure."
@@ -876,8 +876,8 @@ ARCTYPE_MAP = {
 
     ('dropshot', 'mental', 'stamina'): (
         'Patient Mental Craftsman',
-        "Combines endurance with tactical drop shots and the composure to use them under maximum pressure. "
-        "They extend rallies with stamina, then produce nerve-holding drop shots at the critical moment. "
+        "Combines endurance with tactical dropshots and the composure to use them under maximum pressure. "
+        "They extend rallies with stamina, then produce nerve-holding dropshots at the critical moment. "
         "Their patience and mental strength combination makes them maddening opponents in tight situations. "
         "Most effective in long, grinding matches where touch and temperament decide."
     ),
@@ -908,7 +908,7 @@ ARCTYPE_MAP = {
 
     ('dropshot', 'mental', 'straight'): (
         'Clutch Drop-and-Drive',
-        "Combines down-the-line precision with tactical drop shots and the nerve to use both on match point. "
+        "Combines down-the-line precision with tactical dropshots and the nerve to use both on match point. "
         "Their willingness to vary pace and direction under pressure makes them uniquely unpredictable in clutch moments. "
         "They trust their touch and their accuracy equally when the match is on the line. "
         "Most effective against opponents who can only handle one dimension of attack."
@@ -916,7 +916,7 @@ ARCTYPE_MAP = {
 
     ('dropshot', 'mental', 'volley'): (
         'Nerveless Touch Artist',
-        "Pairs delicate drop shots and confident volleys with the mental resilience to deploy them under maximum pressure. "
+        "Pairs delicate dropshots and confident volleys with the mental resilience to deploy them under maximum pressure. "
         "On set and match points, they produce audacious touch shots that leave opponents flatfooted. "
         "Their composure at the net and around the service line in big moments is extraordinary. "
         "Most effective against power players who expect force, not finesse, on big points."
@@ -924,7 +924,7 @@ ARCTYPE_MAP = {
 
     ('cross', 'dropshot', 'mental'): (
         'Calm Pattern Disruptor',
-        "Mixes cross-court consistency with well-timed drop shots, maintaining composure to deploy both under pressure. "
+        "Mixes cross-court consistency with well-timed dropshots, maintaining composure to deploy both under pressure. "
         "In tight moments, they are willing to break the rhythm with unexpected touches rather than grinding. "
         "Their mental strength ensures their variety remains a weapon, not a liability, in clutch situations. "
         "Most effective against rhythm-dependent baseliners."

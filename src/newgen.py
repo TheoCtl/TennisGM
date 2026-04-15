@@ -10,6 +10,18 @@ class NewGenGenerator:
         self.names_path = names_path
         self.name_data = self.load_names()
         
+        # Sci-fi/fantasy name generation patterns
+        self.start_consonants_single = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z']
+        self.start_consonants_cluster = ['br', 'cr', 'dr', 'fr', 'gr', 'pr', 'tr', 'bl', 'cl', 'fl', 'gl', 'pl', 'sl', 'sk', 'sp', 'st', 'sc', 'sh', 'ch', 'th', 'kh', 'ph', 'zh']
+        
+        # Short (common) vs long (digraph) vowels
+        self.vowels_short = ['a', 'e', 'i', 'o', 'u']
+        self.vowels_long = ['ae', 'ai', 'au', 'ea', 'ei', 'eo', 'ie', 'io', 'oa', 'oi', 'ou', 'ue']
+        
+        # Single ending consonants (keep syllables tight)
+        self.end_consonants_single = ['', 'b', 'd', 'f', 'g', 'k', 'l', 'm', 'n', 'p', 'r', 't', 'v', 'x', 'z']
+        self.end_consonants_cluster = ['', 'rn', 'rd', 'rm', 'lk', 'nk', 'nd', 'nt', 'st', 'sk', 'ch', 'sh', 'th']
+        
     def load_names(self):
         try:
             with open(self.names_path) as f:
@@ -32,23 +44,18 @@ class NewGenGenerator:
     def generate_player_with_ids(self, current_year, player_id, player_rank):
         """Generate a new young player with random attributes"""
         first_name = random.choice(self.name_data["first_names"])
-        last_name_idx = random.randrange(len(self.name_data["last_names"]))
-        last_name = self.name_data["last_names"][last_name_idx]
-
-        # Increment the last name and update names.json
-        new_last_name = self.increment_name(last_name)
-        self.name_data["last_names"][last_name_idx] = new_last_name
-        with open(self.names_path, 'w', encoding='utf-8') as f:
-            json.dump(self.name_data, f, indent=2, ensure_ascii=False)
+        # Generate procedural last name (completely procedural, no names.json dependency)
+        last_name = self.generate_procedural_last_name()
 
         r = random.random()
-        if r > 0.9:
-            if r >= 0.95:
-                potential_factor = round(random.uniform(1.9, 2.0), 3)
-            else:
-                potential_factor = round(random.uniform(1.5, 2.0), 3)
+        if r >= 0.98:
+            potential_factor = round(random.uniform(2.5, 3.0), 3)   # 2% — generational talent
+        elif r >= 0.93:
+            potential_factor = round(random.uniform(2.0, 2.5), 3)   # 5% — elite potential
+        elif r >= 0.85:
+            potential_factor = round(random.uniform(1.5, 2.0), 3)   # 8% — high potential
         else:
-            potential_factor = round(random.uniform(1.0, 1.5), 3)
+            potential_factor = round(random.uniform(1.0, 1.5), 3)   # 85% — average
 
         skills = self.generate_skills()
 
@@ -96,6 +103,53 @@ class NewGenGenerator:
     def generate_player_id(self):
         """Generate a unique player ID based on current timestamp"""
         return int(datetime.now().timestamp() * 1000)
+    
+    def generate_procedural_last_name(self):
+        """
+        Generate a sci-fi/fantasy-themed last name (1-3 syllables, 4-8 chars).
+        Each syllable: [consonant(s)] + [vowel(s)] + [optional end consonant]
+        Results sound like: Brean, Traeln, Skurden, Khotrim
+        """
+        while True:
+            num_syllables = random.randint(1, 3)
+            syllables = []
+            
+            for i in range(num_syllables):
+                # First syllable: 60% cluster, 40% single consonant
+                # Later syllables: 20% cluster, 80% single consonant (keep shorter)
+                if i == 0:
+                    if random.random() < 0.6:
+                        start = random.choice(self.start_consonants_cluster)
+                    else:
+                        start = random.choice(self.start_consonants_single)
+                    start = start.capitalize()
+                else:
+                    if random.random() < 0.2:
+                        start = random.choice(self.start_consonants_cluster)
+                    else:
+                        start = random.choice(self.start_consonants_single)
+                
+                # First syllable can have long vowels; later syllables mostly short
+                if i == 0 and random.random() < 0.4:
+                    vowel = random.choice(self.vowels_long)
+                else:
+                    vowel = random.choice(self.vowels_short)
+                
+                # Ending consonants: earlier syllables less likely to have them
+                if i < num_syllables - 1:
+                    # Middle syllables: 25% end consonant
+                    end = random.choice(self.end_consonants_single) if random.random() < 0.25 else ''
+                else:
+                    # Last syllable: 60% end consonant  
+                    end = random.choice(self.end_consonants_single) if random.random() < 0.6 else ''
+                
+                syllable = start + vowel + end
+                syllables.append(syllable)
+            
+            full_name = ''.join(syllables)
+            # Keep length bounded to 3-8 characters
+            if 3 <= len(full_name) <= 8:
+                return full_name
     
     def generate_skills(self):
         """Generate random skills for a new player (between 25 and 55)"""

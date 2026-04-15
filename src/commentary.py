@@ -493,7 +493,7 @@ def generate_commentary(
 
     # ---- 7. Young player flavor (10 % chance, age <= 20) ----
     w_age = winner.get("age", 30)
-    if w_age <= 20 and random.random() < 0.12:
+    if isinstance(w_age, (int, float)) and w_age <= 20 and random.random() < 0.12:
         parts.append(random.choice(_YOUNG_PLAYER_FLAVOR).format(**fmt, age=w_age))
 
     # ---- 8. Tournament round flavor (10 % chance) ----

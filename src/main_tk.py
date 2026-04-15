@@ -14,6 +14,19 @@ from face_generator import generate_face, create_face_canvas
 
 PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "ITF", "Juniors"]
 
+MENTALITY_DESCRIPTIONS = {
+    "neutral": "Plays with no particular adjustments. Baseline 35% cross, 35% straight, 5% dropshot, 5% volley, 10% lift, 10% slice.",
+    "opportunist": "Comfortable rallies: 40% fewer special shots. Under pressure: up to 140% more special shots (dropshots, volleys, lift, slice).",
+    "strategist": "Targets opponent's weaker groundstroke side. Up to 80% more shots to the weak side based on FH/BH skill difference.",
+    "disruptor": "Against slow opponents: 200%+ more dropshots. Against fast opponents: 200%+ more volleys.",
+    "marathonian": "Relies on endurance: 80% more slice, 40% fewer lift attempts. Controls rallies through variation.",
+    "brute": "Aggressive power player: 80% more lift attempts, 40% fewer slice. Dominates with attacking shots.",
+    "baseliner": "Stays back: 60% fewer dropshots and volleys. Rarely ventures to the net.",
+    "net-player": "Aggressive at net: 100% more dropshots and volleys. Finishes points at the net.",
+    "specialist": "Exploits strength: 50% more shots on their stronger direction (cross or straight).",
+    "wildcard": "Each game: 70% boost on one spin type (lift or slice) + 40% boost on one direction (cross or straight). Unpredictable.",
+}
+
 class TennisGMApp:
     def __init__(self, root):
         self.root = root
@@ -607,7 +620,7 @@ class TennisGMApp:
             activeforeground="white",
             command=lambda: _toggle_fav(player)
         )
-        fav_btn.pack(expand=True)
+        fav_btn.pack(side="right")
 
         # Format surface modifiers
         # Build skill lines with progcap/regcap display
@@ -624,32 +637,11 @@ class TennisGMApp:
             else:
                 cap = int(cap_dict.get('regcap', 0) or 0)
                 suffix = f" (-{cap})" if cap > 0 else ""
-            skill_lines.append(f"  {skill_name.capitalize()}: {val}{suffix}")
+            skill_lines.append(f"  {skill_name.upper() if skill_name == 'iq' else skill_name.capitalize()}: {val}{suffix}")
 
-        # Scrollable main content
-        scroll_container = tk.Frame(self.root, bg="#ecf0f1")
-        scroll_container.pack(fill="both", expand=True, padx=20, pady=10)
-        
-        canvas = tk.Canvas(scroll_container, bg="#ecf0f1")
-        scrollbar = tk.Scrollbar(scroll_container, orient="vertical", command=canvas.yview)
-        main_frame = tk.Frame(canvas, bg="#ecf0f1")
-        
-        main_frame.bind(
-            "<Configure>",
-            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-        )
-        
-        canvas.create_window((0, 0), window=main_frame, anchor="nw")
-        canvas.configure(yscrollcommand=scrollbar.set)
-        canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
-        
-        # Mouse wheel scrolling
-        def _on_mousewheel(event):
-            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-        canvas.bind_all("<MouseWheel>", _on_mousewheel)
-        canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
-        canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
+        # Main content (no scroll)
+        main_frame = tk.Frame(self.root, bg="#ecf0f1")
+        main_frame.pack(fill="both", expand=True, padx=20, pady=10)
         
         # Create three-column layout
         content_frame = tk.Frame(main_frame, bg="#ecf0f1")
@@ -664,9 +656,9 @@ class TennisGMApp:
         right_column = tk.Frame(content_frame, bg="#ecf0f1")
         right_column.grid(row=0, column=2, sticky="nsew", padx=(10, 0))
         
-        # Configure grid weights for three equal columns
+        # Configure grid weights: middle column wider than sides
         content_frame.grid_columnconfigure(0, weight=1)
-        content_frame.grid_columnconfigure(1, weight=1)
+        content_frame.grid_columnconfigure(1, weight=2)
         content_frame.grid_columnconfigure(2, weight=1)
         
         # Left Column: Face Card
@@ -729,7 +721,7 @@ class TennisGMApp:
             font=("Arial", 12, "bold"),
             bg="white",
             fg="#8e44ad",
-            wraplength=350,
+            wraplength=600,
             anchor="w"
         ).pack(fill="x", pady=(0, 5))
         
@@ -740,7 +732,7 @@ class TennisGMApp:
             font=("Arial", 11),
             bg="white",
             fg="#7f8c8d",
-            wraplength=350,
+            wraplength=600,
             justify="left",
             anchor="w"
         ).pack(fill="x")
@@ -755,7 +747,6 @@ class TennisGMApp:
             ("✋ Playing Hand", f"{player.get('hand', 'N/A')}-handed"),
             ("🌍 Nationality", player.get('nationality', 'N/A')),
             ("⚡ Potential Factor", player.get('potential_factor', 'N/A')),
-            ("🧠 Mentality", player.get('mentality', 'neutral').capitalize()),
         ]
         
         for label, value in basic_info:
@@ -763,6 +754,23 @@ class TennisGMApp:
             row.pack(fill="x", pady=2)
             tk.Label(row, text=f"{label}:", font=("Arial", 11, "bold"), bg="white", fg="#2c3e50", anchor="w").pack(side="left")
             tk.Label(row, text=str(value), font=("Arial", 11), bg="white", fg="#7f8c8d", anchor="w").pack(side="right")
+        
+        # Mentality with clickable button
+        mentality_row = tk.Frame(info_content, bg="white")
+        mentality_row.pack(fill="x", pady=2)
+        tk.Label(mentality_row, text="🧠 Mentality:", font=("Arial", 11, "bold"), bg="white", fg="#2c3e50", anchor="w").pack(side="left")
+        mentality_val = player.get('mentality', 'neutral').capitalize()
+        tk.Button(
+            mentality_row,
+            text=f"{mentality_val} ℹ️",
+            font=("Arial", 11),
+            bg="white",
+            fg="#3498db",
+            relief="flat",
+            bd=0,
+            cursor="hand2",
+            command=lambda: self._show_mentality_popup(player.get('mentality', 'neutral'))
+        ).pack(side="right")
                 
         # Skills card - in middle column
         skills_card = tk.Frame(middle_column, bg="white", relief="raised", bd=2)
@@ -783,77 +791,81 @@ class TennisGMApp:
         ).pack(fill="x")
         
         skills_content = tk.Frame(skills_card, bg="white")
-        skills_content.pack(fill="x", padx=15, pady=10)
+        skills_content.pack(fill="x", padx=10, pady=5)
         
-        # Build skill display with visual bars and caps
+        # Build skill display in 2 columns, sorted by subcategory
         age = player.get('age', 0)
         use_prog = age < 28
         caps = player.get('skill_caps', {})
         skills = player.get('skills', {})
         
-        for skill_name, val in skills.items():
-            cap_dict = caps.get(skill_name, {}) if isinstance(caps, dict) else {}
-            if use_prog:
-                cap = int(cap_dict.get('progcap', 0) or 0)
-                suffix = f" (+{cap})" if cap > 0 else ""
-            else:
-                cap = int(cap_dict.get('regcap', 0) or 0)
-                suffix = f" (-{cap})" if cap > 0 else ""
-
-            row = tk.Frame(skills_content, bg="white")
-            row.pack(fill="x", pady=2)
+        skill_groups = [
+            ("Base Shots", ['serve', 'forehand', 'backhand']),
+            ("Special Shots", ['volley', 'dropshot', 'lift', 'slice']),
+            ("Physicality", ['speed', 'stamina']),
+            ("Tactics", ['cross', 'straight', 'iq', 'mental']),
+        ]
+        
+        # Two-column grid for skill groups
+        skills_content.grid_columnconfigure(0, weight=1)
+        skills_content.grid_columnconfigure(1, weight=1)
+        
+        for g_idx, (group_name, group_skills) in enumerate(skill_groups):
+            col = g_idx % 2
+            row_idx = g_idx // 2
             
-            # Skill name label on its own line
-            tk.Label(row, text=skill_name.capitalize(), font=("Arial", 10, "bold"),
-                     bg="white", fg="#2c3e50", anchor="w").pack(fill="x")
+            group_frame = tk.Frame(skills_content, bg="white")
+            group_frame.grid(row=row_idx, column=col, sticky="nsew", padx=4, pady=2)
             
-            # Bar container below the label
-            bar_outer = tk.Frame(row, bg="#ecf0f1", height=18, relief="sunken", bd=1)
-            bar_outer.pack(fill="x", padx=(0, 5))
-            bar_outer.pack_propagate(False)
+            tk.Label(group_frame, text=group_name, font=("Arial", 9, "bold"),
+                    bg="white", fg="#95a5a6").pack(anchor="w")
             
-            # Smooth gradient: red -> orange -> yellow -> green -> blue
-            if val >= 80:
-                bar_color = "#2980b9"  # Blue
-            elif val <= 40:
-                bar_color = "#e74c3c"  # Red
-            else:
-                # 4-segment gradient across 40-80
-                # 40-50: red (#e74c3c) -> orange (#e67e22)
-                # 50-60: orange (#e67e22) -> yellow (#f1c40f)
-                # 60-70: yellow (#f1c40f) -> green (#27ae60)
-                # 70-80: green (#27ae60) -> blue (#2980b9)
-                if val < 50:
-                    t = (val - 40) / 10.0
-                    r = int(231 + t * (230 - 231))
-                    g = int(76 + t * (126 - 76))
-                    b = int(60 + t * (34 - 60))
-                elif val < 60:
-                    t = (val - 50) / 10.0
-                    r = int(230 + t * (241 - 230))
-                    g = int(126 + t * (196 - 126))
-                    b = int(34 + t * (15 - 34))
-                elif val < 70:
-                    t = (val - 60) / 10.0
-                    r = int(241 + t * (39 - 241))
-                    g = int(196 + t * (174 - 196))
-                    b = int(15 + t * (96 - 15))
+            for skill_name in group_skills:
+                val = skills.get(skill_name, 0)
+                cap_dict = caps.get(skill_name, {}) if isinstance(caps, dict) else {}
+                if use_prog:
+                    cap = int(cap_dict.get('progcap', 0) or 0)
+                    suffix = f" (+{cap})" if cap > 0 else ""
                 else:
-                    t = (val - 70) / 10.0
-                    r = int(39 + t * (41 - 39))
-                    g = int(174 + t * (128 - 174))
-                    b = int(96 + t * (185 - 96))
-                bar_color = f"#{r:02x}{g:02x}{b:02x}"   
-            
-            bar_fill = tk.Frame(bar_outer, bg=bar_color, height=16)
-            # Use place for precise percentage width
-            bar_fill.place(relwidth=max(0.02, val / 100.0), relheight=1.0)
-            
-            # Value text on top of bar
-            val_label = tk.Label(bar_outer, text=f"{val}{suffix}", font=("Arial", 9, "bold"),
-                                 bg=bar_color if val >= 30 else "#ecf0f1",
-                                 fg="white" if val >= 30 else "#2c3e50", anchor="w")
-            val_label.place(x=4, rely=0.5, anchor="w")
+                    cap = int(cap_dict.get('regcap', 0) or 0)
+                    suffix = f" (-{cap})" if cap > 0 else ""
+
+                sk_row = tk.Frame(group_frame, bg="white")
+                sk_row.pack(fill="x", pady=1)
+                
+                tk.Label(sk_row, text=skill_name.upper() if skill_name == 'iq' else skill_name.capitalize(),
+                         font=("Arial", 9, "bold"), bg="white", fg="#2c3e50", anchor="w").pack(fill="x")
+                
+                bar_outer = tk.Frame(sk_row, bg="#ecf0f1", height=16, relief="sunken", bd=1)
+                bar_outer.pack(fill="x", padx=(0, 3))
+                bar_outer.pack_propagate(False)
+                
+                if val >= 80:
+                    bar_color = "#2980b9"
+                elif val <= 40:
+                    bar_color = "#e74c3c"
+                else:
+                    if val < 50:
+                        t = (val - 40) / 10.0
+                        r = int(231 + t * (230 - 231)); g = int(76 + t * (126 - 76)); b = int(60 + t * (34 - 60))
+                    elif val < 60:
+                        t = (val - 50) / 10.0
+                        r = int(230 + t * (241 - 230)); g = int(126 + t * (196 - 126)); b = int(34 + t * (15 - 34))
+                    elif val < 70:
+                        t = (val - 60) / 10.0
+                        r = int(241 + t * (39 - 241)); g = int(196 + t * (174 - 196)); b = int(15 + t * (96 - 15))
+                    else:
+                        t = (val - 70) / 10.0
+                        r = int(39 + t * (41 - 39)); g = int(174 + t * (128 - 174)); b = int(96 + t * (185 - 96))
+                    bar_color = f"#{r:02x}{g:02x}{b:02x}"
+                
+                bar_fill = tk.Frame(bar_outer, bg=bar_color, height=14)
+                bar_fill.place(relwidth=max(0.02, val / 100.0), relheight=1.0)
+                
+                val_label = tk.Label(bar_outer, text=f"{val}{suffix}", font=("Arial", 8, "bold"),
+                                     bg=bar_color if val >= 30 else "#ecf0f1",
+                                     fg="white" if val >= 30 else "#2c3e50", anchor="w")
+                val_label.place(x=3, rely=0.5, anchor="w")
         
         # Right Column: Ranking Evolution Graph (full height)
         ranking_card = tk.Frame(right_column, bg="white", relief="raised", bd=2)
@@ -933,6 +945,38 @@ class TennisGMApp:
 
     def show_u20_player_details(self, player):
         self._render_player_details(player, "Back to Prospects", self.show_prospects)
+
+    def _show_mentality_popup(self, mentality):
+        """Show a popup window explaining the mentality type."""
+        popup = tk.Toplevel(self.root)
+        popup.title(f"Mentality: {mentality.capitalize()}")
+        popup.geometry("400x250")
+        popup.resizable(False, False)
+        
+        # Center the popup
+        popup.transient(self.root)
+        popup.grab_set()
+        
+        # Header
+        header = tk.Frame(popup, bg="#8e44ad")
+        header.pack(fill="x")
+        tk.Label(header, text=f"🧠 {mentality.upper()}", font=("Arial", 14, "bold"),
+                 bg="#8e44ad", fg="white", pady=10).pack()
+        
+        # Content
+        content = tk.Frame(popup, bg="white")
+        content.pack(fill="both", expand=True, padx=15, pady=15)
+        
+        description = MENTALITY_DESCRIPTIONS.get(mentality, "Unknown mentality type.")
+        tk.Label(content, text=description, font=("Arial", 11), bg="white", fg="#2c3e50",
+                 wraplength=350, justify="left", anchor="w").pack(fill="both", expand=True)
+        
+        # Close button
+        button_frame = tk.Frame(popup, bg="white")
+        button_frame.pack(fill="x", padx=15, pady=(0, 15))
+        tk.Button(button_frame, text="Close", font=("Arial", 10, "bold"),
+                  bg="#3498db", fg="white", relief="flat", bd=0, padx=15, pady=6,
+                  command=popup.destroy).pack()
 
     def show_news_feed(self):
         # Clear the main window
@@ -1255,21 +1299,37 @@ class TennisGMApp:
         for widget in self.root.winfo_children():
             widget.destroy()
         
-        # Modern header
-        header_frame = tk.Frame(self.root, bg="#2c3e50", height=80)
+        # Modern header with back button
+        header_frame = tk.Frame(self.root, bg="#2c3e50", height=60)
         header_frame.pack(fill="x")
         header_frame.pack_propagate(False)
+        
+        _back_cmd = back_command if back_command else lambda: self.show_player_details(player)
+        tk.Button(
+            header_frame,
+            text="↩️ Back",
+            command=_back_cmd,
+            font=("Arial", 11, "bold"),
+            bg="#3498db",
+            fg="white",
+            relief="flat",
+            bd=0,
+            padx=12,
+            pady=4,
+            activebackground="#2980b9",
+            activeforeground="white"
+        ).pack(side="left", padx=10, pady=12)
         
         title_label = tk.Label(
             header_frame,
             text=f"🏆 {player['name']} - Tournament Wins",
-            font=("Arial", 18, "bold"),
+            font=("Arial", 16, "bold"),
             bg="#2c3e50",
             fg="white"
         )
         title_label.pack(expand=True)
 
-        # Highlight tournaments where this player is the most recent winner (last history entry).
+        # Highlight tournaments where this player is the most recent winner
         recent_wins_keys = set()
         try:
             player_name = player.get('name', '')
@@ -1280,7 +1340,7 @@ class TennisGMApp:
         except Exception:
             recent_wins_keys = set()
 
-        # Group wins by category and tournament name (historical list)
+        # Group wins by category and tournament name
         wins = player.get('tournament_wins', [])
         wins_by_category = collections.defaultdict(lambda: collections.defaultdict(int))
         for win in wins:
@@ -1288,186 +1348,138 @@ class TennisGMApp:
             cat = win.get('category', 'Unknown')
             wins_by_category[cat][name] += 1
 
-        frame = tk.Frame(self.root)
-        frame.pack(fill="both", expand=True)
-        canvas = tk.Canvas(frame)
-        scrollbar = tk.Scrollbar(frame, orient="vertical", command=canvas.yview)
-        scroll_frame = tk.Frame(canvas)
-        scroll_frame.bind(
-            "<Configure>",
-            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-        )
-        canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
-        canvas.configure(yscrollcommand=scrollbar.set)
-        canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
-        def _on_mousewheel(event):
-            canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-        canvas.bind_all("<MouseWheel>", _on_mousewheel)
-        canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
-        canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
+        # Category style mapping
+        cat_styles = {
+            'Special': ("#c0392b", "🌟"),
+            'Grand Slam': ("#8e44ad", "👑"),
+            'Masters 1000': ("#e67e22", "🏆"),
+            'ATP 500': ("#f39c12", "🥇"),
+            'ATP 250': ("#3498db", "🎾"),
+            'Challenger 175': ("#27ae60", "🏟️"),
+            'Challenger 125': ("#2ecc71", "🏟️"),
+            'Challenger 100': ("#1abc9c", "🏟️"),
+            'Challenger 75': ("#16a085", "🏟️"),
+            'Challenger 50': ("#138d75", "🏟️"),
+            'ITF': ("#7f8c8d", "🏟️"),
+            'Juniors': ("#1abc9c", "🏟️"),
+        }
 
-        any_win = False
-        for category in PRESTIGE_ORDER:
-            if category in wins_by_category:
-                total_in_category = sum(wins_by_category[category].values())
+        # Main grid container
+        grid_frame = tk.Frame(self.root, bg="#ecf0f1")
+        grid_frame.pack(fill="both", expand=True, padx=10, pady=5)
+        
+        # 4 columns, 3 rows
+        for c in range(4):
+            grid_frame.grid_columnconfigure(c, weight=1)
+        for r in range(3):
+            grid_frame.grid_rowconfigure(r, weight=1)
+
+        for idx, category in enumerate(PRESTIGE_ORDER):
+            row_idx = idx // 4
+            col_idx = idx % 4
+            
+            cat_color, cat_icon = cat_styles.get(category, ("#95a5a6", "🏟️"))
+            has_wins = category in wins_by_category
+            total_in_cat = sum(wins_by_category[category].values()) if has_wins else 0
+            
+            # Category cell
+            cell = tk.Frame(grid_frame, bg="white", relief="raised", bd=2)
+            cell.grid(row=row_idx, column=col_idx, sticky="nsew", padx=4, pady=4)
+            
+            # Category header
+            cat_header = tk.Frame(cell, bg=cat_color)
+            cat_header.pack(fill="x")
+            
+            header_text = f"{cat_icon} {category}"
+            if total_in_cat > 0:
+                header_text += f" ({total_in_cat})"
+            
+            tk.Label(
+                cat_header,
+                text=header_text,
+                font=("Arial", 10, "bold"),
+                bg=cat_color,
+                fg="white",
+                padx=8,
+                pady=4
+            ).pack(anchor="w")
+            
+            # Scrollable content area for this category
+            list_frame = tk.Frame(cell, bg="white")
+            list_frame.pack(fill="both", expand=True)
+            
+            if has_wins:
+                cat_canvas = tk.Canvas(list_frame, bg="white", highlightthickness=0)
+                cat_scrollbar = tk.Scrollbar(list_frame, orient="vertical", command=cat_canvas.yview)
+                cat_inner = tk.Frame(cat_canvas, bg="white")
                 
-                # Category header with color coding
-                if category == 'Grand Slam':
-                    cat_color = "#8e44ad"  # Purple
-                    cat_icon = "👑"
-                elif 'Masters' in category:
-                    cat_color = "#e67e22"  # Orange
-                    cat_icon = "🏆"
-                elif 'ATP 500' == category:
-                    cat_color = "#f39c12"  # Gold
-                    cat_icon = "🥇"
-                elif 'ATP 250' == category:
-                    cat_color = "#3498db"  # Blue
-                    cat_icon = "🎾"
-                elif 'Challenger' in category:
-                    cat_color = "#27ae60"  # Green
-                    cat_icon = "🏟️"
-                elif category == 'ITF':
-                    cat_color = "#7f8c8d"  # Dark gray
-                    cat_icon = "🏟️"
-                elif category == 'Juniors':
-                    cat_color = "#1abc9c"  # Teal
-                    cat_icon = "🏟️"
-                else:
-                    cat_color = "#95a5a6"  # Gray
-                    cat_icon = "🏟️"
+                cat_inner.bind(
+                    "<Configure>",
+                    lambda e, cv=cat_canvas: cv.configure(scrollregion=cv.bbox("all"))
+                )
                 
-                # Category card
-                category_frame = tk.Frame(scroll_frame, bg=cat_color, relief="raised", bd=2)
-                category_frame.pack(fill="x", padx=10, pady=5)
+                cat_canvas.create_window((0, 0), window=cat_inner, anchor="nw")
+                cat_canvas.configure(yscrollcommand=cat_scrollbar.set)
+                cat_canvas.pack(side="left", fill="both", expand=True)
+                cat_scrollbar.pack(side="right", fill="y")
                 
-                # Category header
-                header_frame = tk.Frame(category_frame, bg=cat_color)
-                header_frame.pack(fill="x", padx=15, pady=8)
-                
-                tk.Label(
-                    header_frame,
-                    text=f"{cat_icon} {category} ({total_in_category} titles)",
-                    font=("Arial", 14, "bold"),
-                    bg=cat_color,
-                    fg="white"
-                ).pack(anchor="w")
-                
-                # Tournament wins in this category
-                wins_content = tk.Frame(category_frame, bg="white")
-                wins_content.pack(fill="x", padx=2, pady=(0, 2))
+                # Bind mousewheel only when hovering over this canvas
+                def _bind_mousewheel(event, cv=cat_canvas):
+                    cv.bind_all("<MouseWheel>", lambda e, cv=cv: cv.yview_scroll(int(-1*(e.delta/120)), "units"))
+                def _unbind_mousewheel(event, cv=cat_canvas):
+                    cv.unbind_all("<MouseWheel>")
+                cat_canvas.bind("<Enter>", _bind_mousewheel)
+                cat_canvas.bind("<Leave>", _unbind_mousewheel)
                 
                 for tname, count in sorted(wins_by_category[category].items()):
-                    is_recent_win = (tname, category) in recent_wins_keys
+                    is_recent = (tname, category) in recent_wins_keys
+                    bg_color = "#fff3cd" if is_recent else "#f8f9fa"
                     
-                    win_frame = tk.Frame(wins_content, bg="#f8f9fa" if not is_recent_win else "#fff3cd")
-                    win_frame.pack(fill="x", padx=8, pady=2)
+                    win_row = tk.Frame(cat_inner, bg=bg_color)
+                    win_row.pack(fill="x", padx=4, pady=1)
                     
-                    # Tournament name and count
-                    info_frame = tk.Frame(win_frame, bg=win_frame['bg'])
-                    info_frame.pack(fill="x", padx=10, pady=8)
-                    
-                    # Recent win badge
-                    if is_recent_win:
-                        tk.Label(
-                            info_frame,
-                            text="🔥 RECENT",
-                            font=("Arial", 8, "bold"),
-                            bg="#ffc107",
-                            fg="white",
-                            padx=6,
-                            pady=2
-                        ).pack(side="right")
-                    
-                    # Tournament info with logo
-                    tournament_info_frame = tk.Frame(info_frame, bg=win_frame['bg'])
-                    tournament_info_frame.pack(side="left", fill="x", expand=True)
-                    
-                    # Try to find tournament ID from current tournaments for logo
+                    # Try to get logo
                     tournament_logo = None
                     try:
                         for t in self.scheduler.tournaments:
                             if t.get('name') == tname:
-                                tournament_logo = tournament_logo_manager.get_tournament_logo(t.get('id'))
+                                tournament_logo = tournament_logo_manager.get_tournament_logo(t.get('id'), size=(20, 20))
                                 break
                     except:
                         pass
                     
+                    info_frame = tk.Frame(win_row, bg=bg_color)
+                    info_frame.pack(fill="x", padx=4, pady=2)
+                    
                     if tournament_logo:
-                        # Display with logo
-                        logo_label = tk.Label(tournament_info_frame, image=tournament_logo, bg=win_frame['bg'])
-                        logo_label.pack(side="left", padx=(0, 8))
-                        logo_label.image = tournament_logo  # Keep reference
-                        
-                        tk.Label(
-                            tournament_info_frame,
-                            text=f"{count}x {tname}",
-                            font=("Arial", 11, "bold" if is_recent_win else "normal"),
-                            bg=win_frame['bg'],
-                            fg="#2c3e50",
-                            anchor="w"
-                        ).pack(side="left", fill="x", expand=True)
-                    else:
-                        # Fallback to trophy emoji
-                        tk.Label(
-                            tournament_info_frame,
-                            text=f"🏆 {count}x {tname}",
-                            font=("Arial", 11, "bold" if is_recent_win else "normal"),
-                            bg=win_frame['bg'],
-                            fg="#2c3e50",
-                            anchor="w"
-                        ).pack(side="left", fill="x", expand=True)
-                
-                any_win = True
-        
-        if not any_win:
-            # No wins message
-            no_wins_frame = tk.Frame(scroll_frame, bg="white", relief="solid", bd=1)
-            no_wins_frame.pack(fill="x", padx=20, pady=50)
-            tk.Label(
-                no_wins_frame, 
-                text="🎾 No tournament wins yet", 
-                font=("Arial", 14), 
-                bg="white", 
-                fg="#7f8c8d", 
-                pady=30
-            ).pack()
+                        logo_lbl = tk.Label(info_frame, image=tournament_logo, bg=bg_color)
+                        logo_lbl.pack(side="left", padx=(0, 4))
+                        logo_lbl.image = tournament_logo
+                    
+                    display_text = f"{count}x {tname}"
+                    if is_recent:
+                        display_text += " 🔥"
+                    
+                    tk.Label(
+                        info_frame,
+                        text=display_text,
+                        font=("Arial", 9, "bold" if is_recent else "normal"),
+                        bg=bg_color,
+                        fg="#2c3e50",
+                        anchor="w"
+                    ).pack(side="left", fill="x", expand=True)
+            else:
+                tk.Label(
+                    list_frame,
+                    text="No titles",
+                    font=("Arial", 9),
+                    bg="white",
+                    fg="#bdc3c7",
+                    pady=10
+                ).pack()
 
-        # Modern back button
-        back_frame = tk.Frame(self.root, bg="#ecf0f1")
-        back_frame.pack(fill="x", padx=20, pady=15)
-        
-        if back_command:
-            tk.Button(
-                back_frame, 
-                text="↩️ Back to Player Details", 
-                command=back_command, 
-                font=("Arial", 12, "bold"),
-                bg="#3498db",
-                fg="white",
-                relief="flat",
-                bd=0,
-                padx=20,
-                pady=8,
-                activebackground="#2980b9",
-                activeforeground="white"
-            ).pack()
-        else:
-            tk.Button(
-                back_frame, 
-                text="↩️ Back to Player Details", 
-                command=lambda: self.show_player_details(player), 
-                font=("Arial", 12, "bold"),
-                bg="#3498db",
-                fg="white",
-                relief="flat",
-                bd=0,
-                padx=20,
-                pady=8,
-                activebackground="#2980b9",
-                activeforeground="white"
-            ).pack()
+        # Back button
+        # (back button is now in the header)
 
     def _calculate_hof_points(self, player):
         """Delegate to TournamentScheduler's shared formula."""
@@ -1903,7 +1915,7 @@ class TennisGMApp:
                         val = peak_skills.get(sk, 0)
                         row = tk.Frame(peak_content, bg="white")
                         row.pack(fill="x", pady=2)
-                        tk.Label(row, text=sk.capitalize(), font=("Arial", 10, "bold"),
+                        tk.Label(row, text=sk.upper() if sk == 'iq' else sk.capitalize(), font=("Arial", 10, "bold"),
                                 bg="white", fg="#2c3e50", anchor="w").pack(fill="x")
                         bar_outer = tk.Frame(row, bg="#ecf0f1", height=18, relief="sunken", bd=1)
                         bar_outer.pack(fill="x", padx=(0, 5))
@@ -2734,8 +2746,24 @@ class TennisGMApp:
             'iq': 'IQ'
         }
         
-        # Helper function to create skill bars
-        def create_skill_bar(parent, skill_name, p1_val, p2_val, max_val=100, abbr_color="#ffffff"):
+        # Get surface effects and determine affected skills EARLY
+        surface = tournament.get('surface', '')
+        fx = SURFACE_EFFECTS.get(surface, {})
+        # Map surface effect keys to the skill they affect
+        _effect_to_skill = {
+            "serve_power": "serve", "forehand_power": "forehand",
+            "backhand_power": "backhand", "lift_power": "lift",
+            "volley_power": "volley", "dropshot_power": "dropshot",
+            "straight_prec": "straight", "cross_prec": "cross",
+            "speed": "speed", "stamina_drain": "stamina",
+            "slice_stamina": "slice",
+        }
+        affected_skills = {_effect_to_skill[k] for k in fx if k in _effect_to_skill}
+        surface_color = {"clay": "#d35400", "grass": "#27ae60", "hard": "#1a4d7a", "indoor": "#8e44ad"}.get(surface, "#95a5a6")
+        
+        # Helper function to create skill bars with surface boost visualization
+        def create_skill_bar(parent, skill_name, p1_base, p2_base, p1_boosted, p2_boosted, max_val=100, abbr_color="#ffffff"):
+            """Display skill bars with surface boost visualization"""
             bar_frame = tk.Frame(parent, bg="#1a2332")
             bar_frame.pack(fill="x", pady=4)
             
@@ -2747,24 +2775,33 @@ class TennisGMApp:
             p1_bar_frame.pack(fill="x")
             p1_bar_frame.pack_propagate(False)
             
-            p1_fill_width = int(610 * (p1_val / 100)) if p1_val > 0 else 0
-            p1_fill = tk.Frame(p1_bar_frame, bg="#3498db" if p1_val > p2_val else "#7f8c8d", height=12)
-            p1_fill.pack(side="right", fill="y")
-            p1_fill.pack_propagate(False)
-            if p1_fill_width > 0:
-                p1_fill.config(width=p1_fill_width)
+            # P1 base stat bar (player color)
+            p1_base_width = int(610 * (p1_base / max_val)) if p1_base > 0 else 0
+            p1_base_fill = tk.Frame(p1_bar_frame, bg="#3498db" if p1_base > p2_base else "#7f8c8d", height=12)
+            p1_base_fill.pack(side="right", fill="y")
+            p1_base_fill.pack_propagate(False)
+            if p1_base_width > 0:
+                p1_base_fill.config(width=p1_base_width)
             
-            tk.Label(bar_frame, text=f"{p1_val}", font=("Arial", 9, "bold"), 
-                    bg="#1a2332", fg="#3498db" if p1_val > p2_val else "#ecf0f1", width=3, anchor="e").pack(side="left", padx=2)
+            # P1 surface boost bar (surface color, only if different from base)
+            if p1_boosted > p1_base and skill_name in affected_skills:
+                p1_boost_width = int(610 * ((p1_boosted - p1_base) / max_val))
+                p1_boost_fill = tk.Frame(p1_bar_frame, bg=surface_color, height=12)
+                p1_boost_fill.pack(side="right", fill="y")
+                p1_boost_fill.pack_propagate(False)
+                if p1_boost_width > 0:
+                    p1_boost_fill.config(width=p1_boost_width)
+            
+            tk.Label(bar_frame, text=f"{p1_boosted}", font=("Arial", 9, "bold"), 
+                    bg="#1a2332", fg="#3498db" if p1_base > p2_base else "#ecf0f1", width=3, anchor="e").pack(side="left", padx=2)
             
             # Skill abbreviation label — colored by surface if affected
             skill_abbr = skill_abbreviations.get(skill_name, skill_name[:3].upper())
             tk.Label(bar_frame, text=skill_abbr, font=("Arial", 9, "bold"), 
                 bg="#1a2332", fg=abbr_color, padx=5).pack(side="left")
             
-            # P2 value and bar
-            tk.Label(bar_frame, text=f"{p2_val}", font=("Arial", 9, "bold"), 
-                    bg="#1a2332", fg="#e74c3c" if p2_val > p1_val else "#ecf0f1", width=3, anchor="w").pack(side="left", padx=2)
+            tk.Label(bar_frame, text=f"{p2_boosted}", font=("Arial", 9, "bold"), 
+                    bg="#1a2332", fg="#e74c3c" if p2_base > p1_base else "#ecf0f1", width=3, anchor="w").pack(side="left", padx=2)
             
             p2_container = tk.Frame(bar_frame, bg="#1a2332")
             p2_container.pack(side="left", fill="x", expand=True, padx=(5, 0))
@@ -2773,12 +2810,22 @@ class TennisGMApp:
             p2_bar_frame.pack(fill="x")
             p2_bar_frame.pack_propagate(False)
             
-            p2_fill_width = int(610 * (p2_val / 100)) if p2_val > 0 else 0
-            p2_fill = tk.Frame(p2_bar_frame, bg="#e74c3c" if p2_val > p1_val else "#7f8c8d", height=12)
-            p2_fill.pack(side="left", fill="y")
-            p2_fill.pack_propagate(False)
-            if p2_fill_width > 0:
-                p2_fill.config(width=p2_fill_width)
+            # P2 base stat bar (player color)
+            p2_base_width = int(610 * (p2_base / max_val)) if p2_base > 0 else 0
+            p2_base_fill = tk.Frame(p2_bar_frame, bg="#e74c3c" if p2_base > p1_base else "#7f8c8d", height=12)
+            p2_base_fill.pack(side="left", fill="y")
+            p2_base_fill.pack_propagate(False)
+            if p2_base_width > 0:
+                p2_base_fill.config(width=p2_base_width)
+            
+            # P2 surface boost bar (surface color, only if different from base)
+            if p2_boosted > p2_base and skill_name in affected_skills:
+                p2_boost_width = int(610 * ((p2_boosted - p2_base) / max_val))
+                p2_boost_fill = tk.Frame(p2_bar_frame, bg=surface_color, height=12)
+                p2_boost_fill.pack(side="left", fill="y")
+                p2_boost_fill.pack_propagate(False)
+                if p2_boost_width > 0:
+                    p2_boost_fill.config(width=p2_boost_width)
         
         # Main content area with top section (two player bios side by side)
         content_frame = tk.Frame(main_frame, bg="#1a2332")
@@ -2798,21 +2845,6 @@ class TennisGMApp:
         
         p1_content = tk.Frame(p1_panel, bg="#2c3e50")
         p1_content.pack(fill="both", expand=True, padx=15, pady=15)
-        
-        # Get surface effects for current tournament
-        surface = tournament.get('surface', '')
-        fx = SURFACE_EFFECTS.get(surface, {})
-        # Map surface effect keys to the skill they affect
-        _effect_to_skill = {
-            "serve_power": "serve", "forehand_power": "forehand",
-            "backhand_power": "backhand", "lift_power": "lift",
-            "volley_power": "volley", "dropshot_power": "dropshot",
-            "straight_prec": "straight", "cross_prec": "cross",
-            "speed": "speed", "stamina_drain": "stamina",
-            "slice_stamina": "slice",
-        }
-        affected_skills = {_effect_to_skill[k] for k in fx if k in _effect_to_skill}
-        surface_color = {"clay": "#d35400", "grass": "#27ae60", "hard": "#2980b9", "indoor": "#8e44ad"}.get(surface, "#95a5a6")
         
         # Player 1 basic info only (no skills)
         p1_info_text = f"""Ranking: #{p1_ranking} - ELO: {p1_elo}
@@ -2862,9 +2894,64 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         tk.Label(p2_content, text=p2_info_text, font=("Arial", 10), 
                 bg="#2c3e50", fg="#ecf0f1", justify="left", anchor="w").pack(fill="x")
         
-        # Centered skills comparison section below (raw skills — surface effects apply in-engine)
+        # Centered skills comparison section below (with surface boost visualization)
         p1_skills = player1.get('skills', {})
         p2_skills = player2.get('skills', {})
+        
+        # Calculate surface-boosted values for display
+        _p1_surface_fx = {"serve_power": "serve", "forehand_power": "forehand", "backhand_power": "backhand",
+                          "lift_power": "lift", "volley_power": "volley", "dropshot_power": "dropshot",
+                          "straight_prec": "straight", "cross_prec": "cross", "speed": "speed", "stamina_drain": "stamina", "slice_stamina": "slice"}
+        _p2_surface_fx = {"serve_power": "serve", "forehand_power": "forehand", "backhand_power": "backhand",
+                          "lift_power": "lift", "volley_power": "volley", "dropshot_power": "dropshot",
+                          "straight_prec": "straight", "cross_prec": "cross", "speed": "speed", "stamina_drain": "stamina", "slice_stamina": "slice"}
+        
+        # Get the actual surface multipliers from a test GameEngine
+        test_engine = GameEngine(player1, player2, surface, sets_to_win=2)
+        p1_test_fx = test_engine.p1_surface_fx
+        p2_test_fx = test_engine.p2_surface_fx
+        
+        def get_boosted_skill_value(base_skill, skill_name, surface_fx):
+            """Calculate boosted skill value based on surface effects"""
+            boost = 1.0
+            # Find which surface effect applies to this skill
+            for effect_key, effect_multiplier in surface_fx.items():
+                if skill_name in ["speed", "stamina"]:
+                    if effect_key == "speed" and skill_name == "speed":
+                        boost = effect_multiplier
+                        break
+                    elif effect_key == "stamina_drain" and skill_name == "stamina":
+                        boost = effect_multiplier
+                        break
+                elif skill_name == "serve" and effect_key == "serve_power":
+                    boost = effect_multiplier
+                    break
+                elif skill_name == "forehand" and effect_key == "forehand_power":
+                    boost = effect_multiplier
+                    break
+                elif skill_name == "backhand" and effect_key == "backhand_power":
+                    boost = effect_multiplier
+                    break
+                elif skill_name == "cross" and effect_key == "cross_prec":
+                    boost = effect_multiplier
+                    break
+                elif skill_name == "straight" and effect_key == "straight_prec":
+                    boost = effect_multiplier
+                    break
+                elif skill_name == "dropshot" and effect_key == "dropshot_power":
+                    boost = effect_multiplier
+                    break
+                elif skill_name == "volley" and effect_key == "volley_power":
+                    boost = effect_multiplier
+                    break
+                elif skill_name == "lift" and effect_key == "lift_power":
+                    boost = effect_multiplier
+                    break
+                elif skill_name == "slice" and effect_key == "slice_stamina":
+                    boost = effect_multiplier
+                    break
+            return int(base_skill * boost)
+        
         max_skill = max(
             max(p1_skills.values()) if p1_skills else 0,
             max(p2_skills.values()) if p2_skills else 0,
@@ -2888,10 +2975,12 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             tk.Label(skills_frame, text=group_name, font=("Arial", 9, "bold"),
                     bg="#1a2332", fg="#95a5a6").pack(anchor="center", pady=(8, 2))
             for skill in skills:
-                p1_val = p1_skills.get(skill, 0)
-                p2_val = p2_skills.get(skill, 0)
+                p1_base = p1_skills.get(skill, 0)
+                p2_base = p2_skills.get(skill, 0)
+                p1_boosted = get_boosted_skill_value(p1_base, skill, p1_test_fx)
+                p2_boosted = get_boosted_skill_value(p2_base, skill, p2_test_fx)
                 color = surface_color if skill in affected_skills else "#ffffff"
-                create_skill_bar(skills_frame, skill, p1_val, p2_val, max_skill, abbr_color=color)
+                create_skill_bar(skills_frame, skill, p1_base, p2_base, p1_boosted, p2_boosted, max_skill, abbr_color=color)
         
         # Button frame at bottom
         button_frame = tk.Frame(main_frame, bg="#2c3e50", height=80)
@@ -3562,7 +3651,26 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             stats_frame.pack(fill="x", padx=20, pady=(0, 10))
 
             # Helper function to calculate the new stats
-            def calculate_new_stats(skills):
+            def calculate_new_stats(skills, apply_surface_boost=False, surface_fx=None):
+                # Apply surface boosts if provided
+                if apply_surface_boost and surface_fx:
+                    # Map surface effect keys to skills
+                    _effect_skill_map = {
+                        "serve_power": "serve", "forehand_power": "forehand",
+                        "backhand_power": "backhand", "lift_power": "lift",
+                        "volley_power": "volley", "dropshot_power": "dropshot",
+                        "straight_prec": "straight", "cross_prec": "cross",
+                        "speed": "speed", "stamina_drain": "stamina", "slice_stamina": "slice",
+                    }
+                    boosted_skills = {}
+                    for skill_name, skill_value in skills.items():
+                        boosted_skills[skill_name] = skill_value
+                        for effect_key, multiplier in surface_fx.items():
+                            if skill_name in [_effect_skill_map.get(effect_key)]:
+                                boosted_skills[skill_name] = int(skill_value * multiplier)
+                                break
+                    skills = boosted_skills
+                
                 # Base Shots (average of serve, forehand, backhand)
                 serve = skills.get('serve', 0)
                 forehand = skills.get('forehand', 0)
@@ -3599,9 +3707,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     'Overall': overall
                 }
 
-            # Get stats for both players
-            p1_stats = calculate_new_stats(game_engine.p1['skills'])
-            p2_stats = calculate_new_stats(game_engine.p2['skills'])
+            # Get stats for both players (with surface boosts)
+            p1_stats = calculate_new_stats(game_engine.p1['skills'], apply_surface_boost=True, surface_fx=game_engine.p1_surface_fx)
+            p2_stats = calculate_new_stats(game_engine.p2['skills'], apply_surface_boost=True, surface_fx=game_engine.p2_surface_fx)
 
             # Create tab system for player stats
             tab_frame = tk.Frame(stats_frame, bg="#34495e")
@@ -3685,6 +3793,12 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     display_frame = tk.Frame(stats_content_frame, bg="white")
                     display_frame.pack(fill="both", expand=True)
                     
+                    # Calculate form modifier percentages
+                    p1_form_multiplier = game_engine.p1.get('form_multiplier', 1.0)
+                    p2_form_multiplier = game_engine.p2.get('form_multiplier', 1.0)
+                    p1_form_pct = (p1_form_multiplier - 1.0) * 100
+                    p2_form_pct = (p2_form_multiplier - 1.0) * 100
+                    
                     # Left column for Player 1
                     p1_stats_card = tk.Frame(display_frame, bg="#3498db", relief="raised", bd=2)
                     p1_stats_card.pack(side="left", fill="both", expand=True, padx=(5, 2), pady=5)
@@ -3694,14 +3808,25 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
                     # Display player1's new stats
                     for stat_name, stat_value in p1_stats.items():
-                        tk.Label(
-                            p1_stats_content,
-                            text=f"{stat_name}: {stat_value}",
-                            font=("Arial", 9),
-                            bg="#3498db",
-                            fg="white",
-                            anchor="w"
-                        ).pack(fill="x", pady=1)
+                        if stat_name == 'Overall':
+                            # Show overall with form modifier percentage
+                            tk.Label(
+                                p1_stats_content,
+                                text=f"{stat_name}: {stat_value} ({p1_form_pct:+.1f}%)",
+                                font=("Arial", 9, "bold"),
+                                bg="#3498db",
+                                fg="white",
+                                anchor="w"
+                            ).pack(fill="x", pady=1)
+                        else:
+                            tk.Label(
+                                p1_stats_content,
+                                text=f"{stat_name}: {stat_value}",
+                                font=("Arial", 9),
+                                bg="#3498db",
+                                fg="white",
+                                anchor="w"
+                            ).pack(fill="x", pady=1)
         
                     # Right column for Player 2
                     p2_stats_card = tk.Frame(display_frame, bg="#e74c3c", relief="raised", bd=2)
@@ -3712,14 +3837,25 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
                     # Display player2's new stats
                     for stat_name, stat_value in p2_stats.items():
-                        tk.Label(
-                            p2_stats_content,
-                            text=f"{stat_name}: {stat_value}",
-                            font=("Arial", 9),
-                            bg="#e74c3c",
-                            fg="white",
-                            anchor="w"
-                        ).pack(fill="x", pady=1)
+                        if stat_name == 'Overall':
+                            # Show overall with form modifier percentage
+                            tk.Label(
+                                p2_stats_content,
+                                text=f"{stat_name}: {stat_value} ({p2_form_pct:+.1f}%)",
+                                font=("Arial", 9, "bold"),
+                                bg="#e74c3c",
+                                fg="white",
+                                anchor="w"
+                            ).pack(fill="x", pady=1)
+                        else:
+                            tk.Label(
+                                p2_stats_content,
+                                text=f"{stat_name}: {stat_value}",
+                                font=("Arial", 9),
+                                bg="#e74c3c",
+                                fg="white",
+                                anchor="w"
+                            ).pack(fill="x", pady=1)
                 
                 else:
                     # Display match stats (aces, breaks, winners)
@@ -3876,14 +4012,14 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             commentary_label.config(text=ctext)
                         except Exception:
                             pass
-                    if _next is not None and _next < len(match_log):
+                    if _next is not None and _next < len(point_events):
                         def safe_advance():
                             try:
                                 if self.animation_active:
                                     show_screen(_next)
                             except Exception as e:
                                 print(f"Error in auto-advance: {e}")
-                        cid = self.root.after(1500, lambda: self.root.after_idle(safe_advance))
+                        cid = self.root.after(1000, lambda: self.root.after_idle(safe_advance))
                         self.pending_callbacks.append(cid)
 
                 animate_point(court_viewer, point_events[i]['events'],
@@ -5019,10 +5155,12 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             num_matches = draw_size // 2
 
             # Create slots: 'EMPTY' for player positions, None for BYEs
+            # Randomize BYE distribution instead of putting them all at the bottom
+            import random
             slots = ['EMPTY'] * draw_size
-            for i in range(num_byes):
-                match_idx = num_matches - 1 - i
-                slots[match_idx * 2 + 1] = None  # BYE as 2nd player in last matches
+            bye_positions = random.sample(range(draw_size), num_byes)
+            for bye_pos in bye_positions:
+                slots[bye_pos] = None
 
             self.exhibition_tournament = {
                 'id': 'exhibition',
@@ -5109,6 +5247,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             total = t['num_players']
             tk.Label(ctrl_inner, text=f"Players: {filled}/{total} — Click 'Empty' slots to fill",
                      font=("Arial", 11), bg="#34495e", fg="#f39c12").pack(side="left", padx=15)
+            tk.Button(ctrl_inner, text="🎲 Auto Fill", font=("Arial", 11, "bold"),
+                      bg="#16a085", fg="white", relief="flat", bd=0, padx=15, pady=6,
+                      command=self._exhibition_auto_fill).pack(side="left", padx=5)
 
         # Round tabs (only in playing phase with multiple rounds)
         if t['bracket'] and len(t['bracket']) > 1:
@@ -5739,6 +5880,46 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         tk.Button(button_frame, text="⬅️ BACK", font=("Arial", 14, "bold"),
                   bg="#95a5a6", fg="white", padx=30, pady=15, relief="raised", bd=0,
                   command=self.show_exhibition_bracket).pack(side="left", padx=20, expand=True)
+
+    # ── Auto fill bracket ──
+
+    def _exhibition_auto_fill(self):
+        """Automatically fill remaining empty slots with random HOF players."""
+        import random
+        t = self.exhibition_tournament
+        
+        # Get all HOF players
+        hof_players = self.scheduler.hall_of_fame if hasattr(self.scheduler, 'hall_of_fame') else []
+        if not hof_players:
+            print("No HOF players available for auto-fill")
+            return
+        
+        # Find empty slots and fill them
+        already_selected = set()
+        for slot_idx, slot_val in enumerate(t['slots']):
+            if slot_val not in ('EMPTY', None) and isinstance(slot_val, str):
+                already_selected.add(slot_val)
+        
+        available_hof = [p for p in hof_players if p.get('id') not in already_selected]
+        random.shuffle(available_hof)
+        
+        available_idx = 0
+        for slot_idx, slot_val in enumerate(t['slots']):
+            if slot_val == 'EMPTY' and available_idx < len(available_hof):
+                hof_entry = available_hof[available_idx]
+                player_obj = self._build_exhibition_player(hof_entry)
+                hof_id = hof_entry.get('id', f"hof_{hof_entry.get('name', 'Unknown')}")
+                t['player_data'][hof_id] = player_obj
+                t['slots'][slot_idx] = hof_id
+                t['selected_hof_indices'].add(hof_id)
+                available_idx += 1
+        
+        # Check if all filled
+        t['all_filled'] = all(s is not None for s in t['slots'])
+        if t['all_filled']:
+            self._exhibition_build_bracket()
+        
+        self.show_exhibition_bracket()
 
     # ── Shuffle draw ──
 

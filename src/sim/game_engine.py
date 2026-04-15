@@ -84,6 +84,53 @@ class GameEngine:
         # Wildcard mentality state: random boosts regenerated each game
         self._wildcard_boosts = {}
         self._wildcard_game_key = None
+        
+        # Calculate dynamic surface effects based on skill advantage
+        self.p1_surface_fx = self._get_dynamic_surface_effects(self.p1, self.p2)
+        self.p2_surface_fx = self._get_dynamic_surface_effects(self.p2, self.p1)
+
+    def _get_dynamic_surface_effects(self, player, opponent):
+        """
+        Calculate dynamic surface effects based on skill advantage.
+        If player has higher value than opponent in the affected skill, get 1.1x multiplier.
+        Otherwise (lower or equal skill), get base 1.05x multiplier.
+        """
+        base_effects = SURFACE_EFFECTS.get(self.surface, {})
+        dynamic_effects = {}
+        
+        # Skill-to-effect mapping
+        effect_skill_map = {
+            "serve_power": "serve",
+            "forehand_power": "forehand",
+            "backhand_power": "backhand",
+            "lift_power": "lift",
+            "dropshot_power": "dropshot",
+            "volley_power": "volley",
+            "slice_stamina": "slice",
+            "speed": "speed",
+            "cross_prec": "cross",
+            "straight_prec": "straight",
+            "stamina_drain": None,  # Not skill-based
+        }
+        
+        for effect_key, base_multiplier in base_effects.items():
+            skill_key = effect_skill_map.get(effect_key)
+            
+            if skill_key is None:
+                # No skill mapping (e.g., stamina_drain) - use base multiplier
+                dynamic_effects[effect_key] = base_multiplier
+            else:
+                player_skill = player.get("skills", {}).get(skill_key, 50)
+                opponent_skill = opponent.get("skills", {}).get(skill_key, 50)
+                
+                if player_skill > opponent_skill:
+                    # Player has higher skill: use boosted 1.1x
+                    dynamic_effects[effect_key] = 1.1
+                else:
+                    # Player has lower or equal skill: use base 1.05x
+                    dynamic_effects[effect_key] = 1.05
+        
+        return dynamic_effects
 
     def _stamina_snapshot(self):
         """Return a dict with both players' match stamina as fraction 0.0-1.0."""
@@ -100,6 +147,7 @@ class GameEngine:
             skill: min(100, math.floor(value * form_multiplier))
             for skill, value in player["skills"].items()
         }
+        player_copy["form_multiplier"] = form_multiplier  # Store for display purposes
         return player_copy
 
     def update_sets(self, winner_key):
@@ -527,7 +575,8 @@ class GameEngine:
         Lift: power boost over neutral, low precision scaling with lift skill.
         Slice: very high precision, power malus scaling with slice skill.
         """
-        fx = self.surface_fx
+        # Get dynamic surface effects based on player's skill advantage
+        fx = self.p1_surface_fx if player["id"] == self.p1["id"] else self.p2_surface_fx
 
         if shot_type == "dropshot":
             base_power = player["skills"].get(shot_type, 30) * previous_multiplier
@@ -639,7 +688,8 @@ class GameEngine:
         Receiving a slice costs 1.5x stamina (1.7x on grass).
         Surface stamina_drain modifier (e.g. clay 0.8x) applies to all drain.
         """
-        fx = self.surface_fx
+        # Get dynamic surface effects based on player's skill advantage
+        fx = self.p1_surface_fx if player["id"] == self.p1["id"] else self.p2_surface_fx
         stamina_skill = max(1, player["skills"]["stamina"])
         drain = opponent_shot_precision / (stamina_skill * 10.0)
         # Slices wear down the receiver (grass amplifies this further)
@@ -682,7 +732,8 @@ class GameEngine:
         If hitter is in volley mode, precision_factor is increased by 1.1x (downside of volley mode).
         """
         # Effective speed (surface modifier, e.g. hard ×1.2)
-        eff_speed = self.speed[player["id"]] * self.surface_fx.get("speed", 1.0)
+        fx = self.p1_surface_fx if player["id"] == self.p1["id"] else self.p2_surface_fx
+        eff_speed = self.speed[player["id"]] * fx.get("speed", 1.0)
 
         # Special case for serve returns
         if shot_type == "serve":  # Default serve precision
