@@ -11,7 +11,7 @@ class RankingSystem:
             "Final": 0,
             "Semi": 0
         },
-        "Grand Slam": {
+        "Split": {
             "Winner": 100,
             "Final": 0,
             "Semi": 0,
@@ -21,7 +21,7 @@ class RankingSystem:
             "Round 64": 0,
             "Round 128": 0
         },
-        "Masters 1000": {
+        "Masters": {
             "Winner": 50,
             "Final": 0,
             "Semi": 0,
@@ -30,7 +30,7 @@ class RankingSystem:
             "Round 32": 0,
             "Round 64": 0
         },
-        "ATP 500": {
+        "LVL 500": {
             "Winner": 35,
             "Final": 0,
             "Semi": 0,
@@ -38,7 +38,7 @@ class RankingSystem:
             "Round 16": 0,
             "Round 32": 0
         },
-        "ATP 250": {
+        "LVL 250": {
             "Winner": 25,
             "Final": 0,
             "Semi": 0,
@@ -81,7 +81,7 @@ class RankingSystem:
             "Quarter": 0,
             "Round 16": 0
         },
-        "ITF": {
+        "Future": {
             "Winner": 5,
             "Final": 0,
             "Semi": 0,
@@ -113,22 +113,22 @@ class RankingSystem:
     def calculate_points(self, tournament_category, round_reached, total_rounds):
         """Map round numbers to human-readable round names based on tournament type"""
         is_challenger = tournament_category.startswith("Challenger")
-        is_250500 = tournament_category.startswith("ATP 250") or tournament_category.startswith("ATP 500")
-        is_masters = tournament_category.startswith("Masters 1000")
-        is_gs = tournament_category.startswith("Grand Slam")
+        is_250500 = tournament_category.startswith("LVL 250") or tournament_category.startswith("LVL 500")
+        is_masters = tournament_category.startswith("Masters")
+        is_gs = tournament_category.startswith("Split")
         is_kings = tournament_category.startswith("Special")
-        is_itf = tournament_category.startswith("ITF")
+        is_Future = tournament_category.startswith("Future")
         is_jun = tournament_category.startswith("Juniors")
         round_mapping = {
-            # Grand Slams (8 rounds including final)
+            # Splits (8 rounds including final)
             8: {
                 0: "Round 128", 1: "Round 64", 2: "Round 32", 3: "Round 16", 4: "Quarter", 5: "Semi", 6: "Final", 7: "Winner"
             },
-            # Masters 1000 (7 rounds)
+            # Masters (7 rounds)
             7: {
                 0: "Round 64", 1: "Round 32", 2: "Round 16", 3: "Quarter", 4: "Semi", 5: "Final", 6: "Winner"
             },
-            # ATP 500/250 (6 rounds)
+            # LVL 500/250 (6 rounds)
             6: {
                 0: "Round 32", 1: "Round 16", 2: "Quarter", 3: "Semi", 4: "Final", 5: "Winner"
             },
@@ -144,7 +144,7 @@ class RankingSystem:
         
         if is_challenger:
             mapping = round_mapping[5]
-        elif is_itf:
+        elif is_Future:
             mapping = round_mapping[5]
         elif is_jun:
             mapping = round_mapping[5]
@@ -309,9 +309,9 @@ class RankingSystem:
         k1 = 250 / ((matches_played1 + 5) ** 0.4)
         k2 = 250 / ((matches_played2 + 5) ** 0.4)
         
-        # Apply tournament level modifier (1.1 for Grand Slams)
+        # Apply tournament level modifier (1.1 for Splits)
         tournament_level = player1.get('current_tournament', {}).get('category', '')
-        level_modifier = 1.1 if tournament_level == "Grand Slam" else 1.0
+        level_modifier = 1.1 if tournament_level == "Split" else 1.0
         
         # Update ratings with Tennis Abstract formula and apply stability factor
         rating_change1 = (level_modifier * k1) * (result - expected1)

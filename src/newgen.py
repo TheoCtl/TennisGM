@@ -48,12 +48,10 @@ class NewGenGenerator:
         last_name = self.generate_procedural_last_name()
 
         r = random.random()
-        if r >= 0.98:
-            potential_factor = round(random.uniform(2.5, 3.0), 3)   # 2% — generational talent
-        elif r >= 0.93:
-            potential_factor = round(random.uniform(2.0, 2.5), 3)   # 5% — elite potential
+        if r >= 0.95:
+            potential_factor = round(random.uniform(2.0, 2.5), 3)   # 5% — generational talent
         elif r >= 0.85:
-            potential_factor = round(random.uniform(1.5, 2.0), 3)   # 8% — high potential
+            potential_factor = round(random.uniform(1.5, 2.0), 3)   # 10% — high potential
         else:
             potential_factor = round(random.uniform(1.0, 1.5), 3)   # 85% — average
 
@@ -149,7 +147,7 @@ class NewGenGenerator:
             full_name = ''.join(syllables)
             # Keep length bounded to 3-8 characters
             if 3 <= len(full_name) <= 8:
-                return full_name
+                return full_name.upper()  # Return last name in FULL CAPS
     
     def generate_skills(self):
         """Generate random skills for a new player (between 25 and 55)"""

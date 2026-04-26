@@ -86,8 +86,9 @@ class GameEngine:
         self._wildcard_game_key = None
         
         # Calculate dynamic surface effects based on skill advantage
-        self.p1_surface_fx = self._get_dynamic_surface_effects(self.p1, self.p2)
-        self.p2_surface_fx = self._get_dynamic_surface_effects(self.p2, self.p1)
+        # Use ORIGINAL player stats (before form multipliers) for consistent comparison
+        self.p1_surface_fx = self._get_dynamic_surface_effects(self.original_player1, self.original_player2)
+        self.p2_surface_fx = self._get_dynamic_surface_effects(self.original_player2, self.original_player1)
 
     def _get_dynamic_surface_effects(self, player, opponent):
         """
@@ -110,7 +111,7 @@ class GameEngine:
             "speed": "speed",
             "cross_prec": "cross",
             "straight_prec": "straight",
-            "stamina_drain": None,  # Not skill-based
+            "stamina_drain": "stamina",  # Now skill-based: 1.1x if player stamina > opponent
         }
         
         for effect_key, base_multiplier in base_effects.items():
@@ -472,7 +473,20 @@ class GameEngine:
                 if shot_success:
                     defender_speed = self.speed[defender["id"]]
                     diff = defender_speed - dropshot_skill
+                    
+                    # Winner conditions with uncertainty to prevent dropshot spam
+                    is_winner = False
                     if diff < 0:
+                        # Opponent much slower: guaranteed winner
+                        is_winner = True
+                    elif diff < 2 and random.random() < 0.65:
+                        # Close match: 65% chance of winner
+                        is_winner = True
+                    elif diff < 4 and random.random() < 0.25:
+                        # Moderate difference: 25% chance of winner
+                        is_winner = True
+                    
+                    if is_winner:
                         self.reset_stamina_and_speed()
                         winner_key = self._get_player_key(hitter)
                         self.match_stats[hitter['id']]["dropshot_winners"] += 1
@@ -480,16 +494,18 @@ class GameEngine:
                         if self._get_player_key(hitter) != self._get_player_key(server):
                             self.match_stats[hitter['id']]["breaks"] += 1
                         return (winner_key, point_events) if visualize else winner_key
-                    elif diff < 2:
-                        return_multiplier = 0.3
-                    elif diff < 4:
-                        return_multiplier = 0.4
-                    elif diff < 6:
-                        return_multiplier = 0.5
-                    elif diff <= 7:
-                        return_multiplier = 0.6
-                    else:  # diff > 7
-                        return_multiplier = 0.75
+                    else:
+                        # Not a winner - set return multiplier based on diff
+                        if diff < 2:
+                            return_multiplier = 0.3
+                        elif diff < 4:
+                            return_multiplier = 0.4
+                        elif diff < 6:
+                            return_multiplier = 0.5
+                        elif diff <= 7:
+                            return_multiplier = 0.6
+                        else:  # diff > 7
+                            return_multiplier = 0.75
                 else:
                     return_multiplier = 2.0  # For missed dropshot
 
@@ -497,6 +513,11 @@ class GameEngine:
             if shot_type == "dropshot":
                 # Dropshot: opponent always catches (if not already a winner which returned above)
                 caught = True
+                
+                # Stamina penalty for sprinting to net
+                dropshot_stamina_drain = 7
+                self.match_stamina[defender["id"]] = max(0, self.match_stamina[defender["id"]] - dropshot_stamina_drain)
+                
                 if self.volley_mode[defender["id"]]:
                     return_multiplier = 3
                 self.volley_mode[defender["id"]] = True

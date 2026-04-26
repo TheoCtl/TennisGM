@@ -61,7 +61,7 @@ class RecordsManager:
         active_ids = {p['id'] for p in self.scheduler.players}
         m_counts = []
         for player in all_players:
-            m_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Masters 1000")
+            m_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Masters")
             is_retired = player.get('id') not in active_ids
             display_name = player["name"] + (" (R)" if is_retired else "")
             m_counts.append({"name": display_name, "m1000_wins": m_wins})
@@ -70,7 +70,7 @@ class RecordsManager:
         # Update or create the record object
         record_obj = {
             "type": "most_m1000_wins",
-            "title": "Most Masters 1000 Wins",
+            "title": "Most Masters Wins",
             "top10": top10
         }
         # Replace or add in scheduler.records
@@ -135,7 +135,7 @@ class RecordsManager:
         active_ids = {p['id'] for p in self.scheduler.players}
         gs_counts = []
         for player in all_players:
-            gs_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Grand Slam")
+            gs_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Split")
             is_retired = player.get('id') not in active_ids
             display_name = player["name"] + (" (R)" if is_retired else "")
             gs_counts.append({"name": display_name, "gs_wins": gs_wins})
@@ -144,7 +144,7 @@ class RecordsManager:
         # Update or create the record object
         record_obj = {
             "type": "most_gs_wins",
-            "title": "Most Grand Slam Wins",
+            "title": "Most Split Wins",
             "top10": top10
         }
         # Replace or add in scheduler.records

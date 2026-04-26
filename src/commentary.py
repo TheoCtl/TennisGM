@@ -472,7 +472,7 @@ def generate_commentary(
             if (winner_key == "player1" and _set_won_by_p1(s))
             or (winner_key == "player2" and _set_won_by_p2(s))
         )
-        sets_to_win = 3 if tournament and tournament.get("category") in ("Grand Slam", "Special") else 2
+        sets_to_win = 3 if tournament and tournament.get("category") in ("Split", "Special") else 2
         if sets_won_by_winner + 1 >= sets_to_win:
             parts.append(random.choice(_MATCH_WON).format(**fmt))
         else:

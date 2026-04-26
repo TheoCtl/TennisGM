@@ -14,16 +14,16 @@ from records import RecordsManager
 class TournamentScheduler:
     PRESTIGE_ORDER = [
         "Special",
-        "Grand Slam",
-        "Masters 1000",
-        "ATP 500",
-        "ATP 250",
+        "Split",
+        "Masters",
+        "LVL 500",
+        "LVL 250",
         "Challenger 175",
         "Challenger 125",
         "Challenger 100",
         "Challenger 75",
         "Challenger 50",
-        "ITF",
+        "Future",
         "Juniors"
     ]
     
@@ -295,7 +295,7 @@ class TournamentScheduler:
             # GOAL 300
             target_max = 300
             slots = max(0, target_max - len(self.players))        # available slots to reach cap
-            candidate_count = retired_count * 2                    # generate exactly 2x retirees
+            candidate_count = retired_count                   # generate exactly 2x retirees
 
             if candidate_count > 0 and slots > 0:
                 new_players = self.newgen_generator.generate_new_players(
@@ -577,11 +577,11 @@ class TournamentScheduler:
         # New probability-based logic for regular tournaments
         def get_participation_chance(player_rank, category):
             """Get participation chance based on player rank and tournament category"""
-            if category == "Grand Slam":
+            if category == "Split":
                 return 0.99
-            elif category == "Masters 1000":
+            elif category == "Masters":
                 return 0.90 if player_rank <= 64 else 0.99
-            elif category == "ATP 500":
+            elif category == "LVL 500":
                 if player_rank <= 20:
                     return 0.4
                 elif player_rank <= 50:
@@ -590,7 +590,7 @@ class TournamentScheduler:
                     return 0.85
                 else:
                     return 0.99
-            elif category == "ATP 250":
+            elif category == "LVL 250":
                 if player_rank <= 20:
                     return 0.2
                 elif player_rank <= 50:
@@ -648,7 +648,7 @@ class TournamentScheduler:
                     return 0.50
                 else:
                     return 0.99
-            elif category == "ITF":
+            elif category == "Future":
                 if player_rank <= 200:
                     return 0.0
                 else:
@@ -715,7 +715,7 @@ class TournamentScheduler:
             tournaments_by_category[category].append((tournament, i))
         
         # Define premium tournament categories that get ranking-based seeding
-        PREMIUM_CATEGORIES = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250"]
+        PREMIUM_CATEGORIES = ["Special", "Split", "Masters", "LVL 500", "LVL 250"]
         
         # Distribute players to tournaments, using ranking seeding for premium tournaments
         player_idx = 0
@@ -792,7 +792,7 @@ class TournamentScheduler:
             participants.append(None)
 
         # Define premium tournament categories that get ranking-based seeding
-        PREMIUM_CATEGORIES = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250"]
+        PREMIUM_CATEGORIES = ["Special", "Split", "Masters", "LVL 500", "LVL 250"]
         use_ranking_seeding = tournament['category'] in PREMIUM_CATEGORIES
         
         # Rank: best -> worst (None treated as worst)
@@ -829,7 +829,7 @@ class TournamentScheduler:
                 bracket_positions[pos] = p_top
                 bracket_positions[opp_pos] = p_bot
         else:
-            # Challenger/ITF tournaments: use random seeding (shuffle all participants)
+            # Challenger/Future tournaments: use random seeding (shuffle all participants)
             random.shuffle(participants)
             bracket_positions = participants
 
@@ -916,7 +916,7 @@ class TournamentScheduler:
                     player2_id: player2.copy()
                 }
 
-                sets_to_win = 3 if tournament.get('category') == "Grand Slam" or tournament.get('category') =="Special" else 2
+                sets_to_win = 3 if tournament.get('category') == "Split" or tournament.get('category') =="Special" else 2
                 game_engine = GameEngine(player1, player2, tournament['surface'], sets_to_win=sets_to_win)
                 # Store ball position events if in visualization mode
                 point_events = []
@@ -1252,13 +1252,13 @@ class TournamentScheduler:
                     hof_points += 30
                 elif win['name'] == "Nextgen Finals":
                     hof_points += 5
-                elif win['category'] == "Grand Slam":
+                elif win['category'] == "Split":
                     hof_points += 40
-                elif win['category'] == "Masters 1000":
+                elif win['category'] == "Masters":
                     hof_points += 20
-                elif win['category'] == "ATP 500":
+                elif win['category'] == "LVL 500":
                     hof_points += 10
-                elif win['category'] == "ATP 250":
+                elif win['category'] == "LVL 250":
                     hof_points += 5
                 elif win['category'].startswith("Challenger"):
                     hof_points += 1
@@ -1306,18 +1306,18 @@ class TournamentScheduler:
             name = win.get('name', '')
             cat = win.get('category', '')
             if name == 'Kings Cup':
-                pts += 50
+                pts += 60  # Most prestigious competition of the year
             elif name == 'Final Masters':
                 pts += 30
             elif name == 'Nextgen Finals':
                 pts += 5
-            elif cat == 'Grand Slam':
+            elif cat == 'Split':
                 pts += 40
-            elif cat == 'Masters 1000':
+            elif cat == 'Masters':
                 pts += 20
-            elif cat == 'ATP 500':
+            elif cat == 'LVL 500':
                 pts += 10
-            elif cat == 'ATP 250':
+            elif cat == 'LVL 250':
                 pts += 5
             elif cat.startswith('Challenger'):
                 pts += 1
@@ -1472,7 +1472,7 @@ class TournamentScheduler:
                 arch_flavor = ' and '.join(a[0].lower() for a in top_archetypes)
 
                 single_newgen_templates = [
-                    "The ATP Tour officially welcomes its newest member: {name}, who turns professional at just 16 years of age. The young {archetype} has been generating buzz in junior circuits and will look to make an immediate impact on the Challenger and ITF tours this season.",
+                    "The ATP Tour officially welcomes its newest member: {name}, who turns professional at just 16 years of age. The young {archetype} has been generating buzz in junior circuits and will look to make an immediate impact on the Challenger and Future tours this season.",
                     "At 16, {name} has made the leap to professional tennis. The {archetype} arrives with considerable hype from the junior ranks, and scouts will be watching closely to see how quickly the teenager can adapt to the demands of the senior tour.",
                     "{name} begins a new chapter today, officially joining the professional tour at age 16. The {archetype} has shown remarkable maturity in junior competition and now faces the ultimate test — can he translate that promise against the world's best?",
                     "Professional tennis has a new face: {name}, 16, who enters the ATP Tour as one of the most anticipated prospects of the year. Playing as a {archetype}, the youngster has all the tools to climb quickly through the rankings.",
@@ -1492,7 +1492,7 @@ class TournamentScheduler:
                 many_newgens_templates = [
                     "{count} promising young players have joined the professional tour for the {year} season, headlined by {names}. This year's rookie class is one of the deepest in recent memory, featuring a mix of playing styles including {arch_flavor} profiles that could make an immediate impact on the lower tours.",
                     "The ATP Tour's {year} rookie class is officially here: {count} new professionals led by {names}. Scouts have identified several potential fast-risers among the group, with {arch_flavor} styles particularly well-represented in this year's intake.",
-                    "A total of {count} teenagers have turned professional ahead of the {year} season, the most notable being {names}. The influx of young talent promises to reshape the lower tiers of the rankings and inject fresh energy into Challenger and ITF events worldwide.",
+                    "A total of {count} teenagers have turned professional ahead of the {year} season, the most notable being {names}. The influx of young talent promises to reshape the lower tiers of the rankings and inject fresh energy into Challenger and Future events worldwide.",
                     "It's the largest rookie class in years: {count} new players join the professional tour, with {names} drawing the most attention from talent evaluators. The {arch_flavor} contingent looks especially strong, and several are expected to make waves early.",
                     "{count} new professionals enter the ATP ecosystem this season. Among the standouts are {names}, who have been identified by coaching staffs as players with genuine top-100 upside. The {year} generation has arrived.",
                     "Professional tennis welcomes {count} newcomers to its ranks for {year}. The incoming class, spearheaded by {names}, features promising {arch_flavor} players who have dominated age-group competition and now seek to prove themselves at the highest level.",
@@ -1532,7 +1532,7 @@ class TournamentScheduler:
                     hof_entry = next((h for h in self.hall_of_fame if h['name'] == name), None)
                     if hof_entry:
                         titles = len(hof_entry.get('tournament_wins', []))
-                        gs = len([w for w in hof_entry.get('tournament_wins', []) if w.get('category') == 'Grand Slam'])
+                        gs = len([w for w in hof_entry.get('tournament_wins', []) if w.get('category') == 'Split'])
                         return titles, gs
                     return 0, 0
 
@@ -1556,7 +1556,7 @@ class TournamentScheduler:
 
                 if len(notable_retirees) == 1:
                     titles, gs = _retiree_stats(notable_retirees[0])
-                    gs_note = f", including {gs} Grand Slam{'s' if gs != 1 else ''}" if gs > 0 else ""
+                    gs_note = f", including {gs} Split{'s' if gs != 1 else ''}" if gs > 0 else ""
                     template = random.choice(single_retirement_templates)
                     content = template.format(name=notable_retirees[0], titles=titles, gs_note=gs_note)
                 else:
@@ -1641,7 +1641,7 @@ class TournamentScheduler:
                 f"When it came to hoisting trophies in {last_year}, these players led the way across all levels of the tour:",
                 f"Silverware distribution in {last_year} was dominated by a familiar cast. The season's most prolific champions:",
                 f"Who won the most in {last_year}? The answer may (or may not) surprise you. Here are the tour's top title-holders:",
-                f"From Grand Slams to 250s, these players racked up more wins than anyone else in {last_year}:",
+                f"From Splits to 250s, these players racked up more wins than anyone else in {last_year}:",
                 f"The {last_year} trophy table is topped by these five players, each of whom enjoyed outstanding seasons on the title front:",
             ]
             content.append(random.choice(winner_intros))
@@ -1777,7 +1777,7 @@ class TournamentScheduler:
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and
                 not tournament['category'].startswith("Challenger") and
-                not tournament['category'].startswith("ITF") and
+                not tournament['category'].startswith("Future") and
                 not tournament['category'] == "Juniors" and
                 tournament.get('winner_id')):
 
@@ -1861,11 +1861,11 @@ class TournamentScheduler:
         is_first_title = total_wins == 1
 
         # Count wins by category
-        gs_wins = [w for w in wins if w['category'] == 'Grand Slam']
-        m1000_wins = [w for w in wins if w['category'] == 'Masters 1000']
+        gs_wins = [w for w in wins if w['category'] == 'Split']
+        m1000_wins = [w for w in wins if w['category'] == 'Masters']
 
-        is_first_gs = category == 'Grand Slam' and len(gs_wins) == 1
-        is_first_m1000 = category == 'Masters 1000' and len(m1000_wins) == 1
+        is_first_gs = category == 'Split' and len(gs_wins) == 1
+        is_first_m1000 = category == 'Masters' and len(m1000_wins) == 1
 
         # Is this the biggest win of their career?
         prestige_index = self.PRESTIGE_ORDER.index(category) if category in self.PRESTIGE_ORDER else 99
@@ -1901,24 +1901,24 @@ class TournamentScheduler:
 
         if is_first_gs:
             return random.choice([
-                "It is his first Grand Slam title — a career-defining achievement that places him among the sport's elite.",
-                "Grand Slam champion for the first time. The weight of the moment was clear, but he handled it with remarkable composure.",
+                "It is his first Split title — a career-defining achievement that places him among the sport's elite.",
+                "Split champion for the first time. The weight of the moment was clear, but he handled it with remarkable composure.",
                 "A maiden major crown. Years of work have culminated in the biggest victory of his professional life.",
-                "First Grand Slam. The tears flowed as he realized the magnitude of what he had just accomplished.",
-                "He can now call himself a Grand Slam champion. A landmark achievement that changes his career trajectory forever.",
-                "Major breakthrough: his first Grand Slam title. An accomplishment that separates the good from the truly great.",
+                "First Split. The tears flowed as he realized the magnitude of what he had just accomplished.",
+                "He can now call himself a Split champion. A landmark achievement that changes his career trajectory forever.",
+                "Major breakthrough: his first Split title. An accomplishment that separates the good from the truly great.",
             ])
 
-        if category == 'Grand Slam' and len(gs_wins) > 1:
+        if category == 'Split' and len(gs_wins) > 1:
             count = len(gs_wins)
             ordinal = f"{count}{'nd' if count == 2 else 'rd' if count == 3 else 'th'}"
             return random.choice([
-                f"That's Grand Slam title number {count} for the champion, further cementing his status among the all-time greats.",
-                f"He adds a {ordinal} Grand Slam to his collection — a feat that demands respect from even his fiercest critics.",
-                f"Grand Slam #{count}. With each major title, the case for his place in tennis immortality grows stronger.",
+                f"That's Split title number {count} for the champion, further cementing his status among the all-time greats.",
+                f"He adds a {ordinal} Split to his collection — a feat that demands respect from even his fiercest critics.",
+                f"Split #{count}. With each major title, the case for his place in tennis immortality grows stronger.",
                 f"Major number {count}. The champion's hunger shows no sign of diminishing, and the record books continue to be rewritten.",
-                f"A {ordinal} Grand Slam crown. The dominance at this level is becoming a defining feature of the modern era.",
-                f"{count} Grand Slams and counting. At this rate, the all-time records are very much within reach.",
+                f"A {ordinal} Split crown. The dominance at this level is becoming a defining feature of the modern era.",
+                f"{count} Splits and counting. At this rate, the all-time records are very much within reach.",
             ])
 
         if is_defending and times_won_here >= 3:
@@ -1951,10 +1951,10 @@ class TournamentScheduler:
 
         if is_first_m1000:
             return random.choice([
-                "It is his first Masters 1000 crown — a statement victory that announces his arrival among the tour's premier competitors.",
-                "A first Masters 1000 title. Breaking through at this level is a milestone that only the best achieve.",
+                "It is his first Masters crown — a statement victory that announces his arrival among the tour's premier competitors.",
+                "A first Masters title. Breaking through at this level is a milestone that only the best achieve.",
                 "Maiden Masters victory. The step up to this tier of tournament is significant, and he handled the pressure superbly.",
-                "His first title at the Masters 1000 level. Winning here demands a sustained week of elite-level tennis.",
+                "His first title at the Masters level. Winning here demands a sustained week of elite-level tennis.",
                 "First Masters crown secured. This level of tournament separates contenders from pretenders, and he passed the test.",
                 "A breakthrough at Masters level. His first 1000-level title marks a turning point in his career.",
             ])
@@ -1987,7 +1987,7 @@ class TournamentScheduler:
         current_tournaments = [
             t for t in self.tournaments
             if t['week'] == self.current_week
-            and not t['category'].startswith("ITF")
+            and not t['category'].startswith("Future")
             and t['category'] != "Juniors"
         ]
 
@@ -2198,11 +2198,11 @@ class TournamentScheduler:
 
         # Population ranges based on tournament category
         pop_ranges = {
-            'Grand Slam': (800000, 5000000),
+            'Split': (800000, 5000000),
             'Special': (500000, 3000000),
-            'Masters 1000': (400000, 2500000),
-            'ATP 500': (150000, 800000),
-            'ATP 250': (50000, 400000),
+            'Masters': (400000, 2500000),
+            'LVL 500': (150000, 800000),
+            'LVL 250': (50000, 400000),
             'Challenger 175': (30000, 150000),
             'Challenger 125': (20000, 100000),
             'Challenger 100': (15000, 80000),
@@ -2283,14 +2283,14 @@ class TournamentScheduler:
         return rng.choice(templates)
 
     def _eden_lore(self, surface, category):
-        """Handcrafted lore for Eden — the second-largest city in the world, host of all Grand Slams and the Eden Masters."""
+        """Handcrafted lore for Eden — the second-largest city in the world, host of all Splits and the Eden Masters."""
         rng = random.Random(42 + hash(surface))  # Vary slightly per surface
 
         intro_options = [
             "Eden — the crown jewel of world tennis. With a population of 4.2m, it is the second-largest city on the planet and the undisputed capital of the sport.",
-            "Welcome to Eden (pop. 4.2m), the legendary city where every Grand Slam is played. No other venue carries more history, more prestige, or more pressure.",
+            "Welcome to Eden (pop. 4.2m), the legendary city where every Split is played. No other venue carries more history, more prestige, or more pressure.",
             "The tour returns to Eden, the sprawling metropolis of 4.2m souls that serves as the spiritual home of professional tennis.",
-            "Eden. Population: 4.2m. The second-biggest city in the world and the only place on Earth to host all four Grand Slams.",
+            "Eden. Population: 4.2m. The second-biggest city in the world and the only place on Earth to host all four Splits.",
         ]
         intro = rng.choice(intro_options)
 
@@ -2329,8 +2329,8 @@ class TournamentScheduler:
         event_flavors = {
             'Final Masters': "The Final Masters — reserved for the top 8 players in the world — transforms Halcyon's Sovereign Arena into the most exclusive venue in sport. Only the elite are invited.",
             'Nextgen Finals': "The Nextgen Finals spotlight the brightest young talents on the tour. In the cavernous Halcyon Youth Arena, future champions announce themselves to the world.",
-            'Kings Cup': "The Kings Cup is tennis royalty made literal: only Grand Slam champions are invited. Halcyon's Throne Court — with its golden accents and royal box — is the fitting backdrop.",
-            'Halcyon Masters': "The Halcyon Masters brings Masters 1000 tennis to the world's biggest city. The Halcyon Central Courts, set against the iconic skyline, draw crowds of over 80,000 across the week.",
+            'Kings Cup': "The Kings Cup is tennis royalty made literal: only Split champions are invited. Halcyon's Throne Court — with its golden accents and royal box — is the fitting backdrop.",
+            'Halcyon Masters': "The Halcyon Masters brings Masters tennis to the world's biggest city. The Halcyon Central Courts, set against the iconic skyline, draw crowds of over 80,000 across the week.",
         }
         event_bit = event_flavors.get(tournament_name, '')
 
@@ -2357,7 +2357,7 @@ class TournamentScheduler:
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and
                 not tournament['category'].startswith("Challenger") and
-                not tournament['category'].startswith("ITF") and
+                not tournament['category'].startswith("Future") and
                 not tournament['category'] == "Juniors"):
 
                 bracket = tournament.get('bracket', [])
@@ -2453,7 +2453,7 @@ class TournamentScheduler:
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and tournament.get('winner_id') and
                 not tournament['category'].startswith("Challenger") and
-                not tournament['category'].startswith("ITF") and
+                not tournament['category'].startswith("Future") and
                 not tournament['category'] == "Juniors"):
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner and winner.get('age', 20) >= 32:
@@ -2627,7 +2627,7 @@ class TournamentScheduler:
         # ── 9. Upset alert — low-ranked player won a big tournament ──
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and tournament.get('winner_id') and
-                tournament['category'] in ('Grand Slam', 'Masters 1000', 'ATP 500')):
+                tournament['category'] in ('Split', 'Masters', 'LVL 500')):
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner and winner.get('rank', 999) > 50:
                     tweets.append({
@@ -2647,19 +2647,19 @@ class TournamentScheduler:
         top_5 = [p for p in self.players if p.get('rank', 999) <= 5 and not p.get('retired', False)]
         for p in top_5:
             gs_wins_this_year = [w for w in p.get('tournament_wins', [])
-                                if w.get('year') == self.current_year and w.get('category') == 'Grand Slam']
-            total_gs = len([w for w in p.get('tournament_wins', []) if w.get('category') == 'Grand Slam'])
+                                if w.get('year') == self.current_year and w.get('category') == 'Split']
+            total_gs = len([w for w in p.get('tournament_wins', []) if w.get('category') == 'Split'])
             if total_gs > 0 and len(gs_wins_this_year) == 0 and self.current_week > 30:
                 tweets.append({
                     'type': 'tweet',
                     'title': '🗣️ HOT TAKE',
                     'content': random.choice([
-                        f"Is {p['name']} past his Grand Slam-winning days? Still ranked #{p['rank']} but no Slam title in {self.current_year}.",
-                        f"Hot take: {p['name']} won't add another Grand Slam to his collection. Prove me wrong.",
-                        f"For a player of {p['name']}'s caliber, a year without a Grand Slam title has to sting.",
+                        f"Is {p['name']} past his Split-winning days? Still ranked #{p['rank']} but no Slam title in {self.current_year}.",
+                        f"Hot take: {p['name']} won't add another Split to his collection. Prove me wrong.",
+                        f"For a player of {p['name']}'s caliber, a year without a Split title has to sting.",
                         f"Serious question: can {p['name']} still win a Slam? Ranked #{p['rank']} but no major in {self.current_year}.",
                         f"{p['name']} without a Slam in {self.current_year}. For a top-5 player with {total_gs} career majors, that's alarming.",
-                        f"The pressure is building on {p['name']}. Still no Grand Slam this year — is the window closing?",
+                        f"The pressure is building on {p['name']}. Still no Split this year — is the window closing?",
                     ])
                 })
 
@@ -2977,7 +2977,7 @@ class TournamentScheduler:
         # ── 25. Dynasty watch — same tournament won 3+ times ──
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and tournament.get('winner_id') and
-                not tournament['category'].startswith("ITF") and
+                not tournament['category'].startswith("Future") and
                 not tournament['category'] == "Juniors"):
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner:

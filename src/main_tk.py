@@ -12,7 +12,7 @@ from archetypes import ARCTYPE_MAP, get_archetype_for_player
 from commentary import generate_commentary
 from face_generator import generate_face, create_face_canvas
 
-PRESTIGE_ORDER = ["Special", "Grand Slam", "Masters 1000", "ATP 500", "ATP 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "ITF", "Juniors"]
+PRESTIGE_ORDER = ["Special", "Split", "Masters", "LVL 500", "LVL 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "Future", "Juniors"]
 
 MENTALITY_DESCRIPTIONS = {
     "neutral": "Plays with no particular adjustments. Baseline 35% cross, 35% straight, 5% dropshot, 5% volley, 10% lift, 10% slice.",
@@ -38,6 +38,7 @@ class TennisGMApp:
         # State tracking for rankings screen
         self.rankings_search_query = ""
         self.rankings_scroll_position = 0.0
+        self.ranking_sort_mode = "ELO"  # Default sort mode: ELO, Overall, or Potential
         # Track matplotlib figures to close them when navigating away
         self.current_figure = None
         self._update_window_title()
@@ -905,11 +906,13 @@ class TennisGMApp:
         stats_content.pack(fill="x", padx=15, pady=10)
         
         total_titles = sum(1 for win in player.get('tournament_wins', []))
-        gs_titles = sum(1 for win in player.get('tournament_wins', []) if win.get('category') == 'Grand Slam')
+        kings_cup_titles = sum(1 for win in player.get('tournament_wins', []) if win.get('name') == 'Kings Cup')
+        gs_titles = sum(1 for win in player.get('tournament_wins', []) if win.get('category') == 'Split')
         
         career_stats = [
             ("🏆 Total Titles", total_titles),
-            ("👑 Grand Slam Titles", gs_titles),
+            ("👑 Kings Cup Titles", kings_cup_titles),
+            ("👑 Split Titles", gs_titles),
             ("🎾 Total Matches Won", sum(player.get('mawn', [0,0,0,0,0]))),
             ("🏅 Weeks at #1", player.get('w1', 0)),
             ("🔟 Weeks in Top 10", player.get('w16', 0)),
@@ -1088,7 +1091,7 @@ class TennisGMApp:
         tk.Label(header_frame, text="🏅 ATP Rankings", 
                 font=("Arial", 18, "bold"), fg="white", bg="#2c3e50").pack(expand=True)
 
-        # Tab system for rankings with modern styling
+        # Tab system for Ranking and Favorites
         tab_container = tk.Frame(self.root, bg="#34495e", height=50)
         tab_container.pack(fill="x", pady=0)
         tab_container.pack_propagate(False)
@@ -1096,9 +1099,9 @@ class TennisGMApp:
         tab_frame = tk.Frame(tab_container, bg="#34495e")
         tab_frame.pack(expand=True)
         
-        self.current_rankings_tab = getattr(self, 'current_rankings_tab', "All Players")
+        self.current_rankings_tab = getattr(self, 'current_rankings_tab', "Ranking")
         
-        tabs = ["All Players", "By OVR", "Favorites"]
+        tabs = ["Ranking", "Favorites"]
         for tab in tabs:
             is_active = tab == self.current_rankings_tab
             bg_color = "#3498db" if is_active else "#5d6d7e"
@@ -1109,6 +1112,31 @@ class TennisGMApp:
                           relief="flat", bd=0, padx=15, pady=8,
                           activebackground="#2980b9", activeforeground="white")
             btn.pack(side="left", padx=2)
+
+        # Sorting buttons (only shown for Ranking tab)
+        if self.current_rankings_tab == "Ranking":
+            sort_container = tk.Frame(self.root, bg="#2c3e50", height=45)
+            sort_container.pack(fill="x", pady=0)
+            sort_container.pack_propagate(False)
+            
+            sort_frame = tk.Frame(sort_container, bg="#2c3e50")
+            sort_frame.pack(expand=True)
+            
+            tk.Label(sort_frame, text="Sort by:", font=("Arial", 10, "bold"), 
+                    bg="#2c3e50", fg="white").pack(side="left", padx=(15, 5))
+            
+            self.ranking_sort_mode = getattr(self, 'ranking_sort_mode', "ELO")
+            
+            for mode in ["ELO", "Overall", "Potential"]:
+                is_active = mode == self.ranking_sort_mode
+                bg_color = "#27ae60" if is_active else "#34495e"
+                
+                btn = tk.Button(sort_frame, text=mode, bg=bg_color, fg="white",
+                              command=lambda m=mode: self._set_ranking_sort_mode(m),
+                              font=("Arial", 10, "bold" if is_active else "normal"), 
+                              relief="flat", bd=0, padx=12, pady=6,
+                              activebackground="#229954", activeforeground="white")
+                btn.pack(side="left", padx=3)
 
         # Content area with background
         content_frame = tk.Frame(self.root, bg="#ecf0f1")
@@ -1152,24 +1180,32 @@ class TennisGMApp:
             for widget in scroll_frame.winfo_children():
                 widget.destroy()
             
-            # Determine sorting mode
-            use_ovr = self.current_rankings_tab == "By OVR"
+            # Determine sorting mode (only applies to Ranking tab)
+            sort_mode = self.ranking_sort_mode if self.current_rankings_tab == "Ranking" else "ELO"
             
-            if use_ovr:
-                # Sort all players by OVR (average of skills)
+            if sort_mode == "Overall":
+                # Sort by Overall (average of skills)
                 def _calc_ovr(p):
                     vals = list(p.get('skills', {}).values())
                     return round(sum(vals) / max(1, len(vals)), 1) if vals else 0
-                ovr_ranked = sorted(
+                ranked_players = sorted(
                     ((p, _calc_ovr(p)) for p in self.scheduler.players),
                     key=lambda x: x[1], reverse=True
                 )
-                ranked_players = ovr_ranked
-            else:
+                display_label = "OVR"
+            elif sort_mode == "Potential":
+                # Sort by Potential (use the player's potential_factor directly)
+                ranked_players = sorted(
+                    ((p, p.get('potential_factor', 1.0)) for p in self.scheduler.players),
+                    key=lambda x: x[1], reverse=True
+                )
+                display_label = "POT"
+            else:  # ELO (default)
                 ranked_players = self.scheduler.ranking_system.get_ranked_players(
                     self.scheduler.players,
                     self.scheduler.current_date
                 )
+                display_label = "ELO"
             
             # Check if query is an age filter (e.g., "<25", ">20", "=18")
             age_filter = None
@@ -1230,7 +1266,7 @@ class TennisGMApp:
                                 
                 btn = tk.Button(
                     entry_frame,
-                    text=f"{rank_icon} {ranking_pos}. {player['name']} - {points}{' OVR' if use_ovr else ' pts'}",
+                    text=f"{rank_icon} {ranking_pos}. {player['name']} - {points} {display_label}",
                     anchor="w",
                     bg=bg_color,
                     fg=fg_color,
@@ -1295,6 +1331,11 @@ class TennisGMApp:
         self.current_rankings_tab = tab
         self.show_rankings()
 
+    def _set_ranking_sort_mode(self, mode):
+        """Switch the ranking sort mode and refresh display."""
+        self.ranking_sort_mode = mode
+        self.show_rankings()
+
     def show_tournament_wins(self, player, back_command=None):
         for widget in self.root.winfo_children():
             widget.destroy()
@@ -1351,16 +1392,16 @@ class TennisGMApp:
         # Category style mapping
         cat_styles = {
             'Special': ("#c0392b", "🌟"),
-            'Grand Slam': ("#8e44ad", "👑"),
-            'Masters 1000': ("#e67e22", "🏆"),
-            'ATP 500': ("#f39c12", "🥇"),
-            'ATP 250': ("#3498db", "🎾"),
+            'Split': ("#8e44ad", "👑"),
+            'Masters': ("#e67e22", "🏆"),
+            'LVL 500': ("#f39c12", "🥇"),
+            'LVL 250': ("#3498db", "🎾"),
             'Challenger 175': ("#27ae60", "🏟️"),
             'Challenger 125': ("#2ecc71", "🏟️"),
             'Challenger 100': ("#1abc9c", "🏟️"),
             'Challenger 75': ("#16a085", "🏟️"),
             'Challenger 50': ("#138d75", "🏟️"),
-            'ITF': ("#7f8c8d", "🏟️"),
+            'Future': ("#7f8c8d", "🏟️"),
             'Juniors': ("#1abc9c", "🏟️"),
         }
 
@@ -1750,8 +1791,9 @@ class TennisGMApp:
             w1 = player.get('w1', 0)
             w16 = player.get('w16', 0)
             t_wins = sum(1 for win in player.get('tournament_wins', []))
-            m1000_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Masters 1000")
-            gs_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Grand Slam")
+            kings_cup_wins = sum(1 for win in player.get('tournament_wins', []) if win['name'] == "Kings Cup")
+            m1000_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Masters")
+            gs_wins = sum(1 for win in player.get('tournament_wins', []) if win['category'] == "Split")
             mawn = player.get('mawn', [0,0,0,0,0])
             
             # HOF Status Card
@@ -1815,8 +1857,9 @@ class TennisGMApp:
             
             achievements_data = [
                 ("🏆 Total Titles", t_wins),
-                ("👑 Grand Slam Titles", gs_wins),
-                ("🥇 Masters 1000 Titles", m1000_wins),
+                ("👑 Kings Cup Titles", kings_cup_wins),
+                ("👑 Split Titles", gs_wins),
+                ("🥇 Masters Titles", m1000_wins),
                 ("🎾 Total Matches Won", sum(mawn)),
                 ("1️⃣ Weeks at #1", f"{w1}w"),
                 ("🔟 Weeks in Top 10", f"{w16}w"),
@@ -2110,8 +2153,8 @@ class TennisGMApp:
         # Define the specific order for tabs as requested
         ordered_tabs = [
             "Most Tournament Wins",
-            "Most Grand Slam Wins", 
-            "Most Masters 1000 Wins",
+            "Most Split Wins", 
+            "Most Masters Wins",
             "Most Weeks at #1",
             "Most Weeks in Top 10",
             "Most Matches Won",
@@ -2223,9 +2266,9 @@ class TennisGMApp:
             if record_type == "most_t_wins":
                 text = f"{idx+1}. {entry['name']} - {entry['t_wins']} Tournaments"
             elif record_type == "most_gs_wins":
-                text = f"{idx+1}. {entry['name']} - {entry['gs_wins']} Grand Slams"
+                text = f"{idx+1}. {entry['name']} - {entry['gs_wins']} Splits"
             elif record_type == "most_m1000_wins":
-                text = f"{idx+1}. {entry['name']} - {entry['m1000_wins']} Masters 1000"
+                text = f"{idx+1}. {entry['name']} - {entry['m1000_wins']} Masters"
             elif record_type == "most_matches_won":
                 text = f"{idx+1}. {entry['name']} - {entry['matches_won']} Matches"
             elif record_type == "most_weeks_at_1":
@@ -2271,11 +2314,11 @@ class TennisGMApp:
             for idx, entry in enumerate(record["top10"]):
                 tk.Label(scroll_frame, text=f"{idx+1}. {entry['name']} - {entry['t_wins']} Tournaments", font=("Arial", 11)).pack(anchor="w")
         elif record["type"] == "most_gs_wins":
-            tk.Label(scroll_frame, text="Top 10 Grand Slam Winners:", font=("Arial", 12, "bold")).pack(anchor="w", pady=(4,2))
+            tk.Label(scroll_frame, text="Top 10 Split Winners:", font=("Arial", 12, "bold")).pack(anchor="w", pady=(4,2))
             for idx, entry in enumerate(record["top10"]):
                 tk.Label(scroll_frame, text=f"{idx+1}. {entry['name']} - {entry['gs_wins']} GS", font=("Arial", 11)).pack(anchor="w")
         elif record["type"] == "most_m1000_wins":
-            tk.Label(scroll_frame, text="Top 10 Masters 1000 Winners:", font=("Arial", 12, "bold")).pack(anchor="w", pady=(4,2))
+            tk.Label(scroll_frame, text="Top 10 Masters Winners:", font=("Arial", 12, "bold")).pack(anchor="w", pady=(4,2))
             for idx, entry in enumerate(record["top10"]):
                 tk.Label(scroll_frame, text=f"{idx+1}. {entry['name']} - {entry['m1000_wins']} Masters", font=("Arial", 11)).pack(anchor="w")
         elif record["type"] == "most_matches_won":
@@ -2428,18 +2471,18 @@ class TennisGMApp:
             fav_t = self._tournament_has_favorite(t)
             
             # Tournament prestige-based styling
-            if t['category'] == 'Grand Slam':
-                bg_color = "#8e44ad"  # Purple for Grand Slams
+            if t['category'] == 'Split':
+                bg_color = "#8e44ad"  # Purple for Splits
             elif 'Masters' in t['category']:
                 bg_color = "#e67e22"  # Orange for Masters
-            elif 'ATP 500' == t['category']:
-                bg_color = "#f39c12"  # Gold for ATP 500
-            elif 'ATP 250' == t['category']:
-                bg_color = "#3498db"  # Blue for ATP 250
+            elif 'LVL 500' == t['category']:
+                bg_color = "#f39c12"  # Gold for LVL 500
+            elif 'LVL 250' == t['category']:
+                bg_color = "#3498db"  # Blue for LVL 250
             elif 'Challenger' in t['category']:
                 bg_color = "#27ae60"  # Green for Challengers
-            elif t['category'] == 'ITF':
-                bg_color = "#7f8c8d"  # Dark gray for ITF
+            elif t['category'] == 'Future':
+                bg_color = "#7f8c8d"  # Dark gray for Future
             elif t['category'] == 'Juniors':
                 bg_color = "#1abc9c"  # Teal for Juniors
             else:
@@ -2467,13 +2510,13 @@ class TennisGMApp:
                 logo_label.image = logo  # Keep reference
             else:
                 # Fallback to emoji based on category
-                if t['category'] == 'Grand Slam':
+                if t['category'] == 'Split':
                     icon = "👑"
                 elif 'Masters' in t['category']:
                     icon = "🏆"
-                elif 'ATP 500' == t['category']:
+                elif 'LVL 500' == t['category']:
                     icon = "🥇"
-                elif 'ATP 250' == t['category']:
+                elif 'LVL 250' == t['category']:
                     icon = "🎾"
                 else:
                     icon = "🏟️"
@@ -2549,7 +2592,7 @@ class TennisGMApp:
 
     def simulate_all_current_week_tournaments(self):
         tournaments = self.scheduler.get_current_week_tournaments()
-        # Sort by prestige order so Juniors appear after ITFs
+        # Sort by prestige order so Juniors appear after Futures
         def _prestige_key(t):
             cat = t.get('category', '')
             try:
@@ -2921,7 +2964,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                         boost = effect_multiplier
                         break
                     elif effect_key == "stamina_drain" and skill_name == "stamina":
-                        boost = effect_multiplier
+                        # For display: stamina_drain shows as a stat boost (1.05 base, 1.1 dynamic)
+                        # The actual drain reduction is handled in the game engine
+                        boost = effect_multiplier if effect_multiplier > 1.0 else 1.05
                         break
                 elif skill_name == "serve" and effect_key == "serve_power":
                     boost = effect_multiplier
@@ -3004,7 +3049,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             self.manage_tournament(tournament)
             
             # Create a GameEngine object for display purposes (to access player data)
-            sets_to_win = 3 if tournament.get('category') == "Grand Slam" else 2
+            sets_to_win = 3 if tournament.get('category') == "Split" else 2
             game_engine = GameEngine(player1, player2, tournament['surface'], sets_to_win=sets_to_win)
             
             # Display the visualization using the SAME data that was saved
@@ -4113,13 +4158,13 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             title_label.pack(side="left")
         else:
             # Fallback to emoji based on category
-            if tournament['category'] == 'Grand Slam':
+            if tournament['category'] == 'Split':
                 icon = "👑"
             elif 'Masters' in tournament['category']:
                 icon = "🏆"
-            elif 'ATP 500' == tournament['category']:
+            elif 'LVL 500' == tournament['category']:
                 icon = "🥇"
-            elif 'ATP 250' == tournament['category']:
+            elif 'LVL 250' == tournament['category']:
                 icon = "🎾"
             else:
                 icon = "🏟️"
@@ -4712,14 +4757,14 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         # Display tournaments based on selected tab with card design
         def create_tournament_card(tournament):
             # Tournament prestige-based styling
-            if tournament['category'] == 'Grand Slam':
-                bg_color = "#8e44ad"  # Purple for Grand Slams
+            if tournament['category'] == 'Split':
+                bg_color = "#8e44ad"  # Purple for Splits
             elif 'Masters' in tournament['category']:
                 bg_color = "#e67e22"  # Orange for Masters
-            elif 'ATP 500' == tournament['category']:
-                bg_color = "#f39c12"  # Gold for ATP 500
-            elif 'ATP 250' == tournament['category']:
-                bg_color = "#3498db"  # Blue for ATP 250
+            elif 'LVL 500' == tournament['category']:
+                bg_color = "#f39c12"  # Gold for LVL 500
+            elif 'LVL 250' == tournament['category']:
+                bg_color = "#3498db"  # Blue for LVL 250
             else:
                 bg_color = "#95a5a6"  # Gray for other tournaments
             
@@ -4745,13 +4790,13 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 logo_label.image = logo  # Keep reference
             else:
                 # Fallback to emoji based on category
-                if tournament['category'] == 'Grand Slam':
+                if tournament['category'] == 'Split':
                     icon = "👑"
                 elif 'Masters' in tournament['category']:
                     icon = "🏆"
-                elif 'ATP 500' == tournament['category']:
+                elif 'LVL 500' == tournament['category']:
                     icon = "🥇"
-                elif 'ATP 250' == tournament['category']:
+                elif 'LVL 250' == tournament['category']:
                     icon = "🎾"
                 else:
                     icon = "🏟️"
@@ -4924,13 +4969,13 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             title_label.pack(side="left")
         else:
             # Fallback to emoji based on category
-            if tournament['category'] == 'Grand Slam':
+            if tournament['category'] == 'Split':
                 icon = "👑"
             elif 'Masters' in tournament['category']:
                 icon = "🏆"
-            elif 'ATP 500' == tournament['category']:
+            elif 'LVL 500' == tournament['category']:
                 icon = "🥇"
-            elif 'ATP 250' == tournament['category']:
+            elif 'LVL 250' == tournament['category']:
                 icon = "🎾"
             else:
                 icon = "🏟️"
@@ -5914,8 +5959,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 t['selected_hof_indices'].add(hof_id)
                 available_idx += 1
         
-        # Check if all filled
-        t['all_filled'] = all(s is not None for s in t['slots'])
+        # Check if all EMPTY slots are filled (BYEs remain as None)
+        t['all_filled'] = all(s != 'EMPTY' for s in t['slots'])
         if t['all_filled']:
             self._exhibition_build_bracket()
         
