@@ -16,8 +16,8 @@ class TournamentScheduler:
         "Special",
         "Split",
         "Masters",
-        "LVL 500",
-        "LVL 250",
+        "LV 500",
+        "LV 250",
         "Challenger 175",
         "Challenger 125",
         "Challenger 100",
@@ -581,7 +581,7 @@ class TournamentScheduler:
                 return 0.99
             elif category == "Masters":
                 return 0.90 if player_rank <= 64 else 0.99
-            elif category == "LVL 500":
+            elif category == "LV 500":
                 if player_rank <= 20:
                     return 0.4
                 elif player_rank <= 50:
@@ -590,7 +590,7 @@ class TournamentScheduler:
                     return 0.85
                 else:
                     return 0.99
-            elif category == "LVL 250":
+            elif category == "LV 250":
                 if player_rank <= 20:
                     return 0.2
                 elif player_rank <= 50:
@@ -715,7 +715,7 @@ class TournamentScheduler:
             tournaments_by_category[category].append((tournament, i))
         
         # Define premium tournament categories that get ranking-based seeding
-        PREMIUM_CATEGORIES = ["Special", "Split", "Masters", "LVL 500", "LVL 250"]
+        PREMIUM_CATEGORIES = ["Special", "Split", "Masters", "LV 500", "LV 250"]
         
         # Distribute players to tournaments, using ranking seeding for premium tournaments
         player_idx = 0
@@ -792,7 +792,7 @@ class TournamentScheduler:
             participants.append(None)
 
         # Define premium tournament categories that get ranking-based seeding
-        PREMIUM_CATEGORIES = ["Special", "Split", "Masters", "LVL 500", "LVL 250"]
+        PREMIUM_CATEGORIES = ["Special", "Split", "Masters", "LV 500", "LV 250"]
         use_ranking_seeding = tournament['category'] in PREMIUM_CATEGORIES
         
         # Rank: best -> worst (None treated as worst)
@@ -1256,9 +1256,9 @@ class TournamentScheduler:
                     hof_points += 40
                 elif win['category'] == "Masters":
                     hof_points += 20
-                elif win['category'] == "LVL 500":
+                elif win['category'] == "LV 500":
                     hof_points += 10
-                elif win['category'] == "LVL 250":
+                elif win['category'] == "LV 250":
                     hof_points += 5
                 elif win['category'].startswith("Challenger"):
                     hof_points += 1
@@ -1315,9 +1315,9 @@ class TournamentScheduler:
                 pts += 40
             elif cat == 'Masters':
                 pts += 20
-            elif cat == 'LVL 500':
+            elif cat == 'LV 500':
                 pts += 10
-            elif cat == 'LVL 250':
+            elif cat == 'LV 250':
                 pts += 5
             elif cat.startswith('Challenger'):
                 pts += 1
@@ -2201,8 +2201,8 @@ class TournamentScheduler:
             'Split': (800000, 5000000),
             'Special': (500000, 3000000),
             'Masters': (400000, 2500000),
-            'LVL 500': (150000, 800000),
-            'LVL 250': (50000, 400000),
+            'LV 500': (150000, 800000),
+            'LV 250': (50000, 400000),
             'Challenger 175': (30000, 150000),
             'Challenger 125': (20000, 100000),
             'Challenger 100': (15000, 80000),
@@ -2627,7 +2627,7 @@ class TournamentScheduler:
         # ── 9. Upset alert — low-ranked player won a big tournament ──
         for tournament in self.tournaments:
             if (tournament['week'] == last_week and tournament.get('winner_id') and
-                tournament['category'] in ('Split', 'Masters', 'LVL 500')):
+                tournament['category'] in ('Split', 'Masters', 'LV 500')):
                 winner = next((p for p in self.players if p['id'] == tournament['winner_id']), None)
                 if winner and winner.get('rank', 999) > 50:
                     tweets.append({

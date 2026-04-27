@@ -30,7 +30,7 @@ class RankingSystem:
             "Round 32": 0,
             "Round 64": 0
         },
-        "LVL 500": {
+        "LV 500": {
             "Winner": 35,
             "Final": 0,
             "Semi": 0,
@@ -38,7 +38,7 @@ class RankingSystem:
             "Round 16": 0,
             "Round 32": 0
         },
-        "LVL 250": {
+        "LV 250": {
             "Winner": 25,
             "Final": 0,
             "Semi": 0,
@@ -113,7 +113,7 @@ class RankingSystem:
     def calculate_points(self, tournament_category, round_reached, total_rounds):
         """Map round numbers to human-readable round names based on tournament type"""
         is_challenger = tournament_category.startswith("Challenger")
-        is_250500 = tournament_category.startswith("LVL 250") or tournament_category.startswith("LVL 500")
+        is_250500 = tournament_category.startswith("LV 250") or tournament_category.startswith("LV 500")
         is_masters = tournament_category.startswith("Masters")
         is_gs = tournament_category.startswith("Split")
         is_kings = tournament_category.startswith("Special")
@@ -128,7 +128,7 @@ class RankingSystem:
             7: {
                 0: "Round 64", 1: "Round 32", 2: "Round 16", 3: "Quarter", 4: "Semi", 5: "Final", 6: "Winner"
             },
-            # LVL 500/250 (6 rounds)
+            # LV 500/250 (6 rounds)
             6: {
                 0: "Round 32", 1: "Round 16", 2: "Quarter", 3: "Semi", 4: "Final", 5: "Winner"
             },

@@ -12,7 +12,7 @@ from archetypes import ARCTYPE_MAP, get_archetype_for_player
 from commentary import generate_commentary
 from face_generator import generate_face, create_face_canvas
 
-PRESTIGE_ORDER = ["Special", "Split", "Masters", "LVL 500", "LVL 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "Future", "Juniors"]
+PRESTIGE_ORDER = ["Special", "Split", "Masters", "LV 500", "LV 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "Future", "Juniors"]
 
 MENTALITY_DESCRIPTIONS = {
     "neutral": "Plays with no particular adjustments. Baseline 35% cross, 35% straight, 5% dropshot, 5% volley, 10% lift, 10% slice.",
@@ -1394,8 +1394,8 @@ class TennisGMApp:
             'Special': ("#c0392b", "🌟"),
             'Split': ("#8e44ad", "👑"),
             'Masters': ("#e67e22", "🏆"),
-            'LVL 500': ("#f39c12", "🥇"),
-            'LVL 250': ("#3498db", "🎾"),
+            'LV 500': ("#f39c12", "🥇"),
+            'LV 250': ("#3498db", "🎾"),
             'Challenger 175': ("#27ae60", "🏟️"),
             'Challenger 125': ("#2ecc71", "🏟️"),
             'Challenger 100': ("#1abc9c", "🏟️"),
@@ -2475,10 +2475,10 @@ class TennisGMApp:
                 bg_color = "#8e44ad"  # Purple for Splits
             elif 'Masters' in t['category']:
                 bg_color = "#e67e22"  # Orange for Masters
-            elif 'LVL 500' == t['category']:
-                bg_color = "#f39c12"  # Gold for LVL 500
-            elif 'LVL 250' == t['category']:
-                bg_color = "#3498db"  # Blue for LVL 250
+            elif 'LV 500' == t['category']:
+                bg_color = "#f39c12"  # Gold for LV 500
+            elif 'LV 250' == t['category']:
+                bg_color = "#3498db"  # Blue for LV 250
             elif 'Challenger' in t['category']:
                 bg_color = "#27ae60"  # Green for Challengers
             elif t['category'] == 'Future':
@@ -2514,9 +2514,9 @@ class TennisGMApp:
                     icon = "👑"
                 elif 'Masters' in t['category']:
                     icon = "🏆"
-                elif 'LVL 500' == t['category']:
+                elif 'LV 500' == t['category']:
                     icon = "🥇"
-                elif 'LVL 250' == t['category']:
+                elif 'LV 250' == t['category']:
                     icon = "🎾"
                 else:
                     icon = "🏟️"
@@ -4162,9 +4162,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 icon = "👑"
             elif 'Masters' in tournament['category']:
                 icon = "🏆"
-            elif 'LVL 500' == tournament['category']:
+            elif 'LV 500' == tournament['category']:
                 icon = "🥇"
-            elif 'LVL 250' == tournament['category']:
+            elif 'LV 250' == tournament['category']:
                 icon = "🎾"
             else:
                 icon = "🏟️"
@@ -4761,10 +4761,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 bg_color = "#8e44ad"  # Purple for Splits
             elif 'Masters' in tournament['category']:
                 bg_color = "#e67e22"  # Orange for Masters
-            elif 'LVL 500' == tournament['category']:
-                bg_color = "#f39c12"  # Gold for LVL 500
-            elif 'LVL 250' == tournament['category']:
-                bg_color = "#3498db"  # Blue for LVL 250
+            elif 'LV 500' == tournament['category']:
+                bg_color = "#f39c12"  # Gold for LV 500
+            elif 'LV 250' == tournament['category']:
+                bg_color = "#3498db"  # Blue for LV 250
             else:
                 bg_color = "#95a5a6"  # Gray for other tournaments
             
@@ -4794,9 +4794,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     icon = "👑"
                 elif 'Masters' in tournament['category']:
                     icon = "🏆"
-                elif 'LVL 500' == tournament['category']:
+                elif 'LV 500' == tournament['category']:
                     icon = "🥇"
-                elif 'LVL 250' == tournament['category']:
+                elif 'LV 250' == tournament['category']:
                     icon = "🎾"
                 else:
                     icon = "🏟️"
@@ -4973,9 +4973,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 icon = "👑"
             elif 'Masters' in tournament['category']:
                 icon = "🏆"
-            elif 'LVL 500' == tournament['category']:
+            elif 'LV 500' == tournament['category']:
                 icon = "🥇"
-            elif 'LVL 250' == tournament['category']:
+            elif 'LV 250' == tournament['category']:
                 icon = "🎾"
             else:
                 icon = "🏟️"
