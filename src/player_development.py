@@ -25,14 +25,14 @@ class PlayerDevelopment:
     @staticmethod
     def calculate_regression_chance(player_age, current_skill):
         """Regression starts at 29 (slow), accelerates at 31"""
-        if player_age < 28:
+        if player_age < 29:
             return 0  # No regression before 29
-        elif player_age <= 30:
-            # Very slow regression at 28-30
-            return 0.15
+        elif player_age <= 31:
+            # Very slow regression at 29-31
+            return 0.1
         else:
-            # Normal regression from 31 onwards
-            age_factor = min(1, (player_age - 30) / 6)
+            # Normal regression from 32 onwards
+            age_factor = min(1, (player_age - 31) / 7)
             return age_factor
 
     @staticmethod
@@ -130,7 +130,9 @@ class PlayerDevelopment:
                 if random.random() < chance and current_value < 100:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1
-            elif age >= 28:
+            elif age == 28:
+                continue
+            elif age > 28:
                 # Regression phase
                 if cap['regcap'] >= 5:
                     continue

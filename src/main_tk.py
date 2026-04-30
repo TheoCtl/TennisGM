@@ -39,6 +39,11 @@ class TennisGMApp:
         self.rankings_search_query = ""
         self.rankings_scroll_position = 0.0
         self.ranking_sort_mode = "ELO"  # Default sort mode: ELO, Overall, or Potential
+        # State tracking for hall of fame screen
+        self.hof_search_query = ""
+        self.hof_scroll_position = 0.0
+        # State tracking for exhibition bracket screen
+        self.exhibition_scroll_position = 0.0
         # Track matplotlib figures to close them when navigating away
         self.current_figure = None
         self._update_window_title()
@@ -132,6 +137,11 @@ class TennisGMApp:
         return any(self._is_favorite(pid) for pid in part_ids)
 
     def build_main_menu(self):
+        # Reset scroll positions when going to home screen
+        self.rankings_scroll_position = 0.0
+        self.hof_scroll_position = 0.0
+        self.exhibition_scroll_position = 0.0
+        
         # Close any previously opened matplotlib figures
         self._close_matplotlib_figures()
         
@@ -1277,12 +1287,9 @@ class TennisGMApp:
                     pady=8,
                     activebackground="#2980b9" if bg_color != "white" else "#ecf0f1",
                     activeforeground="white" if bg_color != "white" else "#2c3e50",
-                    command=lambda p=player: self.show_player_details(p)
-                )
+                    command=lambda p=player, c=canvas: (self._save_rankings_scroll_position(c), self.show_player_details(p))
+                )  
                 btn.pack(fill="x")
-            
-            # Save scroll position after rendering
-            self.root.after(10, lambda: self._save_rankings_scroll_position(canvas))
 
         # Store update function for tab switching
         self.update_rankings_list = update_list
@@ -1327,11 +1334,45 @@ class TennisGMApp:
         except:
             pass
 
+    def _save_hof_scroll_position(self, canvas):
+        """Save the current scroll position of the hall of fame canvas."""
+        try:
+            self.hof_scroll_position = canvas.yview()[0]
+        except:
+            pass
+
+    def _restore_hof_scroll_position(self, canvas):
+        """Restore the saved scroll position of the hall of fame canvas."""
+        try:
+            canvas.yview_moveto(self.hof_scroll_position)
+        except:
+            pass
+
+    def _save_exhibition_scroll_position(self):
+        """Save the current scroll position of the exhibition bracket canvas."""
+        try:
+            if hasattr(self, 'exhibition_canvas'):
+                self.exhibition_scroll_position = self.exhibition_canvas.yview()[0]
+        except:
+            pass
+
+    def _restore_exhibition_scroll_position(self):
+        """Restore the saved scroll position of the exhibition bracket canvas."""
+        try:
+            if hasattr(self, 'exhibition_canvas'):
+                self.exhibition_canvas.yview_moveto(self.exhibition_scroll_position)
+        except:
+            pass
+
     def switch_rankings_tab(self, tab):
+        # Reset scroll position when switching tabs
+        self.rankings_scroll_position = 0.0
         self.current_rankings_tab = tab
         self.show_rankings()
 
     def _set_ranking_sort_mode(self, mode):
+        # Reset scroll position when switching sort mode
+        self.rankings_scroll_position = 0.0
         """Switch the ranking sort mode and refresh display."""
         self.ranking_sort_mode = mode
         self.show_rankings()
@@ -1560,7 +1601,7 @@ class TennisGMApp:
             fg="#2c3e50"
         ).pack(side="left", padx=(0, 10))
         
-        search_var = tk.StringVar()
+        search_var = tk.StringVar(value=self.hof_search_query)
         search_entry = tk.Entry(search_frame, textvariable=search_var, font=("Arial", 12), width=30)
         search_entry.pack(side="left")
         
@@ -1676,19 +1717,9 @@ class TennisGMApp:
                     pady=5,
                     activebackground="#ecf0f1",
                     activeforeground=tier_color,
-                    command=lambda p=player: self.show_hof_player_details(p)
+                    command=lambda p=player, c=canvas: (self._save_hof_scroll_position(c), self.show_hof_player_details(p))
                 )
                 btn_details.pack(side="left")
-        
-        def update_list(*args):
-            query = search_var.get().lower()
-            filtered_hof = [
-                p for p in hof_members
-                if query in p['name'].lower()
-            ]
-            create_hof_cards(filtered_hof)
-        
-        search_var.trace_add("write", update_list)
 
         # Calculate hof_points for each player using comprehensive formula
         for player in self.scheduler.hall_of_fame:
@@ -1720,6 +1751,9 @@ class TennisGMApp:
 
         # Initial population with cards
         create_hof_cards(hof_members)
+        
+        # Restore scroll position after initial render
+        self.root.after(50, lambda: self._restore_hof_scroll_position(canvas))
 
         # Modern back button
         back_frame = tk.Frame(self.root, bg="#ecf0f1")
@@ -5134,6 +5168,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
     def show_exhibition_setup(self):
         """Exhibition tournament setup: surface, format, form toggle, draw size."""
+        # Reset scroll position when going to setup
+        self.exhibition_scroll_position = 0.0
+        
         for widget in self.root.winfo_children():
             widget.destroy()
 
@@ -5200,10 +5237,22 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             num_matches = draw_size // 2
 
             # Create slots: 'EMPTY' for player positions, None for BYEs
-            # Randomize BYE distribution instead of putting them all at the bottom
+            # Ensure no two BYEs are in the same first-round match
             import random
             slots = ['EMPTY'] * draw_size
-            bye_positions = random.sample(range(draw_size), num_byes)
+            
+            # Prevent two BYEs in the same match (match pairs: 0-1, 2-3, 4-5, etc.)
+            bye_positions = []
+            matches_with_byes = set()
+            attempts = 0
+            while len(bye_positions) < num_byes and attempts < 1000:
+                candidate = random.randint(0, draw_size - 1)
+                match_pair = candidate // 2
+                if match_pair not in matches_with_byes:
+                    bye_positions.append(candidate)
+                    matches_with_byes.add(match_pair)
+                attempts += 1
+            
             for bye_pos in bye_positions:
                 slots[bye_pos] = None
 
@@ -5316,8 +5365,13 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
         # Draw the bracket
         self._draw_exhibition_bracket()
+        
+        # Restore scroll position after drawing
+        self.root.after(50, self._restore_exhibition_scroll_position)
 
     def _switch_exhibition_tab(self, tab_name):
+        # Reset scroll position when switching tabs
+        self.exhibition_scroll_position = 0.0
         self.exhibition_bracket_tab = tab_name
         self.show_exhibition_bracket()
 
@@ -5334,6 +5388,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         canvas.pack(side="left", fill="both", expand=True)
         vscroll.pack(side="right", fill="y")
         hscroll.pack(side="bottom", fill="x")
+        
+        # Store canvas reference for scroll position saving
+        self.exhibition_canvas = canvas
 
         match_height = 40
         match_gap = 100
@@ -5701,12 +5758,16 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
     def _exhibition_simulate_match(self, match_idx):
         """Simulate one exhibition match and refresh the bracket view."""
+        # Save scroll position before simulating
+        self._save_exhibition_scroll_position()
         self._exhibition_simulate_match_internal(match_idx)
         self._exhibition_check_round_complete()
         self.show_exhibition_bracket()
 
     def _exhibition_simulate_round(self):
         """Simulate all unfinished matches in the current round."""
+        # Save scroll position before simulating
+        self._save_exhibition_scroll_position()
         t = self.exhibition_tournament
         for i in range(len(t['active_matches'])):
             self._exhibition_simulate_match_internal(i)
@@ -5717,6 +5778,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
     def _exhibition_watch_match(self, match_idx):
         """Watch an exhibition match: show faceoff, then visualize."""
+        # Save scroll position before navigating away
+        self._save_exhibition_scroll_position()
+        
         t = self.exhibition_tournament
         match = t['active_matches'][match_idx]
 
