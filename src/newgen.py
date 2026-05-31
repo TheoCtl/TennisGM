@@ -48,9 +48,9 @@ class NewGenGenerator:
         last_name = self.generate_procedural_last_name()
 
         r = random.random()
-        if r >= 0.95:
+        if r >= 0.93:
             potential_factor = round(random.uniform(2.0, 2.5), 3)   # 5% — generational talent
-        elif r >= 0.85:
+        elif r >= 0.8:
             potential_factor = round(random.uniform(1.5, 2.0), 3)   # 10% — high potential
         else:
             potential_factor = round(random.uniform(1.0, 1.5), 3)   # 85% — average

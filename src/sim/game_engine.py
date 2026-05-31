@@ -142,7 +142,7 @@ class GameEngine:
         
     def _apply_random_form(self, player):
         """Apply random form multiplier to all skills"""
-        form_multiplier = random.uniform(0.975, 1.025)
+        form_multiplier = random.uniform(0.965, 1.035)
         player_copy = player.copy()
         player_copy["skills"] = {
             skill: min(100, math.floor(value * form_multiplier))

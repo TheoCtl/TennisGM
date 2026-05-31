@@ -4,15 +4,10 @@ from collections import defaultdict
 from datetime import datetime, date, timedelta
 
 class RankingSystem:
-    # Points structure remains the same as before
+    # ATP-style points structure with proper values for each round
     POINTS = {
         "Special": {
             "Winner": 0,
-            "Final": 0,
-            "Semi": 0
-        },
-        "Split": {
-            "Winner": 100,
             "Final": 0,
             "Semi": 0,
             "Quarter": 0,
@@ -21,71 +16,88 @@ class RankingSystem:
             "Round 64": 0,
             "Round 128": 0
         },
+        "Split": {
+            "Winner": 2000,
+            "Final": 1300,
+            "Semi": 800,
+            "Quarter": 400,
+            "Round 16": 200,
+            "Round 32": 100,
+            "Round 64": 50,
+            "Round 128": 0
+        },
         "Masters": {
-            "Winner": 50,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
-            "Round 16": 0,
-            "Round 32": 0,
+            "Winner": 1000,
+            "Final": 600,
+            "Semi": 360,
+            "Quarter": 180,
+            "Round 16": 90,
+            "Round 32": 45,
             "Round 64": 0
         },
         "LV 500": {
-            "Winner": 35,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
-            "Round 16": 0,
+            "Winner": 500,
+            "Final": 300,
+            "Semi": 180,
+            "Quarter": 90,
+            "Round 16": 45,
             "Round 32": 0
         },
         "LV 250": {
-            "Winner": 25,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
-            "Round 16": 0,
+            "Winner": 250,
+            "Final": 150,
+            "Semi": 90,
+            "Quarter": 45,
+            "Round 16": 20,
             "Round 32": 0
         },
         "Challenger 175": {
-            "Winner": 15,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
+            "Winner": 175,
+            "Final": 105,
+            "Semi": 60,
+            "Quarter": 30,
             "Round 16": 0
         },
         "Challenger 125": {
-            "Winner": 13,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
+            "Winner": 125,
+            "Final": 75,
+            "Semi": 45,
+            "Quarter": 22,
             "Round 16": 0
         },
         "Challenger 100": {
-            "Winner": 11,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
+            "Winner": 100,
+            "Final": 60,
+            "Semi": 36,
+            "Quarter": 18,
             "Round 16": 0
         },
         "Challenger 75": {
-            "Winner": 9,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
+            "Winner": 75,
+            "Final": 45,
+            "Semi": 27,
+            "Quarter": 13,
             "Round 16": 0
         },
         "Challenger 50": {
-            "Winner": 7,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
+            "Winner": 50,
+            "Final": 30,
+            "Semi": 18,
+            "Quarter": 9,
             "Round 16": 0
         },
         "Future": {
-            "Winner": 5,
-            "Final": 0,
-            "Semi": 0,
-            "Quarter": 0,
+            "Winner": 25,
+            "Final": 15,
+            "Semi": 9,
+            "Quarter": 5,
+            "Round 16": 0
+        },
+        "Juniors": {
+            "Winner": 8,
+            "Final": 5,
+            "Semi": 3,
+            "Quarter": 2,
             "Round 16": 0
         }
     } 
@@ -162,8 +174,11 @@ class RankingSystem:
         
         return points
 
-    def get_current_points(self, player_id, current_date):
-        """Calculate championship points from tournament results in last 52 weeks using tournament_history"""
+    def get_current_points(self, player_id, current_date, current_year=None, current_week=None):
+        """Calculate championship points from tournament results in last 52 weeks using tournament_history
+        
+        ATP-style rolling ranking: tournaments older than 52 weeks are not counted
+        """
         if isinstance(current_date, datetime):
             current_date = current_date.date()
             
@@ -173,21 +188,57 @@ class RankingSystem:
     
         championship_points = 0
         
-        # Calculate points from player's tournament_history using calculate_points
+        # Calculate points from player's tournament_history using rolling 52-week window
         if 'tournament_history' in player:
             for tournament_entry in player['tournament_history']:                
                 try:
-                    points = self.calculate_points(
-                        tournament_entry.get('category', ''),
-                        tournament_entry.get('round', 0),
-                        tournament_entry.get('total_rounds', 0)
-                    )
-                    championship_points += points
+                    # Check if tournament is within 52-week rolling window
+                    tournament_year = tournament_entry.get('year')
+                    tournament_week = tournament_entry.get('week', 0)
+                    
+                    # Determine if tournament is within the rolling 52 weeks
+                    is_eligible = False
+                    
+                    if current_year is not None and current_week is not None:
+                        # Use exact week calculation for more precision
+                        weeks_ago = self._calculate_weeks_ago(
+                            tournament_year, tournament_week,
+                            current_year, current_week
+                        )
+                        is_eligible = weeks_ago <= 52
+                    else:
+                        # Fallback: if we don't have year/week info, include all tournaments
+                        # This maintains backward compatibility
+                        is_eligible = True
+                    
+                    if is_eligible:
+                        points = self.calculate_points(
+                            tournament_entry.get('category', ''),
+                            tournament_entry.get('round', 0),
+                            tournament_entry.get('total_rounds', 0)
+                        )
+                        championship_points += points
                 except (ValueError, TypeError):
-                    # Skip invalid date entries
+                    # Skip invalid entries
                     continue
         
         return championship_points
+    
+    def _calculate_weeks_ago(self, tournament_year, tournament_week, current_year, current_week):
+        """Calculate how many weeks ago a tournament was (approximately)
+        
+        Returns: number of weeks between tournament date and current date
+        """
+        # Calculate year difference in weeks (52 weeks per year)
+        year_diff = (current_year - tournament_year) * 52
+        
+        # Add week difference
+        week_diff = current_week - tournament_week
+        
+        # Total weeks ago
+        total_weeks = year_diff + week_diff
+        
+        return total_weeks
 
     def update_ranking(self, tournament, current_date):
         """Maintain this for backward compatibility"""
@@ -224,8 +275,8 @@ class RankingSystem:
     
         self.save_ranking()
 
-    def update_player_ranks(self, players, current_date):
-        """Update all players' ranks based on current points"""
+    def update_player_ranks(self, players, current_date, current_year=None, current_week=None):
+        """Update all players' ranks based on current points (ATP-style 52-week rolling)"""
         if isinstance(current_date, datetime):
             current_date = current_date.date()
             
@@ -237,7 +288,7 @@ class RankingSystem:
         for player in players:
             if player.get('retired', False):
                 continue
-            points = self.get_current_points(player['id'], current_date)
+            points = self.get_current_points(player['id'], current_date, current_year, current_week)
             ranked_players.append({
                 'id': player['id'],
                 'name': player['name'],
@@ -261,19 +312,18 @@ class RankingSystem:
         self.previous_rankings = current_rankings
         return ranking_changes
 
-    def get_ranked_players(self, players, current_date):
-        """Return players sorted by combined rating (ELO + Championship points)"""
+    def get_ranked_players(self, players, current_date, current_year=None, current_week=None):
+        """Return players sorted by ATP-style championship points from tournament results (52-week rolling)"""
         self.players = players
         ranked = []
         for player in players:
             if player.get('retired', False):
                 continue
-            elo_rating = self.get_elo_rating(player)
-            championship_points = self.get_current_points(player['id'], current_date)
-            combined_rating = elo_rating + championship_points
-            ranked.append((player, combined_rating))
+            # Use only championship points (ATP-style ranking with 52-week rolling)
+            championship_points = self.get_current_points(player['id'], current_date, current_year, current_week)
+            ranked.append((player, championship_points))
         
-        # Sort by combined rating descending, then by name ascending
+        # Sort by championship points descending, then by name ascending
         ranked.sort(key=lambda x: (-x[1], x[0]['name']))
         return ranked
     
@@ -386,32 +436,28 @@ class RankingSystem:
         championship_points = self.get_current_points(player['id'], current_date)
         return elo_rating + championship_points
 
-    def update_combined_rankings(self, players, current_date):
-        """Update rankings based on combined ELO + Championship points"""
+    def update_combined_rankings(self, players, current_date, current_year=None, current_week=None):
+        """Update rankings based on ATP-style championship points with 52-week rolling window"""
         if isinstance(current_date, datetime):
             current_date = current_date.date()
             
         self.players = players
         
-        # Calculate combined ratings for all players
+        # Calculate championship points for all players
         ranked_players = []
         for player in players:
             if player.get('retired', False):
                 continue
-            elo_rating = self.get_elo_rating(player)
-            championship_points = self.get_current_points(player['id'], current_date)
-            combined_rating = elo_rating + championship_points
+            championship_points = self.get_current_points(player['id'], current_date, current_year, current_week)
             
             ranked_players.append({
                 'id': player['id'],
                 'name': player['name'],
-                'combined_rating': combined_rating,
-                'elo_rating': elo_rating,
-                'championship_points': championship_points
+                'points': championship_points
             })
         
-        # Sort by combined rating descending
-        ranked_players.sort(key=lambda x: (-x['combined_rating'], x['name']))
+        # Sort by championship points descending
+        ranked_players.sort(key=lambda x: (-x['points'], x['name']))
         
         # Update ranks in player objects
         ranking_changes = {}
@@ -420,10 +466,7 @@ class RankingSystem:
                 if player['id'] == player_data['id']:
                     old_rank = player.get('rank', 999)
                     player['rank'] = rank
-                    # Store separate values for display
-                    player['points'] = player_data['combined_rating']  # Total for main display
-                    player['elo_points'] = player_data['elo_rating']  # ELO component
-                    player['championship_points'] = player_data['championship_points']  # Championship component
+                    player['points'] = player_data['points']
                     if old_rank != rank:
                         ranking_changes[player['id']] = (old_rank, rank)
                     break

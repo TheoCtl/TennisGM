@@ -38,7 +38,7 @@ class TennisGMApp:
         # State tracking for rankings screen
         self.rankings_search_query = ""
         self.rankings_scroll_position = 0.0
-        self.ranking_sort_mode = "ELO"  # Default sort mode: ELO, Overall, or Potential
+        self.ranking_sort_mode = "Points"  # Default sort mode: Points, Overall, or Potential
         # State tracking for hall of fame screen
         self.hof_search_query = ""
         self.hof_scroll_position = 0.0
@@ -748,12 +748,12 @@ class TennisGMApp:
             anchor="w"
         ).pack(fill="x")
         
-        # Calculate current ELO points for display
-        current_elo_points = self.scheduler.ranking_system.get_elo_points(player, self.scheduler.current_date)
+        # Calculate current championship points for display
+        current_points = self.scheduler.ranking_system.get_current_points(player['id'], self.scheduler.current_date, self.scheduler.current_year, self.scheduler.current_week)
         
         basic_info = [
-            ("🏆 Current Rank/ELO", f"#{player.get('rank', 'N/A')}/{current_elo_points}"),
-            ("🎯 Highest Ranking/ELO", f"#{player.get('highest_ranking', 'N/A')}/{player.get('highest_elo', 'N/A')}"),
+            ("🏆 Current Rank/Points", f"#{player.get('rank', 'N/A')}/{current_points}"),
+            ("🎯 Highest Ranking/Points", f"#{player.get('highest_ranking', 'N/A')}/{player.get('highest_points', 'N/A')}"),
             ("🎂 Age", f"{player.get('age', 'N/A')} years old"),
             ("✋ Playing Hand", f"{player.get('hand', 'N/A')}-handed"),
             ("🌍 Nationality", player.get('nationality', 'N/A')),
@@ -1135,9 +1135,9 @@ class TennisGMApp:
             tk.Label(sort_frame, text="Sort by:", font=("Arial", 10, "bold"), 
                     bg="#2c3e50", fg="white").pack(side="left", padx=(15, 5))
             
-            self.ranking_sort_mode = getattr(self, 'ranking_sort_mode', "ELO")
+            self.ranking_sort_mode = getattr(self, 'ranking_sort_mode', "Points")
             
-            for mode in ["ELO", "Overall", "Potential"]:
+            for mode in ["Points", "Overall", "Potential"]:
                 is_active = mode == self.ranking_sort_mode
                 bg_color = "#27ae60" if is_active else "#34495e"
                 
@@ -1191,7 +1191,7 @@ class TennisGMApp:
                 widget.destroy()
             
             # Determine sorting mode (only applies to Ranking tab)
-            sort_mode = self.ranking_sort_mode if self.current_rankings_tab == "Ranking" else "ELO"
+            sort_mode = self.ranking_sort_mode if self.current_rankings_tab == "Ranking" else "Points"
             
             if sort_mode == "Overall":
                 # Sort by Overall (average of skills)
@@ -1210,12 +1210,14 @@ class TennisGMApp:
                     key=lambda x: x[1], reverse=True
                 )
                 display_label = "POT"
-            else:  # ELO (default)
+            else:  # Points (default)
                 ranked_players = self.scheduler.ranking_system.get_ranked_players(
                     self.scheduler.players,
-                    self.scheduler.current_date
+                    self.scheduler.current_date,
+                    self.scheduler.current_year,
+                    self.scheduler.current_week
                 )
-                display_label = "ELO"
+                display_label = "PTS"
             
             # Check if query is an age filter (e.g., "<25", ">20", "=18")
             age_filter = None
@@ -1605,6 +1607,20 @@ class TennisGMApp:
         search_entry = tk.Entry(search_frame, textvariable=search_var, font=("Arial", 12), width=30)
         search_entry.pack(side="left")
         
+        def update_hof_list(*args):
+            query = search_var.get().lower().strip()
+            # Save search query for next time
+            self.hof_search_query = query
+            
+            # Filter HOF members based on search query
+            filtered_members = []
+            for player in hof_members:
+                if not query or query in player['name'].lower():
+                    filtered_members.append(player)
+            
+            # Recreate cards with filtered members
+            create_hof_cards(filtered_members)
+        
         def create_hof_cards(players_to_show):
             for widget in scroll_frame.winfo_children():
                 widget.destroy()
@@ -1749,8 +1765,9 @@ class TennisGMApp:
         canvas.bind_all("<Button-4>", lambda e: canvas.yview_scroll(-1, "units"))
         canvas.bind_all("<Button-5>", lambda e: canvas.yview_scroll(1, "units"))
 
-        # Initial population with cards
-        create_hof_cards(hof_members)
+        # Initial population with cards (with search filtering)
+        update_hof_list()
+        search_var.trace_add("write", update_hof_list)
         
         # Restore scroll position after initial render
         self.root.after(50, lambda: self._restore_hof_scroll_position(canvas))
@@ -1863,7 +1880,8 @@ class TennisGMApp:
             
             status_info = [
                 ("🏆 HOF Points", hof_points),
-                ("🎯 Highest Ranking/ELO", f"#{player.get('highest_ranking', 'N/A')}/{player.get('highest_elo', 'No Data')}"),
+                ("🎯 Highest Ranking/Points", f"#{player.get('highest_ranking', 'N/A')}/{player.get('highest_points', 'No Data')}"),
+                ("🎾 Archetype", player.get('archetype', 'N/A'))
             ]
             
             for label, value in status_info:
@@ -2803,8 +2821,8 @@ class TennisGMApp:
         p2_ranking = player2.get('rank', 'N/A')
         p1_age = player1.get('age', 'N/A')
         p2_age = player2.get('age', 'N/A')
-        p1_elo = self.scheduler.ranking_system.get_elo_points(player1, self.scheduler.current_date)
-        p2_elo = self.scheduler.ranking_system.get_elo_points(player2, self.scheduler.current_date)
+        p1_points = self.scheduler.ranking_system.get_current_points(player1['id'], self.scheduler.current_date, self.scheduler.current_year, self.scheduler.current_week)
+        p2_points = self.scheduler.ranking_system.get_current_points(player2['id'], self.scheduler.current_date, self.scheduler.current_year, self.scheduler.current_week)
         
         # Skill abbreviation mapping
         skill_abbreviations = {
@@ -2924,7 +2942,7 @@ class TennisGMApp:
         p1_content.pack(fill="both", expand=True, padx=15, pady=15)
         
         # Player 1 basic info only (no skills)
-        p1_info_text = f"""Ranking: #{p1_ranking} - ELO: {p1_elo}
+        p1_info_text = f"""Ranking: #{p1_ranking} - Points: {p1_points}
 Archetype: {player1.get('archetype', 'N/A')}
 Last Title: {self.get_player_last_tournament_won(player1)}
 {p1_age}yo"""
@@ -2963,7 +2981,7 @@ Last Title: {self.get_player_last_tournament_won(player1)}
         p2_content.pack(fill="both", expand=True, padx=15, pady=15)
         
         # Player 2 basic info only (no skills)
-        p2_info_text = f"""Ranking: #{p2_ranking} - ELO: {p2_elo}
+        p2_info_text = f"""Ranking: #{p2_ranking} - Points: {p2_points}
 Archetype: {player2.get('archetype', 'N/A')}
 Last Title: {self.get_player_last_tournament_won(player2)}
 {p2_age}yo"""
@@ -4091,7 +4109,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                             commentary_label.config(text=ctext)
                         except Exception:
                             pass
-                    if _next is not None and _next < len(point_events):
+                    # Auto-advance to next point or match end screen (final point case too)
+                    if _next is not None and _next <= len(point_events):
                         def safe_advance():
                             try:
                                 if self.animation_active:
@@ -4399,9 +4418,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         )
         name_label.pack(fill="x", pady=(0, 10))
         
-        # Global rank/ELO/Age
-        current_elo_points = self.scheduler.ranking_system.get_elo_points(player, self.scheduler.current_date)
-        rank_text = f"Rank: #{player.get('rank', 'N/A')} | ELO: {current_elo_points} | Age: {player.get('age', 'N/A')}"
+        # Global rank/Points/Age
+        current_points = self.scheduler.ranking_system.get_current_points(player['id'], self.scheduler.current_date, self.scheduler.current_year, self.scheduler.current_week)
+        rank_text = f"Rank: #{player.get('rank', 'N/A')} | Points: {current_points} | Age: {player.get('age', 'N/A')}"
         rank_label = tk.Label(
             main_frame,
             text=rank_text,
@@ -5469,6 +5488,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 x = 40 + display_r * round_gap
                 round_y_positions = []
 
+                # For the current round, use active_matches to ensure up-to-date data
+                if actual_round == t.get('current_round') and t.get('active_matches'):
+                    round_matches = t['active_matches']
+
                 for m_idx, m in enumerate(round_matches):
                     if display_r == 0:
                         y = y_offset + m_idx * (match_height + match_gap)
@@ -5799,9 +5822,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
         p1 = t['player_data'][p1_id]
         p2 = t['player_data'][p2_id]
-        self._show_exhibition_faceoff(p1, p2, match_idx)
+        self._show_exhibition_faceoff(p1, p2, match_idx, p1_id, p2_id)
 
-    def _show_exhibition_faceoff(self, player1, player2, match_idx):
+    def _show_exhibition_faceoff(self, player1, player2, match_idx, orig_p1_id, orig_p2_id):
         """Show a faceoff screen for an exhibition match."""
         for widget in self.root.winfo_children():
             widget.destroy()
@@ -5969,8 +5992,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             winner_id = player1['id'] if engine.sets['player1'] > engine.sets['player2'] else player2['id']
             score = engine.format_set_scores()
 
-            # Update bracket
-            t['active_matches'][match_idx] = (player1['id'], player2['id'], winner_id, score)
+            # Update bracket using ORIGINAL player IDs (not engine-modified ones with suffixes)
+            # The engine may have added suffixes to player IDs, so use original IDs instead
+            t['active_matches'][match_idx] = (orig_p1_id, orig_p2_id, orig_p1_id if engine.sets['player1'] > engine.sets['player2'] else orig_p2_id, score)
             t['bracket'][t['current_round']][match_idx] = t['active_matches'][match_idx]
             self._exhibition_check_round_complete()
 

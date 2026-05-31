@@ -333,16 +333,16 @@ class TournamentScheduler:
         # Weekly decay removed - now balancing through halved ELO gains instead
         # self.ranking_system.apply_weekly_elo_decay(self.players)
         
-        self.ranking_system.update_combined_rankings(self.players, self.current_date)
+        self.ranking_system.update_combined_rankings(self.players, self.current_date, self.current_year, self.current_week)
         self.ranking_system.update_all_junior_rankings(self.players)
         for player in self.players:
             if not player.get('retired', False):
                 if player.get('rank', 999) < player.get('highest_ranking', 999):
                     player['highest_ranking'] = player['rank']
-                # Update highest ELO points (ELO rating + Championship points)
-                current_elo_points = self.ranking_system.get_elo_points(player, self.current_date)
-                if current_elo_points > player.get('highest_elo', 0):
-                    player['highest_elo'] = current_elo_points
+                # Update highest championship points
+                current_points = self.ranking_system.get_current_points(player['id'], self.current_date, self.current_year, self.current_week)
+                if current_points > player.get('highest_points', 0):
+                    player['highest_points'] = current_points
         # Snapshot skills before development so news can report improvements
         self._pre_dev_skills = {
             p['id']: {k: v for k, v in p.get('skills', {}).items()}
@@ -578,14 +578,14 @@ class TournamentScheduler:
         def get_participation_chance(player_rank, category):
             """Get participation chance based on player rank and tournament category"""
             if category == "Split":
-                return 0.99
+                return 0.95
             elif category == "Masters":
-                return 0.90 if player_rank <= 64 else 0.99
+                return 0.85 if player_rank <= 64 else 0.95
             elif category == "LV 500":
                 if player_rank <= 20:
-                    return 0.4
+                    return 0.3
                 elif player_rank <= 50:
-                    return 0.6
+                    return 0.5
                 elif player_rank <= 100:
                     return 0.85
                 else:
@@ -1395,7 +1395,7 @@ class TournamentScheduler:
             'name' : player['name'],
             'tournament_wins' : player.get('tournament_wins', []).copy(),
             'highest_ranking': player.get('highest_ranking', 999),
-            'highest_elo': player.get('highest_elo', 999),
+            'highest_points': player.get('highest_points', 999),
             'hof_points': 0,
             'mawn': player.get('mawn'),
             'w1': player.get('w1'),
@@ -1525,6 +1525,13 @@ class TournamentScheduler:
             )[:100]
             hof_names = set(p['name'] for p in hof_members)
             notable_retirees = [p for p in self.current_year_retirees if p in hof_names]
+            
+            # Sort notable retirees by HOF points (highest first)
+            notable_retirees = sorted(
+                notable_retirees,
+                key=lambda name: next((h['hof_points'] for h in self.hall_of_fame if h['name'] == name), 0),
+                reverse=True
+            )
 
             if notable_retirees:
                 # Try to find career stats for the retiree(s)
