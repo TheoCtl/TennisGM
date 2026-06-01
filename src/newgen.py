@@ -41,6 +41,69 @@ class NewGenGenerator:
                    "brute", "baseliner", "net-player", "specialist", "wildcard"]
     MENTALITY_WEIGHTS = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 
+    @staticmethod
+    def assign_mentality_from_archetype(archetype_key, skills):
+        """
+        Assign mentality based on archetype keys and skill profile.
+        This ensures players' mentality matches their actual strengths.
+        
+        Archetype_key is a tuple of top-3 skill names (e.g., ('dropshot', 'volley', 'speed')).
+        """
+        if not archetype_key:
+            # Fallback for players with no clear archetype
+            return "neutral"
+        
+        key_set = set(archetype_key)
+        
+        # Marathonian: High stamina + slice (durability, wear down opponents with defensive shots)
+        if 'stamina' in key_set and 'slice' in key_set:
+            return "marathonian"
+        
+        # Disruptor: High dropshot + volley (unpredictable, tactical variety)
+        if 'dropshot' in key_set and 'volley' in key_set:
+            return "disruptor"
+        
+        # Net-player: High volley (dominant net presence)
+        if 'volley' in key_set and 'dropshot' not in key_set and len(key_set) >= 1:
+            return "net-player"
+        
+        # Brute: High lift without slice (aggressive power, topspin offense)
+        if 'lift' in key_set and 'slice' not in key_set:
+            return "brute"
+        
+        # Specialist: Directional specialist (cross or straight, not both) + at least one groundstroke (forehand/backhand)
+        # This player has a clear directional preference and ground game to execute it
+        has_cross = 'cross' in key_set
+        has_straight = 'straight' in key_set
+        has_fh_bh = any(k in key_set for k in ('forehand', 'backhand'))
+        if (has_cross and not has_straight) or (has_straight and not has_cross):
+            if has_fh_bh:
+                return "specialist"
+        
+        # Baseliner: Both forehand AND backhand, but no special shots (pure groundstroke focus)
+        # Made stricter (requires BOTH fh and bh) to reduce frequency and increase neutral prevalence
+        has_forehand = 'forehand' in key_set
+        has_backhand = 'backhand' in key_set
+        if has_forehand and has_backhand and 'volley' not in key_set and 'dropshot' not in key_set and 'lift' not in key_set and 'slice' not in key_set:
+            return "baseliner"
+        
+        # Strategist: IQ-driven tactical play
+        if 'iq' in key_set:
+            return "strategist"
+        
+        # Opportunist: Multiple special shots (diverse tactical options, adapts with variety)
+        special_shots = {'lift', 'slice', 'dropshot', 'volley'}
+        special_count = len([k for k in key_set if k in special_shots])
+        if special_count >= 2:
+            return "opportunist"
+        
+        # Wildcard: Random assignment (unpredictable playstyle)
+        if random.random() < 0.05:  # 5% chance
+            return "wildcard"
+        
+        # Default to neutral for truly balanced players
+        return "neutral"
+
     def generate_player_with_ids(self, current_year, player_id, player_rank):
         """Generate a new young player with random attributes"""
         first_name = random.choice(self.name_data["first_names"])
@@ -79,7 +142,6 @@ class NewGenGenerator:
             "tournament_history": [],
             "tournament_wins": [],
             "bonus": random.choice(list(skills.keys())),
-            "mentality": random.choices(self.MENTALITIES, weights=self.MENTALITY_WEIGHTS, k=1)[0],
             "year_start_rankings": {},  # Track ranking at start of each year
         }
 
@@ -95,6 +157,10 @@ class NewGenGenerator:
             # If archetype resolution fails for any reason, fall back to a generic value
             player.setdefault('archetype', 'Balanced Player')
             player.setdefault('archetype_key', tuple())
+        
+        # Assign mentality based on archetype (not randomly)
+        archetype_key = player.get('archetype_key', tuple())
+        player['mentality'] = self.assign_mentality_from_archetype(archetype_key, skills)
 
         return player
     

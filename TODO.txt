@@ -1,0 +1,16 @@
+2065 : lancer analyze_mentality_balance.py et comparer
+
+
+⚠️  MAJOR IMBALANCE: 48.5 position gap between best and worst!
+
+Detailed Inequality Breakdown:
+  ✓ neutral: +0.0 positions
+  ⚠️  opportunist: +8.6 positions worse than best
+  ⚠️  brute: +24.5 positions worse than best
+  ⚠️  specialist: +25.6 positions worse than best
+  ⚠️  net-player: +25.9 positions worse than best
+  ⚠️  baseliner: +28.2 positions worse than best
+  ⚠️  disruptor: +29.2 positions worse than best
+  ⚠️  wildcard: +29.6 positions worse than best
+  ⚠️  strategist: +36.8 positions worse than best
+  ⚠️  marathonian: +48.5 positions worse than best

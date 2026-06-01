@@ -76,13 +76,11 @@ class TennisGMApp:
                     p.setdefault('archetype', 'Balanced Player')
                     p.setdefault('archetype_key', tuple())
                     changed = True
-            # Ensure every player has a mentality (neutral/opportunist/strategist)
+            # Ensure every player has a mentality (based on archetype, not random)
             if 'mentality' not in p:
-                import random
-                p['mentality'] = random.choices(
-                    ["neutral", "opportunist", "strategist"],
-                    weights=[50, 25, 25], k=1
-                )[0]
+                from newgen import NewGenGenerator
+                archetype_key = p.get('archetype_key', tuple())
+                p['mentality'] = NewGenGenerator.assign_mentality_from_archetype(archetype_key, p.get('skills', {}))
                 changed = True
             # Ensure every player has a 'mental' skill (backfill for existing saves)
             if 'mental' not in p.get('skills', {}):

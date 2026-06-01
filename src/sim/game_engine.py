@@ -687,18 +687,20 @@ class GameEngine:
         return min(100, max(1, round(precision)))
 
     def _get_stamina_speed_modifier(self, player):
-        """Speed penalty: -33% if stamina drops below 40, otherwise no penalty."""
+        """Speed penalty: scales from 1.0x (50+ stamina) to 0.5x (0 stamina). Severe degradation."""
         ms = self.match_stamina[player["id"]]
-        if ms >= 40:
+        if ms >= 50:
             return 1.0
-        return 0.67
+        # Linear scale: 1.0x at 50 stamina down to 0.5x at 0 stamina
+        return 0.5 + (ms / 100.0)
 
     def _get_stamina_power_modifier(self, player):
-        """Power penalty: -33% if stamina drops below 20, otherwise no penalty."""
+        """Power penalty: scales from 1.0x (80+ stamina) to 0.4x (0 stamina). Much harsher than speed."""
         ms = self.match_stamina[player["id"]]
-        if ms >= 20:
+        if ms >= 80:
             return 1.0
-        return 0.67
+        # Aggressive scale: 1.0x at 80 stamina down to 0.4x at 0 stamina (60% penalty)
+        return 0.4 + (ms / 200.0)
 
     def reduce_stamina(self, player, opponent_shot_precision, shot_type=None):
         """
