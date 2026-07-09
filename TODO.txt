@@ -1,3 +1,4 @@
+Chaque année : regarder mentalités newgen et corriger conditions acquisitions jusqu'à majorité neutral et minorité équilibrée ment
 2065 : lancer analyze_mentality_balance.py et comparer
 
 

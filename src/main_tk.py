@@ -15,16 +15,16 @@ from face_generator import generate_face, create_face_canvas
 PRESTIGE_ORDER = ["Special", "Split", "Masters", "LV 500", "LV 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "Future", "Juniors"]
 
 MENTALITY_DESCRIPTIONS = {
-    "neutral": "Plays with no particular adjustments. Baseline 35% cross, 35% straight, 5% dropshot, 5% volley, 10% lift, 10% slice.",
-    "opportunist": "Comfortable rallies: 40% fewer special shots. Under pressure: up to 140% more special shots (dropshots, volleys, lift, slice).",
-    "strategist": "Targets opponent's weaker groundstroke side. Up to 80% more shots to the weak side based on FH/BH skill difference.",
-    "disruptor": "Against slow opponents: 200%+ more dropshots. Against fast opponents: 200%+ more volleys.",
-    "marathonian": "Relies on endurance: 80% more slice, 40% fewer lift attempts. Controls rallies through variation.",
-    "brute": "Aggressive power player: 80% more lift attempts, 40% fewer slice. Dominates with attacking shots.",
-    "baseliner": "Stays back: 60% fewer dropshots and volleys. Rarely ventures to the net.",
-    "net-player": "Aggressive at net: 100% more dropshots and volleys. Finishes points at the net.",
-    "specialist": "Exploits strength: 50% more shots on their stronger direction (cross or straight).",
-    "wildcard": "Each game: 70% boost on one spin type (lift or slice) + 40% boost on one direction (cross or straight). Unpredictable.",
+    "neutral": "A Neutral is a player with no particular standout stats.\n\nNeutrals use all shots equally.",
+    "wildcard": "A Wildcard is a player with at least 2 specials shots in his key stats.\n\nWildcards tend to use regular shots when under control, and special shots when under pressure.",
+    "strategist": "A Strategist is a player with IQ in his key stats.\n\nStrategists tend to target their opponent's weaker shot.",
+    "disruptor": "A Disruptor is a player with either volley or dropshot in his key stats as well as IQ.\n\nDisruptors tend to use volleys against fast opponents and dropshots against slower ones.",
+    "marathonian": "A Marathonian is a player with slice and stamina in his key stats.\n\nMarathonians tend to extend rallies with slices to wear out their opponents.",
+    "brute": "A Brute is a player with lift and forehand/backhand in his key stats, but not slice nor dropshot.\n\nBrutes tend to try to finish points quickly with lifts.",
+    "baseliner": "A Baseliner is a player with forehand and backhand in his key stats, but no special shots.\n\nBaseliners tend to keep rallies at the back of the court and rarely try dropshots and volleys.",
+    "net-player": "A Net-player is a player with volley and dropshot in his key stats.\n\nNet-players tend to do more dropshots and volleys.",
+    "specialist": "A Specialist is a player that has either cross or straight in his key stats, as well as forehand and/or backhand.\n\nSpecialists tend to use their best side way more than their weak one.",
+    "opportunist": "An Opportunist is a player with IQ and mental in his keys stats.\n\nOpportunists tend to remember which shots worked for them in a match and reproduce them more often.",
 }
 
 class TennisGMApp:
@@ -980,7 +980,7 @@ class TennisGMApp:
         
         description = MENTALITY_DESCRIPTIONS.get(mentality, "Unknown mentality type.")
         tk.Label(content, text=description, font=("Arial", 11), bg="white", fg="#2c3e50",
-                 wraplength=350, justify="left", anchor="w").pack(fill="both", expand=True)
+                 wraplength=350, justify="center", anchor="w").pack(fill="both", expand=True)
         
         # Close button
         button_frame = tk.Frame(popup, bg="white")
@@ -1133,9 +1133,9 @@ class TennisGMApp:
             tk.Label(sort_frame, text="Sort by:", font=("Arial", 10, "bold"), 
                     bg="#2c3e50", fg="white").pack(side="left", padx=(15, 5))
             
-            self.ranking_sort_mode = getattr(self, 'ranking_sort_mode', "Points")
+            self.ranking_sort_mode = getattr(self, 'ranking_sort_mode', "Rankings")
             
-            for mode in ["Points", "Overall", "Potential"]:
+            for mode in ["Rankings", "Race", "Overall", "Potential"]:
                 is_active = mode == self.ranking_sort_mode
                 bg_color = "#27ae60" if is_active else "#34495e"
                 
@@ -1189,7 +1189,7 @@ class TennisGMApp:
                 widget.destroy()
             
             # Determine sorting mode (only applies to Ranking tab)
-            sort_mode = self.ranking_sort_mode if self.current_rankings_tab == "Ranking" else "Points"
+            sort_mode = self.ranking_sort_mode if self.current_rankings_tab == "Ranking" else "Rankings"
             
             if sort_mode == "Overall":
                 # Sort by Overall (average of skills)
@@ -1201,6 +1201,14 @@ class TennisGMApp:
                     key=lambda x: x[1], reverse=True
                 )
                 display_label = "OVR"
+            elif sort_mode == "Race":
+                ranked_players = self.scheduler.ranking_system.get_race_ranked_players(
+                    self.scheduler.players,
+                    self.scheduler.current_date,
+                    self.scheduler.current_year,
+                    self.scheduler.current_week
+                )
+                display_label = "PTS"
             elif sort_mode == "Potential":
                 # Sort by Potential (use the player's potential_factor directly)
                 ranked_players = sorted(
@@ -1253,19 +1261,23 @@ class TennisGMApp:
                 # Create card-style entry
                 is_favorite = player.get('favorite', False)
                 
-                # Top 3 get special colors
+                # Top 4 get special colors
                 if ranking_pos == 1:
                     bg_color = "#f39c12"  # Gold
                     fg_color = "white"
-                    rank_icon = "🥇"
+                    rank_icon = "⭐" if is_favorite else "🥇"
                 elif ranking_pos == 2:
                     bg_color = "#95a5a6"  # Silver
                     fg_color = "white"
-                    rank_icon = "🥈"
+                    rank_icon = "⭐" if is_favorite else ""
                 elif ranking_pos == 3:
                     bg_color = "#d35400"  # Bronze
                     fg_color = "white"
-                    rank_icon = "🥉"
+                    rank_icon = "⭐" if is_favorite else ""
+                elif ranking_pos == 4:
+                    bg_color = "#608838"
+                    fg_color = "white"
+                    rank_icon = "⭐" if is_favorite else ""
                 else:
                     bg_color = "#3498db" if is_favorite else "white"
                     fg_color = "white" if is_favorite else "#2c3e50"
@@ -1280,7 +1292,7 @@ class TennisGMApp:
                     anchor="w",
                     bg=bg_color,
                     fg=fg_color,
-                    font=("Arial", 12, "bold" if ranking_pos <= 3 or is_favorite else "normal"),
+                    font=("Arial", 12, "bold" if ranking_pos <= 4 or is_favorite else "normal"),
                     relief="flat",
                     bd=0,
                     padx=15,
@@ -3796,9 +3808,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
                 return {
                     'Base Shots': base_shots,
+                    'Special Shots': special_shots,
                     'Physicality': physicality,
                     'Tactics': tactics,
-                    'Special Shots': special_shots,
                     'Overall': overall
                 }
 
@@ -5381,7 +5393,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                           relief="flat", bd=0, padx=12, pady=5).pack(side="left", padx=2)
 
         # Draw the bracket
-        self._draw_exhibition_bracket()
+        self.exhibition_bracket_frame = tk.Frame(self.root, bg="white")
+        self.exhibition_bracket_frame.pack(fill="both", expand=True)
+        self._draw_exhibition_bracket(self.exhibition_bracket_frame)
         
         # Restore scroll position after drawing
         self.root.after(50, self._restore_exhibition_scroll_position)
@@ -5392,11 +5406,22 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         self.exhibition_bracket_tab = tab_name
         self.show_exhibition_bracket()
 
-    def _draw_exhibition_bracket(self):
+    def _refresh_exhibition_bracket(self):
+        """Refresh the bracket view without rebuilding the entire screen."""
+        if getattr(self, 'exhibition_bracket_frame', None) and self.exhibition_bracket_frame.winfo_exists():
+            self._save_exhibition_scroll_position()
+            self.exhibition_bracket_frame.destroy()
+
+        self.exhibition_bracket_frame = tk.Frame(self.root, bg="white")
+        self.exhibition_bracket_frame.pack(fill="both", expand=True)
+        self._draw_exhibition_bracket(self.exhibition_bracket_frame)
+        self.root.after(50, self._restore_exhibition_scroll_position)
+
+    def _draw_exhibition_bracket(self, parent=None):
         """Draw the exhibition tournament bracket on a scrollable canvas."""
         t = self.exhibition_tournament
 
-        frame = tk.Frame(self.root, bg="white")
+        frame = tk.Frame(parent or self.root, bg="white")
         frame.pack(fill="both", expand=True)
         canvas = tk.Canvas(frame, bg="white", width=1300, height=1600, highlightthickness=0)
         vscroll = tk.Scrollbar(frame, orient="vertical", command=canvas.yview)
@@ -5503,8 +5528,18 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     winner_id = m[2] if len(m) > 2 else None
                     score = m[3] if len(m) > 3 else ""
 
-                    p1_name = t['player_data'].get(p1_id, {}).get('name', 'BYE') if p1_id else 'BYE'
-                    p2_name = t['player_data'].get(p2_id, {}).get('name', 'BYE') if p2_id else 'BYE'
+                    def _display_name(player_id):
+                        if not player_id:
+                            return 'BYE'
+                        player = t['player_data'].get(player_id, {})
+                        name = player.get('name', 'BYE')
+                        hof_rank = player.get('hof_rank')
+                        if hof_rank:
+                            return f"{name} (HOF #{hof_rank})"
+                        return name
+
+                    p1_name = _display_name(p1_id)
+                    p2_name = _display_name(p2_id)
 
                     # Parse scores
                     p1_sets, p2_sets, set_winners = [], [], []
@@ -5779,21 +5814,17 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
     def _exhibition_simulate_match(self, match_idx):
         """Simulate one exhibition match and refresh the bracket view."""
-        # Save scroll position before simulating
-        self._save_exhibition_scroll_position()
         self._exhibition_simulate_match_internal(match_idx)
         self._exhibition_check_round_complete()
-        self.show_exhibition_bracket()
+        self._refresh_exhibition_bracket()
 
     def _exhibition_simulate_round(self):
         """Simulate all unfinished matches in the current round."""
-        # Save scroll position before simulating
-        self._save_exhibition_scroll_position()
         t = self.exhibition_tournament
         for i in range(len(t['active_matches'])):
             self._exhibition_simulate_match_internal(i)
         self._exhibition_check_round_complete()
-        self.show_exhibition_bracket()
+        self._refresh_exhibition_bracket()
 
     # ── Watch match (faceoff → visualization) ──
 
@@ -6073,9 +6104,21 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
     # ── Build exhibition player dict ──
 
+    def _get_hof_rank(self, hof_entry):
+        """Return the HOF ranking for a Hall of Fame entry by HOF points."""
+        ranked_members = sorted(
+            self.scheduler.hall_of_fame,
+            key=lambda entry: (-entry.get('hof_points', self._calculate_hof_points(entry)), entry.get('highest_ranking', 999), entry.get('name', ''))
+        )
+        for idx, member in enumerate(ranked_members, 1):
+            if member.get('name') == hof_entry.get('name') and member.get('id') == hof_entry.get('id'):
+                return idx
+        return None
+
     def _build_exhibition_player(self, hof_entry):
         """Build a player dict for GameEngine from a HOF entry."""
         import uuid
+        hof_points = hof_entry.get('hof_points', self._calculate_hof_points(hof_entry))
         return {
             'id': f"hof_{hof_entry.get('name', 'Unknown')}_{uuid.uuid4().hex[:6]}",
             'name': hof_entry.get('name', 'Unknown'),
@@ -6085,6 +6128,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             'archetype_key': (),
             'rank': hof_entry.get('highest_ranking', 999),
             'age': 'HOF',
+            'hof_rank': self._get_hof_rank(hof_entry),
+            'hof_points': hof_points,
             'mentality': 'neutral',
             'cross_tend': 40, 'straight_tend': 40, 'dropshot_tend': 5,
             'volley_tend': 5, 'lift_tend': 5, 'slice_tend': 5,

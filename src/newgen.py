@@ -61,25 +61,18 @@ class NewGenGenerator:
         
         # Disruptor: High dropshot + volley (unpredictable, tactical variety)
         if 'dropshot' in key_set and 'volley' in key_set:
-            return "disruptor"
-        
-        # Net-player: High volley (dominant net presence)
-        if 'volley' in key_set and 'dropshot' not in key_set and len(key_set) >= 1:
             return "net-player"
         
+        # Net-player: High volley AND speed (dominant net presence with athleticism)
+        if ('volley' in key_set and 'iq' in key_set and 'dropshot' not in key_set) or ('volley' not in key_set and 'iq' in key_set and 'dropshot' in key_set):
+            return "disruptor"
+        
         # Brute: High lift without slice (aggressive power, topspin offense)
-        if 'lift' in key_set and 'slice' not in key_set:
-            return "brute"
-        
-        # Specialist: Directional specialist (cross or straight, not both) + at least one groundstroke (forehand/backhand)
-        # This player has a clear directional preference and ground game to execute it
-        has_cross = 'cross' in key_set
-        has_straight = 'straight' in key_set
         has_fh_bh = any(k in key_set for k in ('forehand', 'backhand'))
-        if (has_cross and not has_straight) or (has_straight and not has_cross):
+        if 'lift' in key_set and 'slice' not in key_set and 'dropshot' not in key_set:
             if has_fh_bh:
-                return "specialist"
-        
+                return "brute"
+                
         # Baseliner: Both forehand AND backhand, but no special shots (pure groundstroke focus)
         # Made stricter (requires BOTH fh and bh) to reduce frequency and increase neutral prevalence
         has_forehand = 'forehand' in key_set
@@ -87,20 +80,28 @@ class NewGenGenerator:
         if has_forehand and has_backhand and 'volley' not in key_set and 'dropshot' not in key_set and 'lift' not in key_set and 'slice' not in key_set:
             return "baseliner"
         
+        # Opportunist: players that adapt to the match
+        if 'iq' in key_set and 'mental' in key_set:
+            return "opportunist"
+        
         # Strategist: IQ-driven tactical play
         if 'iq' in key_set:
             return "strategist"
         
-        # Opportunist: Multiple special shots (diverse tactical options, adapts with variety)
+        # wildcard: Multiple special shots (diverse tactical options, adapts with variety)
         special_shots = {'lift', 'slice', 'dropshot', 'volley'}
         special_count = len([k for k in key_set if k in special_shots])
         if special_count >= 2:
-            return "opportunist"
-        
-        # Wildcard: Random assignment (unpredictable playstyle)
-        if random.random() < 0.05:  # 5% chance
             return "wildcard"
         
+        # Specialist: Directional specialist (cross or straight, not both) + at least one groundstroke (forehand/backhand)
+        # This player has a clear directional preference and ground game to execute it
+        has_cross = 'cross' in key_set
+        has_straight = 'straight' in key_set
+        if (has_cross and not has_straight) or (has_straight and not has_cross):
+            if has_forehand and has_backhand:
+                return "specialist"
+                
         # Default to neutral for truly balanced players
         return "neutral"
 
@@ -111,12 +112,12 @@ class NewGenGenerator:
         last_name = self.generate_procedural_last_name()
 
         r = random.random()
-        if r >= 0.93:
-            potential_factor = round(random.uniform(2.0, 2.5), 3)   # 5% — generational talent
-        elif r >= 0.8:
-            potential_factor = round(random.uniform(1.5, 2.0), 3)   # 10% — high potential
+        if r >= 0.85:
+            potential_factor = round(random.uniform(2.0, 2.5), 3)   # 15% — generational talent
+        elif r >= 0.60:
+            potential_factor = round(random.uniform(1.5, 2.0), 3)   # 25% — high potential
         else:
-            potential_factor = round(random.uniform(1.0, 1.5), 3)   # 85% — average
+            potential_factor = round(random.uniform(1.0, 1.5), 3)   # 60% — average
 
         skills = self.generate_skills()
 

@@ -14,7 +14,7 @@ import math
 #   speed          – multiplied onto effective speed in can_catch
 SURFACE_EFFECTS = {
     "clay":    {"stamina_drain": 0.8, "lift_power": 1.05, "dropshot_power": 1.05},
-    "grass":   {"serve_power": 1.05, "slice_stamina": 1.7, "backhand_power": 1.05},
+    "grass":   {"serve_power": 1.05, "slice_stamina": 2.2, "backhand_power": 1.05},
     "hard":    {"forehand_power": 1.05, "speed": 1.05, "cross_prec": 1.05},
     "indoor":  {"volley_power": 1.05, "straight_prec": 1.05, "serve_power": 1.05},
 }
@@ -33,6 +33,9 @@ class GameEngine:
         self.original_player2 = player2
         self.p1 = self._apply_random_form(player1.copy())
         self.p2 = self._apply_random_form(player2.copy())
+        self.mentality_advantage_player_id = self._resolve_mentality_advantage(player1, player2)
+        if self.mentality_advantage_player_id:
+            self._apply_mentality_advantage_form_boost(self.mentality_advantage_player_id)
         self.games = {"player1": 0, "player2": 0}  # Games won in the current set
         self.sets = {"player1": 0, "player2": 0}  # Sets won in the match
         self.set_scores = []  # Track the scores of each set as tuples (player1_games, player2_games)
@@ -81,9 +84,18 @@ class GameEngine:
         self.last_shot_type = None
         # Current return multiplier (updated each rally exchange for mentality access)
         self.current_return_multiplier = 1.0
-        # Wildcard mentality state: random boosts regenerated each game
-        self._wildcard_boosts = {}
-        self._wildcard_game_key = None
+        # Side the incoming ball is on for the current hitter (set during a rally);
+        # None for serves. Used by the strategist to know its current stroke.
+        self._incoming_side = None
+        # Wildcard mentality state: persistent per-player tendency reinforcement.
+        # After every point won (except aces), the winning shot's tendency multiplier
+        # grows and all the others decay, so a wildcard player drifts toward whatever
+        # keeps winning. Accumulates across the whole match (never reset). No cap.
+        # Indices: 0=cross, 1=straight, 2=dropshot, 3=volley, 4=lift, 5=slice
+        self._wildcard_mult = {
+            player1["id"]: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            player2["id"]: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+        }
         
         # Calculate dynamic surface effects based on skill advantage
         # Use ORIGINAL player stats (before form multipliers) for consistent comparison
@@ -140,6 +152,74 @@ class GameEngine:
             self.p2['id']: max(0.0, self.match_stamina[self.p2['id']] / 100.0),
         }
         
+    def _resolve_mentality_advantage(self, player1, player2):
+        """Resolve a mentality-based form advantage before the match starts.
+
+        The advantage cycle is:
+        opportunist -> wildcard -> marathonian -> baseliner -> strategist ->
+        brute -> net-player -> specialist -> disruptor -> opportunist
+
+        If either player uses the neutral mentality, we fall back to the previous
+        behavior and do not apply an advantage. If no edge is detected, we also
+        fall back to the previous behavior.
+        """
+        mentality1 = player1.get("mentality", "neutral")
+        mentality2 = player2.get("mentality", "neutral")
+
+        if mentality1 == "neutral" or mentality2 == "neutral":
+            return None
+
+        cycle = [
+            "opportunist",
+            "wildcard",
+            "marathonian",
+            "baseliner",
+            "strategist",
+            "brute",
+            "net-player",
+            "specialist",
+            "disruptor",
+        ]
+
+        if mentality1 == mentality2:
+            return None
+
+        try:
+            idx1 = cycle.index(mentality1)
+            idx2 = cycle.index(mentality2)
+        except ValueError:
+            return None
+
+        # A mentality gains the advantage if it appears immediately before the
+        # opponent in the cycle (for example, opportunist beats wildcard).
+        previous_idx = (idx2 - 1) % len(cycle)
+        if mentality1 == cycle[previous_idx]:
+            return player1.get("id")
+
+        previous_idx = (idx1 - 1) % len(cycle)
+        if mentality2 == cycle[previous_idx]:
+            return player2.get("id")
+
+        return None
+
+    def _apply_mentality_advantage_form_boost(self, advantaged_player_id):
+        """Apply a form boost to the advantaged player and a penalty to the opponent."""
+        if advantaged_player_id == self.p1["id"]:
+            self.p1["form_multiplier"] = random.uniform(1.01, 1.05)
+            self.p2["form_multiplier"] = random.uniform(0.95, 0.99)
+        elif advantaged_player_id == self.p2["id"]:
+            self.p2["form_multiplier"] = random.uniform(1.01, 1.05)
+            self.p1["form_multiplier"] = random.uniform(0.95, 0.99)
+
+        self.p1["skills"] = {
+            skill: min(100, math.floor(value * self.p1["form_multiplier"]))
+            for skill, value in self.original_player1["skills"].items()
+        }
+        self.p2["skills"] = {
+            skill: min(100, math.floor(value * self.p2["form_multiplier"]))
+            for skill, value in self.original_player2["skills"].items()
+        }
+
     def _apply_random_form(self, player):
         """Apply random form multiplier to all skills"""
         form_multiplier = random.uniform(0.965, 1.035)
@@ -341,6 +421,7 @@ class GameEngine:
 
         # Step 1: Server makes the first shot
         self.current_return_multiplier = 1.0
+        self._incoming_side = None  # serve has no incoming ball / stroke
         shot_direction = self.choose_shot_direction(hitter, opponent=defender)
         # Determine shot_leftright based on hitter's position and shot_direction
         shot_leftright = "left" if shot_direction == "cross" else "right"
@@ -411,6 +492,9 @@ class GameEngine:
             # Receiver becomes the hitter
             hitter, defender = defender, hitter
             self.current_return_multiplier = return_multiplier
+            # The side the incoming ball is on determines this hitter's stroke
+            # (forehand/backhand); strategist uses it to aim at the weak wing.
+            self._incoming_side = shot_leftright
             shot_direction = self.choose_shot_direction(hitter, opponent=defender)
             # Determine shot type: dropshot/volley/lift/slice/forehand/backhand
             if shot_direction in ("cross", "straight"):
@@ -437,7 +521,7 @@ class GameEngine:
 
             shot_power, shot_precision, shot_direction = self.calculate_shot(hitter, shot_type, shot_direction, return_multiplier)
             side = "left" if self._get_player_key(defender) == "player1" else "right"
-            
+    
             # For dropshot, calculate success before getting coordinates
             shot_success = None
             if shot_type == "dropshot":
@@ -490,6 +574,8 @@ class GameEngine:
                         self.reset_stamina_and_speed()
                         winner_key = self._get_player_key(hitter)
                         self.match_stats[hitter['id']]["dropshot_winners"] += 1
+                        # Wildcard: reinforce the dropshot that just won
+                        self._wildcard_reinforce(hitter, shot_type, shot_direction)
                         # Track break
                         if self._get_player_key(hitter) != self._get_player_key(server):
                             self.match_stats[hitter['id']]["breaks"] += 1
@@ -515,7 +601,7 @@ class GameEngine:
                 caught = True
                 
                 # Stamina penalty for sprinting to net
-                dropshot_stamina_drain = 7
+                dropshot_stamina_drain = 5
                 self.match_stamina[defender["id"]] = max(0, self.match_stamina[defender["id"]] - dropshot_stamina_drain)
                 
                 if self.volley_mode[defender["id"]]:
@@ -569,6 +655,9 @@ class GameEngine:
                 is_break = self._get_player_key(hitter) != self._get_player_key(server)
                 if is_break:
                     self.match_stats[hitter['id']]["breaks"] += 1
+
+                # Wildcard: reinforce the shot that just won the point
+                self._wildcard_reinforce(hitter, shot_type, shot_direction)
                 
                 if visualize:
                     point_events.append({
@@ -697,16 +786,16 @@ class GameEngine:
     def _get_stamina_power_modifier(self, player):
         """Power penalty: scales from 1.0x (80+ stamina) to 0.4x (0 stamina). Much harsher than speed."""
         ms = self.match_stamina[player["id"]]
-        if ms >= 80:
+        if ms >= 50:
             return 1.0
-        # Aggressive scale: 1.0x at 80 stamina down to 0.4x at 0 stamina (60% penalty)
-        return 0.4 + (ms / 200.0)
+        # Aggressive scale: 1.0x at 50 stamina down to 0.5x at 0 stamina
+        return 0.5 + (ms / 100.0)
 
     def reduce_stamina(self, player, opponent_shot_precision, shot_type=None):
         """
         Small per-catch drain for rally-length sensitivity and visual feedback.
         The main stamina drain happens per-point in reset_stamina_and_speed.
-        Receiving a slice costs 1.5x stamina (1.7x on grass).
+        Receiving a slice costs 2x stamina (2.2x on grass).
         Surface stamina_drain modifier (e.g. clay 0.8x) applies to all drain.
         """
         # Get dynamic surface effects based on player's skill advantage
@@ -715,7 +804,7 @@ class GameEngine:
         drain = opponent_shot_precision / (stamina_skill * 10.0)
         # Slices wear down the receiver (grass amplifies this further)
         if shot_type == "slice":
-            drain *= fx.get("slice_stamina", 1.5)
+            drain *= fx.get("slice_stamina", 2.0)
         # Surface stamina drain modifier (e.g. clay = 0.8x → less drain)
         drain *= fx.get("stamina_drain", 1.0)
         self.match_stamina[player["id"]] = max(0, self.match_stamina[player["id"]] - drain)
@@ -805,6 +894,48 @@ class GameEngine:
             # cross → right, straight → left
             return "cross" if target_side == "right" else "straight"
 
+    def _winning_tendency_index(self, shot_type, shot_direction):
+        """Map a point-winning shot back to its tendency index.
+
+        Tendency indices: 0=cross, 1=straight, 2=dropshot, 3=volley, 4=lift, 5=slice
+        Regular forehand/backhand winners are reinforced on their *direction*
+        (cross or straight); the special shots are reinforced on their own slot.
+        Returns None when there's nothing to reinforce (e.g. a serve/ace).
+        """
+        if shot_type in ("forehand", "backhand"):
+            if shot_direction == "cross":
+                return 0
+            if shot_direction == "straight":
+                return 1
+            return None
+        return {"dropshot": 2, "volley": 3, "lift": 4, "slice": 5}.get(shot_type)
+
+    # Wildcard reinforcement tuning. GROWTH multiplies the winning shot's tendency;
+    # DECAY multiplies every other shot's tendency. The per-win swing in relative
+    # odds is GROWTH/DECAY (~3.3x here), which is deliberately steep: a match winner
+    # only sees ~12-18 points, so the effect has to land fast to be visible.
+    _WILDCARD_GROWTH = 2.0
+    _WILDCARD_DECAY = 0.6
+
+    def _wildcard_reinforce(self, winner, shot_type, shot_direction):
+        """Reinforce the shot that just won the point, for opportunist players only.
+
+        Boosts the winning shot's tendency multiplier and decays all the others, so
+        the player increasingly favors whatever is working. Accumulates across the
+        whole match with no upper bound. Aces are excluded by the caller (an ace
+        isn't a chosen rally shot, so it doesn't teach the player anything).
+        """
+        if winner.get("mentality") != "opportunist":
+            return
+        idx = self._winning_tendency_index(shot_type, shot_direction)
+        if idx is None:
+            return
+        mult = self._wildcard_mult.get(winner["id"])
+        if mult is None:
+            return
+        for i in range(len(mult)):
+            mult[i] *= self._WILDCARD_GROWTH if i == idx else self._WILDCARD_DECAY
+
     def _get_mentality_adjusted_tendencies(self, player, opponent):
         """Adjust shot tendencies based on player mentality.
         
@@ -818,56 +949,82 @@ class GameEngine:
         # cross=35, straight=35, dropshot=5, volley=5, lift=10, slice=10
         base = [35, 35, 5, 5, 10, 10]
 
-        if mentality == "opportunist":
+        if mentality == "wildcard":
             # Comfort zone at high return_mult (easy ball) → fewer specials.
             # Under pressure (low return_mult) → more specials to escape.
             rm = self.current_return_multiplier
             if rm >= 1.0:
                 # Easy position: play safe, reduce specials
-                base[2] *= 0.6   # dropshot
-                base[3] *= 0.6   # volley
-                base[4] *= 0.7   # lift
-                base[5] *= 0.7   # slice
+                base[2] *= 0.5   # dropshot
+                base[3] *= 0.5   # volley
+                base[5] *= 0.5   # slice
             elif rm <= 0.7:
                 # Under pressure: boost specials to disrupt
-                boost = 1 + (0.7 - rm) * 2  # up to ~2.4x at rm=0
+                boost = 2  # up to ~2.4x at rm=0
                 base[2] *= boost  # dropshot
                 base[3] *= boost  # volley
                 base[4] *= boost  # lift
-                base[5] *= boost  # slice
 
         elif mentality == "strategist":
-            # Target opponent's weaker groundstroke side
-            weak_direction = self._get_direction_targeting_weak_side(player, opponent)
+            # Aim at the opponent's weaker wing. Which physical direction
+            # (cross/straight) sends the ball there depends on the stroke the
+            # player is currently hitting and on both players' handedness:
+            #
+            #   same handedness (both R or both L):
+            #     to opponent FOREHAND : forehand->cross,  backhand->straight
+            #     to opponent BACKHAND : forehand->straight, backhand->cross
+            #   opposite handedness: swap cross/straight in the rule above.
+            #
+            # Example (matches intent): opponent right-handed with a weak forehand,
+            # player right-handed -> hitting a forehand aims cross; a backhand aims
+            # straight.
             opp_skills = opponent["skills"]
-            fh_bh_diff = abs(opp_skills["forehand"] - opp_skills["backhand"])
-            side_boost = 1 + (fh_bh_diff / 100) * 1.8
-            if weak_direction == "cross":
-                base[0] *= side_boost
-            else:
-                base[1] *= side_boost
+            stroke = None
+            if self._incoming_side is not None:
+                stroke = self.determine_shot_type(player, self._incoming_side)
+            if stroke in ("forehand", "backhand"):
+                target_wing = ("forehand"
+                               if opp_skills["forehand"] < opp_skills["backhand"]
+                               else "backhand")
+                same_hand = (player["hand"] == opponent["hand"])
+                # Direction (for same-handed players) that reaches target_wing:
+                if target_wing == "forehand":
+                    direction = "cross" if stroke == "forehand" else "straight"
+                else:
+                    direction = "straight" if stroke == "forehand" else "cross"
+                # Opposite handedness flips cross <-> straight
+                if not same_hand:
+                    direction = "straight" if direction == "cross" else "cross"
+                # Boost the direction that targets the weak wing
+                if direction == "cross":
+                    base[0] *= 2   # cross
+                else:
+                    base[1] *= 2   # straight
 
         elif mentality == "disruptor":
-            # Dropshots vs slow opponents, volleys vs fast
+            # Slow opponent → dropshots; fast/average opponent → volleys. Fixed boosts.
             opp_skills = opponent["skills"]
             opp_avg = sum(opp_skills.values()) / max(1, len(opp_skills))
-            speed_diff = (opp_skills["speed"] - opp_avg) / max(1, opp_avg)
-            if speed_diff < 0:
-                # Slow opponent: boost dropshots
-                base[2] *= 1 + abs(speed_diff) * 3
+            opp_speed = opp_skills["speed"]
+            if opp_speed < opp_avg:
+                # Slow opponent: double dropshots, or triple if they're even
+                # slower than our own dropshot skill (we can really exploit them).
+                if opp_speed < player["skills"].get("dropshot", 30):
+                    base[2] *= 3   # dropshot
+                else:
+                    base[2] *= 2   # dropshot
             else:
-                # Fast opponent: boost volleys
-                base[3] *= 1 + speed_diff * 3
+                base[3] *= 2   # volley
 
         elif mentality == "marathonian":
             # More slices, fewer lifts
-            base[5] *= 1.8   # slice
-            base[4] *= 0.6   # lift
+            base[5] *= 2     # slice
+            base[4] *= 0.5   # lift
 
         elif mentality == "brute":
             # More lifts, fewer slices
-            base[4] *= 1.8   # lift
-            base[5] *= 0.6   # slice
+            base[4] *= 2     # lift
+            base[5] *= 0.5   # slice
 
         elif mentality == "baseliner":
             # Low dropshots and volleys
@@ -883,24 +1040,20 @@ class GameEngine:
             # Boost whichever is higher between the player's cross/straight skill
             skills = player["skills"]
             if skills.get("cross", 50) >= skills.get("straight", 50):
-                base[0] *= 1.5  # cross
+                base[0] *= 2  # cross
             else:
-                base[1] *= 1.5  # straight
+                base[1] *= 2  # straight
 
-        elif mentality == "wildcard":
-            # Random boost regenerated each game
-            game_key = (self.games["player1"], self.games["player2"],
-                        self.sets["player1"], self.sets["player2"])
-            pid = player["id"]
-            if self._wildcard_game_key != game_key or pid not in self._wildcard_boosts:
-                self._wildcard_game_key = game_key
-                # Pick one of slice/lift and one of cross/straight to boost
-                spin_idx = random.choice([4, 5])     # lift or slice
-                dir_idx = random.choice([0, 1])      # cross or straight
-                self._wildcard_boosts[pid] = (spin_idx, dir_idx)
-            spin_idx, dir_idx = self._wildcard_boosts[pid]
-            base[spin_idx] *= 1.7
-            base[dir_idx] *= 1.4
+        elif mentality == "opportunist":
+            # Reinforcement learning, in spirit: apply the multipliers built up by
+            # winning points. Each prior non-ace win has boosted the winning shot's
+            # tendency and decayed the rest (see _wildcard_reinforce), so the more a
+            # shot wins, the more this player reaches for it. No cap — a dominant
+            # shot can crowd out everything else.
+            mult = self._wildcard_mult.get(player["id"])
+            if mult:
+                for i in range(len(base)):
+                    base[i] *= mult[i]
 
         # neutral or unknown → raw tendencies, no modification
         return self._apply_iq_to_tendencies(player, opponent, base)

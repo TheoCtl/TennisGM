@@ -804,32 +804,26 @@ class TournamentScheduler:
             return next((p['rank'] for p in self.players if p['id'] == pid), 999)
 
         if use_ranking_seeding:
-            # Premium tournaments: use ranking-based seeding (top half vs randomized bottom half)
+            # Premium tournaments: seed only the top quarter of the field.
             sorted_ids = sorted(participants, key=rank_of)  # best -> worst
+            seeded_count = max(1, draw_size // 4)
+            seeded_ids = sorted_ids[:seeded_count]
+            unseeded_ids = sorted_ids[seeded_count:]
+            random.shuffle(unseeded_ids)
 
-            half_draw = draw_size // 2
-            top_half = sorted_ids[:half_draw]  # Top seeds (ranked 1 to half_draw)
-            bottom_half = sorted_ids[half_draw:]  # Bottom half players
-            
-            # Randomize the bottom half for more interesting matchups
-            random.shuffle(bottom_half)
-            
-            # Build pairs: top seed vs random bottom half player
-            pairs = []
-            for i in range(half_draw):
-                p_top = top_half[i]           # i-th best seeded player
-                p_bottom = bottom_half[i]     # randomly assigned bottom half player
-                pairs.append((p_top, p_bottom))
-
-            # Place pairs according to seeding order (pair i goes to match containing seed i+1)
             seeding_order = TournamentScheduler.get_seeding_order(draw_size)
             bracket_positions = [None] * draw_size
-            for i, (p_top, p_bot) in enumerate(pairs):
-                seed_pos_1based = seeding_order[i]            # where the i-th seed sits (1-based)
-                pos = seed_pos_1based - 1                     # 0-based
-                opp_pos = pos + 1 if (pos % 2 == 0) else pos - 1  # adjacent slot in same match
-                bracket_positions[pos] = p_top
-                bracket_positions[opp_pos] = p_bot
+            for seed_idx, pid in enumerate(seeded_ids):
+                if seed_idx >= len(seeding_order):
+                    break
+                pos = seeding_order[seed_idx] - 1
+                bracket_positions[pos] = pid
+
+            fill_idx = 0
+            for pos, current in enumerate(bracket_positions):
+                if current is None and fill_idx < len(unseeded_ids):
+                    bracket_positions[pos] = unseeded_ids[fill_idx]
+                    fill_idx += 1
         else:
             # Challenger/Future tournaments: use random seeding (shuffle all participants)
             random.shuffle(participants)
@@ -1538,20 +1532,81 @@ class TournamentScheduler:
             if notable_retirees:
                 # Try to find career stats for the retiree(s)
                 def _retiree_stats(name):
+                    """Generate comprehensive career stats for retirement announcement."""
                     hof_entry = next((h for h in self.hall_of_fame if h['name'] == name), None)
                     if hof_entry:
-                        titles = len(hof_entry.get('tournament_wins', []))
-                        gs = len([w for w in hof_entry.get('tournament_wins', []) if w.get('category') == 'Split'])
-                        return titles, gs
-                    return 0, 0
+                        # Count tournament wins by category
+                        all_wins = hof_entry.get('tournament_wins', [])
+                        splits = len([w for w in all_wins if w.get('category') == 'Split'])
+                        masters = len([w for w in all_wins if w.get('category') == 'Masters'])
+                        lv500 = len([w for w in all_wins if w.get('category') == 'LV 500'])
+                        lv250 = len([w for w in all_wins if w.get('category') == 'LV 250'])
+                        total_titles = len(all_wins)
+                        
+                        # Career peak stats
+                        highest_rank = hof_entry.get('highest_ranking', 999)
+                        overall = round(sum(hof_entry.get('peak_skills', {}).values()) / max(1, len(hof_entry.get('peak_skills', {}))))
+                        archetype = hof_entry.get('archetype', 'All-Rounder').lower()
+                        
+                        # HOF position
+                        hof_position = next((i+1 for i, p in enumerate(sorted(
+                            self.hall_of_fame,
+                            key=lambda x: (-x['hof_points'], x.get('highest_ranking', 999))
+                        )) if p['name'] == name), 999)
+                        
+                        return {
+                            'total_titles': total_titles,
+                            'splits': splits,
+                            'masters': masters,
+                            'lv500': lv500,
+                            'lv250': lv250,
+                            'highest_rank': highest_rank,
+                            'overall': overall,
+                            'archetype': archetype,
+                            'hof_position': hof_position
+                        }
+                    return None
+
+                def _build_career_highlights(stats):
+                    """Create a tweet-style bullet list of career highlights."""
+                    if not stats:
+                        return []
+                    highlights = []
+                    
+                    # Title breakdown
+                    title_breakdown = []
+                    if stats['splits'] > 0:
+                        title_breakdown.append(f"{stats['splits']} Split Championship{'s' if stats['splits'] != 1 else ''}")
+                    if stats['masters'] > 0:
+                        title_breakdown.append(f"{stats['masters']} Masters")
+                    if stats['lv500'] > 0:
+                        title_breakdown.append(f"{stats['lv500']} Lv 500")
+                    if stats['lv250'] > 0:
+                        title_breakdown.append(f"{stats['lv250']} Lv 250")
+                    
+                    if title_breakdown:
+                        highlights.append(f"Career titles: {', '.join(title_breakdown)}")
+                    else:
+                        highlights.append(f"Career titles: {stats['total_titles']}")
+                    
+                    # Ranking and overall
+                    highlights.append(f"Career high ranking: #{stats['highest_rank']}")
+                    highlights.append(f"Peak overall rating: {stats['overall']}")
+                    
+                    return highlights
 
                 single_retirement_templates = [
-                    "After a storied career spanning multiple seasons, {name} has officially announced his retirement from professional tennis. The Hall of Famer departs with {titles} career titles{gs_note}, leaving behind a legacy that will be remembered for generations. Colleagues and rivals alike have paid tribute to one of the sport's finest competitors.",
-                    "The tennis world received the news it had been dreading: {name} is retiring. With {titles} titles to his name{gs_note}, the former champion exits the sport on his own terms, having cemented his status as one of the all-time greats. His impact on the game extends far beyond the numbers.",
-                    "{name} hangs up his racquet for the final time. The decorated champion, who amassed {titles} professional titles{gs_note} over the course of his career, confirmed his retirement in a statement to the press. Tennis loses one of its most compelling figures.",
-                    "The curtain falls on {name}'s remarkable career. The Hall of Fame member, owner of {titles} career titles{gs_note}, steps away from competitive tennis after years of excellence at the highest level. His farewell marks the end of an era in the sport.",
-                    "It is with heavy hearts that we report {name}'s retirement from professional tennis. The champion retires with {titles} titles{gs_note} and the respect of the entire tennis community. Few players have left such an indelible mark on the sport.",
-                    "{name} has played his last professional match. The {titles}-time champion{gs_note} confirmed the decision through his management team, bringing closure to one of the most celebrated careers in modern tennis history. His legacy is secure.",
+                    ("{name}, one of the finest {archetype}s in tennis history, is stepping away from professional tennis.\n\nHere are his biggest accomplishments:\n{highlights}\n\nHe joins the Hall of Fame as the #{hof_position} greatest player of all time.",
+                     "A legendary {archetype} bids farewell as {name} announces his retirement. The champion leaves behind a Hall of Fame legacy that defined an era of professional tennis."),
+                    
+                    ("{name} has called time on a Hall of Fame career as one of the sport's elite {archetype}s.\n\nCareer Highlights:\n{highlights}\n\n{name} ranks #{hof_position} on the all-time greatest players list.",
+                     "The tennis world says goodbye to {name}, whose approach as a {archetype} revolutionized the way the game is played at the highest level."),
+                    
+                    ("{name} retires as one of the greatest {archetype}s ever to grace the professional tour.\n\nHis accomplishments:\n{highlights}\n\nThe Hall of Famer secures his position as the #{hof_position} player of all time.",
+                     "An icon steps away. {name}'s retirement marks the end of an extraordinary chapter in tennis history. Few players have left such an indelible mark on the sport."),
+                    
+                    ("{name}'s stellar career as a {archetype} has come to an end. Here's how he'll be remembered:\n\n{highlights}\n\nHe joins an exclusive group as the #{hof_position} greatest player ever.",
+                     "The tour loses one of its greatest champions as {name}, a legendary {archetype}, officially retires from professional tennis."),
                 ]
 
                 multiple_retirement_templates = [
@@ -1564,10 +1619,26 @@ class TournamentScheduler:
                 ]
 
                 if len(notable_retirees) == 1:
-                    titles, gs = _retiree_stats(notable_retirees[0])
-                    gs_note = f", including {gs} Split{'s' if gs != 1 else ''}" if gs > 0 else ""
-                    template = random.choice(single_retirement_templates)
-                    content = template.format(name=notable_retirees[0], titles=titles, gs_note=gs_note)
+                    retiree_name = notable_retirees[0]
+                    stats = _retiree_stats(retiree_name)
+                    highlights = _build_career_highlights(stats)
+                    highlights_text = '\n'.join([f"• {h}" for h in highlights])
+                    
+                    # Pick one of the template tuples (headline + subheader)
+                    headline_template, subheader_template = random.choice(single_retirement_templates)
+                    
+                    headline = headline_template.format(
+                        name=retiree_name,
+                        archetype=stats['archetype'] if stats else 'competitor',
+                        highlights=highlights_text,
+                        hof_position=stats['hof_position'] if stats else 'legendary',
+                    )
+                    subheader = subheader_template.format(
+                        name=retiree_name,
+                        archetype=stats['archetype'] if stats else 'competitor',
+                    )
+                    
+                    content = [headline, "", subheader]
                 else:
                     names = ', '.join(notable_retirees[:-1]) + f" and {notable_retirees[-1]}"
                     template = random.choice(multiple_retirement_templates)
@@ -1721,6 +1792,13 @@ class TournamentScheduler:
         
         return sorted(improved, key=lambda x: x[3], reverse=True)
     
+    def _is_countable_recap_tournament(self, category):
+        """Return True if a tournament should count toward the recap title race."""
+        if not category:
+            return True
+        category = str(category)
+        return not (category.startswith("Challenger") or category == "Future" or category == "Juniors")
+
     def _get_top_tournament_winners_last_year(self):
         """Get players who won the most tournaments last year"""
         winner_counts = {}
@@ -1730,13 +1808,14 @@ class TournamentScheduler:
             if player.get('retired', False):
                 continue
                 
-            wins_last_year = len([
+            wins_last_year = [
                 win for win in player.get('tournament_wins', [])
                 if win.get('year') == last_year
-            ])
+                and self._is_countable_recap_tournament(win.get('category'))
+            ]
             
-            if wins_last_year > 0:
-                winner_counts[player['id']] = (player, wins_last_year)
+            if wins_last_year:
+                winner_counts[player['id']] = (player, len(wins_last_year))
         
         return sorted(winner_counts.values(), key=lambda x: x[1], reverse=True)
     

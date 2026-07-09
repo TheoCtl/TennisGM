@@ -113,7 +113,7 @@ class PlayerDevelopment:
                 if skill_name == player.get('bonus'):
                     chance *= 1.1
                 if skill_name in archetype_skills:
-                    chance *= 1.25
+                    chance *= 1.33
                 if random.random() < chance and current_value < 100:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1
@@ -126,7 +126,7 @@ class PlayerDevelopment:
                 if skill_name == player.get('bonus'):
                     chance *= 1.1
                 if skill_name in archetype_skills:
-                    chance *= 1.25
+                    chance *= 1.33
                 if random.random() < chance and current_value < 100:
                     skills[skill_name] = current_value + 1
                     cap['progcap'] += 1

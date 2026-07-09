@@ -224,6 +224,48 @@ class RankingSystem:
         
         return championship_points
     
+    def get_race_current_points(self, player_id, current_date, current_year=None, current_week=None):
+        """Calculate championship points from tournament results since beginning of the year"""
+        if isinstance(current_date, datetime):
+            current_date = current_date.date()
+            
+        player = next((p for p in self.players if p['id'] == player_id), None)
+        if not player or player.get('retired', False):
+            return 0
+    
+        championship_points = 0
+        
+        # Calculate points from player's tournament_history using only tournaments from current year
+        if 'tournament_history' in player:
+            for tournament_entry in player['tournament_history']:                
+                try:
+                    # Check if tournament is within 52-week rolling window
+                    tournament_year = tournament_entry.get('year')
+                    
+                    # Determine if tournament is within the rolling 52 weeks
+                    is_eligible = False
+                    
+                    if current_year is not None:
+                        if current_year == tournament_year:
+                            is_eligible = True
+                    else:
+                        # Fallback: if we don't have year/week info, include all tournaments
+                        # This maintains backward compatibility
+                        is_eligible = True
+                    
+                    if is_eligible:
+                        points = self.calculate_points(
+                            tournament_entry.get('category', ''),
+                            tournament_entry.get('round', 0),
+                            tournament_entry.get('total_rounds', 0)
+                        )
+                        championship_points += points
+                except (ValueError, TypeError):
+                    # Skip invalid entries
+                    continue
+        
+        return championship_points
+    
     def _calculate_weeks_ago(self, tournament_year, tournament_week, current_year, current_week):
         """Calculate how many weeks ago a tournament was (approximately)
         
@@ -321,6 +363,21 @@ class RankingSystem:
                 continue
             # Use only championship points (ATP-style ranking with 52-week rolling)
             championship_points = self.get_current_points(player['id'], current_date, current_year, current_week)
+            ranked.append((player, championship_points))
+        
+        # Sort by championship points descending, then by name ascending
+        ranked.sort(key=lambda x: (-x[1], x[0]['name']))
+        return ranked
+    
+    def get_race_ranked_players(self, players, current_date, current_year=None, current_week=None):
+        """Return players sorted by ATP-style championship points from tournament results (52-week rolling)"""
+        self.players = players
+        ranked = []
+        for player in players:
+            if player.get('retired', False):
+                continue
+            # Use only championship points (ATP-style ranking with 52-week rolling)
+            championship_points = self.get_race_current_points(player['id'], current_date, current_year, current_week)
             ranked.append((player, championship_points))
         
         # Sort by championship points descending, then by name ascending
