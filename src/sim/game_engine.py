@@ -14,7 +14,7 @@ import math
 #   speed          – multiplied onto effective speed in can_catch
 SURFACE_EFFECTS = {
     "clay":    {"stamina_drain": 0.8, "lift_power": 1.05, "dropshot_power": 1.05},
-    "grass":   {"serve_power": 1.05, "slice_stamina": 1.7, "backhand_power": 1.05},
+    "grass":   {"serve_power": 1.05, "slice_stamina": 2.2, "backhand_power": 1.05},
     "hard":    {"forehand_power": 1.05, "speed": 1.05, "cross_prec": 1.05},
     "indoor":  {"volley_power": 1.05, "straight_prec": 1.05, "serve_power": 1.05},
 }
