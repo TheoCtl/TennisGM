@@ -2954,6 +2954,7 @@ class TennisGMApp:
         # Player 1 basic info only (no skills)
         p1_info_text = f"""Ranking: #{p1_ranking} - Points: {p1_points}
 Archetype: {player1.get('archetype', 'N/A')}
+Mentality: {player1.get('mentality', 'neutral').capitalize()}
 Last Title: {self.get_player_last_tournament_won(player1)}
 {p1_age}yo"""
         
@@ -2993,6 +2994,7 @@ Last Title: {self.get_player_last_tournament_won(player1)}
         # Player 2 basic info only (no skills)
         p2_info_text = f"""Ranking: #{p2_ranking} - Points: {p2_points}
 Archetype: {player2.get('archetype', 'N/A')}
+Mentality: {player2.get('mentality', 'neutral').capitalize()}
 Last Title: {self.get_player_last_tournament_won(player2)}
 {p2_age}yo"""
         
@@ -4440,7 +4442,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         )
         rank_label.pack(fill="x", pady=5)
         
-        # Archetype
+        # Archetype and mentality
         archetype, _ = self._get_player_archetype(player)
         archetype_label = tk.Label(
             main_frame,
@@ -4451,7 +4453,18 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             wraplength=280,
             justify="left"
         )
-        archetype_label.pack(fill="x", pady=5)
+        archetype_label.pack(fill="x", pady=(5, 2))
+
+        mentality_label = tk.Label(
+            main_frame,
+            text=f"Mentality: {player.get('mentality', 'neutral').capitalize()}",
+            font=("Arial", 10),
+            bg="white",
+            fg="#2c3e50",
+            wraplength=280,
+            justify="left"
+        )
+        mentality_label.pack(fill="x", pady=(0, 5))
         
         # Tournament wins count
         tournament_wins = sum(1 for win in player.get('tournament_wins', []) if win.get('name') == tournament['name'])

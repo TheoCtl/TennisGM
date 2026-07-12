@@ -91,7 +91,7 @@ class NewGenGenerator:
         # wildcard: Multiple special shots (diverse tactical options, adapts with variety)
         special_shots = {'lift', 'slice', 'dropshot', 'volley'}
         special_count = len([k for k in key_set if k in special_shots])
-        if special_count >= 2:
+        if special_count >= 3:
             return "wildcard"
         
         # Specialist: Directional specialist (cross or straight, not both) + at least one groundstroke (forehand/backhand)

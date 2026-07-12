@@ -15,3 +15,10 @@ Detailed Inequality Breakdown:
   ⚠️  wildcard: +29.6 positions worse than best
   ⚠️  strategist: +36.8 positions worse than best
   ⚠️  marathonian: +48.5 positions worse than best
+
+
+  MAJOR UPDATE 
+- Mettre une note sur 100 à chaque point quand on simule un match, selon durée rallye, précision et force des frappes et boost si le point permet de gagner un set ou un match (pas de boost pour les breaks)
+- Sauvegarder ces notes pour les tournois de la semaine en cours dans un fichier "pointlog" dans \data
+- Si un match a déjà été simulé, clicker sur "Watch match" nous fait visualiser les 10 points avec les meilleures notes du match (dans leur ordre chronologique, pas du meilleur au moins bon), comme si on  regardait le match normalement mais qu'on skippait pour ne regarder que les meilleurs points. Si le match n'a pas déjà été simulé on a le visualiser standard.
+- Quand un tournoi est terminé, possibilité de regarder le top 10 des meilleurs points du tournoi entier.

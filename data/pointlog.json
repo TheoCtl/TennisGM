@@ -1,0 +1,205 @@
+{
+  "current_year": 2060,
+  "current_week": 14,
+  "current_date": "2132-03-12T00:00:00",
+  "points": [
+    {
+      "point_index": 1,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "serve",
+      "is_ace": true,
+      "rally_length": 1,
+      "server_id": 2126,
+      "is_break": false,
+      "point_score": 65.5
+    },
+    {
+      "point_index": 2,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "forehand",
+      "is_ace": false,
+      "rally_length": 4,
+      "server_id": 2108,
+      "is_break": true,
+      "point_score": 85.7
+    },
+    {
+      "point_index": 3,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "serve",
+      "is_ace": true,
+      "rally_length": 1,
+      "server_id": 2126,
+      "is_break": false,
+      "point_score": 68.4
+    },
+    {
+      "point_index": 4,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "forehand",
+      "is_ace": false,
+      "rally_length": 8,
+      "server_id": 2108,
+      "is_break": true,
+      "point_score": 96.6
+    },
+    {
+      "point_index": 5,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "serve",
+      "is_ace": true,
+      "rally_length": 1,
+      "server_id": 2126,
+      "is_break": false,
+      "point_score": 65.2
+    },
+    {
+      "point_index": 6,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "forehand",
+      "is_ace": false,
+      "rally_length": 2,
+      "server_id": 2108,
+      "is_break": true,
+      "point_score": 83.0
+    },
+    {
+      "point_index": 7,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "serve",
+      "is_ace": true,
+      "rally_length": 1,
+      "server_id": 2126,
+      "is_break": false,
+      "point_score": 66.8
+    },
+    {
+      "point_index": 8,
+      "winner_id": 2108,
+      "loser_id": 2126,
+      "winning_shot": "backhand",
+      "is_ace": false,
+      "rally_length": 5,
+      "server_id": 2108,
+      "is_break": false,
+      "point_score": 78.8
+    },
+    {
+      "point_index": 9,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "forehand",
+      "is_ace": false,
+      "rally_length": 4,
+      "server_id": 2108,
+      "is_break": true,
+      "point_score": 80.5
+    },
+    {
+      "point_index": 10,
+      "winner_id": 2108,
+      "loser_id": 2126,
+      "winning_shot": "backhand",
+      "is_ace": false,
+      "rally_length": 2,
+      "server_id": 2126,
+      "is_break": true,
+      "point_score": 73.2
+    },
+    {
+      "point_index": 11,
+      "winner_id": 2108,
+      "loser_id": 2126,
+      "winning_shot": "backhand",
+      "is_ace": false,
+      "rally_length": 9,
+      "server_id": 2108,
+      "is_break": false,
+      "point_score": 90.5
+    },
+    {
+      "point_index": 12,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "serve",
+      "is_ace": true,
+      "rally_length": 1,
+      "server_id": 2126,
+      "is_break": false,
+      "point_score": 63.1
+    },
+    {
+      "point_index": 13,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "volley",
+      "is_ace": false,
+      "rally_length": 2,
+      "server_id": 2108,
+      "is_break": true,
+      "point_score": 77.5
+    },
+    {
+      "point_index": 14,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "serve",
+      "is_ace": true,
+      "rally_length": 1,
+      "server_id": 2126,
+      "is_break": false,
+      "point_score": 68.2
+    },
+    {
+      "point_index": 15,
+      "winner_id": 2108,
+      "loser_id": 2126,
+      "winning_shot": "volley",
+      "is_ace": false,
+      "rally_length": 5,
+      "server_id": 2108,
+      "is_break": false,
+      "point_score": 79.0
+    },
+    {
+      "point_index": 16,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "serve",
+      "is_ace": true,
+      "rally_length": 1,
+      "server_id": 2126,
+      "is_break": false,
+      "point_score": 66.2
+    },
+    {
+      "point_index": 17,
+      "winner_id": 2108,
+      "loser_id": 2126,
+      "winning_shot": "volley",
+      "is_ace": false,
+      "rally_length": 7,
+      "server_id": 2108,
+      "is_break": false,
+      "point_score": 88.8
+    },
+    {
+      "point_index": 18,
+      "winner_id": 2126,
+      "loser_id": 2108,
+      "winning_shot": "backhand",
+      "is_ace": false,
+      "rally_length": 5,
+      "server_id": 2126,
+      "is_break": false,
+      "point_score": 100.0
+    }
+  ]
+}

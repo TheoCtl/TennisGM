@@ -14,7 +14,7 @@ import math
 #   speed          – multiplied onto effective speed in can_catch
 SURFACE_EFFECTS = {
     "clay":    {"stamina_drain": 0.8, "lift_power": 1.05, "dropshot_power": 1.05},
-    "grass":   {"serve_power": 1.05, "slice_stamina": 2.2, "backhand_power": 1.05},
+    "grass":   {"serve_power": 1.05, "slice_stamina": 1.7, "backhand_power": 1.05},
     "hard":    {"forehand_power": 1.05, "speed": 1.05, "cross_prec": 1.05},
     "indoor":  {"volley_power": 1.05, "straight_prec": 1.05, "serve_power": 1.05},
 }
@@ -521,7 +521,7 @@ class GameEngine:
 
             shot_power, shot_precision, shot_direction = self.calculate_shot(hitter, shot_type, shot_direction, return_multiplier)
             side = "left" if self._get_player_key(defender) == "player1" else "right"
-    
+            
             # For dropshot, calculate success before getting coordinates
             shot_success = None
             if shot_type == "dropshot":
@@ -780,16 +780,16 @@ class GameEngine:
         ms = self.match_stamina[player["id"]]
         if ms >= 50:
             return 1.0
-        # Linear scale: 1.0x at 50 stamina down to 0.5x at 0 stamina
-        return 0.5 + (ms / 100.0)
+        # Linear scale: 1.0x at 50 stamina down to 0.66x at 0 stamina
+        return 0.66 + (ms / 151.51)
 
     def _get_stamina_power_modifier(self, player):
         """Power penalty: scales from 1.0x (80+ stamina) to 0.4x (0 stamina). Much harsher than speed."""
         ms = self.match_stamina[player["id"]]
         if ms >= 50:
             return 1.0
-        # Aggressive scale: 1.0x at 50 stamina down to 0.5x at 0 stamina
-        return 0.5 + (ms / 100.0)
+        # Aggressive scale: 1.0x at 50 stamina down to 0.66x at 0 stamina
+        return 0.66 + (ms / 151.51)
 
     def reduce_stamina(self, player, opponent_shot_precision, shot_type=None):
         """
