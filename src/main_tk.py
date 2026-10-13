@@ -9,7 +9,6 @@ import sys
 from io import StringIO
 import functools
 from archetypes import ARCTYPE_MAP, get_archetype_for_player
-from commentary import generate_commentary
 from face_generator import generate_face, create_face_canvas
 
 PRESTIGE_ORDER = ["Special", "Split", "Masters", "LV 500", "LV 250", "Challenger 175", "Challenger 125", "Challenger 100", "Challenger 75", "Challenger 50", "Future", "Juniors"]
@@ -2635,21 +2634,38 @@ class TennisGMApp:
             )
             btn_manage.pack(side="left", padx=(0, 10))
             
-            # Simulate tournament button
-            btn_simulate = tk.Button(
-                button_frame,
-                text="⚡ Simulate Tournament",
-                font=("Arial", 11, "bold"),
-                bg="#2c3e50",
-                fg="white",
-                relief="flat",
-                bd=0,
-                padx=15,
-                pady=5,
-                activebackground="#34495e",
-                activeforeground="white",
-                command=functools.partial(self.simulate_entire_tournament_selected, [t])
-            )
+            # Simulate tournament button — replaced by the highlights once the
+            # tournament has been played
+            if t.get('winner_id'):
+                btn_simulate = tk.Button(
+                    button_frame,
+                    text="🎬 Watch Highlights",
+                    font=("Arial", 11, "bold"),
+                    bg="#8e44ad",
+                    fg="white",
+                    relief="flat",
+                    bd=0,
+                    padx=15,
+                    pady=5,
+                    activebackground="#9b59b6",
+                    activeforeground="white",
+                    command=functools.partial(self.watch_tournament_highlights, t)
+                )
+            else:
+                btn_simulate = tk.Button(
+                    button_frame,
+                    text="⚡ Simulate Tournament",
+                    font=("Arial", 11, "bold"),
+                    bg="#2c3e50",
+                    fg="white",
+                    relief="flat",
+                    bd=0,
+                    padx=15,
+                    pady=5,
+                    activebackground="#34495e",
+                    activeforeground="white",
+                    command=functools.partial(self.simulate_entire_tournament_selected, [t])
+                )
             btn_simulate.pack(side="left")
 
     def simulate_all_current_week_tournaments(self):
@@ -2668,6 +2684,7 @@ class TennisGMApp:
                 winner_id = self.scheduler.simulate_entire_tournament(t['id'])
                 winner = next((p for p in self.scheduler.players if p['id'] == winner_id), None)
                 results.append((t['name'], winner['name'] if winner else "Unknown"))
+        self._flush_point_log()
 
         # Show a summary popup and refresh the list
         popup = tk.Toplevel(self.root)
@@ -2757,6 +2774,16 @@ class TennisGMApp:
             btn_watch = tk.Button(btns_frame, text="Watch", font=("Arial", 10),
                                   command=lambda i=idx: self.watch_match_in_tournament(tournament, i))
             btn_watch.pack(side="left", padx=2)
+            if match['winner'] and self._has_match_highlights(tournament, tournament['current_round'], idx):
+                btn_hl = tk.Button(
+                    btns_frame, text="🎬 Highlights", font=("Arial", 10),
+                    bg="#8e44ad", fg="white", relief="flat", bd=0,
+                    command=lambda i=idx: self.watch_match_highlights(
+                        tournament, tournament['current_round'], i,
+                        back_command=lambda: self.manage_tournament(tournament)
+                    )
+                )
+                btn_hl.pack(side="left", padx=2)
 
         tk.Button(self.root, text="Back to Tournaments", command=self.show_tournaments, font=("Arial", 12)).pack(pady=10)
         tk.Button(self.root, text="Back to Main Menu", command=self.build_main_menu, font=("Arial", 12)).pack(pady=2)
@@ -3109,6 +3136,9 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 match_log = []
                 all_point_events = []
             
+            # Persist the highlights recorded for this match
+            self._flush_point_log()
+
             # Refresh tournament display with the saved result
             self.manage_tournament(tournament)
             
@@ -3155,6 +3185,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             return
         winner_id = self.scheduler.simulate_through_match(tournament['id'], match_idx)
         winner = next((p for p in self.scheduler.players if p['id'] == winner_id), None)
+        self._flush_point_log()
         self.manage_tournament(tournament)
 
     def watch_match_in_tournament(self, tournament, match_idx):
@@ -3167,7 +3198,13 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         
         match = current_matches[match_idx]
         if match['winner']:
-            self.manage_tournament(tournament)
+            # Already played -> watch the highlights of that match
+            self.watch_match_highlights(
+                tournament,
+                tournament['current_round'],
+                match_idx,
+                back_command=lambda: self.manage_tournament(tournament)
+            )
             return
 
         # Check for BYE match
@@ -3183,11 +3220,153 @@ Last Title: {self.get_player_last_tournament_won(player2)}
         player2 = next(p for p in self.scheduler.players if p['id'] == match['player2']['id'])
         
         # Show face-off screen - simulation will happen when user clicks "Start Match"
-        self.show_player_faceoff(player1, player2, tournament, match_idx)
+        self.show_player_faceoff_bracket(player1, player2, tournament, match_idx)
 
-    def display_simple_match_log(self, match_log, tournament, point_events=None, player1=None, player2=None, game_engine=None):
+    # ==================================================================
+    # HIGHLIGHTS
+    # ==================================================================
+    def _point_log(self):
+        """The point log of the current week (may be None on old saves)."""
+        return getattr(self.scheduler, 'point_log', None)
+
+    def _flush_point_log(self):
+        """Persist the highlights recorded by the simulations just run."""
+        plog = self._point_log()
+        if plog:
+            plog.flush()
+
+    def _has_match_highlights(self, tournament, round_idx, match_idx):
+        plog = self._point_log()
+        if not plog:
+            return False
+        return plog.has_match(plog.match_key(tournament['id'], round_idx, match_idx))
+
+    def _has_tournament_highlights(self, tournament):
+        plog = self._point_log()
+        if not plog:
+            return False
+        return plog.has_tournament(tournament['id'])
+
+    def _show_no_highlights_popup(self, message):
+        popup = tk.Toplevel(self.root)
+        popup.title("Highlights")
+        tk.Label(popup, text=message, font=("Arial", 12), padx=25, pady=15).pack()
+        tk.Button(popup, text="OK", font=("Arial", 11), command=popup.destroy).pack(pady=(0, 12))
+
+    def _build_highlight_points(self, records):
+        """Turn stored point records into everything the viewer needs.
+
+        A GameEngine is built once per pair of players (it is only used to feed
+        the stats panel with the surface-boosted skills).
+        """
+        engines = {}
+        players_by_id = {p['id']: p for p in self.scheduler.players}
+        built = []
+
+        for rec in records:
+            p1 = players_by_id.get(rec.get('player1_id'))
+            p2 = players_by_id.get(rec.get('player2_id'))
+            if not p1 or not p2:
+                continue  # player no longer on tour - skip that point
+            surface = rec.get('surface') or 'neutral'
+            key = (p1['id'], p2['id'], surface)
+            if key not in engines:
+                try:
+                    engines[key] = GameEngine(p1, p2, surface, sets_to_win=2)
+                except Exception:
+                    engines[key] = None
+            engine = engines[key]
+            if engine is None:
+                continue
+            built.append({
+                'record': rec,
+                'events': rec.get('events', []),
+                'player1': p1,
+                'player2': p2,
+                'engine': engine,
+                'surface': surface,
+                'rating': rec.get('rating', 0),
+            })
+        return built
+
+    def _launch_highlights(self, points, tournament, back_command, mode='match'):
+        """Open the match viewer, fed with highlight points instead of a match."""
+        for n, hp in enumerate(points, start=1):
+            hp['index'] = n
+            hp['total'] = len(points)
+            hp['mode'] = mode
+
+        point_events = [
+            {'type': 'point', 'events': hp['events'], 'winner': None}
+            for hp in points
+        ]
+        match_log = [''] * len(point_events)
+        first = points[0]
+
+        self.display_simple_match_log(
+            match_log,
+            tournament,
+            point_events,
+            player1=first['player1'],
+            player2=first['player2'],
+            game_engine=first['engine'],
+            highlight_mode=True,
+            highlight_points=points,
+            back_command=back_command,
+        )
+
+    def watch_match_highlights(self, tournament, round_idx, match_idx, back_command=None):
+        """Replay the 10 best points of an already simulated match,
+        in chronological order."""
+        plog = self._point_log()
+        key = plog.match_key(tournament['id'], round_idx, match_idx) if plog else None
+
+        if not plog or not plog.has_match(key):
+            self._show_no_highlights_popup(
+                "No highlights available for this match.\n\n"
+                "Only the matches played during the current week are kept."
+            )
+            return
+
+        points = self._build_highlight_points(plog.get_match_points(key))
+        if not points:
+            self._show_no_highlights_popup("No highlights available for this match.")
+            return
+
+        back = back_command or (lambda: self.show_tournament_bracket(tournament))
+        self._launch_highlights(points, tournament, back, mode='match')
+
+    def watch_tournament_highlights(self, tournament, back_command=None):
+        """Replay the 10 best points of a whole tournament, from the lowest
+        rated one to the very best (highlights countdown)."""
+        plog = self._point_log()
+        records = plog.get_tournament_points(tournament['id']) if plog else []
+        points = self._build_highlight_points(records)
+
+        if not points:
+            self._show_no_highlights_popup(
+                "No highlights available for this tournament.\n\n"
+                "Only the tournaments played during the current week are kept."
+            )
+            return
+
+        back = back_command or self.show_tournaments
+        self._launch_highlights(points, tournament, back, mode='tournament')
+
+    def display_simple_match_log(self, match_log, tournament, point_events=None, player1=None, player2=None, game_engine=None,
+                                highlight_mode=False, highlight_points=None, back_command=None):
+        """Play a match point by point.
+
+        In `highlight_mode` the points come from the point log (highlights):
+        they are not contiguous and - for tournament highlights - each one may
+        involve a different pair of players, so the players / engine / surface
+        are resolved for every single point.
+        """
         idx = 0
         canvas = None  # Keep canvas reference for cleanup
+        highlight_points = highlight_points or []
+        default_surface = tournament.get('surface', 'neutral') if tournament else 'neutral'
+        back_cmd = back_command or (lambda: self.show_tournament_bracket(tournament))
         
         # Store animation control
         self.animation_active = True  # Flag to control animation
@@ -3221,6 +3400,16 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             # Remove processed callbacks from list
             for callback_id in callbacks_to_remove:
                 self.pending_callbacks.remove(callback_id)
+
+        def _go_back():
+            """Leave the viewer (used by the court click and the exit button)."""
+            self.animation_active = False
+            cleanup_bindings()
+            try:
+                self.root.unbind("<Right>")
+            except Exception:
+                pass
+            back_cmd()
         
         # Court is now drawn by TennisCourtViewer with real-time animation
 
@@ -3268,10 +3457,14 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 tk.Label(p2sf, text=str(st[1]) + "  ", font=f, bg="#e74c3c", fg="white").pack(side="left")
             tk.Label(p2sf, text=str(current_set['player2']), font=("Arial", 11, "bold"), bg="#e74c3c", fg="white").pack(side="left")
 
-        def animate_point(cv, events, p1_id, p2_id, on_complete=None):
+        def animate_point(cv, events, p1_id, p2_id, on_complete=None, sp1=None, sp2=None):
             """Animate a full point: ball moves in straight lines, players intercept."""
             import math
             from court_viewer import TennisCourtViewer as _CV
+            # Players of THIS point (they change from point to point in
+            # tournament highlights)
+            sp1 = sp1 if sp1 is not None else player1
+            sp2 = sp2 if sp2 is not None else player2
             P1_BL = _CV.P1_BASELINE_X
             P2_BL = _CV.P2_BASELINE_X
             P1_VL = _CV.P1_VOLLEY_X
@@ -3351,10 +3544,10 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
             def _get_serve_stat(hid):
                 """Look up the serve skill of the hitter."""
-                if player1 and hid == player1.get('id'):
-                    return player1.get('skills', {}).get('serve', 50)
-                if player2 and hid == player2.get('id'):
-                    return player2.get('skills', {}).get('serve', 50)
+                if sp1 and hid == sp1.get('id'):
+                    return sp1.get('skills', {}).get('serve', 50)
+                if sp2 and hid == sp2.get('id'):
+                    return sp2.get('skills', {}).get('serve', 50)
                 return 50
 
             def _clamp_y(y):
@@ -3576,6 +3769,17 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             
             # Check if match is finished (we're at or past the last point)
             is_match_finished = i >= len(point_events) if point_events else True
+
+            # ---- Context of the point being shown -------------------------
+            # In highlight mode every point carries its own players / engine /
+            # surface (a tournament highlight reel mixes several matches).
+            hp = None
+            if highlight_mode and highlight_points:
+                hp = highlight_points[min(i, len(highlight_points) - 1)]
+            cur_p1 = hp['player1'] if hp else player1
+            cur_p2 = hp['player2'] if hp else player2
+            cur_engine = hp['engine'] if hp else game_engine
+            cur_surface = (hp['surface'] if hp else default_surface) or 'neutral'
             
             # Process any pending events before destroying widgets
             try:
@@ -3613,7 +3817,18 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             
             # Function to display scoreboard
             def display_scoreboard():
-                if not is_match_finished:
+                if highlight_mode and hp:
+                    # Highlights: each stored point knows the score right
+                    # before it was played (and right after it ended).
+                    rec = hp['record']
+                    src = rec.get('score_after') if is_match_finished else rec.get('score_before')
+                    if not src:
+                        return False
+                    sets = src.get('sets', [])
+                    current_set = src.get('current_set', {'player1': 0, 'player2': 0})
+                    p1_name = src.get('player1_name') or (cur_p1 or {}).get('name', 'Player 1')
+                    p2_name = src.get('player2_name') or (cur_p2 or {}).get('name', 'Player 2')
+                elif not is_match_finished:
                     # During match: show previous point's score to avoid spoilers
                     if i > 0 and point_events and (i - 1) < len(point_events):
                         events = point_events[i - 1]['events']
@@ -3728,15 +3943,24 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 return True
             
             display_scoreboard()
-            
-            # Commentary label between scoreboard and court
-            commentary_frame = tk.Frame(main_frame, bg="#1a252f")
-            commentary_frame.pack(fill="x", padx=10, pady=(0, 2))
-            commentary_label = tk.Label(
-                commentary_frame, text=getattr(self, '_last_commentary', ''), font=("Arial", 10, "italic"),
-                bg="#1a252f", fg="#f0e68c", wraplength=1100, pady=4, padx=10, anchor="center"
-            )
-            commentary_label.pack(fill="x")
+
+            # Highlights banner (replaces nothing else in the UI)
+            if highlight_mode:
+                if is_match_finished or not hp:
+                    banner_text = "🎬  END OF HIGHLIGHTS  —  click the court to go back"
+                else:
+                    rec = hp['record']
+                    banner_text = "🎬 HIGHLIGHT %d/%d   •   Rating %d/100" % (
+                        hp.get('index', i + 1),
+                        hp.get('total', len(highlight_points)),
+                        round(rec.get('rating', 0)))
+
+                banner_frame = tk.Frame(main_frame, bg="#8e44ad")
+                banner_frame.pack(fill="x", padx=10, pady=(0, 2))
+                tk.Label(
+                    banner_frame, text=banner_text, font=("Arial", 11, "bold"),
+                    bg="#8e44ad", fg="white", pady=5
+                ).pack(fill="x")
             
             # Court visualization using TennisCourtViewer
             canvas_frame = tk.Frame(main_frame)
@@ -3745,14 +3969,14 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             if not is_match_finished:
                 # Show court during match
                 nonlocal canvas
-                court_viewer = TennisCourtViewer(canvas_frame, width=1200, height=600, surface=tournament['surface'])
+                court_viewer = TennisCourtViewer(canvas_frame, width=1200, height=600, surface=cur_surface)
                 canvas = court_viewer.canvas
             else:
                 # Match finished - show court as well, with click to go back
-                court_viewer = TennisCourtViewer(canvas_frame, width=1200, height=600, surface=tournament['surface'])
+                court_viewer = TennisCourtViewer(canvas_frame, width=1200, height=600, surface=cur_surface)
                 canvas = court_viewer.canvas
                 # Add click binding to go back
-                canvas.bind("<Button-1>", lambda e: self.show_tournament_bracket(tournament))
+                canvas.bind("<Button-1>", lambda e: _go_back())
 
             # Player stats display (always show)
             # Create a frame for player stats with two columns
@@ -3817,8 +4041,12 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 }
 
             # Get stats for both players (with surface boosts)
-            p1_stats = calculate_new_stats(game_engine.p1['skills'], apply_surface_boost=True, surface_fx=game_engine.p1_surface_fx)
-            p2_stats = calculate_new_stats(game_engine.p2['skills'], apply_surface_boost=True, surface_fx=game_engine.p2_surface_fx)
+            if cur_engine is not None:
+                p1_stats = calculate_new_stats(cur_engine.p1['skills'], apply_surface_boost=True, surface_fx=cur_engine.p1_surface_fx)
+                p2_stats = calculate_new_stats(cur_engine.p2['skills'], apply_surface_boost=True, surface_fx=cur_engine.p2_surface_fx)
+            else:
+                p1_stats = {}
+                p2_stats = {}
 
             # Create tab system for player stats
             tab_frame = tk.Frame(stats_frame, bg="#34495e")
@@ -3877,8 +4105,15 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 # After animation completes (at end screen), show final stats
                 match_stats_p1 = None
                 match_stats_p2 = None
-                
-                if not is_match_finished:
+
+                if highlight_mode and hp:
+                    # Highlights: stats as they were at that moment of the match
+                    rec = hp['record']
+                    src = rec.get('score_after') if is_match_finished else rec.get('score_before')
+                    stats_src = (src or {}).get('match_stats') or {}
+                    match_stats_p1 = stats_src.get('player1')
+                    match_stats_p2 = stats_src.get('player2')
+                elif not is_match_finished:
                     # During match: show previous point's stats (use point i-1 so current point doesn't spoil)
                     if i > 0 and point_events and (i - 1) < len(point_events) and 'events' in point_events[i - 1]:
                         events = point_events[i - 1]['events']
@@ -3903,8 +4138,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     display_frame.pack(fill="both", expand=True)
                     
                     # Calculate form modifier percentages
-                    p1_form_multiplier = game_engine.p1.get('form_multiplier', 1.0)
-                    p2_form_multiplier = game_engine.p2.get('form_multiplier', 1.0)
+                    p1_form_multiplier = cur_engine.p1.get('form_multiplier', 1.0) if cur_engine else 1.0
+                    p2_form_multiplier = cur_engine.p2.get('form_multiplier', 1.0) if cur_engine else 1.0
                     p1_form_pct = (p1_form_multiplier - 1.0) * 100
                     p2_form_pct = (p2_form_multiplier - 1.0) * 100
                     
@@ -4100,12 +4335,23 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             
             # Control buttons
             control_frame = tk.Frame(main_frame)
-            control_frame.pack(fill="x", padx=20, pady=(0, 10))            
+            control_frame.pack(fill="x", padx=20, pady=(0, 10))
+
+            if highlight_mode:
+                tk.Button(
+                    control_frame,
+                    text="⬅️ Exit Highlights",
+                    font=("Arial", 11, "bold"),
+                    bg="#95a5a6", fg="white", relief="flat", bd=0,
+                    padx=15, pady=6,
+                    activebackground="#7f8c8d", activeforeground="white",
+                    command=_go_back
+                ).pack(side="right")
             
             # Animate point with real-time player + ball movement
             next_idx = i + 1
-            if not is_match_finished and point_events and i < len(point_events):
-                court_viewer.set_player_names(player1['name'], player2['name'])
+            if not is_match_finished and point_events and i < len(point_events) and cur_p1 and cur_p2:
+                court_viewer.set_player_names(cur_p1['name'], cur_p2['name'])
                 self.current_court_viewer = court_viewer
 
                 def on_point_complete(score_info, pt_summary=None, _next=next_idx):
@@ -4113,14 +4359,6 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                         return
                     if score_info:
                         _update_score_header(header_frame, score_info)
-                    # Show commentary for the point that just finished
-                    if pt_summary and player1 and player2:
-                        ctext = generate_commentary(pt_summary, score_info, player1, player2, tournament)
-                        self._last_commentary = ctext
-                        try:
-                            commentary_label.config(text=ctext)
-                        except Exception:
-                            pass
                     # Auto-advance to next point or match end screen (final point case too)
                     if _next is not None and _next <= len(point_events):
                         def safe_advance():
@@ -4133,7 +4371,8 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                         self.pending_callbacks.append(cid)
 
                 animate_point(court_viewer, point_events[i]['events'],
-                              player1['id'], player2['id'], on_point_complete)
+                              cur_p1['id'], cur_p2['id'], on_point_complete,
+                              sp1=cur_p1, sp2=cur_p2)
             
             # Navigation buttons
             button_frame = tk.Frame(main_frame)
@@ -4179,6 +4418,7 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                 return
         winner_id = self.scheduler.simulate_entire_tournament(tournament['id'])
         winner = next((p for p in self.scheduler.players if p['id'] == winner_id), None)
+        self._flush_point_log()
         msg = f"Tournament complete! Winner: {winner['name']}" if winner else "Tournament complete! (Winner unknown)"
         # Show a popup
         popup = tk.Toplevel(self.root)
@@ -4293,21 +4533,41 @@ Last Title: {self.get_player_last_tournament_won(player2)}
             fg="#7f8c8d"
         ).pack()
         
-        # Right action button
-        tk.Button(
-            control_frame, 
-            text="⚡ Simulate Current Round", 
-            font=("Arial", 11, "bold"),
-            bg="#e74c3c",
-            fg="white",
-            relief="flat",
-            bd=0,
-            padx=15,
-            pady=6,
-            activebackground="#c0392b",
-            activeforeground="white",
-            command=lambda: self.simulate_current_round_bracket(tournament)
-        ).pack(side="right")
+        # Right action button: simulate the round, or watch the tournament
+        # highlights once the tournament is over
+        if tournament.get('winner_id'):
+            tk.Button(
+                control_frame,
+                text="🎬 Watch Highlights",
+                font=("Arial", 11, "bold"),
+                bg="#8e44ad",
+                fg="white",
+                relief="flat",
+                bd=0,
+                padx=15,
+                pady=6,
+                activebackground="#9b59b6",
+                activeforeground="white",
+                command=lambda: self.watch_tournament_highlights(
+                    tournament,
+                    back_command=lambda: self.show_tournament_bracket(tournament)
+                )
+            ).pack(side="right")
+        else:
+            tk.Button(
+                control_frame, 
+                text="⚡ Simulate Current Round", 
+                font=("Arial", 11, "bold"),
+                bg="#e74c3c",
+                fg="white",
+                relief="flat",
+                bd=0,
+                padx=15,
+                pady=6,
+                activebackground="#c0392b",
+                activeforeground="white",
+                command=lambda: self.simulate_current_round_bracket(tournament)
+            ).pack(side="right")
 
         # Round-based tabs
         bracket = tournament.get('bracket', [])
@@ -4653,7 +4913,19 @@ Last Title: {self.get_player_last_tournament_won(player2)}
                     canvas.create_text(sx, y+match_height+8+match_height//2, anchor="e", text=str(val), fill="black", font=set_font)
                     sx -= 14
 
-                if actual_round == tournament['current_round']:
+                if winner_id is not None and self._has_match_highlights(tournament, actual_round, m_idx):
+                    # Match already played: replay its 10 best points
+                    btn_hl = tk.Button(
+                        canvas, text="🎬 Highlights", font=("Arial", 10),
+                        bg="#8e44ad", fg="white", relief="flat", bd=0,
+                        activebackground="#9b59b6", activeforeground="white",
+                        command=functools.partial(
+                            self.watch_match_highlights, tournament, actual_round, m_idx
+                        )
+                    )
+                    canvas.create_window(x+10, y+2*match_height+18, anchor="nw", window=btn_hl)
+                    button_refs.append((btn_hl,))
+                elif actual_round == tournament['current_round']:
                     btn_sim = tk.Button(canvas, text="Simulate", font=("Arial", 10),
                                     command=functools.partial(self.simulate_match_in_bracket, tournament, m_idx))
                     btn_watch = tk.Button(canvas, text="Watch", font=("Arial", 10),
@@ -4704,20 +4976,27 @@ Last Title: {self.get_player_last_tournament_won(player2)}
 
     def simulate_current_round_bracket(self, tournament):
         self.scheduler.simulate_current_round(tournament['id'])
+        self._flush_point_log()
         self.show_tournament_bracket(tournament)
 
     def simulate_match_in_bracket(self, tournament, match_idx):
         match = self.scheduler.get_current_matches(tournament['id'])[match_idx]
         if match['winner']:
-            self.show_tournament_bracket(tournament)
+            # Already played -> watch the 10 best points of that match
+            if self._has_match_highlights(tournament, tournament['current_round'], match_idx):
+                self.watch_match_highlights(tournament, tournament['current_round'], match_idx)
+            else:
+                self.show_tournament_bracket(tournament)
             return
         winner_id = self.scheduler.simulate_through_match(tournament['id'], match_idx)
+        self._flush_point_log()
         self.show_tournament_bracket(tournament)
 
     def watch_match_in_bracket(self, tournament, match_idx):
         match = self.scheduler.get_current_matches(tournament['id'])[match_idx]
         if match['winner']:
-            self.show_tournament_bracket(tournament)
+            # Already played -> watch the 10 best points of that match
+            self.watch_match_highlights(tournament, tournament['current_round'], match_idx)
             return
         
         # Check for BYE match

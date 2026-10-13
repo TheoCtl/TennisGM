@@ -10,6 +10,7 @@ from ranking import RankingSystem
 from player_development import PlayerDevelopment
 from newgen import NewGenGenerator
 from records import RecordsManager
+from pointlog import PointLog, build_match_points, round_name
 
 class TournamentScheduler:
     PRESTIGE_ORDER = [
@@ -117,7 +118,12 @@ class TournamentScheduler:
 
         # Generate only the tournament showcase at launch
         self.news_feed = self._generate_tournament_showcase()
-        
+
+        # Highlights: 10 best points of every match played this week.
+        # The log is wiped as soon as the game moves to another week.
+        self.point_log = PointLog()
+        self.point_log.ensure_week(self.current_year, self.current_week)
+
     def save_game(self, save_path='data/save.json'):
         """Save all game data to a file"""
         game_data = {
@@ -132,7 +138,11 @@ class TournamentScheduler:
     
         with open(save_path, 'w') as f:
             json.dump(game_data, f, indent=2)
-        
+
+        # Persist the highlights of the current week alongside the save
+        if getattr(self, 'point_log', None):
+            self.point_log.flush()
+
     def load_data(self, data_path='data/default_data.json', save_path='data/save.json'):
         try:
             # Try loading saved game
@@ -369,6 +379,11 @@ class TournamentScheduler:
         self.records_manager.update_all_records()
                 
         self.generate_news_feed()
+
+        # New week -> the highlights of the past week are discarded
+        if getattr(self, 'point_log', None):
+            self.point_log.reset(self.current_year, self.current_week)
+
         return self.current_week
     
     def update_weeks_at_top(self):
@@ -882,6 +897,7 @@ class TournamentScheduler:
         
             match = tournament['active_matches'][target_match_idx]
             player1_id, player2_id = match[:2]
+            round_idx = tournament['current_round']  # captured before the bracket advances
             point_events = []  # Initialize point_events list
             match_log = []  # Initialize match_log list
 
@@ -946,6 +962,12 @@ class TournamentScheduler:
                 result = 1 if winner_id == player1['id'] else 0
                 self.ranking_system.update_elo_ratings(player1['id'], player2['id'], result, self.players)
 
+                # Highlights: rate every point of the match and keep the 10 best
+                self._record_point_log(
+                    tournament, round_idx, target_match_idx,
+                    player1, player2, point_events, winner_id, final_score
+                )
+
             # Update the match with the winner and score
             tournament['active_matches'][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
             tournament['bracket'][tournament['current_round']][target_match_idx] = (player1_id, player2_id, winner_id, final_score)
@@ -983,6 +1005,50 @@ class TournamentScheduler:
                 # Persist matches_played so the increment we applied when writing the match isn't lost
                 player['matches_played'] = current_matches_played
             
+    def _record_point_log(self, tournament, round_idx, match_idx, player1, player2,
+                          point_events, winner_id, final_score):
+        """Rate every point of a match and store the 10 best ones in the point log."""
+        try:
+            if not point_events:
+                return
+            if getattr(self, 'point_log', None) is None:
+                self.point_log = PointLog()
+            # Safety: the log always belongs to the current week
+            self.point_log.ensure_week(self.current_year, self.current_week)
+
+            num_rounds = len(tournament.get('bracket', [])) or 1
+            ctx = {
+                'tournament_id': tournament['id'],
+                'tournament_name': tournament.get('name', ''),
+                'round_idx': round_idx,
+                'round_name': round_name(round_idx, num_rounds),
+                'match_idx': match_idx,
+                'surface': tournament.get('surface', 'neutral'),
+                'player1_id': player1['id'],
+                'player2_id': player2['id'],
+                'player1_name': player1.get('name', ''),
+                'player2_name': player2.get('name', ''),
+            }
+
+            best_points = build_match_points(point_events, ctx)
+            if not best_points:
+                return
+
+            info = dict(ctx)
+            info.update({
+                'winner_id': winner_id,
+                'final_score': final_score,
+                'total_points': len(point_events),
+                'year': self.current_year,
+                'week': self.current_week,
+                'sets_to_win': 3 if tournament.get('category') in ("Split", "Special") else 2,
+            })
+
+            key = PointLog.match_key(tournament['id'], round_idx, match_idx)
+            self.point_log.record_match(key, info, best_points)
+        except Exception as exc:  # highlights must never break a simulation
+            print("Point log recording failed: %s" % exc)
+
     def _update_player_tournament_history(self, tournament, player_id, round_reached):
         """Update a player's tournament history when they lose a match"""
         player = next((p for p in self.players if p['id'] == player_id), None)
@@ -1105,7 +1171,6 @@ class TournamentScheduler:
                         tournament['winner_id'], 
                         len(tournament['bracket'])  # Final round
                     )
-                    print(f"\nTOURNAMENT CHAMPION: {winner['name']}!")
                 else:
                     print("\nTOURNAMENT CHAMPION: Unknown (Player not found)!")
             else:
@@ -1154,7 +1219,6 @@ class TournamentScheduler:
         tournament['active_matches'] = next_round_matches  # Update active matches
         tournament['current_round'] = next_round
 
-        print(f"\nRound {current_round + 1} complete! Advancing to Round {next_round + 1}")
         
     def simulate_entire_tournament(self, tournament_id):
         """Simulate all remaining matches in a tournament automatically"""

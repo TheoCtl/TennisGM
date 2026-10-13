@@ -263,6 +263,11 @@ class GameEngine:
         """Simulate match with visualization (yields events)"""
         while not self.is_match_over():
             while not self.is_set_over():
+                # Snapshot of the score BEFORE the point (used to rate its importance)
+                pre_games = dict(self.games)
+                pre_sets = dict(self.sets)
+                server_key = self._get_player_key(self.current_server)
+
                 winner_key, point_events = self.simulate_point(visualize=True)
                 # Update games and stats BEFORE yielding so the point_events reflect the updated state
                 self.update_games(winner_key)
@@ -274,11 +279,34 @@ class GameEngine:
                         'player1': self.match_stats[self.p1['id']].copy(),
                         'player2': self.match_stats[self.p2['id']].copy()
                     }
-                
+
+                # Did this point close a set / the match?
+                set_over_key = self.is_set_over()
+                won_set = bool(set_over_key)
+                won_match = won_set and (self.sets[winner_key] + 1) >= self.sets_to_win
+                # A deciding set is the one that can end the match for either player
+                is_decider = (
+                    pre_sets['player1'] == self.sets_to_win - 1
+                    and pre_sets['player2'] == self.sets_to_win - 1
+                )
+
                 point_data = {
                     'type': 'point',
                     'events': point_events,
-                    'winner': winner_key
+                    'winner': winner_key,
+                    'meta': {
+                        'winner_key': winner_key,
+                        'server_key': server_key,
+                        'is_break': winner_key != server_key,
+                        'pre_games': pre_games,
+                        'pre_sets': pre_sets,
+                        'post_games': dict(self.games),
+                        'set_index': len(self.set_scores),
+                        'won_set': won_set,
+                        'won_match': won_match,
+                        'is_decider': is_decider,
+                        'sets_to_win': self.sets_to_win,
+                    },
                 }
                 yield point_data
                 self.current_server, self.current_receiver = self.current_receiver, self.current_server
@@ -441,6 +469,8 @@ class GameEngine:
                     'x': target_x,
                     'y': target_y,
                     'power': shot_power,
+                    'precision': shot_precision,
+                    'direction': shot_direction,
                 }],
                 'hitter_id': hitter['id'],
                 'stamina': self._stamina_snapshot(),
@@ -463,6 +493,8 @@ class GameEngine:
                         'x': target_x,
                         'y': target_y,
                         'power': shot_power,
+                        'precision': shot_precision,
+                        'direction': shot_direction,
                     }],
                     'hitter_id': hitter['id'],
                     'is_final': True,
@@ -547,6 +579,8 @@ class GameEngine:
                         'x': ball_row,
                         'y': ball_col,
                         'power': shot_power,
+                        'precision': shot_precision,
+                        'direction': shot_direction,
                     }],
                     'hitter_id': hitter['id'],
                     'stamina': self._stamina_snapshot(),
@@ -630,6 +664,8 @@ class GameEngine:
                             'x': target_x,
                             'y': target_y,
                             'power': shot_power,
+                            'precision': shot_precision,
+                            'direction': shot_direction,
                         }],
                         'hitter_id': hitter['id'],
                         'stamina': self._stamina_snapshot(),
